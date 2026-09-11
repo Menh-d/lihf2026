@@ -1,0 +1,4283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LIHF 2026 — Official Sponsorship Deck</title>
+<meta name="description" content="LIHF 2026 Official Sponsorship &amp; Partnership Proposal. 13–15 November 2026 at Lao-ITECC, Vientiane." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet" />
+<!-- GSAP loaded async — content visible by default, animations are progressive enhancement -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<style>
+:root{--red:#CC0000;--red-b:#FF1111;--red-d:#8B0000;--gold:#D4AF37;--gold-l:#F5D06A;--blk:#050505;--d1:#0A0A0A;--d2:#111111;--d3:#1A1A1A;--wh:#FFFFFF;--gr:#888888;--gr-l:#CCCCCC;--ff-d:'Bebas Neue',sans-serif;--ff-b:'Inter',sans-serif;--ff-a:'Oswald',sans-serif;--ff-g:'Permanent Marker',cursive}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--blk);color:var(--wh);font-family:var(--ff-b);overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--blk)}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:3px}
+
+/* ---- UTILS ---- */
+.section-label{font-family:var(--ff-a);font-size:.75rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.section-label::before{content:'';display:block;width:30px;height:2px;background:var(--red);flex-shrink:0}
+.section-title{font-family:var(--ff-d);font-size:clamp(2.2rem,6vw,4.8rem);line-height:.95;letter-spacing:.02em;text-transform:uppercase;color:var(--wh)}
+.section-title .hl{color:var(--red);text-shadow:0 0 30px rgba(204,0,0,.5)}
+.red-line{width:60px;height:4px;background:linear-gradient(90deg,var(--red),transparent);margin:1.5rem 0}
+.noise-overlay{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;opacity:.35;mix-blend-mode:overlay;z-index:1}
+section{position:relative;padding:5.5rem 0;overflow:hidden}
+.container{max-width:1180px;margin:0 auto;padding:0 2rem}
+.section-divider{width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--red),var(--gold),var(--red),transparent);opacity:.35}
+
+/* ---- NAV ---- */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(5,5,5,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(204,0,0,.2);transition:box-shadow .3s}
+.nav-logo{font-family:var(--ff-d);font-size:1.75rem;letter-spacing:.1em;color:var(--wh);text-decoration:none}
+.nav-logo span{color:var(--red)}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--ff-a);font-size:.82rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--gr-l);text-decoration:none;transition:color .3s}
+.nav-links a:hover{color:var(--red)}
+.nav-cta{background:var(--red)!important;color:var(--wh)!important;padding:.45rem 1.1rem;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
+.nav-cta:hover{background:var(--red-b)!important}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* ---- TICKER ---- */
+.ticker-wrap{overflow:hidden;background:var(--red);padding:.65rem 0;margin-top:60px}
+.ticker-track{display:flex;animation:ticker 28s linear infinite;white-space:nowrap}
+.ticker-item{font-family:var(--ff-d);font-size:1.05rem;letter-spacing:.1em;text-transform:uppercase;color:var(--wh);padding:0 2rem;flex-shrink:0}
+.ticker-item::after{content:'★';margin-left:2rem;color:rgba(0,0,0,.4)}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ---- HERO ---- */
+#hero{position:relative;width:100vw;height:calc(100vh - 60px);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--blk)}
+.hero-swiper{position:absolute;inset:0;width:100%!important;height:100%!important;z-index:0}
+.hero-swiper .swiper-slide{opacity:0;transition:opacity 1.2s ease}
+.hero-swiper .swiper-slide-active{opacity:1}
+.hero-swiper .swiper-slide>div{width:100%;height:100%;object-fit:cover}
+/* Strip cells - gradient fallback */
+.strip-cell>div{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(204,0,0,.12) 0%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.88) 100%);z-index:1}
+.hero-scanlines{position:absolute;inset:0;z-index:2;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(204,0,0,.018) 2px,rgba(204,0,0,.018) 4px);pointer-events:none}
+.hero-content{position:relative;z-index:10;text-align:center;padding:0 1rem;display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+.hero-eyebrow{font-family:var(--ff-a);font-size:.75rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(212,175,55,.4);padding:.35rem 1.4rem;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);background:rgba(212,175,55,.07)}
+.hero-logo-block{font-family:var(--ff-d);font-size:clamp(4.5rem,18vw,11rem);line-height:.9;color:var(--wh);letter-spacing:.05em;text-shadow:0 0 60px rgba(204,0,0,.7);animation:float 4s ease-in-out infinite}
+.hero-logo-block span{color:var(--red)}
+.hero-year{display:block;font-size:clamp(1.4rem,4vw,2.8rem);color:var(--gold);letter-spacing:.45em;text-shadow:0 0 20px rgba(212,175,55,.5)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-tagline{font-family:var(--ff-d);font-size:clamp(.9rem,2.2vw,1.4rem);letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.hero-details{display:flex;gap:1.8rem;flex-wrap:wrap;justify-content:center;margin-top:.3rem}
+.hero-detail{display:flex;align-items:center;gap:.5rem;font-family:var(--ff-a);font-size:.82rem;font-weight:500;letter-spacing:.08em;color:var(--gr-l)}
+.hero-detail .ic{color:var(--red)}
+.hero-btns{display:flex;gap:1rem;margin-top:.5rem;flex-wrap:wrap;justify-content:center}
+.btn-p{font-family:var(--ff-a);font-size:.88rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--wh);background:var(--red);border:none;padding:.9rem 2.2rem;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);text-decoration:none;display:inline-block;transition:all .3s;position:relative;overflow:hidden}
+.btn-p::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-100%);transition:transform .3s}
+.btn-p:hover::after{transform:translateX(0)}
+.btn-s{font-family:var(--ff-a);font-size:.88rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid var(--gold);padding:.9rem 2.2rem;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);text-decoration:none;display:inline-block;transition:all .3s}
+.btn-s:hover{background:rgba(212,175,55,.1)}
+.scroll-hint{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:10;display:flex;flex-direction:column;align-items:center;gap:.4rem;font-family:var(--ff-a);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gr)}
+.scroll-line{width:1px;height:45px;background:linear-gradient(to bottom,var(--red),transparent);animation:sp 2s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* Strip (adapted from TSX animated-icons) */
+.hero-strip{position:absolute;bottom:3.5rem;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:5px;width:min(560px,86vw)}
+.strip-cell{flex:1;aspect-ratio:1;overflow:hidden;border-radius:3px;border:1px solid rgba(204,0,0,.3);transition:transform .35s cubic-bezier(.22,.68,0,1.2),border-color .3s}
+.strip-cell:hover{transform:translateY(-5px) scale(1.07);border-color:var(--red)}
+.strip-cell img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.65) saturate(.65);transition:filter .3s}
+.strip-cell:hover img{filter:brightness(1) saturate(1.3)}
+
+/* ---- ABOUT ---- */
+#about{background:var(--d2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:2rem}}
+.about-img{position:relative;border-radius:3px;overflow:hidden}
+.about-img img{width:100%;height:420px;object-fit:cover}
+.about-img::after{content:'';position:absolute;inset:0;border:2px solid rgba(204,0,0,.5);border-radius:3px;pointer-events:none}
+.about-img .ca{position:absolute;width:38px;height:38px;border-color:var(--red);border-style:solid}
+.about-img .ca.tl{top:-2px;left:-2px;border-width:3px 0 0 3px}
+.about-img .ca.br{bottom:-2px;right:-2px;border-width:0 3px 3px 0}
+.pillars{display:flex;flex-direction:column;gap:1.3rem;margin-top:1.8rem}
+.pillar-item{display:flex;gap:1rem;align-items:flex-start;padding:1.1rem;background:rgba(204,0,0,.05);border-left:3px solid var(--red);transition:background .3s,transform .3s}
+.pillar-item:hover{background:rgba(204,0,0,.1);transform:translateX(6px)}
+.pi-ic{font-size:1.7rem;flex-shrink:0;width:42px;text-align:center}
+.pi-c h4{font-family:var(--ff-a);font-size:.9rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red);margin-bottom:.25rem}
+.pi-c p{font-size:.82rem;color:var(--gr-l);line-height:1.5}
+
+/* ---- MARKET ---- */
+#market{background:var(--d1)}
+.market-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:2.5rem}
+@media(max-width:600px){.market-cards{grid-template-columns:1fr}}
+.mc{padding:1.8rem;background:var(--d3);border:1px solid rgba(255,255,255,.04);transition:all .3s}
+.mc:hover{border-color:rgba(204,0,0,.3);transform:translateY(-4px)}
+.mc-ic{font-size:2rem;margin-bottom:.7rem;display:block}
+.mc h4{font-family:var(--ff-a);font-size:.95rem;font-weight:700;text-transform:uppercase;color:var(--red);margin-bottom:.5rem}
+.mc p{font-size:.81rem;color:var(--gr-l);line-height:1.6}
+
+/* ---- KPI ---- */
+#kpi{background:var(--blk);position:relative}
+.kpi-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--ff-d);font-size:clamp(7rem,20vw,18rem);color:rgba(204,0,0,.04);letter-spacing:.1em;white-space:nowrap;pointer-events:none;user-select:none}
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(204,0,0,.15);margin-top:2.5rem}
+@media(max-width:768px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.kpi-grid{grid-template-columns:1fr}}
+.kc{background:var(--d2);padding:2.5rem 1.8rem;text-align:center;position:relative;overflow:hidden;transition:background .3s}
+.kc:hover{background:var(--d3)}
+.kc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(204,0,0,.08) 0%,transparent 60%);opacity:0;transition:opacity .3s}
+.kc:hover::before{opacity:1}
+.kn{font-family:var(--ff-d);font-size:clamp(2.8rem,6vw,5rem);line-height:1;color:var(--red);text-shadow:0 0 40px rgba(204,0,0,.4);display:block}
+.ku{font-family:var(--ff-a);font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-top:.25rem;display:block}
+.kd{font-size:.78rem;color:var(--gr);margin-top:.4rem;line-height:1.4}
+
+/* ---- AUDIENCE ---- */
+#audience{background:var(--d2)}
+.aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
+@media(max-width:768px){.aud-grid{grid-template-columns:1fr}}
+.aud-card{position:relative;padding:2rem;background:var(--d3);border:1px solid rgba(255,255,255,.05);overflow:hidden;transition:transform .3s,border-color .3s}
+.aud-card:hover{transform:translateY(-8px);border-color:rgba(204,0,0,.4)}
+.aud-pct{font-family:var(--ff-d);font-size:5rem;line-height:1;color:var(--red);opacity:.13;position:absolute;top:.8rem;right:1rem}
+.aud-badge{display:inline-block;font-family:var(--ff-a);font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blk);background:var(--red);padding:.25rem .9rem;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);margin-bottom:.7rem}
+.aud-seg-title{font-family:var(--ff-a);font-size:1.1rem;font-weight:700;color:var(--wh);text-transform:uppercase;margin-bottom:.9rem}
+.aud-list{list-style:none;display:flex;flex-direction:column;gap:.45rem}
+.aud-list li{font-size:.8rem;color:var(--gr-l);line-height:1.5;padding-left:.9rem;position:relative}
+.aud-list li::before{content:'▸';position:absolute;left:0;color:var(--red)}
+
+/* ---- BATTLES ---- */
+#battles{background:var(--blk)}
+.battles-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+@media(max-width:768px){.battles-wrap{grid-template-columns:1fr;gap:2rem}}
+.battle-cards{display:flex;flex-direction:column;gap:.65rem}
+.bc{display:flex;align-items:center;gap:1.1rem;padding:1.1rem 1.4rem;background:var(--d2);border:1px solid rgba(255,255,255,.04);position:relative;overflow:hidden;transition:all .3s;cursor:default}
+.bc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red);transform:scaleY(0);transition:transform .3s}
+.bc:hover{background:var(--d3);transform:translateX(6px)}
+.bc:hover::before{transform:scaleY(1)}
+.bc-num{font-family:var(--ff-d);font-size:2.2rem;color:rgba(204,0,0,.28);line-height:1;flex-shrink:0;width:2.8rem}
+.bc-info h4{font-family:var(--ff-a);font-size:.9rem;font-weight:700;text-transform:uppercase;color:var(--wh);margin-bottom:.15rem}
+.bc-info p{font-size:.76rem;color:var(--gr);margin-bottom:.25rem}
+.bc-prize{font-family:var(--ff-d);font-size:1rem;color:var(--gold);letter-spacing:.04em}
+.battle-visual{position:relative}
+.battle-visual img{width:100%;height:480px;object-fit:cover;border-radius:3px;filter:brightness(.65) saturate(.85)}
+.battle-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--blk) 0%,transparent 35%)}
+
+/* ---- VENUE ---- */
+#venue{background:var(--d2)}
+.venue-zones{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
+@media(max-width:900px){.venue-zones{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.venue-zones{grid-template-columns:1fr}}
+.zc{padding:1.7rem;background:var(--d3);border-top:3px solid transparent;transition:all .3s;position:relative;overflow:hidden}
+.zc:hover{border-top-color:var(--red);transform:translateY(-6px)}
+.zc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--red),transparent);opacity:0;transition:opacity .3s}
+.zc:hover::after{opacity:1}
+.ze{font-size:2rem;margin-bottom:.7rem;display:block}
+.zt{font-family:var(--ff-a);font-size:.9rem;font-weight:700;text-transform:uppercase;color:var(--wh);margin-bottom:.5rem;letter-spacing:.04em}
+.zd{font-size:.8rem;color:var(--gr-l);line-height:1.6}
+
+/* ---- DIGITAL STRATEGY ---- */
+#digital{background:var(--blk)}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(204,0,0,.18);margin-top:2.5rem}
+@media(max-width:768px){.phases{grid-template-columns:1fr}}
+.ph-c{background:var(--d2);padding:2.2rem 1.8rem;position:relative}
+.ph-num{font-family:var(--ff-d);font-size:4.5rem;line-height:1;color:rgba(204,0,0,.08);position:absolute;top:.8rem;right:1rem}
+.ph-tag{display:inline-block;font-family:var(--ff-a);font-size:.62rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--red);border:1px solid rgba(204,0,0,.4);padding:.22rem .7rem;margin-bottom:.7rem}
+.ph-title{font-family:var(--ff-a);font-size:1.05rem;font-weight:700;text-transform:uppercase;color:var(--wh);margin-bottom:.2rem}
+.ph-sub{font-size:.76rem;color:var(--gold);margin-bottom:1.1rem}
+.ph-list{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.ph-list li{font-size:.8rem;color:var(--gr-l);line-height:1.5;padding-left:.9rem;position:relative}
+.ph-list li::before{content:'→';position:absolute;left:0;color:var(--red)}
+
+/* ---- TRACKING ---- */
+#tracking{background:var(--d2)}
+.track-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:2.5rem}
+@media(max-width:640px){.track-grid{grid-template-columns:1fr}}
+.trc{display:flex;gap:1.4rem;padding:1.8rem;background:var(--d3);border:1px solid rgba(255,255,255,.04);transition:all .3s}
+.trc:hover{border-color:rgba(204,0,0,.3);background:var(--d2)}
+.tr-num{font-family:var(--ff-d);font-size:3.2rem;line-height:1;color:var(--red);opacity:.55;flex-shrink:0}
+.tr-c h4{font-family:var(--ff-a);font-size:.9rem;font-weight:700;text-transform:uppercase;color:var(--wh);margin-bottom:.45rem}
+.tr-c p{font-size:.8rem;color:var(--gr-l);line-height:1.6}
+
+/* ---- ROI ---- */
+#roi{background:var(--blk)}
+.roi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.5rem}
+@media(max-width:900px){.roi-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.roi-grid{grid-template-columns:1fr}}
+.rc{padding:1.8rem;background:var(--d2);position:relative;overflow:hidden;transition:transform .3s}
+.rc:hover{transform:scale(1.02)}
+.rc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold))}
+.rc-n{font-family:var(--ff-d);font-size:2.8rem;color:rgba(204,0,0,.18);line-height:1;margin-bottom:.4rem}
+.rc-t{font-family:var(--ff-a);font-size:.95rem;font-weight:700;text-transform:uppercase;color:var(--red);margin-bottom:.4rem}
+.rc-d{font-size:.8rem;color:var(--gr-l);line-height:1.6}
+
+/* ---- PACKAGES ---- */
+#packages{background:var(--d2)}
+.pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:2.5rem}
+@media(max-width:900px){.pkg-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.pkg-grid{grid-template-columns:1fr}}
+.pkg{position:relative;padding:2.2rem 1.6rem;background:var(--d3);border:1px solid rgba(255,255,255,.05);transition:all .3s;display:flex;flex-direction:column;gap:.9rem}
+.pkg.feat{background:linear-gradient(135deg,var(--red-d),#1e0000);border-color:var(--red)}
+.pkg:hover{transform:translateY(-8px)}
+.pkg.feat:hover{box-shadow:0 20px 60px rgba(204,0,0,.4)}
+.pkg-crown{font-size:1.8rem;display:block}
+.pkg-tier{font-family:var(--ff-d);font-size:1.7rem;letter-spacing:.04em;text-transform:uppercase}
+.pkg-price{font-family:var(--ff-a);font-size:.9rem;font-weight:700;color:var(--wh)}
+.pkg-price span{display:block;font-family:var(--ff-d);font-size:1.7rem;color:var(--red-b)}
+.pkg.feat .pkg-price span{color:var(--gold-l)}
+.pkg-slots{font-family:var(--ff-a);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gr);border-top:1px solid rgba(255,255,255,.1);padding-top:.7rem}
+.pkg-perks{list-style:none;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.pkg-perks li{font-size:.78rem;color:var(--gr-l);line-height:1.5;padding-left:1.1rem;position:relative}
+.pkg-perks li::before{content:'✓';position:absolute;left:0;color:var(--red);font-weight:700}
+.pkg.feat .pkg-perks li::before{color:var(--gold)}
+
+/* ---- SPECIALIZED ---- */
+#specialized{background:var(--blk)}
+.spec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:2.5rem}
+@media(max-width:640px){.spec-grid{grid-template-columns:1fr}}
+.sc{padding:1.8rem;background:var(--d2);border:1px solid rgba(255,255,255,.05);transition:all .3s;position:relative;overflow:hidden}
+.sc:hover{border-color:rgba(212,175,55,.4);transform:translateX(4px)}
+.sc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)}
+.sc-ic{font-size:2rem;margin-bottom:.7rem;display:block}
+.sc-t{font-family:var(--ff-a);font-size:.95rem;font-weight:700;text-transform:uppercase;color:var(--gold);margin-bottom:.45rem}
+.sc-d{font-size:.8rem;color:var(--gr-l);line-height:1.6}
+
+/* ---- MATRIX ---- */
+#matrix{background:var(--d2)}
+.mtx-wrap{overflow-x:auto;margin-top:2rem}
+.mtx{width:100%;border-collapse:collapse;font-size:.8rem}
+.mtx th{font-family:var(--ff-a);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.9rem;text-align:left;background:var(--d3);border-bottom:2px solid var(--red);white-space:nowrap}
+.mtx th.tc{color:var(--gold)}
+.mtx td{padding:.75rem .9rem;color:var(--gr-l);border-bottom:1px solid rgba(255,255,255,.04);white-space:nowrap}
+.mtx td:first-child{color:var(--wh);font-weight:500}
+.mtx tr:hover td{background:rgba(204,0,0,.04)}
+
+/* ---- BUDGET ---- */
+#budget{background:var(--blk)}
+.bgt-lay{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;margin-top:2.5rem}
+@media(max-width:768px){.bgt-lay{grid-template-columns:1fr;gap:2rem}}
+.bgt-tot{text-align:center;padding:2.5rem;background:var(--d2);border:1px solid rgba(204,0,0,.3);position:relative}
+.bgt-tot::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),var(--gold))}
+.bgt-amt{font-family:var(--ff-d);font-size:clamp(2.2rem,4.5vw,3.5rem);color:var(--gold);line-height:1;text-shadow:0 0 25px rgba(212,175,55,.3)}
+.bgt-lbl{font-family:var(--ff-a);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gr);margin-top:.4rem}
+.bgt-note{font-size:.78rem;color:var(--gr-l);margin-top:.9rem;line-height:1.6}
+.bgt-bars{display:flex;flex-direction:column;gap:.9rem}
+.bgt-bi{display:flex;flex-direction:column;gap:.25rem}
+.bgt-bl{display:flex;justify-content:space-between;font-size:.78rem;color:var(--gr-l)}
+.bgt-bl span:last-child{color:var(--gold);font-weight:600}
+.bgt-trk{height:5px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden}
+.bgt-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:3px;transform-origin:left}
+
+/* ---- ORGANIZER ---- */
+#organizer{background:var(--d2)}
+.org-lay{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;margin-top:2.5rem;min-height:0}
+@media(max-width:768px){.org-lay{grid-template-columns:1fr;gap:2rem}}
+.org-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.8rem}
+.os{padding:1.3rem;background:var(--d3);text-align:center;border-top:2px solid var(--red)}
+.os-n{font-family:var(--ff-d);font-size:2.2rem;color:var(--red);display:block}
+.os-l{font-size:.72rem;color:var(--gr);letter-spacing:.1em;text-transform:uppercase}
+.org-pillars{display:flex;flex-direction:column;gap:1.1rem;min-width:0;overflow:hidden}
+.op{display:flex;gap:.9rem;align-items:flex-start;min-width:0}
+.op-ic{font-size:1.4rem;flex-shrink:0}
+.op h4{font-family:var(--ff-a);font-size:.88rem;font-weight:700;text-transform:uppercase;color:var(--red);margin-bottom:.2rem}
+.op p{font-size:.8rem;color:var(--gr-l);line-height:1.5;min-width:0;word-wrap:break-word}
+
+/* ---- CONTACT ---- */
+#contact{background:var(--blk);position:relative}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 75% 55% at 50% 50%,rgba(204,0,0,.1),transparent)}
+.ct-lay{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;position:relative;z-index:2}
+@media(max-width:768px){.ct-lay{grid-template-columns:1fr;gap:2rem}}
+.ct-hl{font-family:var(--ff-d);font-size:clamp(2.8rem,7vw,6rem);line-height:.9;text-transform:uppercase;color:var(--wh)}
+.ct-hl .big-r{color:var(--red);display:block}
+.roadmap{display:flex;flex-direction:column;gap:0;margin-top:1.8rem}
+.rs{display:flex;gap:1.3rem;align-items:flex-start;padding:1.3rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.rs-n{font-family:var(--ff-d);font-size:2.8rem;color:var(--red);opacity:.45;line-height:1;flex-shrink:0;width:3.5rem}
+.rs-c h4{font-family:var(--ff-a);font-size:.88rem;font-weight:700;text-transform:uppercase;color:var(--wh);margin-bottom:.2rem}
+.rs-c p{font-size:.8rem;color:var(--gr);line-height:1.5}
+.rs-c .dt{font-family:var(--ff-a);font-size:.68rem;font-weight:600;letter-spacing:.14em;color:var(--gold);margin-top:.25rem;text-transform:uppercase}
+.ct-details{margin-top:1.8rem}
+.ct-item{display:flex;align-items:flex-start;gap:.9rem;padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.ct-ic{font-size:1.1rem;flex-shrink:0;margin-top:.1rem}
+.ct-lbl{font-family:var(--ff-a);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gr);margin-bottom:.18rem}
+.ct-val{font-family:var(--ff-a);font-size:.88rem;color:var(--wh)}
+.ct-val a{color:var(--red);text-decoration:none}
+.ct-val a:hover{color:var(--red-b);text-decoration:underline}
+.ct-btns{margin-top:1.8rem;display:flex;gap:1rem;flex-wrap:wrap}
+
+/* ---- FOOTER ---- */
+footer{background:var(--d2);padding:1.8rem;text-align:center;border-top:1px solid rgba(204,0,0,.2)}
+.ft-logo{font-family:var(--ff-d);font-size:1.8rem;letter-spacing:.1em;color:var(--wh);margin-bottom:.4rem}
+.ft-logo span{color:var(--red)}
+.ft-copy{font-size:.76rem;color:var(--gr);letter-spacing:.04em}
+
+/* ---- ANIM SAFETY: content always visible, GSAP is progressive enhancement ---- */
+/* .ru/.rl/.rr are NOT hidden by CSS — GSAP will set opacity=0 on load if available */
+.ru,.rl,.rr{opacity:1;transform:none;will-change:opacity,transform}
+/* Only hide when gsap-ready class is on body (set by JS if GSAP loaded) */
+body.gsap-ready .ru{opacity:0;transform:translateY(45px)}
+body.gsap-ready .rl{opacity:0;transform:translateX(-55px)}
+body.gsap-ready .rr{opacity:0;transform:translateX(55px)}
+
+/* ---- GLITCH ---- */
+.glitch{position:relative}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%}
+.glitch::before{color:var(--red);animation:g1 4s infinite;clip-path:polygon(0 0,100% 0,100% 33%,0 33%)}
+.glitch::after{color:var(--gold);animation:g2 4s infinite;clip-path:polygon(0 66%,100% 66%,100% 100%,0 100%)}
+@keyframes g1{0%,88%,100%{transform:translateX(0);opacity:0}90%{transform:translateX(-3px);opacity:.7}92%{transform:translateX(3px);opacity:.7}94%{transform:translateX(0);opacity:0}}
+@keyframes g2{0%,83%,100%{transform:translateX(0);opacity:0}85%{transform:translateX(3px);opacity:.6}87%{transform:translateX(-3px);opacity:.6}89%{transform:translateX(0);opacity:0}}
+
+
+/* ── Image Stream Hero Corridor CSS ── */
+#hero {
+  container-type: inline-size;
+  position: relative;
+  overflow: hidden;
+}
+.hero-stream-container {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.hero-stream-perspective {
+  position: absolute;
+  inset: 0;
+}
+.hero-stream-world {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+.ish-card {
+  position: absolute;
+  overflow: hidden;
+  backface-visibility: hidden;
+  border: 1px solid rgba(204,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 15px rgba(204,0,0,0.2);
+}
+.ish-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7) contrast(1.15) saturate(1.1);
+  display: block;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ish-card { animation-play-state: paused !important; }
+}
+@keyframes ish-r{0.00%{transform:translate3d(-11.00cqw,0,-258.46cqw) rotateY(-6.00deg)}4.17%{transform:translate3d(-3.79cqw,0,-225.92cqw) rotateY(-6.92deg)}8.33%{transform:translate3d(2.73cqw,0,-197.04cqw) rotateY(-7.83deg)}12.50%{transform:translate3d(8.60cqw,0,-171.43cqw) rotateY(-8.75deg)}16.67%{transform:translate3d(13.87cqw,0,-148.70cqw) rotateY(-9.67deg)}20.83%{transform:translate3d(18.56cqw,0,-128.54cqw) rotateY(-10.58deg)}25.00%{transform:translate3d(22.72cqw,0,-110.65cqw) rotateY(-11.50deg)}29.17%{transform:translate3d(26.37cqw,0,-94.78cqw) rotateY(-12.42deg)}33.33%{transform:translate3d(29.57cqw,0,-80.70cqw) rotateY(-13.33deg)}37.50%{transform:translate3d(32.34cqw,0,-68.21cqw) rotateY(-14.25deg)}41.67%{transform:translate3d(34.71cqw,0,-57.13cqw) rotateY(-15.17deg)}45.83%{transform:translate3d(36.73cqw,0,-47.30cqw) rotateY(-16.08deg)}50.00%{transform:translate3d(38.42cqw,0,-38.58cqw) rotateY(-17.00deg)}54.17%{transform:translate3d(39.81cqw,0,-30.84cqw) rotateY(-17.92deg)}58.33%{transform:translate3d(40.94cqw,0,-23.98cqw) rotateY(-18.83deg)}62.50%{transform:translate3d(41.84cqw,0,-17.89cqw) rotateY(-19.75deg)}66.67%{transform:translate3d(42.53cqw,0,-12.48cqw) rotateY(-20.67deg)}70.83%{transform:translate3d(43.06cqw,0,-7.69cqw) rotateY(-21.58deg)}75.00%{transform:translate3d(43.43cqw,0,-3.44cqw) rotateY(-22.50deg)}79.17%{transform:translate3d(43.69cqw,0,0.33cqw) rotateY(-23.42deg)}83.33%{transform:translate3d(43.85cqw,0,3.68cqw) rotateY(-24.33deg)}87.50%{transform:translate3d(43.94cqw,0,6.65cqw) rotateY(-25.25deg)}91.67%{transform:translate3d(43.98cqw,0,9.28cqw) rotateY(-26.17deg)}95.83%{transform:translate3d(44.00cqw,0,11.62cqw) rotateY(-27.08deg)}100.00%{transform:translate3d(44.00cqw,0,13.70cqw) rotateY(-28.00deg)}}
+@keyframes ish-l{0.00%{transform:translate3d(11.00cqw,0,-258.46cqw) rotateY(6.00deg)}4.17%{transform:translate3d(3.79cqw,0,-225.92cqw) rotateY(6.92deg)}8.33%{transform:translate3d(-2.73cqw,0,-197.04cqw) rotateY(7.83deg)}12.50%{transform:translate3d(-8.60cqw,0,-171.43cqw) rotateY(8.75deg)}16.67%{transform:translate3d(-13.87cqw,0,-148.70cqw) rotateY(9.67deg)}20.83%{transform:translate3d(-18.56cqw,0,-128.54cqw) rotateY(10.58deg)}25.00%{transform:translate3d(-22.72cqw,0,-110.65cqw) rotateY(11.50deg)}29.17%{transform:translate3d(-26.37cqw,0,-94.78cqw) rotateY(12.42deg)}33.33%{transform:translate3d(-29.57cqw,0,-80.70cqw) rotateY(13.33deg)}37.50%{transform:translate3d(-32.34cqw,0,-68.21cqw) rotateY(14.25deg)}41.67%{transform:translate3d(-34.71cqw,0,-57.13cqw) rotateY(15.17deg)}45.83%{transform:translate3d(-36.73cqw,0,-47.30cqw) rotateY(16.08deg)}50.00%{transform:translate3d(-38.42cqw,0,-38.58cqw) rotateY(17.00deg)}54.17%{transform:translate3d(-39.81cqw,0,-30.84cqw) rotateY(17.92deg)}58.33%{transform:translate3d(-40.94cqw,0,-23.98cqw) rotateY(18.83deg)}62.50%{transform:translate3d(-41.84cqw,0,-17.89cqw) rotateY(19.75deg)}66.67%{transform:translate3d(-42.53cqw,0,-12.48cqw) rotateY(20.67deg)}70.83%{transform:translate3d(-43.06cqw,0,-7.69cqw) rotateY(21.58deg)}75.00%{transform:translate3d(-43.43cqw,0,-3.44cqw) rotateY(22.50deg)}79.17%{transform:translate3d(-43.69cqw,0,0.33cqw) rotateY(23.42deg)}83.33%{transform:translate3d(-43.85cqw,0,3.68cqw) rotateY(24.33deg)}87.50%{transform:translate3d(-43.94cqw,0,6.65cqw) rotateY(25.25deg)}91.67%{transform:translate3d(-43.98cqw,0,9.28cqw) rotateY(26.17deg)}95.83%{transform:translate3d(-44.00cqw,0,11.62cqw) rotateY(27.08deg)}100.00%{transform:translate3d(-44.00cqw,0,13.70cqw) rotateY(28.00deg)}}
+
+
+
+/* ── Interactive Battle Section Styling ── */
+.bc { cursor: pointer !important; user-select: none; }
+.bc.active {
+  border-color: var(--red) !important;
+  background: linear-gradient(90deg, rgba(204,0,0,0.22) 0%, var(--d3) 100%) !important;
+  box-shadow: 0 4px 20px rgba(204,0,0,0.25), inset 3px 0 0 var(--red);
+}
+.bc.active .bc-num { color: var(--red) !important; font-weight: 700; }
+.bc.active .bc-info h4 { color: #fff !important; text-shadow: 0 0 10px rgba(204,0,0,0.5); }
+.bc-click-hint { font-size: 0.68rem; color: var(--red); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.2rem; display: flex; align-items: center; gap: 0.3rem; }
+
+.battle-visual {
+  position: sticky;
+  top: 90px;
+  background: var(--d2);
+  border: 1px solid rgba(204,0,0,0.3);
+  border-radius: 6px;
+  padding: 2rem;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 30px rgba(204,0,0,0.15);
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+.bv-badge {
+  display: inline-block;
+  font-family: var(--ff-a);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  background: rgba(204,0,0,0.15);
+  border: 1px solid rgba(204,0,0,0.4);
+  padding: 0.3rem 0.8rem;
+  margin-bottom: 0.8rem;
+}
+.bv-title {
+  font-family: var(--ff-a);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--wh);
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
+}
+.bv-prize {
+  font-family: var(--ff-d);
+  font-size: 1.4rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,215,0,0.08);
+  border-left: 3px solid var(--gold);
+  padding: 0.5rem 0.9rem;
+}
+.bv-desc {
+  font-size: 0.88rem;
+  color: var(--gr-l);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.bv-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.bvs-item {
+  background: var(--d3);
+  padding: 0.85rem 1rem;
+  border-left: 2px solid var(--red);
+}
+.bvs-lbl { font-size: 0.68rem; color: var(--gr); text-transform: uppercase; letter-spacing: 0.1em; }
+.bvs-val { font-family: var(--ff-a); font-size: 0.88rem; font-weight: 700; color: var(--wh); margin-top: 0.15rem; }
+
+.bv-card-visual {
+  height: 140px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.bv-card-visual span {
+  font-family: var(--ff-d);
+  font-size: 2.2rem;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 20px rgba(204,0,0,0.8);
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+
+
+/* ── UP-SCALED GLOBAL DESIGN SYSTEM (Prominent, High-Impact & Ultra-Legible) ── */
+.container { max-width: 1380px !important; padding: 0 2.5rem !important; }
+section { padding: 6.5rem 0 !important; }
+
+/* Typography Upscaling */
+.section-label { font-size: 0.88rem !important; letter-spacing: 0.28em !important; margin-bottom: 1.2rem !important; }
+.section-title { font-size: clamp(2.8rem, 6.8vw, 5.6rem) !important; line-height: 0.98 !important; }
+.red-line { width: 85px !important; height: 5px !important; margin: 1.8rem 0 !important; }
+
+/* Navigation */
+nav { padding: 1.2rem 2.8rem !important; }
+.nav-logo { font-size: 2.1rem !important; }
+.nav-links a { font-size: 0.92rem !important; }
+.nav-cta { font-size: 0.92rem !important; padding: 0.55rem 1.4rem !important; }
+
+/* Ticker */
+.ticker-wrap { padding: 0.85rem 0 !important; }
+.ticker-item { font-size: 1.2rem !important; letter-spacing: 0.12em !important; }
+
+/* Hero Section Upscale */
+.hero-eyebrow { font-size: 0.88rem !important; padding: 0.45rem 1.8rem !important; letter-spacing: 0.38em !important; }
+.hero-logo-block { font-size: clamp(5.5rem, 20vw, 13rem) !important; }
+.hero-year { font-size: clamp(1.8rem, 5vw, 3.4rem) !important; letter-spacing: 0.5em !important; }
+.hero-tagline { font-size: clamp(1.1rem, 2.5vw, 1.65rem) !important; letter-spacing: 0.32em !important; }
+.hero-detail { font-size: 0.95rem !important; gap: 0.7rem !important; }
+.btn-p, .btn-s { font-size: 1.02rem !important; padding: 1.1rem 2.8rem !important; }
+
+/* About Section */
+.pillar-item { padding: 1.4rem 1.6rem !important; gap: 1.3rem !important; border-left-width: 4px !important; }
+.pi-ic { font-size: 2.1rem !important; width: 48px !important; }
+.pi-c h4 { font-size: 1.05rem !important; margin-bottom: 0.35rem !important; }
+.pi-c p { font-size: 0.92rem !important; line-height: 1.6 !important; }
+
+/* Market Opportunity Cards */
+.mc { padding: 2.2rem 2rem !important; }
+.mc-ic { font-size: 2.5rem !important; margin-bottom: 0.9rem !important; }
+.mc h4 { font-size: 1.12rem !important; margin-bottom: 0.65rem !important; }
+.mc p { font-size: 0.92rem !important; line-height: 1.65 !important; }
+
+/* KPI Section */
+.kc { padding: 3rem 2.2rem !important; }
+.kn { font-size: clamp(3.4rem, 6.5vw, 5.8rem) !important; }
+.ku { font-size: 0.82rem !important; letter-spacing: 0.3em !important; margin-top: 0.4rem !important; }
+.kd { font-size: 0.88rem !important; line-height: 1.5 !important; }
+
+/* Audience Section */
+.aud-card { padding: 2.4rem !important; }
+.aud-pct { font-size: 6rem !important; opacity: 0.15 !important; }
+.aud-badge { font-size: 0.76rem !important; padding: 0.32rem 1.1rem !important; }
+.aud-seg-title { font-size: 1.25rem !important; margin-bottom: 1.1rem !important; }
+.aud-list li { font-size: 0.9rem !important; line-height: 1.6 !important; }
+
+/* Battles Section */
+.bc { padding: 1.4rem 1.8rem !important; gap: 1.4rem !important; }
+.bc-num { font-size: 2.6rem !important; width: 3.2rem !important; }
+.bc-info h4 { font-size: 1.05rem !important; }
+.bc-info p { font-size: 0.85rem !important; }
+.bc-prize { font-size: 1.15rem !important; }
+.bv-title { font-size: 2.1rem !important; }
+.bv-prize { font-size: 1.55rem !important; padding: 0.65rem 1.1rem !important; }
+.bv-desc { font-size: 0.95rem !important; line-height: 1.65 !important; }
+.bvs-item { padding: 1rem 1.2rem !important; }
+.bvs-lbl { font-size: 0.74rem !important; }
+.bvs-val { font-size: 0.98rem !important; }
+
+/* Venue Multi-Zone */
+.zc { padding: 2.1rem !important; }
+.ze { font-size: 2.5rem !important; margin-bottom: 0.9rem !important; }
+.zt { font-size: 1.08rem !important; margin-bottom: 0.6rem !important; }
+.zd { font-size: 0.88rem !important; line-height: 1.65 !important; }
+
+/* Digital Strategy */
+.ph-c { padding: 2.6rem 2.2rem !important; }
+.ph-num { font-size: 5.5rem !important; }
+.ph-tag { font-size: 0.72rem !important; padding: 0.28rem 0.9rem !important; }
+.ph-title { font-size: 1.2rem !important; }
+.ph-sub { font-size: 0.88rem !important; }
+.ph-list li { font-size: 0.9rem !important; }
+
+/* Tracking & ROI */
+.trc { padding: 2.2rem !important; gap: 1.8rem !important; }
+.tr-num { font-size: 3.8rem !important; }
+.tr-c h4 { font-size: 1.08rem !important; }
+.tr-c p { font-size: 0.9rem !important; }
+.rc { padding: 2.2rem !important; }
+.rc-n { font-size: 3.4rem !important; }
+.rc-t { font-size: 1.1rem !important; }
+.rc-d { font-size: 0.9rem !important; }
+
+/* Sponsorship Packages */
+.pkg { padding: 2.6rem 2rem !important; gap: 1.1rem !important; }
+.pkg-crown { font-size: 2.2rem !important; }
+.pkg-tier { font-size: 2rem !important; }
+.pkg-price { font-size: 1.02rem !important; }
+.pkg-price span { font-size: 2.1rem !important; }
+.pkg-perks li { font-size: 0.88rem !important; line-height: 1.6 !important; }
+
+/* Specialized & Budget */
+.sc { padding: 2.2rem !important; }
+.sc-ic { font-size: 2.5rem !important; }
+.sc-t { font-size: 1.1rem !important; }
+.sc-d { font-size: 0.9rem !important; }
+.bgt-tot { padding: 2.4rem !important; }
+.bgt-amt { font-size: 3.8rem !important; }
+.bgt-lbl { font-size: 1.15rem !important; }
+.bgt-note { font-size: 0.92rem !important; }
+.bgt-bl { font-size: 0.92rem !important; }
+
+/* Matrix Table */
+.mtx { font-size: 0.92rem !important; }
+.mtx th { font-size: 0.88rem !important; padding: 1.1rem !important; }
+.mtx td { padding: 0.95rem 1.1rem !important; }
+
+/* Organizer Profile */
+.os { padding: 1.6rem !important; }
+.os-n { font-size: 2.6rem !important; }
+.os-l { font-size: 0.8rem !important; }
+.op-ic { font-size: 1.7rem !important; }
+.op h4 { font-size: 1.02rem !important; }
+.op p { font-size: 0.9rem !important; }
+
+/* Contact Section */
+.ct-title { font-size: 1.25rem !important; }
+.ct-item { font-size: 0.95rem !important; }
+
+
+
+/* ── DESIGH 1 SPECIFICATION STYLING (Red & Black Theme Preserved) ── */
+.font-pixel { font-family: 'basis33', monospace; }
+
+.design1-hero {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.design1-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.45) contrast(1.15) saturate(1.1);
+}
+@media (min-width: 1024px) {
+  .design1-video-bg { transform: scale(1.2); }
+}
+
+.design1-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, rgba(5,5,5,0.75) 70%, #050505 100%),
+              linear-gradient(to bottom, rgba(5,5,5,0.7) 0%, transparent 30%, transparent 70%, rgba(5,5,5,0.95) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.design1-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+}
+@media(min-width: 640px) { .design1-content { padding: 1.8rem 2.2rem; } }
+@media(min-width: 1024px) { .design1-content { padding: 2.2rem 3.5rem; } }
+
+/* Desigh 1 Navbar */
+.d1-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+}
+.d1-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+.d1-logo-text {
+  font-family: var(--ff-d);
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+.d1-logo-text span { color: var(--red); }
+
+.d1-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  list-style: none;
+}
+.d1-nav-links a {
+  font-family: var(--ff-b);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.d1-nav-links a:hover { color: var(--red); }
+.d1-nav-cta {
+  background: var(--red) !important;
+  color: #fff !important;
+  padding: 0.5rem 1.3rem;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  font-weight: 700 !important;
+}
+.d1-nav-cta:hover { background: var(--red-b) !important; }
+
+/* Desigh 1 Four-Column Meta Grid */
+.d1-meta-grid {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+@media(min-width: 1024px) {
+  .d1-meta-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+}
+
+.d1-col-title {
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+.d1-col-pixel {
+  font-size: 1.7rem;
+  color: #ffffff;
+  line-height: 1.1;
+}
+.d1-asterisk {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.6rem;
+}
+.d1-blurb {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.55;
+  margin-top: 0.3rem;
+}
+
+.d1-label {
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+.d1-body {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+  max-width: 260px;
+}
+.d1-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Desigh 1 Bottom Section */
+.d1-bottom-wrap {
+  margin-top: auto;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+.d1-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: end;
+}
+@media(min-width: 1024px) {
+  .d1-bottom-row { grid-template-columns: 1.4fr 1fr; gap: 3rem; }
+}
+
+.d1-headline {
+  font-family: var(--ff-d);
+  font-size: clamp(2.8rem, 6.2vw, 5.2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 0.92;
+  color: #ffffff;
+}
+.d1-headline-pixel {
+  font-size: 1.25em;
+  line-height: 1;
+  display: inline-block;
+  color: var(--red);
+  text-shadow: 0 0 25px rgba(204,0,0,0.6);
+  vertical-align: baseline;
+}
+
+.d1-actions-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+@media(min-width: 1024px) {
+  .d1-actions-col { align-items: flex-end; }
+}
+
+.d1-showreel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 0.85rem 1.8rem;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  font-family: var(--ff-a);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.d1-showreel-btn:hover {
+  background: rgba(204,0,0,0.25);
+  border-color: var(--red);
+  box-shadow: 0 0 20px rgba(204,0,0,0.4);
+}
+
+.d1-awards-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.d1-award-chip {
+  background: #0B0B0B;
+  border: 1px solid rgba(204,0,0,0.3);
+  padding: 0.6rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.d1-award-name {
+  font-family: var(--ff-a);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+.d1-award-count {
+  font-size: 0.78rem;
+  color: var(--red);
+  font-family: 'basis33', monospace;
+}
+
+.d1-footer-strip {
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.65);
+}
+.d1-schedule-link {
+  color: var(--red);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.d1-schedule-link:hover { color: var(--red-b); text-decoration: underline; }
+
+/* Showreel Modal */
+.d1-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  padding: 2rem;
+}
+.d1-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.d1-modal-box {
+  width: min(960px, 90vw);
+  aspect-ratio: 16/9;
+  background: #000;
+  border: 1px solid var(--red);
+  box-shadow: 0 0 50px rgba(204,0,0,0.5);
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.d1-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  background: none;
+  border: none;
+}
+
+
+
+/* ── KOLLEKTIVA MULTI-ZONE SPATIAL LAYOUT SPECIFICATION ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+#venue {
+  position: relative;
+  width: 100%;
+  min-height: 720px;
+  height: 85vh;
+  overflow: hidden;
+  background: #000000;
+  color: #ffffff;
+  padding: 0 !important;
+}
+
+.kv-bg-layer {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 700ms ease-out;
+  opacity: 0;
+  z-index: 0;
+}
+.kv-bg-layer.active {
+  opacity: 1;
+}
+
+.kv-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.85) 100%),
+              radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.kv-content-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 720px;
+  padding: 2.5rem 1.5rem;
+}
+@media(min-width: 640px) { .kv-content-container { padding: 3rem 2.5rem; } }
+@media(min-width: 1024px) { .kv-content-container { padding: 4rem 4rem; } }
+
+.kv-top-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+@media(min-width: 768px) {
+  .kv-top-zone {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+}
+
+.kv-headline-box {
+  max-width: 650px;
+}
+.kv-section-tag {
+  font-family: var(--ff-a);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.kv-section-tag::before {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: var(--red);
+}
+.kv-headline {
+  font-family: var(--ff-d);
+  font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.kv-headline .hl {
+  color: var(--red);
+  text-shadow: 0 0 35px rgba(204,0,0,0.6);
+}
+
+.kv-desc-box {
+  max-width: 380px;
+}
+.kv-desc-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.85);
+}
+
+.kv-bottom-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-top: auto;
+}
+
+/* Avatar / Thumbnail Picker Row */
+.kv-picker-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;
+}
+.kv-picker-row::-webkit-scrollbar { display: none; }
+@media(min-width: 640px) {
+  .kv-picker-row { gap: 1.1rem; overflow-visible: visible; padding-bottom: 0; }
+}
+
+.kv-picker-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+.kv-picker-btn:hover {
+  transform: translateY(-4px);
+}
+
+.kv-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 10px var(--red);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+.kv-picker-btn.active .kv-dot {
+  opacity: 1;
+}
+
+.kv-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,0.3);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background: var(--d2);
+}
+@media(min-width: 640px) {
+  .kv-thumb { width: 58px; height: 58px; }
+}
+.kv-picker-btn.active .kv-thumb {
+  border-color: var(--red);
+  box-shadow: 0 0 20px rgba(204,0,0,0.6);
+}
+.kv-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Meta Footer */
+.kv-meta-footer {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.kv-meta-name {
+  color: #ffffff;
+  font-family: var(--ff-a);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.kv-meta-role {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.88rem;
+}
+.kv-meta-tenure {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.85rem;
+}
+.kv-meta-action {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.3s;
+}
+.kv-meta-action:hover {
+  color: var(--red-b);
+}
+
+
+
+/* ── CURTAINS.JS WEBGL EXECUTIVE SUMMARY STYLING ── */
+#curtains-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.about-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(204,0,0,0.4);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 25px rgba(204,0,0,0.2);
+}
+
+.curtains-plane {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.curtains-plane img {
+  display: none; /* Curtains.js hides standard img tag and renders WebGL texture */
+}
+
+.about-img-fallback {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.about-img-wrap .ca {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-color: var(--red);
+  border-style: solid;
+  z-index: 10;
+  pointer-events: none;
+}
+.about-img-wrap .ca.tl { top: -2px; left: -2px; border-width: 3px 0 0 3px; }
+.about-img-wrap .ca.br { bottom: -2px; right: -2px; border-width: 0 3px 3px 0; }
+
+
+
+/* ── 4-BLOCK GRID EXECUTIVE SUMMARY STYLING ── */
+.about-4grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+@media(max-width: 1100px) {
+  .about-4grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
+@media(max-width: 600px) {
+  .about-4grid { grid-template-columns: 1fr; }
+}
+
+.ab-card {
+  position: relative;
+  height: 440px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--d2);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.6rem;
+}
+
+.ab-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--red);
+  box-shadow: 0 20px 50px rgba(204,0,0,0.4), 0 0 25px rgba(204,0,0,0.2);
+}
+
+/* Background Photo & Shader Plane */
+.ab-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: brightness(0.55) contrast(1.1);
+  z-index: 0;
+}
+.ab-card:hover .ab-card-bg {
+  transform: scale(1.1);
+  filter: brightness(0.8) contrast(1.2);
+}
+
+.ab-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.4) 50%, rgba(5,5,5,0.7) 100%);
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.ab-card:hover .ab-card-overlay {
+  background: linear-gradient(to top, rgba(5,5,5,0.98) 0%, rgba(204,0,0,0.25) 50%, rgba(5,5,5,0.8) 100%);
+}
+
+.ab-card-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.ab-tag {
+  display: inline-block;
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  background: rgba(204,0,0,0.15);
+  border: 1px solid rgba(204,0,0,0.4);
+  padding: 0.3rem 0.8rem;
+  width: fit-content;
+}
+
+.ab-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.ab-title {
+  font-family: var(--ff-a);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.45rem;
+  line-height: 1.15;
+}
+
+.ab-desc {
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+
+.ab-pill {
+  font-family: var(--ff-d);
+  font-size: 1.1rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  background: rgba(212,175,55,0.1);
+  border-left: 3px solid var(--gold);
+  padding: 0.4rem 0.8rem;
+  width: fit-content;
+}
+
+/* Corner Accents on Hover */
+.ab-card .ca {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-color: var(--red);
+  border-style: solid;
+  z-index: 12;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.ab-card:hover .ca { opacity: 1; }
+.ab-card .ca.tl { top: -1px; left: -1px; border-width: 3px 0 0 3px; }
+.ab-card .ca.br { bottom: -1px; right: -1px; border-width: 0 3px 3px 0; }
+
+
+
+/* ── COZYPAWS-INSPIRED EXECUTIVE SUMMARY STYLING (Red & Black Theme) ── */
+.font-serif-display { font-family: 'DM Serif Display', serif; }
+
+@keyframes wordPop {
+  0% { opacity: 0; transform: translateY(50px) scale(0.7) rotate(-4deg); filter: blur(8px); }
+  60% { opacity: 1; transform: translateY(-8px) scale(1.05) rotate(1deg); filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); filter: blur(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes photoReveal {
+  from { opacity: 0; transform: translateY(70px) scale(1.03); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-word-pop {
+  display: inline-block;
+  animation: wordPop 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.animate-slide-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-slide-right {
+  animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-photo-reveal {
+  animation: photoReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+#about {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--blk);
+  color: var(--wh);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4rem 0 0 0 !important;
+}
+
+.cp-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.cp-heading {
+  font-size: clamp(2.8rem, 6.8vw, 6.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  color: var(--wh);
+  margin-top: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+.cp-heading .hl {
+  color: var(--red);
+  text-shadow: 0 0 40px rgba(204,0,0,0.6);
+}
+
+/* Floating Side Feature Cards (lg+) */
+.cp-side-card-left {
+  position: absolute;
+  top: 50px;
+  left: 2rem;
+  width: clamp(200px, 16vw, 280px);
+  background: var(--d2);
+  border: 1px solid rgba(204,0,0,0.4);
+  border-radius: 1rem;
+  padding: 0.85rem;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 25px rgba(204,0,0,0.2);
+  z-index: 15;
+  transition: transform 0.3s;
+}
+.cp-side-card-left:hover { transform: translateY(-6px) scale(1.03); }
+
+.cp-card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 260/220;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.cp-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cp-arrow-btn {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(204,0,0,0.5);
+  text-decoration: none;
+}
+
+.cp-card-info {
+  margin-top: 0.75rem;
+  text-align: left;
+}
+.cp-card-title {
+  font-family: var(--ff-a);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--wh);
+}
+.cp-card-price {
+  font-family: var(--ff-d);
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+
+.cp-side-card-right {
+  position: absolute;
+  top: 50px;
+  right: 2rem;
+  width: clamp(160px, 12vw, 210px);
+  background: var(--d2);
+  border: 1px solid rgba(204,0,0,0.4);
+  border-radius: 1rem;
+  padding: 0.85rem;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 25px rgba(204,0,0,0.2);
+  z-index: 15;
+  transition: transform 0.3s;
+}
+.cp-side-card-right:hover { transform: translateY(-6px) scale(1.03); }
+
+.cp-video-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 177/250;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cp-video-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+.cp-play-btn {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 0 20px rgba(204,0,0,0.7);
+}
+.cp-video-desc {
+  font-size: 0.74rem;
+  color: var(--gr-l);
+  line-height: 1.4;
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
+@media(max-width: 1024px) {
+  .cp-side-card-left, .cp-side-card-right { display: none; }
+}
+
+/* Bottom 3-Panel Images Layout */
+.cp-bottom-panels {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 2rem;
+}
+
+.cp-panel-left {
+  flex: 1;
+  position: relative;
+  border-top-left-radius: 1.5rem;
+  overflow: hidden;
+  max-height: min(65vh, 48vw);
+  border-top: 1px solid rgba(204,0,0,0.3);
+}
+.cp-panel-center {
+  flex: 1.265;
+  position: relative;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  overflow: hidden;
+  max-height: min(80vh, 62vw);
+  border-top: 2px solid var(--red);
+  box-shadow: 0 0 40px rgba(204,0,0,0.3);
+  z-index: 2;
+}
+.cp-panel-right {
+  flex: 1;
+  position: relative;
+  border-top-right-radius: 1.5rem;
+  overflow: hidden;
+  max-height: min(65vh, 48vw);
+  border-top: 1px solid rgba(204,0,0,0.3);
+}
+
+.cp-panel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.65) contrast(1.1);
+}
+
+.cp-panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.2) 60%, transparent 100%);
+  pointer-events: none;
+}
+
+.cp-overlay-left-stat {
+  position: absolute;
+  bottom: clamp(18px, 4vh, 45px);
+  left: clamp(15px, 3vw, 40px);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(17,17,17,0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(204,0,0,0.4);
+  padding: 0.6rem 1.1rem;
+  border-radius: 50px;
+}
+.cp-avatar-stack {
+  display: flex;
+  align-items: center;
+}
+.cp-avatar-stack img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--red);
+  margin-left: -8px;
+}
+.cp-avatar-stack img:first-child { margin-left: 0; }
+.cp-stat-val {
+  font-family: var(--ff-d);
+  font-size: 1.3rem;
+  color: var(--wh);
+}
+
+.cp-overlay-center-box {
+  position: absolute;
+  bottom: clamp(20px, 4vh, 50px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  width: max-content;
+}
+.cp-center-title {
+  font-family: var(--ff-a);
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+.cp-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--ff-a);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.6rem;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(204,0,0,0.6);
+  transition: all 0.3s;
+}
+.cp-explore-btn:hover { background: var(--red-b); transform: scale(1.05); }
+
+.cp-overlay-right-rating {
+  position: absolute;
+  bottom: clamp(18px, 4vh, 45px);
+  right: clamp(15px, 3vw, 40px);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(17,17,17,0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212,175,55,0.4);
+  padding: 0.6rem 1.1rem;
+  border-radius: 50px;
+}
+.cp-star-ic { color: var(--gold); font-size: 1.1rem; }
+.cp-rating-val { font-family: var(--ff-d); font-size: 1.3rem; color: var(--gold); }
+
+
+
+
+/* ── BRIGHT & GAPLESS 3D POSTER SCROLL WALL (Executive Summary #about) ── */
+#about {
+  position: relative;
+  width: 100%;
+  padding: 6.5rem 0 !important;
+  overflow: hidden;
+  background: #050505;
+  color: #ffffff;
+}
+
+.poster-wall-wrapper {
+  position: absolute;
+  inset: -40%;
+  width: 180%;
+  height: 180%;
+  perspective: 1200px;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.poster-wall-3d {
+  width: 100%;
+  height: 100%;
+  transform: rotateX(16deg) rotateY(-12deg) rotateZ(4deg) scale(1.48);
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.88;
+  filter: brightness(0.92) contrast(1.15) saturate(1.1);
+}
+
+.poster-row {
+  display: flex;
+  gap: 1.1rem;
+  width: max-content;
+}
+
+.poster-row.left {
+  animation: posterScrollLeft 32s linear infinite;
+}
+.poster-row.right {
+  animation: posterScrollRight 38s linear infinite;
+}
+
+@keyframes posterScrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes posterScrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.poster-card {
+  width: 240px;
+  height: 330px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid rgba(204,0,0,0.35);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.7), 0 0 20px rgba(204,0,0,0.25);
+  position: relative;
+  background: #111111;
+}
+.poster-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.poster-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(204,0,0,0.15) 0%, rgba(5,5,5,0.45) 100%);
+}
+
+.poster-wall-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(5,5,5,0.35) 0%, rgba(5,5,5,0.78) 75%, #050505 100%),
+              linear-gradient(to bottom, #050505 0%, rgba(5,5,5,0.25) 30%, rgba(5,5,5,0.25) 70%, #050505 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+/* ── 4 RECTANGULAR GRID BLOCKS (Foreground Content) ── */
+.about-4grid-container {
+  position: relative;
+  z-index: 10;
+}
+
+.about-4grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+  margin-top: 2.8rem;
+}
+@media(max-width: 1100px) {
+  .about-4grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
+@media(max-width: 600px) {
+  .about-4grid { grid-template-columns: 1fr; }
+}
+
+.ab-block-card {
+  position: relative;
+  height: 440px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(17,17,17,0.88);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.8rem;
+}
+
+.ab-block-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--red);
+  box-shadow: 0 20px 50px rgba(204,0,0,0.45), 0 0 30px rgba(204,0,0,0.25);
+  background: rgba(26,26,26,0.95);
+}
+
+.ab-block-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: brightness(0.5) contrast(1.1);
+  z-index: 0;
+}
+.ab-block-card:hover .ab-block-bg {
+  transform: scale(1.1);
+  filter: brightness(0.75) contrast(1.2);
+}
+
+.ab-block-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.3) 50%, rgba(5,5,5,0.7) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+.ab-block-card:hover .ab-block-overlay {
+  background: linear-gradient(to top, rgba(5,5,5,0.98) 0%, rgba(204,0,0,0.22) 50%, rgba(5,5,5,0.85) 100%);
+}
+
+.ab-block-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.ab-block-tag {
+  display: inline-block;
+  font-family: var(--ff-a);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  background: rgba(204,0,0,0.18);
+  border: 1px solid rgba(204,0,0,0.4);
+  padding: 0.32rem 0.85rem;
+  width: fit-content;
+}
+
+.ab-block-icon {
+  font-size: 2.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.ab-block-title {
+  font-family: var(--ff-a);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.45rem;
+  line-height: 1.15;
+}
+
+.ab-block-desc {
+  font-size: 0.86rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.6;
+  margin-bottom: 1.1rem;
+}
+
+.ab-block-pill {
+  font-family: var(--ff-d);
+  font-size: 1.15rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  background: rgba(212,175,55,0.1);
+  border-left: 3px solid var(--gold);
+  padding: 0.4rem 0.85rem;
+  width: fit-content;
+}
+
+.ab-block-card .ca {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: var(--red);
+  border-style: solid;
+  z-index: 12;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.ab-block-card:hover .ca { opacity: 1; }
+.ab-block-card .ca.tl { top: -1px; left: -1px; border-width: 3px 0 0 3px; }
+.ab-block-card .ca.br { bottom: -1px; right: -1px; border-width: 0 3px 3px 0; }
+
+
+
+/* ── COMBINED HIGH-IMPACT EXECUTIVE SUMMARY (CozyPaws Layout + 3D Poster Wall + 4-Block Grid) ── */
+.font-serif-display { font-family: 'DM Serif Display', serif; }
+
+@keyframes wordPop {
+  0% { opacity: 0; transform: translateY(50px) scale(0.7) rotate(-4deg); filter: blur(8px); }
+  60% { opacity: 1; transform: translateY(-8px) scale(1.05) rotate(1deg); filter: blur(0); }
+  100% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); filter: blur(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-word-pop {
+  display: inline-block;
+  animation: wordPop 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.animate-slide-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-slide-right {
+  animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+#about {
+  position: relative;
+  width: 100%;
+  padding: 6rem 0 5rem 0 !important;
+  overflow: hidden;
+  background: #050505;
+  color: #ffffff;
+}
+
+/* Floating Side Cards (CozyPaws Inspired) */
+.cp-side-card-left {
+  position: absolute;
+  top: 90px;
+  left: 2rem;
+  width: clamp(190px, 15vw, 260px);
+  background: rgba(17,17,17,0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(204,0,0,0.4);
+  border-radius: 1rem;
+  padding: 0.85rem;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 25px rgba(204,0,0,0.25);
+  z-index: 15;
+  transition: transform 0.3s;
+}
+.cp-side-card-left:hover { transform: translateY(-6px) scale(1.04); }
+
+.cp-card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 260/210;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.cp-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cp-arrow-btn {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(204,0,0,0.5);
+  text-decoration: none;
+}
+
+.cp-card-info {
+  margin-top: 0.65rem;
+  text-align: left;
+}
+.cp-card-title {
+  font-family: var(--ff-a);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--wh);
+}
+.cp-card-price {
+  font-family: var(--ff-d);
+  font-size: 1.05rem;
+  color: var(--gold);
+}
+
+.cp-side-card-right {
+  position: absolute;
+  top: 90px;
+  right: 2rem;
+  width: clamp(160px, 12vw, 210px);
+  background: rgba(17,17,17,0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(204,0,0,0.4);
+  border-radius: 1rem;
+  padding: 0.85rem;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 25px rgba(204,0,0,0.25);
+  z-index: 15;
+  transition: transform 0.3s;
+}
+.cp-side-card-right:hover { transform: translateY(-6px) scale(1.04); }
+
+.cp-video-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 177/240;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cp-video-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+.cp-play-btn {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 0 20px rgba(204,0,0,0.7);
+}
+.cp-video-desc {
+  font-size: 0.74rem;
+  color: var(--gr-l);
+  line-height: 1.4;
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
+@media(max-width: 1200px) {
+  .cp-side-card-left, .cp-side-card-right { display: none; }
+}
+
+/* Stat Chips Row (CozyPaws Stat Overlays) */
+.cp-stat-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.cp-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: rgba(17,17,17,0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(204,0,0,0.4);
+  padding: 0.6rem 1.3rem;
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+.cp-chip-gold {
+  border-color: rgba(212,175,55,0.4);
+}
+.cp-avatar-stack {
+  display: flex;
+  align-items: center;
+}
+.cp-avatar-stack img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--red);
+  margin-left: -8px;
+}
+.cp-avatar-stack img:first-child { margin-left: 0; }
+.cp-chip-val {
+  font-family: var(--ff-d);
+  font-size: 1.25rem;
+  color: #fff;
+}
+.cp-chip-val.gold { color: var(--gold); }
+.cp-chip-lbl {
+  font-size: 0.76rem;
+  color: var(--gr-l);
+  letter-spacing: 0.05em;
+}
+
+
+
+/* ── FULL-WIDTH 4-BLOCK GRID EXECUTIVE SUMMARY (#about) ── */
+#about {
+  position: relative;
+  width: 100%;
+  padding: 5.5rem 0 5rem 0 !important;
+  overflow: hidden;
+  background: #050505;
+  color: #ffffff;
+}
+
+.about-4grid-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1720px !important;
+  width: 95% !important;
+  margin: 0 auto;
+}
+
+.about-4grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8rem;
+  margin-top: 2.5rem;
+}
+@media(max-width: 1100px) {
+  .about-4grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
+@media(max-width: 600px) {
+  .about-4grid { grid-template-columns: 1fr; }
+}
+
+.ab-block-card {
+  position: relative;
+  height: 480px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(17,17,17,0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.2rem;
+}
+
+.ab-block-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  border-color: var(--red);
+  box-shadow: 0 25px 60px rgba(204,0,0,0.45), 0 0 35px rgba(204,0,0,0.25);
+  background: rgba(26,26,26,0.96);
+}
+
+.ab-block-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: brightness(0.52) contrast(1.15);
+  z-index: 0;
+}
+.ab-block-card:hover .ab-block-bg {
+  transform: scale(1.1);
+  filter: brightness(0.8) contrast(1.2);
+}
+
+.ab-block-title {
+  font-family: var(--ff-a);
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  line-height: 1.15;
+}
+
+.ab-block-desc {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.ab-block-pill {
+  font-family: var(--ff-d);
+  font-size: 1.2rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  background: rgba(212,175,55,0.12);
+  border-left: 3px solid var(--gold);
+  padding: 0.45rem 0.95rem;
+  width: fit-content;
+}
+
+
+
+/* ── IMMERSIVE 3D TILT CARDS & MODAL FOR EVENT PILLARS (#battles) ── */
+#battles {
+  position: relative;
+  padding: 6.5rem 0 !important;
+  background: #050505;
+}
+
+.battles-3d-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+@media(max-width: 1100px) {
+  .battles-3d-grid { grid-template-columns: repeat(2, 1fr); gap: 1.6rem; }
+}
+@media(max-width: 650px) {
+  .battles-3d-grid { grid-template-columns: 1fr; }
+}
+
+.tilt-card-wrap {
+  perspective: 1000px;
+}
+
+.tilt-card {
+  position: relative;
+  height: 460px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #111111;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease-out, border-color 0.4s, box-shadow 0.4s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.8rem;
+}
+
+.tilt-card:hover {
+  border-color: var(--red);
+  box-shadow: 0 25px 60px rgba(204,0,0,0.45), 0 0 35px rgba(204,0,0,0.25);
+}
+
+.tilt-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+  filter: brightness(0.55) contrast(1.15);
+  z-index: 0;
+}
+.tilt-card:hover .tilt-card-bg {
+  transform: scale(1.1);
+  filter: brightness(0.8) contrast(1.2);
+}
+
+.tilt-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.3) 50%, rgba(5,5,5,0.7) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+.tilt-card:hover .tilt-card-overlay {
+  background: linear-gradient(to top, rgba(5,5,5,0.98) 0%, rgba(204,0,0,0.22) 50%, rgba(5,5,5,0.8) 100%);
+}
+
+.tilt-card-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(204,0,0,0.3) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tilt-card:hover .tilt-card-glow { opacity: 1; }
+
+.tilt-card-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transform: translateZ(30px);
+}
+
+.tilt-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tilt-num {
+  font-family: var(--ff-d);
+  font-size: 2.2rem;
+  color: var(--red);
+  line-height: 1;
+  text-shadow: 0 0 15px rgba(204,0,0,0.6);
+}
+.tilt-tag {
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(204,0,0,0.2);
+  border: 1px solid rgba(204,0,0,0.5);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+}
+
+.tilt-title {
+  font-family: var(--ff-a);
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+  line-height: 1.15;
+}
+.tilt-sub {
+  font-size: 0.86rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
+  margin-bottom: 1.1rem;
+}
+.tilt-prize {
+  font-family: var(--ff-d);
+  font-size: 1.25rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  background: rgba(212,175,55,0.12);
+  border-left: 3px solid var(--gold);
+  padding: 0.4rem 0.85rem;
+  width: fit-content;
+  margin-bottom: 0.8rem;
+}
+
+.tilt-cta-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--ff-a);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  transition: color 0.3s;
+}
+.tilt-card:hover .tilt-cta-hint { color: #ffffff; }
+
+/* Expanded Modal Styling */
+.battle-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(5,5,5,0.92);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.battle-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.battle-modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  background: #111111;
+  border: 1px solid rgba(204,0,0,0.5);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.9), 0 0 40px rgba(204,0,0,0.3);
+  transform: scale(0.85) translateY(30px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+.battle-modal-overlay.active .battle-modal-box {
+  transform: scale(1) translateY(0);
+}
+
+.bm-header {
+  position: relative;
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+.bm-header-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #111111 0%, rgba(5,5,5,0.4) 60%, rgba(5,5,5,0.7) 100%);
+}
+
+.bm-close-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(17,17,17,0.8);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s, border-color 0.3s;
+}
+.bm-close-btn:hover { background: var(--red); border-color: var(--red); }
+
+.bm-body {
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bm-title-row {
+  position: relative;
+  z-index: 5;
+}
+.bm-num-badge {
+  font-family: var(--ff-a);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  background: rgba(204,0,0,0.15);
+  border: 1px solid rgba(204,0,0,0.4);
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+.bm-title {
+  font-family: var(--ff-a);
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+}
+.bm-prize-tag {
+  font-family: var(--ff-d);
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-top: 0.4rem;
+}
+
+.bm-desc {
+  font-size: 0.96rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.65;
+}
+
+.bm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 1.4rem;
+}
+@media(max-width: 600px) {
+  .bm-grid { grid-template-columns: 1fr; }
+}
+
+.bm-grid-item-lbl {
+  font-family: var(--ff-a);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gr-l);
+  margin-bottom: 0.3rem;
+}
+.bm-grid-item-val {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.bm-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.bm-cta-btn {
+  background: var(--red);
+  color: #fff;
+  font-family: var(--ff-a);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(204,0,0,0.6);
+  transition: transform 0.3s, background 0.3s;
+}
+.bm-cta-btn:hover { background: var(--red-b); transform: scale(1.05); }
+
+
+
+/* ── IMMERSIVE 3D TILT TRADING CARD MODAL (Event Pillars #battles) ── */
+.ghoul-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(5,5,5,0.94);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  perspective: 1200px;
+}
+.ghoul-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Close Button */
+.ghoul-close-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(26,26,26,0.9);
+  border: 1px solid rgba(204,0,0,0.5);
+  color: #ffffff;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s;
+  box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+.ghoul-close-btn:hover {
+  background: var(--red);
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 0 25px rgba(204,0,0,0.7);
+}
+
+/* Prev / Next Navigation Buttons */
+.ghoul-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(17,17,17,0.9);
+  border: 1px solid rgba(204,0,0,0.5);
+  color: #ffffff;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s;
+  box-shadow: 0 0 25px rgba(0,0,0,0.8);
+}
+.ghoul-nav-btn.prev { left: 2.5rem; }
+.ghoul-nav-btn.next { right: 2.5rem; }
+
+.ghoul-nav-btn:hover {
+  background: var(--red);
+  transform: translateY(-50%) scale(1.15);
+  box-shadow: 0 0 30px rgba(204,0,0,0.8);
+}
+@media(max-width: 768px) {
+  .ghoul-nav-btn.prev { left: 0.8rem; width: 42px; height: 42px; font-size: 1.2rem; }
+  .ghoul-nav-btn.next { right: 0.8rem; width: 42px; height: 42px; font-size: 1.2rem; }
+}
+
+/* 3D Main Card Container */
+.ghoul-card-stage {
+  position: relative;
+  width: clamp(340px, 32vw, 440px);
+  height: clamp(520px, 70vh, 640px);
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+}
+
+.ghoul-card-body {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #181818 0%, #0d0d0d 100%);
+  border: 2px solid rgba(204,0,0,0.6);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.95), 0 0 50px rgba(204,0,0,0.35);
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Specular Foil Glow overlay */
+.ghoul-card-foil {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 20;
+  mix-blend-mode: overlay;
+}
+
+/* 3D Floating Photo Illustration Layer */
+.ghoul-photo-layer {
+  position: relative;
+  width: 100%;
+  height: 52%;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(204,0,0,0.4);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 25px rgba(204,0,0,0.3);
+  transform: translateZ(45px);
+  transition: transform 0.3s ease;
+}
+.ghoul-photo-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ghoul-photo-badge {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  background: rgba(204,0,0,0.85);
+  color: #fff;
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  backdrop-filter: blur(8px);
+}
+
+/* 3D Content Info Layer */
+.ghoul-info-layer {
+  transform: translateZ(35px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ghoul-card-num {
+  font-family: var(--ff-d);
+  font-size: 1.4rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+.ghoul-card-title {
+  font-family: var(--ff-a);
+  font-size: 1.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.ghoul-card-desc {
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.5;
+}
+
+.ghoul-specs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 0.7rem;
+  border-radius: 10px;
+  margin-top: 0.4rem;
+}
+.ghoul-spec-lbl {
+  font-family: var(--ff-a);
+  font-size: 0.65rem;
+  color: var(--gr-l);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.ghoul-spec-val {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.ghoul-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--ff-a);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.75rem;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(204,0,0,0.6);
+  transition: all 0.3s;
+  transform: translateZ(25px);
+}
+.ghoul-cta-btn:hover { background: var(--red-b); transform: translateZ(35px) scale(1.03); }
+
+</style>
+<link href="https://db.onlinewebfonts.com/c/d08bafd725a4cfc309efb5a88e0b63a5?family=basis33" rel="stylesheet">
+
+<script src="https://rawcdn.githack.com/martinlaxenaire/curtainsjs/95957f855ad9fd51850e97312cd389af76e9704e/build/curtains.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="curtains-canvas"></div>
+
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-logo">LI<span>HF</span> <span style="font-size:.95rem;color:var(--gr)">2026</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#kpi">Impact</a></li>
+    <li><a href="#battles">Battles</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#contact" class="nav-cta">Partner With Us</a></li>
+  </ul>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker">
+    <span class="ticker-item">Lao International HipHop Festival 2026</span>
+    <span class="ticker-item">13–15 November • Lao-ITECC • Vientiane</span>
+    <span class="ticker-item">5,000+ Attendees • 10M+ Digital Impressions</span>
+    <span class="ticker-item">159M LAK Prize Pool • 7 Battle Categories</span>
+    <span class="ticker-item">One Culture • One Movement • One Region</span>
+    <span class="ticker-item">Lao International HipHop Festival 2026</span>
+    <span class="ticker-item">13–15 November • Lao-ITECC • Vientiane</span>
+    <span class="ticker-item">5,000+ Attendees • 10M+ Digital Impressions</span>
+    <span class="ticker-item">159M LAK Prize Pool • 7 Battle Categories</span>
+    <span class="ticker-item">One Culture • One Movement • One Region</span>
+  </div>
+</div>
+
+<!-- HERO — DESIGH 1 SPECIFICATION LAYOUT (Red & Black Theme) -->
+<section id="hero" class="design1-hero">
+  <!-- Full-bleed Background Video -->
+  <video autoplay muted loop playsinline class="design1-video-bg" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"></video>
+  <div class="design1-overlay"></div>
+
+  <div class="design1-content">
+    <!-- 1. NAVBAR -->
+    <nav class="d1-nav">
+      <a href="#hero" class="d1-logo-wrap">
+        <svg width="28" height="28" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 160 88 L 194 34 L 216 0 L 256 0 L 256 40 L 221.5 93.5 L 200 128 L 256 128 L 256 256 L 96 256 L 96 168 L 64.246 220 L 40 256 L 0 256 L 0 216 L 34 162 L 56 128 L 0 128 L 0 0 L 160 0 Z" fill="#CC0000" />
+        </svg>
+        <span class="d1-logo-text">LI<span>HF</span> <span class="font-pixel" style="font-size:1.1rem;color:var(--gr)">2026</span></span>
+      </a>
+      <ul class="d1-nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#kpi">Impact</a></li>
+        <li><a href="#battles">Battles</a></li>
+        <li><a href="#venue">Venue</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#contact" class="d1-nav-cta">Partner With Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- 2. FOUR-COLUMN META GRID -->
+    <div class="d1-meta-grid">
+      <!-- COL 1 -->
+      <div>
+        <h2 class="d1-col-title">
+          <div>LAO HIPHOP</div>
+          <div class="d1-col-pixel font-pixel">FESTIVAL 2026</div>
+        </h2>
+        <div class="d1-asterisk">*</div>
+        <p class="d1-blurb font-pixel">
+          Lao International HipHop<br>
+          Festival is Laos' premier<br>
+          urban youth &amp; dance landmark<br>
+          established in 2017
+        </p>
+      </div>
+
+      <!-- COL 2 -->
+      <div>
+        <h2 class="d1-col-title">
+          <div>URBAN ARTS &amp;</div>
+          <div class="d1-col-pixel font-pixel">STREET CULTURE</div>
+        </h2>
+      </div>
+
+      <!-- COL 3 -->
+      <div>
+        <div class="d1-label font-pixel">What We Do</div>
+        <p class="d1-body">
+          We create the top 1% urban youth experiences, regional battle showcases, and cultural tourism landmarks in Southeast Asia.
+        </p>
+      </div>
+
+      <!-- COL 4 -->
+      <div>
+        <div class="d1-label font-pixel">Pillars &amp; Showcases</div>
+        <ul class="d1-list">
+          <li>• Breaking 2v2 International</li>
+          <li>• Open Style Freestyle Battle</li>
+          <li>• Choreographed Crew Showdown</li>
+          <li>• DJ Turntablism &amp; Live Scratch</li>
+          <li>• Aerosol Live Graffiti Canvas</li>
+          <li>• Rap 7-To-Smoke Cypher</li>
+          <li>• Headline HipHop Concert</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. BOTTOM SECTION -->
+    <div class="d1-bottom-wrap">
+      <div class="d1-bottom-row">
+        <!-- LEFT: Hero Headline with Pixel Fonts -->
+        <h1 class="d1-headline">
+          WE BRING THE<br>
+          <span class="d1-headline-pixel font-pixel">UNEXPECTED</span> TO YOUTH &amp;<br>
+          CULTURAL <span class="d1-headline-pixel font-pixel">EXPERIENCES</span>
+        </h1>
+
+        <!-- RIGHT: Showreel + Metrics Row -->
+        <div class="d1-actions-col">
+          <button class="d1-showreel-btn" id="open-showreel-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#ffffff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span>PLAY SHOWREEL</span>
+          </button>
+
+          <div class="d1-awards-row">
+            <div class="d1-award-chip">
+              <span class="d1-award-name">5,000+</span>
+              <span class="d1-award-count">ATTENDEES</span>
+            </div>
+            <div class="d1-award-chip">
+              <span class="d1-award-name">10M+</span>
+              <span class="d1-award-count">IMPRESSIONS</span>
+            </div>
+            <div class="d1-award-chip">
+              <span class="d1-award-name">159M</span>
+              <span class="d1-award-count">LAK POOL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER STRIP -->
+      <div class="d1-footer-strip">
+        <div>
+          Open to official brand sponsorship, partnership &amp; CSR. 
+          <a href="#contact" class="d1-schedule-link">Schedule a call →</a>
+        </div>
+        <div>
+          7 Battles • 10+ Nations • 50+ Lifestyle Booths • Lao-ITECC Vientiane
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWREEL VIDEO MODAL -->
+<div class="d1-modal" id="showreel-modal">
+  <div class="d1-modal-box">
+    <button class="d1-modal-close" id="close-showreel-btn">&times;</button>
+    <iframe id="showreel-iframe" width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" title="LIHF Showreel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- ABOUT (Executive Summary — Expanded Full-Width 4 Rectangular Blocks & 3D Poster Wall) -->
+<section id="about">
+  <!-- Infinite 3D Poster Scroll Wall Background -->
+  <div class="poster-wall-wrapper">
+    <div class="poster-wall-3d">
+      <div class="poster-row left">
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+      </div>
+      <div class="poster-row right">
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+      </div>
+      <div class="poster-row left">
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=400&auto=format&fit=crop" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="poster-wall-gradient"></div>
+
+  <!-- Main Expanded Content Container -->
+  <div class="about-4grid-container">
+    <div style="text-align:center;">
+      <div class="section-label ru" style="justify-content:center;">Executive Summary</div>
+      <h2 class="section-title ru font-serif-display" style="font-size:clamp(3.2rem, 7vw, 6rem);">
+        <span class="animate-word-pop delay-100">THE</span>
+        <span class="animate-word-pop delay-200 hl">PREMIER</span>
+        <span class="animate-word-pop delay-300">URBAN</span>
+        <span class="animate-word-pop delay-400">YOUTH</span>
+        <span class="animate-word-pop delay-500">&amp;</span>
+        <span class="animate-word-pop delay-600">CULTURAL</span>
+        <span class="animate-word-pop delay-700">MOVEMENT</span>
+      </h2>
+      <div class="red-line ru" style="margin:1.4rem auto;"></div>
+    </div>
+
+    <!-- 4 Expanded Rectangular Grid Blocks -->
+    <div class="about-4grid">
+      <!-- BLOCK 1: 9-Year Heritage -->
+      <div class="ab-block-card ru" data-block="0">
+        <div class="ab-block-bg" style="background-image:url('https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="ab-block-overlay"></div>
+        <div class="ca tl"></div><div class="ca br"></div>
+
+        <div class="ab-block-content">
+          <div class="ab-block-tag">2017 – 2026</div>
+          <div>
+            <div class="ab-block-icon">🏛️</div>
+            <h3 class="ab-block-title">9-Year Heritage</h3>
+            <p class="ab-block-desc">Evolving from the original Lao HipHop Festival founded in 2017 — the undisputed pioneer of urban dance, music, and street culture in Laos.</p>
+            <div class="ab-block-pill">EST. 2017 • PIONEER</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK 2: Regional Powerhouse -->
+      <div class="ab-block-card ru" data-block="1">
+        <div class="ab-block-bg" style="background-image:url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="ab-block-overlay"></div>
+        <div class="ca tl"></div><div class="ca br"></div>
+
+        <div class="ab-block-content">
+          <div class="ab-block-tag">Lao-ITECC Landmark</div>
+          <div>
+            <div class="ab-block-icon">🚀</div>
+            <h3 class="ab-block-title">Regional Powerhouse</h3>
+            <p class="ab-block-desc">Scaling to an international landmark at Lao-ITECC. Connecting 500+ top athletes, artists, and judges from 10+ countries across 2 epic days.</p>
+            <div class="ab-block-pill">10+ NATIONS • 500+ TALENTS</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK 3: Youth Empowerment -->
+      <div class="ab-block-card ru" data-block="2">
+        <div class="ab-block-bg" style="background-image:url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="ab-block-overlay"></div>
+        <div class="ca tl"></div><div class="ca br"></div>
+
+        <div class="ab-block-content">
+          <div class="ab-block-tag">Community Impact</div>
+          <div>
+            <div class="ab-block-icon">🔥</div>
+            <h3 class="ab-block-title">Youth Empowerment</h3>
+            <p class="ab-block-desc">Empowering over 10,000+ Lao youth through dance classes, workshops, and high-impact battle showcases that shape national youth culture.</p>
+            <div class="ab-block-pill">10,000+ YOUTH REACH</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK 4: Destination Laos -->
+      <div class="ab-block-card ru" data-block="3">
+        <div class="ab-block-bg" style="background-image:url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="ab-block-overlay"></div>
+        <div class="ca tl"></div><div class="ca br"></div>
+
+        <div class="ab-block-content">
+          <div class="ab-block-tag">Creative Economy</div>
+          <div>
+            <div class="ab-block-icon">🎯</div>
+            <h3 class="ab-block-title">Destination Laos</h3>
+            <p class="ab-block-desc">Establishing Vientiane as the premier HipHop &amp; creative tourism hub of Southeast Asia, driving cross-border economic growth and brand ROI.</p>
+            <div class="ab-block-pill">VIENTIANE HUB</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stat Chips Row -->
+    <div class="cp-stat-chips-row" style="margin-top:2.6rem;">
+      <div class="cp-chip">
+        <div class="cp-avatar-stack">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80" alt="Talent 1" />
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Talent 2" />
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&q=80" alt="Talent 3" />
+        </div>
+        <span class="cp-chip-val">10,000+</span>
+        <span class="cp-chip-lbl">Lao Youth Empowered</span>
+      </div>
+
+      <div class="cp-chip cp-chip-gold">
+        <span class="cp-chip-val gold">★ 10M+</span>
+        <span class="cp-chip-lbl">Digital Reach</span>
+      </div>
+
+      <div class="cp-chip">
+        <span class="cp-chip-val">159M LAK</span>
+        <span class="cp-chip-lbl">Total Prize Pool</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- MARKET -->
+<section id="market">
+  <div class="noise-overlay"></div>
+  <div class="container">
+    <div class="section-label ru">Market Opportunity</div>
+    <h2 class="section-title ru">ENGAGING THE <span class="hl">DYNAMIC</span><br>GEN Z &amp; MILLENNIAL AUDIENCE</h2>
+    <div class="red-line ru"></div>
+    <div class="market-cards">
+      <div class="mc ru"><span class="mc-ic">🔥</span><h4>Cultural Trend Leadership</h4><p>HipHop and street culture now dictate global fashion, music, digital memes, and lifestyle trends. Aligning with LIHF instantly positions your brand as dynamic, culturally relevant, and youthful.</p></div>
+      <div class="mc ru"><span class="mc-ic">📱</span><h4>Unrivaled Social Engagement</h4><p>Gen Z consumes short-form video passionately. LIHF creates viral content across TikTok, Reels, and YouTube Shorts — guaranteeing authentic brand impressions and high organic engagement.</p></div>
+      <div class="mc ru"><span class="mc-ic">💡</span><h4>Moving Beyond Passive Ads</h4><p>Modern youth reject traditional intrusive ads. They reward brands that authentically support their passions, sponsor their heroes, and create memorable on-ground experiences.</p></div>
+      <div class="mc ru"><span class="mc-ic">🌐</span><h4>Regional Cultural Gateway</h4><p>Laos serves as a vital cultural bridge connecting Thailand, Vietnam, Cambodia, China, and ASEAN. LIHF delivers cross-border brand exposure reaching international travelers and viewers.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- KPI -->
+<section id="kpi">
+  <div class="kpi-bg">IMPACT</div>
+  <div class="container">
+    <div class="section-label ru">Measurable Impact</div>
+    <h2 class="section-title ru">GUARANTEED EVENT SCALE &amp;<br><span class="hl">KEY PERFORMANCE</span> INDICATORS</h2>
+    <div class="red-line ru"></div>
+    <div class="kpi-grid">
+      <div class="kc ru"><span class="kn" data-n="5000" data-s="+">5,000+</span><span class="ku">Onsite Attendees</span><p class="kd">Passionate Gen Z, athletes, families &amp; tourists</p></div>
+      <div class="kc ru"><span class="kn" data-n="10" data-s="M+">10M+</span><span class="ku">Digital Impressions</span><p class="kd">Multi-platform reach across TikTok, FB, IG &amp; YT</p></div>
+      <div class="kc ru"><span class="kn" data-n="500" data-s="+">500+</span><span class="ku">Talents &amp; Athletes</span><p class="kd">Competitors from 10+ participating nations</p></div>
+      <div class="kc ru"><span class="kn">50–70</span><span class="ku">Marketplace Booths</span><p class="kd">Curated street food &amp; fashion lifestyle vendors</p></div>
+      <div class="kc ru"><span class="kn" data-n="159" data-s="M">159M</span><span class="ku">LAK Prize Pool</span><p class="kd">Rewarding excellence across 6 battle categories</p></div>
+      <div class="kc ru"><span class="kn" data-n="10000" data-s="+">10,000+</span><span class="ku">Product Samples</span><p class="kd">Direct consumer trial &amp; brand engagement target</p></div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- AUDIENCE -->
+<section id="audience">
+  <div class="noise-overlay"></div>
+  <div class="container">
+    <div class="section-label ru">Target Audience</div>
+    <h2 class="section-title ru">HIGH-VALUE, <span class="hl">TRENDSETTING</span><br>CONSUMER SEGMENTS</h2>
+    <div class="red-line ru"></div>
+    <div class="aud-grid">
+      <div class="aud-card ru"><div class="aud-pct">50%</div><span class="aud-badge">50% of Audience</span><h3 class="aud-seg-title">Young Adults (19–35)</h3><ul class="aud-list"><li>Working professionals, university students, urban trendsetters</li><li>High disposable income for lifestyle, tech, fashion, food &amp; beverage</li><li>Key influencers; early adopters of digital payment and telecom services</li></ul></div>
+      <div class="aud-card ru"><div class="aud-pct">35%</div><span class="aud-badge">35% of Audience</span><h3 class="aud-seg-title">Youth &amp; Teens (13–18)</h3><ul class="aud-list"><li>High school students, emerging dancers, gamers, content creators</li><li>Extremely high digital fluency and social media viral sharing behavior</li><li>Long-term brand loyalty potential through authentic early engagement</li></ul></div>
+      <div class="aud-card ru"><div class="aud-pct">15%</div><span class="aud-badge">15% of Audience</span><h3 class="aud-seg-title">Industry &amp; Adults (36–45+)</h3><ul class="aud-list"><li>Creative agency directors, business owners, parents, media guests</li><li>Premium purchasing power for VIP hospitality and premium goods</li><li>Appreciators of cultural diplomacy, arts development, and corporate CSR</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- BATTLES (Event Pillars — Immersive 3D Tilt Cards & Expandable Modal) -->
+<section id="battles">
+  <div class="noise-overlay"></div>
+  <div class="container">
+    <div class="section-label ru">Event Pillars</div>
+    <h2 class="section-title ru">THE 7 <span class="hl">FLAGSHIP</span> BATTLES &amp; SHOWCASES</h2>
+    <div class="red-line ru"></div>
+
+    <div class="battles-3d-grid">
+      
+      <div class="tilt-card-wrap ru">
+        <div class="tilt-card" data-modal-id="0">
+          <div class="tilt-card-bg" style="background-image:url('https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=800&auto=format&fit=crop');"></div>
+          <div class="tilt-card-overlay"></div>
+          <div class="tilt-card-glow"></div>
+
+          <div class="tilt-card-content">
+            <div class="tilt-badge-row">
+              <span class="tilt-num">01</span>
+              <span class="tilt-tag">OPEN INTERNATIONAL</span>
+            </div>
+
+            <div>
+              <h3 class="tilt-title">Breaking Battle 2v2</h3>
+              <p class="tilt-sub">Olympic-caliber B-Boy & B-Girl showdown featuring top dancers from ASEAN, Japan & Europe.</p>
+              <div class="tilt-prize">🏆 32,000,000 LAK Pool</div>
+              <div class="tilt-cta-hint">
+                <span>Tap to open full 3D specs</span> ↗
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tilt-card-wrap ru">
+        <div class="tilt-card" data-modal-id="1">
+          <div class="tilt-card-bg" style="background-image:url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=800&auto=format&fit=crop');"></div>
+          <div class="tilt-card-overlay"></div>
+          <div class="tilt-card-glow"></div>
+
+          <div class="tilt-card-content">
+            <div class="tilt-badge-row">
+              <span class="tilt-num">02</span>
+              <span class="tilt-tag">OPEN STYLE FREESTYLE</span>
+            </div>
+
+            <div>
+              <h3 class="tilt-title">Open Style Battle 2v2</h3>
+              <p class="tilt-sub">HipHop, Popping, Locking, Krump, and Waacking expressional street dance showdown.</p>
+              <div class="tilt-prize">🏆 27,000,000 LAK Pool</div>
+              <div class="tilt-cta-hint">
+                <span>Tap to open full 3D specs</span> ↗
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tilt-card-wrap ru">
+        <div class="tilt-card" data-modal-id="2">
+          <div class="tilt-card-bg" style="background-image:url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=800&auto=format&fit=crop');"></div>
+          <div class="tilt-card-overlay"></div>
+          <div class="tilt-card-glow"></div>
+
+          <div class="tilt-card-content">
+            <div class="tilt-badge-row">
+              <span class="tilt-num">03</span>
+              <span class="tilt-tag">CHOREOGRAPHY SHOWDOWN</span>
+            </div>
+
+            <div>
+              <h3 class="tilt-title">Crew Competition Showcase</h3>
+              <p class="tilt-sub">5–8 Members Open — Synchronized high-impact choreography and team concept routines.</p>
+              <div class="tilt-prize">🏆 56,000,000 LAK Pool</div>
+              <div class="tilt-cta-hint">
+                <span>Tap to open full 3D specs</span> ↗
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tilt-card-wrap ru">
+        <div class="tilt-card" data-modal-id="3">
+          <div class="tilt-card-bg" style="background-image:url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop');"></div>
+          <div class="tilt-card-overlay"></div>
+          <div class="tilt-card-glow"></div>
+
+          <div class="tilt-card-content">
+            <div class="tilt-badge-row">
+              <span class="tilt-num">04</span>
+              <span class="tilt-tag">LAO NATIONAL CYPHER</span>
+            </div>
+
+            <div>
+              <h3 class="tilt-title">Rap 7-To-Smoke Cypher</h3>
+              <p class="tilt-sub">High-octane Lao MC cypher battle crowning the top lyricist of Laos.</p>
+              <div class="tilt-prize">🏆 7,000,000 LAK Pool</div>
+              <div class="tilt-cta-hint">
+                <span>Tap to open full 3D specs</span> ↗
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tilt-card-wrap ru">
+        <div class="tilt-card" data-modal-id="4">
+          <div class="tilt-card-bg" style="background-image:url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop');"></div>
+          <div class="tilt-card-overlay"></div>
+          <div class="tilt-card-glow"></div>
+
+          <div class="tilt-card-content">
+            <div class="tilt-badge-row">
+              <span class="tilt-num">05</span>
+              <span class="tilt-tag">TURNTABLISM & SCRATCH</span>
+            </div>
+
+            <div>
+              <h3 class="tilt-title">DJ Open Format Showdown</h3>
+              <p class="tilt-sub">Live vinyl scratching, beat juggling, and crowd control competition.</p>
+              <div class="tilt-prize">🏆 17,000,000 LAK Pool</div>
+              <div class="tilt-cta-hint">
+                <span>Tap to open full 3D specs</span> ↗
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tilt-card-wrap ru">
+        <div class="tilt-card" data-modal-id="5">
+          <div class="tilt-card-bg" style="background-image:url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop');"></div>
+          <div class="tilt-card-overlay"></div>
+          <div class="tilt-card-glow"></div>
+
+          <div class="tilt-card-content">
+            <div class="tilt-badge-row">
+              <span class="tilt-num">06</span>
+              <span class="tilt-tag">AEROSOL LIVE GRAFFITI</span>
+            </div>
+
+            <div>
+              <h3 class="tilt-title">Graffiti Art Canvas Battle</h3>
+              <p class="tilt-sub">Live 8-hour mural competition under the theme 'HipHop Beyond Borders'.</p>
+              <div class="tilt-prize">🏆 15,000,000 LAK Pool</div>
+              <div class="tilt-cta-hint">
+                <span>Tap to open full 3D specs</span> ↗
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tilt-card-wrap ru">
+        <div class="tilt-card" data-modal-id="6">
+          <div class="tilt-card-bg" style="background-image:url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop');"></div>
+          <div class="tilt-card-overlay"></div>
+          <div class="tilt-card-glow"></div>
+
+          <div class="tilt-card-content">
+            <div class="tilt-badge-row">
+              <span class="tilt-num">07</span>
+              <span class="tilt-tag">FESTIVAL FINALE</span>
+            </div>
+
+            <div>
+              <h3 class="tilt-title">Headline HipHop Concert</h3>
+              <p class="tilt-sub">2-Night Concert Finale featuring top Lao headliners, regional & international guests.</p>
+              <div class="tilt-prize">🏆 3,000+ Audience Capacity</div>
+              <div class="tilt-cta-hint">
+                <span>Tap to open full 3D specs</span> ↗
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMMERSIVE 3D BATTLE EXPANDED MODAL -->
+<!-- GHOUL 3D TILT TRADING CARD EXPANDED MODAL -->
+<div class="ghoul-modal-overlay" id="ghoul-modal">
+  <button class="ghoul-close-btn" id="ghoul-close-btn" aria-label="Close Modal">&times;</button>
+  <button class="ghoul-nav-btn prev" id="ghoul-prev-btn" aria-label="Previous Pillar">‹</button>
+  <button class="ghoul-nav-btn next" id="ghoul-next-btn" aria-label="Next Pillar">›</button>
+
+  <!-- 3D Parallax Card Stage -->
+  <div class="ghoul-card-stage" id="ghoul-stage">
+    <div class="ghoul-card-body">
+      <div class="ghoul-card-foil" id="ghoul-foil"></div>
+
+      <!-- 3D Photo Layer -->
+      <div class="ghoul-photo-layer">
+        <img id="g-img" src="" alt="Event Pillar" />
+        <span class="ghoul-photo-badge" id="g-badge">CATEGORY #01</span>
+      </div>
+
+      <!-- 3D Info Layer -->
+      <div class="ghoul-info-layer">
+        <div class="ghoul-card-num" id="g-prize">🏆 32,000,000 LAK POOL</div>
+        <h3 class="ghoul-card-title" id="g-title">BREAKING BATTLE 2V2</h3>
+        <p class="ghoul-card-desc" id="g-desc">Description text...</p>
+
+        <div class="ghoul-specs-row">
+          <div>
+            <div class="ghoul-spec-lbl">Competitors</div>
+            <div class="ghoul-spec-val" id="g-comp">64 Dancers</div>
+          </div>
+          <div>
+            <div class="ghoul-spec-lbl">Format</div>
+            <div class="ghoul-spec-val" id="g-format">Audition → Top 16</div>
+          </div>
+          <div>
+            <div class="ghoul-spec-lbl">Judges</div>
+            <div class="ghoul-spec-val" id="g-judge">3 Certified</div>
+          </div>
+          <div>
+            <div class="ghoul-spec-lbl">Schedule</div>
+            <div class="ghoul-spec-val" id="g-sched">Day 1 &amp; Day 2</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D CTA Button -->
+      <a href="#contact" class="ghoul-cta-btn">Sponsor / Partner Category →</a>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- VENUE — KOLLEKTIVA MULTI-ZONE SPATIAL LAYOUT -->
+<section id="venue">
+  <!-- Stacked Full-Bleed Background Visuals -->
+  <div class="kv-bg-layer active" id="kv-bg-0" style="background-image:url('https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1280&auto=format&fit=crop');">
+  <div style="width:100%;height:100%;background:linear-gradient(135deg,#2d0000,#550000,#0d0000);mix-blend-mode:multiply;opacity:0.4;"></div>
+</div><div class="kv-bg-layer " id="kv-bg-1" style="background-image:url('https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1280&auto=format&fit=crop');">
+  <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0000,#440000,#000000);mix-blend-mode:multiply;opacity:0.4;"></div>
+</div><div class="kv-bg-layer " id="kv-bg-2" style="background-image:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1280&auto=format&fit=crop');">
+  <div style="width:100%;height:100%;background:linear-gradient(135deg,#3d0000,#660000,#111111);mix-blend-mode:multiply;opacity:0.4;"></div>
+</div><div class="kv-bg-layer " id="kv-bg-3" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1280&auto=format&fit=crop');">
+  <div style="width:100%;height:100%;background:linear-gradient(135deg,#110000,#330000,#050505);mix-blend-mode:multiply;opacity:0.4;"></div>
+</div><div class="kv-bg-layer " id="kv-bg-4" style="background-image:url('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1280&auto=format&fit=crop');">
+  <div style="width:100%;height:100%;background:linear-gradient(135deg,#220000,#550000,#0a0000);mix-blend-mode:multiply;opacity:0.4;"></div>
+</div><div class="kv-bg-layer " id="kv-bg-5" style="background-image:url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=1280&auto=format&fit=crop');">
+  <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a,#3d0000,#0d0000);mix-blend-mode:multiply;opacity:0.4;"></div>
+</div>
+  <div class="kv-gradient-overlay"></div>
+
+  <div class="kv-content-container">
+    <!-- TOP ZONE: Headline + Dynamic Description -->
+    <div class="kv-top-zone">
+      <div class="kv-headline-box">
+        <div class="kv-section-tag">Festival Experience</div>
+        <h2 class="kv-headline">LAO-ITECC <span class="hl">MULTI-ZONE</span><br>SPATIAL LAYOUT</h2>
+      </div>
+
+      <div class="kv-desc-box">
+        <p class="kv-desc-text animate-fade-in" id="kv-desc">State-of-the-art sound, lighting, and giant LED displays hosting international dance battles, rap cyphers, and nightly concert showcases.</p>
+      </div>
+    </div>
+
+    <!-- BOTTOM ZONE: Avatar Picker + Meta Footer -->
+    <div class="kv-bottom-zone">
+      <div class="kv-picker-row">
+        <button class="kv-picker-btn active" data-zone="0" aria-label="Show Main Arena & Battle Stage">
+  <div class="kv-dot"></div>
+  <div class="kv-thumb">
+    <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1280&auto=format&fit=crop" alt="Main Arena & Battle Stage" loading="lazy" />
+  </div>
+</button><button class="kv-picker-btn " data-zone="1" aria-label="Show Sponsor Experiential Village">
+  <div class="kv-dot"></div>
+  <div class="kv-thumb">
+    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1280&auto=format&fit=crop" alt="Sponsor Experiential Village" loading="lazy" />
+  </div>
+</button><button class="kv-picker-btn " data-zone="2" aria-label="Show Street Food & Beverage Zone">
+  <div class="kv-dot"></div>
+  <div class="kv-thumb">
+    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1280&auto=format&fit=crop" alt="Street Food & Beverage Zone" loading="lazy" />
+  </div>
+</button><button class="kv-picker-btn " data-zone="3" aria-label="Show Fashion & Lifestyle Market">
+  <div class="kv-dot"></div>
+  <div class="kv-thumb">
+    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1280&auto=format&fit=crop" alt="Fashion & Lifestyle Market" loading="lazy" />
+  </div>
+</button><button class="kv-picker-btn " data-zone="4" aria-label="Show Live Graffiti Art Exhibition">
+  <div class="kv-dot"></div>
+  <div class="kv-thumb">
+    <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1280&auto=format&fit=crop" alt="Live Graffiti Art Exhibition" loading="lazy" />
+  </div>
+</button><button class="kv-picker-btn " data-zone="5" aria-label="Show VIP Lounge & Media Center">
+  <div class="kv-dot"></div>
+  <div class="kv-thumb">
+    <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=1280&auto=format&fit=crop" alt="VIP Lounge & Media Center" loading="lazy" />
+  </div>
+</button>
+      </div>
+
+      <div class="kv-meta-footer">
+        <div class="kv-meta-name animate-fade-in" id="kv-meta-name">Main Arena & Battle Stage</div>
+        <div class="kv-meta-role" id="kv-meta-role">Indoor Grand Arena • 5,000 Capacity</div>
+        <div class="kv-meta-tenure" id="kv-meta-tenure">State-of-the-Art Sound & LED</div>
+        <a href="#contact" class="kv-meta-action">Explore Floorplan →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- DIGITAL STRATEGY -->
+<section id="digital">
+  <div class="noise-overlay"></div>
+  <div class="container">
+    <div class="section-label ru">Digital Strategy</div>
+    <h2 class="section-title ru">3-PHASE <span class="hl">OMNICHANNEL</span><br>CAMPAIGN FOR SPONSOR AMPLIFICATION</h2>
+    <div class="red-line ru"></div>
+    <div class="phases">
+      <div class="ph-c ru"><div class="ph-num">1</div><span class="ph-tag">Phase 1</span><div class="ph-title">Pre-Event Hype</div><div class="ph-sub">Awareness &amp; Lead Gen (Weeks 1–8)</div><ul class="ph-list"><li>TikTok &amp; Reels Challenge (#MoveWith[Brand]): Viral dance &amp; freestyle with branded soundbite</li><li>Branded AR / TikTok Filter: 'What's Your HipHop Style?' camera filter with sponsor branding</li><li>Digital Street Pass Registration: Pre-event ticket signup generating customer leads &amp; e-coupons</li></ul></div>
+      <div class="ph-c ru"><div class="ph-num">2</div><span class="ph-tag">Phase 2</span><div class="ph-title">Live Event</div><div class="ph-sub">Real-Time Viral Action (Days 1–2)</div><ul class="ph-list"><li>Interactive Livestreaming: Full broadcast on TikTok &amp; FB with floating sponsor banners &amp; CTA links</li><li>Online Fan-Favorite Voting: Real-time digital voting for best dancers powered by Sponsor portal</li><li>Onsite-to-Online Photo Quests: Post booth selfies with co-branded hashtags to win prizes</li></ul></div>
+      <div class="ph-c ru"><div class="ph-num">3</div><span class="ph-tag">Phase 3</span><div class="ph-title">Sustained ROI</div><div class="ph-sub">Recap &amp; Conversion (Post-Event)</div><ul class="ph-list"><li>Official 4K Aftermovie: High-production recap documentary featuring prominent sponsor integration</li><li>Targeted E-Coupon Remarketing: Follow-up promotional offers delivered to registered attendees</li><li>Comprehensive Sponsor Analytics: Detailed reporting on impressions, footfall, and media valuation</li></ul></div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- TRACKING -->
+<section id="tracking">
+  <div class="noise-overlay"></div>
+  <div class="container">
+    <div class="section-label ru">Attendee Tracking</div>
+    <h2 class="section-title ru">ACCURATE DATA, <span class="hl">HIGH ENGAGEMENT</span><br>&amp; SPONSOR VALUE</h2>
+    <div class="red-line ru"></div>
+    <div class="track-grid">
+      <div class="trc ru"><div class="tr-num">01</div><div class="tr-c"><h4>Smart NFC Wristbands (Tap-to-Vote)</h4><p>Every attendee receives a branded festival wristband with embedded NFC/QR chip for frictionless entry scanning and tapping at sponsor kiosks to vote for their favorite dance crew.</p></div></div>
+      <div class="trc ru"><div class="tr-num">02</div><div class="tr-c"><h4>'Drop Your Tag' Community Canvas</h4><p>Attendees receive a branded physical token/sticker at entry representing their element (Dancer, MC, DJ, Fan) and place it on a giant Sponsor-branded Wall — a viral photo landmark.</p></div></div>
+      <div class="trc ru"><div class="tr-num">03</div><div class="tr-c"><h4>Digital Street Pass &amp; Stamp Rally</h4><p>Gamified Web-App check-in: visitors scan QR codes at 5 sponsor booths to complete a 'Street Quest' and unlock the grand Lucky Draw, ensuring 100% verified demographic data.</p></div></div>
+      <div class="trc ru"><div class="tr-num">04</div><div class="tr-c"><h4>AI Overhead Vision &amp; Footfall Heatmaps</h4><p>Smart optical AI sensors measure precise real-time footfall and dwell time per zone, delivering transparent, verifiable crowd analytics for sponsor post-event reports.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section id="roi">
+  <div class="noise-overlay"></div>
+  <div class="container">
+    <div class="section-label ru">Brand ROI</div>
+    <h2 class="section-title ru">THE 5 PILLARS OF<br><span class="hl">BRAND RETURN</span> ON INVESTMENT</h2>
+    <div class="red-line ru"></div>
+    <div class="roi-grid">
+      <div class="rc ru"><div class="rc-n">01</div><div class="rc-t">Direct Gen Z Access</div><p class="rc-d">Unfiltered connection with 5,000+ onsite urban youth and 10M+ online trendsetters.</p></div>
+      <div class="rc ru"><div class="rc-n">02</div><div class="rc-t">Experiential Activations</div><p class="rc-d">Transform passive spectators into brand advocates through interactive booth experiences and trials.</p></div>
+      <div class="rc ru"><div class="rc-n">03</div><div class="rc-t">Category Exclusivity</div><p class="rc-d">Lock out competitors with exclusive industry partner rights (Banking, Telco, Beverage, etc.).</p></div>
+      <div class="rc ru"><div class="rc-n">04</div><div class="rc-t">Social CSR &amp; Impact</div><p class="rc-d">Champion positive youth development, mental health, creative arts, and anti-drug initiatives.</p></div>
+      <div class="rc ru"><div class="rc-n">05</div><div class="rc-t">High-Volume UGC</div><p class="rc-d">Generate hundreds of organic videos, photos, and social stories showcasing your brand naturally.</p></div>
+      <div class="rc ru"><div class="rc-n">06</div><div class="rc-t">Regional Visibility</div><p class="rc-d">Cross-border exposure reaching tourists and digital audiences across Thailand, Vietnam, and ASEAN.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div class="noise-overlay"></div>
+  <div class="container">
+    <div class="section-label ru">Sponsorship Packages</div>
+    <h2 class="section-title ru">TIERED INVESTMENT<br>&amp; <span class="hl">STRATEGIC</span> ROLES</h2>
+    <div class="red-line ru"></div>
+    <div class="pkg-grid">
+      <div class="pkg feat ru"><span class="pkg-crown">🏆</span><div class="pkg-tier" style="color:var(--gold)">Title Sponsor</div><div class="pkg-price"><span>500,000,000</span>LAK &nbsp;•&nbsp; 1 Exclusive Partner</div><div class="pkg-slots">Exclusive — 1 slot only</div><ul class="pkg-perks"><li>Naming Rights: 'LIHF 2026 Presented by [Brand]'</li><li>100 sq.m Mega Experiential Booth at Entrance</li><li>Category Exclusivity (Zero competitor presence)</li><li>Top Billing across all 10M+ Digital &amp; OOH Media</li><li>Opening &amp; Closing Main Stage Keynote &amp; Awards</li><li>20 VIP All-Access Passes + VIP Concert Lounge</li></ul><a href="#contact" class="btn-p" style="text-align:center;margin-top:auto">Claim This Spot</a></div>
+      <div class="pkg ru"><span class="pkg-crown">🥇</span><div class="pkg-tier" style="color:var(--gold)">Gold Sponsor</div><div class="pkg-price"><span style="color:var(--gold-l)">250,000,000</span>LAK &nbsp;•&nbsp; Max 2 Partners</div><div class="pkg-slots">Maximum 2 slots</div><ul class="pkg-perks"><li>Stage/Arena Naming Rights (e.g. '[Brand] Arena')</li><li>50 sq.m Premium Experiential Booth Space</li><li>Category Exclusivity within business domain</li><li>Prominent Logo on all Official Collateral &amp; LED</li><li>Major Battle Category Award Presenter</li><li>10 VIP All-Access Passes</li></ul><a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Partner Now</a></div>
+      <div class="pkg ru"><span class="pkg-crown">🥈</span><div class="pkg-tier" style="color:var(--gr-l)">Silver Sponsor</div><div class="pkg-price"><span style="color:var(--gr-l)">100,000,000</span>LAK &nbsp;•&nbsp; Max 4 Partners</div><div class="pkg-slots">Maximum 4 slots</div><ul class="pkg-perks"><li>Official Competition Partner (DJ or Graffiti)</li><li>25 sq.m Exhibition &amp; Retail Booth Space</li><li>Dedicated Social Media Campaign Features (3x)</li><li>Logo on Main Stage LED Screens &amp; Backdrops</li><li>Category Award Co-Presenter</li><li>5 VIP Passes</li></ul><a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Partner Now</a></div>
+      <div class="pkg ru"><span class="pkg-crown">🥉</span><div class="pkg-tier" style="color:#CD7F32">Bronze Sponsor</div><div class="pkg-price"><span style="color:#CD7F32">50,000,000</span>LAK &nbsp;•&nbsp; Open</div><div class="pkg-slots">Open availability</div><ul class="pkg-perks"><li>Supporting Event Partner Recognition</li><li>12 sq.m Standard Exhibition Booth</li><li>Logo in Sponsor Group Screen Loop &amp; Backdrop</li><li>1 Dedicated Social Media Announcement Post</li><li>2 VIP Passes</li></ul><a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Partner Now</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALIZED -->
+<section id="specialized">
+  <div class="noise-overlay"></div>
+  <div class="container">
+    <div class="section-label ru">Category Packages</div>
+    <h2 class="section-title ru">SPECIALIZED <span class="hl">TAILORED</span><br>OPPORTUNITIES FOR INDUSTRY LEADERS</h2>
+    <div class="red-line ru"></div>
+    <div class="spec-grid">
+      <div class="sc ru"><span class="sc-ic">💳</span><div class="sc-t">Official Fintech &amp; Cashless Partner (Banks / E-Wallets)</div><p class="sc-d">Exclusive cashless ecosystem: all 50–70 food &amp; market vendors accept transactions exclusively via your App/QR. Co-branded 'Scan &amp; Save 10%' campaign driving thousands of app downloads and new user activations on-site.</p></div>
+      <div class="sc ru"><span class="sc-ic">📶</span><div class="sc-t">Official Telecom &amp; 5G Partner (Mobile Carriers)</div><p class="sc-d">Exclusive provider of High-Speed Event Wi-Fi with branded login splash page. Dedicated 5G Live-Stream broadcast branding. Onsite tourist SIM/eSIM sales booth targeting international competitors.</p></div>
+      <div class="sc ru"><span class="sc-ic">⚡</span><div class="sc-t">Official Energy &amp; Beverage Partner</div><p class="sc-d">100% Exclusive Pouring Rights across all bars and festival grounds. Naming rights to the 'Hydration &amp; Energy Bar Lounge'. Direct sampling of 10,000+ cans directly to high-energy athletes and fans.</p></div>
+      <div class="sc ru"><span class="sc-ic">👟</span><div class="sc-t">Official Streetwear &amp; Lifestyle Partner (Fashion / Apparel)</div><p class="sc-d">Official apparel supplier: co-branded staff, judge, and crew uniforms. Host of the 'LIHF Streetwear Fashion Showcase' and exclusive pop-up merchandise retail zone.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MATRIX -->
+<section id="matrix">
+  <div class="noise-overlay"></div>
+  <div class="container">
+    <div class="section-label ru">Deliverables Matrix</div>
+    <h2 class="section-title ru">CROSS-TIER BENEFITS<br><span class="hl">COMPARISON</span></h2>
+    <div class="red-line ru"></div>
+    <div class="mtx-wrap ru">
+      <table class="mtx">
+        <thead><tr><th>Entitlements / Deliverables</th><th class="tc">🏆 Title (500M)</th><th>🥇 Gold (250M)</th><th>🥈 Silver (100M)</th><th>🥉 Bronze (50M)</th></tr></thead>
+        <tbody>
+          <tr><td>Naming Rights &amp; Branding</td><td style="color:var(--gold)">Co-Naming / Dominant</td><td>Stage / Arena Title</td><td>Category Partner</td><td>Supporting Partner</td></tr>
+          <tr><td>Category Exclusivity</td><td style="color:var(--gold)">Full Exclusive (100%)</td><td>Category Exclusive</td><td>No</td><td>No</td></tr>
+          <tr><td>Booth / Activation Space</td><td style="color:var(--gold)">100 sq.m (VIP Spot)</td><td>50 sq.m (Prime)</td><td>25 sq.m</td><td>12 sq.m</td></tr>
+          <tr><td>Stage Speaking &amp; Awards</td><td style="color:var(--gold)">Keynote &amp; Grand Awards</td><td>Category Awards</td><td>Category Awards</td><td>No</td></tr>
+          <tr><td>LED Screen Ad Frequency</td><td style="color:var(--gold)">Every 20 Mins</td><td>Every 45 Mins</td><td>Hourly Loop</td><td>Group Loop</td></tr>
+          <tr><td>Dedicated Social Posts / UGC</td><td style="color:var(--gold)">12+ Posts &amp; Challenge</td><td>6 Posts &amp; Reels</td><td>3 Posts</td><td>1 Post</td></tr>
+          <tr><td>Live Stream Logo &amp; MC Plugs</td><td style="color:var(--gold)">Permanent Overlay + MC</td><td>Rotating + MC</td><td>Rotating Banner</td><td>No</td></tr>
+          <tr><td>VIP All-Access Passes</td><td style="color:var(--gold)">20 Passes + Lounge</td><td>10 Passes</td><td>5 Passes</td><td>2 Passes</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+<!-- BUDGET -->
+<section id="budget">
+  <div class="noise-overlay"></div>
+  <div class="container">
+    <div class="section-label ru">Financial Transparency</div>
+    <h2 class="section-title ru">TOTAL OPERATING<br><span class="hl">BUDGET ALLOCATION</span></h2>
+    <div class="red-line ru"></div>
+    <div class="bgt-lay">
+      <div class="rl">
+        <div class="bgt-tot"><div class="bgt-amt">1.3B LAK</div><div class="bgt-lbl">Total Investment in World-Class Production</div><p class="bgt-note">Every Kip is strategically invested into world-class sound, lighting, international artist logistics, high-stakes athlete prize money, and multi-channel marketing to maximize attendance and sponsor ROI.</p></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.4rem">
+          <div class="os"><span class="os-n">9</span><span class="os-l">Years of Leadership</span></div>
+          <div class="os"><span class="os-n">10K+</span><span class="os-l">Youth Empowered</span></div>
+        </div>
+      </div>
+      <div class="bgt-bars rr">
+        <div class="bgt-bi"><div class="bgt-bl"><span>Venue Rental &amp; Hall Production</span><span>350M (27%)</span></div><div class="bgt-trk"><div class="bgt-fill" style="width:0%" data-w="27%"></div></div></div>
+        <div class="bgt-bi"><div class="bgt-bl"><span>Stage, Sound, Lighting &amp; LED Technical</span><span>250M (19%)</span></div><div class="bgt-trk"><div class="bgt-fill" style="width:0%" data-w="19%"></div></div></div>
+        <div class="bgt-bi"><div class="bgt-bl"><span>International Guests, Judges &amp; Headliners</span><span>250M (19%)</span></div><div class="bgt-trk"><div class="bgt-fill" style="width:0%" data-w="19%"></div></div></div>
+        <div class="bgt-bi"><div class="bgt-bl"><span>Athlete &amp; Competitor Prize Pool</span><span>159M (12%)</span></div><div class="bgt-trk"><div class="bgt-fill" style="width:0%" data-w="12%"></div></div></div>
+        <div class="bgt-bi"><div class="bgt-bl"><span>Omnichannel Marketing, PR &amp; Media</span><span>100M (8%)</span></div><div class="bgt-trk"><div class="bgt-fill" style="width:0%" data-w="8%"></div></div></div>
+        <div class="bgt-bi"><div class="bgt-bl"><span>Event Staffing, Security &amp; Stage Crew</span><span>80M (6%)</span></div><div class="bgt-trk"><div class="bgt-fill" style="width:0%" data-w="6%"></div></div></div>
+        <div class="bgt-bi"><div class="bgt-bl"><span>Logistics, Hospitality &amp; Local Transport</span><span>70M (5%)</span></div><div class="bgt-trk"><div class="bgt-fill" style="width:0%" data-w="5%"></div></div></div>
+        <div class="bgt-bi"><div class="bgt-bl"><span>Licensing, Insurance &amp; Administration</span><span>41M (4%)</span></div><div class="bgt-trk"><div class="bgt-fill" style="width:0%" data-w="4%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORGANIZER -->
+<section id="organizer">
+  <div class="noise-overlay"></div>
+  <div class="container">
+    <div class="section-label ru">Organizer Profile</div>
+    <h2 class="section-title ru">FANGLAO STUDIO<br><span class="hl">9 YEARS</span> OF CREATIVE LEADERSHIP</h2>
+    <div class="red-line ru"></div>
+    <div class="org-lay">
+      <div class="org-pillars rl">
+        <div class="op"><div class="op-ic">🏆</div><div><h4>Pioneers in Urban Arts</h4><p>Founded in 2017, Fanglao Studio is Laos' premier contemporary and street dance institution, empowering over 10,000 youth through dance classes, workshops, and artistic productions.</p></div></div>
+        <div class="op"><div class="op-ic">🌟</div><div><h4>Proven Event Execution</h4><p>Proven track record producing large-scale cultural events: Lao HipHop Festival, UYD Lao Youth Festival, Fanglao Jam, and international exchange tours across ASEAN &amp; Europe.</p></div></div>
+        <div class="op"><div class="op-ic">🤝</div><div><h4>Strong Community Network</h4><p>Deep organic relationships with schools, universities, dance crews, graffiti artists, DJs, and music producers across Laos and Southeast Asia.</p></div></div>
+        <div class="op"><div class="op-ic">💼</div><div><h4>Complete Production Team</h4><p>End-to-end in-house capabilities covering stage design, live audio/visual engineering, artist hospitality, security protocol, and digital marketing.</p></div></div>
+      </div>
+      <div class="rr">
+        <div class="org-stats">
+          <div class="os"><span class="os-n">9</span><span class="os-l">Years Founded</span></div>
+          <div class="os"><span class="os-n">10K+</span><span class="os-l">Youth Trained</span></div>
+          <div class="os"><span class="os-n">10+</span><span class="os-l">Countries</span></div>
+          <div class="os"><span class="os-n">7</span><span class="os-l">Battle Categories</span></div>
+        </div>
+        <div class="swiper org-swiper" style="margin-top:1.4rem;border-radius:3px;overflow:hidden;height:260px">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><div style="width:100%;height:100%;background:linear-gradient(135deg,#050505 0%,#220000 50%,#050505 100%);display:flex;align-items:center;justify-content:center;filter:brightness(.65) saturate(.8);object-fit:cover;"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:rgba(204,0,0,0.35);letter-spacing:.15em;text-transform:uppercase;text-align:center;padding:1rem;">Culture</span></div></div>
+            <div class="swiper-slide"><div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0000 0%,#3d0000 60%,#111111 100%);display:flex;align-items:center;justify-content:center;filter:brightness(.65) saturate(.8);object-fit:cover;"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:rgba(204,0,0,0.35);letter-spacing:.15em;text-transform:uppercase;text-align:center;padding:1rem;">Festival</span></div></div>
+            <div class="swiper-slide"><div style="width:100%;height:100%;background:linear-gradient(135deg,#111111 0%,#440000 55%,#0a0000 100%);display:flex;align-items:center;justify-content:center;filter:brightness(.65) saturate(.8);object-fit:cover;"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:rgba(204,0,0,0.35);letter-spacing:.15em;text-transform:uppercase;text-align:center;padding:1rem;">Graffiti</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="cta-bg"></div>
+  <div class="noise-overlay"></div>
+  <div class="container">
+    <div class="ct-lay">
+      <div class="rl">
+        <div class="section-label">Let's Build Together</div>
+        <h2 class="ct-hl">LET'S BUILD<br>THE NEXT<br><span class="big-r">REGIONAL<br>LANDMARK</span></h2>
+        <div class="red-line"></div>
+        <div class="ct-details">
+          <div class="ct-item"><div class="ct-ic">🏢</div><div><div class="ct-lbl">Organization</div><div class="ct-val">Fanglao Dance Studio / LIHF Committee</div></div></div>
+          <div class="ct-item"><div class="ct-ic">📧</div><div><div class="ct-lbl">Email</div><div class="ct-val"><a href="mailto:contact@fanglaostudio.com">contact@fanglaostudio.com</a></div></div></div>
+          <div class="ct-item"><div class="ct-ic">🌐</div><div><div class="ct-lbl">Website</div><div class="ct-val"><a href="https://www.fanglaostudio.com" target="_blank">www.fanglaostudio.com</a></div></div></div>
+          <div class="ct-item"><div class="ct-ic">📱</div><div><div class="ct-lbl">Social Channels</div><div class="ct-val">@fanglaostudio (Facebook / Instagram / TikTok)</div></div></div>
+          <div class="ct-item"><div class="ct-ic">📍</div><div><div class="ct-lbl">Office Location</div><div class="ct-val">Vientiane Capital, Lao PDR</div></div></div>
+        </div>
+        <div class="ct-btns">
+          <a href="mailto:contact@fanglaostudio.com" class="btn-p">Send Partnership Inquiry</a>
+          <a href="https://www.fanglaostudio.com" target="_blank" class="btn-s">Visit Website</a>
+        </div>
+      </div>
+      <div class="rr">
+        <div class="section-label">Partnership Roadmap</div>
+        <div class="roadmap">
+          <div class="rs"><div class="rs-n">01</div><div class="rs-c"><h4>Tier Selection</h4><p>Select your preferred Sponsorship Package or request a custom activation plan.</p></div></div>
+          <div class="rs"><div class="rs-n">02</div><div class="rs-c"><h4>Agreement &amp; Alignment</h4><p>Confirm partnership terms and sign official sponsorship agreement.</p><div class="dt">June 2026</div></div></div>
+          <div class="rs"><div class="rs-n">03</div><div class="rs-c"><h4>Campaign Rollout</h4><p>Launch pre-event co-branded digital campaign and booth planning.</p><div class="dt">August 2026</div></div></div>
+          <div class="rs"><div class="rs-n">04</div><div class="rs-c"><h4>Festival Execution</h4><p>Deliver high-impact on-ground experience at Lao-ITECC.</p><div class="dt">November 13–15, 2026</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-logo">LI<span>HF</span> 2026</div>
+  <p class="ft-copy">© 2026 Lao International HipHop Festival &nbsp;•&nbsp; Presented by Fanglao Dance Studio &nbsp;•&nbsp; Vientiane, Lao PDR<br>One Culture • One Movement • One Region</p>
+</footer>
+
+<script>
+// ── Ticker (no dependency)
+const ticker = document.getElementById('ticker');
+if(ticker){
+  ticker.addEventListener('mouseenter',()=>ticker.style.animationPlayState='paused');
+  ticker.addEventListener('mouseleave',()=>ticker.style.animationPlayState='running');
+}
+
+// ── Swiper (progressive enhancement)
+if(typeof Swiper !== 'undefined'){
+  try{
+    new Swiper('.hero-swiper',{effect:'fade',loop:true,speed:1400,autoplay:{delay:3500,disableOnInteraction:false},allowTouchMove:false});
+    new Swiper('.org-swiper',{effect:'fade',loop:true,speed:1000,autoplay:{delay:3000,disableOnInteraction:false}});
+  } catch(e){ console.warn('Swiper init error',e); }
+}
+
+// ── GSAP Animations (fully progressive — if GSAP fails, page is 100% readable)
+if(typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined'){
+  try{
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Mark body so CSS hides .ru/.rl/.rr — they'll be animated back to visible
+    document.body.classList.add('gsap-ready');
+
+    // Hero strip scroll parallax
+    const heroStrip = document.getElementById('hero-strip');
+    const stripCells = document.querySelectorAll('.strip-cell');
+    ScrollTrigger.create({
+      trigger:'#hero',start:'top top',end:'+=500',scrub:.8,
+      onUpdate(self){
+        const p=self.progress;
+        if(heroStrip) gsap.set(heroStrip,{y:-110*p,opacity:Math.max(0,1-p*2)});
+        stripCells.forEach((c,i)=>{
+          const st=i*.1;
+          const cp=Math.max(0,Math.min(1,(p-st)/(1-st)));
+          gsap.set(c,{y:-28*cp});
+        });
+      }
+    });
+
+    // Hero logo scale on scroll
+    const heroLogo = document.getElementById('hero-logo');
+    ScrollTrigger.create({
+      trigger:'#hero',start:'top top',end:'+=350',scrub:1,
+      onUpdate(self){
+        if(heroLogo) gsap.set(heroLogo,{scale:1-self.progress*.12,opacity:1-self.progress*1.3});
+      }
+    });
+
+    // Section reveal animations — gsap.fromTo guarantees final state opacity:1
+    document.querySelectorAll('.ru,.rl,.rr').forEach(el=>{
+      let fx=0,fy=0;
+      if(el.classList.contains('ru')) fy=45;
+      if(el.classList.contains('rl')) fx=-55;
+      if(el.classList.contains('rr')) fx=55;
+      gsap.fromTo(el,
+        {opacity:0,x:fx,y:fy},
+        {opacity:1,x:0,y:0,duration:.85,ease:'power3.out',
+          clearProps:'transform',
+          scrollTrigger:{trigger:el,start:'top 92%',toggleActions:'play none none none'}}
+      );
+    });
+
+    // Battle cards stagger
+    gsap.utils.toArray('.bc').forEach((c,i)=>{
+      gsap.fromTo(c,
+        {opacity:0,x:-38},
+        {opacity:1,x:0,duration:.55,delay:i*.06,ease:'power2.out',
+          clearProps:'transform',
+          scrollTrigger:{trigger:c,start:'top 92%',toggleActions:'play none none none'}}
+      );
+    });
+
+    // Budget bars
+    document.querySelectorAll('.bgt-fill').forEach(bar=>{
+      const tw=bar.dataset.w;
+      ScrollTrigger.create({trigger:bar,start:'top 90%',once:true,
+        onEnter:()=>gsap.to(bar,{width:tw,duration:1.2,ease:'power2.out'})});
+    });
+
+    // KPI counters
+    document.querySelectorAll('.kn[data-n]').forEach(el=>{
+      const target=parseInt(el.dataset.n);
+      const suffix=el.dataset.s||'';
+      ScrollTrigger.create({trigger:el,start:'top 85%',once:true,
+        onEnter:()=>{
+          let t=null;const dur=1800;
+          (function step(ts){
+            if(!t) t=ts;
+            const p=Math.min((ts-t)/dur,1);
+            const e=1-Math.pow(1-p,3);
+            el.textContent=Math.round(target*e).toLocaleString()+suffix;
+            if(p<1) requestAnimationFrame(step);
+          })(performance.now());
+        }
+      });
+    });
+
+    // Package card 3D tilt
+    document.querySelectorAll('.pkg').forEach(card=>{
+      card.addEventListener('mousemove',e=>{
+        const r=card.getBoundingClientRect();
+        const x=(e.clientX-r.left)/r.width-.5;
+        const y=(e.clientY-r.top)/r.height-.5;
+        gsap.to(card,{rotateY:x*9,rotateX:-y*9,duration:.4,ease:'power1.out',transformPerspective:700});
+      });
+      card.addEventListener('mouseleave',()=>{
+        gsap.to(card,{rotateY:0,rotateX:0,duration:.5,ease:'power2.out'});
+      });
+    });
+
+    // Nav shadow
+    ScrollTrigger.create({start:'top -60',
+      onToggle:self=>{
+        document.getElementById('main-nav').style.boxShadow=self.isActive?'0 4px 30px rgba(0,0,0,.6)':'none';
+      }
+    });
+
+  } catch(err){
+    // If any GSAP error, remove gsap-ready so all content becomes visible
+    document.body.classList.remove('gsap-ready');
+    console.warn('GSAP animation error — showing all content statically',err);
+  }
+} else {
+  // GSAP not available — content is already visible via CSS defaults
+  console.info('GSAP not loaded — page content fully visible in static mode');
+}
+
+
+// ── Interactive Battle Category Switching ──
+const battleData = [
+  {
+    num: "01",
+    badge: "Category #01 • Open International",
+    title: "Breaking Battle 2v2",
+    prize: "🏆 32,000,000 LAK Prize Pool",
+    desc: "Open International 2v2 Breaking competition bringing together Olympic-caliber B-Boys and B-Girls from across ASEAN, Japan, and Europe. Features top-tier 1-on-1 round robin qualifiers leading to a high-voltage 2v2 knockout final stage.",
+    comp: "64 Dancers (32 Crews)",
+    format: "Audition → Top 16 KO",
+    judge: "3 WDSF Certified Judges",
+    sched: "Day 1 Qualifiers & Day 2 Finals",
+    bg: "linear-gradient(135deg,#2d0000 0%,#550000 50%,#1a0000 100%)",
+    label: "BREAKING 2V2"
+  },
+  {
+    num: "02",
+    badge: "Category #02 • Open Styles",
+    title: "Open Style Battle 2v2",
+    prize: "🏆 27,000,000 LAK Prize Pool",
+    desc: "Freestyle street dance battle incorporating HipHop, Popping, Locking, Krump, and Waacking. Dancers must adapt instantly to surprise music tracks spun live by guest turntablists.",
+    comp: "48 Dancers (24 Crews)",
+    format: "7-to-Smoke & 2v2 KO",
+    judge: "3 All-Style Master Judges",
+    sched: "Day 1 Evening Stage",
+    bg: "linear-gradient(135deg,#1a0000 0%,#440000 50%,#0a0000 100%)",
+    label: "OPEN STYLE 2V2"
+  },
+  {
+    num: "03",
+    badge: "Category #03 • Team Showcase",
+    title: "Crew Competition",
+    prize: "🏆 56,000,000 LAK Prize Pool",
+    desc: "The largest prize pool battle of the festival. Teams of 5 to 8 dancers present 4-minute synchronized choreographies judged on execution, musicality, trick difficulty, and crowd reaction.",
+    comp: "16 Crews (120+ Dancers)",
+    format: "Full Stage Showcase",
+    judge: "5 International Choreographers",
+    sched: "Day 2 Prime Finale",
+    bg: "linear-gradient(135deg,#3d0000 0%,#660000 50%,#1a0000 100%)",
+    label: "CREW SHOWDOWN"
+  },
+  {
+    num: "04",
+    badge: "Category #04 • DJ Turntablism",
+    title: "DJ Open Format Showdown",
+    prize: "🏆 17,000,000 LAK Prize Pool",
+    desc: "Battle of the turntables testing vinyl scratching, live remixing, track transitions, and crowd energy. DJs are given 15-minute sets to ignite the arena floor.",
+    comp: "12 Professional DJs",
+    format: "15-Min Live Battle Sets",
+    judge: "Regional DJ Champions",
+    sched: "Day 1 Afternoon",
+    bg: "linear-gradient(135deg,#0d0000 0%,#330000 50%,#000000 100%)",
+    label: "DJ SHOWDOWN"
+  },
+  {
+    num: "05",
+    badge: "Category #05 • Visual Arts",
+    title: "Graffiti Art Competition",
+    prize: "🏆 15,000,000 LAK Prize Pool",
+    desc: "'HipHop Beyond Borders' live aerosol mural challenge. Artists transform massive 4x2 meter canvas walls live on-site, creating viral photo backdrops for festival attendees.",
+    comp: "10 Selected Visual Artists",
+    format: "6-Hour Live Spray Art",
+    judge: "Urban Art Directors",
+    sched: "Day 1 & 2 All Day",
+    bg: "linear-gradient(135deg,#220000 0%,#440000 60%,#0a0000 100%)",
+    label: "GRAFFITI CANVAS"
+  },
+  {
+    num: "06",
+    badge: "Category #06 • Lao National MCs",
+    title: "Rap 7 To Smoke",
+    prize: "🏆 7,000,000 LAK + Album Producer Deal",
+    desc: "Exclusive cypher for Lao MCs. 7 rappers enter the ring in a fast-paced 1-on-1 freestyle battle. The first MC to rack up 7 consecutive wins claims the crown.",
+    comp: "7 Top Lao MCs",
+    format: "7-to-Smoke Cypher",
+    judge: "Lao HipHop Legends",
+    sched: "Day 2 Night Cypher",
+    bg: "linear-gradient(135deg,#110000 0%,#330000 50%,#050505 100%)",
+    label: "RAP 7-TO-SMOKE"
+  },
+  {
+    num: "07",
+    badge: "Category #07 • Main Event Finale",
+    title: "Headline HipHop Concert",
+    prize: "🔥 3,000+ Audience Capacity",
+    desc: "2-Night grand finale music concert featuring Laos' top headliners, ASEAN rap icons, live bands, DJ sets, and spectacular LED laser light productions.",
+    comp: "15+ Acts & Headliners",
+    format: "Live Concert Production",
+    judge: "Audience & Festival Press",
+    sched: "Day 1 & Day 2 Nights",
+    bg: "linear-gradient(135deg,#3d0000 0%,#770000 50%,#111111 100%)",
+    label: "HEADLINE CONCERT"
+  }
+];
+
+document.querySelectorAll('.bc[data-battle]').forEach(card => {
+  card.addEventListener('click', () => {
+    const idx = parseInt(card.dataset.battle);
+    const data = battleData[idx];
+    if(!data) return;
+
+    // Active class toggle
+    document.querySelectorAll('.bc[data-battle]').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    // Update panel content with smooth fade
+    const panel = document.getElementById('battle-detail-panel');
+    panel.style.opacity = '0.4';
+    panel.style.transform = 'translateY(5px)';
+
+    setTimeout(() => {
+      document.getElementById('b-badge').textContent = data.badge;
+      document.getElementById('b-title').textContent = data.title;
+      document.getElementById('b-prize').textContent = data.prize;
+      document.getElementById('b-desc').textContent = data.desc;
+      document.getElementById('b-comp').textContent = data.comp;
+      document.getElementById('b-format').textContent = data.format;
+      document.getElementById('b-judge').textContent = data.judge;
+      document.getElementById('b-sched').textContent = data.sched;
+      
+      const bgCard = document.getElementById('b-card-bg');
+      bgCard.style.background = data.bg;
+      document.getElementById('b-card-label').textContent = data.label;
+
+      panel.style.opacity = '1';
+      panel.style.transform = 'translateY(0)';
+    }, 180);
+  });
+});
+
+
+
+// ── Desigh 1 Showreel Modal Interaction ──
+const showreelModal = document.getElementById('showreel-modal');
+const openShowreelBtn = document.getElementById('open-showreel-btn');
+const closeShowreelBtn = document.getElementById('close-showreel-btn');
+
+if(openShowreelBtn && showreelModal){
+  openShowreelBtn.addEventListener('click', () => {
+    showreelModal.classList.add('open');
+  });
+}
+if(closeShowreelBtn && showreelModal){
+  closeShowreelBtn.addEventListener('click', () => {
+    showreelModal.classList.remove('open');
+  });
+}
+if(showreelModal){
+  showreelModal.addEventListener('click', (e) => {
+    if(e.target === showreelModal) showreelModal.classList.remove('open');
+  });
+}
+
+
+
+// ── Kollektiva Multi-Zone Interactive Switcher Logic ──
+const zoneData = [{'name': 'Main Arena & Battle Stage', 'role': 'Indoor Grand Arena • 5,000 Capacity', 'tenure': 'State-of-the-Art Sound & LED', 'desc': 'State-of-the-art sound, lighting, and giant LED displays hosting international dance battles, rap cyphers, and nightly concert showcases.', 'bg': 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1280&auto=format&fit=crop', 'grad': 'linear-gradient(135deg,#2d0000,#550000,#0d0000)'}, {'name': 'Sponsor Experiential Village', 'role': 'High-Traffic Hall • 10,000+ Samples', 'tenure': 'Brand Activations & Games', 'desc': 'Prime high-traffic exhibition area at the entrance hall for branded immersive activations, sampling kiosks, interactive games, and photo-ops.', 'bg': 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1280&auto=format&fit=crop', 'grad': 'linear-gradient(135deg,#1a0000,#440000,#000000)'}, {'name': 'Street Food & Beverage Zone', 'role': 'Outdoor Courtyard • 50+ Vendors', 'tenure': 'Curated Local & Regional Eats', 'desc': '50+ curated local and regional street food vendors offering diverse culinary delights to keep audiences energized on-site all day.', 'bg': 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1280&auto=format&fit=crop', 'grad': 'linear-gradient(135deg,#3d0000,#660000,#111111)'}, {'name': 'Fashion & Lifestyle Market', 'role': 'Streetwear & Sneaker Swap', 'tenure': 'Urban Apparel & Creative Goods', 'desc': 'Streetwear apparel, sneaker swaps, custom accessories, and independent creative goods connecting urban consumers with brands.', 'bg': 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1280&auto=format&fit=crop', 'grad': 'linear-gradient(135deg,#110000,#330000,#050505)'}, {'name': 'Live Graffiti Art Exhibition', 'role': 'Giant 4x2m Canvas Walls', 'tenure': 'Live Mural Aerosol Performance', 'desc': 'Giant open canvas walls featuring live spray art creation by international muralists — an instant viral photo background.', 'bg': 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1280&auto=format&fit=crop', 'grad': 'linear-gradient(135deg,#220000,#550000,#0a0000)'}, {'name': 'VIP Lounge & Media Center', 'role': 'Air-Conditioned Executive Hub', 'tenure': 'Press Hub & Corporate Networking', 'desc': 'Exclusive air-conditioned networking hub for corporate sponsors, VIP executives, international judges, and press interviews.', 'bg': 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=1280&auto=format&fit=crop', 'grad': 'linear-gradient(135deg,#1a1a1a,#3d0000,#0d0000)'}];
+
+document.querySelectorAll('.kv-picker-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const idx = parseInt(btn.dataset.zone);
+    const data = zoneData[idx];
+    if(!data) return;
+
+    // Toggle active picker button
+    document.querySelectorAll('.kv-picker-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Toggle active background crossfade (700ms opacity transition)
+    document.querySelectorAll('.kv-bg-layer').forEach(layer => layer.classList.remove('active'));
+    const targetBg = document.getElementById(`kv-bg-${idx}`);
+    if(targetBg) targetBg.classList.add('active');
+
+    // Update dynamic text with remount / fadeIn animation
+    const descEl = document.getElementById('kv-desc');
+    const nameEl = document.getElementById('kv-meta-name');
+    const roleEl = document.getElementById('kv-meta-role');
+    const tenureEl = document.getElementById('kv-meta-tenure');
+
+    if(descEl){
+      descEl.classList.remove('animate-fade-in');
+      void descEl.offsetWidth; // trigger reflow
+      descEl.textContent = data.desc;
+      descEl.classList.add('animate-fade-in');
+    }
+
+    if(nameEl){
+      nameEl.classList.remove('animate-fade-in');
+      void nameEl.offsetWidth;
+      nameEl.textContent = data.name;
+      nameEl.classList.add('animate-fade-in');
+    }
+
+    if(roleEl) roleEl.textContent = data.role;
+    if(tenureEl) tenureEl.textContent = data.tenure;
+  });
+});
+
+
+
+// ── Curtains.js WebGL Plane Shader Setup for Executive Summary (#about) ──
+window.addEventListener('load', () => {
+  if (typeof Curtains === 'undefined') {
+    console.info('Curtains.js not loaded — rendering fallback visual');
+    return;
+  }
+
+  try {
+    const curtains = new Curtains({
+      container: "curtains-canvas",
+      pixelRatio: Math.min(1.5, window.devicePixelRatio || 1)
+    });
+
+    const vs = `
+      precision mediump float;
+      attribute vec3 aVertexPosition;
+      attribute vec2 aTextureCoord;
+      uniform mat4 uMVMatrix;
+      uniform mat4 uPMatrix;
+      uniform float uTime;
+      uniform vec2 uMousePosition;
+      uniform float uHover;
+      varying vec3 vVertexPosition;
+      varying vec2 vTextureCoord;
+
+      void main() {
+        vec3 vertexPosition = aVertexPosition;
+        float dist = distance(uMousePosition, vec2(vertexPosition.x, vertexPosition.y));
+        float wave = sin(dist * 12.0 - uTime * 0.05) * 0.08 * uHover;
+        vertexPosition.z += wave;
+        gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
+        vTextureCoord = aTextureCoord;
+        vVertexPosition = vertexPosition;
+      }
+    `;
+
+    const fs = `
+      precision mediump float;
+      varying vec3 vVertexPosition;
+      varying vec2 vTextureCoord;
+      uniform sampler2D planeTexture;
+      uniform float uTime;
+      uniform float uHover;
+      uniform vec2 uMousePosition;
+
+      void main() {
+        vec2 textureCoord = vTextureCoord;
+        float dist = distance(uMousePosition, textureCoord);
+        float wave = sin(dist * 18.0 - uTime * 0.06) * 0.015 * uHover;
+
+        // RGB Split Displacement
+        vec4 red = texture2D(planeTexture, textureCoord + vec2(wave * 1.6, 0.0));
+        vec4 green = texture2D(planeTexture, textureCoord);
+        vec4 blue = texture2D(planeTexture, textureCoord - vec2(wave * 1.6, 0.0));
+
+        vec4 finalColor = vec4(red.r, green.g, blue.b, 1.0);
+
+        // Add subtle red vignette highlight on hover
+        finalColor.r += uHover * 0.12 * (1.0 - dist);
+
+        gl_FragColor = finalColor;
+      }
+    `;
+
+    const planeElement = document.getElementById('about-plane');
+    if (!planeElement) return;
+
+    const params = {
+      vertexShader: vs,
+      fragmentShader: fs,
+      widthSegments: 20,
+      heightSegments: 20,
+      uniforms: {
+        time: {
+          name: "uTime",
+          type: "1f",
+          value: 0
+        },
+        mousePosition: {
+          name: "uMousePosition",
+          type: "2f",
+          value: [0.5, 0.5]
+        },
+        hover: {
+          name: "uHover",
+          type: "1f",
+          value: 0
+        }
+      }
+    };
+
+    const plane = curtains.addPlane(planeElement, params);
+    let targetHover = 0;
+    let currentHover = 0;
+
+    if (plane) {
+      plane.onRender(() => {
+        plane.uniforms.time.value++;
+        // Smooth hover interpolation
+        currentHover += (targetHover - currentHover) * 0.1;
+        plane.uniforms.hover.value = currentHover;
+      });
+
+      planeElement.addEventListener('mousemove', (e) => {
+        const rect = planeElement.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        plane.uniforms.mousePosition.value = [x, y];
+        targetHover = 1.0;
+      });
+
+      planeElement.addEventListener('mouseleave', () => {
+        targetHover = 0.0;
+      });
+
+      // Hide fallback once WebGL plane is ready
+      plane.onReady(() => {
+        const fb = document.querySelector('.about-img-fallback');
+        if (fb) fb.style.display = 'none';
+      });
+    }
+
+  } catch (err) {
+    console.warn('Curtains.js init error:', err);
+  }
+});
+
+
+
+// ── 3D Tilt Tracking & Interactive Modal JS ──
+window.addEventListener('load', () => {
+  const battlesData = [{'id': 0, 'num': '01', 'tag': 'OPEN INTERNATIONAL', 'title': 'Breaking Battle 2v2', 'sub': 'Olympic-caliber B-Boy & B-Girl showdown featuring top dancers from ASEAN, Japan & Europe.', 'prize': '32,000,000 LAK Pool', 'img': 'https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=800&auto=format&fit=crop', 'desc': 'Open International 2v2 Breaking competition bringing together Olympic-caliber B-Boys and B-Girls across 10+ participating nations. Features high-energy 1-on-1 round-robin qualifiers leading to a high-voltage 2v2 knockout stage.', 'comp': '64 Dancers (32 Crews)', 'format': '1-on-1 Audition → Top 16 KO', 'judge': '3 WDSF Certified Judges', 'sched': 'Day 1 Qualifiers & Day 2 Finals'}, {'id': 1, 'num': '02', 'tag': 'OPEN STYLE FREESTYLE', 'title': 'Open Style Battle 2v2', 'sub': 'HipHop, Popping, Locking, Krump, and Waacking expressional street dance showdown.', 'prize': '27,000,000 LAK Pool', 'img': 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=800&auto=format&fit=crop', 'desc': 'All-style 2v2 dance battle celebrating pure musicality, improvisation, and versatility. Dancers battle to unpredictable live DJ tracks across HipHop, Funk, House, and Electronic beats.', 'comp': '48 Dancers (24 Crews)', 'format': 'Cypher Audition → Top 16 KO', 'judge': '3 Regional Legends', 'sched': 'Day 1 Stage Showcase'}, {'id': 2, 'num': '03', 'tag': 'CHOREOGRAPHY SHOWDOWN', 'title': 'Crew Competition Showcase', 'sub': '5–8 Members Open — Synchronized high-impact choreography and team concept routines.', 'prize': '56,000,000 LAK Pool', 'img': 'https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=800&auto=format&fit=crop', 'desc': 'The premier group performance spectacle of LIHF. Teams of 5 to 8 dancers present 3-minute choreographed concept routines evaluated on synchronization, musicality, difficulty, and stage presence.', 'comp': '16 Premier Dance Crews', 'format': '3-Min Stage Routine → Final Rank', 'judge': '5 International Panelists', 'sched': 'Day 2 Evening Main Stage'}, {'id': 3, 'num': '04', 'tag': 'LAO NATIONAL CYPHER', 'title': 'Rap 7-To-Smoke Cypher', 'sub': 'High-octane Lao MC cypher battle crowning the top lyricist of Laos.', 'prize': '7,000,000 LAK Pool', 'img': 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop', 'desc': 'Fast-paced 7-To-Smoke rap cypher format where 8 top Lao rappers battle head-to-head in continuous 45-second rounds. First MC to achieve 7 consecutive wins takes the championship belt.', 'comp': '8 Selected Lao MCs', 'format': '7-To-Smoke Continuous Ring', 'judge': 'Legendary Lao Rappers & Audience Vote', 'sched': 'Day 1 Night Arena'}, {'id': 4, 'num': '05', 'tag': 'TURNTABLISM & SCRATCH', 'title': 'DJ Open Format Showdown', 'sub': 'Live vinyl scratching, beat juggling, and crowd control competition.', 'prize': '17,000,000 LAK Pool', 'img': 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop', 'desc': "Battle of the turntables where Asia's best DJs compete in 6-minute routine sets demonstrating technical scratching, tone play, beat juggling, and crowd hyping ability.", 'comp': '12 Turntablist DJs', 'format': '6-Min Routine Set → Top 4 Finals', 'judge': 'Red Bull Thr33style Champions', 'sched': 'Day 2 Afternoon Stage'}, {'id': 5, 'num': '06', 'tag': 'AEROSOL LIVE GRAFFITI', 'title': 'Graffiti Art Canvas Battle', 'sub': "Live 8-hour mural competition under the theme 'HipHop Beyond Borders'.", 'prize': '15,000,000 LAK Pool', 'img': 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop', 'desc': 'Street art mastery on giant 3x2 meter canvases. Artists execute live aerosol murals during the festival, judged on letter structure, color harmony, concept, and technique.', 'comp': '10 Featured Aerosol Artists', 'format': 'Live 8-Hour Canvas Creation', 'judge': 'Master Street Artists & Curator Panel', 'sched': 'Day 1 & Day 2 Outdoor Village'}, {'id': 6, 'num': '07', 'tag': 'FESTIVAL FINALE', 'title': 'Headline HipHop Concert', 'sub': '2-Night Concert Finale featuring top Lao headliners, regional & international guests.', 'prize': '3,000+ Audience Capacity', 'img': 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop', 'desc': 'The grand finale concert experience uniting thousands of fans. Features live performances from top Lao HipHop artists, ASEAN guest stars, DJ sets, and official award ceremony.', 'comp': 'Headliner Acts & Regional Stars', 'format': 'Live Concert Festival Stage', 'judge': 'Festival Audience Experience', 'sched': 'Day 2 Finale Night'}];
+
+  // 3D Tilt Effect on mousemove
+  const cards = document.querySelectorAll('.tilt-card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * -12;
+      const rotateY = ((x - centerX) / centerX) * 12;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.04, 1.04, 1.04)`;
+      
+      const glow = card.querySelector('.tilt-card-glow');
+      if (glow) {
+        glow.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(204,0,0,0.4) 0%, transparent 60%)`;
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    });
+
+    // Open Immersive Modal on Click
+    card.addEventListener('click', () => {
+      const modalId = card.getAttribute('data-modal-id');
+      const b = battlesData.find(item => item.id == modalId);
+      if (!b) return;
+
+      document.getElementById('bm-header-bg').style.backgroundImage = `url('${b.img}')`;
+      document.getElementById('bm-badge').innerText = `CATEGORY #${b.num} • ${b.tag}`;
+      document.getElementById('bm-title').innerText = b.title;
+      document.getElementById('bm-prize').innerText = `🏆 ${b.prize}`;
+      document.getElementById('bm-desc').innerText = b.desc;
+      document.getElementById('bm-comp').innerText = b.comp;
+      document.getElementById('bm-format').innerText = b.format;
+      document.getElementById('bm-judge').innerText = b.judge;
+      document.getElementById('bm-sched').innerText = b.sched;
+
+      document.getElementById('battle-modal').classList.add('active');
+    });
+  });
+
+  // Close Modal Handler
+  const closeBtn = document.getElementById('bm-close-btn');
+  const modal = document.getElementById('battle-modal');
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.remove('active');
+    });
+  }
+});
+
+
+
+// ── Ghoul 3D Tilt Trading Card Modal JS ──
+window.addEventListener('load', () => {
+  const battlesList = [
+    {
+      id: 0, num: "01", tag: "OPEN INTERNATIONAL", title: "Breaking Battle 2v2",
+      prize: "🏆 32,000,000 LAK POOL", img: "https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=800&auto=format&fit=crop",
+      desc: "Olympic-caliber B-Boys & B-Girls from 10+ participating nations in high-voltage 2v2 knockout showdown.",
+      comp: "64 Dancers (32 Crews)", format: "Audition → Top 16 KO", judge: "3 WDSF Certified", sched: "Day 1 & Day 2 Finals"
+    },
+    {
+      id: 1, num: "02", tag: "OPEN STYLE FREESTYLE", title: "Open Style Battle 2v2",
+      prize: "🏆 27,000,000 LAK POOL", img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=800&auto=format&fit=crop",
+      desc: "All-style 2v2 street dance battle celebrating pure musicality, popping, locking, krump & freestyle improvisation.",
+      comp: "48 Dancers (24 Crews)", format: "Cypher → Top 16 KO", judge: "3 Regional Legends", sched: "Day 1 Stage Showcase"
+    },
+    {
+      id: 2, num: "03", tag: "CHOREOGRAPHY SHOWDOWN", title: "Crew Competition Showcase",
+      prize: "🏆 56,000,000 LAK POOL", img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=800&auto=format&fit=crop",
+      desc: "Synchronized group choreography performance spectacle. Teams of 5 to 8 dancers present 3-minute concept routines.",
+      comp: "16 Premier Dance Crews", format: "3-Min Stage Routine", judge: "5 Int'l Panelists", sched: "Day 2 Main Stage"
+    },
+    {
+      id: 3, num: "04", tag: "LAO NATIONAL CYPHER", title: "Rap 7-To-Smoke Cypher",
+      prize: "🏆 7,000,000 LAK POOL", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop",
+      desc: "Fast-paced 7-To-Smoke rap cypher format where 8 top Lao MCs battle head-to-head in continuous 45-second rounds.",
+      comp: "8 Selected Lao MCs", format: "7-To-Smoke Ring", judge: "Legendary Rappers", sched: "Day 1 Night Arena"
+    },
+    {
+      id: 4, num: "05", tag: "TURNTABLISM & SCRATCH", title: "DJ Open Format Showdown",
+      prize: "🏆 17,000,000 LAK POOL", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=800&auto=format&fit=crop",
+      desc: "Live vinyl scratching, tone play, beat juggling, and crowd control competition between Asia's top turntablists.",
+      comp: "12 Turntablist DJs", format: "6-Min Routine Sets", judge: "Red Bull Champions", sched: "Day 2 Afternoon"
+    },
+    {
+      id: 5, num: "06", tag: "AEROSOL LIVE GRAFFITI", title: "Graffiti Art Canvas Battle",
+      prize: "🏆 15,000,000 LAK POOL", img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop",
+      desc: "Live aerosol mural painting on giant 3x2m canvases under the official festival theme 'HipHop Beyond Borders'.",
+      comp: "10 Aerosol Artists", format: "Live 8-Hour Canvas", judge: "Master Street Artists", sched: "Day 1 & Day 2 Outdoor"
+    },
+    {
+      id: 6, num: "07", tag: "FESTIVAL FINALE", title: "Headline HipHop Concert",
+      prize: "🏆 3,000+ AUDIENCE CAPACITY", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop",
+      desc: "2-Night concert finale uniting thousands of fans. Live performances from top Lao headliners & regional ASEAN stars.",
+      comp: "Headliners & Guests", format: "Live Concert Stage", judge: "Audience Experience", sched: "Day 2 Finale Night"
+    }
+  ];
+
+  let currentIndex = 0;
+  const modal = document.getElementById('ghoul-modal');
+  const stage = document.getElementById('ghoul-stage');
+  const foil = document.getElementById('ghoul-foil');
+
+  function renderModalCard(index) {
+    currentIndex = index;
+    const b = battlesList[currentIndex];
+    if (!b) return;
+
+    document.getElementById('g-img').src = b.img;
+    document.getElementById('g-badge').innerText = `CATEGORY #${b.num} • ${b.tag}`;
+    document.getElementById('g-prize').innerText = b.prize;
+    document.getElementById('g-title').innerText = b.title;
+    document.getElementById('g-desc').innerText = b.desc;
+    document.getElementById('g-comp').innerText = b.comp;
+    document.getElementById('g-format').innerText = b.format;
+    document.getElementById('g-judge').innerText = b.judge;
+    document.getElementById('g-sched').innerText = b.sched;
+  }
+
+  // Open Modal on Card Click
+  document.querySelectorAll('.tilt-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const modalId = parseInt(card.getAttribute('data-modal-id') || '0', 10);
+      renderModalCard(modalId);
+      modal.classList.add('active');
+    });
+  });
+
+  // Mousemove 3D Parallax Tilt on Expanded Card Stage
+  window.addEventListener('mousemove', (e) => {
+    if (!modal.classList.contains('active') || !stage) return;
+    
+    const rect = modal.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -18;
+    const rotateY = ((x - centerX) / centerX) * 18;
+
+    stage.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    if (foil) {
+      foil.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.22) 0%, transparent 60%)`;
+    }
+  });
+
+  // Prev / Next Navigation Buttons
+  document.getElementById('ghoul-prev-btn')?.addEventListener('click', () => {
+    let nextIdx = currentIndex - 1;
+    if (nextIdx < 0) nextIdx = battlesList.length - 1;
+    renderModalCard(nextIdx);
+  });
+
+  document.getElementById('ghoul-next-btn')?.addEventListener('click', () => {
+    let nextIdx = (currentIndex + 1) % battlesList.length;
+    renderModalCard(nextIdx);
+  });
+
+  // Close Modal Buttons
+  document.getElementById('ghoul-close-btn')?.addEventListener('click', () => {
+    modal.classList.remove('active');
+    if (stage) stage.style.transform = 'rotateX(0deg) rotateY(0deg)';
+  });
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      if (stage) stage.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    }
+  });
+});
+
+</script>
+</body>
+</html>
+
