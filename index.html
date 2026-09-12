@@ -2556,7 +2556,7 @@ nav { padding: 1.2rem 2.8rem !important; }
   top: 2rem;
   right: 2rem;
   width: 48px;
-  height: 48px;
+  height: 56px;
   border-radius: 50%;
   background: rgba(26,26,26,0.9);
   border: 1px solid rgba(204,0,0,0.5);
@@ -2755,7 +2755,7 @@ nav { padding: 1.2rem 2.8rem !important; }
 
 
 .d1-nav-logo-img {
-  height: 48px;
+  height: 56px;
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 10px rgba(204,0,0,0.6));
@@ -2786,6 +2786,31 @@ nav { padding: 1.2rem 2.8rem !important; }
 @keyframes heroLogoPulse {
   0% { transform: translateY(0px) scale(1); }
   100% { transform: translateY(-8px) scale(1.03); }
+}
+
+
+/* --- HERO OFFICIAL LOGO BADGE --- */
+.d1-central-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.d1-hero-main-logo {
+  width: clamp(160px, 20vw, 280px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 30px rgba(204, 0, 0, 0.85)) drop-shadow(0 0 60px rgba(212, 175, 55, 0.5));
+  animation: heroLogoFloat 4s ease-in-out infinite alternate;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.d1-hero-main-logo:hover {
+  transform: scale(1.1) rotate(4deg);
+  filter: drop-shadow(0 0 45px rgba(204, 0, 0, 1)) drop-shadow(0 0 80px rgba(212, 175, 55, 0.8));
+}
+@keyframes heroLogoFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(2deg); }
 }
 
 </style>
@@ -2902,6 +2927,12 @@ nav { padding: 1.2rem 2.8rem !important; }
     <div class="d1-bottom-wrap">
       <div class="d1-bottom-row">
         <!-- LEFT: Hero Headline with Pixel Fonts -->
+        <div class="d1-central-logo-wrap">
+
+          <img src="assets/logo.png" alt="Lao International HipHop Festival 2026 Official Logo" class="d1-hero-main-logo">
+
+        </div>
+
         <h1 class="d1-headline">
           WE BRING THE<br>
           <span class="d1-headline-pixel font-pixel">UNEXPECTED</span> TO YOUTH &amp;<br>
