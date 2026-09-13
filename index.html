@@ -826,6 +826,45 @@ nav { padding: 1.2rem 2.8rem !important; }
 /* ── DESIGH 1 SPECIFICATION STYLING (Red & Black Theme Preserved) ── */
 .font-pixel { font-family: 'basis33', monospace; }
 
+
+/* Dynamic HipHop Hero Background Slideshow */
+.hiphop-hero-bg-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  background: #000000;
+}
+
+.hiphop-bg-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0;
+  filter: brightness(0.55) contrast(1.2) saturate(1.15);
+  transition: opacity 1.8s ease-in-out, transform 9s ease-out;
+  transform: scale(1.02);
+}
+
+.hiphop-bg-slide.active {
+  opacity: 1;
+  transform: scale(1.12);
+}
+
+.design1-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 45%, rgba(204,0,0,0.22) 0%, rgba(5,5,5,0.7) 60%, #050505 100%),
+              linear-gradient(to bottom, rgba(5,5,5,0.7) 0%, transparent 35%, transparent 65%, rgba(5,5,5,0.95) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .design1-hero {
   position: relative;
   width: 100vw;
@@ -3132,7 +3171,15 @@ nav { padding: 1.2rem 2.8rem !important; }
 <!-- HERO — DESIGH 1 SPECIFICATION LAYOUT (Red & Black Theme) -->
 <section id="hero" class="design1-hero">
   <!-- Full-bleed Background Video -->
-  <video autoplay muted loop playsinline class="design1-video-bg" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"></video>
+  <!-- Full-bleed Dynamic Hip-Hop Action Background Slider -->
+  <div class="hiphop-hero-bg-container">
+    <div class="hiphop-bg-slide active" style="background-image: url('assets/battle_breaking.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/battle_crew.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/battle_openstyle.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/battle_dj.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/battle_graffiti.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/battle_mc.jpg');"></div>
+  </div>
   <div class="design1-overlay"></div>
 
   <div class="design1-content">
@@ -4709,6 +4756,24 @@ window.addEventListener('load', () => {
 });
 
 </script>
+
+<script>
+// HipHop Hero Background Slideshow Loop
+(function(){
+  document.addEventListener('DOMContentLoaded', function(){
+    const slides = document.querySelectorAll('.hiphop-bg-slide');
+    if(slides.length > 0){
+      let current = 0;
+      setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 4200);
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
 
