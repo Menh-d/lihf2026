@@ -265,18 +265,191 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.9rem 2rem;display:
 .bgt-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:3px;transform-origin:left}
 
 /* ---- ORGANIZER ---- */
-#organizer{background:var(--d2)}
-.org-lay{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;margin-top:2.5rem;min-height:0}
-@media(max-width:768px){.org-lay{grid-template-columns:1fr;gap:2rem}}
-.org-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.8rem}
-.os{padding:1.3rem;background:var(--d3);text-align:center;border-top:2px solid var(--red)}
-.os-n{font-family:var(--ff-d);font-size:2.2rem;color:var(--red);display:block}
-.os-l{font-size:.72rem;color:var(--gr);letter-spacing:.1em;text-transform:uppercase}
-.org-pillars{display:flex;flex-direction:column;gap:1.1rem;min-width:0;overflow:hidden}
-.op{display:flex;gap:.9rem;align-items:flex-start;min-width:0}
-.op-ic{font-size:1.4rem;flex-shrink:0}
-.op h4{font-family:var(--ff-a);font-size:.88rem;font-weight:700;text-transform:uppercase;color:var(--red);margin-bottom:.2rem}
-.op p{font-size:.8rem;color:var(--gr-l);line-height:1.5;min-width:0;word-wrap:break-word}
+#organizer {
+  position: relative;
+  background: radial-gradient(ellipse 80% 50% at 50% 20%, rgba(204,0,0,0.18), transparent 70%),
+              linear-gradient(180deg, #050505 0%, #140505 50%, #050505 100%);
+  padding: 5.5rem 0;
+  border-top: 2px solid rgba(204,0,0,0.35);
+  border-bottom: 2px solid rgba(204,0,0,0.35);
+}
+.org-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1.2rem;
+  background: rgba(204,0,0,0.15);
+  border: 1px solid rgba(204,0,0,0.4);
+  border-radius: 4px;
+  font-family: var(--ff-a);
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.org-lay {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-top: 2.5rem;
+  min-height: 0;
+}
+@media(max-width: 900px){ .org-lay { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+.org-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 0;
+}
+.op {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 1.2rem;
+  background: rgba(20, 20, 25, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-left: 4px solid var(--red);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.op:hover {
+  background: rgba(40, 10, 10, 0.7);
+  border-color: rgba(204, 0, 0, 0.6);
+  border-left-color: var(--gold);
+  transform: translateX(6px);
+  box-shadow: 0 8px 25px rgba(204, 0, 0, 0.15);
+}
+.op-ic {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  background: rgba(204,0,0,0.15);
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 1px solid rgba(204,0,0,0.3);
+}
+.op h4 {
+  font-family: var(--ff-a);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.05em;
+}
+.op p {
+  font-size: 0.88rem;
+  color: var(--gr-l);
+  line-height: 1.6;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+.org-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.os {
+  padding: 1.5rem 1rem;
+  background: rgba(15, 15, 20, 0.8);
+  text-align: center;
+  border: 1px solid rgba(204, 0, 0, 0.3);
+  border-top: 3px solid var(--red);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.os:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+}
+.os-n {
+  font-family: var(--ff-d);
+  font-size: 2.8rem;
+  color: var(--red);
+  display: block;
+  line-height: 1;
+  text-shadow: 0 0 15px rgba(204,0,0,0.4);
+}
+.os-l {
+  font-family: var(--ff-a);
+  font-size: 0.78rem;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.4rem;
+  display: block;
+}
+
+.org-gallery-card {
+  background: rgba(15, 15, 20, 0.9);
+  border: 1px solid rgba(204, 0, 0, 0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 30px rgba(204,0,0,0.2);
+}
+.org-gallery-title {
+  padding: 0.9rem 1.2rem;
+  background: linear-gradient(90deg, rgba(204,0,0,0.3) 0%, rgba(10,10,10,0.8) 100%);
+  border-bottom: 1px solid rgba(204,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.org-gallery-title span {
+  font-family: var(--ff-a);
+  font-size: 0.82rem;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.org-slide-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+.org-slide-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85) contrast(1.1);
+  transition: transform 0.6s ease;
+}
+.swiper-slide:hover .org-slide-img-wrap img {
+  transform: scale(1.06);
+}
+.org-slide-caption {
+  position: absolute;
+  bottom: 0;
+  inset-x: 0;
+  padding: 1.2rem;
+  background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.6) 60%, transparent 100%);
+  border-top: 1px solid rgba(204,0,0,0.2);
+}
+.org-slide-caption h5 {
+  font-family: var(--ff-a);
+  font-size: 0.98rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.2rem;
+}
+.org-slide-caption p {
+  font-size: 0.8rem;
+  color: #dddddd;
+  line-height: 1.4;
+}
 
 /* ---- CONTACT ---- */
 #contact{background:var(--blk);position:relative}
@@ -2875,7 +3048,9 @@ nav { padding: 1.2rem 2.8rem !important; }
     <li><a href="#about">About</a></li>
     <li><a href="#kpi">Impact</a></li>
     <li><a href="#battles">Battles</a></li>
+    <li><a href="#venue">Venue</a></li>
     <li><a href="#packages">Packages</a></li>
+    <li><a href="#organizer">Organizer</a></li>
     <li><a href="#contact" class="nav-cta">Partner With Us</a></li>
   </ul>
 </nav>
@@ -2914,6 +3089,7 @@ nav { padding: 1.2rem 2.8rem !important; }
         <li><a href="#battles">Battles</a></li>
         <li><a href="#venue">Venue</a></li>
         <li><a href="#packages">Packages</a></li>
+        <li><a href="#organizer">Organizer</a></li>
         <li><a href="#contact" class="d1-nav-cta">Partner With Us</a></li>
       </ul>
     </nav>
@@ -3674,31 +3850,116 @@ nav { padding: 1.2rem 2.8rem !important; }
 </section>
 
 <!-- ORGANIZER -->
+<div class="section-divider"></div>
 <section id="organizer">
   <div class="noise-overlay"></div>
   <div class="container">
-    <div class="section-label ru">Organizer Profile</div>
-    <h2 class="section-title ru">FANGLAO STUDIO<br><span class="hl">9 YEARS</span> OF CREATIVE LEADERSHIP</h2>
+    <div class="org-header-badge">
+      <img src="assets/logo.png" alt="Fanglao Logo" style="height:22px;width:auto;">
+      <span>OFFICIAL ORGANIZER • ຜູ້ຈັດງານຢ່າງເປັນທາງການ</span>
+    </div>
+    <div class="section-label ru">Organizer Profile &amp; Legacy</div>
+    <h2 class="section-title ru">FANGLAO DANCE STUDIO<br><span class="hl">9 YEARS</span> OF CREATIVE LEADERSHIP IN LAOS</h2>
     <div class="red-line ru"></div>
+    
     <div class="org-lay">
+      <!-- LEFT COLUMN: PILLARS -->
       <div class="org-pillars rl">
-        <div class="op"><div class="op-ic">🏆</div><div><h4>Pioneers in Urban Arts</h4><p>Founded in 2017, Fanglao Studio is Laos' premier contemporary and street dance institution, empowering over 10,000 youth through dance classes, workshops, and artistic productions.</p></div></div>
-        <div class="op"><div class="op-ic">🌟</div><div><h4>Proven Event Execution</h4><p>Proven track record producing large-scale cultural events: Lao HipHop Festival, UYD Lao Youth Festival, Fanglao Jam, and international exchange tours across ASEAN &amp; Europe.</p></div></div>
-        <div class="op"><div class="op-ic">🤝</div><div><h4>Strong Community Network</h4><p>Deep organic relationships with schools, universities, dance crews, graffiti artists, DJs, and music producers across Laos and Southeast Asia.</p></div></div>
-        <div class="op"><div class="op-ic">💼</div><div><h4>Complete Production Team</h4><p>End-to-end in-house capabilities covering stage design, live audio/visual engineering, artist hospitality, security protocol, and digital marketing.</p></div></div>
+        <div class="op">
+          <div class="op-ic">🏆</div>
+          <div>
+            <h4>Pioneers in Urban Arts &amp; Street Culture</h4>
+            <p>Founded in 2017 in Vientiane, Fanglao Dance Studio is Laos' premier contemporary and street dance institution, empowering over 10,000 youth through professional dance education, workshops, and international showcases.</p>
+          </div>
+        </div>
+        <div class="op">
+          <div class="op-ic">🌟</div>
+          <div>
+            <h4>Proven National &amp; Regional Track Record</h4>
+            <p>9+ years producing signature cultural landmarks: Lao HipHop Festival, UYD Lao Youth Festival, Fanglao Jam, and representing Lao dance artists across ASEAN, Europe, and Asia-Pacific.</p>
+          </div>
+        </div>
+        <div class="op">
+          <div class="op-ic">🤝</div>
+          <div>
+            <h4>Deep Organic Community &amp; Media Network</h4>
+            <p>Direct authentic connections with schools, universities, dance crews, graffiti artists, DJs, MCs, beatmakers, and youth influencers across all 18 provinces in Laos.</p>
+          </div>
+        </div>
+        <div class="op">
+          <div class="op-ic">💼</div>
+          <div>
+            <h4>Turnkey Full-Scale Production Team</h4>
+            <p>Complete in-house technical capabilities: stage design, high-end line-array acoustics, LED screen production, live broadcasting, international hospitality, and security protocols.</p>
+          </div>
+        </div>
       </div>
+      
+      <!-- RIGHT COLUMN: STATS & PHOTO GALLERY -->
       <div class="rr">
         <div class="org-stats">
-          <div class="os"><span class="os-n">9</span><span class="os-l">Years Founded</span></div>
-          <div class="os"><span class="os-n">10K+</span><span class="os-l">Youth Trained</span></div>
-          <div class="os"><span class="os-n">10+</span><span class="os-l">Countries</span></div>
-          <div class="os"><span class="os-n">7</span><span class="os-l">Battle Categories</span></div>
+          <div class="os">
+            <span class="os-n">9</span>
+            <span class="os-l">Years Founded</span>
+          </div>
+          <div class="os">
+            <span class="os-n">10K+</span>
+            <span class="os-l">Youth Empowered</span>
+          </div>
+          <div class="os">
+            <span class="os-n">10+</span>
+            <span class="os-l">Countries Toured</span>
+          </div>
+          <div class="os">
+            <span class="os-n">7</span>
+            <span class="os-l">Battle Categories</span>
+          </div>
         </div>
-        <div class="swiper org-swiper" style="margin-top:1.4rem;border-radius:3px;overflow:hidden;height:260px">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><div style="width:100%;height:100%;background:linear-gradient(135deg,#050505 0%,#220000 50%,#050505 100%);display:flex;align-items:center;justify-content:center;filter:brightness(.65) saturate(.8);object-fit:cover;"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:rgba(204,0,0,0.35);letter-spacing:.15em;text-transform:uppercase;text-align:center;padding:1rem;">Culture</span></div></div>
-            <div class="swiper-slide"><div style="width:100%;height:100%;background:linear-gradient(135deg,#0a0000 0%,#3d0000 60%,#111111 100%);display:flex;align-items:center;justify-content:center;filter:brightness(.65) saturate(.8);object-fit:cover;"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:rgba(204,0,0,0.35);letter-spacing:.15em;text-transform:uppercase;text-align:center;padding:1rem;">Festival</span></div></div>
-            <div class="swiper-slide"><div style="width:100%;height:100%;background:linear-gradient(135deg,#111111 0%,#440000 55%,#0a0000 100%);display:flex;align-items:center;justify-content:center;filter:brightness(.65) saturate(.8);object-fit:cover;"><span style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:rgba(204,0,0,0.35);letter-spacing:.15em;text-transform:uppercase;text-align:center;padding:1rem;">Graffiti</span></div></div>
+
+        <div class="org-gallery-card">
+          <div class="org-gallery-title">
+            <span>📷 FANGLAO ARCHIVE &amp; FESTIVAL HIGHLIGHTS</span>
+            <span style="font-size:0.75rem;color:var(--gold);font-family:var(--ff-a);">2017 – 2026</span>
+          </div>
+          <div class="swiper org-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="org-slide-img-wrap">
+                  <img src="assets/battle_crew.jpg" alt="Fanglao Dance Crew">
+                  <div class="org-slide-caption">
+                    <h5>Fanglao Stage Production</h5>
+                    <p>World-class choreography, lighting design, and live performance execution.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="org-slide-img-wrap">
+                  <img src="assets/battle_openstyle.jpg" alt="Urban Youth Workshops">
+                  <div class="org-slide-caption">
+                    <h5>Youth &amp; Cultural Empowerment</h5>
+                    <p>Fostering healthy youth development, discipline, and creative artistic expression.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="org-slide-img-wrap">
+                  <img src="assets/battle_breaking.jpg" alt="Lao Breaking Championship">
+                  <div class="org-slide-caption">
+                    <h5>Lao HipHop Festival Legacy</h5>
+                    <p>Bringing together top Southeast Asian dancers &amp; international Olympic-tier judges.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="org-slide-img-wrap">
+                  <img src="assets/battle_dj.jpg" alt="Music &amp; Sound Production">
+                  <div class="org-slide-caption">
+                    <h5>Live Audio &amp; Festival Atmosphere</h5>
+                    <p>Pioneering urban music culture, DJ turntablism, and sound engineering in Laos.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
