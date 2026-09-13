@@ -264,191 +264,249 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.9rem 2rem;display:
 .bgt-trk{height:5px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden}
 .bgt-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:3px;transform-origin:left}
 
-/* ---- ORGANIZER ---- */
+/* ---- ORGANIZER SECTION ---- */
 #organizer {
   position: relative;
-  background: radial-gradient(ellipse 80% 50% at 50% 20%, rgba(204,0,0,0.18), transparent 70%),
-              linear-gradient(180deg, #050505 0%, #140505 50%, #050505 100%);
+  background: radial-gradient(ellipse 90% 60% at 50% 30%, rgba(204,0,0,0.16) 0%, rgba(10,5,5,0.98) 70%),
+              linear-gradient(180deg, #050505 0%, #160606 50%, #050505 100%);
   padding: 5.5rem 0;
-  border-top: 2px solid rgba(204,0,0,0.35);
-  border-bottom: 2px solid rgba(204,0,0,0.35);
+  border-top: 2px solid rgba(204,0,0,0.4);
+  border-bottom: 2px solid rgba(204,0,0,0.4);
+  overflow: hidden;
 }
+
+/* Guarantee 100% visibility for all organizer elements, ignoring GSAP opacity */
+#organizer, #organizer *, #organizer .ru, #organizer .rl, #organizer .rr {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+#organizer .container {
+  max-width: 1320px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+}
+
 .org-header-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.4rem 1.2rem;
-  background: rgba(204,0,0,0.15);
-  border: 1px solid rgba(204,0,0,0.4);
+  padding: 0.45rem 1.2rem;
+  background: rgba(204,0,0,0.2);
+  border: 1px solid rgba(204,0,0,0.5);
   border-radius: 4px;
   font-family: var(--ff-a);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   letter-spacing: 0.15em;
   color: var(--gold);
   text-transform: uppercase;
   margin-bottom: 1rem;
+  box-shadow: 0 0 15px rgba(204,0,0,0.3);
 }
-.org-lay {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3.5rem;
-  align-items: center;
-  margin-top: 2.5rem;
-  min-height: 0;
-}
-@media(max-width: 900px){ .org-lay { grid-template-columns: 1fr; gap: 2.5rem; } }
 
+.org-lay {
+  display: grid !important;
+  grid-template-columns: 1.05fr 0.95fr !important;
+  gap: 3rem !important;
+  align-items: start !important;
+  margin-top: 2.5rem !important;
+  width: 100% !important;
+}
+
+@media(max-width: 960px){
+  .org-lay {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+}
+
+/* Left Column: Pillars */
 .org-pillars {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  min-width: 0;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.2rem !important;
+  width: 100% !important;
+  min-width: 0 !important;
 }
+
 .op {
-  display: flex;
-  gap: 1.2rem;
-  align-items: flex-start;
-  min-width: 0;
-  padding: 1.2rem;
-  background: rgba(20, 20, 25, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-left: 4px solid var(--red);
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  display: flex !important;
+  gap: 1.2rem !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  padding: 1.4rem 1.5rem !important;
+  background: rgba(18, 18, 24, 0.85) !important;
+  border: 1px solid rgba(204, 0, 0, 0.35) !important;
+  border-left: 5px solid var(--red) !important;
+  border-radius: 6px !important;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+  box-sizing: border-box !important;
 }
+
 .op:hover {
-  background: rgba(40, 10, 10, 0.7);
-  border-color: rgba(204, 0, 0, 0.6);
-  border-left-color: var(--gold);
-  transform: translateX(6px);
-  box-shadow: 0 8px 25px rgba(204, 0, 0, 0.15);
+  background: rgba(38, 12, 12, 0.95) !important;
+  border-color: rgba(204, 0, 0, 0.7) !important;
+  border-left-color: var(--gold) !important;
+  box-shadow: 0 10px 30px rgba(204, 0, 0, 0.25) !important;
 }
+
 .op-ic {
-  font-size: 1.8rem;
-  flex-shrink: 0;
-  background: rgba(204,0,0,0.15);
-  width: 46px;
-  height: 46px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  border: 1px solid rgba(204,0,0,0.3);
+  font-size: 1.8rem !important;
+  width: 52px !important;
+  height: 52px !important;
+  min-width: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(204,0,0,0.18) !important;
+  border: 1px solid rgba(204,0,0,0.4) !important;
+  border-radius: 6px !important;
+  flex-shrink: 0 !important;
 }
-.op h4 {
-  font-family: var(--ff-a);
-  font-size: 1.05rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin-bottom: 0.3rem;
-  letter-spacing: 0.05em;
+
+.op-info {
+  flex: 1 !important;
+  min-width: 0 !important;
 }
-.op p {
-  font-size: 0.88rem;
-  color: var(--gr-l);
-  line-height: 1.6;
-  min-width: 0;
-  word-wrap: break-word;
+
+.op-info h4 {
+  font-family: var(--ff-a) !important;
+  font-size: 1.12rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 0.4rem !important;
+  line-height: 1.3 !important;
+}
+
+.op-info p {
+  font-size: 0.92rem !important;
+  color: #d0d0d0 !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+
+/* Right Column: Stats + Gallery */
+.org-right {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  width: 100% !important;
+  min-width: 0 !important;
 }
 
 .org-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
-  margin-bottom: 1.5rem;
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1.2rem !important;
+  width: 100% !important;
 }
+
 .os {
-  padding: 1.5rem 1rem;
-  background: rgba(15, 15, 20, 0.8);
-  text-align: center;
-  border: 1px solid rgba(204, 0, 0, 0.3);
-  border-top: 3px solid var(--red);
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  padding: 1.5rem 1rem !important;
+  background: rgba(18, 18, 24, 0.85) !important;
+  text-align: center !important;
+  border: 1px solid rgba(204, 0, 0, 0.35) !important;
+  border-top: 4px solid var(--red) !important;
+  border-radius: 6px !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+  box-sizing: border-box !important;
 }
+
 .os:hover {
-  border-color: var(--gold);
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+  border-color: var(--gold) !important;
+  border-top-color: var(--gold) !important;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25) !important;
 }
+
 .os-n {
-  font-family: var(--ff-d);
-  font-size: 2.8rem;
-  color: var(--red);
-  display: block;
-  line-height: 1;
-  text-shadow: 0 0 15px rgba(204,0,0,0.4);
+  font-family: var(--ff-d) !important;
+  font-size: 3rem !important;
+  color: var(--red) !important;
+  display: block !important;
+  line-height: 1 !important;
+  text-shadow: 0 0 20px rgba(204,0,0,0.5) !important;
 }
+
 .os-l {
-  font-family: var(--ff-a);
-  font-size: 0.78rem;
-  color: var(--gold);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: 0.4rem;
-  display: block;
+  font-family: var(--ff-a) !important;
+  font-size: 0.82rem !important;
+  color: var(--gold) !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  margin-top: 0.4rem !important;
+  display: block !important;
+  font-weight: 600 !important;
 }
 
 .org-gallery-card {
-  background: rgba(15, 15, 20, 0.9);
-  border: 1px solid rgba(204, 0, 0, 0.4);
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 30px rgba(204,0,0,0.2);
+  width: 100% !important;
+  background: rgba(18, 18, 24, 0.95) !important;
+  border: 1px solid rgba(204, 0, 0, 0.4) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.7), 0 0 30px rgba(204,0,0,0.2) !important;
 }
+
 .org-gallery-title {
-  padding: 0.9rem 1.2rem;
-  background: linear-gradient(90deg, rgba(204,0,0,0.3) 0%, rgba(10,10,10,0.8) 100%);
-  border-bottom: 1px solid rgba(204,0,0,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 1rem 1.4rem !important;
+  background: linear-gradient(90deg, rgba(204,0,0,0.35) 0%, rgba(15,15,20,0.95) 100%) !important;
+  border-bottom: 1px solid rgba(204,0,0,0.3) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
 }
+
 .org-gallery-title span {
-  font-family: var(--ff-a);
-  font-size: 0.82rem;
-  letter-spacing: 0.15em;
-  color: #ffffff;
-  text-transform: uppercase;
-  font-weight: 700;
+  font-family: var(--ff-a) !important;
+  font-size: 0.88rem !important;
+  letter-spacing: 0.12em !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
 }
+
 .org-slide-img-wrap {
-  position: relative;
-  width: 100%;
-  height: 280px;
-  overflow: hidden;
+  position: relative !important;
+  width: 100% !important;
+  height: 300px !important;
+  overflow: hidden !important;
 }
+
 .org-slide-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.85) contrast(1.1);
-  transition: transform 0.6s ease;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  filter: brightness(0.9) contrast(1.1) !important;
 }
-.swiper-slide:hover .org-slide-img-wrap img {
-  transform: scale(1.06);
-}
+
 .org-slide-caption {
-  position: absolute;
-  bottom: 0;
-  inset-x: 0;
-  padding: 1.2rem;
-  background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.6) 60%, transparent 100%);
-  border-top: 1px solid rgba(204,0,0,0.2);
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  padding: 1.2rem 1.4rem !important;
+  background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.7) 60%, transparent 100%) !important;
+  border-top: 1px solid rgba(204,0,0,0.25) !important;
 }
+
 .org-slide-caption h5 {
-  font-family: var(--ff-a);
-  font-size: 0.98rem;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.2rem;
+  font-family: var(--ff-a) !important;
+  font-size: 1.05rem !important;
+  color: var(--gold) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  margin: 0 0 0.2rem 0 !important;
 }
+
 .org-slide-caption p {
-  font-size: 0.8rem;
-  color: #dddddd;
-  line-height: 1.4;
+  font-size: 0.85rem !important;
+  color: #e0e0e0 !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
 }
 
 /* ---- CONTACT ---- */
@@ -3855,40 +3913,40 @@ nav { padding: 1.2rem 2.8rem !important; }
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="org-header-badge">
-      <img src="assets/logo.png" alt="Fanglao Logo" style="height:22px;width:auto;">
+      <img src="assets/logo.png" alt="Fanglao Logo" style="height:24px;width:auto;">
       <span>OFFICIAL ORGANIZER • ຜູ້ຈັດງານຢ່າງເປັນທາງການ</span>
     </div>
-    <div class="section-label ru">Organizer Profile &amp; Legacy</div>
-    <h2 class="section-title ru">FANGLAO DANCE STUDIO<br><span class="hl">9 YEARS</span> OF CREATIVE LEADERSHIP IN LAOS</h2>
-    <div class="red-line ru"></div>
+    <div class="section-label">Organizer Profile &amp; Legacy</div>
+    <h2 class="section-title">FANGLAO DANCE STUDIO<br><span class="hl">9 YEARS</span> OF CREATIVE LEADERSHIP IN LAOS</h2>
+    <div class="red-line"></div>
     
     <div class="org-lay">
       <!-- LEFT COLUMN: PILLARS -->
-      <div class="org-pillars rl">
+      <div class="org-pillars">
         <div class="op">
           <div class="op-ic">🏆</div>
-          <div>
+          <div class="op-info">
             <h4>Pioneers in Urban Arts &amp; Street Culture</h4>
             <p>Founded in 2017 in Vientiane, Fanglao Dance Studio is Laos' premier contemporary and street dance institution, empowering over 10,000 youth through professional dance education, workshops, and international showcases.</p>
           </div>
         </div>
         <div class="op">
           <div class="op-ic">🌟</div>
-          <div>
+          <div class="op-info">
             <h4>Proven National &amp; Regional Track Record</h4>
             <p>9+ years producing signature cultural landmarks: Lao HipHop Festival, UYD Lao Youth Festival, Fanglao Jam, and representing Lao dance artists across ASEAN, Europe, and Asia-Pacific.</p>
           </div>
         </div>
         <div class="op">
           <div class="op-ic">🤝</div>
-          <div>
+          <div class="op-info">
             <h4>Deep Organic Community &amp; Media Network</h4>
             <p>Direct authentic connections with schools, universities, dance crews, graffiti artists, DJs, MCs, beatmakers, and youth influencers across all 18 provinces in Laos.</p>
           </div>
         </div>
         <div class="op">
           <div class="op-ic">💼</div>
-          <div>
+          <div class="op-info">
             <h4>Turnkey Full-Scale Production Team</h4>
             <p>Complete in-house technical capabilities: stage design, high-end line-array acoustics, LED screen production, live broadcasting, international hospitality, and security protocols.</p>
           </div>
@@ -3896,7 +3954,7 @@ nav { padding: 1.2rem 2.8rem !important; }
       </div>
       
       <!-- RIGHT COLUMN: STATS & PHOTO GALLERY -->
-      <div class="rr">
+      <div class="org-right">
         <div class="org-stats">
           <div class="os">
             <span class="os-n">9</span>
@@ -3919,7 +3977,7 @@ nav { padding: 1.2rem 2.8rem !important; }
         <div class="org-gallery-card">
           <div class="org-gallery-title">
             <span>📷 FANGLAO ARCHIVE &amp; FESTIVAL HIGHLIGHTS</span>
-            <span style="font-size:0.75rem;color:var(--gold);font-family:var(--ff-a);">2017 – 2026</span>
+            <span style="font-size:0.78rem;color:var(--gold);font-family:var(--ff-a);">2017 – 2026</span>
           </div>
           <div class="swiper org-swiper">
             <div class="swiper-wrapper">
