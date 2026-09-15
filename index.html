@@ -45,10 +45,43 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:.9rem 2rem;display:
 @media(max-width:768px){.nav-links{display:none}}
 
 /* ---- TICKER ---- */
-.ticker-wrap{overflow:hidden;background:var(--red);padding:.65rem 0;margin-top:60px}
-.ticker-track{display:flex;animation:ticker 28s linear infinite;white-space:nowrap}
-.ticker-item{font-family:var(--ff-d);font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;color:var(--wh);padding:0 2rem;flex-shrink:0}
-.ticker-item::after{content:'★';margin-left:2rem;color:rgba(0,0,0,.4)}
+.ticker-wrap {
+  position: relative;
+  z-index: 100;
+  margin-top: 75px !important;
+  padding: 0.95rem 0 !important;
+  min-height: 52px !important;
+  background: var(--red) !important;
+  overflow: hidden;
+  display: flex !important;
+  align-items: center !important;
+  box-shadow: 0 4px 20px rgba(204, 0, 0, 0.5);
+}
+.ticker-track {
+  display: flex !important;
+  align-items: center !important;
+  height: 100% !important;
+  animation: ticker 28s linear infinite;
+  white-space: nowrap;
+}
+.ticker-item {
+  font-family: var(--ff-d) !important;
+  font-size: 1.25rem !important;
+  line-height: 1 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase;
+  color: var(--wh) !important;
+  padding: 0 2rem;
+  flex-shrink: 0;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+.ticker-item::after {
+  content: '★';
+  margin-left: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ---- HERO ---- */
@@ -712,8 +745,8 @@ nav { padding: 1.2rem 2.8rem !important; }
 .nav-cta { font-size: 0.92rem !important; padding: 0.55rem 1.4rem !important; }
 
 /* Ticker */
-.ticker-wrap { padding: 0.85rem 0 !important; }
-.ticker-item { font-size: 1.2rem !important; letter-spacing: 0.12em !important; }
+.ticker-wrap { padding: 0.95rem 0 !important; min-height: 52px !important; margin-top: 75px !important; }
+.ticker-item { font-size: 1.25rem !important; line-height: 1 !important; display: inline-flex !important; align-items: center !important; }
 
 /* Hero Section Upscale */
 .hero-eyebrow { font-size: 0.88rem !important; padding: 0.45rem 1.8rem !important; letter-spacing: 0.38em !important; }
@@ -3356,10 +3389,10 @@ nav { padding: 1.2rem 2.8rem !important; }
 
 /* ── LOGO STYLES (consolidated) ── */
 .d1-nav-logo-img {
-  height: 52px;
-  width: auto;
+  height: 68px !important;
+  width: auto !important;
   object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(204,0,0,0.5));
+  filter: drop-shadow(0 0 12px rgba(212,175,55,0.7)) drop-shadow(0 0 20px rgba(204,0,0,0.5));
   transition: transform 0.3s ease, filter 0.3s ease;
   flex-shrink: 0;
 }
@@ -3514,7 +3547,7 @@ nav { padding: 1.2rem 2.8rem !important; }
 
 <!-- NAV -->
 <nav id="main-nav">
-  <a href="#hero" class="nav-logo" style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;"><img src="assets/logo.png" alt="LIHF 2026" style="height:40px;width:auto;object-fit:contain;filter:drop-shadow(0 0 6px rgba(204,0,0,0.5));transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"></a>
+  <a href="#hero" class="nav-logo" style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;"><img src="assets/logo_lihf_3d.png" alt="LIHF 2026" style="height:65px;width:auto;object-fit:contain;filter:drop-shadow(0 0 10px rgba(212,175,55,0.7)) drop-shadow(0 0 20px rgba(204,0,0,0.4));transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#kpi">Impact</a></li>
@@ -3560,7 +3593,7 @@ nav { padding: 1.2rem 2.8rem !important; }
     <!-- 1. NAVBAR -->
     <nav class="d1-nav">
       <a href="#hero" class="d1-logo-wrap" title="Lao International HipHop Festival 2026">
-        <img src="assets/logo.png" alt="LIHF 2026 Official Logo" class="d1-nav-logo-img">
+        <img src="assets/logo_lihf_3d.png" alt="LIHF 2026 Official Logo" class="d1-nav-logo-img">
       </a>
       <ul class="d1-nav-links">
         <li><a href="#about">About</a></li>
