@@ -856,9 +856,190 @@ nav { padding: 1.2rem 2.8rem !important; }
 
 
 
-/* ── DESIGH 1 SPECIFICATION STYLING (Red & Black Theme Preserved) ── */
-.font-pixel { font-family: 'Teko', 'Anton', var(--ff-d), sans-serif !important; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+/* ---- PROPORTIONAL HERO LAYOUT ---- */
+.design1-hero {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3.5rem 0 4rem 0;
+  overflow: hidden;
+}
 
+.design1-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 1rem 2.5rem;
+}
+
+.hero-main-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .hero-main-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.hero-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.d1-hero-event-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--ff-a);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-transform: uppercase;
+  background: rgba(204, 0, 0, 0.15);
+  border: 1px solid rgba(204, 0, 0, 0.4);
+  padding: 0.45rem 1.2rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.d1-headline {
+  font-family: var(--ff-d);
+  font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.05 !important;
+  color: #ffffff;
+  margin: 0;
+}
+
+.d1-headline-pixel {
+  font-family: 'Teko', 'Anton', var(--ff-d), sans-serif !important;
+  font-size: 1.12em !important;
+  line-height: 1 !important;
+  display: inline-block;
+  color: var(--red);
+  text-shadow: 0 0 35px rgba(204,0,0,0.9), 0 0 70px rgba(204,0,0,0.5);
+  vertical-align: middle;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  margin: 0 0.1em;
+}
+
+.hero-sub-blurb {
+  font-family: var(--ff-b);
+  font-size: 0.98rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  max-width: 580px;
+}
+
+.hero-pillars-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.pillar-pill {
+  font-family: var(--ff-a);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.35rem 0.85rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.hero-right-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.d1-hero-emblem-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.d1-hero-emblem {
+  width: clamp(170px, 18vw, 230px);
+  height: auto;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 35px rgba(204, 0, 0, 0.9))
+    drop-shadow(0 0 70px rgba(212, 175, 55, 0.45));
+  cursor: pointer;
+  animation:
+    logoIntroEntrance 1.4s cubic-bezier(0.22, 1.25, 0.36, 1) forwards,
+    emblemFloat 5s ease-in-out 1.4s infinite;
+}
+
+/* Old TV Chassis Sizing */
+.retro-tv-box {
+  position: relative;
+  width: 100%;
+  max-width: 370px;
+  background: linear-gradient(145deg, #1c1815, #0c0a08);
+  border: 6px solid #2d2620;
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(204, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  user-select: none;
+}
+
+.retro-tv-box:hover {
+  transform: scale(1.03) translateY(-3px);
+  border-color: var(--red);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.95),
+    0 0 40px rgba(204, 0, 0, 0.7);
+}
+
+.retro-tv-screen {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: #000000;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 3px solid #111;
+}
+
+.d1-awards-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 380px;
+}
 
 /* Dynamic HipHop Hero Background Slideshow */
 .hiphop-hero-bg-container {
@@ -3580,10 +3761,9 @@ nav { padding: 1.2rem 2.8rem !important; }
   </div>
 </div>
 
-<!-- HERO — DESIGH 1 SPECIFICATION LAYOUT (Red & Black Theme) -->
+<!-- HERO — PROPORTIONAL 2-COLUMN LAYOUT -->
 <section id="hero" class="design1-hero">
-  <!-- Full-bleed Background Video -->
-  <!-- Full-bleed Dynamic Hip-Hop Action Background Slider -->
+  <!-- Dynamic Hip-Hop Action Background Slider -->
   <div class="hiphop-hero-bg-container">
     <div class="hiphop-bg-slide active" style="background-image: url('assets/battle_breaking.jpg');"></div>
     <div class="hiphop-bg-slide" style="background-image: url('assets/battle_crew.jpg');"></div>
@@ -3595,164 +3775,102 @@ nav { padding: 1.2rem 2.8rem !important; }
   <div class="design1-overlay"></div>
 
   <div class="design1-content">
-    <!-- 1. NAVBAR -->
-    <nav class="d1-nav">
-      <a href="#hero" class="d1-logo-wrap" title="Lao International HipHop Festival 2026">
-        <img src="assets/logo_lihf_3d.png" alt="LIHF 2026 Official Logo" class="d1-nav-logo-img">
-      </a>
-      <ul class="d1-nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#kpi">Impact</a></li>
-        <li><a href="#battles">Battles</a></li>
-        <li><a href="#venue">Venue</a></li>
-        <li><a href="#packages">Packages</a></li>
-        <li><a href="#organizer">Organizer</a></li>
-        <li><a href="#contact" class="d1-nav-cta">Partner With Us</a></li>
-      </ul>
-    </nav>
-
-    <!-- 2. FOUR-COLUMN META GRID -->
-    <div class="d1-meta-grid">
-      <!-- COL 1 -->
-      <div>
-        <h2 class="d1-col-title">
-          <div>LAO HIPHOP</div>
-          <div class="d1-col-pixel font-pixel">FESTIVAL 2026</div>
-        </h2>
-        <div class="d1-asterisk">*</div>
-        <p class="d1-blurb font-pixel">
-          Lao International HipHop<br>
-          Festival is Laos' premier<br>
-          urban youth &amp; dance landmark<br>
-          established in 2017
-        </p>
-      </div>
-
-      <!-- COL 2 -->
-      <div>
-        <h2 class="d1-col-title">
-          <div>URBAN ARTS &amp;</div>
-          <div class="d1-col-pixel font-pixel">STREET CULTURE</div>
-        </h2>
-      </div>
-
-      <!-- COL 3 -->
-      <div>
-        <div class="d1-label font-pixel">What We Do</div>
-        <p class="d1-body">
-          We create the top 1% urban youth experiences, regional battle showcases, and cultural tourism landmarks in Southeast Asia.
-        </p>
-      </div>
-
-      <!-- COL 4 -->
-      <div>
-        <div class="d1-label font-pixel">Pillars &amp; Showcases</div>
-        <ul class="d1-list">
-          <li>• Breaking 2v2 International</li>
-          <li>• Open Style Freestyle Battle</li>
-          <li>• Choreographed Crew Showdown</li>
-          <li>• DJ Turntablism &amp; Live Scratch</li>
-          <li>• Aerosol Live Graffiti Canvas</li>
-          <li>• Rap 7-To-Smoke Cypher</li>
-          <li>• Headline HipHop Concert</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- 3. HERO CENTER + BOTTOM SECTION -->
-    <!-- Center Emblem -->
-    <div class="d1-hero-emblem-wrap">
-      <div class="logo-intro-shockwave"></div>
-      <div class="d1-hero-event-date">13 – 15 November 2026 &nbsp;•&nbsp; Lao-ITECC, Vientiane</div>
-      <img src="assets/logo.png" alt="Lao International HipHop Festival 2026 Official Logo" class="d1-hero-emblem" id="main-hero-logo" onclick="replayLogoIntro()" title="Click to replay Logo Intro Animation!">
-      <div class="d1-hero-tagline-main">Southeast Asia's Premier <em>Urban Culture</em> Festival</div>
-    </div>
-
-    <div class="d1-bottom-wrap">
-      <div class="d1-bottom-row">
-        <!-- LEFT: Hero Headline -->
+    <div class="hero-main-grid">
+      
+      <!-- LEFT COLUMN: Event Date, Headline, Subtitle & Battle Pills -->
+      <div class="hero-left-col">
+        <div class="d1-hero-event-date">13 – 15 November 2026 &nbsp;•&nbsp; Lao-ITECC, Vientiane</div>
+        
         <h1 class="d1-headline">
           WE BRING THE<br>
           <span class="d1-headline-pixel font-pixel">UNEXPECTED</span> TO YOUTH &amp;<br>
           CULTURAL <span class="d1-headline-pixel font-pixel">EXPERIENCES</span>
         </h1>
+        
+        <p class="hero-sub-blurb">
+          Lao International HipHop Festival is Laos' premier urban youth, street culture, and regional dance landmark established in 2017.
+        </p>
 
-        <!-- RIGHT: Showreel + Metrics Row -->
-        <div class="d1-actions-col">
-          <div class="retro-tv-box" id="open-showreel-btn" title="Click for Fullscreen Showreel!">
-            <!-- TV Antenna -->
-            <div class="retro-tv-antenna">
-              <span class="antenna-rod left"></span>
-              <span class="antenna-rod right"></span>
-            </div>
-
-            <div class="retro-tv-screen">
-              <!-- CRT Power On Turn-On Animation Layer -->
-              <div class="crt-poweron-overlay">
-                <div class="crt-flash-line"></div>
-                <div class="crt-static-noise"></div>
-              </div>
-
-              <video autoplay muted loop playsinline class="retro-tv-video" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"></video>
-              <div class="retro-tv-scanlines"></div>
-              <div class="retro-tv-vignette"></div>
-              
-              <div class="retro-tv-badge">
-                <span class="rec-dot"></span>
-                <span>REC • LIHF SHOWREEL</span>
-              </div>
-
-              <div class="retro-tv-play-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffffff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                <span>FULLSCREEN</span>
-              </div>
-            </div>
-
-            <!-- Bottom Console Panel & Dials -->
-            <div class="retro-tv-panel">
-              <div class="retro-tv-speaker">
-                <span></span><span></span><span></span><span></span><span></span>
-              </div>
-              <div class="retro-tv-brand">LIHF VINTAGE CRT-90</div>
-              <div class="retro-tv-dials">
-                <div class="tv-rotary-knob" title="VHF Channel Dial"><span class="knob-indicator"></span></div>
-                <div class="tv-rotary-knob" title="UHF Volume Dial"><span class="knob-indicator"></span></div>
-                <div class="tv-power-switch" title="Power"><span class="power-led"></span></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="d1-awards-row">
-            <div class="d1-award-chip">
-              <span class="d1-award-name">5,000+</span>
-              <span class="d1-award-count">ATTENDEES</span>
-            </div>
-            <div class="d1-award-chip">
-              <span class="d1-award-name">10M+</span>
-              <span class="d1-award-count">IMPRESSIONS</span>
-            </div>
-            <div class="d1-award-chip">
-              <span class="d1-award-name">9 YRS</span>
-              <span class="d1-award-count">HERITAGE</span>
-            </div>
-            <div class="d1-award-chip">
-              <span class="d1-award-name">159M</span>
-              <span class="d1-award-count">LAK POOL</span>
-            </div>
-          </div>
+        <div class="hero-pillars-pills">
+          <span class="pillar-pill">🔥 Breaking 2v2</span>
+          <span class="pillar-pill">🎤 MC Cypher</span>
+          <span class="pillar-pill">🎧 DJ Turntablism</span>
+          <span class="pillar-pill">🎨 Live Graffiti</span>
+          <span class="pillar-pill">💃 Open Style</span>
+          <span class="pillar-pill">🏆 Crew Showdown</span>
         </div>
       </div>
 
-      <!-- FOOTER STRIP -->
-      <div class="d1-footer-strip">
-        <div>
-          Open to official brand sponsorship, partnership &amp; CSR. 
-          <a href="#contact" class="d1-schedule-link">Schedule a call →</a>
+      <!-- RIGHT COLUMN: Official Circular Emblem Badge & Retro CRT TV Showreel Box -->
+      <div class="hero-right-col">
+        <div class="d1-hero-emblem-wrap">
+          <div class="logo-intro-shockwave"></div>
+          <img src="assets/logo.png" alt="Lao International HipHop Festival 2026 Official Logo" class="d1-hero-emblem" id="main-hero-logo" onclick="replayLogoIntro()" title="Click to replay Logo Intro Animation!">
         </div>
-        <div>
-          7 Battles • 10+ Nations • 50+ Lifestyle Booths • Lao-ITECC Vientiane
+
+        <!-- RETRO CRT TV SHOWREEL BOX -->
+        <div class="retro-tv-box" id="open-showreel-btn" title="Click for Fullscreen Showreel!">
+          <div class="retro-tv-antenna">
+            <span class="antenna-rod left"></span>
+            <span class="antenna-rod right"></span>
+          </div>
+
+          <div class="retro-tv-screen">
+            <div class="crt-poweron-overlay">
+              <div class="crt-flash-line"></div>
+              <div class="crt-static-noise"></div>
+            </div>
+
+            <video autoplay muted loop playsinline class="retro-tv-video" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"></video>
+            <div class="retro-tv-scanlines"></div>
+            <div class="retro-tv-vignette"></div>
+            
+            <div class="retro-tv-badge">
+              <span class="rec-dot"></span>
+              <span>REC • LIHF SHOWREEL</span>
+            </div>
+
+            <div class="retro-tv-play-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffffff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <span>FULLSCREEN</span>
+            </div>
+          </div>
+
+          <div class="retro-tv-panel">
+            <div class="retro-tv-speaker">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="retro-tv-brand">LIHF VINTAGE CRT-90</div>
+            <div class="retro-tv-dials">
+              <div class="tv-rotary-knob" title="VHF Channel Dial"><span class="knob-indicator"></span></div>
+              <div class="tv-rotary-knob" title="UHF Volume Dial"><span class="knob-indicator"></span></div>
+              <div class="tv-power-switch" title="Power"><span class="power-led"></span></div>
+            </div>
+          </div>
         </div>
+
+        <!-- STATS CHIPS -->
+        <div class="d1-awards-row">
+          <div class="d1-award-chip">
+            <span class="d1-award-name">5,000+</span>
+            <span class="d1-award-count">ATTENDEES</span>
+          </div>
+          <div class="d1-award-chip">
+            <span class="d1-award-name">10M+</span>
+            <span class="d1-award-count">IMPRESSIONS</span>
+          </div>
+          <div class="d1-award-chip">
+            <span class="d1-award-name">9 YRS</span>
+            <span class="d1-award-count">HERITAGE</span>
+          </div>
+          <div class="d1-award-chip">
+            <span class="d1-award-name">159M</span>
+            <span class="d1-award-count">LAK POOL</span>
+          </div>
+        </div>
+
       </div>
+
     </div>
   </div>
 </section>
