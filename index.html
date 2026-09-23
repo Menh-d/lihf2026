@@ -860,13 +860,12 @@ nav { padding: 1.2rem 2.8rem !important; }
 .design1-hero {
   position: relative;
   width: 100%;
-  min-height: calc(100vh - 120px);
-  background: #000000;
-  color: #ffffff;
+  min-height: calc(100vh - 127px);
+  background: #000;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 3.5rem 0 4rem 0;
   overflow: hidden;
 }
 
@@ -874,30 +873,31 @@ nav { padding: 1.2rem 2.8rem !important; }
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 1380px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 1rem 2.5rem;
+  padding: 2rem 3rem;
 }
 
 .hero-main-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 3.5rem;
+  grid-template-columns: 1fr 400px;
+  gap: 4rem;
   align-items: center;
   width: 100%;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 960px) {
   .hero-main-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
   }
+  .hero-right-col { display: none; }
 }
 
 .hero-left-col {
   display: flex;
   flex-direction: column;
-  gap: 1.3rem;
+  gap: 1.6rem;
 }
 
 .d1-hero-event-date {
@@ -918,11 +918,11 @@ nav { padding: 1.2rem 2.8rem !important; }
 }
 
 .d1-headline {
-  font-family: var(--ff-d);
-  font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+  font-family: 'Anton', 'Barlow Condensed', sans-serif;
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
   text-transform: uppercase;
-  letter-spacing: 0.01em;
-  line-height: 1.05 !important;
+  letter-spacing: 0.02em;
+  line-height: 0.95 !important;
   color: #ffffff;
   margin: 0;
 }
@@ -942,30 +942,19 @@ nav { padding: 1.2rem 2.8rem !important; }
 
 .hero-sub-blurb {
   font-family: var(--ff-b);
-  font-size: 0.98rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-  max-width: 580px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.65;
+  max-width: 520px;
+  border-left: 3px solid var(--red);
+  padding-left: 1rem;
 }
 
 .hero-pillars-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 0.3rem;
-}
-
-.pillar-pill {
-  font-family: var(--ff-a);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 0.35rem 0.85rem;
-  border-radius: 4px;
-  text-transform: uppercase;
+  margin-top: 0.2rem;
 }
 
 .hero-right-col {
@@ -5081,6 +5070,102 @@ section.acc-inner {
   overflow: visible;
 }
 
+
+/* ── HERO LOGO (centered, shockwave entrance) ── */
+.hero-logo-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+.hero-logo-main {
+  width: clamp(120px, 14vw, 190px);
+  height: auto;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 30px rgba(204,0,0,0.9))
+    drop-shadow(0 0 60px rgba(212,175,55,0.5));
+  cursor: pointer;
+  animation:
+    heroLogoEntrance 1.2s cubic-bezier(0.22, 1.25, 0.36, 1) both,
+    emblemFloat 5s ease-in-out 1.2s infinite;
+  transform-origin: center;
+}
+@keyframes heroLogoEntrance {
+  0%   { opacity: 0; transform: scale(0.3) rotate(-8deg); filter: brightness(3) blur(8px); }
+  60%  { opacity: 1; transform: scale(1.08) rotate(1deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+.hero-logo-shockwave {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  border: 2px solid rgba(204,0,0,0.7);
+  animation: shockwaveExpand 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  pointer-events: none;
+}
+.hero-logo-shockwave.wave2 {
+  animation-delay: 0.15s;
+  border-color: rgba(212,175,55,0.5);
+}
+.hero-logo-shockwave.wave3 {
+  animation-delay: 0.3s;
+  border-color: rgba(204,0,0,0.3);
+}
+@keyframes shockwaveExpand {
+  0%   { opacity: 1; transform: scale(0.8); }
+  100% { opacity: 0; transform: scale(2.5); }
+}
+
+/* ── PILLS minimal style ── */
+.pillar-pill {
+  font-family: var(--ff-a);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.3rem 0.8rem;
+  text-transform: uppercase;
+}
+.pillar-pill:hover {
+  background: rgba(204,0,0,0.1);
+  border-color: rgba(204,0,0,0.4);
+  color: #fff;
+}
+
+/* ── STATS chips minimal ── */
+.d1-awards-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.d1-award-chip {
+  display: flex;
+  flex-direction: column;
+  padding: 0.6rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-top: 2px solid var(--red);
+  min-width: 90px;
+}
+.d1-award-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.3rem;
+  color: #fff;
+  line-height: 1;
+}
+.d1-award-count {
+  font-family: var(--ff-a);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-top: 0.15rem;
+}
+
 </style>
 
 
@@ -5126,7 +5211,7 @@ section.acc-inner {
 
 <!-- HERO — PROPORTIONAL 2-COLUMN VIEWPORT-FITTED LAYOUT -->
 <section id="hero" class="design1-hero">
-  <!-- Dynamic Hip-Hop Action Background Slider -->
+  <!-- Background Slider -->
   <div class="hiphop-hero-bg-container">
     <div class="hiphop-bg-slide active" style="background-image: url('assets/battle_breaking.jpg');"></div>
     <div class="hiphop-bg-slide" style="background-image: url('assets/battle_crew.jpg');"></div>
@@ -5139,37 +5224,44 @@ section.acc-inner {
 
   <div class="design1-content">
     <div class="hero-main-grid">
-      
-      <!-- LEFT COLUMN: Date & Official Badge, Headline, Subtitle, Battle Pills & Stats Chips -->
+
+      <!-- LEFT: Logo + Title + Info -->
       <div class="hero-left-col">
-        <div class="hero-top-meta-row">
-          <div class="d1-hero-event-date">13 – 15 November 2026 &nbsp;•&nbsp; Lao-ITECC, Vientiane</div>
-          <div class="hero-official-badge" onclick="replayLogoIntro()" title="Official Festival Seal">
-            <img src="assets/logo.png" alt="LIHF Official Emblem" class="hero-mini-emblem" id="main-hero-logo">
-            <span>OFFICIAL FESTIVAL</span>
-          </div>
+
+        <!-- Logo with shockwave entrance -->
+        <div class="hero-logo-wrap" id="hero-logo-wrap">
+          <img src="assets/logo_lihf_3d.png" alt="LIHF 2026" class="hero-logo-main" id="hero-logo-main"
+            onclick="replayLogoIntro()" title="LIHF 2026 Official">
         </div>
-        
+
+        <!-- Date badge -->
+        <div class="d1-hero-event-date">13 – 15 NOVEMBER 2026 &nbsp;·&nbsp; LAO-ITECC, VIENTIANE</div>
+
+        <!-- Main title -->
         <h1 class="d1-headline">
-          WE BRING THE<br>
-          <span class="d1-headline-pixel font-pixel">UNEXPECTED</span> TO YOUTH &amp;<br>
-          CULTURAL <span class="d1-headline-pixel font-pixel">EXPERIENCES</span>
+          LAO<br>
+          <span class="d1-headline-pixel">INTERNATIONAL</span><br>
+          HIPHOP<br>
+          <span style="color:var(--red);">FESTIVAL 2026</span>
         </h1>
-        
+
+        <!-- Sub-description -->
         <p class="hero-sub-blurb">
-          Lao International HipHop Festival is Laos' premier urban youth, street culture, and regional dance landmark established in 2017.
+          Laos' premier urban youth, street culture &amp; regional dance platform — 9 years of building the movement.
         </p>
 
+        <!-- Activity pills -->
         <div class="hero-pillars-pills">
-          <span class="pillar-pill">🔥 Breaking 2v2</span>
-          <span class="pillar-pill">🎤 MC Cypher</span>
-          <span class="pillar-pill">🎧 DJ Turntablism</span>
-          <span class="pillar-pill">🎨 Live Graffiti</span>
-          <span class="pillar-pill">💃 Open Style</span>
-          <span class="pillar-pill">🏆 Crew Showdown</span>
+          <span class="pillar-pill">Breaking 2v2</span>
+          <span class="pillar-pill">MC Cypher</span>
+          <span class="pillar-pill">DJ Open Format</span>
+          <span class="pillar-pill">Live Graffiti</span>
+          <span class="pillar-pill">Open Style</span>
+          <span class="pillar-pill">Crew Competition</span>
+          <span class="pillar-pill">Hip-Hop Concert</span>
         </div>
 
-        <!-- STATS CHIPS (Balanced inside left column) -->
+        <!-- Stats row -->
         <div class="d1-awards-row">
           <div class="d1-award-chip">
             <span class="d1-award-name">10,000+</span>
@@ -5184,50 +5276,42 @@ section.acc-inner {
             <span class="d1-award-count">TALENTS</span>
           </div>
           <div class="d1-award-chip">
-            <span class="d1-award-name">159M</span>
-            <span class="d1-award-count">LAK POOL</span>
+            <span class="d1-award-name">159M LAK</span>
+            <span class="d1-award-count">PRIZE POOL</span>
           </div>
         </div>
+
       </div>
 
-      <!-- RIGHT COLUMN: Retro CRT TV Showreel Box (Sleek, Centered & Standalone) -->
+      <!-- RIGHT: Retro TV Showreel -->
       <div class="hero-right-col">
-        <div class="retro-tv-box" id="open-showreel-btn" title="Click for Fullscreen Showreel!">
+        <div class="retro-tv-box" id="open-showreel-btn" title="Click for Fullscreen Showreel">
           <div class="retro-tv-antenna">
             <span class="antenna-rod left"></span>
             <span class="antenna-rod right"></span>
           </div>
-
           <div class="retro-tv-screen">
             <div class="crt-poweron-overlay">
               <div class="crt-flash-line"></div>
               <div class="crt-static-noise"></div>
             </div>
-
-            <video autoplay muted loop playsinline class="retro-tv-video" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"></video>
+            <video autoplay muted loop playsinline class="retro-tv-video"
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"></video>
             <div class="retro-tv-scanlines"></div>
             <div class="retro-tv-vignette"></div>
-            
-            <div class="retro-tv-badge">
-              <span class="rec-dot"></span>
-              <span>REC • LIHF SHOWREEL</span>
-            </div>
-
+            <div class="retro-tv-badge"><span class="rec-dot"></span><span>REC • LIHF SHOWREEL</span></div>
             <div class="retro-tv-play-btn">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="#ffffff"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
               <span>FULLSCREEN</span>
             </div>
           </div>
-
           <div class="retro-tv-panel">
-            <div class="retro-tv-speaker">
-              <span></span><span></span><span></span><span></span><span></span>
-            </div>
+            <div class="retro-tv-speaker"><span></span><span></span><span></span><span></span><span></span></div>
             <div class="retro-tv-brand">LIHF VINTAGE CRT-90</div>
             <div class="retro-tv-dials">
-              <div class="tv-rotary-knob" title="VHF Channel Dial"><span class="knob-indicator"></span></div>
-              <div class="tv-rotary-knob" title="UHF Volume Dial"><span class="knob-indicator"></span></div>
-              <div class="tv-power-switch" title="Power"><span class="power-led"></span></div>
+              <div class="tv-rotary-knob"><span class="knob-indicator"></span></div>
+              <div class="tv-rotary-knob"><span class="knob-indicator"></span></div>
+              <div class="tv-power-switch"><span class="power-led"></span></div>
             </div>
           </div>
         </div>
@@ -6892,6 +6976,24 @@ section.acc-inner {
 </footer>
 
 <script>
+
+// ── Hero logo shockwave on page load ──
+(function initHeroLogoShockwave(){
+  function fireWaves(){
+    const wrap = document.getElementById('hero-logo-wrap');
+    if(!wrap) return;
+    wrap.querySelectorAll('.hero-logo-shockwave').forEach(w=>w.remove());
+    ['','wave2','wave3'].forEach(function(cls){
+      const w = document.createElement('div');
+      w.className = 'hero-logo-shockwave' + (cls ? ' '+cls : '');
+      wrap.appendChild(w);
+      setTimeout(()=>{ if(w.parentNode) w.remove(); }, 1400);
+    });
+  }
+  // Fire after logo entrance animation completes (~1.2s)
+  setTimeout(fireWaves, 1200);
+})();
+
 // ── Ticker (no dependency)
 const ticker = document.getElementById('ticker');
 if(ticker){
@@ -7605,6 +7707,25 @@ window.addEventListener('load', () => {
 
 <script>
 function replayLogoIntro(){
+  // Also replay hero logo
+  const heroLogo = document.getElementById('hero-logo-main');
+  if(heroLogo){
+    heroLogo.style.animation = 'none';
+    heroLogo.offsetHeight;
+    heroLogo.style.animation = 'heroLogoEntrance 1.2s cubic-bezier(0.22, 1.25, 0.36, 1) both, emblemFloat 5s ease-in-out 1.2s infinite';
+    // Add shockwaves
+    const wrap = document.getElementById('hero-logo-wrap');
+    if(wrap){
+      wrap.querySelectorAll('.hero-logo-shockwave').forEach(w=>w.remove());
+      ['','wave2','wave3'].forEach(cls=>{
+        const w = document.createElement('div');
+        w.className = 'hero-logo-shockwave ' + cls;
+        wrap.appendChild(w);
+        setTimeout(()=>w.remove(), 1200);
+      });
+    }
+  }
+  // Legacy logo intro
   const logo = document.getElementById('main-hero-logo');
   const wrap = document.querySelector('.d1-hero-emblem-wrap');
   if(logo && wrap){
