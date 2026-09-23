@@ -4938,98 +4938,101 @@ nav { height: 76px !important; padding: 0 2rem !important; }
    ACCORDION SECTION SYSTEM
    ══════════════════════════════════ */
 .acc-section {
-  border-bottom: 1px solid rgba(204,0,0,0.2);
-  overflow: visible;
+  border-bottom: 1px solid rgba(204, 0, 0, 0.25);
+  position: relative;
+  width: 100%;
 }
 
-/* The clickable banner strip */
 .acc-banner {
-  display: flex;
-  align-items: center;
-  gap: 1.4rem;
-  padding: 1.4rem 2rem;
-  background: linear-gradient(90deg, #0e0000 0%, #0a0a0a 60%, #0e0000 100%);
-  border-left: 4px solid var(--red);
-  cursor: pointer;
-  user-select: none;
-  transition: background 0.25s, border-color 0.25s;
-  position: relative;
-  z-index: 10;
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.4rem !important;
+  padding: 1.35rem 2.2rem !important;
+  background: linear-gradient(90deg, #0e0000 0%, #0a0a0a 60%, #0e0000 100%) !important;
+  border-left: 5px solid var(--red) !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  transition: all 0.28s ease !important;
+  position: relative !important;
+  z-index: 10 !important;
 }
 .acc-banner:hover {
-  background: linear-gradient(90deg, #1a0000 0%, #111111 60%, #1a0000 100%);
-  border-left-color: var(--red-b);
+  background: linear-gradient(90deg, #200202 0%, #131313 60%, #200202 100%) !important;
+  border-left-color: var(--red-b) !important;
+  box-shadow: 0 4px 25px rgba(204, 0, 0, 0.25) !important;
 }
 .acc-banner.is-open {
-  border-left-color: var(--gold);
-  background: linear-gradient(90deg, #1a0900 0%, #111111 60%, #1a0900 100%);
+  border-left-color: var(--gold) !important;
+  background: linear-gradient(90deg, #1c0a00 0%, #111111 60%, #1c0a00 100%) !important;
 }
 
 .acc-num {
-  font-family: 'Anton', sans-serif;
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
-  color: var(--red);
-  min-width: 2.5rem;
-  flex-shrink: 0;
-  line-height: 1;
+  font-family: 'Anton', sans-serif !important;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important;
+  color: var(--red) !important;
+  min-width: 2.5rem !important;
+  flex-shrink: 0 !important;
+  line-height: 1 !important;
 }
-.acc-banner.is-open .acc-num { color: var(--gold); }
+.acc-banner.is-open .acc-num { color: var(--gold) !important; }
 
 .acc-title-wrap {
-  flex: 1;
+  flex: 1 !important;
 }
 .acc-label {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--red);
-  margin-bottom: 0.2rem;
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 0.74rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: var(--red) !important;
+  margin-bottom: 0.2rem !important;
 }
-.acc-banner.is-open .acc-label { color: var(--gold); }
+.acc-banner.is-open .acc-label { color: var(--gold) !important; }
 
 .acc-h2 {
   font-family: 'Anton', 'Barlow Condensed', sans-serif !important;
-  font-size: clamp(1.5rem, 4vw, 2.6rem) !important;
+  font-size: clamp(1.4rem, 3.2vw, 2.3rem) !important;
   font-weight: 900 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
-  color: var(--wh);
-  line-height: 0.95;
-  margin: 0;
+  letter-spacing: 0.03em !important;
+  color: var(--wh) !important;
+  line-height: 1.0 !important;
+  margin: 0 !important;
 }
-.acc-h2 .hl { color: var(--red); }
-.acc-banner.is-open .acc-h2 { color: var(--wh); }
+.acc-h2 .hl { color: var(--red) !important; }
+.acc-banner.is-open .acc-h2 { color: var(--wh) !important; }
 
 .acc-arrow {
-  font-size: 1.4rem;
-  color: var(--red);
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  flex-shrink: 0;
-  line-height: 1;
+  font-size: 1.3rem !important;
+  color: var(--red) !important;
+  transition: transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.25s ease !important;
+  flex-shrink: 0 !important;
+  line-height: 1 !important;
 }
 .acc-banner.is-open .acc-arrow {
-  transform: rotate(180deg);
-  color: var(--gold);
+  transform: rotate(180deg) !important;
+  color: var(--gold) !important;
 }
 
-/* The collapsible body */
+/* ── SMOOTH, BULLETPROOF ACCORDION EXPANSION ── */
 .acc-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+  transition: max-height 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+  pointer-events: none;
 }
 .acc-body.is-open {
-  max-height: 12000px;
-  transition: max-height 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  max-height: 35000px !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  pointer-events: auto !important;
 }
-
-/* Keep section internal padding/spacing inside the body */
 .acc-body > section {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-  border-bottom: none;
+  padding-top: 3.5rem !important;
+  padding-bottom: 4rem !important;
+  border-bottom: none !important;
 }
 
 /* Remove default top/bottom padding from section when inside accordion */
@@ -5511,22 +5514,16 @@ section.acc-inner {
 
 <!-- ABOUT (Executive Summary — Expanded Full-Width 4 Rectangular Blocks & 3D Poster Wall) -->
 <div class="acc-section" data-acc="about">
-<div class="acc-banner is-open" role="button" tabindex="0" aria-expanded="true">
-  <div class="acc-num">01</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">ABOUT LIHF 2026</div>
-    <div class="acc-h2">ABOUT <span class="hl">LIHF</span> 2026</div>
+  <div class="acc-banner is-open" role="button" tabindex="0" aria-expanded="true">
+    <div class="acc-num">01</div>
+    <div class="acc-title-wrap">
+      <div class="acc-label">ABOUT LIHF 2026</div>
+      <div class="acc-h2">ABOUT <span class="hl">LIHF</span> 2026</div>
+    </div>
+    <div class="acc-arrow">▼</div>
   </div>
-  <div class="acc-arrow">▼</div>
-</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">ABOUT LIHF 2026</div>
-    <div class="acc-h2">ABOUT <span class="hl">LIHF</span> 2026</div>
-  </div>
-  <div class="acc-arrow">▼</div>
-</div>
-<div class="acc-body is-open">
-<section id="about" class="acc-inner">
+  <div class="acc-body is-open">
+    <section id="about" class="acc-inner">
   <!-- Infinite 3D Poster Scroll Wall Background -->
   <div class="poster-wall-wrapper">
     <div class="poster-wall-3d">
@@ -5676,22 +5673,16 @@ section.acc-inner {
 
 <!-- REGIONAL CONTEXT: HIP-HOP IN ASIA & SOUTHEAST ASIA (Slide 4 of Proposal) -->
 <div class="acc-section" data-acc="regional">
-<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-  <div class="acc-num">02</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">REGIONAL HIP-HOP SCENE</div>
-    <div class="acc-h2">REGIONAL <span class="hl">HIP-HOP</span> SCENE</div>
+  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+    <div class="acc-num">02</div>
+    <div class="acc-title-wrap">
+      <div class="acc-label">REGIONAL HIP-HOP SCENE</div>
+      <div class="acc-h2">REGIONAL <span class="hl">HIP-HOP</span> SCENE</div>
+    </div>
+    <div class="acc-arrow">▼</div>
   </div>
-  <div class="acc-arrow">▼</div>
-</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">REGIONAL HIP-HOP SCENE</div>
-    <div class="acc-h2">REGIONAL <span class="hl">HIP-HOP</span> SCENE</div>
-  </div>
-  <div class="acc-arrow">▼</div>
-</div>
-<div class="acc-body">
-<section id="regional" class="acc-inner">
+  <div class="acc-body">
+    <section id="regional" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     
@@ -5798,22 +5789,16 @@ section.acc-inner {
 
 <!-- MARKET -->
 <div class="acc-section" data-acc="market">
-<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-  <div class="acc-num">03</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">THE OPPORTUNITY</div>
-    <div class="acc-h2">THE <span class="hl">OPPORTUNITY</span></div>
+  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+    <div class="acc-num">03</div>
+    <div class="acc-title-wrap">
+      <div class="acc-label">THE OPPORTUNITY</div>
+      <div class="acc-h2">THE <span class="hl">OPPORTUNITY</span></div>
+    </div>
+    <div class="acc-arrow">▼</div>
   </div>
-  <div class="acc-arrow">▼</div>
-</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">THE OPPORTUNITY</div>
-    <div class="acc-h2">THE <span class="hl">OPPORTUNITY</span></div>
-  </div>
-  <div class="acc-arrow">▼</div>
-</div>
-<div class="acc-body">
-<section id="market" class="acc-inner">
+  <div class="acc-body">
+    <section id="market" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="section-label ru">The Opportunity • Meet young consumers inside culture, not beside it</div>
@@ -5845,22 +5830,16 @@ section.acc-inner {
 
 <!-- KPI -->
 <div class="acc-section" data-acc="kpi">
-<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-  <div class="acc-num">04</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">SCALE &amp; IMPACT</div>
-    <div class="acc-h2">SCALE &amp; <span class="hl">IMPACT</span></div>
+  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+    <div class="acc-num">04</div>
+    <div class="acc-title-wrap">
+      <div class="acc-label">SCALE &amp; IMPACT</div>
+      <div class="acc-h2">SCALE &amp; <span class="hl">IMPACT</span></div>
+    </div>
+    <div class="acc-arrow">▼</div>
   </div>
-  <div class="acc-arrow">▼</div>
-</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">KEY PERFORMANCE INDICATORS</div>
-    <div class="acc-h2">KEY <span class="hl">PERFORMANCE</span> INDICATORS</div>
-  </div>
-  <div class="acc-arrow">▼</div>
-</div>
-<div class="acc-body">
-<section id="kpi" class="acc-inner">
+  <div class="acc-body">
+    <section id="kpi" class="acc-inner">
   <div class="kpi-bg">IMPACT</div>
   <div class="container">
     <div class="section-label ru">Expected Reach &amp; Impact • Measurable visibility plus cultural value</div>
@@ -5893,22 +5872,16 @@ section.acc-inner {
 
 <!-- AUDIENCE -->
 <div class="acc-section" data-acc="audience">
-<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-  <div class="acc-num">05</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">TARGET AUDIENCE</div>
-    <div class="acc-h2">TARGET <span class="hl">AUDIENCE</span></div>
+  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+    <div class="acc-num">05</div>
+    <div class="acc-title-wrap">
+      <div class="acc-label">TARGET AUDIENCE</div>
+      <div class="acc-h2">TARGET <span class="hl">AUDIENCE</span></div>
+    </div>
+    <div class="acc-arrow">▼</div>
   </div>
-  <div class="acc-arrow">▼</div>
-</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">TARGET AUDIENCE</div>
-    <div class="acc-h2">TARGET <span class="hl">AUDIENCE</span></div>
-  </div>
-  <div class="acc-arrow">▼</div>
-</div>
-<div class="acc-body">
-<section id="audience" class="acc-inner">
+  <div class="acc-body">
+    <section id="audience" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="section-label ru">Target Audience • A valuable youth-driven market</div>
@@ -5931,22 +5904,16 @@ section.acc-inner {
 <!-- BATTLES (Event Pillars — Immersive 3D Tilt Cards & Expandable Modal) -->
 <!-- ACTIVITIES & BATTLES — INTERACTIVE 7 CULTURE PILLARS -->
 <div class="acc-section" data-acc="battles">
-<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-  <div class="acc-num">06</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">7 CULTURE PILLARS</div>
-    <div class="acc-h2">7 CULTURE <span class="hl">PILLARS</span></div>
+  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+    <div class="acc-num">06</div>
+    <div class="acc-title-wrap">
+      <div class="acc-label">7 CULTURE PILLARS</div>
+      <div class="acc-h2">7 CULTURE <span class="hl">PILLARS</span> &amp; ACTIVITIES</div>
+    </div>
+    <div class="acc-arrow">▼</div>
   </div>
-  <div class="acc-arrow">▼</div>
-</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">7 CULTURE PILLARS & ACTIVITIES</div>
-    <div class="acc-h2">7 CULTURE <span class="hl">PILLARS</span> & ACTIVITIES</div>
-  </div>
-  <div class="acc-arrow">▼</div>
-</div>
-<div class="acc-body">
-<section id="battles" class="acc-inner">
+  <div class="acc-body">
+    <section id="battles" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     <div style="text-align:center; max-width:850px; margin:0 auto 2.5rem;">
@@ -6261,22 +6228,16 @@ section.acc-inner {
 <div class="section-divider"></div>
 <!-- MARKETING & COMMUNICATION PLAN (Slide 14 + Creative Advertising Initiatives) -->
 <div class="acc-section" data-acc="marketing">
-<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-  <div class="acc-num">07</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">MARKETING &amp; COMMS</div>
-    <div class="acc-h2">MARKETING &amp; <span class="hl">COMMS</span></div>
+  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+    <div class="acc-num">07</div>
+    <div class="acc-title-wrap">
+      <div class="acc-label">MARKETING &amp; COMMS</div>
+      <div class="acc-h2">MARKETING &amp; <span class="hl">COMMS</span> PLAN</div>
+    </div>
+    <div class="acc-arrow">▼</div>
   </div>
-  <div class="acc-arrow">▼</div>
-</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">MARKETING & COMMS PLAN</div>
-    <div class="acc-h2">MARKETING & <span class="hl">COMMS</span> PLAN</div>
-  </div>
-  <div class="acc-arrow">▼</div>
-</div>
-<div class="acc-body">
-<section id="marketing" class="acc-inner">
+  <div class="acc-body">
+    <section id="marketing" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     
@@ -6484,22 +6445,16 @@ section.acc-inner {
 <div class="section-divider"></div>
 <!-- VENUE — KOLLEKTIVA MULTI-ZONE SPATIAL LAYOUT -->
 <div class="acc-section" data-acc="venue">
-<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-  <div class="acc-num">08</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">VENUE &amp; ACTIVATION</div>
-    <div class="acc-h2">VENUE &amp; <span class="hl">ACTIVATION</span></div>
+  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+    <div class="acc-num">08</div>
+    <div class="acc-title-wrap">
+      <div class="acc-label">VENUE &amp; ACTIVATION</div>
+      <div class="acc-h2">VENUE &amp; <span class="hl">ACTIVATION</span> ZONES</div>
+    </div>
+    <div class="acc-arrow">▼</div>
   </div>
-  <div class="acc-arrow">▼</div>
-</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">VENUE & ACTIVATION ZONES</div>
-    <div class="acc-h2">VENUE & <span class="hl">ACTIVATION</span> ZONES</div>
-  </div>
-  <div class="acc-arrow">▼</div>
-</div>
-<div class="acc-body">
-<section id="venue" class="acc-inner">
+  <div class="acc-body">
+    <section id="venue" class="acc-inner">
   <!-- Stacked Full-Bleed Background Visuals -->
   <div class="kv-bg-layer active" id="kv-bg-0" style="background-image:url('assets/battle_openstyle.jpg');">
   <div style="width:100%;height:100%;background:linear-gradient(135deg,#2d0000,#550000,#0d0000);mix-blend-mode:multiply;opacity:0.4;"></div>
@@ -6584,22 +6539,16 @@ section.acc-inner {
 
 <!-- PACKAGES -->
 <div class="acc-section" data-acc="packages">
-<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-  <div class="acc-num">09</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">SPONSORSHIP PACKAGES</div>
-    <div class="acc-h2">SPONSORSHIP <span class="hl">PACKAGES</span></div>
+  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+    <div class="acc-num">09</div>
+    <div class="acc-title-wrap">
+      <div class="acc-label">SPONSORSHIP PACKAGES</div>
+      <div class="acc-h2">SPONSORSHIP <span class="hl">PACKAGES</span></div>
+    </div>
+    <div class="acc-arrow">▼</div>
   </div>
-  <div class="acc-arrow">▼</div>
-</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">SPONSORSHIP PACKAGES</div>
-    <div class="acc-h2">SPONSORSHIP <span class="hl">PACKAGES</span></div>
-  </div>
-  <div class="acc-arrow">▼</div>
-</div>
-<div class="acc-body">
-<section id="packages" class="acc-inner">
+  <div class="acc-body">
+    <section id="packages" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     
@@ -6727,22 +6676,16 @@ section.acc-inner {
 
 <!-- MATRIX -->
 <div class="acc-section" data-acc="matrix">
-<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-  <div class="acc-num">10</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">DELIVERABLES MATRIX</div>
-    <div class="acc-h2">DELIVERABLES <span class="hl">MATRIX</span></div>
+  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+    <div class="acc-num">10</div>
+    <div class="acc-title-wrap">
+      <div class="acc-label">DELIVERABLES MATRIX</div>
+      <div class="acc-h2">DELIVERABLES <span class="hl">MATRIX</span></div>
+    </div>
+    <div class="acc-arrow">▼</div>
   </div>
-  <div class="acc-arrow">▼</div>
-</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">DELIVERABLES MATRIX</div>
-    <div class="acc-h2">DELIVERABLES <span class="hl">MATRIX</span></div>
-  </div>
-  <div class="acc-arrow">▼</div>
-</div>
-<div class="acc-body">
-<section id="matrix" class="acc-inner">
+  <div class="acc-body">
+    <section id="matrix" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="section-label ru">Deliverables Matrix</div>
@@ -6836,22 +6779,16 @@ section.acc-inner {
 <!-- ORGANIZER -->
 <div class="section-divider"></div>
 <div class="acc-section" data-acc="organizer">
-<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-  <div class="acc-num">11</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">ORGANIZER PROFILE</div>
-    <div class="acc-h2">ORGANIZER <span class="hl">PROFILE</span></div>
+  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+    <div class="acc-num">11</div>
+    <div class="acc-title-wrap">
+      <div class="acc-label">ORGANIZER PROFILE</div>
+      <div class="acc-h2">ORGANIZER <span class="hl">PROFILE</span></div>
+    </div>
+    <div class="acc-arrow">▼</div>
   </div>
-  <div class="acc-arrow">▼</div>
-</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">ORGANIZER PROFILE</div>
-    <div class="acc-h2">ORGANIZER <span class="hl">PROFILE</span></div>
-  </div>
-  <div class="acc-arrow">▼</div>
-</div>
-<div class="acc-body">
-<section id="organizer" class="acc-inner">
+  <div class="acc-body">
+    <section id="organizer" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="org-header-badge">
@@ -6971,22 +6908,16 @@ section.acc-inner {
 
 <!-- CONTACT -->
 <div class="acc-section" data-acc="contact">
-<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-  <div class="acc-num">12</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">LET'S BUILD TOGETHER</div>
-    <div class="acc-h2">LET'S <span class="hl">BUILD</span> TOGETHER</div>
+  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+    <div class="acc-num">12</div>
+    <div class="acc-title-wrap">
+      <div class="acc-label">LET'S BUILD TOGETHER</div>
+      <div class="acc-h2">LET'S <span class="hl">BUILD</span> TOGETHER</div>
+    </div>
+    <div class="acc-arrow">▼</div>
   </div>
-  <div class="acc-arrow">▼</div>
-</div>
-  <div class="acc-title-wrap">
-    <div class="acc-label">LET'S BUILD TOGETHER</div>
-    <div class="acc-h2">LET'S BUILD <span class="hl">TOGETHER</span></div>
-  </div>
-  <div class="acc-arrow">▼</div>
-</div>
-<div class="acc-body">
-<section id="contact" class="acc-inner">
+  <div class="acc-body">
+    <section id="contact" class="acc-inner">
   <div class="cta-bg"></div>
   <div class="noise-overlay"></div>
   <div class="container">
@@ -8228,42 +8159,37 @@ function replayLogoIntro(){
 </script>
 
 <script>
-// ── ACCORDION SECTION SYSTEM ──────────────────────────
+// ── ACCORDION SECTION SYSTEM (ROBUST EXPAND / COLLAPSE) ──
 (function() {
-  const sections = document.querySelectorAll('.acc-section');
-  
-  function openSection(section) {
-    const banner = section.querySelector('.acc-banner');
-    const body = section.querySelector('.acc-body');
-    if (!banner || !body) return;
-    banner.classList.add('is-open');
-    body.classList.add('is-open');
-    banner.setAttribute('aria-expanded', 'true');
-  }
-  
-  function closeSection(section) {
-    const banner = section.querySelector('.acc-banner');
-    const body = section.querySelector('.acc-body');
-    if (!banner || !body) return;
-    banner.classList.remove('is-open');
-    body.classList.remove('is-open');
-    banner.setAttribute('aria-expanded', 'false');
-  }
-  
   function toggleSection(section) {
-    const isOpen = section.querySelector('.acc-banner').classList.contains('is-open');
+    const banner = section.querySelector('.acc-banner');
+    const body = section.querySelector('.acc-body');
+    if (!banner || !body) {
+      console.warn('Accordion element missing in', section);
+      return;
+    }
+    const isOpen = banner.classList.contains('is-open');
     if (isOpen) {
-      closeSection(section);
+      banner.classList.remove('is-open');
+      body.classList.remove('is-open');
+      banner.setAttribute('aria-expanded', 'false');
     } else {
-      openSection(section);
+      banner.classList.add('is-open');
+      body.classList.add('is-open');
+      banner.setAttribute('aria-expanded', 'true');
+      if (typeof ScrollTrigger !== 'undefined') {
+        setTimeout(function() { ScrollTrigger.refresh(); }, 300);
+      }
     }
   }
-  
+
+  const sections = document.querySelectorAll('.acc-section');
   sections.forEach(function(section) {
     const banner = section.querySelector('.acc-banner');
     if (!banner) return;
     
-    banner.addEventListener('click', function() {
+    banner.addEventListener('click', function(e) {
+      e.preventDefault();
       toggleSection(section);
     });
     
@@ -8274,30 +8200,36 @@ function replayLogoIntro(){
       }
     });
   });
-  
-  // Auto-open section when nav link is clicked
+
+  // Auto-open and smooth scroll when nav link is clicked
   document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-    link.addEventListener('click', function() {
+    link.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href').slice(1);
       const targetSection = document.querySelector('.acc-section[data-acc="' + targetId + '"]');
       if (targetSection) {
-        const isOpen = targetSection.querySelector('.acc-banner').classList.contains('is-open');
-        if (!isOpen) openSection(targetSection);
-        // Let native scroll happen
+        const banner = targetSection.querySelector('.acc-banner');
+        const body = targetSection.querySelector('.acc-body');
+        if (banner && body && !banner.classList.contains('is-open')) {
+          banner.classList.add('is-open');
+          body.classList.add('is-open');
+          banner.setAttribute('aria-expanded', 'true');
+          if (typeof ScrollTrigger !== 'undefined') {
+            setTimeout(function() { ScrollTrigger.refresh(); }, 300);
+          }
+        }
         setTimeout(function() {
           const banner = targetSection.querySelector('.acc-banner');
           if (banner) {
-            const y = banner.getBoundingClientRect().top + window.scrollY - 100;
+            const y = banner.getBoundingClientRect().top + window.scrollY - 85;
             window.scrollTo({ top: y, behavior: 'smooth' });
           }
-        }, 100);
+        }, 120);
       }
     });
   });
-  
-  console.log('✅ LIHF Accordion system initialized — ' + sections.length + ' sections');
-})();
-</script>
+
+  console.log('✅ LIHF Accordion system successfully active on ' + sections.length + ' sections');
+})();</script>
 
 </body>
 </html>
