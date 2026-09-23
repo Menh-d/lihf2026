@@ -3720,6 +3720,924 @@ nav { padding: 1.2rem 2.8rem !important; }
   text-shadow: 0 0 20px rgba(204,0,0,0.6);
 }
 
+
+/* ==============================================================================
+   PROPOSAL 2026 PREMIUM ADDITIONS: PARTNERS STRIP, ACTIVITY MODAL & MARKETING
+   ============================================================================== */
+
+/* --- CONFIRMED PARTNERS STRIP --- */
+.partners-strip {
+  width: 100%;
+  background: #080808;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(204,0,0,0.3);
+  padding: 1rem 0;
+  position: relative;
+  z-index: 20;
+}
+.partners-strip-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+.partners-strip-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--ff-a);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.p-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #00ff66;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff66;
+  animation: pulseGreen 1.5s infinite;
+}
+@keyframes pulseGreen {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+.partners-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+.partner-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  padding: 0.4rem 0.9rem;
+  transition: all 0.3s;
+}
+.partner-badge:hover {
+  background: rgba(204,0,0,0.15);
+  border-color: var(--red);
+  transform: translateY(-2px);
+}
+.pb-icon { font-size: 1.2rem; }
+.pb-name {
+  font-family: var(--ff-d);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  line-height: 1.1;
+}
+.pb-role {
+  font-family: var(--ff-a);
+  font-size: 0.66rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.partners-strip-link {
+  font-family: var(--ff-a);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.partners-strip-link:hover { color: #ffffff; text-decoration: underline; }
+
+/* --- 7 ACTIVITIES INTERACTIVE GRID --- */
+.activities-interactive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+  margin-top: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .activities-interactive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .feat-act-card {
+    grid-column: span 3;
+  }
+}
+.act-card {
+  position: relative;
+  height: 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: #0c0c0c;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s, box-shadow 0.4s;
+}
+.feat-act-card {
+  height: 320px;
+}
+.act-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--red);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.9), 0 0 25px rgba(204,0,0,0.4);
+}
+.act-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.65) contrast(1.15);
+  transition: transform 0.6s ease;
+}
+.act-card:hover .act-card-bg {
+  transform: scale(1.06);
+  filter: brightness(0.75) contrast(1.2);
+}
+.act-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.3) 100%);
+}
+.act-card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.act-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.act-num {
+  font-family: var(--ff-d);
+  font-size: 2.2rem;
+  color: var(--gold);
+  line-height: 1;
+}
+.act-badge {
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #ffffff;
+  background: rgba(204,0,0,0.7);
+  padding: 0.25rem 0.65rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+.act-title {
+  font-family: var(--ff-d);
+  font-size: 1.6rem;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 0.4rem;
+}
+.act-desc {
+  font-family: var(--ff-b);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.45;
+  margin-bottom: 0.9rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.act-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--ff-a);
+  font-size: 0.76rem;
+  margin-bottom: 1rem;
+}
+.act-prize {
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.act-sched-tag {
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.08);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+.act-inspect-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: #ffffff;
+  font-family: var(--ff-a);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.65rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.act-card:hover .act-inspect-btn {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 0 15px rgba(204,0,0,0.6);
+}
+
+/* --- COMPREHENSIVE INTERACTIVE ACTIVITY DETAIL MODAL --- */
+.activity-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  padding: 1.5rem;
+}
+.activity-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.activity-modal-container {
+  width: min(940px, 95vw);
+  max-height: 90vh;
+  background: #0e0e0e;
+  border: 1px solid rgba(204,0,0,0.5);
+  border-radius: 16px;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.95), 0 0 50px rgba(204,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  animation: modalScaleUp 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+@keyframes modalScaleUp {
+  from { transform: scale(0.92) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Modal Banner Header */
+.act-modal-header {
+  position: relative;
+  height: 220px;
+  padding: 1.8rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.act-modal-header-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.45) contrast(1.1);
+  transition: background-image 0.4s ease;
+}
+.act-modal-header-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #0e0e0e 0%, rgba(14,14,14,0.6) 60%, transparent 100%);
+}
+.act-modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.7);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #ffffff;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s;
+}
+.act-modal-close:hover {
+  background: var(--red);
+  transform: rotate(90deg) scale(1.08);
+}
+.act-modal-top-info {
+  position: relative;
+  z-index: 5;
+}
+.act-modal-tags {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+.act-modal-badge {
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  background: rgba(212,175,55,0.12);
+  border: 1px solid rgba(212,175,55,0.3);
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+.act-modal-prize {
+  font-family: var(--ff-a);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(204,0,0,0.35);
+  border: 1px solid var(--red);
+  padding: 0.2rem 0.7rem;
+  border-radius: 3px;
+}
+.act-modal-title {
+  font-family: var(--ff-d);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0;
+}
+.act-modal-subtitle {
+  font-family: var(--ff-b);
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+  margin-top: 0.2rem;
+}
+
+/* Modal Tabs Navigation */
+.act-modal-tabs {
+  display: flex;
+  background: #141414;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  overflow-x: auto;
+}
+.act-tab-btn {
+  flex: 1;
+  padding: 0.85rem 1.2rem;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: rgba(255,255,255,0.65);
+  font-family: var(--ff-a);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s;
+}
+.act-tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255,255,255,0.03);
+}
+.act-tab-btn.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+  background: rgba(212,175,55,0.06);
+}
+
+/* Modal Body Panels */
+.act-modal-body {
+  padding: 1.8rem 2.2rem;
+  overflow-y: auto;
+  flex: 1;
+}
+.act-tab-panel {
+  display: none;
+}
+.act-tab-panel.active {
+  display: block;
+  animation: fadeInPanel 0.3s ease;
+}
+@keyframes fadeInPanel {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.act-detail-section {
+  margin-bottom: 1.8rem;
+}
+.act-detail-section:last-child {
+  margin-bottom: 0;
+}
+.act-sec-heading {
+  font-family: var(--ff-a);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.act-sec-text {
+  font-family: var(--ff-b);
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.65;
+}
+.act-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+.act-stat-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+}
+.as-lbl {
+  display: block;
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.2rem;
+}
+.as-val {
+  display: block;
+  font-family: var(--ff-d);
+  font-size: 1.15rem;
+  color: #ffffff;
+}
+
+.act-bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+.act-bullet-list li {
+  font-family: var(--ff-b);
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.55;
+  padding-left: 1.2rem;
+  position: relative;
+}
+.act-bullet-list li::before {
+  content: '▸';
+  color: var(--red);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.act-flow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+.flow-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 0.8rem 1.1rem;
+}
+.flow-step-num {
+  font-family: var(--ff-d);
+  font-size: 1.4rem;
+  color: var(--gold);
+  line-height: 1;
+}
+.flow-step-title {
+  font-family: var(--ff-a);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+.flow-step-desc {
+  font-family: var(--ff-b);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.45;
+}
+
+.act-criteria-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+.criteria-tag {
+  font-family: var(--ff-a);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: rgba(204,0,0,0.15);
+  border: 1px solid rgba(204,0,0,0.4);
+  color: #ffffff;
+  padding: 0.35rem 0.85rem;
+  border-radius: 4px;
+}
+
+.act-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+  margin-top: 0.8rem;
+}
+.timeline-card {
+  background: rgba(255,255,255,0.03);
+  border-left: 3px solid var(--red);
+  padding: 0.8rem 1.1rem;
+  border-radius: 0 6px 6px 0;
+}
+.tc-day {
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.tc-time {
+  font-family: var(--ff-d);
+  font-size: 1.05rem;
+  color: #ffffff;
+  margin: 0.2rem 0;
+}
+.tc-event {
+  font-family: var(--ff-b);
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.act-prizes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.9rem;
+  margin-top: 0.8rem;
+}
+.prize-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+.pc-place {
+  font-family: var(--ff-a);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.pc-amt {
+  font-family: var(--ff-d);
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 0.3rem 0;
+}
+.pc-note {
+  font-family: var(--ff-b);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.act-sponsor-ideas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.sponsor-idea-box {
+  background: rgba(204,0,0,0.06);
+  border: 1px solid rgba(204,0,0,0.3);
+  border-radius: 8px;
+  padding: 1.1rem;
+}
+.sib-title {
+  font-family: var(--ff-a);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.sib-desc {
+  font-family: var(--ff-b);
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.5;
+}
+
+/* Modal Footer */
+.act-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2.2rem;
+  background: #111111;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.act-nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.act-modal-nav-btn {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #ffffff;
+  font-family: var(--ff-a);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.act-modal-nav-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.act-counter {
+  font-family: var(--ff-d);
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+.act-modal-cta {
+  background: var(--red);
+  color: #ffffff;
+  font-family: var(--ff-a);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.65rem 1.4rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+.act-modal-cta:hover {
+  background: var(--red-b);
+  box-shadow: 0 0 20px rgba(204,0,0,0.6);
+  transform: translateY(-2px);
+}
+
+/* --- MARKETING SECTION STYLES --- */
+.mkt-phases-container {
+  margin-top: 1rem;
+}
+.mkt-phases-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.mph-tag {
+  display: inline-block;
+  font-family: var(--ff-a);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  background: rgba(212,175,55,0.1);
+  border: 1px solid rgba(212,175,55,0.3);
+  padding: 0.25rem 0.8rem;
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.mph-title {
+  font-family: var(--ff-d);
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.mkt-phases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.mkt-phase-card {
+  background: #0f0f0f;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 1.8rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.35s;
+}
+.mkt-phase-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--red);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 20px rgba(204,0,0,0.3);
+}
+.mkt-phase-card.highlight-phase {
+  border-color: rgba(212,175,55,0.6);
+  background: linear-gradient(160deg, #16120b 0%, #0d0c0a 100%);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 25px rgba(212,175,55,0.25);
+}
+.mpc-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.mpc-badge {
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  background: rgba(204,0,0,0.8);
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+}
+.mpc-badge.gold-badge {
+  background: var(--gold);
+  color: #000000;
+}
+.mpc-time {
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 600;
+}
+.mpc-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+.mpc-title {
+  font-family: var(--ff-d);
+  font-size: 1.45rem;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 0.3rem;
+}
+.mpc-sub {
+  font-family: var(--ff-a);
+  font-size: 0.76rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+.mpc-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+  flex: 1;
+}
+.mpc-list li {
+  font-family: var(--ff-b);
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.5;
+  padding-left: 1.2rem;
+  position: relative;
+}
+.mpc-list li::before {
+  content: '✓';
+  color: var(--red);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+.mkt-phase-card.highlight-phase .mpc-list li::before {
+  color: var(--gold);
+}
+.mpc-metric {
+  font-family: var(--ff-a);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* 7 Creative Advertising Campaigns Grid */
+.creative-ads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.ad-card {
+  background: #0d0d0d;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+}
+.ad-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(204,0,0,0.7);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.8), 0 0 20px rgba(204,0,0,0.25);
+}
+.ad-card-badge {
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.ad-card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+.ad-card-title {
+  font-family: var(--ff-d);
+  font-size: 1.35rem;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+.ad-card-desc {
+  font-family: var(--ff-b);
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.55;
+  margin-bottom: 1.2rem;
+  flex: 1;
+}
+.ad-sponsor-fit {
+  background: rgba(255,255,255,0.04);
+  border-left: 3px solid var(--red);
+  padding: 0.6rem 0.8rem;
+  border-radius: 0 4px 4px 0;
+}
+.asf-lbl {
+  display: block;
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+.asf-val {
+  display: block;
+  font-family: var(--ff-b);
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.4;
+}
+
+/* 5 Tiers Grid */
+.pkg-grid-5tiers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.4rem;
+  align-items: stretch;
+}
+@media (min-width: 1200px) {
+  .pkg-grid-5tiers {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+.inkind-pkg {
+  border-color: rgba(255,184,0,0.3) !important;
+}
+.inkind-pkg:hover {
+  border-color: #FFB800 !important;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 25px rgba(255,184,0,0.3) !important;
+}
+
 </style>
 
 
@@ -3737,7 +4655,8 @@ nav { padding: 1.2rem 2.8rem !important; }
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#kpi">Impact</a></li>
-    <li><a href="#battles">Battles</a></li>
+    <li><a href="#battles">Activities</a></li>
+    <li><a href="#marketing">Marketing</a></li>
     <li><a href="#venue">Venue</a></li>
     <li><a href="#packages">Packages</a></li>
     <li><a href="#organizer">Organizer</a></li>
@@ -3749,15 +4668,15 @@ nav { padding: 1.2rem 2.8rem !important; }
 <div class="ticker-wrap">
   <div class="ticker-track" id="ticker">
     <span class="ticker-item">Lao International HipHop Festival 2026</span>
-    <span class="ticker-item">13–15 November • Lao-ITECC • Vientiane</span>
-    <span class="ticker-item">5,000+ Attendees • 10M+ Digital Impressions</span>
-    <span class="ticker-item">159M LAK Prize Pool • 7 Battle Categories</span>
+    <span class="ticker-item">13–15 November 2026 • Lao-ITECC Exhibition Hall • Vientiane</span>
+    <span class="ticker-item">10,000+ Expected Attendees • 10M+ Online &amp; Media Reach Target</span>
+    <span class="ticker-item">159M LAK Prize Pool • 7 Main Culture Activities</span>
+    <span class="ticker-item">500+ Artists &amp; Competitors • 50–70 Market Booths • 100+ Volunteers</span>
+    <span class="ticker-item">Confirmed Partners: Sting Energy Drink • Beerlao • Tplus</span>
     <span class="ticker-item">One Culture • One Movement • One Region</span>
-    <span class="ticker-item">Lao International HipHop Festival 2026</span>
-    <span class="ticker-item">13–15 November • Lao-ITECC • Vientiane</span>
-    <span class="ticker-item">5,000+ Attendees • 10M+ Digital Impressions</span>
-    <span class="ticker-item">159M LAK Prize Pool • 7 Battle Categories</span>
-    <span class="ticker-item">One Culture • One Movement • One Region</span>
+    <span class="ticker-item">13–15 November 2026 • Lao-ITECC • Vientiane</span>
+    <span class="ticker-item">10,000+ Expected Attendees • 10M+ Reach Target</span>
+    <span class="ticker-item">Confirmed Partners: Sting • Beerlao • Tplus</span>
   </div>
 </div>
 
@@ -3849,19 +4768,19 @@ nav { padding: 1.2rem 2.8rem !important; }
           </div>
         </div>
 
-        <!-- STATS CHIPS -->
+        <!-- STATS CHIPS (Synced to 2026 Proposal) -->
         <div class="d1-awards-row">
           <div class="d1-award-chip">
-            <span class="d1-award-name">5,000+</span>
+            <span class="d1-award-name">10,000+</span>
             <span class="d1-award-count">ATTENDEES</span>
           </div>
           <div class="d1-award-chip">
             <span class="d1-award-name">10M+</span>
-            <span class="d1-award-count">IMPRESSIONS</span>
+            <span class="d1-award-count">MEDIA REACH</span>
           </div>
           <div class="d1-award-chip">
-            <span class="d1-award-name">9 YRS</span>
-            <span class="d1-award-count">HERITAGE</span>
+            <span class="d1-award-name">500+</span>
+            <span class="d1-award-count">TALENTS</span>
           </div>
           <div class="d1-award-chip">
             <span class="d1-award-name">159M</span>
@@ -3874,6 +4793,42 @@ nav { padding: 1.2rem 2.8rem !important; }
     </div>
   </div>
 </section>
+
+<!-- CONFIRMED STRATEGIC PARTNERS BAR -->
+<div class="partners-strip">
+  <div class="container">
+    <div class="partners-strip-inner">
+      <div class="partners-strip-label">
+        <span class="p-pulse-dot"></span>
+        <span>CONFIRMED 2026 STRATEGIC PARTNERS</span>
+      </div>
+      <div class="partners-badges">
+        <div class="partner-badge">
+          <span class="pb-icon">⚡</span>
+          <div>
+            <div class="pb-name">STING ENERGY DRINK</div>
+            <div class="pb-role">Official Energy Partner</div>
+          </div>
+        </div>
+        <div class="partner-badge">
+          <span class="pb-icon">🍺</span>
+          <div>
+            <div class="pb-name">BEERLAO</div>
+            <div class="pb-role">Official Beverage Partner</div>
+          </div>
+        </div>
+        <div class="partner-badge">
+          <span class="pb-icon">📶</span>
+          <div>
+            <div class="pb-name">TPLUS</div>
+            <div class="pb-role">Official Telecom &amp; 5G Partner</div>
+          </div>
+        </div>
+      </div>
+      <a href="#packages" class="partners-strip-link">Sponsorship Opportunities →</a>
+    </div>
+  </div>
+</div>
 
 <!-- SHOWREEL VIDEO MODAL -->
 <div class="d1-modal" id="showreel-modal">
@@ -4054,12 +5009,12 @@ nav { padding: 1.2rem 2.8rem !important; }
     <h2 class="section-title ru">GUARANTEED EVENT SCALE &amp;<br><span class="hl">KEY PERFORMANCE</span> INDICATORS</h2>
     <div class="red-line ru"></div>
     <div class="kpi-grid">
-      <div class="kc ru"><span class="kn" data-n="5000" data-s="+">5,000+</span><span class="ku">Onsite Attendees</span><p class="kd">Passionate Gen Z, athletes, families &amp; tourists</p></div>
-      <div class="kc ru"><span class="kn" data-n="10" data-s="M+">10M+</span><span class="ku">Digital Impressions</span><p class="kd">Multi-platform reach across TikTok, FB, IG &amp; YT</p></div>
-      <div class="kc ru"><span class="kn" data-n="500" data-s="+">500+</span><span class="ku">Talents &amp; Athletes</span><p class="kd">Competitors from 10+ participating nations</p></div>
-      <div class="kc ru"><span class="kn">50–70</span><span class="ku">Marketplace Booths</span><p class="kd">Curated street food &amp; fashion lifestyle vendors</p></div>
-      <div class="kc ru"><span class="kn" data-n="159" data-s="M">159M</span><span class="ku">LAK Prize Pool</span><p class="kd">Rewarding excellence across 6 battle categories</p></div>
-      <div class="kc ru"><span class="kn" data-n="10000" data-s="+">10,000+</span><span class="ku">Product Samples</span><p class="kd">Direct consumer trial &amp; brand engagement target</p></div>
+      <div class="kc ru"><span class="kn" data-n="10000" data-s="+">10,000+</span><span class="ku">Expected Attendees</span><p class="kd">Gen Z youth, athletes, dancers, creative creators &amp; tourists</p></div>
+      <div class="kc ru"><span class="kn" data-n="10" data-s="M+">10M+</span><span class="ku">Media &amp; Online Reach Target</span><p class="kd">Target cross-platform reach: TikTok, FB, IG, YT &amp; Vientiane OOH</p></div>
+      <div class="kc ru"><span class="kn" data-n="500" data-s="+">500+</span><span class="ku">Artists &amp; Competitors</span><p class="kd">Elite competitors, dancers, MCs, DJs &amp; judges from 10+ nations</p></div>
+      <div class="kc ru"><span class="kn">50–70</span><span class="ku">Food &amp; Fashion Booths</span><p class="kd">Curated lifestyle market, urban streetwear &amp; culinary vendors</p></div>
+      <div class="kc ru"><span class="kn" data-n="100" data-s="+">100+</span><span class="ku">Trained Volunteers</span><p class="kd">Dedicated youth operations crew supporting seamless festival delivery</p></div>
+      <div class="kc ru"><span class="kn" data-n="159" data-s="M">159M</span><span class="ku">LAK Prize Pool</span><p class="kd">Rewarding excellence across 7 main culture &amp; battle pillars</p></div>
     </div>
   </div>
 </section>
@@ -4081,232 +5036,519 @@ nav { padding: 1.2rem 2.8rem !important; }
 </section>
 
 <!-- BATTLES (Event Pillars — Immersive 3D Tilt Cards & Expandable Modal) -->
+<!-- ACTIVITIES & BATTLES — INTERACTIVE 7 CULTURE PILLARS -->
 <section id="battles">
   <div class="noise-overlay"></div>
   <div class="container">
-    <div class="section-label ru">Event Pillars</div>
-    <h2 class="section-title ru">THE 7 <span class="hl">FLAGSHIP</span> BATTLES &amp; SHOWCASES</h2>
-    <div class="red-line ru"></div>
+    <div style="text-align:center; max-width:850px; margin:0 auto 2.5rem;">
+      <div class="section-label ru" style="justify-content:center;">Seven Culture Pillars • One Festival Platform</div>
+      <h2 class="section-title ru">THE 7 <span class="hl">MAIN ACTIVITIES</span> &amp; BATTLE SHOWCASES</h2>
+      <div class="red-line ru" style="margin:1.2rem auto;"></div>
+      <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.8); line-height:1.65;">
+        Each activity creates a distinct activation angle for audiences and sponsors: performance, competition, community, commerce, content, and high-impact media moments. <strong style="color:var(--gold);">Click on any activity card below to inspect full rules, schedule, prizes &amp; sponsor integration options.</strong>
+      </p>
+    </div>
 
-    <div class="battles-3d-grid">
+    <!-- 7 Activities Grid -->
+    <div class="activities-interactive-grid">
       
-      <div class="tilt-card-wrap ru">
-        <div class="tilt-card" data-modal-id="0">
-          <div class="tilt-card-bg" style="background-image:url('assets/battle_breaking.jpg');"></div>
-          <div class="tilt-card-overlay"></div>
-          <div class="tilt-card-glow"></div>
-
-          <div class="tilt-card-content">
-            <div class="tilt-badge-row">
-              <span class="tilt-num">01</span>
-              <span class="tilt-tag">OPEN INTERNATIONAL</span>
+      <!-- ACTIVITY 01: Breaking 2 vs 2 -->
+      <div class="act-card ru" data-act-id="0">
+        <div class="act-card-bg" style="background-image:url('assets/battle_breaking.jpg');"></div>
+        <div class="act-card-overlay"></div>
+        <div class="act-card-content">
+          <div class="act-card-header">
+            <span class="act-num">01</span>
+            <span class="act-badge">INTERNATIONAL BATTLE</span>
+          </div>
+          <div class="act-card-bottom">
+            <h3 class="act-title">Breaking 2 vs 2</h3>
+            <p class="act-desc">Olympic-caliber B-Boy &amp; B-Girl 2v2 knockout championship uniting top dancers from ASEAN, Japan &amp; Europe.</p>
+            <div class="act-meta-row">
+              <span class="act-prize">🏆 32,000,000 LAK Pool</span>
+              <span class="act-sched-tag">Day 1 &amp; Day 2</span>
             </div>
-
-            <div>
-              <h3 class="tilt-title">Breaking Battle 2v2</h3>
-              <p class="tilt-sub">Olympic-caliber B-Boy & B-Girl showdown featuring top dancers from ASEAN, Japan & Europe.</p>
-              <div class="tilt-prize">🏆 32,000,000 LAK Pool</div>
-              <div class="tilt-cta-hint">
-                <span>Tap to open full 3D specs</span> ↗
-              </div>
-            </div>
+            <button class="act-inspect-btn">
+              <span>View Full Specs &amp; Rules</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
           </div>
         </div>
       </div>
-      <div class="tilt-card-wrap ru">
-        <div class="tilt-card" data-modal-id="1">
-          <div class="tilt-card-bg" style="background-image:url('assets/battle_openstyle.jpg');"></div>
-          <div class="tilt-card-overlay"></div>
-          <div class="tilt-card-glow"></div>
 
-          <div class="tilt-card-content">
-            <div class="tilt-badge-row">
-              <span class="tilt-num">02</span>
-              <span class="tilt-tag">OPEN STYLE FREESTYLE</span>
+      <!-- ACTIVITY 02: Open Style 2 vs 2 -->
+      <div class="act-card ru" data-act-id="1">
+        <div class="act-card-bg" style="background-image:url('assets/battle_openstyle.jpg');"></div>
+        <div class="act-card-overlay"></div>
+        <div class="act-card-content">
+          <div class="act-card-header">
+            <span class="act-num">02</span>
+            <span class="act-badge">ALL-STYLE BATTLE</span>
+          </div>
+          <div class="act-card-bottom">
+            <h3 class="act-title">Open Style 2 vs 2</h3>
+            <p class="act-desc">HipHop, Popping, Locking, Krump, Waacking and freestyle street dance showdown celebrating raw musicality.</p>
+            <div class="act-meta-row">
+              <span class="act-prize">🏆 27,000,000 LAK Pool</span>
+              <span class="act-sched-tag">Day 1 &amp; Day 2</span>
             </div>
-
-            <div>
-              <h3 class="tilt-title">Open Style Battle 2v2</h3>
-              <p class="tilt-sub">HipHop, Popping, Locking, Krump, and Waacking expressional street dance showdown.</p>
-              <div class="tilt-prize">🏆 27,000,000 LAK Pool</div>
-              <div class="tilt-cta-hint">
-                <span>Tap to open full 3D specs</span> ↗
-              </div>
-            </div>
+            <button class="act-inspect-btn">
+              <span>View Full Specs &amp; Rules</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
           </div>
         </div>
       </div>
-      <div class="tilt-card-wrap ru">
-        <div class="tilt-card" data-modal-id="2">
-          <div class="tilt-card-bg" style="background-image:url('assets/battle_crew.jpg');"></div>
-          <div class="tilt-card-overlay"></div>
-          <div class="tilt-card-glow"></div>
 
-          <div class="tilt-card-content">
-            <div class="tilt-badge-row">
-              <span class="tilt-num">03</span>
-              <span class="tilt-tag">CHOREOGRAPHY SHOWDOWN</span>
+      <!-- ACTIVITY 03: Crew Competition -->
+      <div class="act-card ru" data-act-id="2">
+        <div class="act-card-bg" style="background-image:url('assets/battle_crew.jpg');"></div>
+        <div class="act-card-overlay"></div>
+        <div class="act-card-content">
+          <div class="act-card-header">
+            <span class="act-num">03</span>
+            <span class="act-badge">MEGA SHOWCASE</span>
+          </div>
+          <div class="act-card-bottom">
+            <h3 class="act-title">Crew Competition (5–8 Members)</h3>
+            <p class="act-desc">Theatrical mega-crew choreography championship with custom concept routines and high-impact visual stunts.</p>
+            <div class="act-meta-row">
+              <span class="act-prize">🏆 56,000,000 LAK Pool</span>
+              <span class="act-sched-tag">Day 2 Main Stage</span>
             </div>
-
-            <div>
-              <h3 class="tilt-title">Crew Competition Showcase</h3>
-              <p class="tilt-sub">5–8 Members Open — Synchronized high-impact choreography and team concept routines.</p>
-              <div class="tilt-prize">🏆 56,000,000 LAK Pool</div>
-              <div class="tilt-cta-hint">
-                <span>Tap to open full 3D specs</span> ↗
-              </div>
-            </div>
+            <button class="act-inspect-btn">
+              <span>View Full Specs &amp; Rules</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
           </div>
         </div>
       </div>
-      <div class="tilt-card-wrap ru">
-        <div class="tilt-card" data-modal-id="3">
-          <div class="tilt-card-bg" style="background-image:url('assets/battle_mc.jpg');"></div>
-          <div class="tilt-card-overlay"></div>
-          <div class="tilt-card-glow"></div>
 
-          <div class="tilt-card-content">
-            <div class="tilt-badge-row">
-              <span class="tilt-num">04</span>
-              <span class="tilt-tag">LAO NATIONAL CYPHER</span>
+      <!-- ACTIVITY 04: DJ Open Format -->
+      <div class="act-card ru" data-act-id="3">
+        <div class="act-card-bg" style="background-image:url('assets/battle_dj.jpg');"></div>
+        <div class="act-card-overlay"></div>
+        <div class="act-card-content">
+          <div class="act-card-header">
+            <span class="act-num">04</span>
+            <span class="act-badge">TURNTABLISM &amp; SCRATCH</span>
+          </div>
+          <div class="act-card-bottom">
+            <h3 class="act-title">DJ Open Format Showdown</h3>
+            <p class="act-desc">Live vinyl scratching, beat juggling, tone play, and crowd control competition among Asia's top turntablists.</p>
+            <div class="act-meta-row">
+              <span class="act-prize">🏆 17,000,000 LAK Pool</span>
+              <span class="act-sched-tag">Day 2 Afternoon</span>
             </div>
-
-            <div>
-              <h3 class="tilt-title">Rap 7-To-Smoke Cypher</h3>
-              <p class="tilt-sub">High-octane Lao MC cypher battle crowning the top lyricist of Laos.</p>
-              <div class="tilt-prize">🏆 7,000,000 LAK Pool</div>
-              <div class="tilt-cta-hint">
-                <span>Tap to open full 3D specs</span> ↗
-              </div>
-            </div>
+            <button class="act-inspect-btn">
+              <span>View Full Specs &amp; Rules</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
           </div>
         </div>
       </div>
-      <div class="tilt-card-wrap ru">
-        <div class="tilt-card" data-modal-id="4">
-          <div class="tilt-card-bg" style="background-image:url('assets/battle_dj.jpg');"></div>
-          <div class="tilt-card-overlay"></div>
-          <div class="tilt-card-glow"></div>
 
-          <div class="tilt-card-content">
-            <div class="tilt-badge-row">
-              <span class="tilt-num">05</span>
-              <span class="tilt-tag">TURNTABLISM & SCRATCH</span>
+      <!-- ACTIVITY 05: Graffiti Exhibition -->
+      <div class="act-card ru" data-act-id="4">
+        <div class="act-card-bg" style="background-image:url('assets/battle_graffiti.jpg');"></div>
+        <div class="act-card-overlay"></div>
+        <div class="act-card-content">
+          <div class="act-card-header">
+            <span class="act-num">05</span>
+            <span class="act-badge">LIVE STREET ART</span>
+          </div>
+          <div class="act-card-bottom">
+            <h3 class="act-title">Graffiti Art Exhibition</h3>
+            <p class="act-desc">Live 8-hour aerosol mural painting on giant 3x2m wooden canvas panels under the theme 'HipHop Beyond Borders'.</p>
+            <div class="act-meta-row">
+              <span class="act-prize">🏆 15,000,000 LAK Pool</span>
+              <span class="act-sched-tag">Day 1 &amp; Day 2</span>
             </div>
-
-            <div>
-              <h3 class="tilt-title">DJ Open Format Showdown</h3>
-              <p class="tilt-sub">Live vinyl scratching, beat juggling, and crowd control competition.</p>
-              <div class="tilt-prize">🏆 17,000,000 LAK Pool</div>
-              <div class="tilt-cta-hint">
-                <span>Tap to open full 3D specs</span> ↗
-              </div>
-            </div>
+            <button class="act-inspect-btn">
+              <span>View Full Specs &amp; Rules</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
           </div>
         </div>
       </div>
-      <div class="tilt-card-wrap ru">
-        <div class="tilt-card" data-modal-id="5">
-          <div class="tilt-card-bg" style="background-image:url('assets/battle_graffiti.jpg');"></div>
-          <div class="tilt-card-overlay"></div>
-          <div class="tilt-card-glow"></div>
 
-          <div class="tilt-card-content">
-            <div class="tilt-badge-row">
-              <span class="tilt-num">06</span>
-              <span class="tilt-tag">AEROSOL LIVE GRAFFITI</span>
+      <!-- ACTIVITY 06: Rap 7 to Smoke -->
+      <div class="act-card ru" data-act-id="5">
+        <div class="act-card-bg" style="background-image:url('assets/battle_mc.jpg');"></div>
+        <div class="act-card-overlay"></div>
+        <div class="act-card-content">
+          <div class="act-card-header">
+            <span class="act-num">06</span>
+            <span class="act-badge">LAO MC BATTLE</span>
+          </div>
+          <div class="act-card-bottom">
+            <h3 class="act-title">Rap 7 to Smoke Cypher</h3>
+            <p class="act-desc">Electrifying 7-to-smoke freestyle rap cypher format crowning the supreme lyrical champion of Laos.</p>
+            <div class="act-meta-row">
+              <span class="act-prize">🏆 7,000,000 LAK Pool</span>
+              <span class="act-sched-tag">Day 1 Night Arena</span>
             </div>
-
-            <div>
-              <h3 class="tilt-title">Graffiti Art Canvas Battle</h3>
-              <p class="tilt-sub">Live 8-hour mural competition under the theme 'HipHop Beyond Borders'.</p>
-              <div class="tilt-prize">🏆 15,000,000 LAK Pool</div>
-              <div class="tilt-cta-hint">
-                <span>Tap to open full 3D specs</span> ↗
-              </div>
-            </div>
+            <button class="act-inspect-btn">
+              <span>View Full Specs &amp; Rules</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
           </div>
         </div>
       </div>
-      <div class="tilt-card-wrap ru">
-        <div class="tilt-card" data-modal-id="6">
-          <div class="tilt-card-bg" style="background-image:url('assets/battle_concert.jpg');"></div>
-          <div class="tilt-card-overlay"></div>
-          <div class="tilt-card-glow"></div>
 
-          <div class="tilt-card-content">
-            <div class="tilt-badge-row">
-              <span class="tilt-num">07</span>
-              <span class="tilt-tag">FESTIVAL FINALE</span>
+      <!-- ACTIVITY 07: Hip-Hop Concert -->
+      <div class="act-card ru feat-act-card" data-act-id="6">
+        <div class="act-card-bg" style="background-image:url('assets/battle_concert.jpg');"></div>
+        <div class="act-card-overlay"></div>
+        <div class="act-card-content">
+          <div class="act-card-header">
+            <span class="act-num">07</span>
+            <span class="act-badge">FESTIVAL FINALE</span>
+          </div>
+          <div class="act-card-bottom">
+            <h3 class="act-title">Headline Hip-Hop Concert</h3>
+            <p class="act-desc">2-Night grand concert finale uniting thousands of fans. Live performances from top Lao headliners and regional ASEAN guest artists.</p>
+            <div class="act-meta-row">
+              <span class="act-prize">🏆 3,000+ Arena Capacity</span>
+              <span class="act-sched-tag">Day 2 &amp; Day 3 Nights</span>
             </div>
-
-            <div>
-              <h3 class="tilt-title">Headline HipHop Concert</h3>
-              <p class="tilt-sub">2-Night Concert Finale featuring top Lao headliners, regional & international guests.</p>
-              <div class="tilt-prize">🏆 3,000+ Audience Capacity</div>
-              <div class="tilt-cta-hint">
-                <span>Tap to open full 3D specs</span> ↗
-              </div>
-            </div>
+            <button class="act-inspect-btn">
+              <span>View Full Specs &amp; Rules</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- IMMERSIVE 3D BATTLE EXPANDED MODAL -->
-<!-- GHOUL 3D TILT TRADING CARD EXPANDED MODAL -->
-<div class="ghoul-modal-overlay" id="ghoul-modal">
-  <button class="ghoul-close-btn" id="ghoul-close-btn" aria-label="Close Modal">&times;</button>
-  <button class="ghoul-nav-btn prev" id="ghoul-prev-btn" aria-label="Previous Pillar">‹</button>
-  <button class="ghoul-nav-btn next" id="ghoul-next-btn" aria-label="Next Pillar">›</button>
+<!-- COMPREHENSIVE INTERACTIVE ACTIVITY DETAIL MODAL -->
+<div class="activity-modal-overlay" id="activity-detail-modal">
+  <div class="activity-modal-container">
+    
+    <!-- Top Modal Header with Photo Banner -->
+    <div class="act-modal-header">
+      <div class="act-modal-header-bg" id="am-bg"></div>
+      <div class="act-modal-header-overlay"></div>
+      <button class="act-modal-close" id="am-close-btn" aria-label="Close Modal">&times;</button>
+      
+      <div class="act-modal-top-info">
+        <div class="act-modal-tags">
+          <span class="act-modal-badge" id="am-badge">CATEGORY #01</span>
+          <span class="act-modal-prize" id="am-prize">🏆 32,000,000 LAK POOL</span>
+        </div>
+        <h2 class="act-modal-title" id="am-title">Breaking 2 vs 2 Battle</h2>
+        <div class="act-modal-subtitle" id="am-tagline">Olympic-Caliber International B-Boy &amp; B-Girl Showdown</div>
+      </div>
+    </div>
 
-  <!-- 3D Parallax Card Stage -->
-  <div class="ghoul-card-stage" id="ghoul-stage">
-    <div class="ghoul-card-body">
-      <div class="ghoul-card-foil" id="ghoul-foil"></div>
+    <!-- Navigation Tabs -->
+    <div class="act-modal-tabs">
+      <button class="act-tab-btn active" data-tab="tab-overview">📋 Overview &amp; Concept</button>
+      <button class="act-tab-btn" data-tab="tab-rules">⚔️ Format &amp; Rules</button>
+      <button class="act-tab-btn" data-tab="tab-prizes">🏆 Schedule &amp; Prizes</button>
+      <button class="act-tab-btn" data-tab="tab-sponsor">💡 Sponsor Activation</button>
+    </div>
 
-      <!-- 3D Photo Layer -->
-      <div class="ghoul-photo-layer">
-        <img id="g-img" src="" alt="Event Pillar" />
-        <span class="ghoul-photo-badge" id="g-badge">CATEGORY #01</span>
+    <!-- Tab Panels Body -->
+    <div class="act-modal-body">
+      
+      <!-- PANEL 1: OVERVIEW -->
+      <div class="act-tab-panel active" id="tab-overview">
+        <div class="act-detail-section">
+          <h4 class="act-sec-heading">Cultural Context &amp; Audience Energy</h4>
+          <p class="act-sec-text" id="am-overview-p1">Detailed cultural context here...</p>
+          <div class="act-stats-grid">
+            <div class="act-stat-box">
+              <span class="as-lbl">Participants</span>
+              <span class="as-val" id="am-stat-comp">64 Dancers (32 Crews)</span>
+            </div>
+            <div class="act-stat-box">
+              <span class="as-lbl">Battle Venue</span>
+              <span class="as-val" id="am-stat-venue">Main Arena Battle Ring</span>
+            </div>
+            <div class="act-stat-box">
+              <span class="as-lbl">Target Audience</span>
+              <span class="as-val" id="am-stat-aud">Gen Z, Urban Dancers, Fans</span>
+            </div>
+            <div class="act-stat-box">
+              <span class="as-lbl">Media Output</span>
+              <span class="as-val" id="am-stat-media">Viral 4K TikTok / IG Reels</span>
+            </div>
+          </div>
+        </div>
+        <div class="act-detail-section">
+          <h4 class="act-sec-heading">Key Highlights &amp; Show Moments</h4>
+          <ul class="act-bullet-list" id="am-overview-highlights">
+            <li>High-energy international battle with teams traveling from across ASEAN</li>
+            <li>Live DJ accompaniment dropping classic breaks and funk anthems</li>
+          </ul>
+        </div>
       </div>
 
-      <!-- 3D Info Layer -->
-      <div class="ghoul-info-layer">
-        <div class="ghoul-card-num" id="g-prize">🏆 32,000,000 LAK POOL</div>
-        <h3 class="ghoul-card-title" id="g-title">BREAKING BATTLE 2V2</h3>
-        <p class="ghoul-card-desc" id="g-desc">Description text...</p>
-
-        <div class="ghoul-specs-row">
-          <div>
-            <div class="ghoul-spec-lbl">Competitors</div>
-            <div class="ghoul-spec-val" id="g-comp">64 Dancers</div>
+      <!-- PANEL 2: FORMAT & RULES -->
+      <div class="act-tab-panel" id="tab-rules">
+        <div class="act-detail-section">
+          <h4 class="act-sec-heading">Tournament Structure &amp; Progression</h4>
+          <div class="act-flow-steps" id="am-rules-flow">
+            <!-- Populated via JS -->
           </div>
-          <div>
-            <div class="ghoul-spec-lbl">Format</div>
-            <div class="ghoul-spec-val" id="g-format">Audition → Top 16</div>
-          </div>
-          <div>
-            <div class="ghoul-spec-lbl">Judges</div>
-            <div class="ghoul-spec-val" id="g-judge">3 Certified</div>
-          </div>
-          <div>
-            <div class="ghoul-spec-lbl">Schedule</div>
-            <div class="ghoul-spec-val" id="g-sched">Day 1 &amp; Day 2</div>
+        </div>
+        <div class="act-detail-section">
+          <h4 class="act-sec-heading">Official Judging System &amp; Criteria</h4>
+          <p class="act-sec-text" id="am-rules-judging">Judging criteria description...</p>
+          <div class="act-criteria-tags" id="am-criteria-tags">
+            <!-- Criteria Pills -->
           </div>
         </div>
       </div>
 
-      <!-- 3D CTA Button -->
-      <a href="#contact" class="ghoul-cta-btn">Sponsor / Partner Category →</a>
+      <!-- PANEL 3: SCHEDULE & PRIZES -->
+      <div class="act-tab-panel" id="tab-prizes">
+        <div class="act-detail-section">
+          <h4 class="act-sec-heading">Competition Schedule (13–15 November 2026)</h4>
+          <div class="act-timeline-grid" id="am-timeline-grid">
+            <!-- Schedule timeline -->
+          </div>
+        </div>
+        <div class="act-detail-section">
+          <h4 class="act-sec-heading">Official Prize Pool Distribution</h4>
+          <div class="act-prizes-grid" id="am-prizes-grid">
+            <!-- Prize cards -->
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL 4: SPONSOR ACTIVATION -->
+      <div class="act-tab-panel" id="tab-sponsor">
+        <div class="act-detail-section">
+          <h4 class="act-sec-heading">How Brands Can Own &amp; Activate This Category</h4>
+          <p class="act-sec-text" id="am-sponsor-intro">Activation intro text...</p>
+          <div class="act-sponsor-ideas" id="am-sponsor-ideas">
+            <!-- Sponsor ideas -->
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <!-- Modal Footer Controls -->
+    <div class="act-modal-footer">
+      <div class="act-nav-controls">
+        <button class="act-modal-nav-btn prev" id="am-prev-btn">‹ Previous Activity</button>
+        <span class="act-counter" id="am-counter">1 / 7</span>
+        <button class="act-modal-nav-btn next" id="am-next-btn">Next Activity ›</button>
+      </div>
+      <a href="#contact" class="act-modal-cta">Inquire Category Sponsorship →</a>
+    </div>
+
   </div>
 </div>
 
 <div class="section-divider"></div>
+<!-- MARKETING & COMMUNICATION PLAN (Slide 14 + Creative Advertising Initiatives) -->
+<section id="marketing">
+  <div class="noise-overlay"></div>
+  <div class="container">
+    
+    <div style="text-align:center; max-width:920px; margin:0 auto 3rem;">
+      <div class="section-label ru" style="justify-content:center;">Marketing &amp; Advertising Strategy • ແຜນການຕະຫຼາດ &amp; ການສື່ສານ</div>
+      <h2 class="section-title ru">OMNICHANNEL CAMPAIGN ROADMAP &amp;<br><span class="hl">CREATIVE ADVERTISING</span> INITIATIVES</h2>
+      <div class="red-line ru" style="margin:1.4rem auto;"></div>
+      <p style="font-family:var(--ff-b); font-size:1.05rem; color:rgba(255,255,255,0.85); line-height:1.7;">
+        A high-velocity, youth-centric campaign engineered to build viral anticipation, drive massive footfall and ticket conversion, and deliver <strong>10,000,000+ measurable cross-platform impressions</strong> for festival brand partners.
+      </p>
+    </div>
 
+    <!-- PART A: 4-PHASE CAMPAIGN ROADMAP (Slide 14) -->
+    <div class="mkt-phases-container">
+      <div class="mkt-phases-header">
+        <span class="mph-tag">THE 4-PHASE TIMELINE</span>
+        <h3 class="mph-title">From Initial Heat to Sustained Regional Legacy</h3>
+      </div>
+
+      <div class="mkt-phases-grid">
+        
+        <!-- PHASE 1: LAUNCH -->
+        <div class="mkt-phase-card ru">
+          <div class="mpc-top">
+            <span class="mpc-badge">PHASE 1</span>
+            <span class="mpc-time">JULY – AUGUST 2026</span>
+          </div>
+          <div class="mpc-icon">🚀</div>
+          <h4 class="mpc-title">Launch &amp; Brand Reveal</h4>
+          <div class="mpc-sub">Building Initial Awareness &amp; Partner Announcement</div>
+          <ul class="mpc-list">
+            <li><strong>Official Visual Identity Drop:</strong> Key visual release, website relaunch, and national press conference.</li>
+            <li><strong>Sponsor Co-Branded Rollout:</strong> Title &amp; Platinum partner announcement reels on TikTok &amp; Facebook.</li>
+            <li><strong>Teaser Video Campaign:</strong> 15-second cinematic teasers highlighting the 9-year festival heritage.</li>
+            <li><strong>Regional Outreach:</strong> Coordination with dance federations in Thailand, Vietnam &amp; Singapore.</li>
+          </ul>
+          <div class="mpc-metric">Target: 1.5M+ Digital Views</div>
+        </div>
+
+        <!-- PHASE 2: BUILD -->
+        <div class="mkt-phase-card ru">
+          <div class="mpc-top">
+            <span class="mpc-badge">PHASE 2</span>
+            <span class="mpc-time">SEPTEMBER – OCTOBER 2026</span>
+          </div>
+          <div class="mpc-icon">🔥</div>
+          <h4 class="mpc-title">Build &amp; Community Hype</h4>
+          <div class="mpc-sub">Lineup Drops, Registrations &amp; Creator Teasers</div>
+          <ul class="mpc-list">
+            <li><strong>Star Lineup Reveals:</strong> International judges, guest DJ announcements, and battle crew roster drops.</li>
+            <li><strong>ASEAN Registration Open:</strong> Competitor registration drive across 10+ countries.</li>
+            <li><strong>University Dance Tour:</strong> Pop-up cyphers &amp; ticket activations at National University of Laos (Dongdok).</li>
+            <li><strong>Viral TikTok Challenge:</strong> Launch of co-branded <em>#StreetToStage2026</em> dance &amp; rap challenge.</li>
+          </ul>
+          <div class="mpc-metric">Target: 3.5M+ Social Engagements</div>
+        </div>
+
+        <!-- PHASE 3: CONVERT -->
+        <div class="mkt-phase-card ru highlight-phase">
+          <div class="mpc-top">
+            <span class="mpc-badge gold-badge">PHASE 3</span>
+            <span class="mpc-time">FINAL 4 WEEKS (OCT – NOV)</span>
+          </div>
+          <div class="mpc-icon">⚡</div>
+          <h4 class="mpc-title">Convert &amp; Omnichannel Push</h4>
+          <div class="mpc-sub">Ticket Push, OOH Billboard Takeover &amp; Booth Previews</div>
+          <ul class="mpc-list">
+            <li><strong>Vientiane OOH Takeover:</strong> High-impact 3D LED digital billboards at Patuxay, ITECC &amp; Parkson.</li>
+            <li><strong>Attendance Blitz:</strong> Early-bird ticket push, VIP pass promos, and retail partner ticket giveaways.</li>
+            <li><strong>Sponsor Activation Teasers:</strong> Sneak peek videos of interactive brand booths &amp; sampling lounges.</li>
+            <li><strong>KOL Countdown Blitz:</strong> 30+ top Lao creators post countdown stories &amp; outfit inspiration.</li>
+          </ul>
+          <div class="mpc-metric">Target: 10,000+ Confirmed Attendees</div>
+        </div>
+
+        <!-- PHASE 4: AMPLIFY -->
+        <div class="mkt-phase-card ru">
+          <div class="mpc-top">
+            <span class="mpc-badge">PHASE 4</span>
+            <span class="mpc-time">EVENT DAYS &amp; POST-EVENT</span>
+          </div>
+          <div class="mpc-icon">🏆</div>
+          <h4 class="mpc-title">Amplify &amp; Cultural Legacy</h4>
+          <div class="mpc-sub">Multi-Platform Live Streaming, Recap &amp; ROI Report</div>
+          <ul class="mpc-list">
+            <li><strong>Multi-Cam 4K Live Broadcast:</strong> Simultaneous livestream on TikTok, FB &amp; YT with live sponsor overlays.</li>
+            <li><strong>Real-Time Highlight Clips:</strong> Instant battle knockout clips uploaded to TikTok Reels within minutes.</li>
+            <li><strong>Official 4K Aftermovie:</strong> Cinema-grade recap documentary prominently featuring sponsor integration.</li>
+            <li><strong>Comprehensive ROI Audit:</strong> Transparent footfall analytics, media valuation, and PR delivery dossier.</li>
+          </ul>
+          <div class="mpc-metric">Target: 10M+ Total Media Impressions</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PART B: 7 CREATIVE ADVERTISING & MARKETING INITIATIVES -->
+    <div class="mkt-campaigns-container" style="margin-top:4rem;">
+      <div style="text-align:center; max-width:800px; margin:0 auto 2.5rem;">
+        <span class="mph-tag">INNOVATIVE ADVERTISING CONCEPTS</span>
+        <h3 class="mph-title">7 Creative Advertising &amp; Promotion Campaigns</h3>
+        <p style="font-family:var(--ff-b); font-size:0.96rem; color:rgba(255,255,255,0.75);">
+          Tailored specifically for Lao youth culture and corporate sponsors to turn passive advertising into active viral participation.
+        </p>
+      </div>
+
+      <div class="creative-ads-grid">
+        
+        <!-- AD 01: 3D Billboard -->
+        <div class="ad-card ru">
+          <div class="ad-card-badge">OOH ADVERTISING</div>
+          <div class="ad-card-icon">🏙️</div>
+          <h4 class="ad-card-title">Vientiane 3D Digital LED Takeover</h4>
+          <p class="ad-card-desc">Anamorphic 3D LED digital billboard campaign at Patuxay, ITECC Junction, Parkson / Center Point, and Dongpalane intersection where virtual 3D B-boys break out of the screen.</p>
+          <div class="ad-sponsor-fit">
+            <span class="asf-lbl">Sponsor Value:</span>
+            <span class="asf-val">Dominant co-branded logo loop reaching 500,000+ daily commuters in Vientiane.</span>
+          </div>
+        </div>
+
+        <!-- AD 02: TikTok Challenge -->
+        <div class="ad-card ru">
+          <div class="ad-card-badge">VIRAL SOCIAL</div>
+          <div class="ad-card-icon">📱</div>
+          <h4 class="ad-card-title">Viral TikTok Challenge: #StreetToStage2026</h4>
+          <p class="ad-card-desc">Exclusive festival soundbite crafted by top Lao beatmakers. Youth across Laos and Thailand submit 15s freestyle dance or rap videos using the branded sound to win VIP All-Access passes.</p>
+          <div class="ad-sponsor-fit">
+            <span class="asf-lbl">Sponsor Value:</span>
+            <span class="asf-val">Massive organic UGC with 3M+ video views and branded hashtag sponsorship.</span>
+          </div>
+        </div>
+
+        <!-- AD 03: Battle Pass App -->
+        <div class="ad-card ru">
+          <div class="ad-card-badge">GAMIFICATION &amp; LEADS</div>
+          <div class="ad-card-icon">🎟️</div>
+          <h4 class="ad-card-title">'Battle Pass' QR Stamp Rally &amp; Web Mini-App</h4>
+          <p class="ad-card-desc">Zero-download mobile web app: visitors scan QR codes at sponsor booths (Sting, Beerlao, Tplus) to collect stamps, unlock digital selfie stickers, and enter the festival grand lucky draw.</p>
+          <div class="ad-sponsor-fit">
+            <span class="asf-lbl">Sponsor Value:</span>
+            <span class="asf-val">100% verified footfall, app downloads, and qualified opt-in customer leads for sponsors.</span>
+          </div>
+        </div>
+
+        <!-- AD 04: Guerrilla Flashmobs -->
+        <div class="ad-card ru">
+          <div class="ad-card-badge">GUERRILLA STREET</div>
+          <div class="ad-card-icon">⚡</div>
+          <h4 class="ad-card-title">University Flashmobs &amp; Pop-Up Cyphers</h4>
+          <p class="ad-card-desc">Unannounced pop-up street cyphers at National University of Laos (Dongdok Campus), Vientiane Night Market, and major malls with mobile DJ sound systems giving away limited stickers &amp; vouchers.</p>
+          <div class="ad-sponsor-fit">
+            <span class="asf-lbl">Sponsor Value:</span>
+            <span class="asf-val">Direct face-to-face sampling with high-energy university students (18–25 age group).</span>
+          </div>
+        </div>
+
+        <!-- AD 05: Co-Branded Packaging -->
+        <div class="ad-card ru">
+          <div class="ad-card-badge">RETAIL ACTIVATION</div>
+          <div class="ad-card-icon">🥤</div>
+          <h4 class="ad-card-title">Co-Branded Packaging &amp; Retail Cross-Promo</h4>
+          <p class="ad-card-desc">Limited-edition retail merchandise and packaging (e.g. <em>Sting Energy x LIHF Limited Street Can</em>, <em>Tplus 5G Festival SIM</em>, and <em>Beerlao festival stadium cups</em>) in nationwide marts.</p>
+          <div class="ad-sponsor-fit">
+            <span class="asf-lbl">Sponsor Value:</span>
+            <span class="asf-val">High-street retail shelf visibility in Mini Big C, Jiffy, and supermarkets 6 weeks prior.</span>
+          </div>
+        </div>
+
+        <!-- AD 06: Creator Collective -->
+        <div class="ad-card ru">
+          <div class="ad-card-badge">INFLUENCER MARKETING</div>
+          <div class="ad-card-icon">🎙️</div>
+          <h4 class="ad-card-title">Creator All-Access Squad (30+ KOLs)</h4>
+          <p class="ad-card-desc">Handpicked squad of top Lao lifestyle, fashion, and dance content creators equipped with exclusive VIP Creator Kits to film backstage 'Get Ready With Me' vlogs and sponsor booth challenges.</p>
+          <div class="ad-sponsor-fit">
+            <span class="asf-lbl">Sponsor Value:</span>
+            <span class="asf-val">High-trust, authentic endorsements reaching diverse Gen Z lifestyle segments.</span>
+          </div>
+        </div>
+
+        <!-- AD 07: Live Broadcast & Voting -->
+        <div class="ad-card ru">
+          <div class="ad-card-badge">BROADCAST MEDIA</div>
+          <div class="ad-card-icon">📺</div>
+          <h4 class="ad-card-title">Multi-Platform 4K Live Broadcast &amp; Voting</h4>
+          <p class="ad-card-desc">Studio-grade multi-cam live broadcast streamed on TikTok Live, Facebook, and YouTube with interactive live fan voting for 'Crowd MVP' powered directly by the sponsor digital portal.</p>
+          <div class="ad-sponsor-fit">
+            <span class="asf-lbl">Sponsor Value:</span>
+            <span class="asf-val">Permanent on-screen watermark, virtual commercial breaks, and regional reach across ASEAN.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
 <!-- VENUE — KOLLEKTIVA MULTI-ZONE SPATIAL LAYOUT -->
 <section id="venue">
   <!-- Stacked Full-Bleed Background Visuals -->
@@ -4334,50 +5576,55 @@ nav { padding: 1.2rem 2.8rem !important; }
       </div>
 
       <div class="kv-desc-box">
-        <p class="kv-desc-text animate-fade-in" id="kv-desc">State-of-the-art sound, lighting, and giant LED displays hosting international dance battles, rap cyphers, and nightly concert showcases.</p>
+        <p class="kv-desc-text animate-fade-in" id="kv-desc">The central epicenter of LIHF: giant high-definition LED backdrops, Olympic-grade audio, and battle floors delivering maximum brand visibility during all battle finals and headline concerts.</p>
       </div>
     </div>
 
     <!-- BOTTOM ZONE: Avatar Picker + Meta Footer -->
     <div class="kv-bottom-zone">
       <div class="kv-picker-row">
-        <button class="kv-picker-btn active" data-zone="0" aria-label="Show Main Arena & Battle Stage">
-  <div class="kv-dot"></div>
-  <div class="kv-thumb">
-    <img src="assets/battle_openstyle.jpg" alt="Main Arena & Battle Stage" loading="lazy" />
-  </div>
-</button><button class="kv-picker-btn " data-zone="1" aria-label="Show Sponsor Experiential Village">
-  <div class="kv-dot"></div>
-  <div class="kv-thumb">
-    <img src="assets/battle_concert.jpg" alt="Sponsor Experiential Village" loading="lazy" />
-  </div>
-</button><button class="kv-picker-btn " data-zone="2" aria-label="Show Street Food & Beverage Zone">
-  <div class="kv-dot"></div>
-  <div class="kv-thumb">
-    <img src="assets/battle_concert.jpg" alt="Street Food & Beverage Zone" loading="lazy" />
-  </div>
-</button><button class="kv-picker-btn " data-zone="3" aria-label="Show Fashion & Lifestyle Market">
-  <div class="kv-dot"></div>
-  <div class="kv-thumb">
-    <img src="assets/battle_openstyle.jpg" alt="Fashion & Lifestyle Market" loading="lazy" />
-  </div>
-</button><button class="kv-picker-btn " data-zone="4" aria-label="Show Live Graffiti Art Exhibition">
-  <div class="kv-dot"></div>
-  <div class="kv-thumb">
-    <img src="assets/battle_graffiti.jpg" alt="Live Graffiti Art Exhibition" loading="lazy" />
-  </div>
-</button><button class="kv-picker-btn " data-zone="5" aria-label="Show VIP Lounge & Media Center">
-  <div class="kv-dot"></div>
-  <div class="kv-thumb">
-    <img src="assets/battle_mc.jpg" alt="VIP Lounge & Media Center" loading="lazy" />
-  </div>
-</button>
+        <button class="kv-picker-btn active" data-zone="0" aria-label="Show 01. Main Stage & Battle Arena" title="01. Main Stage & Battle Arena">
+          <div class="kv-dot"></div>
+          <div class="kv-thumb">
+            <img src="assets/battle_crew.jpg" alt="Main Stage & Battle Arena" loading="lazy" />
+          </div>
+        </button>
+        <button class="kv-picker-btn" data-zone="1" aria-label="Show 02. Sponsor Activation Zone" title="02. Sponsor Activation Zone">
+          <div class="kv-dot"></div>
+          <div class="kv-thumb">
+            <img src="assets/battle_openstyle.jpg" alt="Sponsor Activation Zone" loading="lazy" />
+          </div>
+        </button>
+        <button class="kv-picker-btn" data-zone="2" aria-label="Show 03. Audience & Central Circulation Flow" title="03. Audience & Central Circulation Flow">
+          <div class="kv-dot"></div>
+          <div class="kv-thumb">
+            <img src="assets/battle_concert.jpg" alt="Audience Circulation Flow" loading="lazy" />
+          </div>
+        </button>
+        <button class="kv-picker-btn" data-zone="3" aria-label="Show 04. Market & Lifestyle Vendor Zone" title="04. Market & Lifestyle Vendor Zone">
+          <div class="kv-dot"></div>
+          <div class="kv-thumb">
+            <img src="assets/battle_openstyle.jpg" alt="Market & Lifestyle Vendor Zone" loading="lazy" />
+          </div>
+        </button>
+        <button class="kv-picker-btn" data-zone="4" aria-label="Show 05. Graffiti & Creative Art Zone" title="05. Graffiti & Creative Art Zone">
+          <div class="kv-dot"></div>
+          <div class="kv-thumb">
+            <img src="assets/battle_graffiti.jpg" alt="Graffiti & Creative Art Zone" loading="lazy" />
+          </div>
+        </button>
+        <button class="kv-picker-btn" data-zone="5" aria-label="Show 06. Entrance & Arrival Landmark" title="06. Entrance & Arrival Landmark">
+          <div class="kv-dot"></div>
+          <div class="kv-thumb">
+            <img src="assets/battle_mc.jpg" alt="Entrance & Arrival Landmark" loading="lazy" />
+          </div>
+        </button>
       </div>
 
       <div class="kv-meta-footer">
-        <div class="kv-meta-name animate-fade-in" id="kv-meta-name">Main Arena & Battle Stage</div>
-        <div class="kv-meta-role" id="kv-meta-role">Indoor Grand Arena • 5,000 Capacity</div>
-        <div class="kv-meta-tenure" id="kv-meta-tenure">State-of-the-Art Sound & LED</div>
+        <div class="kv-meta-name animate-fade-in" id="kv-meta-name">01. Main Stage &amp; Battle Arena</div>
+        <div class="kv-meta-role" id="kv-meta-role">Central Indoor Hall • 10,000+ Attendance</div>
+        <div class="kv-meta-tenure" id="kv-meta-tenure">LED, Stage Integration &amp; Naming Rights</div>
         <a href="#contact" class="kv-meta-action">Explore Floorplan →</a>
       </div>
     </div>
@@ -4443,11 +5690,88 @@ nav { padding: 1.2rem 2.8rem !important; }
     <div class="section-label ru">Sponsorship Packages</div>
     <h2 class="section-title ru">TIERED INVESTMENT<br>&amp; <span class="hl">STRATEGIC</span> ROLES</h2>
     <div class="red-line ru"></div>
-    <div class="pkg-grid">
-      <div class="pkg feat ru"><span class="pkg-crown">🏆</span><div class="pkg-tier" style="color:var(--gold)">Title Sponsor</div><div class="pkg-price"><span>500,000,000</span>LAK &nbsp;•&nbsp; 1 Exclusive Partner</div><div class="pkg-slots">Exclusive — 1 slot only</div><ul class="pkg-perks"><li>Naming Rights: 'LIHF 2026 Presented by [Brand]'</li><li>100 sq.m Mega Experiential Booth at Entrance</li><li>Category Exclusivity (Zero competitor presence)</li><li>Top Billing across all 10M+ Digital &amp; OOH Media</li><li>Opening &amp; Closing Main Stage Keynote &amp; Awards</li><li>20 VIP All-Access Passes + VIP Concert Lounge</li></ul><a href="#contact" class="btn-p" style="text-align:center;margin-top:auto">Claim This Spot</a></div>
-      <div class="pkg ru"><span class="pkg-crown">🥇</span><div class="pkg-tier" style="color:var(--gold)">Gold Sponsor</div><div class="pkg-price"><span style="color:var(--gold-l)">250,000,000</span>LAK &nbsp;•&nbsp; Max 2 Partners</div><div class="pkg-slots">Maximum 2 slots</div><ul class="pkg-perks"><li>Stage/Arena Naming Rights (e.g. '[Brand] Arena')</li><li>50 sq.m Premium Experiential Booth Space</li><li>Category Exclusivity within business domain</li><li>Prominent Logo on all Official Collateral &amp; LED</li><li>Major Battle Category Award Presenter</li><li>10 VIP All-Access Passes</li></ul><a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Partner Now</a></div>
-      <div class="pkg ru"><span class="pkg-crown">🥈</span><div class="pkg-tier" style="color:var(--gr-l)">Silver Sponsor</div><div class="pkg-price"><span style="color:var(--gr-l)">100,000,000</span>LAK &nbsp;•&nbsp; Max 4 Partners</div><div class="pkg-slots">Maximum 4 slots</div><ul class="pkg-perks"><li>Official Competition Partner (DJ or Graffiti)</li><li>25 sq.m Exhibition &amp; Retail Booth Space</li><li>Dedicated Social Media Campaign Features (3x)</li><li>Logo on Main Stage LED Screens &amp; Backdrops</li><li>Category Award Co-Presenter</li><li>5 VIP Passes</li></ul><a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Partner Now</a></div>
-      <div class="pkg ru"><span class="pkg-crown">🥉</span><div class="pkg-tier" style="color:#CD7F32">Bronze Sponsor</div><div class="pkg-price"><span style="color:#CD7F32">50,000,000</span>LAK &nbsp;•&nbsp; Open</div><div class="pkg-slots">Open availability</div><ul class="pkg-perks"><li>Supporting Event Partner Recognition</li><li>12 sq.m Standard Exhibition Booth</li><li>Logo in Sponsor Group Screen Loop &amp; Backdrop</li><li>1 Dedicated Social Media Announcement Post</li><li>2 VIP Passes</li></ul><a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Partner Now</a></div>
+    <div class="pkg-grid-5tiers">
+      
+      <!-- TITLE PARTNER -->
+      <div class="pkg feat ru">
+        <span class="pkg-crown">🏆</span>
+        <div class="pkg-tier" style="color:var(--gold)">Title Partner</div>
+        <div class="pkg-price"><span>500,000,000</span>LAK &nbsp;•&nbsp; 1 Exclusive Partner</div>
+        <div class="pkg-slots">Exclusive — 1 Slot Only</div>
+        <ul class="pkg-perks">
+          <li><strong>Naming Rights:</strong> 'LIHF 2026 Presented by [Brand]'</li>
+          <li><strong>Main Stage Lead Branding:</strong> Prime visual dominance &amp; top-tier billing</li>
+          <li><strong>Category Exclusivity:</strong> Full exclusivity across industry domain</li>
+          <li><strong>100 sq.m Mega Experiential Booth</strong> at prime entrance location</li>
+          <li><strong>Opening &amp; Closing Ceremony</strong> Keynote &amp; Grand Trophy Presenter</li>
+          <li><strong>Full Digital &amp; OOH Integration:</strong> 10M+ reach campaign priority</li>
+          <li><strong>20 VIP All-Access Passes</strong> with VIP Concert Lounge hospitality</li>
+        </ul>
+        <a href="#contact" class="btn-p" style="text-align:center;margin-top:auto">Claim Title Rights</a>
+      </div>
+
+      <!-- PLATINUM PARTNER -->
+      <div class="pkg ru">
+        <span class="pkg-crown">💎</span>
+        <div class="pkg-tier" style="color:#E5E4E2">Platinum Partner</div>
+        <div class="pkg-price"><span style="color:#E5E4E2">250,000,000</span>LAK &nbsp;•&nbsp; Max 2 Partners</div>
+        <div class="pkg-slots">Maximum 2 Slots</div>
+        <ul class="pkg-perks">
+          <li><strong>Major Stage Branding:</strong> Second billing on main stage LED &amp; backdrops</li>
+          <li><strong>Prime 50 sq.m Booth Space:</strong> Central audience circulation area</li>
+          <li><strong>Strong Digital &amp; Media Campaign:</strong> Dedicated reels, TikTok feature &amp; PR</li>
+          <li><strong>Major Battle Category Naming:</strong> Own 1 flagship competition pillar</li>
+          <li><strong>10 VIP All-Access Passes</strong> with stage-side viewing access</li>
+        </ul>
+        <a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Partner as Platinum</a>
+      </div>
+
+      <!-- GOLD PARTNER -->
+      <div class="pkg ru">
+        <span class="pkg-crown">🥇</span>
+        <div class="pkg-tier" style="color:var(--gold)">Gold Partner</div>
+        <div class="pkg-price"><span style="color:var(--gold-l)">100,000,000</span>LAK &nbsp;•&nbsp; Max 4 Partners</div>
+        <div class="pkg-slots">Maximum 4 Slots</div>
+        <ul class="pkg-perks">
+          <li><strong>Shared Stage Branding:</strong> Prominent logo in main stage rotation loop</li>
+          <li><strong>25 sq.m Activation Booth:</strong> Product trial, sales &amp; consumer engagement</li>
+          <li><strong>Social Media Inclusion:</strong> 3 dedicated campaign posts &amp; stories</li>
+          <li><strong>Media Recap Inclusion:</strong> Logo in official 4K aftermovie &amp; photos</li>
+          <li><strong>5 VIP Passes</strong> with all-area exhibition access</li>
+        </ul>
+        <a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Partner as Gold</a>
+      </div>
+
+      <!-- SUPPORTING PARTNER -->
+      <div class="pkg ru">
+        <span class="pkg-crown">🥈</span>
+        <div class="pkg-tier" style="color:var(--gr-l)">Supporting Partner</div>
+        <div class="pkg-price"><span style="color:var(--gr-l)">50,000,000</span>LAK &nbsp;•&nbsp; Open Slots</div>
+        <div class="pkg-slots">Open Category</div>
+        <ul class="pkg-perks">
+          <li><strong>Logo Placement:</strong> Included on official festival banners &amp; website</li>
+          <li><strong>12 sq.m Booth Space or Sampling Rights:</strong> Direct consumer contact</li>
+          <li><strong>Selected Digital Exposure:</strong> Group sponsor announcement feature</li>
+          <li><strong>2 VIP Passes</strong> with full festival access</li>
+        </ul>
+        <a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Join As Supporting</a>
+      </div>
+
+      <!-- PRODUCT / IN-KIND PARTNER -->
+      <div class="pkg ru inkind-pkg">
+        <span class="pkg-crown">🎁</span>
+        <div class="pkg-tier" style="color:#FFB800">Product / In-Kind</div>
+        <div class="pkg-price"><span style="color:#FFB800">20,000,000+</span>LAK Value</div>
+        <div class="pkg-slots">Custom Goods &amp; Services</div>
+        <ul class="pkg-perks">
+          <li><strong>Product Integration:</strong> Official supplier status (beverage, apparel, gear)</li>
+          <li><strong>Direct Sampling Rights:</strong> Distribution to competitors, VIPs &amp; crew</li>
+          <li><strong>Community Support Credit:</strong> Logo recognition as cultural supporter</li>
+          <li><strong>2 Festival Passes:</strong> Staff and guest entry</li>
+        </ul>
+        <a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Inquire In-Kind</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -4477,16 +5801,81 @@ nav { padding: 1.2rem 2.8rem !important; }
     <div class="red-line ru"></div>
     <div class="mtx-wrap ru">
       <table class="mtx">
-        <thead><tr><th>Entitlements / Deliverables</th><th class="tc">🏆 Title (500M)</th><th>🥇 Gold (250M)</th><th>🥈 Silver (100M)</th><th>🥉 Bronze (50M)</th></tr></thead>
+        <thead>
+          <tr>
+            <th>Entitlements / Deliverables</th>
+            <th class="tc" style="color:var(--gold)">🏆 Title (500M)</th>
+            <th style="color:#E5E4E2">💎 Platinum (250M)</th>
+            <th style="color:var(--gold-l)">🥇 Gold (100M)</th>
+            <th style="color:var(--gr-l)">🥈 Supporting (50M)</th>
+            <th style="color:#FFB800">🎁 In-Kind (20M+)</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td>Naming Rights &amp; Branding</td><td style="color:var(--gold)">Co-Naming / Dominant</td><td>Stage / Arena Title</td><td>Category Partner</td><td>Supporting Partner</td></tr>
-          <tr><td>Category Exclusivity</td><td style="color:var(--gold)">Full Exclusive (100%)</td><td>Category Exclusive</td><td>No</td><td>No</td></tr>
-          <tr><td>Booth / Activation Space</td><td style="color:var(--gold)">100 sq.m (VIP Spot)</td><td>50 sq.m (Prime)</td><td>25 sq.m</td><td>12 sq.m</td></tr>
-          <tr><td>Stage Speaking &amp; Awards</td><td style="color:var(--gold)">Keynote &amp; Grand Awards</td><td>Category Awards</td><td>Category Awards</td><td>No</td></tr>
-          <tr><td>LED Screen Ad Frequency</td><td style="color:var(--gold)">Every 20 Mins</td><td>Every 45 Mins</td><td>Hourly Loop</td><td>Group Loop</td></tr>
-          <tr><td>Dedicated Social Posts / UGC</td><td style="color:var(--gold)">12+ Posts &amp; Challenge</td><td>6 Posts &amp; Reels</td><td>3 Posts</td><td>1 Post</td></tr>
-          <tr><td>Live Stream Logo &amp; MC Plugs</td><td style="color:var(--gold)">Permanent Overlay + MC</td><td>Rotating + MC</td><td>Rotating Banner</td><td>No</td></tr>
-          <tr><td>VIP All-Access Passes</td><td style="color:var(--gold)">20 Passes + Lounge</td><td>10 Passes</td><td>5 Passes</td><td>2 Passes</td></tr>
+          <tr>
+            <td>Naming Rights &amp; Association</td>
+            <td style="color:var(--gold);font-weight:700;">'Presented by [Brand]'</td>
+            <td style="color:#E5E4E2">Major Stage / Area Title</td>
+            <td>Category Partner</td>
+            <td>Supporting Credit</td>
+            <td>Official Product Partner</td>
+          </tr>
+          <tr>
+            <td>Category Exclusivity</td>
+            <td style="color:var(--gold);font-weight:700;">100% Industry Lockout</td>
+            <td style="color:#E5E4E2">Priority Category Lock</td>
+            <td>Shared Category</td>
+            <td>No</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Exhibition / Booth Space</td>
+            <td style="color:var(--gold);font-weight:700;">100 sq.m Mega (Entrance)</td>
+            <td style="color:#E5E4E2">50 sq.m Prime (Central)</td>
+            <td>25 sq.m Active Zone</td>
+            <td>12 sq.m Standard</td>
+            <td>Sampling Station</td>
+          </tr>
+          <tr>
+            <td>Main Stage Speaking &amp; Awards</td>
+            <td style="color:var(--gold);font-weight:700;">Opening/Closing Keynote</td>
+            <td style="color:#E5E4E2">Grand Final Awards</td>
+            <td>Category Awards</td>
+            <td>No</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>LED Screen Brand Frequency</td>
+            <td style="color:var(--gold);font-weight:700;">Every 15 Mins (Solo)</td>
+            <td style="color:#E5E4E2">Every 30 Mins (Solo)</td>
+            <td>Hourly Screen Loop</td>
+            <td>Group Screen Loop</td>
+            <td>Group Screen Loop</td>
+          </tr>
+          <tr>
+            <td>Digital &amp; Social Campaign</td>
+            <td style="color:var(--gold);font-weight:700;">15+ Posts &amp; Challenge</td>
+            <td style="color:#E5E4E2">8 Posts &amp; Reels</td>
+            <td>4 Social Posts</td>
+            <td>1 Social Feature</td>
+            <td>Credit in Partner Post</td>
+          </tr>
+          <tr>
+            <td>Live Stream Logo &amp; MC Mentions</td>
+            <td style="color:var(--gold);font-weight:700;">Permanent Bug + 10x MC</td>
+            <td style="color:#E5E4E2">Rotating Bug + 5x MC</td>
+            <td>Lower-Third + 2x MC</td>
+            <td>Credit Roll</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>VIP All-Access Hospitality Passes</td>
+            <td style="color:var(--gold);font-weight:700;">20 VIP + Private Lounge</td>
+            <td style="color:#E5E4E2">10 VIP Passes</td>
+            <td>5 VIP Passes</td>
+            <td>2 VIP Passes</td>
+            <td>2 Festival Passes</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -4971,7 +6360,56 @@ if(showreelModal){
 
 
 // ── Kollektiva Multi-Zone Interactive Switcher Logic ──
-const zoneData = [{'name': 'Main Arena & Battle Stage', 'role': 'Indoor Grand Arena • 5,000 Capacity', 'tenure': 'State-of-the-Art Sound & LED', 'desc': 'State-of-the-art sound, lighting, and giant LED displays hosting international dance battles, rap cyphers, and nightly concert showcases.', 'bg': 'assets/battle_openstyle.jpg', 'grad': 'linear-gradient(135deg,#2d0000,#550000,#0d0000)'}, {'name': 'Sponsor Experiential Village', 'role': 'High-Traffic Hall • 10,000+ Samples', 'tenure': 'Brand Activations & Games', 'desc': 'Prime high-traffic exhibition area at the entrance hall for branded immersive activations, sampling kiosks, interactive games, and photo-ops.', 'bg': 'assets/battle_concert.jpg', 'grad': 'linear-gradient(135deg,#1a0000,#440000,#000000)'}, {'name': 'Street Food & Beverage Zone', 'role': 'Outdoor Courtyard • 50+ Vendors', 'tenure': 'Curated Local & Regional Eats', 'desc': '50+ curated local and regional street food vendors offering diverse culinary delights to keep audiences energized on-site all day.', 'bg': 'assets/battle_concert.jpg', 'grad': 'linear-gradient(135deg,#3d0000,#660000,#111111)'}, {'name': 'Fashion & Lifestyle Market', 'role': 'Streetwear & Sneaker Swap', 'tenure': 'Urban Apparel & Creative Goods', 'desc': 'Streetwear apparel, sneaker swaps, custom accessories, and independent creative goods connecting urban consumers with brands.', 'bg': 'assets/battle_openstyle.jpg', 'grad': 'linear-gradient(135deg,#110000,#330000,#050505)'}, {'name': 'Live Graffiti Art Exhibition', 'role': 'Giant 4x2m Canvas Walls', 'tenure': 'Live Mural Aerosol Performance', 'desc': 'Giant open canvas walls featuring live spray art creation by international muralists — an instant viral photo background.', 'bg': 'assets/battle_graffiti.jpg', 'grad': 'linear-gradient(135deg,#220000,#550000,#0a0000)'}, {'name': 'VIP Lounge & Media Center', 'role': 'Air-Conditioned Executive Hub', 'tenure': 'Press Hub & Corporate Networking', 'desc': 'Exclusive air-conditioned networking hub for corporate sponsors, VIP executives, international judges, and press interviews.', 'bg': 'assets/battle_mc.jpg', 'grad': 'linear-gradient(135deg,#1a1a1a,#3d0000,#0d0000)'}];
+const zoneData = [
+  {
+    name: '01. Main Stage & Battle Arena',
+    role: 'Central Indoor Hall • 10,000+ Attendance',
+    tenure: 'LED, Stage Integration & Naming Rights',
+    desc: 'The central epicenter of LIHF: giant high-definition LED backdrops, Olympic-grade audio, and battle floors delivering maximum brand visibility during all battle finals and headline concerts.',
+    bg: 'assets/battle_crew.jpg',
+    grad: 'linear-gradient(135deg,#2d0000,#550000,#0d0000)'
+  },
+  {
+    name: '02. Sponsor Activation Zone & Village',
+    role: 'Prime Exhibition Plaza • 100% Footfall',
+    tenure: 'Product Trial, Games & Lead Capture',
+    desc: 'Dedicated experiential village for Title and Platinum partners: product sampling, interactive gamified challenges, app downloads, and direct Gen Z consumer engagement.',
+    bg: 'assets/battle_openstyle.jpg',
+    grad: 'linear-gradient(135deg,#1a0000,#440000,#000000)'
+  },
+  {
+    name: '03. Audience & Central Circulation Flow',
+    role: 'Continuous Viewing & Promenade Route',
+    tenure: 'Repeated Impression Exposure',
+    desc: 'Sponsor visibility is seamlessly engineered into the natural audience journey: hanging banners, wayfinding totems, and branded rest lounges along the main circulation path.',
+    bg: 'assets/battle_concert.jpg',
+    grad: 'linear-gradient(135deg,#3d0000,#660000,#111111)'
+  },
+  {
+    name: '04. Market & Lifestyle Vendor Zone',
+    role: '50–70 Curated Food & Streetwear Booths',
+    tenure: 'Sales, F&B, Commerce & Digital Pay',
+    desc: 'Bustling lifestyle bazaar featuring 50–70 food, beverage, streetwear, and craft vendors. Prime partnership opportunity for cashless digital wallet and banking app integrations.',
+    bg: 'assets/battle_openstyle.jpg',
+    grad: 'linear-gradient(135deg,#110000,#330000,#050505)'
+  },
+  {
+    name: '05. Graffiti & Creative Art Zone',
+    role: 'Live 8-Hour Canvas Murals & Photo Wall',
+    tenure: 'Creator Content & Viral Photo Spots',
+    desc: 'Large-scale live aerosol canvas installations where master street artists paint across the festival, creating the primary photo-op destination for thousands of attendee social posts.',
+    bg: 'assets/battle_graffiti.jpg',
+    grad: 'linear-gradient(135deg,#220000,#550000,#0a0000)'
+  },
+  {
+    name: '06. Entrance & Arrival Landmark',
+    role: 'First Impression Arch & Red Carpet',
+    tenure: 'Sponsor Arch & Arrival Media Moments',
+    desc: 'The grand entrance of Lao-ITECC Exhibition Hall featuring a monumental branded archway, ticket accreditation points, and the official red-carpet media photo wall.',
+    bg: 'assets/battle_mc.jpg',
+    grad: 'linear-gradient(135deg,#1a1a1a,#3d0000,#0d0000)'
+  }
+];
 
 document.querySelectorAll('.kv-picker-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -5365,6 +6803,446 @@ function replayLogoIntro(){
     logo.style.animation = 'logoIntroEntrance 1.4s cubic-bezier(0.22, 1.25, 0.36, 1) forwards, emblemFloat 5s ease-in-out 1.4s infinite';
   }
 }
+</script>
+
+
+<script>
+// ── 7 ACTIVITIES INTERACTIVE INSPECTION MODAL DATA & LOGIC ──
+(function() {
+  const activitiesData = [
+    {
+      id: 0,
+      num: "01",
+      badge: "CATEGORY #01 • INTERNATIONAL BATTLE",
+      prize: "🏆 32,000,000 LAK POOL",
+      title: "Breaking 2 vs 2 Battle",
+      tagline: "Olympic-Caliber International B-Boy & B-Girl Knockout Showdown",
+      img: "assets/battle_breaking.jpg",
+      statComp: "64 Dancers (32 Crews)",
+      statVenue: "Main Arena Central Circle",
+      statAud: "Gen Z Youth, B-Boys & Global Fans",
+      statMedia: "1080p 60fps Broadcast & Viral Clips",
+      overviewP1: "Breaking 2 vs 2 represents the pinnacle of athletic and creative street dance at LIHF 2026. Following Breaking's global debut on the Olympic stage, this tournament connects the finest B-Boys and B-Girls from Laos with invited powerhouse crews from Thailand, Vietnam, Cambodia, Japan, and Europe. Competitors execute gravity-defying power moves, intricate footwork, freezes, and dynamic routines inside an authentic high-pressure battle circle.",
+      highlights: [
+        "64 top-tier athletes (32 two-dancer crews) fighting through knockout brackets",
+        "Official Olympic-standard WDSF Trivium judging system (Physicality, Musicality, Battle Mindset)",
+        "Live vinyl breaks dropped by international guest DJs with zero pre-rehearsed music",
+        "Massive viral moment generation for TikTok, Instagram Reels, and regional sports media"
+      ],
+      rulesFlow: [
+        { num: "01", title: "Preliminary Cypher Audition", desc: "All 32 registered crews battle in open floor cyphers. Judges score each pair blind to select the Top 16 knockout finalists." },
+        { num: "02", title: "Top 16 & Quarterfinals Knockout", desc: "2 rounds per crew (4 rounds total per battle). Unannounced DJ track selections. Direct sudden-death eliminations." },
+        { num: "03", title: "Semifinals & Grand Championship", desc: "3 rounds per crew with routine combo allowance. Finalists battle for the official 2026 Lao International Trophy & 32M LAK pool." }
+      ],
+      judgingText: "Judged by a panel of 3 certified world champion breakers from France, Japan, and Southeast Asia. Points awarded across 5 standardized pillars:",
+      criteria: ["Body Technique (30%)", "Musicality & Rhythm (25%)", "Creativity & Originality (20%)", "Battle Presence & Mindset (15%)", "Clean Execution (10%)"],
+      timeline: [
+        { day: "Day 1 (Fri Nov 13)", time: "14:00 – 17:30", event: "Registration & Open Cypher Auditions" },
+        { day: "Day 1 (Fri Nov 13)", time: "18:30 – 21:00", event: "Top 16 Knockout Battles" },
+        { day: "Day 2 (Sat Nov 14)", time: "18:00 – 20:00", event: "Quarterfinals, Semifinals & Grand Finals" }
+      ],
+      prizes: [
+        { place: "🥇 1st Place Champion", amt: "18,000,000 LAK", note: "Gold Trophy + ASEAN Tour Flight Pass" },
+        { place: "🥈 2nd Place Runner-Up", amt: "9,000,000 LAK", note: "Silver Medal + Sponsor Gift Box" },
+        { place: "🥉 3rd Place Joint (2)", amt: "2,500,000 LAK", note: "Bronze Medal + Certificate" }
+      ],
+      sponsorIntro: "Breaking is the highest-energy photo and video generator in the entire festival. Partners achieve complete visual dominance inside the battle ring:",
+      sponsorIdeas: [
+        { title: "Floor Ring Decal Dominance", desc: "Central battle circle vinyl sticker (3m diameter) permanently featured in every battle photo and broadcast clip." },
+        { title: "Hydration & Energy Sponsor", desc: "Exclusive right to place branded coolers, towels, and energy drink sampling directly beside competitor corners." },
+        { title: "Novelty Giant Check & Trophy Presentation", desc: "Brand executive presents the giant 18M LAK novelty check live on main stage broadcast." }
+      ]
+    },
+    {
+      id: 1,
+      num: "02",
+      badge: "CATEGORY #02 • ALL-STYLE STREET DANCE",
+      prize: "🏆 27,000,000 LAK POOL",
+      title: "Open Style 2 vs 2 Battle",
+      tagline: "All-Style Freestyle Improvisation Across HipHop, Popping, Locking & Krump",
+      img: "assets/battle_openstyle.jpg",
+      statComp: "48 Dancers (24 Crews)",
+      statVenue: "Stage B Arena",
+      statAud: "Street Dancers, Stylists & Youth",
+      statMedia: "TikTok Viral Sound Bites",
+      overviewP1: "Open Style 2 vs 2 is the festival's most musically versatile battle. Dancers specializing in Popping, Locking, Krump, Waacking, House, and Hip-Hop go head-to-head. The DJ drops surprise genres ranging from 70s funk and 90s boom-bap to electronic beats, testing the dancers' ability to adapt, communicate, and groove seamlessly.",
+      highlights: [
+        "Unpredictable multi-genre music curation challenging dancers across all street styles",
+        "Unique 2v2 routine combinations and synchronized freestyle exchanges",
+        "Deep emotional connection with Lao youth dance academies and independent crews",
+        "High aesthetic and fashion value ideal for lifestyle and apparel sponsor integrations"
+      ],
+      rulesFlow: [
+        { num: "01", title: "Qualifying Cypher Showcase", desc: "Each duo performs two 45-second rounds to random tempos (90 BPM to 130 BPM). Top 16 selected." },
+        { num: "02", title: "Top 16 & Top 8 Brackets", desc: "Head-to-head 2v2 knockout rounds. Both solo improvisations and synchronized partner routines allowed." },
+        { num: "03", title: "Grand Final Showcase", desc: "Top 4 crews battle in 3-round intense showcase with live crowd response factor." }
+      ],
+      judgingText: "Judged by 3 legendary regional freestyle icons based on authentic musical translation and freestyle ingenuity:",
+      criteria: ["Musical Interpretation (35%)", "Freestyle Spontaneity (25%)", "Partner Chemistry (20%)", "Style Technique (20%)"],
+      timeline: [
+        { day: "Day 1 (Fri Nov 13)", time: "13:00 – 16:30", event: "Open Auditions & Prelims" },
+        { day: "Day 2 (Sat Nov 14)", time: "16:00 – 18:30", event: "Top 8, Semifinals & Finals" }
+      ],
+      prizes: [
+        { place: "🥇 1st Place Champion", amt: "15,000,000 LAK", note: "Championship Trophy + Brand Apparel" },
+        { place: "🥈 2nd Place Runner-Up", amt: "8,000,000 LAK", note: "Silver Medal + Sponsor Kit" },
+        { place: "🥉 3rd Place Joint (2)", amt: "2,000,000 LAK", note: "Bronze Medal + Certificate" }
+      ],
+      sponsorIntro: "Perfect for fashion, lifestyle, mobile, and beverage brands seeking authentic cultural credibility among urban trendsetters:",
+      sponsorIdeas: [
+        { title: "Official Streetwear Apparel Sponsor", desc: "Outfit dancers and host MCs with co-branded festival apparel and showcase new collections." },
+        { title: "Crowd Favorite Digital Vote", desc: "Fans vote for the best freestyle routine via sponsor mobile app or QR portal to win prizes." }
+      ]
+    },
+    {
+      id: 2,
+      num: "03",
+      badge: "CATEGORY #03 • CHOREOGRAPHY MEGA SHOWCASE",
+      prize: "🏆 56,000,000 LAK POOL",
+      title: "Crew Competition (5–8 Members)",
+      tagline: "Synchronized Theatrical Group Choreography Championship",
+      img: "assets/battle_crew.jpg",
+      statComp: "16 Premier Mega Crews",
+      statVenue: "Main Concert Stage",
+      statAud: "Thousands of Cheering Fans",
+      statMedia: "4K YouTube Choreography Video",
+      overviewP1: "The Crew Competition is the most theatrical and visually spectacular segment of LIHF. Teams of 5 to 8 dancers present meticulously rehearsed 3-to-4-minute routines featuring intricate formations, theatrical storylines, stunt lifts, and synchronized precision. This category attracts massive fan clubs, schools, and families cheering for their favorite teams.",
+      highlights: [
+        "16 premier mega-crews from Laos, Thailand, and Vietnam competing on a world-class stage",
+        "Highest total prize purse in the entire festival (56,000,000 LAK total)",
+        "Broadcast-grade stage lighting, LED background visual synchronicity, and line-array audio",
+        "Guaranteed packed auditorium with high emotional engagement and community pride"
+      ],
+      rulesFlow: [
+        { num: "01", title: "Concept Routine Showcase (3–4 Min)", desc: "Each crew performs an original synchronized routine. Minimum 5 dancers, maximum 8 dancers on stage." },
+        { num: "02", title: "Technical Scoring", desc: "5 international judges evaluate routines across choreography difficulty, staging, synchronization, and concept." },
+        { num: "03", title: "Top 3 Podium Celebration", desc: "Top 3 highest-scoring crews awarded grand trophies and cash prizes on the festival main stage." }
+      ],
+      judgingText: "Judged by a panel of 5 international dance directors and renowned choreographers:",
+      criteria: ["Synchronization & Formations (30%)", "Choreography Creativity (25%)", "Stage Stunts & Difficulty (20%)", "Costume & Thematic Concept (15%)", "Crowd Impact (10%)"],
+      timeline: [
+        { day: "Day 2 (Sat Nov 14)", time: "10:00 – 13:00", event: "Stage Rehearsals & Sound Checks" },
+        { day: "Day 2 (Sat Nov 14)", time: "15:00 – 18:00", event: "Main Stage Competition & Awards" }
+      ],
+      prizes: [
+        { place: "🥇 1st Place Champion", amt: "30,000,000 LAK", note: "Grand Championship Cup + Medals" },
+        { place: "🥈 2nd Place Runner-Up", amt: "16,000,000 LAK", note: "Silver Trophy + Sponsor Hampers" },
+        { place: "🥉 3rd Place", amt: "10,000,000 LAK", note: "Bronze Trophy + Certificates" }
+      ],
+      sponsorIntro: "This is the flagship main-stage asset. Sponsors enjoy unrivaled exposure before thousands of captivated spectators:",
+      sponsorIdeas: [
+        { title: "Main Stage Title Ownership", desc: "Stage named as '[Sponsor Name] Main Stage' with permanent LED branding throughout the broadcast." },
+        { title: "Crew Behind-the-Scenes Vlogs", desc: "Exclusive video series documenting crew rehearsals and preparations, presented by sponsor." }
+      ]
+    },
+    {
+      id: 3,
+      num: "04",
+      badge: "CATEGORY #04 • TURNTABLISM & SCRATCH",
+      prize: "🏆 17,000,000 LAK POOL",
+      title: "DJ Open Format Showdown",
+      tagline: "Live Vinyl Scratching, Tone Play, Beat Juggling & Crowd Control",
+      img: "assets/battle_dj.jpg",
+      statComp: "12 Top Turntablists",
+      statVenue: "Audio Production Stage",
+      statAud: "Music Lovers & Club Audiences",
+      statMedia: "DJ Set Livestreams & Mixcloud",
+      overviewP1: "DJing is the foundational heartbeat of Hip-Hop culture. The DJ Open Format Showdown brings together 12 premier turntablists across Asia to demonstrate turntable trickery, tone play, needle dropping, and live party rocking. DJs must blend multiple genres effortlessly while keeping the crowd hype.",
+      highlights: [
+        "Pure analog and DVS vinyl turntablism featuring scratch battles and live remixes",
+        "Red Bull Thre3style and DMC championship veterans judging and showcasing",
+        "Direct musical soundtrack provider for all breaking and open style battle circles",
+        "High dwell time for audio, tech, beverage, and youth lifestyle brands"
+      ],
+      rulesFlow: [
+        { num: "01", title: "6-Minute Showcase Set", desc: "Each DJ performs a continuous 6-minute routine incorporating at least 3 distinct musical tempos/genres." },
+        { num: "02", title: "Technical Requirements", desc: "Must include original beat juggling, tone play, and technical scratches. No pre-recorded mixes allowed." },
+        { num: "03", title: "Top 3 Turntablist Final", desc: "Top 3 highest-rated DJs engage in a quick 3-minute back-and-forth scratch faceoff." }
+      ],
+      judgingText: "Judged by pioneer DMC champions and international festival resident DJs:",
+      criteria: ["Scratch Technique (30%)", "Track Selection & Originality (25%)", "Beat Juggling & Blending (25%)", "Crowd Response & Energy (20%)"],
+      timeline: [
+        { day: "Day 2 (Sat Nov 14)", time: "14:00 – 17:00", event: "DJ Competition & Turntablist Showcase" }
+      ],
+      prizes: [
+        { place: "🥇 1st Place Champion", amt: "10,000,000 LAK", note: "Champion Mixer Trophy + Pro Gear" },
+        { place: "🥈 2nd Place Runner-Up", amt: "5,000,000 LAK", note: "Silver Plaque + Headphones" },
+        { place: "🥉 3rd Place", amt: "2,000,000 LAK", note: "Bronze Plaque" }
+      ],
+      sponsorIntro: "Direct integration into the soundscape of the festival, connecting with tech-savvy music fans:",
+      sponsorIdeas: [
+        { title: "DJ Booth Custom Skinning", desc: "Full custom branding wrap on the main performance DJ console seen in all media recordings." },
+        { title: "Audio & Headphone Sponsor", desc: "Official headphone partner rights with product displays and experiential listening stations." }
+      ]
+    },
+    {
+      id: 4,
+      num: "05",
+      badge: "CATEGORY #05 • LIVE STREET ART",
+      prize: "🏆 15,000,000 LAK POOL",
+      title: "Graffiti Art Exhibition",
+      tagline: "Live 8-Hour Aerosol Mural Painting Under Theme 'HipHop Beyond Borders'",
+      img: "assets/battle_graffiti.jpg",
+      statComp: "10 Master Aerosol Artists",
+      statVenue: "Graffiti Outdoor Canvas Wall",
+      statAud: "Creative Community & Families",
+      statMedia: "Time-Lapse Mural Videos",
+      overviewP1: "Visual art comes alive during the Graffiti Art Exhibition. 10 master aerosol artists from Laos, Thailand, and Vietnam transform giant 3x2-meter wooden canvas panels into stunning urban murals across the festival weekend. The live paint mist, vibrant color palettes, and large-scale characters create the festival's most popular photo hotspot.",
+      highlights: [
+        "Continuous 8-hour live artistic creation visible to all festival attendees",
+        "Unique theme celebrating Southeast Asian unity and cultural identity",
+        "Completed canvas murals permanently preserved or auctioned for youth charity",
+        "Top Instagram and photo-shoot destination generating thousands of organic visitor posts"
+      ],
+      rulesFlow: [
+        { num: "01", title: "Live Canvas Allotment (3x2m)", desc: "Each artist allocated a giant wooden panel and official spray can palette." },
+        { num: "02", title: "8-Hour Live Painting Window", desc: "Art created in full view of audiences across Friday and Saturday." },
+        { num: "03", title: "Public & Jury Voting", desc: "Combined score from master graffiti judges and attendee QR code voting." }
+      ],
+      judgingText: "Judged by master street art curators and regional graffiti legends:",
+      criteria: ["Lettering & Character Concept (30%)", "Color Harmonies & Can Control (30%)", "Theme Interpretation (20%)", "Overall Visual Impact (20%)"],
+      timeline: [
+        { day: "Day 1 (Fri Nov 13)", time: "10:00 – 18:00", event: "Live Mural Painting (Day 1)" },
+        { day: "Day 2 (Sat Nov 14)", time: "10:00 – 16:00", event: "Final Detailing & Public Voting" },
+        { day: "Day 3 (Sun Nov 15)", time: "11:00 – 20:00", event: "Gallery Exhibition & Photo Walk" }
+      ],
+      prizes: [
+        { place: "🥇 1st Place Champion", amt: "8,000,000 LAK", note: "Custom Spray Trophy + Paint Supply" },
+        { place: "🥈 2nd Place Runner-Up", amt: "4,500,000 LAK", note: "Silver Trophy + Artist Set" },
+        { place: "🥉 3rd Place", amt: "2,500,000 LAK", note: "Bronze Trophy" }
+      ],
+      sponsorIntro: "The primary creator of shareable visual moments for social media feeds:",
+      sponsorIdeas: [
+        { title: "Co-Branded Photo Wall", desc: "Seamless integration of sponsor logo within one central large-scale community photo mural." },
+        { title: "Mural Canvas Ownership", desc: "Sponsor receives one completed 3x2m canvas to display permanently at their corporate headquarters." }
+      ]
+    },
+    {
+      id: 5,
+      num: "06",
+      badge: "CATEGORY #06 • LAO MC CYPHER BATTLE",
+      prize: "🏆 7,000,000 LAK POOL",
+      title: "Rap 7 to Smoke Cypher",
+      tagline: "High-Octane Fast-Paced Lyrical Rap Cypher Crowning Lao MC Champions",
+      img: "assets/battle_mc.jpg",
+      statComp: "8 Elite Lao MCs",
+      statVenue: "Night Arena Cypher Ring",
+      statAud: "Rap Enthusiasts & Gen Z",
+      statMedia: "Live Lyric Audio & Reels",
+      overviewP1: "The Rap 7 to Smoke Cypher is the rawest showcase of lyrical dexterity, flow, and stage presence in Laos. 8 elite Lao MCs battle in a continuous cypher ring. Two rappers clash in 45-second back-to-back rounds; the victor stays in the ring to face the next challenger until one MC achieves 7 consecutive victories or leads on points.",
+      highlights: [
+        "Uncensored, authentic lyrical freestyle battle showcasing modern Lao language poetry",
+        "High-energy audience participation packed shoulder-to-shoulder around the ring",
+        "Crowning the national rap champion of Laos with music industry executives watching",
+        "Extreme viral social clip potential with punchlines re-shared on TikTok"
+      ],
+      rulesFlow: [
+        { num: "01", title: "Preliminary Lyrical Auditions", desc: "Top 8 MCs selected through pre-event submission cyphers across Vientiane and provinces." },
+        { num: "02", title: "7-to-Smoke Continuous Ring", desc: "Winner of each round earns 1 point and stays in. Loser goes to the back of the line. First to 7 points wins." },
+        { num: "03", title: "Champion Crowning", desc: "Victor crowned official 2026 Lao MC of the Year with trophy and studio recording package." }
+      ],
+      judgingText: "Judged by veteran Lao rap pioneers and guest ASEAN lyricists:",
+      criteria: ["Lyrical Punchlines & Wordplay (35%)", "Flow & Cadence (25%)", "Delivery & Stage Presence (25%)", "Crowd Control (15%)"],
+      timeline: [
+        { day: "Day 1 (Fri Nov 13)", time: "19:30 – 21:30", event: "Rap 7-to-Smoke Championship Ring" }
+      ],
+      prizes: [
+        { place: "🥇 1st Place MC Champion", amt: "4,000,000 LAK", note: "Championship Ring + Single Recording" },
+        { place: "🥈 2nd Place Runner-Up", amt: "2,000,000 LAK", note: "Silver Plaque + Studio Time" },
+        { place: "🥉 3rd Place", amt: "1,000,000 LAK", note: "Bronze Plaque" }
+      ],
+      sponsorIntro: "High cultural resonance with urban youth who follow Lao hip-hop stars passionately:",
+      sponsorIdeas: [
+        { title: "Tplus 5G Live Fan Voting", desc: "Audiences vote for best punchline of the night through sponsor telecom portal to win free data." },
+        { title: "Branded MC Microphones", desc: "Custom microphone sleeves and stage branding featured in all close-up performance clips." }
+      ]
+    },
+    {
+      id: 6,
+      num: "07",
+      badge: "CATEGORY #07 • FESTIVAL FINALE",
+      prize: "🏆 3,000+ AUDIENCE CAPACITY",
+      title: "Headline Hip-Hop Concert",
+      tagline: "2-Night Explosive Musical Climax Featuring Top Lao & ASEAN Headliners",
+      img: "assets/battle_concert.jpg",
+      statComp: "15+ Star Performers",
+      statVenue: "Main Exhibition Hall",
+      statAud: "10,000+ Attendees Across Weekend",
+      statMedia: "Full Live Broadcast & 4K Recap",
+      overviewP1: "The Headline Hip-Hop Concert is the electrifying culmination of LIHF 2026. Taking over the massive Lao-ITECC Exhibition Hall across two consecutive nights, thousands of screaming fans gather to celebrate live performances by Laos' premier hip-hop stars alongside invited guest artists from Thailand, Vietnam, and regional music scenes.",
+      highlights: [
+        "Uniting 10,000+ attendees across 2 unforgettable festival finale evenings",
+        "Concert-grade line array sound, laser synchronization, and 20m high-definition LED stage",
+        "Exclusive collaborative stages where dancers, rappers, and live beatmakers perform together",
+        "Prime corporate hospitality opportunity with VIP lounges overlooking the main arena"
+      ],
+      rulesFlow: [
+        { num: "01", title: "Opening Acts & DJ Hype Sets", desc: "Emerging Lao underground artists and battle champions perform opening sets (18:00 – 19:30)." },
+        { num: "02", title: "Regional Guest Showcases", desc: "Invited ASEAN headliners from Bangkok, Hanoi, and Singapore perform signature hits." },
+        { num: "03", title: "Grand Lao Headliner Finale", desc: "Top Lao chart-toppers close out each night accompanied by festival awards and pyrotechnics." }
+      ],
+      judgingText: "Curated for maximum audience entertainment, cultural celebration, and sponsor exposure.",
+      criteria: ["Performance Energy (40%)", "Audience Sing-Along (30%)", "Visual Stage Production (30%)"],
+      timeline: [
+        { day: "Day 2 (Sat Nov 14)", time: "19:30 – 23:00", event: "Night 1 Headline Concert" },
+        { day: "Day 3 (Sun Nov 15)", time: "19:00 – 23:00", event: "Grand Finale Concert & Closing Ceremony" }
+      ],
+      prizes: [
+        { place: "🏆 Festival Attendance", amt: "10,000+ Fans", note: "Peak weekend engagement" },
+        { place: "⭐ Star Headliners", amt: "15+ Artists", note: "Lao & ASEAN all-star roster" },
+        { place: "📺 Media Impressions", amt: "5,000,000+", note: "Live stream and concert reels" }
+      ],
+      sponsorIntro: "The ultimate centerpiece for Title and Platinum partners seeking maximum emotional resonance:",
+      sponsorIdeas: [
+        { title: "VIP Hospitality Lounge", desc: "Private elevated lounge with premium catering, open bar, and executive networking for sponsor VIPs." },
+        { title: "60-Second Video Commercials", desc: "Sponsor commercial broadcast on giant 20m LED screen directly preceding the headliner act." }
+      ]
+    }
+  ];
+
+  let currentActivityIndex = 0;
+  const modal = document.getElementById('activity-detail-modal');
+  const closeBtn = document.getElementById('am-close-btn');
+  const prevBtn = document.getElementById('am-prev-btn');
+  const nextBtn = document.getElementById('am-next-btn');
+  const counter = document.getElementById('am-counter');
+
+  function renderActivityModal(idx) {
+    currentActivityIndex = idx;
+    const a = activitiesData[currentActivityIndex];
+    if (!a) return;
+
+    // Header info
+    document.getElementById('am-bg').style.backgroundImage = `url('${a.img}')`;
+    document.getElementById('am-badge').innerText = a.badge;
+    document.getElementById('am-prize').innerText = a.prize;
+    document.getElementById('am-title').innerText = a.title;
+    document.getElementById('am-tagline').innerText = a.tagline;
+    if (counter) counter.innerText = `${idx + 1} / ${activitiesData.length}`;
+
+    // Panel 1: Overview
+    document.getElementById('am-overview-p1').innerText = a.overviewP1;
+    document.getElementById('am-stat-comp').innerText = a.statComp;
+    document.getElementById('am-stat-venue').innerText = a.statVenue;
+    document.getElementById('am-stat-aud').innerText = a.statAud;
+    document.getElementById('am-stat-media').innerText = a.statMedia;
+
+    const hlUl = document.getElementById('am-overview-highlights');
+    if (hlUl) {
+      hlUl.innerHTML = a.highlights.map(h => `<li>${h}</li>`).join('');
+    }
+
+    // Panel 2: Rules & Format
+    const flowDiv = document.getElementById('am-rules-flow');
+    if (flowDiv) {
+      flowDiv.innerHTML = a.rulesFlow.map(rf => `
+        <div class="flow-step">
+          <span class="flow-step-num">${rf.num}</span>
+          <div>
+            <div class="flow-step-title">${rf.title}</div>
+            <div class="flow-step-desc">${rf.desc}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+    document.getElementById('am-rules-judging').innerText = a.judgingText;
+    const critDiv = document.getElementById('am-criteria-tags');
+    if (critDiv) {
+      critDiv.innerHTML = a.criteria.map(c => `<span class="criteria-tag">${c}</span>`).join('');
+    }
+
+    // Panel 3: Schedule & Prizes
+    const tlDiv = document.getElementById('am-timeline-grid');
+    if (tlDiv) {
+      tlDiv.innerHTML = a.timeline.map(t => `
+        <div class="timeline-card">
+          <div class="tc-day">${t.day}</div>
+          <div class="tc-time">${t.time}</div>
+          <div class="tc-event">${t.event}</div>
+        </div>
+      `).join('');
+    }
+
+    const prDiv = document.getElementById('am-prizes-grid');
+    if (prDiv) {
+      prDiv.innerHTML = a.prizes.map(p => `
+        <div class="prize-card">
+          <div class="pc-place">${p.place}</div>
+          <div class="pc-amt">${p.amt}</div>
+          <div class="pc-note">${p.note}</div>
+        </div>
+      `).join('');
+    }
+
+    // Panel 4: Sponsor Activation
+    document.getElementById('am-sponsor-intro').innerText = a.sponsorIntro;
+    const spDiv = document.getElementById('am-sponsor-ideas');
+    if (spDiv) {
+      spDiv.innerHTML = a.sponsorIdeas.map(s => `
+        <div class="sponsor-idea-box">
+          <div class="sib-title">${s.title}</div>
+          <div class="sib-desc">${s.desc}</div>
+        </div>
+      `).join('');
+    }
+
+    // Reset to first tab
+    document.querySelectorAll('.act-tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.act-tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelector('.act-tab-btn[data-tab="tab-overview"]')?.classList.add('active');
+    document.getElementById('tab-overview')?.classList.add('active');
+  }
+
+  // Open modal on activity card click
+  document.querySelectorAll('.act-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const id = parseInt(card.getAttribute('data-act-id') || '0', 10);
+      renderActivityModal(id);
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Tab switching inside modal
+  document.querySelectorAll('.act-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.act-tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.act-tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const targetId = btn.getAttribute('data-tab');
+      if (targetId) {
+        document.getElementById(targetId)?.classList.add('active');
+      }
+    });
+  });
+
+  // Prev / Next navigation
+  prevBtn?.addEventListener('click', () => {
+    let nextIdx = currentActivityIndex - 1;
+    if (nextIdx < 0) nextIdx = activitiesData.length - 1;
+    renderActivityModal(nextIdx);
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    let nextIdx = (currentActivityIndex + 1) % activitiesData.length;
+    renderActivityModal(nextIdx);
+  });
+
+  // Close handlers
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+  });
+
+})();
 </script>
 
 </body>
