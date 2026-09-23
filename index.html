@@ -4638,6 +4638,334 @@ nav { padding: 1.2rem 2.8rem !important; }
   box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 25px rgba(255,184,0,0.3) !important;
 }
 
+
+/* ==============================================================================
+   HERO VIEWPORT-FIT OPTIMIZATION & REGIONAL CONTEXT STYLES
+   ============================================================================== */
+
+/* --- HERO DESKTOP VIEWPORT FIT (Eliminates excessive height / cutoffs) --- */
+@media (min-width: 1024px) {
+  .design1-hero {
+    height: calc(100vh - 115px) !important;
+    min-height: 560px !important;
+    max-height: 800px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+  .design1-content {
+    height: 100% !important;
+    min-height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding: 0.8rem 3rem !important;
+    max-width: 1360px !important;
+  }
+  .hero-main-grid {
+    display: grid !important;
+    grid-template-columns: 1.25fr 0.75fr !important;
+    gap: 2.5rem !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  .hero-left-col {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.85rem !important;
+  }
+  .hero-top-meta-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.8rem !important;
+    flex-wrap: wrap !important;
+  }
+  .hero-official-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+    font-family: var(--ff-a) !important;
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.14em !important;
+    color: var(--gold) !important;
+    background: rgba(212,175,55,0.12) !important;
+    border: 1px solid rgba(212,175,55,0.3) !important;
+    padding: 0.35rem 0.75rem !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    transition: all 0.3s !important;
+  }
+  .hero-official-badge:hover {
+    background: rgba(204,0,0,0.2) !important;
+    border-color: var(--red) !important;
+    transform: scale(1.03) !important;
+  }
+  .hero-mini-emblem {
+    width: 20px !important;
+    height: 20px !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 0 6px rgba(212,175,55,0.8)) !important;
+  }
+  .d1-headline {
+    font-size: clamp(1.85rem, 2.85vw, 3.1rem) !important;
+    line-height: 1.04 !important;
+    margin: 0 !important;
+  }
+  .hero-sub-blurb {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    max-width: 540px !important;
+  }
+  .hero-pillars-pills {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.4rem !important;
+  }
+  .pillar-pill {
+    font-size: 0.72rem !important;
+    padding: 0.28rem 0.75rem !important;
+  }
+  .d1-awards-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.6rem !important;
+    margin-top: 0.2rem !important;
+  }
+  .d1-award-chip {
+    padding: 0.45rem 0.85rem !important;
+  }
+  .d1-award-name {
+    font-size: 0.98rem !important;
+  }
+  .d1-award-count {
+    font-size: 0.66rem !important;
+  }
+  .hero-right-col {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  .retro-tv-box {
+    width: 100% !important;
+    max-width: 380px !important;
+    margin-bottom: 0 !important;
+    padding: 8px 8px 6px 8px !important;
+  }
+  .retro-tv-screen {
+    width: 100% !important;
+    height: 215px !important;
+    aspect-ratio: auto !important;
+  }
+}
+
+/* Mobile & Tablet Fallback */
+@media (max-width: 1023px) {
+  .hero-top-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+  .hero-official-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--ff-a);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    background: rgba(212,175,55,0.12);
+    border: 1px solid rgba(212,175,55,0.3);
+    padding: 0.35rem 0.7rem;
+    border-radius: 4px;
+  }
+  .hero-mini-emblem {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+  }
+  .retro-tv-box {
+    max-width: 360px;
+    margin: 1rem auto 0;
+  }
+  .retro-tv-screen {
+    height: 210px;
+  }
+}
+
+/* --- REGIONAL CONTEXT SECTION STYLES (#regional) --- */
+#regional {
+  position: relative;
+  background: #090909;
+  padding: 5rem 0;
+  overflow: hidden;
+}
+.regional-events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.reg-event-card {
+  background: #111111;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 1.8rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.reg-event-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--red);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 25px rgba(204,0,0,0.3);
+}
+.reg-event-card.highlight-regional {
+  border-color: rgba(204,0,0,0.6);
+  background: linear-gradient(155deg, #180c0c 0%, #0d0a0a 100%);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 25px rgba(204,0,0,0.25);
+}
+.rec-flag-badge {
+  display: inline-block;
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  background: rgba(212,175,55,0.12);
+  border: 1px solid rgba(212,175,55,0.3);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  margin-bottom: 0.8rem;
+  width: fit-content;
+}
+.rec-header {
+  margin-bottom: 0.8rem;
+}
+.rec-title {
+  font-family: var(--ff-d);
+  font-size: 1.7rem;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0;
+}
+.rec-country {
+  font-family: var(--ff-a);
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.06em;
+}
+.rec-stat-box {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  flex-direction: column;
+}
+.rsb-num {
+  font-family: var(--ff-d);
+  font-size: 1.45rem;
+  color: var(--gold);
+  line-height: 1.1;
+}
+.rsb-lbl {
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.rec-format {
+  font-family: var(--ff-a);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+}
+.rec-desc {
+  font-family: var(--ff-b);
+  font-size: 0.86rem;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.55;
+  margin-bottom: 1.4rem;
+  flex: 1;
+}
+.rec-footer-tag {
+  font-family: var(--ff-a);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.5);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 0.7rem;
+  text-transform: uppercase;
+}
+
+/* Strategic Positioning Banner */
+.regional-takeaway-banner {
+  margin-top: 3rem;
+  background: linear-gradient(135deg, rgba(204,0,0,0.12) 0%, rgba(10,10,10,0.95) 100%);
+  border: 1px solid rgba(204,0,0,0.4);
+  border-radius: 14px;
+  padding: 2.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.rtb-left {
+  max-width: 680px;
+}
+.rtb-badge {
+  display: inline-block;
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  background: rgba(212,175,55,0.12);
+  border: 1px solid rgba(212,175,55,0.35);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 0.6rem;
+}
+.rtb-headline {
+  font-family: var(--ff-d);
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+.rtb-text {
+  font-family: var(--ff-b);
+  font-size: 0.94rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+}
+.rtb-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+.rtb-sources {
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.45);
+  max-width: 280px;
+  line-height: 1.4;
+}
+
 </style>
 
 
@@ -4654,6 +4982,7 @@ nav { padding: 1.2rem 2.8rem !important; }
   <a href="#hero" class="nav-logo" style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;"><img src="assets/logo_lihf_3d.png" alt="LIHF 2026" style="height:65px;width:auto;object-fit:contain;filter:drop-shadow(0 0 10px rgba(212,175,55,0.7)) drop-shadow(0 0 20px rgba(204,0,0,0.4));transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#regional">Regional</a></li>
     <li><a href="#kpi">Impact</a></li>
     <li><a href="#battles">Activities</a></li>
     <li><a href="#marketing">Marketing</a></li>
@@ -4680,7 +5009,7 @@ nav { padding: 1.2rem 2.8rem !important; }
   </div>
 </div>
 
-<!-- HERO — PROPORTIONAL 2-COLUMN LAYOUT -->
+<!-- HERO — PROPORTIONAL 2-COLUMN VIEWPORT-FITTED LAYOUT -->
 <section id="hero" class="design1-hero">
   <!-- Dynamic Hip-Hop Action Background Slider -->
   <div class="hiphop-hero-bg-container">
@@ -4696,9 +5025,15 @@ nav { padding: 1.2rem 2.8rem !important; }
   <div class="design1-content">
     <div class="hero-main-grid">
       
-      <!-- LEFT COLUMN: Event Date, Headline, Subtitle & Battle Pills -->
+      <!-- LEFT COLUMN: Date & Official Badge, Headline, Subtitle, Battle Pills & Stats Chips -->
       <div class="hero-left-col">
-        <div class="d1-hero-event-date">13 – 15 November 2026 &nbsp;•&nbsp; Lao-ITECC, Vientiane</div>
+        <div class="hero-top-meta-row">
+          <div class="d1-hero-event-date">13 – 15 November 2026 &nbsp;•&nbsp; Lao-ITECC, Vientiane</div>
+          <div class="hero-official-badge" onclick="replayLogoIntro()" title="Official Festival Seal">
+            <img src="assets/logo.png" alt="LIHF Official Emblem" class="hero-mini-emblem" id="main-hero-logo">
+            <span>OFFICIAL FESTIVAL</span>
+          </div>
+        </div>
         
         <h1 class="d1-headline">
           WE BRING THE<br>
@@ -4718,16 +5053,30 @@ nav { padding: 1.2rem 2.8rem !important; }
           <span class="pillar-pill">💃 Open Style</span>
           <span class="pillar-pill">🏆 Crew Showdown</span>
         </div>
+
+        <!-- STATS CHIPS (Balanced inside left column) -->
+        <div class="d1-awards-row">
+          <div class="d1-award-chip">
+            <span class="d1-award-name">10,000+</span>
+            <span class="d1-award-count">ATTENDEES</span>
+          </div>
+          <div class="d1-award-chip">
+            <span class="d1-award-name">10M+</span>
+            <span class="d1-award-count">MEDIA REACH</span>
+          </div>
+          <div class="d1-award-chip">
+            <span class="d1-award-name">500+</span>
+            <span class="d1-award-count">TALENTS</span>
+          </div>
+          <div class="d1-award-chip">
+            <span class="d1-award-name">159M</span>
+            <span class="d1-award-count">LAK POOL</span>
+          </div>
+        </div>
       </div>
 
-      <!-- RIGHT COLUMN: Official Circular Emblem Badge & Retro CRT TV Showreel Box -->
+      <!-- RIGHT COLUMN: Retro CRT TV Showreel Box (Sleek, Centered & Standalone) -->
       <div class="hero-right-col">
-        <div class="d1-hero-emblem-wrap">
-          <div class="logo-intro-shockwave"></div>
-          <img src="assets/logo.png" alt="Lao International HipHop Festival 2026 Official Logo" class="d1-hero-emblem" id="main-hero-logo" onclick="replayLogoIntro()" title="Click to replay Logo Intro Animation!">
-        </div>
-
-        <!-- RETRO CRT TV SHOWREEL BOX -->
         <div class="retro-tv-box" id="open-showreel-btn" title="Click for Fullscreen Showreel!">
           <div class="retro-tv-antenna">
             <span class="antenna-rod left"></span>
@@ -4767,27 +5116,6 @@ nav { padding: 1.2rem 2.8rem !important; }
             </div>
           </div>
         </div>
-
-        <!-- STATS CHIPS (Synced to 2026 Proposal) -->
-        <div class="d1-awards-row">
-          <div class="d1-award-chip">
-            <span class="d1-award-name">10,000+</span>
-            <span class="d1-award-count">ATTENDEES</span>
-          </div>
-          <div class="d1-award-chip">
-            <span class="d1-award-name">10M+</span>
-            <span class="d1-award-count">MEDIA REACH</span>
-          </div>
-          <div class="d1-award-chip">
-            <span class="d1-award-name">500+</span>
-            <span class="d1-award-count">TALENTS</span>
-          </div>
-          <div class="d1-award-chip">
-            <span class="d1-award-name">159M</span>
-            <span class="d1-award-count">LAK POOL</span>
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -4980,6 +5308,110 @@ nav { padding: 1.2rem 2.8rem !important; }
         <span class="cp-chip-lbl">Total Prize Pool</span>
       </div>
     </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- REGIONAL CONTEXT: HIP-HOP IN ASIA & SOUTHEAST ASIA (Slide 4 of Proposal) -->
+<section id="regional">
+  <div class="noise-overlay"></div>
+  <div class="container">
+    
+    <div style="text-align:center; max-width:920px; margin:0 auto 3rem;">
+      <div class="section-label ru" style="justify-content:center;">Regional Context • ບໍລິບົດລະດັບພາກພື້ນອາຊຽນ</div>
+      <h2 class="section-title ru font-serif-display" style="font-size:clamp(2.6rem, 5.5vw, 4.4rem);">
+        HIP-HOP IN ASIA &amp;<br><span class="hl">SOUTHEAST ASIA</span>
+      </h2>
+      <div class="red-line ru" style="margin:1.4rem auto;"></div>
+      <p style="font-family:var(--ff-b); font-size:1.06rem; color:rgba(255,255,255,0.88); line-height:1.7;">
+        A growing cultural network of dance, rap, DJing, graffiti, fashion, content, and youth communities.
+        <strong style="color:var(--gold);">For sponsors, LIHF connects Lao youth with a wider regional movement — turning cultural participation into brand relevance, content, and community impact.</strong>
+      </p>
+    </div>
+
+    <!-- 4 International Benchmark Cards (Slide 4) -->
+    <div class="regional-events-grid">
+      
+      <!-- BENCHMARK 01: HIPFEST VIETNAM -->
+      <div class="reg-event-card ru">
+        <div class="rec-flag-badge">🇻🇳 VIETNAM</div>
+        <div class="rec-header">
+          <h3 class="rec-title">HIPFEST</h3>
+          <span class="rec-country">Vietnam Landmark</span>
+        </div>
+        <div class="rec-stat-box">
+          <span class="rsb-num">40+</span>
+          <span class="rsb-lbl">Countries Represented</span>
+        </div>
+        <div class="rec-format">Full Culture Festival</div>
+        <p class="rec-desc">Southeast Asia's massive urban culture gathering uniting thousands of international dancers, MCs, and graffiti writers across multi-day cultural exchange.</p>
+        <div class="rec-footer-tag">REGIONAL GATHERING</div>
+      </div>
+
+      <!-- BENCHMARK 02: SUPER 24 SINGAPORE -->
+      <div class="reg-event-card ru">
+        <div class="rec-flag-badge">🇸🇬 SINGAPORE</div>
+        <div class="rec-header">
+          <h3 class="rec-title">SUPER 24</h3>
+          <span class="rec-country">Singapore Standard</span>
+        </div>
+        <div class="rec-stat-box">
+          <span class="rsb-num">100 Teams</span>
+          <span class="rsb-lbl">15K+ Spectators</span>
+        </div>
+        <div class="rec-format">Mega Crew Platform</div>
+        <p class="rec-desc">The ultimate 4-sided 24-dancer team choreography championship setting the gold standard for creative team excellence and stadium spectacles.</p>
+        <div class="rec-footer-tag">CHOREOGRAPHY STANDARD</div>
+      </div>
+
+      <!-- BENCHMARK 03: RED BULL BC ONE SEA -->
+      <div class="reg-event-card ru highlight-regional">
+        <div class="rec-flag-badge" style="background:var(--red); color:#fff;">🇹🇭 BANGKOK</div>
+        <div class="rec-header">
+          <h3 class="rec-title">BC ONE SEA</h3>
+          <span class="rec-country">Bangkok, Thailand</span>
+        </div>
+        <div class="rec-stat-box">
+          <span class="rsb-num">10 Countries</span>
+          <span class="rsb-lbl">SEA Championship</span>
+        </div>
+        <div class="rec-format">World-Final Pathway</div>
+        <p class="rec-desc">The premier Olympic-standard 1v1 Breaking battle pathway sending Southeast Asia's top b-boys and b-girls directly to the Red Bull BC One World Finals.</p>
+        <div class="rec-footer-tag" style="color:var(--gold); border-color:var(--gold);">WORLD FINAL PATHWAY</div>
+      </div>
+
+      <!-- BENCHMARK 04: HHI WORLDS GLOBAL -->
+      <div class="reg-event-card ru">
+        <div class="rec-flag-badge">🌍 GLOBAL</div>
+        <div class="rec-header">
+          <h3 class="rec-title">HHI WORLDS</h3>
+          <span class="rec-country">World Championship</span>
+        </div>
+        <div class="rec-stat-box">
+          <span class="rsb-num">PH • JP • TH</span>
+          <span class="rsb-lbl">Asian Gold Medalists</span>
+        </div>
+        <div class="rec-format">Asian Crews at World Level</div>
+        <p class="rec-desc">The world championship stage proving Southeast Asian urban dancers can triumph over the world's best, inspiring Lao youth to compete globally.</p>
+        <div class="rec-footer-tag">GLOBAL PINNACLE</div>
+      </div>
+
+    </div>
+
+    <!-- STRATEGIC POSITIONING BANNER -->
+    <div class="regional-takeaway-banner ru">
+      <div class="rtb-left">
+        <span class="rtb-badge">LAOS STRATEGIC POSITIONING</span>
+        <h4 class="rtb-headline">LIHF Can Position Laos as an Emerging Regional Meeting Point for Authentic Hip-Hop Culture</h4>
+        <p class="rtb-text">By building an international-standard platform at Lao-ITECC, LIHF brings top talent, regional tourism, and corporate sponsors into an authentic youth movement connecting Laos with Vietnam, Thailand, Singapore, and beyond.</p>
+      </div>
+      <div class="rtb-right">
+        <a href="#packages" class="btn-p" style="white-space:nowrap;">Become A Regional Partner →</a>
+        <span class="rtb-sources">Sources: HIPFEST official, Super 24 official, Red Bull BC One Southeast Asia, Hip Hop International 2026 medalists.</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
