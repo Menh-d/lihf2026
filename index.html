@@ -4966,6 +4966,121 @@ nav { padding: 1.2rem 2.8rem !important; }
   line-height: 1.4;
 }
 
+
+/* ══════════════════════════════════
+   HIPHOP TYPOGRAPHY — ANTON FONT
+   ══════════════════════════════════ */
+.section-title {
+  font-family: 'Anton', 'Barlow Condensed', sans-serif !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.03em !important;
+}
+
+/* ══════════════════════════════════
+   ACCORDION SECTION SYSTEM
+   ══════════════════════════════════ */
+.acc-section {
+  border-bottom: 1px solid rgba(204,0,0,0.2);
+  overflow: visible;
+}
+
+/* The clickable banner strip */
+.acc-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.4rem 2rem;
+  background: linear-gradient(90deg, #0e0000 0%, #0a0a0a 60%, #0e0000 100%);
+  border-left: 4px solid var(--red);
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.25s, border-color 0.25s;
+  position: relative;
+  z-index: 10;
+}
+.acc-banner:hover {
+  background: linear-gradient(90deg, #1a0000 0%, #111111 60%, #1a0000 100%);
+  border-left-color: var(--red-b);
+}
+.acc-banner.is-open {
+  border-left-color: var(--gold);
+  background: linear-gradient(90deg, #1a0900 0%, #111111 60%, #1a0900 100%);
+}
+
+.acc-num {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--red);
+  min-width: 2.5rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.acc-banner.is-open .acc-num { color: var(--gold); }
+
+.acc-title-wrap {
+  flex: 1;
+}
+.acc-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.2rem;
+}
+.acc-banner.is-open .acc-label { color: var(--gold); }
+
+.acc-h2 {
+  font-family: 'Anton', 'Barlow Condensed', sans-serif !important;
+  font-size: clamp(1.5rem, 4vw, 2.6rem) !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  color: var(--wh);
+  line-height: 0.95;
+  margin: 0;
+}
+.acc-h2 .hl { color: var(--red); }
+.acc-banner.is-open .acc-h2 { color: var(--wh); }
+
+.acc-arrow {
+  font-size: 1.4rem;
+  color: var(--red);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.acc-banner.is-open .acc-arrow {
+  transform: rotate(180deg);
+  color: var(--gold);
+}
+
+/* The collapsible body */
+.acc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.acc-body.is-open {
+  max-height: 12000px;
+  transition: max-height 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Keep section internal padding/spacing inside the body */
+.acc-body > section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: none;
+}
+
+/* Remove default top/bottom padding from section when inside accordion */
+section.acc-inner {
+  padding: 4.5rem 0;
+  overflow: visible;
+}
+
 </style>
 
 
@@ -5167,7 +5282,17 @@ nav { padding: 1.2rem 2.8rem !important; }
 </div>
 
 <!-- ABOUT (Executive Summary — Expanded Full-Width 4 Rectangular Blocks & 3D Poster Wall) -->
-<section id="about">
+<div class="acc-section" data-acc="about">
+<div class="acc-banner is-open" role="button" tabindex="0" aria-expanded="true">
+  <div class="acc-num">01</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">ABOUT LIHF 2026</div>
+    <div class="acc-h2">ABOUT <span class="hl">LIHF</span> 2026</div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body is-open">
+<section id="about" class="acc-inner">
   <!-- Infinite 3D Poster Scroll Wall Background -->
   <div class="poster-wall-wrapper">
     <div class="poster-wall-3d">
@@ -5202,15 +5327,15 @@ nav { padding: 1.2rem 2.8rem !important; }
   <!-- Main Expanded Content Container -->
   <div class="about-4grid-container">
     <div style="text-align:center;">
-      <div class="section-label ru" style="justify-content:center;">Executive Summary</div>
+      <div class="section-label ru" style="justify-content:center;">About LIHF 2026 • From local movement to regional platform</div>
       <h2 class="section-title ru font-serif-display" style="font-size:clamp(3.2rem, 7vw, 6rem);">
         <span class="animate-word-pop delay-100">THE</span>
         <span class="animate-word-pop delay-200 hl">PREMIER</span>
         <span class="animate-word-pop delay-300">URBAN</span>
-        <span class="animate-word-pop delay-400">YOUTH</span>
+        <span class="animate-word-pop delay-400">CULTURE</span>
         <span class="animate-word-pop delay-500">&amp;</span>
-        <span class="animate-word-pop delay-600">CULTURAL</span>
-        <span class="animate-word-pop delay-700">MOVEMENT</span>
+        <span class="animate-word-pop delay-600">COMMUNITY</span>
+        <span class="animate-word-pop delay-700">PLATFORM</span>
       </h2>
       <div class="red-line ru" style="margin:1.4rem auto;"></div>
     </div>
@@ -5310,11 +5435,23 @@ nav { padding: 1.2rem 2.8rem !important; }
     </div>
   </div>
 </section>
+</div><!-- /acc-body about -->
+</div><!-- /acc-section about -->
 
 <div class="section-divider"></div>
 
 <!-- REGIONAL CONTEXT: HIP-HOP IN ASIA & SOUTHEAST ASIA (Slide 4 of Proposal) -->
-<section id="regional">
+<div class="acc-section" data-acc="regional">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">02</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">REGIONAL HIP-HOP SCENE</div>
+    <div class="acc-h2">REGIONAL <span class="hl">HIP-HOP</span> SCENE</div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="regional" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     
@@ -5414,31 +5551,68 @@ nav { padding: 1.2rem 2.8rem !important; }
 
   </div>
 </section>
+</div><!-- /acc-body regional -->
+</div><!-- /acc-section regional -->
 
 <div class="section-divider"></div>
 
 <!-- MARKET -->
-<section id="market">
+<div class="acc-section" data-acc="market">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">03</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">THE OPPORTUNITY</div>
+    <div class="acc-h2">THE <span class="hl">OPPORTUNITY</span></div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="market" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
-    <div class="section-label ru">Market Opportunity</div>
-    <h2 class="section-title ru">ENGAGING THE <span class="hl">DYNAMIC</span><br>GEN Z &amp; MILLENNIAL AUDIENCE</h2>
+    <div class="section-label ru">The Opportunity • Meet young consumers inside culture, not beside it</div>
+    <h2 class="section-title ru">MEET YOUNG CONSUMERS<br><span class="hl">INSIDE CULTURE,</span> NOT BESIDE IT</h2>
     <div class="red-line ru"></div>
     <div class="market-cards">
-      <div class="mc ru"><span class="mc-ic">🔥</span><h4>Cultural Trend Leadership</h4><p>HipHop and street culture now dictate global fashion, music, digital memes, and lifestyle trends. Aligning with LIHF instantly positions your brand as dynamic, culturally relevant, and youthful.</p></div>
-      <div class="mc ru"><span class="mc-ic">📱</span><h4>Unrivaled Social Engagement</h4><p>Gen Z consumes short-form video passionately. LIHF creates viral content across TikTok, Reels, and YouTube Shorts — guaranteeing authentic brand impressions and high organic engagement.</p></div>
-      <div class="mc ru"><span class="mc-ic">💡</span><h4>Moving Beyond Passive Ads</h4><p>Modern youth reject traditional intrusive ads. They reward brands that authentically support their passions, sponsor their heroes, and create memorable on-ground experiences.</p></div>
-      <div class="mc ru"><span class="mc-ic">🌐</span><h4>Regional Cultural Gateway</h4><p>Laos serves as a vital cultural bridge connecting Thailand, Vietnam, Cambodia, China, and ASEAN. LIHF delivers cross-border brand exposure reaching international travelers and viewers.</p></div>
+      <div class="mc ru"><span class="mc-ic">❤️</span><h4>Build Emotional Brand Connection</h4><p>LIHF is where dance, music, street art, fashion, and digital content meet. For sponsors, this is not only visibility — it is participation inside culture.</p></div>
+      <div class="mc ru"><span class="mc-ic">🛒</span><h4>Drive Trial, Sales &amp; Product Sampling</h4><p>On-site activation zones turn brand moments into direct consumer trial. Sampling, QR challenges, and cypher zones convert audience energy into measurable sales impact.</p></div>
+      <div class="mc ru"><span class="mc-ic">🎬</span><h4>Create High-Shareable Short-Form Content</h4><p>Every battle, freestyle, and live mural becomes shareable content. Sponsor moments are embedded into TikTok, Reels, and YouTube Shorts — organic reach that no ad budget can replicate.</p></div>
+      <div class="mc ru"><span class="mc-ic">🌏</span><h4>Own a Credible Role in Youth Culture</h4><p>Young audiences do not only remember logos. They remember brands that supported what they love. LIHF converts sponsor presence into community trust and long-term brand loyalty.</p></div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem; padding:1.5rem; background:rgba(204,0,0,0.06); border:1px solid rgba(204,0,0,0.2); border-radius:4px;">
+      <p style="font-family:var(--ff-a); font-size:1rem; font-weight:700; letter-spacing:0.18em; color:var(--gr-l); margin-bottom:1rem;">SPONSOR ACTIVATION JOURNEY</p>
+      <div style="display:flex; justify-content:center; align-items:center; gap:1rem; flex-wrap:wrap;">
+        <span style="font-family:'Anton',sans-serif; font-size:1.4rem; color:var(--red);">TRY</span>
+        <span style="color:var(--gr); font-size:1.2rem;">→</span>
+        <span style="font-family:'Anton',sans-serif; font-size:1.4rem; color:var(--wh);">CREATE</span>
+        <span style="color:var(--gr); font-size:1.2rem;">→</span>
+        <span style="font-family:'Anton',sans-serif; font-size:1.4rem; color:var(--gold);">SHARE</span>
+        <span style="color:var(--gr); font-size:1.2rem;">→</span>
+        <span style="font-family:'Anton',sans-serif; font-size:1.4rem; color:var(--wh);">REMEMBER</span>
+      </div>
+      <p style="font-family:var(--ff-b); font-size:0.88rem; color:var(--gr); margin-top:0.8rem;">Brand activation should invite action, not only display logos.</p>
     </div>
   </div>
 </section>
+</div><!-- /acc-body market -->
+</div><!-- /acc-section market -->
 
 <!-- KPI -->
-<section id="kpi">
+<div class="acc-section" data-acc="kpi">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">04</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">KEY PERFORMANCE INDICATORS</div>
+    <div class="acc-h2">KEY <span class="hl">PERFORMANCE</span> INDICATORS</div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="kpi" class="acc-inner">
   <div class="kpi-bg">IMPACT</div>
   <div class="container">
-    <div class="section-label ru">Measurable Impact</div>
-    <h2 class="section-title ru">GUARANTEED EVENT SCALE &amp;<br><span class="hl">KEY PERFORMANCE</span> INDICATORS</h2>
+    <div class="section-label ru">Expected Reach &amp; Impact • Measurable visibility plus cultural value</div>
+    <h2 class="section-title ru">GUARANTEED SCALE &amp;<br><span class="hl">MEASURABLE</span> IMPACT</h2>
     <div class="red-line ru"></div>
     <div class="kpi-grid">
       <div class="kc ru"><span class="kn" data-n="10000" data-s="+">10,000+</span><span class="ku">Expected Attendees</span><p class="kd">Gen Z youth, athletes, dancers, creative creators &amp; tourists</p></div>
@@ -5448,28 +5622,67 @@ nav { padding: 1.2rem 2.8rem !important; }
       <div class="kc ru"><span class="kn" data-n="100" data-s="+">100+</span><span class="ku">Trained Volunteers</span><p class="kd">Dedicated youth operations crew supporting seamless festival delivery</p></div>
       <div class="kc ru"><span class="kn" data-n="159" data-s="M">159M</span><span class="ku">LAK Prize Pool</span><p class="kd">Rewarding excellence across 7 main culture &amp; battle pillars</p></div>
     </div>
+    <div style="margin-top:2.5rem; padding:1.5rem 2rem; background:rgba(255,255,255,0.03); border-left:3px solid var(--red);">
+      <p style="font-family:var(--ff-a); font-size:0.78rem; font-weight:700; letter-spacing:0.2em; color:var(--red); margin-bottom:0.8rem;">IMPACT AREAS</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:0.6rem;">
+        <div style="font-family:var(--ff-b); font-size:0.9rem; color:var(--gr-l);">✦ Brand awareness and recall</div>
+        <div style="font-family:var(--ff-b); font-size:0.9rem; color:var(--gr-l);">✦ Product trial and sales activation</div>
+        <div style="font-family:var(--ff-b); font-size:0.9rem; color:var(--gr-l);">✦ Youth engagement and CSR value</div>
+        <div style="font-family:var(--ff-b); font-size:0.9rem; color:var(--gr-l);">✦ Content library for sponsor campaigns</div>
+        <div style="font-family:var(--ff-b); font-size:0.9rem; color:var(--gr-l);">✦ Support for Lao creative economy</div>
+        <div style="font-family:var(--ff-b); font-size:0.9rem; color:var(--gr-l);">✦ Regional visibility across SEA</div>
+      </div>
+    </div>
   </div>
 </section>
+</div><!-- /acc-body kpi -->
+</div><!-- /acc-section kpi -->
 <div class="section-divider"></div>
 
 <!-- AUDIENCE -->
-<section id="audience">
+<div class="acc-section" data-acc="audience">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">05</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">TARGET AUDIENCE</div>
+    <div class="acc-h2">TARGET <span class="hl">AUDIENCE</span></div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="audience" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
-    <div class="section-label ru">Target Audience</div>
-    <h2 class="section-title ru">HIGH-VALUE, <span class="hl">TRENDSETTING</span><br>CONSUMER SEGMENTS</h2>
+    <div class="section-label ru">Target Audience • A valuable youth-driven market</div>
+    <h2 class="section-title ru">HIGH-VALUE, <span class="hl">PASSION-LED</span><br>CONSUMER SEGMENTS</h2>
     <div class="red-line ru"></div>
     <div class="aud-grid">
       <div class="aud-card ru"><div class="aud-pct">50%</div><span class="aud-badge">50% of Audience</span><h3 class="aud-seg-title">Young Adults (19–35)</h3><ul class="aud-list"><li>Working professionals, university students, urban trendsetters</li><li>High disposable income for lifestyle, tech, fashion, food &amp; beverage</li><li>Key influencers; early adopters of digital payment and telecom services</li></ul></div>
       <div class="aud-card ru"><div class="aud-pct">35%</div><span class="aud-badge">35% of Audience</span><h3 class="aud-seg-title">Youth &amp; Teens (13–18)</h3><ul class="aud-list"><li>High school students, emerging dancers, gamers, content creators</li><li>Extremely high digital fluency and social media viral sharing behavior</li><li>Long-term brand loyalty potential through authentic early engagement</li></ul></div>
       <div class="aud-card ru"><div class="aud-pct">15%</div><span class="aud-badge">15% of Audience</span><h3 class="aud-seg-title">Industry &amp; Adults (36–45+)</h3><ul class="aud-list"><li>Creative agency directors, business owners, parents, media guests</li><li>Premium purchasing power for VIP hospitality and premium goods</li><li>Appreciators of cultural diplomacy, arts development, and corporate CSR</li></ul></div>
     </div>
+    <div style="margin-top:2.5rem; padding:1.2rem 1.5rem; background:rgba(212,175,55,0.06); border:1px solid rgba(212,175,55,0.2); border-radius:4px; text-align:center;">
+      <p style="font-family:var(--ff-a); font-size:0.78rem; font-weight:700; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem;">CORE SPONSOR FIT</p>
+      <p style="font-family:var(--ff-b); font-size:0.95rem; color:var(--gr-l); line-height:1.7;">FMCG &nbsp;•&nbsp; Telecom &nbsp;•&nbsp; Banking &nbsp;•&nbsp; Fashion &nbsp;•&nbsp; Lifestyle &nbsp;•&nbsp; Mobility &nbsp;•&nbsp; Technology &nbsp;•&nbsp; Youth-focused Brands</p>
+    </div>
   </div>
 </section>
+</div><!-- /acc-body audience -->
+</div><!-- /acc-section audience -->
 
 <!-- BATTLES (Event Pillars — Immersive 3D Tilt Cards & Expandable Modal) -->
 <!-- ACTIVITIES & BATTLES — INTERACTIVE 7 CULTURE PILLARS -->
-<section id="battles">
+<div class="acc-section" data-acc="battles">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">06</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">7 CULTURE PILLARS & ACTIVITIES</div>
+    <div class="acc-h2">7 CULTURE <span class="hl">PILLARS</span> & ACTIVITIES</div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="battles" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     <div style="text-align:center; max-width:850px; margin:0 auto 2.5rem;">
@@ -5655,6 +5868,8 @@ nav { padding: 1.2rem 2.8rem !important; }
     </div>
   </div>
 </section>
+</div><!-- /acc-body battles -->
+</div><!-- /acc-section battles -->
 
 <!-- COMPREHENSIVE INTERACTIVE ACTIVITY DETAIL MODAL -->
 <div class="activity-modal-overlay" id="activity-detail-modal">
@@ -5781,17 +5996,31 @@ nav { padding: 1.2rem 2.8rem !important; }
 
 <div class="section-divider"></div>
 <!-- MARKETING & COMMUNICATION PLAN (Slide 14 + Creative Advertising Initiatives) -->
-<section id="marketing">
+<div class="acc-section" data-acc="marketing">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">07</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">MARKETING & COMMS PLAN</div>
+    <div class="acc-h2">MARKETING & <span class="hl">COMMS</span> PLAN</div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="marketing" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     
     <div style="text-align:center; max-width:920px; margin:0 auto 3rem;">
-      <div class="section-label ru" style="justify-content:center;">Marketing &amp; Advertising Strategy • ແຜນການຕະຫຼາດ &amp; ການສື່ສານ</div>
-      <h2 class="section-title ru">OMNICHANNEL CAMPAIGN ROADMAP &amp;<br><span class="hl">CREATIVE ADVERTISING</span> INITIATIVES</h2>
+      <div class="section-label ru" style="justify-content:center;">Marketing &amp; Communication Plan • A campaign designed to build heat before the event</div>
+      <h2 class="section-title ru">CAMPAIGN ROADMAP &amp;<br><span class="hl">COMMUNICATION</span> STRATEGY</h2>
       <div class="red-line ru" style="margin:1.4rem auto;"></div>
       <p style="font-family:var(--ff-b); font-size:1.05rem; color:rgba(255,255,255,0.85); line-height:1.7;">
-        A high-velocity, youth-centric campaign engineered to build viral anticipation, drive massive footfall and ticket conversion, and deliver <strong>10,000,000+ measurable cross-platform impressions</strong> for festival brand partners.
+        The campaign combines community channels, influencer content, media coverage, outdoor visibility, and event-day storytelling to build heat before, during, and after the festival.
       </p>
+    </div>
+    <div style="text-align:center; margin:-0.5rem auto 2.5rem; padding:0.9rem 1.5rem; background:rgba(204,0,0,0.07); border:1px solid rgba(204,0,0,0.2); max-width:860px; border-radius:3px;">
+      <p style="font-family:var(--ff-a); font-size:0.72rem; font-weight:700; letter-spacing:0.2em; color:var(--red); margin-bottom:0.5rem;">CHANNELS</p>
+      <p style="font-family:var(--ff-b); font-size:0.9rem; color:var(--gr-l);">Facebook &nbsp;•&nbsp; Instagram &nbsp;•&nbsp; TikTok &nbsp;•&nbsp; YouTube &nbsp;•&nbsp; Media Partners &nbsp;•&nbsp; Influencers &nbsp;•&nbsp; Outdoor / LED &nbsp;•&nbsp; Press Release</p>
     </div>
 
     <!-- PART A: 4-PHASE CAMPAIGN ROADMAP (Slide 14) -->
@@ -5979,10 +6208,22 @@ nav { padding: 1.2rem 2.8rem !important; }
 
   </div>
 </section>
+</div><!-- /acc-body marketing -->
+</div><!-- /acc-section marketing -->
 
 <div class="section-divider"></div>
 <!-- VENUE — KOLLEKTIVA MULTI-ZONE SPATIAL LAYOUT -->
-<section id="venue">
+<div class="acc-section" data-acc="venue">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">08</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">VENUE & ACTIVATION ZONES</div>
+    <div class="acc-h2">VENUE & <span class="hl">ACTIVATION</span> ZONES</div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="venue" class="acc-inner">
   <!-- Stacked Full-Bleed Background Visuals -->
   <div class="kv-bg-layer active" id="kv-bg-0" style="background-image:url('assets/battle_openstyle.jpg');">
   <div style="width:100%;height:100%;background:linear-gradient(135deg,#2d0000,#550000,#0d0000);mix-blend-mode:multiply;opacity:0.4;"></div>
@@ -6062,11 +6303,23 @@ nav { padding: 1.2rem 2.8rem !important; }
     </div>
   </div>
 </section>
+</div><!-- /acc-body venue -->
+</div><!-- /acc-section venue -->
 
 <div class="section-divider"></div>
 
 <!-- DIGITAL STRATEGY -->
-<section id="digital">
+<div class="acc-section" data-acc="digital">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">09</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">DIGITAL CAMPAIGN STRATEGY</div>
+    <div class="acc-h2">DIGITAL <span class="hl">CAMPAIGN</span> STRATEGY</div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="digital" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="section-label ru">Digital Strategy</div>
@@ -6079,10 +6332,22 @@ nav { padding: 1.2rem 2.8rem !important; }
     </div>
   </div>
 </section>
+</div><!-- /acc-body digital -->
+</div><!-- /acc-section digital -->
 <div class="section-divider"></div>
 
 <!-- TRACKING -->
-<section id="tracking">
+<div class="acc-section" data-acc="tracking">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">10</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">PERFORMANCE TRACKING</div>
+    <div class="acc-h2">PERFORMANCE <span class="hl">TRACKING</span></div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="tracking" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="section-label ru">Attendee Tracking</div>
@@ -6096,9 +6361,21 @@ nav { padding: 1.2rem 2.8rem !important; }
     </div>
   </div>
 </section>
+</div><!-- /acc-body tracking -->
+</div><!-- /acc-section tracking -->
 
 <!-- ROI -->
-<section id="roi">
+<div class="acc-section" data-acc="roi">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">11</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">RETURN ON INVESTMENT</div>
+    <div class="acc-h2">RETURN ON <span class="hl">INVESTMENT</span></div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="roi" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="section-label ru">Brand ROI</div>
@@ -6114,12 +6391,56 @@ nav { padding: 1.2rem 2.8rem !important; }
     </div>
   </div>
 </section>
+</div><!-- /acc-body roi -->
+</div><!-- /acc-section roi -->
 
 <!-- PACKAGES -->
-<section id="packages">
+<div class="acc-section" data-acc="packages">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">12</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">SPONSORSHIP PACKAGES</div>
+    <div class="acc-h2">SPONSORSHIP <span class="hl">PACKAGES</span></div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="packages" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
-    <div class="section-label ru">Sponsorship Packages</div>
+    
+    <!-- SPONSOR BENEFITS (Slide 16) -->
+    <div style="margin-bottom:3rem;">
+      <div class="section-label ru">Sponsor Benefits • From exposure to conversion</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; margin-top:1.2rem;">
+        <div style="padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border-left:3px solid var(--red);">
+          <div style="font-family:'Anton',sans-serif; font-size:1rem; color:var(--wh); margin-bottom:0.3rem;">BRAND AWARENESS</div>
+          <div style="font-family:var(--ff-b); font-size:0.82rem; color:var(--gr);">Logo, stage, LED, media coverage</div>
+        </div>
+        <div style="padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border-left:3px solid var(--red);">
+          <div style="font-family:'Anton',sans-serif; font-size:1rem; color:var(--wh); margin-bottom:0.3rem;">AUDIENCE ENGAGEMENT</div>
+          <div style="font-family:var(--ff-b); font-size:0.82rem; color:var(--gr);">Games, challenges, sampling activations</div>
+        </div>
+        <div style="padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border-left:3px solid var(--red);">
+          <div style="font-family:'Anton',sans-serif; font-size:1rem; color:var(--wh); margin-bottom:0.3rem;">PRODUCT EXPOSURE</div>
+          <div style="font-family:var(--ff-b); font-size:0.82rem; color:var(--gr);">Booth, product integration, MC mention</div>
+        </div>
+        <div style="padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border-left:3px solid var(--red);">
+          <div style="font-family:'Anton',sans-serif; font-size:1rem; color:var(--wh); margin-bottom:0.3rem;">DIGITAL VISIBILITY</div>
+          <div style="font-family:var(--ff-b); font-size:0.82rem; color:var(--gr);">Social posts, reels, creator content</div>
+        </div>
+        <div style="padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border-left:3px solid var(--red);">
+          <div style="font-family:'Anton',sans-serif; font-size:1rem; color:var(--wh); margin-bottom:0.3rem;">MEDIA VALUE</div>
+          <div style="font-family:var(--ff-b); font-size:0.82rem; color:var(--gr);">Press release, photo set, recap video</div>
+        </div>
+        <div style="padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border-left:3px solid var(--red);">
+          <div style="font-family:'Anton',sans-serif; font-size:1rem; color:var(--wh); margin-bottom:0.3rem;">COMMUNITY IMPACT</div>
+          <div style="font-family:var(--ff-b); font-size:0.82rem; color:var(--gr);">Youth culture and creative economy</div>
+        </div>
+      </div>
+      <p style="font-family:var(--ff-b); font-size:0.9rem; color:var(--gr); margin-top:1rem; font-style:italic;">The strongest package is the one that combines visibility + participation + shareable content.</p>
+    </div>
+    <div class="section-label ru">Sponsorship Packages • Clear levels for different investment goals</div>
     <h2 class="section-title ru">TIERED INVESTMENT<br>&amp; <span class="hl">STRATEGIC</span> ROLES</h2>
     <div class="red-line ru"></div>
     <div class="pkg-grid-5tiers">
@@ -6207,9 +6528,21 @@ nav { padding: 1.2rem 2.8rem !important; }
     </div>
   </div>
 </section>
+</div><!-- /acc-body packages -->
+</div><!-- /acc-section packages -->
 
 <!-- SPECIALIZED -->
-<section id="specialized">
+<div class="acc-section" data-acc="specialized">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">13</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">INDUSTRY-SPECIFIC PACKAGES</div>
+    <div class="acc-h2">INDUSTRY-SPECIFIC <span class="hl">PACKAGES</span></div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="specialized" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="section-label ru">Category Packages</div>
@@ -6223,9 +6556,21 @@ nav { padding: 1.2rem 2.8rem !important; }
     </div>
   </div>
 </section>
+</div><!-- /acc-body specialized -->
+</div><!-- /acc-section specialized -->
 
 <!-- MATRIX -->
-<section id="matrix">
+<div class="acc-section" data-acc="matrix">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">14</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">DELIVERABLES MATRIX</div>
+    <div class="acc-h2">DELIVERABLES <span class="hl">MATRIX</span></div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="matrix" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="section-label ru">Deliverables Matrix</div>
@@ -6313,10 +6658,22 @@ nav { padding: 1.2rem 2.8rem !important; }
     </div>
   </div>
 </section>
+</div><!-- /acc-body matrix -->
+</div><!-- /acc-section matrix -->
 <div class="section-divider"></div>
 
 <!-- BUDGET -->
-<section id="budget">
+<div class="acc-section" data-acc="budget">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">15</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">BUDGET ALLOCATION</div>
+    <div class="acc-h2">BUDGET <span class="hl">ALLOCATION</span></div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="budget" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="section-label ru">Financial Transparency</div>
@@ -6343,10 +6700,22 @@ nav { padding: 1.2rem 2.8rem !important; }
     </div>
   </div>
 </section>
+</div><!-- /acc-body budget -->
+</div><!-- /acc-section budget -->
 
 <!-- ORGANIZER -->
 <div class="section-divider"></div>
-<section id="organizer">
+<div class="acc-section" data-acc="organizer">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">16</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">ORGANIZER PROFILE</div>
+    <div class="acc-h2">ORGANIZER <span class="hl">PROFILE</span></div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="organizer" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="org-header-badge">
@@ -6461,16 +6830,28 @@ nav { padding: 1.2rem 2.8rem !important; }
     </div>
   </div>
 </section>
+</div><!-- /acc-body organizer -->
+</div><!-- /acc-section organizer -->
 
 <!-- CONTACT -->
-<section id="contact">
+<div class="acc-section" data-acc="contact">
+<div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
+  <div class="acc-num">17</div>
+  <div class="acc-title-wrap">
+    <div class="acc-label">LET'S BUILD TOGETHER</div>
+    <div class="acc-h2">LET'S BUILD <span class="hl">TOGETHER</span></div>
+  </div>
+  <div class="acc-arrow">▼</div>
+</div>
+<div class="acc-body">
+<section id="contact" class="acc-inner">
   <div class="cta-bg"></div>
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="ct-lay">
       <div class="rl">
-        <div class="section-label">Let's Build Together</div>
-        <h2 class="ct-hl">LET'S BUILD<br>THE NEXT<br><span class="big-r">REGIONAL<br>LANDMARK</span></h2>
+        <div class="section-label">Let's Build Together • Recommended Next Steps</div>
+        <h2 class="ct-hl">LET'S BUILD<br>THE NEXT<br><span class="big-r">REGIONAL<br>HIP-HOP<br>DESTINATION</span></h2>
         <div class="red-line"></div>
         <div class="ct-details">
           <div class="ct-item"><div class="ct-ic">🏢</div><div><div class="ct-lbl">Organization</div><div class="ct-val">Fanglao Dance Studio / LIHF Committee</div></div></div>
@@ -6487,15 +6868,18 @@ nav { padding: 1.2rem 2.8rem !important; }
       <div class="rr">
         <div class="section-label">Partnership Roadmap</div>
         <div class="roadmap">
-          <div class="rs"><div class="rs-n">01</div><div class="rs-c"><h4>Tier Selection</h4><p>Select your preferred Sponsorship Package or request a custom activation plan.</p></div></div>
-          <div class="rs"><div class="rs-n">02</div><div class="rs-c"><h4>Agreement &amp; Alignment</h4><p>Confirm partnership terms and sign official sponsorship agreement.</p><div class="dt">June 2026</div></div></div>
-          <div class="rs"><div class="rs-n">03</div><div class="rs-c"><h4>Campaign Rollout</h4><p>Launch pre-event co-branded digital campaign and booth planning.</p><div class="dt">August 2026</div></div></div>
-          <div class="rs"><div class="rs-n">04</div><div class="rs-c"><h4>Festival Execution</h4><p>Deliver high-impact on-ground experience at Lao-ITECC.</p><div class="dt">November 13–15, 2026</div></div></div>
+          <div class="rs"><div class="rs-n">01</div><div class="rs-c"><h4>Select Sponsorship Level</h4><p>Choose your preferred tier or request a custom activation package tailored to your brand goals.</p></div></div>
+          <div class="rs"><div class="rs-n">02</div><div class="rs-c"><h4>Confirm Category &amp; Exclusivity</h4><p>Lock in sponsor category exclusivity and confirm your brand's activation territory.</p><div class="dt">June 2026</div></div></div>
+          <div class="rs"><div class="rs-n">03</div><div class="rs-c"><h4>Finalize Activation Concept</h4><p>Define your on-ground experience: booth design, content plan, sampling strategy, and brand integration.</p><div class="dt">August 2026</div></div></div>
+          <div class="rs"><div class="rs-n">04</div><div class="rs-c"><h4>Approve Logo &amp; Content Plan</h4><p>Review and sign off on all logo placements, digital assets, and campaign content before launch.</p></div></div>
+          <div class="rs"><div class="rs-n">05</div><div class="rs-c"><h4>Launch Joint Announcement</h4><p>Go live together — co-branded reveal across social, press, and digital channels to kick off the partnership campaign.</p><div class="dt">November 13–15, 2026</div></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
+</div><!-- /acc-body contact -->
+</div><!-- /acc-section contact -->
 
 <footer>
   <div class="ft-logo-wrap" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.8rem; margin-bottom:1.5rem;">
@@ -7674,6 +8058,79 @@ function replayLogoIntro(){
     if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
   });
 
+})();
+</script>
+
+
+<script>
+// ── ACCORDION SECTION SYSTEM ──────────────────────────
+(function() {
+  const sections = document.querySelectorAll('.acc-section');
+  
+  function openSection(section) {
+    const banner = section.querySelector('.acc-banner');
+    const body = section.querySelector('.acc-body');
+    if (!banner || !body) return;
+    banner.classList.add('is-open');
+    body.classList.add('is-open');
+    banner.setAttribute('aria-expanded', 'true');
+  }
+  
+  function closeSection(section) {
+    const banner = section.querySelector('.acc-banner');
+    const body = section.querySelector('.acc-body');
+    if (!banner || !body) return;
+    banner.classList.remove('is-open');
+    body.classList.remove('is-open');
+    banner.setAttribute('aria-expanded', 'false');
+  }
+  
+  function toggleSection(section) {
+    const isOpen = section.querySelector('.acc-banner').classList.contains('is-open');
+    if (isOpen) {
+      closeSection(section);
+    } else {
+      openSection(section);
+    }
+  }
+  
+  sections.forEach(function(section) {
+    const banner = section.querySelector('.acc-banner');
+    if (!banner) return;
+    
+    banner.addEventListener('click', function() {
+      toggleSection(section);
+    });
+    
+    banner.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleSection(section);
+      }
+    });
+  });
+  
+  // Auto-open section when nav link is clicked
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      const targetId = this.getAttribute('href').slice(1);
+      const targetSection = document.querySelector('.acc-section[data-acc="' + targetId + '"]');
+      if (targetSection) {
+        const isOpen = targetSection.querySelector('.acc-banner').classList.contains('is-open');
+        if (!isOpen) openSection(targetSection);
+        // Let native scroll happen
+        setTimeout(function() {
+          const banner = targetSection.querySelector('.acc-banner');
+          if (banner) {
+            const y = banner.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    });
+  });
+  
+  console.log('✅ LIHF Accordion system initialized — ' + sections.length + ' sections');
 })();
 </script>
 
