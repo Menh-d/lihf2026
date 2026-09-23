@@ -7,7 +7,7 @@
 <meta name="description" content="LIHF 2026 Official Sponsorship &amp; Partnership Proposal. 13–15 November 2026 at Lao-ITECC, Vientiane." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Permanent+Marker&family=Syne:wght@700;800&family=Teko:wght@600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Teko:wght@600;700&display=swap" rel="stylesheet" />
 <!-- GSAP loaded async — content visible by default, animations are progressive enhancement -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
@@ -5307,6 +5307,668 @@ section.acc-inner {
   }
 }
 
+
+/* ══════════════════════════════════════════════════════════════
+   LAUNCH UI DESIGN SYSTEM CORE (launchui.com)
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --card: #121215;
+  --card-foreground: #fafafa;
+  --popover: #121215;
+  --popover-foreground: #fafafa;
+  --primary: #CC0000;
+  --primary-foreground: #ffffff;
+  --secondary: #1f1f23;
+  --secondary-foreground: #fafafa;
+  --muted: #18181b;
+  --muted-foreground: #a1a1aa;
+  --accent: rgba(255, 255, 255, 0.05);
+  --accent-foreground: #fafafa;
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(255, 255, 255, 0.16);
+  --ring: #CC0000;
+  --radius: 1rem;
+  
+  /* Brand accents */
+  --brand: #CC0000;
+  --brand-glow: rgba(204, 0, 0, 0.45);
+  --gold: #D4AF37;
+  --gold-glow: rgba(212, 175, 55, 0.35);
+
+  --font-sans: 'Inter', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Anton', 'Barlow Condensed', sans-serif;
+}
+
+body {
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+  font-family: var(--font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container & Line System (Launch UI dashed guides) */
+.max-w-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.line-b {
+  border-bottom: 1px solid var(--border) !important;
+}
+.line-y {
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+.line-dashed {
+  border-style: dashed !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Glassmorphism Cards (Launch UI glass-1 & glass-2) */
+.glass-1 {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid var(--border) !important;
+  border-top: 1px solid var(--border-highlight) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.glass-1:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.065) 0%, rgba(255, 255, 255, 0.02) 100%) !important;
+  border-color: rgba(204, 0, 0, 0.35) !important;
+  border-top-color: rgba(204, 0, 0, 0.6) !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(204, 0, 0, 0.15) !important;
+  transform: translateY(-2px);
+}
+.glass-2 {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.015) 100%) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: calc(var(--radius) + 4px) !important;
+}
+
+/* Ambient Radial Glow */
+.ambient-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  opacity: 0.45;
+}
+.ambient-glow.glow-red {
+  background: radial-gradient(circle, rgba(204, 0, 0, 0.5) 0%, transparent 70%);
+}
+.ambient-glow.glow-gold {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, transparent 70%);
+}
+
+/* Launch UI Pill Badges */
+.badge-launch {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 0.35rem 0.95rem !important;
+  border-radius: 9999px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(10px) !important;
+  font-size: 0.76rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  color: var(--foreground) !important;
+  text-transform: uppercase !important;
+}
+.badge-launch .badge-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 10px var(--brand);
+  animation: launchPulse 2s ease-in-out infinite;
+}
+@keyframes launchPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Launch UI Buttons */
+.btn-launch-primary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.55rem !important;
+  padding: 0.65rem 1.45rem !important;
+  border-radius: 0.6rem !important;
+  background: var(--brand) !important;
+  color: #ffffff !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 20px rgba(204, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+.btn-launch-primary:hover {
+  background: #e00000 !important;
+  box-shadow: 0 6px 28px rgba(204, 0, 0, 0.6) !important;
+  transform: translateY(-1px);
+}
+.btn-launch-secondary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.55rem !important;
+  padding: 0.65rem 1.4rem !important;
+  border-radius: 0.6rem !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: var(--foreground) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  text-decoration: none !important;
+  backdrop-filter: blur(12px) !important;
+  transition: all 0.25s ease !important;
+}
+.btn-launch-secondary:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+}
+
+/* Launch UI Mockup Frame (For Retro TV Showcase) */
+.launch-mockup-frame {
+  position: relative;
+  border-radius: 1.5rem;
+  padding: 0.75rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(204, 0, 0, 0.15);
+}
+
+/* Launch UI Accordion Overrides */
+.acc-section {
+  border-bottom: 1px solid var(--border) !important;
+  background: transparent !important;
+}
+.acc-banner {
+  background: transparent !important;
+  border-left: 3px solid transparent !important;
+  padding: 1.35rem 2rem !important;
+  transition: all 0.25s ease !important;
+}
+.acc-banner:hover {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-left-color: var(--brand) !important;
+}
+.acc-banner.is-open {
+  background: rgba(204, 0, 0, 0.03) !important;
+  border-left-color: var(--brand) !important;
+}
+.acc-num {
+  font-family: var(--font-sans) !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  color: var(--muted-foreground) !important;
+  letter-spacing: 0.1em !important;
+}
+.acc-banner.is-open .acc-num {
+  color: var(--brand) !important;
+}
+.acc-label {
+  font-family: var(--font-sans) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  color: var(--muted-foreground) !important;
+}
+.acc-h2 {
+  font-family: var(--font-display) !important;
+  font-size: clamp(1.4rem, 3vw, 2.2rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.03em !important;
+  line-height: 1.05 !important;
+}
+.acc-arrow {
+  color: var(--muted-foreground) !important;
+  transition: transform 0.35s ease, color 0.25s ease !important;
+}
+.acc-banner.is-open .acc-arrow {
+  transform: rotate(180deg) !important;
+  color: var(--foreground) !important;
+}
+
+/* Launch UI Bento Grid Overrides */
+.market-cards, .aud-grid, .roi-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)) !important;
+  gap: 1.25rem !important;
+}
+.mc, .aud-card, .rc {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.008) 100%) !important;
+  backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--border) !important;
+  border-top: 1px solid var(--border-highlight) !important;
+  border-radius: var(--radius) !important;
+  padding: 1.8rem !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.mc:hover, .aud-card:hover, .rc:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%) !important;
+  border-color: rgba(204, 0, 0, 0.3) !important;
+  border-top-color: rgba(204, 0, 0, 0.6) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(204, 0, 0, 0.12) !important;
+}
+
+/* Launch UI Section Typography */
+.section-label {
+  font-family: var(--font-sans) !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  color: var(--muted-foreground) !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-bottom: 0.8rem !important;
+}
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+.section-title {
+  font-family: var(--font-display) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.0 !important;
+  color: var(--foreground) !important;
+}
+.section-title .hl {
+  color: var(--brand) !important;
+  text-shadow: 0 0 25px var(--brand-glow) !important;
+}
+.red-line {
+  display: none !important; /* replaced by clean Launch UI micro-spacing */
+}
+
+/* Launch UI Hero Stat Cards */
+.d1-awards-row {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 0.75rem !important;
+  width: 100% !important;
+  max-width: 620px !important;
+}
+.d1-award-chip {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.008) 100%) !important;
+  border: 1px solid var(--border) !important;
+  border-top: 1px solid var(--border-highlight) !important;
+  border-radius: 0.75rem !important;
+  padding: 0.75rem 0.9rem !important;
+  backdrop-filter: blur(8px) !important;
+  transition: all 0.25s ease !important;
+}
+.d1-award-chip:hover {
+  border-color: rgba(204, 0, 0, 0.35) !important;
+  border-top-color: var(--brand) !important;
+}
+.d1-award-name {
+  font-family: var(--font-display) !important;
+  font-size: 1.35rem !important;
+  color: var(--foreground) !important;
+  line-height: 1 !important;
+}
+.d1-award-count {
+  font-family: var(--font-sans) !important;
+  font-size: 0.66rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  color: var(--muted-foreground) !important;
+  margin-top: 0.35rem !important;
+  display: block !important;
+}
+
+/* Launch UI Navbar */
+nav {
+  background: rgba(9, 9, 11, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+.nav-links a {
+  font-family: var(--font-sans) !important;
+  font-size: 0.84rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
+  color: var(--muted-foreground) !important;
+  transition: color 0.2s ease !important;
+}
+.nav-links a:hover {
+  color: var(--foreground) !important;
+}
+.nav-cta {
+  border-radius: 0.5rem !important;
+  background: var(--brand) !important;
+  color: #fff !important;
+  padding: 0.45rem 1.1rem !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  clip-path: none !important;
+  box-shadow: 0 4px 15px rgba(204, 0, 0, 0.4) !important;
+}
+
+/* Launch UI Marquee / Ticker */
+.ticker-wrap {
+  background: #09090b !important;
+  border-top: 1px solid var(--border) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: none !important;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent) !important;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent) !important;
+}
+.ticker-item {
+  font-family: var(--font-sans) !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  color: var(--muted-foreground) !important;
+}
+.ticker-item::after {
+  content: '✦' !important;
+  color: var(--brand) !important;
+}
+
+/* Partners Strip Launch UI Logo Cloud */
+.partners-strip {
+  background: #09090b !important;
+  border-top: 1px solid var(--border) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 1.5rem 0 !important;
+}
+.partner-badge {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0.75rem !important;
+  padding: 0.7rem 1.2rem !important;
+  backdrop-filter: blur(8px) !important;
+}
+.partner-badge:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   LAUNCH UI SECTIONS ENHANCEMENTS (ALL 12 SECTIONS)
+   ══════════════════════════════════════════════════════════════ */
+
+/* --- 01. ABOUT BENTO GRID --- */
+.about-4grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.5rem !important;
+  margin-top: 2rem !important;
+}
+.ab-block-card {
+  border-radius: 1.25rem !important;
+  border: 1px solid var(--border) !important;
+  border-top: 1px solid var(--border-highlight) !important;
+  overflow: hidden !important;
+  background: var(--card) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.ab-block-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(204, 0, 0, 0.4) !important;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.8), 0 0 35px rgba(204, 0, 0, 0.2) !important;
+}
+.ab-block-tag {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 9999px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  padding: 0.3rem 0.8rem !important;
+  backdrop-filter: blur(8px) !important;
+}
+.ab-block-pill {
+  border-radius: 9999px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  background: rgba(204, 0, 0, 0.15) !important;
+  border: 1px solid rgba(204, 0, 0, 0.35) !important;
+  color: #ff5555 !important;
+  padding: 0.35rem 0.85rem !important;
+}
+
+/* --- 02. REGIONAL BENCHMARK CARDS --- */
+.regional-events-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 1.25rem !important;
+  margin-top: 1.5rem !important;
+}
+.regional-event-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.01) 100%) !important;
+  border: 1px solid var(--border) !important;
+  border-top: 1px solid var(--border-highlight) !important;
+  border-radius: 1rem !important;
+  padding: 1.6rem !important;
+  backdrop-filter: blur(14px) !important;
+  transition: all 0.3s ease !important;
+}
+.regional-event-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(204, 0, 0, 0.35) !important;
+  border-top-color: var(--brand) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(204, 0, 0, 0.15) !important;
+}
+
+/* --- 04. KPI IMPACT METRIC CARDS --- */
+.kpi-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+  gap: 1rem !important;
+}
+.kc {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.008) 100%) !important;
+  border: 1px solid var(--border) !important;
+  border-top: 1px solid var(--border-highlight) !important;
+  border-radius: 1rem !important;
+  padding: 1.8rem 1.4rem !important;
+  backdrop-filter: blur(12px) !important;
+  text-align: left !important;
+  transition: all 0.3s ease !important;
+}
+.kc:hover {
+  border-color: rgba(204, 0, 0, 0.35) !important;
+  border-top-color: var(--brand) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 25px rgba(204, 0, 0, 0.12) !important;
+}
+.kn {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2.4rem, 4vw, 3.2rem) !important;
+  color: var(--foreground) !important;
+  line-height: 1 !important;
+  display: block !important;
+}
+.ku {
+  font-family: var(--font-sans) !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  color: var(--brand) !important;
+  margin-top: 0.5rem !important;
+  display: block !important;
+}
+.kd {
+  font-family: var(--font-sans) !important;
+  font-size: 0.8rem !important;
+  color: var(--muted-foreground) !important;
+  margin-top: 0.35rem !important;
+  line-height: 1.45 !important;
+}
+
+/* --- 06. 7 CULTURE PILLARS CARDS --- */
+.activities-interactive-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+.act-card {
+  border-radius: 1.25rem !important;
+  border: 1px solid var(--border) !important;
+  border-top: 1px solid var(--border-highlight) !important;
+  background: var(--card) !important;
+  overflow: hidden !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.act-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(204, 0, 0, 0.4) !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8), 0 0 35px rgba(204, 0, 0, 0.2) !important;
+}
+
+/* --- 07. MARKETING & COMMS CARDS --- */
+.mkt-phase-card, .ad-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.008) 100%) !important;
+  border: 1px solid var(--border) !important;
+  border-top: 1px solid var(--border-highlight) !important;
+  border-radius: 1rem !important;
+  backdrop-filter: blur(12px) !important;
+  transition: all 0.3s ease !important;
+}
+.mkt-phase-card:hover, .ad-card:hover {
+  border-color: rgba(204, 0, 0, 0.35) !important;
+  border-top-color: var(--brand) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(204, 0, 0, 0.12) !important;
+}
+
+/* --- 09. SPONSORSHIP PACKAGES (Launch UI Pricing Component) --- */
+.pkg-grid-5tiers {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  gap: 1.25rem !important;
+  align-items: stretch !important;
+}
+.pkg {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0.008) 100%) !important;
+  border: 1px solid var(--border) !important;
+  border-top: 1px solid var(--border-highlight) !important;
+  border-radius: 1.25rem !important;
+  padding: 2rem 1.4rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  position: relative !important;
+  transition: all 0.35s ease !important;
+}
+.pkg:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7) !important;
+}
+/* Highlight Featured Title Partner Tier */
+.pkg.feat, .pkg[data-tier="title"] {
+  border: 2px solid var(--brand) !important;
+  background: linear-gradient(180deg, rgba(204, 0, 0, 0.1) 0%, rgba(18, 18, 21, 0.95) 100%) !important;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(204, 0, 0, 0.3) !important;
+  transform: scale(1.02) !important;
+}
+.pkg.feat:hover, .pkg[data-tier="title"]:hover {
+  transform: scale(1.03) translateY(-4px) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 50px rgba(204, 0, 0, 0.45) !important;
+}
+
+/* --- 10. DELIVERABLES MATRIX (Launch UI Glass Table) --- */
+.matrix-table-wrap, .matrix-wrap {
+  border-radius: 1rem !important;
+  border: 1px solid var(--border) !important;
+  border-top: 1px solid var(--border-highlight) !important;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(18, 18, 21, 0.95) 100%) !important;
+  backdrop-filter: blur(16px) !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
+}
+table.mtx {
+  border-collapse: collapse !important;
+  width: 100% !important;
+}
+table.mtx th {
+  background: rgba(255, 255, 255, 0.04) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  color: var(--foreground) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 1rem !important;
+}
+table.mtx td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.84rem !important;
+  color: var(--muted-foreground) !important;
+  padding: 0.9rem 1rem !important;
+}
+table.mtx tr:hover td {
+  background: rgba(255, 255, 255, 0.02) !important;
+  color: var(--foreground) !important;
+}
+
+/* --- 12. LET'S BUILD TOGETHER (Launch UI CTA Card) --- */
+.ct-lay {
+  background: linear-gradient(180deg, rgba(204, 0, 0, 0.08) 0%, rgba(18, 18, 21, 0.9) 100%) !important;
+  border: 1px solid var(--border) !important;
+  border-top: 1px solid rgba(204, 0, 0, 0.4) !important;
+  border-radius: 1.5rem !important;
+  padding: 3rem 2.5rem !important;
+  backdrop-filter: blur(20px) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 50px rgba(204, 0, 0, 0.15) !important;
+}
+
+/* --- FOOTER (Launch UI Minimalist Footer) --- */
+footer {
+  border-top: 1px solid var(--border) !important;
+  background: #09090b !important;
+  padding: 3.5rem 1.5rem 2.5rem !important;
+  text-align: center !important;
+}
+.ft-copy {
+  font-family: var(--font-sans) !important;
+  font-size: 0.84rem !important;
+  color: var(--muted-foreground) !important;
+  line-height: 1.6 !important;
+}
+
 </style>
 
 <script src="https://rawcdn.githack.com/martinlaxenaire/curtainsjs/95957f855ad9fd51850e97312cd389af76e9704e/build/curtains.min.js"></script>
@@ -5348,9 +6010,13 @@ section.acc-inner {
 </div>
 
 <!-- HERO — PROPORTIONAL 2-COLUMN VIEWPORT-FITTED LAYOUT -->
-<section id="hero" class="design1-hero">
-  <!-- Background Slider -->
-  <div class="hiphop-hero-bg-container">
+<section id="hero" class="design1-hero line-b" style="position:relative; overflow:hidden; padding: 3rem 0 3.5rem;">
+  <!-- Ambient Radial Glows -->
+  <div class="ambient-glow glow-red" style="top: -100px; left: 10%; width: 500px; height: 500px;"></div>
+  <div class="ambient-glow glow-gold" style="bottom: 0; right: 10%; width: 450px; height: 450px;"></div>
+
+  <!-- Background Action Slideshow with Subtle Overlay -->
+  <div class="hiphop-hero-bg-container" style="opacity:0.25; filter:grayscale(60%);">
     <div class="hiphop-bg-slide active" style="background-image: url('assets/battle_breaking.jpg');"></div>
     <div class="hiphop-bg-slide" style="background-image: url('assets/battle_crew.jpg');"></div>
     <div class="hiphop-bg-slide" style="background-image: url('assets/battle_openstyle.jpg');"></div>
@@ -5358,47 +6024,57 @@ section.acc-inner {
     <div class="hiphop-bg-slide" style="background-image: url('assets/battle_graffiti.jpg');"></div>
     <div class="hiphop-bg-slide" style="background-image: url('assets/battle_mc.jpg');"></div>
   </div>
-  <div class="design1-overlay"></div>
 
-  <div class="design1-content">
-    <div class="hero-main-grid">
+  <div class="max-w-container line-y line-dashed" style="position:relative; z-index:10; padding-top: 1.5rem; padding-bottom: 2rem;">
+    <div class="hero-main-grid" style="display:grid; grid-template-columns: 1.25fr 0.75fr; gap: 3.5rem; align-items: center;">
 
-      <!-- LEFT: Logo + Title + Info (Orderly, Balanced, Equal-size Typography) -->
-      <div class="hero-left-col">
+      <!-- LEFT: Launch UI Hero Content -->
+      <div class="hero-left-col" style="display:flex; flex-direction:column; gap:1.35rem; align-items:flex-start;">
 
-        <!-- Top Header Lockup: Circular Emblem + Date/Heritage Badge -->
-        <div class="hero-header-lockup">
-          <div class="hero-logo-wrap" id="hero-logo-wrap">
-            <img src="assets/logo.png" alt="LAO HIP HOP FESTIVAL Official Circular Emblem" class="hero-logo-main" id="hero-logo-main"
-              onclick="replayLogoIntro()" title="LIHF 2026 Official Emblem (Click to replay animation)">
+        <!-- Launch UI Top Pill Badge -->
+        <div style="display:flex; align-items:center; gap:0.9rem; flex-wrap:wrap;">
+          <div class="hero-logo-wrap" id="hero-logo-wrap" style="cursor:pointer;" onclick="replayLogoIntro()" title="Official Emblem • Click to replay">
+            <img src="assets/logo.png" alt="LIHF Official Emblem" class="hero-logo-main" id="hero-logo-main" style="width:48px; height:48px; object-fit:contain; filter:drop-shadow(0 0 15px rgba(204,0,0,0.8));">
           </div>
-          <div class="hero-lockup-meta">
-            <div class="d1-hero-event-date">
-              <span class="date-star">★</span>
-              <span>13 – 15 NOVEMBER 2026</span>
-              <span class="date-divider">•</span>
-              <span>LAO-ITECC, VIENTIANE</span>
-            </div>
-            <div class="hero-heritage-tag">
-              <span>9TH EDITION &nbsp;•&nbsp; EST. 2017 &nbsp;•&nbsp; VIENTIANE, LAOS</span>
-            </div>
-          </div>
+          <span class="badge-launch">
+            <span class="badge-pulse-dot"></span>
+            <span>LIHF 2026</span>
+            <span style="opacity:0.35;">•</span>
+            <span>13–15 NOV 2026</span>
+            <span style="opacity:0.35;">•</span>
+            <span>LAO-ITECC, VIENTIANE</span>
+          </span>
+          <span class="badge-launch" style="border-color:rgba(212,175,55,0.3); color:var(--gold);">
+            <span>EST. 2017 &nbsp;•&nbsp; 9TH EDITION</span>
+          </span>
         </div>
 
-        <!-- Main Headline: Equal Size Across All Words (Clean Hip-Hop Typography) -->
-        <h1 class="d1-headline">
-          <span class="d1-hl-line">LAO HIP HOP</span>
-          <span class="d1-hl-line">INTERNATIONAL FESTIVAL</span>
-          <span class="d1-hl-line d1-hl-year">2026</span>
+        <!-- Launch UI Title: Equal Size Across All Words (Anton Street Typography) -->
+        <h1 class="d1-headline" style="margin:0;">
+          <span class="d1-hl-line" style="font-size:clamp(2.2rem, 3.8vw, 3.6rem);">LAO HIP HOP</span>
+          <span class="d1-hl-line" style="font-size:clamp(2.2rem, 3.8vw, 3.6rem);">INTERNATIONAL FESTIVAL</span>
+          <span class="d1-hl-line d1-hl-year" style="font-size:clamp(2.2rem, 3.8vw, 3.6rem);">2026</span>
         </h1>
 
         <!-- Sub-description -->
-        <p class="hero-sub-blurb">
-          Laos' premier urban youth, street culture &amp; regional dance platform — 9 years of heritage uniting Breaking, Rap, DJing, Graffiti, and Community across Southeast Asia.
+        <p class="hero-sub-blurb" style="font-family:var(--font-sans); font-size:1.02rem; color:var(--muted-foreground); line-height:1.6; max-width:580px; margin:0; border-left:2px solid var(--brand); padding-left:1rem;">
+          Laos' premier urban youth, street culture &amp; regional dance platform — 9 years of building the movement uniting Breaking, Rap, DJing, Graffiti, and Community across Southeast Asia.
         </p>
 
+        <!-- Launch UI Dual Action Buttons -->
+        <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap; margin-top:0.2rem;">
+          <a href="#packages" class="btn-launch-primary">
+            <span>Explore Sponsorship Packages</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+          <button id="open-showreel-btn-2" onclick="document.getElementById('open-showreel-btn')?.click()" class="btn-launch-secondary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span>Watch Showreel</span>
+          </button>
+        </div>
+
         <!-- 7 Culture Pillars Activity Pills -->
-        <div class="hero-pillars-pills">
+        <div class="hero-pillars-pills" style="margin-top:0.4rem;">
           <span class="pillar-pill">🔥 Breaking 2v2</span>
           <span class="pillar-pill">💃 Open Style 2v2</span>
           <span class="pillar-pill">🏆 Crew Showcase</span>
@@ -5408,8 +6084,8 @@ section.acc-inner {
           <span class="pillar-pill">⚡ Hip-Hop Concert</span>
         </div>
 
-        <!-- Key Impact Stats Grid -->
-        <div class="d1-awards-row">
+        <!-- Launch UI Key Impact Stats Grid -->
+        <div class="d1-awards-row" style="margin-top:0.5rem;">
           <div class="d1-award-chip">
             <span class="d1-award-name">10,000+</span>
             <span class="d1-award-count">ATTENDEES</span>
@@ -5430,35 +6106,37 @@ section.acc-inner {
 
       </div>
 
-      <!-- RIGHT: Retro TV Showreel -->
-      <div class="hero-right-col">
-        <div class="retro-tv-box" id="open-showreel-btn" title="Click for Fullscreen Showreel">
-          <div class="retro-tv-antenna">
-            <span class="antenna-rod left"></span>
-            <span class="antenna-rod right"></span>
-          </div>
-          <div class="retro-tv-screen">
-            <div class="crt-poweron-overlay">
-              <div class="crt-flash-line"></div>
-              <div class="crt-static-noise"></div>
+      <!-- RIGHT: Launch UI Mockup Frame housing Retro TV Showreel -->
+      <div class="hero-right-col" style="display:flex; align-items:center; justify-content:center;">
+        <div class="launch-mockup-frame">
+          <div class="retro-tv-box" id="open-showreel-btn" title="Click for Fullscreen Showreel" style="margin:0; box-shadow:none; border:none; background:transparent;">
+            <div class="retro-tv-antenna">
+              <span class="antenna-rod left"></span>
+              <span class="antenna-rod right"></span>
             </div>
-            <video autoplay muted loop playsinline class="retro-tv-video"
-              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"></video>
-            <div class="retro-tv-scanlines"></div>
-            <div class="retro-tv-vignette"></div>
-            <div class="retro-tv-badge"><span class="rec-dot"></span><span>REC • LIHF SHOWREEL</span></div>
-            <div class="retro-tv-play-btn">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              <span>FULLSCREEN</span>
+            <div class="retro-tv-screen" style="height:230px;">
+              <div class="crt-poweron-overlay">
+                <div class="crt-flash-line"></div>
+                <div class="crt-static-noise"></div>
+              </div>
+              <video autoplay muted loop playsinline class="retro-tv-video"
+                src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"></video>
+              <div class="retro-tv-scanlines"></div>
+              <div class="retro-tv-vignette"></div>
+              <div class="retro-tv-badge"><span class="rec-dot"></span><span>REC • LIHF SHOWREEL</span></div>
+              <div class="retro-tv-play-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>FULLSCREEN</span>
+              </div>
             </div>
-          </div>
-          <div class="retro-tv-panel">
-            <div class="retro-tv-speaker"><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="retro-tv-brand">LIHF VINTAGE CRT-90</div>
-            <div class="retro-tv-dials">
-              <div class="tv-rotary-knob"><span class="knob-indicator"></span></div>
-              <div class="tv-rotary-knob"><span class="knob-indicator"></span></div>
-              <div class="tv-power-switch"><span class="power-led"></span></div>
+            <div class="retro-tv-panel">
+              <div class="retro-tv-speaker"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="retro-tv-brand">LIHF VINTAGE CRT-90</div>
+              <div class="retro-tv-dials">
+                <div class="tv-rotary-knob"><span class="knob-indicator"></span></div>
+                <div class="tv-rotary-knob"><span class="knob-indicator"></span></div>
+                <div class="tv-power-switch"><span class="power-led"></span></div>
+              </div>
             </div>
           </div>
         </div>
