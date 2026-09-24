@@ -5593,6 +5593,417 @@ section.acc-inner {
 }
 
 /* ── RETRO TV POPUP MODAL ── */
+
+/* ══════════════════════════════════════════════════════════════
+   MAIN KEY VISUAL (KV) & HEADLINER LINEUP SHOWCASE STYLING
+   ══════════════════════════════════════════════════════════════ */
+.main-kv-section {
+  position: relative;
+  background: radial-gradient(circle at 30% 20%, rgba(180, 0, 0, 0.14) 0%, #09090b 70%);
+}
+
+.kv-main-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .kv-main-grid {
+    grid-template-columns: 1fr;
+    gap: 2.8rem;
+  }
+}
+
+/* Poster Card Frame */
+.kv-poster-card {
+  position: relative;
+  background: linear-gradient(145deg, #181212, #0d0a0a);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.9),
+    0 0 40px rgba(204, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.kv-poster-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  border-color: rgba(204, 0, 0, 0.5);
+  box-shadow: 
+    0 35px 80px rgba(0, 0, 0, 0.95),
+    0 0 60px rgba(204, 0, 0, 0.5);
+}
+
+.kv-corner-bracket {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--brand);
+  pointer-events: none;
+  z-index: 12;
+}
+.kv-corner-bracket.tl { top: 8px; left: 8px; border-top: 2px solid; border-left: 2px solid; }
+.kv-corner-bracket.tr { top: 8px; right: 8px; border-top: 2px solid; border-right: 2px solid; }
+.kv-corner-bracket.bl { bottom: 8px; left: 8px; border-bottom: 2px solid; border-left: 2px solid; }
+.kv-corner-bracket.br { bottom: 8px; right: 8px; border-bottom: 2px solid; border-right: 2px solid; }
+
+.kv-poster-inner {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  background: #000;
+}
+
+.kv-master-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.kv-poster-card:hover .kv-master-img {
+  transform: scale(1.03);
+}
+
+.kv-poster-glass-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 45%, rgba(0,0,0,0.3) 100%);
+  pointer-events: none;
+}
+
+.kv-zoom-badge {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(9, 9, 11, 0.88);
+  border: 1px solid rgba(204, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  transition: all 0.25s ease;
+}
+
+.kv-poster-card:hover .kv-zoom-badge {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+
+.kv-poster-meta-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.9rem;
+  padding: 0 0.25rem;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.kv-meta-label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--muted-foreground);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.kv-meta-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.kv-action-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-kv-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-kv-action:hover {
+  background: rgba(204, 0, 0, 0.25);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+/* Info Column & Lineup Roster */
+.kv-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.kv-roster-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.kv-battle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #880000 0%, #b80000 50%, #880000 100%);
+  border: 2px solid #ffffff;
+  border-radius: 6px;
+  padding: 0.55rem 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.kv-battle-bar:hover {
+  transform: translateX(4px) scale(1.01);
+  border-color: var(--gold);
+  box-shadow: 0 8px 25px rgba(204, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.kv-fighter {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.kv-fighter.left { justify-content: flex-start; text-align: left; }
+.kv-fighter.right { justify-content: flex-end; text-align: right; }
+
+.kv-fighter-tag {
+  font-family: 'Anton', 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  line-height: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.kv-vs-badge {
+  font-family: 'Anton', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #000000;
+  background: #ffffff;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  margin: 0 0.85rem;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.kv-mic-icon, .kv-bar-bullet {
+  font-size: 0.95rem;
+  user-select: none;
+}
+
+/* 4 Elements Strip */
+.kv-elements-card {
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  background: rgba(18, 18, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.kv-card-sublabel {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.kv-elements-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+}
+
+.kv-elem-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 0.6rem 0.35rem;
+  transition: all 0.2s ease;
+}
+
+.kv-elem-item:hover {
+  background: rgba(204, 0, 0, 0.15);
+  border-color: rgba(204, 0, 0, 0.4);
+}
+
+.kv-elem-icon {
+  font-size: 1.25rem;
+  margin-bottom: 0.2rem;
+}
+
+.kv-elem-name {
+  font-family: 'Anton', sans-serif;
+  font-size: 0.88rem;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.kv-elem-desc {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  color: var(--muted-foreground);
+  margin-top: 0.15rem;
+}
+
+/* Venue box */
+.kv-venue-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: rgba(18, 18, 22, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid var(--brand);
+  border-radius: 8px;
+  padding: 0.85rem 1.15rem;
+}
+
+.kv-vb-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.kv-vb-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.kv-vb-label {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+}
+
+.kv-vb-val {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.05rem;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+
+.kv-vb-sub {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+@media (max-width: 640px) {
+  .kv-elements-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .kv-venue-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .kv-vb-divider {
+    display: none;
+  }
+}
+
+/* Lightbox Modal */
+.kv-modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+  width: 95vw;
+}
+
+.kv-modal-body {
+  position: relative;
+  background: #09090b;
+  border: 1px solid rgba(204, 0, 0, 0.5);
+  box-shadow: 0 0 60px rgba(204, 0, 0, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kv-modal-img {
+  max-width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  display: block;
+}
+
+.kv-modal-toolbar {
+  width: 100%;
+  background: rgba(18, 18, 22, 0.95);
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.kv-toolbar-title {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
 .retro-tv-modal-content {
   position: relative;
   display: flex;
@@ -6756,6 +7167,7 @@ body.gsap-ready .acc-section .rr {
 <nav id="main-nav">
   <a href="#hero" class="nav-logo" style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;"><img src="assets/logo_lihf_3d.png" alt="LIHF 2026" style="height:46px;width:auto;object-fit:contain;filter:drop-shadow(0 0 10px rgba(212,175,55,0.7)) drop-shadow(0 0 20px rgba(204,0,0,0.4));transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></a>
   <ul class="nav-links">
+    <li><a href="#main-kv" style="color:var(--brand);font-weight:700;">Main KV</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#regional">Regional</a></li>
     <li><a href="#battles">Activities</a></li>
@@ -6814,6 +7226,7 @@ body.gsap-ready .acc-section .rr {
           <span class="badge-launch" style="border-color:rgba(212,175,55,0.3); color:var(--gold);">
             <span>EST. 2017 &nbsp;•&nbsp; 9TH EDITION</span>
           </span>
+          <a href="#main-kv" class="badge-launch" style="border-color:rgba(204,0,0,0.45); text-decoration:none; color:var(--foreground);" title="Jump to Official 2026 Key Visual Poster"><span class="badge-pulse-dot" style="background:var(--brand);"></span><span>🎨 2026 MAIN KV &rarr;</span></a>
           <span class="badge-launch" style="border-color:rgba(255,255,255,0.12); color:var(--foreground);">
             <span>VIENTIANE, LAOS</span>
           </span>
@@ -6998,6 +7411,23 @@ body.gsap-ready .acc-section .rr {
   </div>
 </aside>
 
+<!-- KEY VISUAL LIGHTBOX MODAL -->
+<div class="d1-modal" id="kv-modal" onclick="if(event.target===this) closeKvModal()">
+  <div class="kv-modal-content">
+    <button class="d1-modal-close" onclick="closeKvModal()" title="Close Lightbox">&times;</button>
+    <div class="kv-modal-body">
+      <img src="assets/main_kv.jpg" alt="LIHF 2026 Official Key Visual Master" class="kv-modal-img">
+      <div class="kv-modal-toolbar">
+        <span class="kv-toolbar-title">LIHF 2026 • OFFICIAL MASTER KEY VISUAL (KV)</span>
+        <a href="assets/main_kv.jpg" download="LIHF_2026_Official_Key_Visual.jpg" class="btn-launch-primary" style="padding:0.4rem 0.9rem; font-size:0.8rem; text-decoration:none;">
+          <span>Download High-Res (JPG)</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- RETRO TV POPUP MODAL (AUTHENTIC VINTAGE CRT-90) -->
 <div class="d1-modal" id="retro-tv-modal" onclick="if(event.target===this) closeTvPopup()">
   <div class="retro-tv-modal-content">
@@ -7032,6 +7462,229 @@ body.gsap-ready .acc-section .rr {
   </div>
 </div>
 
+<!-- OFFICIAL 2026 MAIN KEY VISUAL & HEADLINER LINEUP SHOWCASE -->
+<section id="main-kv" class="main-kv-section line-b" style="position:relative; overflow:hidden; padding: 4.5rem 0 5rem;">
+  <!-- Ambient Radial Glows -->
+  <div class="ambient-glow glow-red" style="top: 0; left: 15%; width: 550px; height: 550px; opacity:0.35;"></div>
+  <div class="ambient-glow glow-gold" style="bottom: 0; right: 10%; width: 450px; height: 450px; opacity:0.25;"></div>
+
+  <!-- Header -->
+  <div class="max-w-container" style="position:relative; z-index:10; margin-bottom: 2.8rem; text-align:center;">
+    <div style="display:inline-flex; align-items:center; gap:0.6rem; margin-bottom:0.75rem; flex-wrap:wrap; justify-content:center;">
+      <span class="badge-launch">
+        <span class="badge-pulse-dot" style="background:var(--brand);"></span>
+        <span>OFFICIAL VISUAL IDENTITY • FESTIVAL KEY VISUAL</span>
+      </span>
+      <span class="badge-launch" style="border-color:rgba(212,175,55,0.3); color:var(--gold);">
+        <span>EST. 2017 &nbsp;•&nbsp; 9TH EDITION ARTWORK</span>
+      </span>
+    </div>
+    <h2 class="section-title font-serif-display" style="font-size:clamp(2.4rem, 4.8vw, 4.2rem); margin: 0 0 0.8rem 0; line-height: 1.05;">
+      OFFICIAL <span class="hl">MAIN KEY VISUAL</span> &amp; LINEUP
+    </h2>
+    <p style="font-family:var(--font-sans); font-size:1.02rem; color:var(--muted-foreground); max-width:740px; margin: 0 auto; line-height: 1.6;">
+      The definitive 2026 festival identity uniting street concrete 3D typography, embossed medallion with dual lightning discharge, and international headliner battle roster across Southeast Asia.
+    </p>
+  </div>
+
+  <div class="max-w-container line-y line-dashed" style="position:relative; z-index:10;">
+    <div class="kv-main-grid">
+
+      <!-- COLUMN 1: Master Artwork Showcase -->
+      <div class="kv-poster-col">
+        <div class="kv-poster-card" onclick="openKvModal()" title="Click to inspect High-Resolution Poster in Lightbox">
+          <div class="kv-corner-bracket tl"></div>
+          <div class="kv-corner-bracket tr"></div>
+          <div class="kv-corner-bracket bl"></div>
+          <div class="kv-corner-bracket br"></div>
+
+          <div class="kv-poster-inner">
+            <img src="assets/main_kv.jpg" alt="LIHF 2026 Official Main Key Visual" class="kv-master-img" id="kv-main-image">
+            <div class="kv-poster-glass-sheen"></div>
+            
+            <div class="kv-zoom-badge">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+              <span>CLICK TO ZOOM ULTRA-HD</span>
+            </div>
+          </div>
+
+          <div class="kv-poster-meta-strip">
+            <div class="kv-meta-label">
+              <span class="kv-meta-dot"></span>
+              <span>MASTER ARTWORK • 300 DPI PRINT SPEC</span>
+            </div>
+            <div class="kv-action-pills">
+              <button type="button" class="btn-kv-action" onclick="event.stopPropagation(); openKvModal();" title="Inspect Fullscreen">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                <span>Fullscreen</span>
+              </button>
+              <a href="assets/main_kv.jpg" download="LIHF_2026_Official_Key_Visual.jpg" class="btn-kv-action" onclick="event.stopPropagation();" title="Download High-Res Poster">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span>Download</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUMN 2: Headliner Battle Roster & Culture Elements -->
+      <div class="kv-info-col">
+        <div class="kv-info-header">
+          <span class="badge-launch" style="border-color:rgba(204,0,0,0.4); color:var(--brand);">
+            <span>🔥 6 OFFICIAL BATTLE SHOWDOWNS</span>
+          </span>
+          <h3 style="font-family:'Anton',sans-serif; font-size:1.85rem; color:#ffffff; margin:0.5rem 0 0.25rem 0; letter-spacing:0.04em;">
+            HEADLINER ARTIST &amp; BATTLE ROSTER
+          </h3>
+          <p style="font-family:var(--font-sans); font-size:0.92rem; color:var(--muted-foreground); margin:0; line-height:1.55;">
+            Featured in the official 2026 Key Visual: 12 elite artists and competitors facing off across Breaking, Open Style, Rap Cyphers, and Festival Concert stages.
+          </p>
+        </div>
+
+        <!-- 6 Battle Bars (Exact order from poster) -->
+        <div class="kv-roster-list">
+          
+          <!-- Match 01: KATANA vs OXYD -->
+          <div class="kv-battle-bar" title="Headline MC Battle Showdown">
+            <span class="kv-mic-icon">🎤</span>
+            <div class="kv-fighter left">
+              <span class="kv-fighter-tag">KATANA</span>
+            </div>
+            <span class="kv-vs-badge">VS</span>
+            <div class="kv-fighter right">
+              <span class="kv-fighter-tag">OXYD</span>
+            </div>
+            <span class="kv-mic-icon">🎤</span>
+          </div>
+
+          <!-- Match 02: YOLO vs NOSKAM -->
+          <div class="kv-battle-bar" title="Breaking International 2v2 Showdown">
+            <span class="kv-bar-bullet">⚡</span>
+            <div class="kv-fighter left">
+              <span class="kv-fighter-tag">YOLO</span>
+            </div>
+            <span class="kv-vs-badge">VS</span>
+            <div class="kv-fighter right">
+              <span class="kv-fighter-tag">NOSKAM</span>
+            </div>
+            <span class="kv-bar-bullet">⚡</span>
+          </div>
+
+          <!-- Match 03: DIAMONDAL vs KELLY -->
+          <div class="kv-battle-bar" title="Open Style Freestyle Battle">
+            <span class="kv-bar-bullet">💃</span>
+            <div class="kv-fighter left">
+              <span class="kv-fighter-tag">DIAMONDAL</span>
+            </div>
+            <span class="kv-vs-badge">VS</span>
+            <div class="kv-fighter right">
+              <span class="kv-fighter-tag">KELLY</span>
+            </div>
+            <span class="kv-bar-bullet">💃</span>
+          </div>
+
+          <!-- Match 04: LIL MOON vs XANAFIN -->
+          <div class="kv-battle-bar" title="Regional Co-Headline Showcase">
+            <span class="kv-bar-bullet">🔥</span>
+            <div class="kv-fighter left">
+              <span class="kv-fighter-tag">LIL MOON</span>
+            </div>
+            <span class="kv-vs-badge">VS</span>
+            <div class="kv-fighter right">
+              <span class="kv-fighter-tag">XANAFIN</span>
+            </div>
+            <span class="kv-bar-bullet">🔥</span>
+          </div>
+
+          <!-- Match 05: ZAIN vs NIKOLYMQ -->
+          <div class="kv-battle-bar" title="Turntablism & Street Cypher">
+            <span class="kv-bar-bullet">🎧</span>
+            <div class="kv-fighter left">
+              <span class="kv-fighter-tag">ZAIN</span>
+            </div>
+            <span class="kv-vs-badge">VS</span>
+            <div class="kv-fighter right">
+              <span class="kv-fighter-tag">NIKOLYMQ</span>
+            </div>
+            <span class="kv-bar-bullet">🎧</span>
+          </div>
+
+          <!-- Match 06: YUNGMMMONEY vs AKSSY -->
+          <div class="kv-battle-bar" title="Hip-Hop Concert Co-Headliners">
+            <span class="kv-mic-icon">🎤</span>
+            <div class="kv-fighter left">
+              <span class="kv-fighter-tag">YUNGMMMONEY</span>
+            </div>
+            <span class="kv-vs-badge">VS</span>
+            <div class="kv-fighter right">
+              <span class="kv-fighter-tag">AKSSY</span>
+            </div>
+            <span class="kv-mic-icon">🎤</span>
+          </div>
+
+        </div>
+
+        <!-- 4 Hip-Hop Elements Card -->
+        <div class="kv-elements-card glass-1">
+          <div class="kv-card-sublabel">FOUR HIP-HOP PILLARS ANCHORING THE KEY VISUAL</div>
+          <div class="kv-elements-row">
+            <div class="kv-elem-item">
+              <span class="kv-elem-icon">👟</span>
+              <span class="kv-elem-name">BREAKING</span>
+              <span class="kv-elem-desc">Olympic 2v2 Battle</span>
+            </div>
+            <div class="kv-elem-item">
+              <span class="kv-elem-icon">🎨</span>
+              <span class="kv-elem-name">GRAFFITI</span>
+              <span class="kv-elem-desc">Live Aerosol Art</span>
+            </div>
+            <div class="kv-elem-item">
+              <span class="kv-elem-icon">🎤</span>
+              <span class="kv-elem-name">MC CYPHER</span>
+              <span class="kv-elem-desc">7 to Smoke</span>
+            </div>
+            <div class="kv-elem-item">
+              <span class="kv-elem-icon">🎧</span>
+              <span class="kv-elem-name">DJ SCRATCH</span>
+              <span class="kv-elem-desc">Open Format</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Visual Venue & Timing Specs -->
+        <div class="kv-venue-box">
+          <div class="kv-vb-item">
+            <span class="kv-vb-label">PRE-HEAT &amp; LAUNCH DATE</span>
+            <span class="kv-vb-val">OCT 24–26, 2026 &nbsp;•&nbsp; 16:00 – 02:00</span>
+            <span class="kv-vb-sub">Vientiane Cultural Hall • ຊຸມເດີມເດີມ</span>
+          </div>
+          <div class="kv-vb-divider"></div>
+          <div class="kv-vb-item">
+            <span class="kv-vb-label">MAIN FESTIVAL WEEKEND</span>
+            <span class="kv-vb-val" style="color:var(--gold);">13–15 NOV 2026 &nbsp;•&nbsp; ALL DAY</span>
+            <span class="kv-vb-sub">Lao-ITECC Exhibition Hall • Vientiane</span>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap; margin-top:0.4rem;">
+          <a href="#packages" class="btn-launch-primary">
+            <span>Sponsor Main KV &amp; Arena</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+          <button type="button" onclick="openKvModal()" class="btn-launch-secondary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span>Inspect Full Resolution</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 <!-- ABOUT (Executive Summary — Expanded Full-Width 4 Rectangular Blocks & 3D Poster Wall) -->
 <div class="acc-section" data-acc="about">
   <div class="acc-banner is-open" role="button" tabindex="0" aria-expanded="true">
@@ -7048,7 +7701,7 @@ body.gsap-ready .acc-section .rr {
   <div class="poster-wall-wrapper">
     <div class="poster-wall-3d">
       <div class="poster-row left">
-        <div class="poster-card"><img src="assets/battle_breaking.jpg" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="assets/main_kv.jpg" alt="LIHF Main KV" /><div class="poster-card-overlay"></div></div>
         <div class="poster-card"><img src="assets/battle_openstyle.jpg" alt="LIHF" /><div class="poster-card-overlay"></div></div>
         <div class="poster-card"><img src="assets/battle_graffiti.jpg" alt="LIHF" /><div class="poster-card-overlay"></div></div>
         <div class="poster-card"><img src="assets/battle_graffiti.jpg" alt="LIHF" /><div class="poster-card-overlay"></div></div>
@@ -7058,7 +7711,7 @@ body.gsap-ready .acc-section .rr {
       <div class="poster-row right">
         <div class="poster-card"><img src="assets/battle_mc.jpg" alt="LIHF" /><div class="poster-card-overlay"></div></div>
         <div class="poster-card"><img src="assets/battle_crew.jpg" alt="LIHF" /><div class="poster-card-overlay"></div></div>
-        <div class="poster-card"><img src="assets/battle_breaking.jpg" alt="LIHF" /><div class="poster-card-overlay"></div></div>
+        <div class="poster-card"><img src="assets/main_kv.jpg" alt="LIHF Main KV" /><div class="poster-card-overlay"></div></div>
         <div class="poster-card"><img src="assets/battle_openstyle.jpg" alt="LIHF" /><div class="poster-card-overlay"></div></div>
         <div class="poster-card"><img src="assets/battle_graffiti.jpg" alt="LIHF" /><div class="poster-card-overlay"></div></div>
         <div class="poster-card"><img src="assets/battle_graffiti.jpg" alt="LIHF" /><div class="poster-card-overlay"></div></div>
@@ -9262,6 +9915,31 @@ document.addEventListener('DOMContentLoaded', updateLihfCountdown);
 updateLihfCountdown();
 
 // ── RETRO TV FLOATING POPUP CONTROLS ──
+
+// ── KEY VISUAL LIGHTBOX MODAL CONTROLS ──
+function openKvModal() {
+  const modal = document.getElementById('kv-modal');
+  if (modal) {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeKvModal() {
+  const modal = document.getElementById('kv-modal');
+  if (modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeKvModal();
+    closeTvPopup();
+  }
+});
+
 function openTvPopup() {
   const modal = document.getElementById('retro-tv-modal');
   if (modal) {
