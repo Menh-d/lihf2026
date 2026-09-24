@@ -1,3 +1,5 @@
 .DS_Store
 *.log
-
+*.bak
+*.launchui_pre_bak
+scratch/
