@@ -5969,6 +5969,226 @@ footer {
   line-height: 1.6 !important;
 }
 
+
+/* ══════════════════════════════════════════════════════════════
+   CONTACT CARD FRAME OVERFLOW FIX (LET'S BUILD TOGETHER)
+   ══════════════════════════════════════════════════════════════ */
+
+/* Eliminate any negative translate or shifts on .rl and .rr inside accordions / ct-lay */
+.ct-lay .rl, 
+.ct-lay .rr,
+.acc-section .rl,
+.acc-section .rr,
+.acc-section .ru,
+body.gsap-ready .ct-lay .rl,
+body.gsap-ready .ct-lay .rr,
+body.gsap-ready .acc-section .rl,
+body.gsap-ready .acc-section .rr {
+  transform: none !important;
+  opacity: 1 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Card Container: Strictly contained inside the frame */
+.ct-lay {
+  background: linear-gradient(180deg, rgba(204, 0, 0, 0.08) 0%, rgba(18, 18, 21, 0.96) 100%) !important;
+  border: 1px solid var(--border) !important;
+  border-top: 1px solid rgba(204, 0, 0, 0.45) !important;
+  border-radius: 1.5rem !important;
+  padding: 3.2rem 3rem !important;
+  backdrop-filter: blur(20px) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 50px rgba(204, 0, 0, 0.15) !important;
+  display: grid !important;
+  grid-template-columns: 1.1fr 0.9fr !important;
+  gap: 3.5rem !important;
+  align-items: start !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  position: relative !important;
+  width: 100% !important;
+}
+
+/* Headline: Scaled to fit perfectly within the column without overflowing */
+.ct-hl {
+  font-family: var(--font-display) !important;
+  font-size: clamp(2rem, 3.2vw, 3.2rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.0 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  margin: 0.6rem 0 1.4rem !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+}
+.ct-hl .big-r {
+  color: var(--brand) !important;
+  display: block !important;
+  text-shadow: 0 0 25px rgba(204, 0, 0, 0.6) !important;
+}
+
+/* Contact Details */
+.ct-details {
+  margin-top: 1.4rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.2rem !important;
+}
+.ct-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.85rem !important;
+  padding: 0.75rem 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+.ct-item:last-child {
+  border-bottom: none !important;
+}
+.ct-ic {
+  font-size: 1.15rem !important;
+  line-height: 1 !important;
+  margin-top: 0.15rem !important;
+}
+.ct-lbl {
+  font-family: var(--font-sans) !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--muted-foreground) !important;
+  margin-bottom: 0.2rem !important;
+}
+.ct-val {
+  font-family: var(--font-sans) !important;
+  font-size: 0.88rem !important;
+  color: #ffffff !important;
+}
+.ct-val a {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+  text-decoration-color: rgba(204, 0, 0, 0.4) !important;
+  transition: color 0.2s ease !important;
+}
+.ct-val a:hover {
+  color: var(--brand) !important;
+}
+
+/* Action Buttons */
+.ct-btns {
+  margin-top: 1.6rem !important;
+  display: flex !important;
+  gap: 0.85rem !important;
+  flex-wrap: wrap !important;
+}
+.ct-btns .btn-p {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: var(--brand) !important;
+  color: #ffffff !important;
+  border-radius: 0.6rem !important;
+  padding: 0.7rem 1.4rem !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  clip-path: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 20px rgba(204, 0, 0, 0.4) !important;
+  transition: all 0.25s ease !important;
+}
+.ct-btns .btn-p:hover {
+  background: #e00000 !important;
+  box-shadow: 0 6px 28px rgba(204, 0, 0, 0.6) !important;
+  transform: translateY(-1px) !important;
+}
+.ct-btns .btn-s {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: var(--foreground) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 0.6rem !important;
+  padding: 0.7rem 1.4rem !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  clip-path: none !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.25s ease !important;
+}
+.ct-btns .btn-s:hover {
+  background: rgba(255, 255, 255, 0.09) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Partnership Roadmap */
+.roadmap {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  margin-top: 1rem !important;
+}
+.rs {
+  display: flex !important;
+  gap: 1.2rem !important;
+  align-items: flex-start !important;
+  padding: 1.1rem 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+.rs:last-child {
+  border-bottom: none !important;
+}
+.rs-n {
+  font-family: var(--font-display) !important;
+  font-size: 2.2rem !important;
+  color: var(--brand) !important;
+  opacity: 0.85 !important;
+  line-height: 1 !important;
+  width: 2.8rem !important;
+  flex-shrink: 0 !important;
+}
+.rs-c h4 {
+  font-family: var(--font-sans) !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  color: #ffffff !important;
+  margin: 0 0 0.25rem 0 !important;
+}
+.rs-c p {
+  font-family: var(--font-sans) !important;
+  font-size: 0.82rem !important;
+  color: var(--muted-foreground) !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+.rs-c .dt {
+  font-family: var(--font-sans) !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  color: var(--gold) !important;
+  margin-top: 0.35rem !important;
+  text-transform: uppercase !important;
+}
+
+/* Mobile & Tablet Responsiveness */
+@media (max-width: 1024px) {
+  .ct-lay {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+    padding: 2.2rem 1.6rem !important;
+  }
+  .ct-hl {
+    font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
+  }
+}
+
 </style>
 
 <script src="https://rawcdn.githack.com/martinlaxenaire/curtainsjs/95957f855ad9fd51850e97312cd389af76e9704e/build/curtains.min.js"></script>
