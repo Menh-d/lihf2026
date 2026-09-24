@@ -5595,6 +5595,235 @@ section.acc-inner {
 /* ── RETRO TV POPUP MODAL ── */
 
 /* ── MAIN KEY VISUAL (KV) SHOWCASE IN MARKETING SECTION ── */
+
+/* ── 8-ACTIVITY OFFICIAL PROMOTIONAL ARTWORKS SUITE ── */
+.activity-artworks-suite {
+  margin: 3.5rem 0 3.5rem;
+  padding: 2.2rem;
+  border-radius: 12px;
+  background: rgba(18, 18, 22, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 3px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+.artworks-suite-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 2.2rem;
+}
+.artworks-filter-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.art-tab-btn {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 1.1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+}
+.art-tab-btn:hover, .art-tab-btn.active {
+  color: #fff;
+  background: rgba(204, 0, 0, 0.25);
+  border-color: var(--brand);
+}
+.art-tab-btn.active {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+  box-shadow: 0 0 15px rgba(204, 0, 0, 0.4);
+}
+.artworks-grid-8 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 1200px) {
+  .artworks-grid-8 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .artworks-grid-8 {
+    grid-template-columns: 1fr;
+  }
+}
+.art-card-item {
+  position: relative;
+  background: rgba(12, 12, 15, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.art-card-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.25);
+}
+.art-card-thumb-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  cursor: pointer;
+}
+.art-card-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.art-card-item:hover .art-card-thumb {
+  transform: scale(1.08);
+}
+.art-card-badge-top {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+.art-card-zoom-hint {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  backdrop-filter: blur(1px);
+}
+.art-card-thumb-wrap:hover .art-card-zoom-hint {
+  opacity: 1;
+}
+.art-card-body {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.45rem;
+}
+.art-card-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.25rem;
+  color: #fff;
+  letter-spacing: 0.03em;
+  margin: 0;
+  line-height: 1.15;
+}
+.art-card-sub {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+  line-height: 1.45;
+  margin: 0;
+}
+.art-card-footer {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.art-card-prize {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--gold);
+}
+.art-card-action-btn {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(204, 0, 0, 0.2);
+  border: 1px solid var(--brand);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.art-card-action-btn:hover {
+  background: var(--brand);
+}
+
+/* ── PROMOTION MEDIA CHANNEL ASSET MATRIX TABLE ── */
+.mkt-matrix-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(12, 12, 15, 0.7);
+}
+.mkt-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+}
+.mkt-matrix-table th {
+  background: rgba(20, 20, 25, 0.95);
+  color: var(--gold);
+  padding: 0.85rem 1.1rem;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 0.05em;
+  font-size: 0.92rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+}
+.mkt-matrix-table td {
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+.mkt-matrix-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+  color: #fff;
+}
+.mkt-matrix-table .channel-name {
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
 .main-kv-showcase-container {
   margin: 0 auto 3.5rem;
   padding: 2.2rem;
@@ -5662,7 +5891,236 @@ section.acc-inner {
   }
 }
 @media (max-width: 640px) {
-  .main-kv-showcase-container {
+  
+/* ── 8-ACTIVITY OFFICIAL PROMOTIONAL ARTWORKS SUITE ── */
+.activity-artworks-suite {
+  margin: 3.5rem 0 3.5rem;
+  padding: 2.2rem;
+  border-radius: 12px;
+  background: rgba(18, 18, 22, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 3px solid var(--gold);
+  position: relative;
+  overflow: hidden;
+}
+.artworks-suite-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 2.2rem;
+}
+.artworks-filter-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.art-tab-btn {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 1.1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+}
+.art-tab-btn:hover, .art-tab-btn.active {
+  color: #fff;
+  background: rgba(204, 0, 0, 0.25);
+  border-color: var(--brand);
+}
+.art-tab-btn.active {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+  box-shadow: 0 0 15px rgba(204, 0, 0, 0.4);
+}
+.artworks-grid-8 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 1200px) {
+  .artworks-grid-8 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .artworks-grid-8 {
+    grid-template-columns: 1fr;
+  }
+}
+.art-card-item {
+  position: relative;
+  background: rgba(12, 12, 15, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.art-card-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.25);
+}
+.art-card-thumb-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  cursor: pointer;
+}
+.art-card-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.art-card-item:hover .art-card-thumb {
+  transform: scale(1.08);
+}
+.art-card-badge-top {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+.art-card-zoom-hint {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  backdrop-filter: blur(1px);
+}
+.art-card-thumb-wrap:hover .art-card-zoom-hint {
+  opacity: 1;
+}
+.art-card-body {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.45rem;
+}
+.art-card-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.25rem;
+  color: #fff;
+  letter-spacing: 0.03em;
+  margin: 0;
+  line-height: 1.15;
+}
+.art-card-sub {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+  line-height: 1.45;
+  margin: 0;
+}
+.art-card-footer {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.art-card-prize {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--gold);
+}
+.art-card-action-btn {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(204, 0, 0, 0.2);
+  border: 1px solid var(--brand);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.art-card-action-btn:hover {
+  background: var(--brand);
+}
+
+/* ── PROMOTION MEDIA CHANNEL ASSET MATRIX TABLE ── */
+.mkt-matrix-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 2rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(12, 12, 15, 0.7);
+}
+.mkt-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+}
+.mkt-matrix-table th {
+  background: rgba(20, 20, 25, 0.95);
+  color: var(--gold);
+  padding: 0.85rem 1.1rem;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 0.05em;
+  font-size: 0.92rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+}
+.mkt-matrix-table td {
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+.mkt-matrix-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+  color: #fff;
+}
+.mkt-matrix-table .channel-name {
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.main-kv-showcase-container {
     padding: 1.25rem;
   }
   .main-kv-bento-grid {
@@ -7504,8 +7962,8 @@ body.gsap-ready .acc-section .rr {
   <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
     <div class="acc-num">06</div>
     <div class="acc-title-wrap">
-      <div class="acc-label">7 CULTURE PILLARS</div>
-      <div class="acc-h2">7 CULTURE <span class="hl">PILLARS</span> &amp; ACTIVITIES</div>
+      <div class="acc-label">8 CULTURE PILLARS</div>
+      <div class="acc-h2">8 CULTURE <span class="hl">PILLARS</span> &amp; ACTIVITIES</div>
     </div>
     <div class="acc-arrow">▼</div>
   </div>
@@ -7515,7 +7973,7 @@ body.gsap-ready .acc-section .rr {
   <div class="container">
     <div style="text-align:center; max-width:850px; margin:0 auto 2.5rem;">
       <div class="section-label ru" style="justify-content:center;">Seven Culture Pillars • One Festival Platform</div>
-      <h2 class="section-title ru">THE 7 <span class="hl">MAIN ACTIVITIES</span> &amp; BATTLE SHOWCASES</h2>
+      <h2 class="section-title ru">THE 8 <span class="hl">MAIN ACTIVITIES</span> &amp; BATTLE SHOWCASES</h2>
       <div class="red-line ru" style="margin:1.2rem auto;"></div>
       <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.8); line-height:1.65;">
         Each activity creates a distinct activation angle for audiences and sponsors: performance, competition, community, commerce, content, and high-impact media moments. <strong style="color:var(--gold);">Click on any activity card below to inspect full rules, schedule, prizes &amp; sponsor integration options.</strong>
@@ -7692,6 +8150,31 @@ body.gsap-ready .acc-section .rr {
           </div>
         </div>
       </div>
+
+      <!-- ACTIVITY 08: Dance Workshops & Masterclasses -->
+      <div class="act-card ru" data-act-id="7">
+        <div class="act-card-bg" style="background-image:url('assets/battle_workshop.jpg');"></div>
+        <div class="act-card-overlay"></div>
+        <div class="act-card-content">
+          <div class="act-card-header">
+            <span class="act-num">08</span>
+            <span class="act-badge">DANCE MASTERCLASSES</span>
+          </div>
+          <div class="act-card-bottom">
+            <h3 class="act-title">Dance Workshops &amp; Masterclasses</h3>
+            <p class="act-desc">6 intensive masterclasses taught by international world-champion judges &amp; choreographers across Breaking, Popping, Locking &amp; Choreography.</p>
+            <div class="act-meta-row">
+              <span class="act-prize">🎓 15,000,000 LAK Value</span>
+              <span class="act-sched-tag">Days 1, 2 &amp; 3 Workshops</span>
+            </div>
+            <button class="act-inspect-btn">
+              <span>View Full Specs &amp; Rules</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
 
     </div>
   </div>
@@ -7896,7 +8379,7 @@ body.gsap-ready .acc-section .rr {
           </div>
 
           <h3 style="font-family:'Anton',sans-serif; font-size:clamp(1.8rem, 2.5vw, 2.4rem); color:#fff; line-height:1.1; margin:0; text-transform:uppercase; letter-spacing:0.02em;">
-            LIHF 2026 OFFICIAL <span style="color:var(--brand); text-shadow: 0 0 25px rgba(204,0,0,0.6);">MAIN KEY VISUAL (KV)</span>
+            LIHF 2026 OFFICIAL <span style="color:var(--brand); text-shadow: 0 0 25px rgba(204,0,0,0.6);">MASTER KEY VISUAL (KV)</span>
           </h3>
 
           <p style="font-family:var(--font-sans); font-size:0.95rem; color:var(--muted-foreground); line-height:1.65; margin:0;">
@@ -7937,6 +8420,275 @@ body.gsap-ready .acc-section .rr {
 
         </div>
       </div>
+    </div>
+
+
+    <!-- 8-ACTIVITY OFFICIAL PROMOTIONAL ARTWORKS SUITE -->
+    <div class="activity-artworks-suite" id="activity-artworks-suite">
+      <div class="artworks-suite-header">
+        <div style="display:inline-flex; align-items:center; gap:0.6rem; margin-bottom:0.75rem;">
+          <span class="badge-launch">
+            <span class="badge-pulse-dot" style="background:var(--gold);"></span>
+            <span>OFFICIAL CAMPAIGN ARTWORK SUITE</span>
+          </span>
+          <span class="badge-launch" style="border-color:rgba(204,0,0,0.3); color:var(--brand);">
+            <span>8 FESTIVAL CATEGORIES</span>
+          </span>
+        </div>
+        <h3 style="font-family:'Anton',sans-serif; font-size:clamp(1.9rem, 3.2vw, 2.7rem); color:#fff; line-height:1.1; margin:0 0 0.75rem; text-transform:uppercase; letter-spacing:0.02em;">
+          OFFICIAL ARTWORK SUITE <span style="color:var(--brand);">&amp; PROMOTIONAL ASSETS</span>
+        </h3>
+        <p style="font-family:var(--font-sans); font-size:0.96rem; color:var(--muted-foreground); line-height:1.6; margin:0;">
+          A cohesive, high-impact key visual series created for each festival pillar. Deployed across digital social media, 3D LED outdoor billboards, university campuses, and event-day big screens. Click any artwork to inspect full resolution.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="artworks-filter-tabs">
+        <button class="art-tab-btn active" onclick="filterArtworks('all', this)">All Artworks (8)</button>
+        <button class="art-tab-btn" onclick="filterArtworks('battle', this)">Battle Arenas (3)</button>
+        <button class="art-tab-btn" onclick="filterArtworks('music', this)">Music &amp; Cypher (2)</button>
+        <button class="art-tab-btn" onclick="filterArtworks('culture', this)">Culture &amp; Workshops (3)</button>
+      </div>
+
+      <!-- 8 Artworks Grid -->
+      <div class="artworks-grid-8" id="artworks-grid-8">
+
+        <!-- ARTWORK 01: Breaking 2v2 -->
+        <div class="art-card-item" data-category="battle">
+          <div class="art-card-thumb-wrap" onclick="viewArtwork('assets/battle_breaking.jpg', 'LIHF 2026 Breaking 2v2 Official Artwork')">
+            <img src="assets/battle_breaking.jpg" alt="Breaking 2v2 Artwork" class="art-card-thumb">
+            <span class="art-card-badge-top">01 • BATTLE ARENA</span>
+            <div class="art-card-zoom-hint">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>INSPECT ARTWORK</span>
+            </div>
+          </div>
+          <div class="art-card-body">
+            <h4 class="art-card-title">Breaking 2 vs 2</h4>
+            <p class="art-card-sub">Olympic-grade B-Boy &amp; B-Girl 2v2 knockout showdown with 64 athletes from 10+ nations.</p>
+            <div class="art-card-footer">
+              <span class="art-card-prize">🏆 32M LAK Pool</span>
+              <button onclick="viewArtwork('assets/battle_breaking.jpg', 'LIHF_2026_Breaking_2v2')" class="art-card-action-btn">View High-Res</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARTWORK 02: Open Style 2v2 -->
+        <div class="art-card-item" data-category="battle">
+          <div class="art-card-thumb-wrap" onclick="viewArtwork('assets/battle_openstyle.jpg', 'LIHF 2026 Open Style 2v2 Official Artwork')">
+            <img src="assets/battle_openstyle.jpg" alt="Open Style 2v2 Artwork" class="art-card-thumb">
+            <span class="art-card-badge-top">02 • ALL-STYLE BATTLE</span>
+            <div class="art-card-zoom-hint">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>INSPECT ARTWORK</span>
+            </div>
+          </div>
+          <div class="art-card-body">
+            <h4 class="art-card-title">Open Style 2 vs 2</h4>
+            <p class="art-card-sub">Cross-genre street dance clash: Popping, Locking, Krump, Waacking, and Hip-Hop choreography.</p>
+            <div class="art-card-footer">
+              <span class="art-card-prize">🏆 24M LAK Pool</span>
+              <button onclick="viewArtwork('assets/battle_openstyle.jpg', 'LIHF_2026_OpenStyle_2v2')" class="art-card-action-btn">View High-Res</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARTWORK 03: Crew Showcase -->
+        <div class="art-card-item" data-category="battle">
+          <div class="art-card-thumb-wrap" onclick="viewArtwork('assets/battle_crew.jpg', 'LIHF 2026 Crew Showcase Championship')">
+            <img src="assets/battle_crew.jpg" alt="Crew Showcase Championship" class="art-card-thumb">
+            <span class="art-card-badge-top">03 • CREW SHOWCASE</span>
+            <div class="art-card-zoom-hint">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>INSPECT ARTWORK</span>
+            </div>
+          </div>
+          <div class="art-card-body">
+            <h4 class="art-card-title">Crew Showcase</h4>
+            <p class="art-card-sub">16 elite dance crews (6-12 dancers) in high-production synchronized choreography on main stage.</p>
+            <div class="art-card-footer">
+              <span class="art-card-prize">🏆 40M LAK Pool</span>
+              <button onclick="viewArtwork('assets/battle_crew.jpg', 'LIHF_2026_Crew_Showcase')" class="art-card-action-btn">View High-Res</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARTWORK 04: DJ Open Format -->
+        <div class="art-card-item" data-category="music">
+          <div class="art-card-thumb-wrap" onclick="viewArtwork('assets/battle_dj.jpg', 'LIHF 2026 DJ Open Format Championship')">
+            <img src="assets/battle_dj.jpg" alt="DJ Open Format Championship" class="art-card-thumb">
+            <span class="art-card-badge-top">04 • TURNTABLISM</span>
+            <div class="art-card-zoom-hint">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>INSPECT ARTWORK</span>
+            </div>
+          </div>
+          <div class="art-card-body">
+            <h4 class="art-card-title">DJ Open Format</h4>
+            <p class="art-card-sub">Vinyl scratching, tone play, quick mixing, and party rocking battle between 8 invited regional turntablists.</p>
+            <div class="art-card-footer">
+              <span class="art-card-prize">🏆 18M LAK Pool</span>
+              <button onclick="viewArtwork('assets/battle_dj.jpg', 'LIHF_2026_DJ_Championship')" class="art-card-action-btn">View High-Res</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARTWORK 05: Live Graffiti -->
+        <div class="art-card-item" data-category="culture">
+          <div class="art-card-thumb-wrap" onclick="viewArtwork('assets/battle_graffiti.jpg', 'LIHF 2026 Live Graffiti Street Art')">
+            <img src="assets/battle_graffiti.jpg" alt="Live Graffiti Street Art" class="art-card-thumb">
+            <span class="art-card-badge-top">05 • STREET ART JAM</span>
+            <div class="art-card-zoom-hint">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>INSPECT ARTWORK</span>
+            </div>
+          </div>
+          <div class="art-card-body">
+            <h4 class="art-card-title">Live Graffiti Jam</h4>
+            <p class="art-card-sub">30-meter live collaborative aerosol mural painted live across 3 days by 12 premier ASEAN aerosol artists.</p>
+            <div class="art-card-footer">
+              <span class="art-card-prize">🏆 15M LAK Pool</span>
+              <button onclick="viewArtwork('assets/battle_graffiti.jpg', 'LIHF_2026_Live_Graffiti')" class="art-card-action-btn">View High-Res</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARTWORK 06: Rap / MC Cypher -->
+        <div class="art-card-item" data-category="music">
+          <div class="art-card-thumb-wrap" onclick="viewArtwork('assets/battle_mc.jpg', 'LIHF 2026 Rap MC 7 to Smoke Cypher')">
+            <img src="assets/battle_mc.jpg" alt="Rap MC 7 to Smoke Cypher" class="art-card-thumb">
+            <span class="art-card-badge-top">06 • RAP CYPHER</span>
+            <div class="art-card-zoom-hint">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>INSPECT ARTWORK</span>
+            </div>
+          </div>
+          <div class="art-card-body">
+            <h4 class="art-card-title">Rap / MC Cypher</h4>
+            <p class="art-card-sub">8 invited Southeast Asian lyricists competing 1v1 in rapid-fire 7-to-Smoke spontaneous freestyle cyphers.</p>
+            <div class="art-card-footer">
+              <span class="art-card-prize">🏆 15M LAK Pool</span>
+              <button onclick="viewArtwork('assets/battle_mc.jpg', 'LIHF_2026_Rap_Cypher')" class="art-card-action-btn">View High-Res</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARTWORK 07: Dance Workshops -->
+        <div class="art-card-item" data-category="culture">
+          <div class="art-card-thumb-wrap" onclick="viewArtwork('assets/battle_workshop.jpg', 'LIHF 2026 Dance Masterclasses & Workshops')">
+            <img src="assets/battle_workshop.jpg" alt="Dance Masterclasses & Workshops" class="art-card-thumb">
+            <span class="art-card-badge-top">07 • MASTERCLASSES</span>
+            <div class="art-card-zoom-hint">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>INSPECT ARTWORK</span>
+            </div>
+          </div>
+          <div class="art-card-body">
+            <h4 class="art-card-title">Dance Workshops</h4>
+            <p class="art-card-sub">6 intensive clinics led by Olympic judges &amp; world champions with free scholarships for Lao youth.</p>
+            <div class="art-card-footer">
+              <span class="art-card-prize">🎓 15M LAK Value</span>
+              <button onclick="viewArtwork('assets/battle_workshop.jpg', 'LIHF_2026_Workshops')" class="art-card-action-btn">View High-Res</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ARTWORK 08: Headline Concert -->
+        <div class="art-card-item" data-category="culture">
+          <div class="art-card-thumb-wrap" onclick="viewArtwork('assets/battle_concert.jpg', 'LIHF 2026 Headline Hip-Hop Concert')">
+            <img src="assets/battle_concert.jpg" alt="Headline Hip-Hop Concert" class="art-card-thumb">
+            <span class="art-card-badge-top">08 • CONCERT FINALE</span>
+            <div class="art-card-zoom-hint">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>INSPECT ARTWORK</span>
+            </div>
+          </div>
+          <div class="art-card-body">
+            <h4 class="art-card-title">Hip-Hop Concert</h4>
+            <p class="art-card-sub">2-Night grand stadium concert finale gathering 10,000+ fans with headline Lao and regional rap artists.</p>
+            <div class="art-card-footer">
+              <span class="art-card-prize">⚡ 10,000+ Fans</span>
+              <button onclick="viewArtwork('assets/battle_concert.jpg', 'LIHF_2026_Concert')" class="art-card-action-btn">View High-Res</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MEDIA CHANNEL & ARTWORK DEPLOYMENT MATRIX TABLE -->
+      <div style="margin-top:3rem;">
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:1rem;">
+          <div>
+            <span class="badge-launch" style="border-color:rgba(212,175,55,0.3); color:var(--gold);">OMNICHANNEL STRATEGY</span>
+            <h4 style="font-family:'Anton',sans-serif; font-size:1.45rem; color:#fff; margin:0.4rem 0 0; text-transform:uppercase;">
+              CAMPAIGN MEDIA CHANNEL &amp; ARTWORK ASSET DEPLOYMENT MATRIX
+            </h4>
+          </div>
+          <div style="font-family:var(--font-sans); font-size:0.75rem; color:var(--gold); font-weight:700; background:rgba(212,175,55,0.1); border:1px solid rgba(212,175,55,0.3); padding:0.35rem 0.8rem; border-radius:4px;">
+            TARGET AUDIENCE REACH: 10,000,000+ IMPRESSIONS
+          </div>
+        </div>
+
+        <div class="mkt-matrix-table-wrap">
+          <table class="mkt-matrix-table">
+            <thead>
+              <tr>
+                <th>Channel / Medium</th>
+                <th>Target Segment</th>
+                <th>Deployed Artwork Format</th>
+                <th>Frequency &amp; Flight Dates</th>
+                <th>Sponsor Integration Benefit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="channel-name">🏙️ OOH 3D LED Billboards</td>
+                <td>Commuters, Urban Youth, Vientiane Public</td>
+                <td>16:9 Anamorphic 3D Animated Main KV</td>
+                <td>6 Weeks Prior • Daily Continuous 15s Loops</td>
+                <td>High-status Title &amp; Platinum logo lockup at Patuxay, ITECC &amp; Parkson</td>
+              </tr>
+              <tr>
+                <td class="channel-name">📱 TikTok &amp; Reels</td>
+                <td>Gen Z, Street Dancers, Music Fans (16–28)</td>
+                <td>9:16 Vertical Video + 8 Activity Posters</td>
+                <td>Daily Content Drops • <em>#StreetToStage2026</em></td>
+                <td>Branded hashtag challenge, audio watermark, 3.5M+ organic video views</td>
+              </tr>
+              <tr>
+                <td class="channel-name">📸 Meta (FB &amp; IG)</td>
+                <td>Regional ASEAN Community &amp; Families</td>
+                <td>1:1 High-Res Artwork Feed Posts &amp; Stories</td>
+                <td>3x Weekly Paid Boosting + Influencer Shares</td>
+                <td>Direct click-to-lead landing page, sponsor promo codes &amp; VIP giveaways</td>
+              </tr>
+              <tr>
+                <td class="channel-name">📺 4K Live Broadcast (YT/TikTok)</td>
+                <td>Global Dance Community (10+ Countries)</td>
+                <td>Full HD Lower-Thirds &amp; Stage Overlays</td>
+                <td>Live During All 3 Event Days (16:00 – 02:00)</td>
+                <td>Permanent digital watermark, virtual commercial breaks, live MVP voting</td>
+              </tr>
+              <tr>
+                <td class="channel-name">🎟️ Physical Street Posters</td>
+                <td>University Students, Urban Culture Hubs</td>
+                <td>A1 / A2 Silk-Finish Heavy Stock Posters</td>
+                <td>1,000+ Placements Across 50+ Vientiane Spots</td>
+                <td>Co-branded sponsor logo footer permanently visible in youth cafes &amp; gyms</td>
+              </tr>
+              <tr>
+                <td class="channel-name">🥤 Co-Branded Retail Merch</td>
+                <td>Mass Retail Shoppers Nationwide</td>
+                <td>Product Packaging Adaptations &amp; Cups</td>
+                <td>Available 4 Weeks Prior in Nationwide Marts</td>
+                <td>Exclusive commemorative packaging (e.g. Sting Energy, Beerlao festival cup)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </div>
 
     <!-- PART A: 4-PHASE CAMPAIGN ROADMAP (Slide 14) -->
@@ -9429,6 +10181,37 @@ updateLihfCountdown();
 // ── RETRO TV FLOATING POPUP CONTROLS ──
 
 // ── KEY VISUAL LIGHTBOX MODAL CONTROLS ──
+
+// ── ARTWORKS SUITE FILTERING & LIGHTBOX LOGIC ──
+function filterArtworks(category, btn) {
+  document.querySelectorAll('.art-tab-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  const cards = document.querySelectorAll('#artworks-grid-8 .art-card-item');
+  cards.forEach(card => {
+    if (category === 'all' || card.getAttribute('data-category') === category) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function viewArtwork(src, title) {
+  const modal = document.getElementById('kv-modal');
+  if (modal) {
+    const img = modal.querySelector('img');
+    if (img) img.src = src;
+    const downloadLink = modal.querySelector('a');
+    if (downloadLink) {
+      downloadLink.href = src;
+      downloadLink.download = (title || 'LIHF_Artwork').replace(/[^a-zA-Z0-9]/g, '_') + '.jpg';
+    }
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
 function openKvModal() {
   const modal = document.getElementById('kv-modal');
   if (modal) {
@@ -9808,7 +10591,51 @@ function replayLogoIntro(){
         { title: "VIP Hospitality Lounge", desc: "Private elevated lounge with premium catering, open bar, and executive networking for sponsor VIPs." },
         { title: "60-Second Video Commercials", desc: "Sponsor commercial broadcast on giant 20m LED screen directly preceding the headliner act." }
       ]
-    }
+    },
+    {
+      id: 7,
+      num: "08",
+      badge: "CATEGORY #08 • DANCE MASTERCLASSES",
+      prize: "🎓 15,000,000 LAK SCHOLARSHIP VALUE",
+      title: "Dance Workshops & Masterclasses",
+      tagline: "World-Class Training Clinics with International Olympic Judges & Choreographers",
+      img: "assets/battle_workshop.jpg",
+      statComp: "200+ Dancers & Students",
+      statVenue: "Workshop Studio Hall A & B",
+      statAud: "Aspiring Dancers, Teachers, Youth",
+      statMedia: "Tutorial Reels & Behind-the-Scenes",
+      overviewP1: "LIHF 2026 Dance Masterclasses offer unprecedented access to Olympic-level dance education in Laos. Over 3 days, invited international judges from France, Japan, Korea, and ASEAN conduct 6 high-intensity workshops covering breaking mechanics, musicality, open-style freestyle concepts, and stage choreography. Free scholarship seats are allocated for underserved Lao youth.",
+      highlights: [
+        "6 masterclasses taught by certified international championship judges",
+        "Comprehensive curriculum: Foundation, Battle Tactics, Choreography & Injury Prevention",
+        "Official Certificate of Completion signed by international dance masters",
+        "Sponsor-branded scholarship program sponsoring 50 local youth dancers"
+      ],
+      rulesFlow: [
+        { num: "01", title: "Registration & Level Placement", desc: "Open to beginner, intermediate, and advanced street dancers with pre-registration online." },
+        { num: "02", title: "Hands-on Technical Training", desc: "90-minute intensive sessions focusing on rhythm drills, footwork patterns, and dynamic transitions." },
+        { num: "03", title: "Q&A Cypher & Certificate Award", desc: "Direct mentorship feedback from international masters and official certificate presentation." }
+      ],
+      judgingText: "Taught by internationally acclaimed choreographers and Olympic breakers. Structured pedagogical progression:",
+      criteria: ["Body Control & Form (30%)", "Musical Interpretation (25%)", "Choreographic Recall (20%)", "Freestyle Adaptability (15%)", "Work Ethic & Community Spirit (10%)"],
+      timeline: [
+        { day: "Day 1 (Fri Nov 13)", time: "10:00 – 13:00", event: "Breaking Foundations & Battle Strategy (Masterclass 1 & 2)" },
+        { day: "Day 2 (Sat Nov 14)", time: "10:00 – 13:00", event: "Popping & Open Style Groove Masterclass (Masterclass 3 & 4)" },
+        { day: "Day 3 (Sun Nov 15)", time: "10:00 – 13:00", event: "Crew Choreography & Industry Masterclass (Masterclass 5 & 6)" }
+      ],
+      prizes: [
+        { place: "🎓 Full Scholarship Pass", amt: "50 Youth Seats", note: "Sponsored by Corporate CSR Partners" },
+        { place: "📜 Official Diploma", amt: "All Attendees", note: "Signed by International Masters" },
+        { place: "🌟 Outstanding Talent Award", amt: "5,000,000 LAK", note: "ASEAN Training Grant" }
+      ],
+      sponsorIntro: "Workshops deliver direct positive youth empowerment, CSR credibility, and high brand affection among ambitious young creators:",
+      sponsorOpts: [
+        { title: "Naming Rights to Workshop Hall", desc: "Exclusive branding inside both air-conditioned dance training halls with banner backdrops." },
+        { title: "Youth Scholarship Co-Branding", desc: "Brand funds 50 underprivileged youth dancers to attend masterclasses with branded gear and press photo-ops." },
+        { title: "Workshop Gear & Bottle Distribution", desc: "Direct product sampling (energy drinks, hydration, towels, tees) to 200+ dedicated dancers." }
+      ]
+    },
+
   ];
 
   let currentActivityIndex = 0;
