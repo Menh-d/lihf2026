@@ -2546,6 +2546,429 @@ nav { height: 60px !important; padding: 0 !important; }
   pointer-events: none;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   ABOUT LIHF: 3D STREET HIP-HOP INTERACTIVE ENVIRONMENT
+   ══════════════════════════════════════════════════════════════ */
+.about-3d-street-container {
+  position: relative;
+  width: 100%;
+  height: clamp(520px, 72vh, 720px);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #07070a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  margin-bottom: 2.8rem;
+  touch-action: pan-y;
+}
+
+#about-3d-street-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: none;
+  cursor: grab;
+}
+#about-3d-street-canvas:active {
+  cursor: grabbing;
+}
+
+/* Top HUD Navigation Bar */
+.street-3d-hud-bar {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  z-index: 20;
+  pointer-events: none;
+}
+.street-hud-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 14, 18, 0.75);
+  backdrop-filter: blur(12px);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: auto;
+}
+.street-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+  animation: pulseDot 1.8s infinite;
+}
+.street-hud-title {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.street-hud-badge {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--brand, #ff2d46);
+  background: rgba(255, 45, 70, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Tabs list */
+.street-hud-tabs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(14, 14, 18, 0.75);
+  backdrop-filter: blur(14px);
+  padding: 4px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: auto;
+  max-width: 65%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.street-hud-tabs::-webkit-scrollbar {
+  display: none;
+}
+.street-hud-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Poppins', var(--font-sans), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #a1a1aa;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.22s ease;
+}
+.street-hud-tab:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+.street-hud-tab.active {
+  color: #ffffff;
+  background: rgba(255, 45, 70, 0.2);
+  border-color: rgba(255, 45, 70, 0.45);
+  box-shadow: 0 0 12px rgba(255, 45, 70, 0.35);
+}
+
+/* Utility buttons */
+.street-hud-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: auto;
+}
+.street-ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(14, 14, 18, 0.75);
+  backdrop-filter: blur(12px);
+  padding: 6px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a1a1aa;
+  font-family: 'Poppins', var(--font-sans), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+.street-ctrl-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(24, 24, 30, 0.9);
+}
+
+/* Hotspots layer */
+.street-3d-hotspots-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+.street-hotspot-pin {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.25s ease, transform 0.1s ease-out;
+  user-select: none;
+}
+.street-hotspot-pin .pin-core {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff2d46 0%, rgba(180, 20, 40, 0.8) 70%);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 18px rgba(255, 45, 70, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.75rem;
+  animation: hotspotPulse 2s infinite ease-in-out;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes hotspotPulse {
+  0% { transform: scale(0.92); box-shadow: 0 0 10px rgba(255, 45, 70, 0.7); }
+  50% { transform: scale(1.12); box-shadow: 0 0 24px rgba(255, 45, 70, 1), 0 0 40px rgba(212, 175, 55, 0.4); }
+  100% { transform: scale(0.92); box-shadow: 0 0 10px rgba(255, 45, 70, 0.7); }
+}
+.street-hotspot-pin:hover .pin-core {
+  transform: scale(1.25);
+  border-color: #ffd700;
+}
+.street-hotspot-pin .pin-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 6px;
+  background: rgba(14, 14, 18, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-family: 'Poppins', var(--font-sans), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+  transition: all 0.2s ease;
+}
+.street-hotspot-pin:hover .pin-pill {
+  border-color: rgba(255, 45, 70, 0.6);
+  background: rgba(22, 22, 28, 0.95);
+  box-shadow: 0 6px 20px rgba(255, 45, 70, 0.35);
+}
+
+/* Hologram Drawer Card */
+.street-hologram-drawer {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: min(92%, 400px);
+  background: rgba(12, 12, 16, 0.92);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-left: 4px solid var(--brand, #ff2d46);
+  border-radius: 12px;
+  padding: 1.35rem 1.45rem;
+  z-index: 25;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(18px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.street-hologram-drawer.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.drawer-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #71717a;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+}
+.drawer-close-btn:hover {
+  color: #ffffff;
+}
+.drawer-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.6rem;
+}
+.drawer-tag {
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #a1a1aa;
+  text-transform: uppercase;
+}
+.drawer-metric-badge {
+  font-family: var(--font-sans);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--gold, #d4af37);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.drawer-title {
+  font-family: 'Anton', 'Poppins', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.15;
+}
+.drawer-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  color: #a1a1aa;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+.drawer-stats-row {
+  display: flex;
+  gap: 0.65rem;
+  margin-bottom: 1.1rem;
+}
+.drawer-stat-pill {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+}
+.drawer-stat-pill .val {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.1rem;
+  color: #ffffff;
+  line-height: 1;
+}
+.drawer-stat-pill .lbl {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.6rem;
+  color: #71717a;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.drawer-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+.drawer-action-btn {
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.drawer-action-btn.primary {
+  background: var(--brand, #ff2d46);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 16px rgba(255, 45, 70, 0.4);
+}
+.drawer-action-btn.primary:hover {
+  background: #ff1133;
+  transform: translateY(-1px);
+}
+.drawer-action-btn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #d4d4d8;
+}
+.drawer-action-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* Bottom Hint */
+.street-bottom-hint {
+  position: absolute;
+  bottom: 14px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', var(--font-sans), sans-serif;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #71717a;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 15;
+  background: rgba(10, 10, 14, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.hint-orb {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand, #ff2d46);
+  box-shadow: 0 0 6px var(--brand, #ff2d46);
+}
+
+@media (max-width: 768px) {
+  .about-3d-street-container {
+    height: 560px;
+  }
+  .street-3d-hud-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+  }
+  .street-hud-tabs {
+    max-width: 100%;
+  }
+  .street-hud-left {
+    justify-content: space-between;
+  }
+  .street-hologram-drawer {
+    left: 12px;
+    right: 12px;
+    width: auto;
+    bottom: 12px;
+    padding: 1.1rem;
+  }
+  .street-bottom-hint {
+    display: none;
+  }
+}
+
 /* ── 4 RECTANGULAR GRID BLOCKS (Foreground Content) ── */
 .about-4grid-container {
   position: relative;
@@ -9666,7 +10089,7 @@ body.no-webgl .intro-fallback-wrap {
       <span class="mini-rod rod-right"></span>
     </div>
     <div class="mini-tv-screen">
-      <video autoplay muted loop playsinline class="mini-tv-video" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"></video>
+      <video autoplay muted loop playsinline class="mini-tv-video" src="assets/lihf_tv_video.mp4"></video>
       <div class="mini-tv-scanlines"></div>
       <div class="mini-tv-badge"><span class="rec-dot"></span><span>LIVE CRT-90</span></div>
     </div>
@@ -9711,7 +10134,7 @@ body.no-webgl .intro-fallback-wrap {
               <div class="television-crt">
                 <div class="television-screen">
                   <video id="modal-tv-video" autoplay loop playsinline class="television-video"
-                    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"></video>
+                    src="assets/lihf_tv_video.mp4"></video>
                   <div class="noise"></div>
                   <div class="off"></div>
                   <div class="tv-screen-badge">
@@ -9865,6 +10288,101 @@ body.no-webgl .intro-fallback-wrap {
         <span class="animate-word-pop delay-700">PLATFORM</span>
       </h2>
       <div class="red-line ru" style="margin:1.4rem auto;"></div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         3D STREET HIP-HOP INTERACTIVE ENVIRONMENT (THREE.JS WEB 3D)
+         ══════════════════════════════════════════════════════════ -->
+    <div class="about-3d-street-container" id="about-3d-street-container">
+      <!-- Hidden video element feeding into Three.js VideoTexture -->
+      <video id="street-tv-video-source" src="assets/lihf_tv_video.mp4" autoplay loop muted playsinline crossOrigin="anonymous" style="display:none;"></video>
+
+      <!-- HUD Navigation Header -->
+      <div class="street-3d-hud-bar">
+        <div class="street-hud-left">
+          <span class="street-live-dot"></span>
+          <span class="street-hud-title">3D STREET HIP-HOP</span>
+          <span class="street-hud-badge">INTERACTIVE</span>
+        </div>
+
+        <!-- Quick Navigation Tabs -->
+        <div class="street-hud-tabs" role="tablist">
+          <button class="street-hud-tab active" data-target="overview" title="Full Street Cypher View">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+            <span>Full Cypher</span>
+          </button>
+          <button class="street-hud-tab" data-target="tv" title="Retro CRT TV with Live Showreel">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+            <span>Festival TV (10M+)</span>
+          </button>
+          <button class="street-hud-tab" data-target="boombox" title="Classic Street Boombox">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16v12H4z"/><circle cx="8" cy="14" r="3"/><circle cx="16" cy="14" r="3"/><path d="M7 4h10v4H7z"/></svg>
+            <span>9-Yr Heritage</span>
+          </button>
+          <button class="street-hud-tab" data-target="turntable" title="DJ Turntable & Scratch Station">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M19 5l-4 4"/></svg>
+            <span>Regional Hub</span>
+          </button>
+          <button class="street-hud-tab" data-target="graffiti" title="Graffiti Wall & Aerosol Art">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+            <span>Destination Laos</span>
+          </button>
+          <button class="street-hud-tab" data-target="cypher" title="Dance Cypher Floor & Sneakers">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Youth Power</span>
+          </button>
+        </div>
+
+        <!-- Utility Buttons -->
+        <div class="street-hud-right">
+          <button class="street-ctrl-btn" id="street-tv-sound-btn" title="Toggle TV Audio" aria-label="Toggle TV Audio">
+            <span id="tv-sound-label">MUTED</span>
+            <svg id="tv-sound-icon-off" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg>
+            <svg id="tv-sound-icon-on" style="display:none;" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+          </button>
+          <button class="street-ctrl-btn" id="street-reset-cam-btn" title="Reset Camera View" aria-label="Reset Camera View">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            <span>Reset</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- WebGL Canvas for 3D Street -->
+      <canvas id="about-3d-street-canvas"></canvas>
+
+      <!-- Projected 3D Hotspot Layer -->
+      <div class="street-3d-hotspots-layer" id="street-hotspots-layer"></div>
+
+      <!-- Floating Holographic Detail Card -->
+      <div class="street-hologram-drawer" id="street-hologram-drawer">
+        <button class="drawer-close-btn" onclick="closeStreetDrawer()" title="Close details">&times;</button>
+        <div class="drawer-header">
+          <span class="drawer-tag" id="drawer-tag">DIGITAL BROADCAST &amp; REACH</span>
+          <span class="drawer-metric-badge" id="drawer-metric">★ 10M+ REACH</span>
+        </div>
+        <h3 class="drawer-title" id="drawer-title">Festival Showreel &amp; Media Reach</h3>
+        <p class="drawer-desc" id="drawer-desc">
+          Streaming high-voltage battles across 10+ countries. Delivering 10,000,000+ digital reach, viral creator coverage, and regional live broadcasts.
+        </p>
+        <div class="drawer-stats-row" id="drawer-stats">
+          <div class="drawer-stat-pill"><span class="val">10M+</span><span class="lbl">Digital Reach</span></div>
+          <div class="drawer-stat-pill"><span class="val">10+</span><span class="lbl">Nations</span></div>
+        </div>
+        <div class="drawer-actions">
+          <button class="drawer-action-btn primary" id="drawer-action-btn" onclick="handleDrawerAction()">
+            <span>Watch Full CRT TV Showreel &rarr;</span>
+          </button>
+          <button class="drawer-action-btn secondary" onclick="closeStreetDrawer()">
+            <span>Back to Street &times;</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom Hint -->
+      <div class="street-bottom-hint">
+        <span class="hint-orb"></span>
+        <span>CLICK ANY 3D HOTSPOT &bull; DRAG TO ROTATE &bull; SCROLL TO ZOOM</span>
+      </div>
     </div>
 
     <!-- 4 Expanded Rectangular Grid Blocks -->
@@ -13967,6 +14485,1088 @@ function replayLogoIntro(){
 
   console.log('✅ LIHF Accordion system successfully active on ' + sections.length + ' sections');
 })();</script>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+// 3D STREET HIP-HOP INTERACTIVE ENVIRONMENT (ABOUT LIHF SECTION)
+// ══════════════════════════════════════════════════════════════
+let street3DState = {
+  currentKey: 'overview',
+  actionType: 'modal-tv'
+};
+
+function closeStreetDrawer() {
+  const drawer = document.getElementById('street-hologram-drawer');
+  if (drawer) drawer.classList.remove('open');
+}
+
+function handleDrawerAction() {
+  if (street3DState.actionType === 'modal-tv') {
+    if (typeof openTvPopup === 'function') openTvPopup();
+  } else if (street3DState.actionType && street3DState.actionType.startsWith('scroll-card-')) {
+    const cardIdx = street3DState.actionType.replace('scroll-card-', '');
+    const card = document.querySelector(`.ab-block-card[data-block="${cardIdx}"]`);
+    if (card) {
+      const y = card.getBoundingClientRect().top + window.scrollY - 90;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }
+}
+
+let flyToStreetPoint = function() {};
+
+function initAbout3DStreetExperience() {
+  const container = document.getElementById('about-3d-street-container');
+  const canvas = document.getElementById('about-3d-street-canvas');
+  if (!container || !canvas || typeof THREE === 'undefined') return;
+
+  // Video element source
+  const videoSource = document.getElementById('street-tv-video-source');
+  if (videoSource) {
+    videoSource.muted = true;
+    const playPromise = videoSource.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        const onFirstInteraction = () => {
+          videoSource.play();
+          window.removeEventListener('click', onFirstInteraction);
+          window.removeEventListener('touchstart', onFirstInteraction);
+        };
+        window.addEventListener('click', onFirstInteraction);
+        window.addEventListener('touchstart', onFirstInteraction);
+      });
+    }
+  }
+
+  // Create VideoTexture
+  let videoTexture = null;
+  if (videoSource) {
+    videoTexture = new THREE.VideoTexture(videoSource);
+    videoTexture.minFilter = THREE.LinearFilter;
+    videoTexture.magFilter = THREE.LinearFilter;
+    videoTexture.format = THREE.RGBAFormat;
+  }
+
+  // Texture Loader for graffiti & textures
+  const textureLoader = new THREE.TextureLoader();
+  const graffitiTexture = textureLoader.load('assets/battle_graffiti.jpg');
+  graffitiTexture.wrapS = THREE.ClampToEdgeWrapping;
+  graffitiTexture.wrapT = THREE.ClampToEdgeWrapping;
+
+  // Dimensions
+  let width = container.clientWidth || 800;
+  let height = container.clientHeight || 560;
+
+  // Scene
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x060609);
+  scene.fog = new THREE.FogExp2(0x060609, 0.045);
+
+  // Camera
+  const camera = new THREE.PerspectiveCamera(46, width / height, 0.1, 100);
+  camera.position.set(0, 3.2, 7.8);
+  const currentLookAt = new THREE.Vector3(0, 1.2, 0);
+  camera.lookAt(currentLookAt);
+
+  // Renderer
+  const renderer = new THREE.WebGLRenderer({
+    canvas: canvas,
+    antialias: true,
+    alpha: true,
+    powerPreference: 'high-performance'
+  });
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.15;
+
+  // Lighting
+  const ambientLight = new THREE.AmbientLight(0x2d1f3d, 1.35);
+  scene.add(ambientLight);
+
+  // Street Spotlight (from street lamp)
+  const streetSpotlight = new THREE.SpotLight(0xffea88, 3.8);
+  streetSpotlight.position.set(3.5, 6.2, 1.6);
+  streetSpotlight.target.position.set(0, 0.4, 0);
+  scene.add(streetSpotlight.target);
+  streetSpotlight.angle = 0.72;
+  streetSpotlight.penumbra = 0.6;
+  streetSpotlight.decay = 1.6;
+  streetSpotlight.distance = 22;
+  streetSpotlight.castShadow = true;
+  streetSpotlight.shadow.mapSize.width = 1024;
+  streetSpotlight.shadow.mapSize.height = 1024;
+  streetSpotlight.shadow.bias = -0.001;
+  scene.add(streetSpotlight);
+
+  // Red Festival Rim Light
+  const redRimLight = new THREE.PointLight(0xff1744, 2.5, 16);
+  redRimLight.position.set(-4.5, 3.5, 0.5);
+  scene.add(redRimLight);
+
+  // Blue Neon Fill Light
+  const blueFillLight = new THREE.PointLight(0x00bfff, 2.0, 15);
+  blueFillLight.position.set(4.2, 3.0, 2.2);
+  scene.add(blueFillLight);
+
+  // Phosphor TV Screen Glow Pointlight
+  const tvFlickerLight = new THREE.PointLight(0x40c4ff, 1.8, 5.0);
+  tvFlickerLight.position.set(-2.8, 1.6, 0.85);
+  scene.add(tvFlickerLight);
+
+  // ── 3D STREET ENVIRONMENT ──
+
+  // 1. Asphalt Ground
+  const groundGeo = new THREE.PlaneGeometry(28, 22);
+  const groundMat = new THREE.MeshStandardMaterial({
+    color: 0x111116,
+    roughness: 0.88,
+    metalness: 0.12
+  });
+  const groundMesh = new THREE.Mesh(groundGeo, groundMat);
+  groundMesh.rotation.x = -Math.PI / 2;
+  groundMesh.position.y = 0;
+  groundMesh.receiveShadow = true;
+  scene.add(groundMesh);
+
+  // Sidewalk Curb behind objects
+  const curbGeo = new THREE.BoxGeometry(24, 0.18, 1.8);
+  const curbMat = new THREE.MeshStandardMaterial({
+    color: 0x222227,
+    roughness: 0.8,
+    metalness: 0.1
+  });
+  const curbMesh = new THREE.Mesh(curbGeo, curbMat);
+  curbMesh.position.set(0, 0.09, -2.2);
+  curbMesh.receiveShadow = true;
+  scene.add(curbMesh);
+
+  // Road Spray Markings (White dashes)
+  for (let i = -3; i <= 3; i++) {
+    const lineGeo = new THREE.PlaneGeometry(1.2, 0.12);
+    const lineMat = new THREE.MeshBasicMaterial({ color: 0x888892, transparent: true, opacity: 0.65 });
+    const lineMesh = new THREE.Mesh(lineGeo, lineMat);
+    lineMesh.rotation.x = -Math.PI / 2;
+    lineMesh.position.set(i * 2.8, 0.005, 3.2);
+    scene.add(lineMesh);
+  }
+
+  // 2. Linoleum Dance Cypher Mat (Center)
+  const cypherGroup = new THREE.Group();
+  cypherGroup.position.set(0, 0.015, 0.6);
+  scene.add(cypherGroup);
+
+  const cypherMatGeo = new THREE.CylinderGeometry(2.35, 2.35, 0.025, 48);
+  const cypherMatMaterial = new THREE.MeshStandardMaterial({
+    color: 0x16161c,
+    roughness: 0.6,
+    metalness: 0.25
+  });
+  const cypherMatMesh = new THREE.Mesh(cypherMatGeo, cypherMatMaterial);
+  cypherMatMesh.receiveShadow = true;
+  cypherGroup.add(cypherMatMesh);
+
+  // Gold Ring on Cypher Rim
+  const ringGeo = new THREE.TorusGeometry(2.35, 0.035, 16, 64);
+  const ringMat = new THREE.MeshStandardMaterial({
+    color: 0xd4af37,
+    roughness: 0.28,
+    metalness: 0.88,
+    emissive: 0x443005,
+    emissiveIntensity: 0.6
+  });
+  const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+  ringMesh.rotation.x = Math.PI / 2;
+  ringMesh.position.y = 0.018;
+  cypherGroup.add(ringMesh);
+
+  // Inner Gold Emblem Ring
+  const innerRingGeo = new THREE.TorusGeometry(1.15, 0.02, 16, 48);
+  const innerRingMesh = new THREE.Mesh(innerRingGeo, ringMat);
+  innerRingMesh.rotation.x = Math.PI / 2;
+  innerRingMesh.position.y = 0.018;
+  cypherGroup.add(innerRingMesh);
+
+  // 3. Back Wall & Graffiti Artwork
+  const wallGroup = new THREE.Group();
+  wallGroup.position.set(0, 3.6, -3.1);
+  scene.add(wallGroup);
+
+  const wallGeo = new THREE.PlaneGeometry(20, 7.8);
+  const wallMat = new THREE.MeshStandardMaterial({
+    map: graffitiTexture,
+    roughness: 0.75,
+    metalness: 0.15
+  });
+  const wallMesh = new THREE.Mesh(wallGeo, wallMat);
+  wallMesh.receiveShadow = true;
+  wallGroup.add(wallMesh);
+
+  // Red Neon Header Tube on Wall
+  const neonBarGeo = new THREE.CylinderGeometry(0.045, 0.045, 12, 16);
+  const neonBarMat = new THREE.MeshStandardMaterial({
+    color: 0xff2d46,
+    emissive: 0xff2d46,
+    emissiveIntensity: 2.2,
+    roughness: 0.1
+  });
+  const neonBarMesh = new THREE.Mesh(neonBarGeo, neonBarMat);
+  neonBarMesh.rotation.z = Math.PI / 2;
+  neonBarMesh.position.set(0, 3.4, 0.06);
+  wallGroup.add(neonBarMesh);
+
+  // 4. RETRO CRT TV (With user's video)
+  const tvGroup = new THREE.Group();
+  tvGroup.position.set(-2.8, 0, 0.1);
+  scene.add(tvGroup);
+
+  // Milk Crate / Concrete Block Stand
+  const standGeo = new THREE.BoxGeometry(1.5, 0.85, 1.15);
+  const standMat = new THREE.MeshStandardMaterial({
+    color: 0x1f2026,
+    roughness: 0.85,
+    metalness: 0.2
+  });
+  const standMesh = new THREE.Mesh(standGeo, standMat);
+  standMesh.position.y = 0.425;
+  standMesh.castShadow = true;
+  standMesh.receiveShadow = true;
+  tvGroup.add(standMesh);
+
+  // TV Main Cabinet Box
+  const tvBodyGeo = new THREE.BoxGeometry(1.58, 1.25, 1.1);
+  const tvBodyMat = new THREE.MeshStandardMaterial({
+    color: 0x18181c,
+    roughness: 0.55,
+    metalness: 0.25
+  });
+  const tvBodyMesh = new THREE.Mesh(tvBodyGeo, tvBodyMat);
+  tvBodyMesh.position.y = 1.48;
+  tvBodyMesh.castShadow = true;
+  tvBodyMesh.receiveShadow = true;
+  tvGroup.add(tvBodyMesh);
+
+  // TV Screen Frame Bezel
+  const tvBezelGeo = new THREE.BoxGeometry(1.48, 1.15, 0.08);
+  const tvBezelMat = new THREE.MeshStandardMaterial({
+    color: 0x0f0f13,
+    roughness: 0.4,
+    metalness: 0.4
+  });
+  const tvBezelMesh = new THREE.Mesh(tvBezelGeo, tvBezelMat);
+  tvBezelMesh.position.set(0, 1.48, 0.56);
+  tvGroup.add(tvBezelMesh);
+
+  // CRT Screen Face with Video Texture!
+  const screenGeo = new THREE.PlaneGeometry(1.08, 0.82);
+  let screenMat;
+  if (videoTexture) {
+    screenMat = new THREE.MeshBasicMaterial({
+      map: videoTexture,
+      toneMapped: false
+    });
+  } else {
+    screenMat = new THREE.MeshBasicMaterial({ color: 0x001122 });
+  }
+  const screenMesh = new THREE.Mesh(screenGeo, screenMat);
+  screenMesh.position.set(-0.14, 1.48, 0.61);
+  screenMesh.name = 'crt-screen-mesh';
+  tvGroup.add(screenMesh);
+
+  // TV Control Panel (Knobs, Speaker Grille, Dials)
+  const panelGeo = new THREE.PlaneGeometry(0.3, 0.82);
+  const panelMat = new THREE.MeshStandardMaterial({ color: 0x222228, roughness: 0.5 });
+  const panelMesh = new THREE.Mesh(panelGeo, panelMat);
+  panelMesh.position.set(0.52, 1.48, 0.61);
+  tvGroup.add(panelMesh);
+
+  // Two Classic Rotary Knobs
+  const knobGeo = new THREE.CylinderGeometry(0.065, 0.065, 0.06, 16);
+  const knobMat = new THREE.MeshStandardMaterial({ color: 0x9999aa, metalness: 0.8, roughness: 0.2 });
+  const knob1 = new THREE.Mesh(knobGeo, knobMat);
+  knob1.rotation.x = Math.PI / 2;
+  knob1.position.set(0.52, 1.72, 0.64);
+  tvGroup.add(knob1);
+
+  const knob2 = new THREE.Mesh(knobGeo, knobMat);
+  knob2.rotation.x = Math.PI / 2;
+  knob2.position.set(0.52, 1.55, 0.64);
+  tvGroup.add(knob2);
+
+  // Power LED
+  const ledGeo = new THREE.SphereGeometry(0.025, 12, 12);
+  const ledMat = new THREE.MeshStandardMaterial({
+    color: 0x22c55e,
+    emissive: 0x22c55e,
+    emissiveIntensity: 1.8
+  });
+  const ledMesh = new THREE.Mesh(ledGeo, ledMat);
+  ledMesh.position.set(0.52, 1.2, 0.63);
+  tvGroup.add(ledMesh);
+
+  // Rabbit Ear Antennas
+  const antGeo = new THREE.CylinderGeometry(0.012, 0.012, 0.9, 8);
+  const antMat = new THREE.MeshStandardMaterial({ color: 0xbbbbcc, metalness: 0.9, roughness: 0.1 });
+  const ant1 = new THREE.Mesh(antGeo, antMat);
+  ant1.rotation.z = 0.45;
+  ant1.rotation.y = 0.2;
+  ant1.position.set(0.2, 2.45, -0.15);
+  tvGroup.add(ant1);
+
+  const ant2 = new THREE.Mesh(antGeo, antMat);
+  ant2.rotation.z = -0.45;
+  ant2.rotation.y = -0.2;
+  ant2.position.set(-0.2, 2.45, -0.15);
+  tvGroup.add(ant2);
+
+  // Subtle rotation of TV towards street center
+  tvGroup.rotation.y = 0.24;
+
+  // 5. CLASSIC STREET BOOMBOX (GHETTO BLASTER)
+  const boomGroup = new THREE.Group();
+  boomGroup.position.set(2.4, 0, 0.35);
+  scene.add(boomGroup);
+
+  // Steel Oil Drum Base
+  const drumGeo = new THREE.CylinderGeometry(0.68, 0.68, 0.76, 24);
+  const drumMat = new THREE.MeshStandardMaterial({
+    color: 0x1f2329,
+    roughness: 0.6,
+    metalness: 0.45
+  });
+  const drumMesh = new THREE.Mesh(drumGeo, drumMat);
+  drumMesh.position.y = 0.38;
+  drumMesh.castShadow = true;
+  drumMesh.receiveShadow = true;
+  boomGroup.add(drumMesh);
+
+  // Boombox Body
+  const boomBodyGeo = new THREE.BoxGeometry(1.95, 1.05, 0.68);
+  const boomBodyMat = new THREE.MeshStandardMaterial({
+    color: 0x7c7f89,
+    roughness: 0.35,
+    metalness: 0.72
+  });
+  const boomBodyMesh = new THREE.Mesh(boomBodyGeo, boomBodyMat);
+  boomBodyMesh.position.y = 1.285;
+  boomBodyMesh.castShadow = true;
+  boomBodyMesh.receiveShadow = true;
+  boomGroup.add(boomBodyMesh);
+
+  // Chrome Top Handle
+  const handleGeo = new THREE.BoxGeometry(1.4, 0.09, 0.1);
+  const handleMat = new THREE.MeshStandardMaterial({ color: 0xcccccc, metalness: 0.9, roughness: 0.1 });
+  const handleMesh = new THREE.Mesh(handleGeo, handleMat);
+  handleMesh.position.set(0, 1.95, 0);
+  boomGroup.add(handleMesh);
+
+  // Handle Supports
+  const hSuppGeo = new THREE.BoxGeometry(0.08, 0.22, 0.1);
+  const hSuppL = new THREE.Mesh(hSuppGeo, handleMat);
+  hSuppL.position.set(-0.66, 1.86, 0);
+  boomGroup.add(hSuppL);
+  const hSuppR = new THREE.Mesh(hSuppGeo, handleMat);
+  hSuppR.position.set(0.66, 1.86, 0);
+  boomGroup.add(hSuppR);
+
+  // Subwoofer Left & Right
+  const subCones = [];
+  [-0.56, 0.56].forEach(xOffset => {
+    const rimGeo = new THREE.TorusGeometry(0.36, 0.035, 16, 32);
+    const rimMat = new THREE.MeshStandardMaterial({ color: 0xff2d46, metalness: 0.8, roughness: 0.3 });
+    const rimMesh = new THREE.Mesh(rimGeo, rimMat);
+    rimMesh.position.set(xOffset, 1.26, 0.345);
+    boomGroup.add(rimMesh);
+
+    const coneGeo = new THREE.CylinderGeometry(0.34, 0.12, 0.08, 24);
+    const coneMat = new THREE.MeshStandardMaterial({ color: 0x141418, roughness: 0.8, metalness: 0.2 });
+    const coneMesh = new THREE.Mesh(coneGeo, coneMat);
+    coneMesh.rotation.x = Math.PI / 2;
+    coneMesh.position.set(xOffset, 1.26, 0.34);
+    boomGroup.add(coneMesh);
+    subCones.push(coneMesh);
+
+    const capGeo = new THREE.SphereGeometry(0.1, 16, 12);
+    const capMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.85, roughness: 0.2 });
+    const capMesh = new THREE.Mesh(capGeo, capMat);
+    capMesh.position.set(xOffset, 1.26, 0.38);
+    boomGroup.add(capMesh);
+  });
+
+  // Cassette Deck Center Doors
+  const cassetteGeo = new THREE.BoxGeometry(0.46, 0.5, 0.04);
+  const cassetteMat = new THREE.MeshStandardMaterial({ color: 0x1e1e24, roughness: 0.4 });
+  const cassetteMesh = new THREE.Mesh(cassetteGeo, cassetteMat);
+  cassetteMesh.position.set(0, 1.26, 0.345);
+  boomGroup.add(cassetteMesh);
+
+  // LED Equalizer Meter (Animated in loop)
+  const eqBars = [];
+  for (let b = 0; b < 6; b++) {
+    const eqGeo = new THREE.PlaneGeometry(0.045, 0.16);
+    const eqColor = b > 4 ? 0xff2d46 : b > 2 ? 0xf59e0b : 0x22c55e;
+    const eqMat = new THREE.MeshBasicMaterial({ color: eqColor });
+    const eqMesh = new THREE.Mesh(eqGeo, eqMat);
+    eqMesh.position.set(-0.16 + b * 0.065, 1.62, 0.345);
+    boomGroup.add(eqMesh);
+    eqBars.push(eqMesh);
+  }
+
+  // Slight turn towards street center
+  boomGroup.rotation.y = -0.28;
+
+  // 6. DJ TURNTABLE & SCRATCH STATION
+  const djGroup = new THREE.Group();
+  djGroup.position.set(0, 0, -0.6);
+  scene.add(djGroup);
+
+  // Heavy Duty Road Flight Case
+  const flightCaseGeo = new THREE.BoxGeometry(2.35, 0.95, 1.25);
+  const flightCaseMat = new THREE.MeshStandardMaterial({
+    color: 0x16161a,
+    roughness: 0.5,
+    metalness: 0.3
+  });
+  const flightCaseMesh = new THREE.Mesh(flightCaseGeo, flightCaseMat);
+  flightCaseMesh.position.y = 0.475;
+  flightCaseMesh.castShadow = true;
+  flightCaseMesh.receiveShadow = true;
+  djGroup.add(flightCaseMesh);
+
+  // Flight Case Corner Protectors (Chrome)
+  const cornerMat = new THREE.MeshStandardMaterial({ color: 0xd1d5db, metalness: 0.9, roughness: 0.2 });
+  [-1.17, 1.17].forEach(cx => {
+    [-0.62, 0.62].forEach(cz => {
+      const cornerGeo = new THREE.BoxGeometry(0.12, 0.96, 0.12);
+      const cMesh = new THREE.Mesh(cornerGeo, cornerMat);
+      cMesh.position.set(cx, 0.475, cz);
+      djGroup.add(cMesh);
+    });
+  });
+
+  // Turntable Platter Plate (Left side)
+  const ttPlateGeo = new THREE.BoxGeometry(0.98, 0.08, 0.98);
+  const ttPlateMat = new THREE.MeshStandardMaterial({ color: 0x2e3038, metalness: 0.6, roughness: 0.3 });
+  const ttPlateMesh = new THREE.Mesh(ttPlateGeo, ttPlateMat);
+  ttPlateMesh.position.set(-0.55, 0.99, 0);
+  djGroup.add(ttPlateMesh);
+
+  // Spinning 12" Vinyl Record
+  const vinylGeo = new THREE.CylinderGeometry(0.42, 0.42, 0.02, 36);
+  const vinylMat = new THREE.MeshStandardMaterial({
+    color: 0x0a0a0d,
+    roughness: 0.2,
+    metalness: 0.8
+  });
+  const vinylDisc = new THREE.Mesh(vinylGeo, vinylMat);
+  vinylDisc.position.set(-0.55, 1.04, 0);
+  djGroup.add(vinylDisc);
+
+  // Vinyl Center Label (Red LIHF badge)
+  const labelGeo = new THREE.CylinderGeometry(0.14, 0.14, 0.022, 24);
+  const labelMat = new THREE.MeshStandardMaterial({
+    color: 0xff2d46,
+    emissive: 0x660011,
+    roughness: 0.5
+  });
+  const labelMesh = new THREE.Mesh(labelGeo, labelMat);
+  labelMesh.position.set(0, 0.002, 0);
+  vinylDisc.add(labelMesh);
+
+  // Tonearm & Needle Cartridge
+  const armBaseGeo = new THREE.CylinderGeometry(0.04, 0.04, 0.06, 16);
+  const armBase = new THREE.Mesh(armBaseGeo, cornerMat);
+  armBase.position.set(-0.16, 1.05, -0.32);
+  djGroup.add(armBase);
+
+  const armRodGeo = new THREE.CylinderGeometry(0.01, 0.01, 0.42, 8);
+  const armRod = new THREE.Mesh(armRodGeo, cornerMat);
+  armRod.rotation.x = Math.PI / 2;
+  armRod.rotation.z = -0.4;
+  armRod.position.set(-0.28, 1.08, -0.16);
+  djGroup.add(armRod);
+
+  // 2-Channel Battle DJ Mixer (Right side)
+  const mixerGeo = new THREE.BoxGeometry(0.85, 0.08, 0.98);
+  const mixerMat = new THREE.MeshStandardMaterial({ color: 0x1f2128, metalness: 0.5, roughness: 0.4 });
+  const mixerMesh = new THREE.Mesh(mixerGeo, mixerMat);
+  mixerMesh.position.set(0.55, 0.99, 0);
+  djGroup.add(mixerMesh);
+
+  // Mixer Crossfader
+  const faderGeo = new THREE.BoxGeometry(0.05, 0.04, 0.03);
+  const faderMat = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 0.8 });
+  const crossfader = new THREE.Mesh(faderGeo, faderMat);
+  crossfader.position.set(0.55, 1.05, 0.28);
+  djGroup.add(crossfader);
+
+  // 7. STREET PROPS (Championship Trophy, High-Top Sneakers, Spray Cans, Street Lamp)
+
+  // Championship Trophy Cup
+  const trophyGroup = new THREE.Group();
+  trophyGroup.position.set(1.15, 0, 0.85);
+  scene.add(trophyGroup);
+
+  const trophyBaseGeo = new THREE.CylinderGeometry(0.18, 0.22, 0.12, 16);
+  const trophyBaseMat = new THREE.MeshStandardMaterial({ color: 0x111116, roughness: 0.5 });
+  const trophyBase = new THREE.Mesh(trophyBaseGeo, trophyBaseMat);
+  trophyBase.position.y = 0.06;
+  trophyGroup.add(trophyBase);
+
+  const goldMat = new THREE.MeshStandardMaterial({
+    color: 0xffd700,
+    metalness: 0.95,
+    roughness: 0.18,
+    emissive: 0x553e08,
+    emissiveIntensity: 0.4
+  });
+  const chaliceGeo = new THREE.CylinderGeometry(0.18, 0.07, 0.38, 20);
+  const chaliceMesh = new THREE.Mesh(chaliceGeo, goldMat);
+  chaliceMesh.position.y = 0.28;
+  trophyGroup.add(chaliceMesh);
+
+  // Trophy handles
+  const handleL = new THREE.Mesh(new THREE.TorusGeometry(0.12, 0.02, 12, 24), goldMat);
+  handleL.position.set(-0.16, 0.32, 0);
+  trophyGroup.add(handleL);
+  const handleR = new THREE.Mesh(new THREE.TorusGeometry(0.12, 0.02, 12, 24), goldMat);
+  handleR.position.set(0.16, 0.32, 0);
+  trophyGroup.add(handleR);
+
+  // Fresh High-Top Sneakers
+  const sneakerGroup = new THREE.Group();
+  sneakerGroup.position.set(-1.0, 0, 1.2);
+  scene.add(sneakerGroup);
+
+  const soleMat = new THREE.MeshStandardMaterial({ color: 0xf5f5f5, roughness: 0.3 });
+  const leatherMat = new THREE.MeshStandardMaterial({ color: 0x1c1c22, roughness: 0.6 });
+  const redTrimMat = new THREE.MeshStandardMaterial({ color: 0xff2d46, roughness: 0.4 });
+
+  [-0.14, 0.14].forEach(sx => {
+    const sole = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.05, 0.42), soleMat);
+    sole.position.set(sx, 0.025, 0);
+    sneakerGroup.add(sole);
+    const upper = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.16, 0.38), leatherMat);
+    upper.position.set(sx, 0.12, 0.02);
+    sneakerGroup.add(upper);
+    const collar = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.14, 0.18), redTrimMat);
+    collar.position.set(sx, 0.24, -0.06);
+    sneakerGroup.add(collar);
+  });
+  sneakerGroup.rotation.y = 0.35;
+
+  // Aerosol Spray Paint Cans
+  const sprayCans = [
+    { pos: [1.8, 0.16, -1.8], color: 0xff2d46, rotZ: 0 },
+    { pos: [2.05, 0.16, -1.6], color: 0x00d4ff, rotZ: 0 },
+    { pos: [-1.4, 0.07, -1.5], color: 0xd4af37, rotZ: Math.PI / 2 }
+  ];
+  sprayCans.forEach(cfg => {
+    const canGroup = new THREE.Group();
+    canGroup.position.set(cfg.pos[0], cfg.pos[1], cfg.pos[2]);
+    if (cfg.rotZ) canGroup.rotation.z = cfg.rotZ;
+
+    const canBodyGeo = new THREE.CylinderGeometry(0.065, 0.065, 0.28, 16);
+    const canBodyMat = new THREE.MeshStandardMaterial({ color: cfg.color, roughness: 0.3, metalness: 0.6 });
+    const canMesh = new THREE.Mesh(canBodyGeo, canBodyMat);
+    canGroup.add(canMesh);
+
+    const capGeo = new THREE.CylinderGeometry(0.045, 0.045, 0.06, 12);
+    const capMat = new THREE.MeshStandardMaterial({ color: 0x222226, roughness: 0.7 });
+    const capMesh = new THREE.Mesh(capGeo, capMat);
+    capMesh.position.y = 0.16;
+    canGroup.add(capMesh);
+
+    scene.add(canGroup);
+  });
+
+  // Street Lamp Post
+  const lampGroup = new THREE.Group();
+  lampGroup.position.set(3.5, 0, 1.6);
+  scene.add(lampGroup);
+
+  const poleGeo = new THREE.CylinderGeometry(0.08, 0.1, 6.2, 16);
+  const poleMat = new THREE.MeshStandardMaterial({ color: 0x1f2127, roughness: 0.6, metalness: 0.6 });
+  const poleMesh = new THREE.Mesh(poleGeo, poleMat);
+  poleMesh.position.y = 3.1;
+  lampGroup.add(poleMesh);
+
+  // Lamp Arm & Luminaire Head
+  const headGeo = new THREE.ConeGeometry(0.42, 0.32, 16);
+  const headMat = new THREE.MeshStandardMaterial({ color: 0x15161a, metalness: 0.7 });
+  const headMesh = new THREE.Mesh(headGeo, headMat);
+  headMesh.rotation.x = Math.PI;
+  headMesh.position.set(-0.25, 6.1, -0.15);
+  lampGroup.add(headMesh);
+
+  // Glowing bulb lens
+  const bulbGeo = new THREE.SphereGeometry(0.18, 16, 16);
+  const bulbMat = new THREE.MeshStandardMaterial({
+    color: 0xffea88,
+    emissive: 0xffea88,
+    emissiveIntensity: 3.5
+  });
+  const bulbMesh = new THREE.Mesh(bulbGeo, bulbMat);
+  bulbMesh.position.set(-0.25, 6.0, -0.15);
+  lampGroup.add(bulbMesh);
+
+  // ── HOTSPOTS DATA & PROJECTIONS ──
+  const streetHotspotsData = {
+    tv: {
+      key: 'tv',
+      pos: new THREE.Vector3(-2.8, 1.8, 0.6),
+      label: 'CRT TV • 10M+ REACH',
+      tag: 'DIGITAL BROADCAST & REACH',
+      metric: '★ 10M+ REACH',
+      title: 'Festival TV & Media Reach',
+      desc: 'Streaming high-voltage battles across 10+ countries. Delivering 10,000,000+ digital reach, viral creator coverage, and regional live broadcasts.',
+      stats: [
+        { val: '10M+', lbl: 'Digital Reach' },
+        { val: '10+', lbl: 'Nations' }
+      ],
+      actionText: 'Watch Full CRT TV Showreel →',
+      actionType: 'modal-tv'
+    },
+    boombox: {
+      key: 'boombox',
+      pos: new THREE.Vector3(2.4, 1.6, 0.5),
+      label: 'BOOMBOX • 9-YR HERITAGE',
+      tag: 'LEGACY & PIONEER SOUND',
+      metric: '★ EST. 2017',
+      title: '9-Year Heritage & Pioneer Spirit',
+      desc: 'Evolving from grassroots underground cyphers in 2017 to Southeast Asia’s premier benchmark festival in 2026. 9 continuous editions cultivating urban culture in Laos.',
+      stats: [
+        { val: '2017–2026', lbl: 'Heritage' },
+        { val: '9th', lbl: 'Edition' }
+      ],
+      actionText: 'Explore 9-Yr Timeline →',
+      actionType: 'scroll-card-0'
+    },
+    turntable: {
+      key: 'turntable',
+      pos: new THREE.Vector3(0, 1.45, -0.2),
+      label: 'TURNTABLE • REGIONAL HUB',
+      tag: 'REGIONAL BATTLEGROUND',
+      metric: '★ 500+ ATHLETES',
+      title: 'Regional Powerhouse & Olympic Stage',
+      desc: 'Scaling to an international landmark at Lao-ITECC. Connecting 500+ top athletes, artists, Olympic-caliber breakers, and international DJ judges from 10+ nations.',
+      stats: [
+        { val: '10+', lbl: 'Nations' },
+        { val: '500+', lbl: 'Athletes' }
+      ],
+      actionText: 'View Battle Lineup →',
+      actionType: 'scroll-card-1'
+    },
+    graffiti: {
+      key: 'graffiti',
+      pos: new THREE.Vector3(0, 3.2, -2.8),
+      label: 'MURAL • DESTINATION LAOS',
+      tag: 'CREATIVE TOURISM HUB',
+      metric: '★ VIENTIANE HUB',
+      title: 'Destination Laos & Cultural Mural',
+      desc: 'Establishing Vientiane as the premier creative tourism hub. Fusing authentic Lao cultural identity with international hip-hop energy, attracting thousands of global visitors.',
+      stats: [
+        { val: '10,000+', lbl: 'Attendees' },
+        { val: '54%', lbl: 'Gen Z / Millennial' }
+      ],
+      actionText: 'Explore Creative Tourism →',
+      actionType: 'scroll-card-3'
+    },
+    cypher: {
+      key: 'cypher',
+      pos: new THREE.Vector3(0, 0.45, 0.8),
+      label: 'CYPHER • YOUTH EMPOWERMENT',
+      tag: 'COMMUNITY & FUTURE',
+      metric: '★ 10,000+ YOUTH',
+      title: 'Youth Empowerment & Prize Pool',
+      desc: 'Empowering over 10,000+ Lao youth through masterclasses, world champion mentorship, and 159,000,000 LAK in cash prize pools launching international careers.',
+      stats: [
+        { val: '10,000+', lbl: 'Youth Reach' },
+        { val: '159M LAK', lbl: 'Prize Pool' }
+      ],
+      actionText: 'View Youth Programs →',
+      actionType: 'scroll-card-2'
+    }
+  };
+
+  const cameraViewpoints = {
+    overview: {
+      pos: new THREE.Vector3(0, 3.2, 7.8),
+      target: new THREE.Vector3(0, 1.2, 0)
+    },
+    tv: {
+      pos: new THREE.Vector3(-2.8, 1.9, 2.5),
+      target: new THREE.Vector3(-2.8, 1.5, 0)
+    },
+    boombox: {
+      pos: new THREE.Vector3(2.5, 1.6, 2.5),
+      target: new THREE.Vector3(2.4, 1.2, 0.3)
+    },
+    turntable: {
+      pos: new THREE.Vector3(0, 2.3, 1.6),
+      target: new THREE.Vector3(0, 1.15, -0.4)
+    },
+    graffiti: {
+      pos: new THREE.Vector3(0, 3.2, 3.8),
+      target: new THREE.Vector3(0, 3.2, -3.2)
+    },
+    cypher: {
+      pos: new THREE.Vector3(0, 2.8, 2.8),
+      target: new THREE.Vector3(0, 0.2, 0.7)
+    }
+  };
+
+  // Build DOM pins inside #street-hotspots-layer
+  const hotspotsLayer = document.getElementById('street-hotspots-layer');
+  const hotspotElements = {};
+
+  if (hotspotsLayer) {
+    hotspotsLayer.innerHTML = '';
+    Object.keys(streetHotspotsData).forEach(key => {
+      const data = streetHotspotsData[key];
+      const pin = document.createElement('div');
+      pin.className = 'street-hotspot-pin';
+      pin.setAttribute('data-target', key);
+      pin.innerHTML = `
+        <div class="pin-core">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="pin-pill">${data.label}</div>
+      `;
+      pin.addEventListener('click', (e) => {
+        e.stopPropagation();
+        flyToStreetPoint(key);
+      });
+      hotspotsLayer.appendChild(pin);
+      hotspotElements[key] = pin;
+    });
+  }
+
+  // Update Drawer Content
+  function showStreetDetailCard(key) {
+    const data = streetHotspotsData[key];
+    const drawer = document.getElementById('street-hologram-drawer');
+    if (!drawer || !data) return;
+
+    street3DState.actionType = data.actionType;
+
+    const tagEl = document.getElementById('drawer-tag');
+    const metricEl = document.getElementById('drawer-metric');
+    const titleEl = document.getElementById('drawer-title');
+    const descEl = document.getElementById('drawer-desc');
+    const statsEl = document.getElementById('drawer-stats');
+    const actionBtn = document.getElementById('drawer-action-btn');
+
+    if (tagEl) tagEl.textContent = data.tag;
+    if (metricEl) metricEl.textContent = data.metric;
+    if (titleEl) titleEl.textContent = data.title;
+    if (descEl) descEl.textContent = data.desc;
+    if (actionBtn) {
+      actionBtn.innerHTML = `<span>${data.actionText}</span>`;
+    }
+
+    if (statsEl && data.stats) {
+      statsEl.innerHTML = data.stats.map(s => `
+        <div class="drawer-stat-pill">
+          <span class="val">${s.val}</span>
+          <span class="lbl">${s.lbl}</span>
+        </div>
+      `).join('');
+    }
+
+    drawer.classList.add('open');
+  }
+
+  // Camera flight transition
+  flyToStreetPoint = function(key) {
+    if (!cameraViewpoints[key]) key = 'overview';
+    street3DState.currentKey = key;
+
+    const vp = cameraViewpoints[key];
+
+    // Update HUD active tabs
+    document.querySelectorAll('.street-hud-tab').forEach(tab => {
+      if (tab.getAttribute('data-target') === key) {
+        tab.classList.add('active');
+      } else {
+        tab.classList.remove('active');
+      }
+    });
+
+    if (typeof gsap !== 'undefined') {
+      gsap.to(camera.position, {
+        x: vp.pos.x,
+        y: vp.pos.y,
+        z: vp.pos.z,
+        duration: 1.1,
+        ease: 'power3.inOut'
+      });
+      gsap.to(currentLookAt, {
+        x: vp.target.x,
+        y: vp.target.y,
+        z: vp.target.z,
+        duration: 1.1,
+        ease: 'power3.inOut',
+        onUpdate: () => camera.lookAt(currentLookAt)
+      });
+    } else {
+      camera.position.copy(vp.pos);
+      currentLookAt.copy(vp.target);
+      camera.lookAt(currentLookAt);
+    }
+
+    if (key === 'overview') {
+      closeStreetDrawer();
+    } else {
+      showStreetDetailCard(key);
+    }
+  };
+
+  // HUD Tab clicks
+  document.querySelectorAll('.street-hud-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-target');
+      if (target) flyToStreetPoint(target);
+    });
+  });
+
+  // Reset Camera View button
+  const resetBtn = document.getElementById('street-reset-cam-btn');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => flyToStreetPoint('overview'));
+  }
+
+  // TV Sound Toggle Button
+  const tvSoundBtn = document.getElementById('street-tv-sound-btn');
+  if (tvSoundBtn && videoSource) {
+    tvSoundBtn.addEventListener('click', () => {
+      videoSource.muted = !videoSource.muted;
+      const soundLabel = document.getElementById('tv-sound-label');
+      const soundIconOff = document.getElementById('tv-sound-icon-off');
+      const soundIconOn = document.getElementById('tv-sound-icon-on');
+
+      if (videoSource.muted) {
+        if (soundLabel) soundLabel.textContent = 'MUTED';
+        if (soundIconOff) soundIconOff.style.display = 'inline';
+        if (soundIconOn) soundIconOn.style.display = 'none';
+      } else {
+        if (soundLabel) soundLabel.textContent = 'AUDIO ON';
+        if (soundIconOff) soundIconOff.style.display = 'none';
+        if (soundIconOn) soundIconOn.style.display = 'inline';
+        videoSource.play().catch(e => console.log(e));
+      }
+    });
+  }
+
+  // Link 4 Grid Cards below to fly 3D Camera
+  const blockViewMap = {
+    '0': 'boombox',
+    '1': 'turntable',
+    '2': 'cypher',
+    '3': 'graffiti'
+  };
+  document.querySelectorAll('.about-4grid .ab-block-card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      const blockId = card.getAttribute('data-block');
+      const targetKey = blockViewMap[blockId];
+      if (targetKey) {
+        const y = container.getBoundingClientRect().top + window.scrollY - 85;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        setTimeout(() => {
+          flyToStreetPoint(targetKey);
+        }, 300);
+      }
+    });
+  });
+
+  // Mouse / Touch Orbit Interaction
+  let isDragging = false;
+  let prevMouseX = 0;
+  let prevMouseY = 0;
+  const raycaster = new THREE.Raycaster();
+  const mouseVec = new THREE.Vector2();
+  let dragDistance = 0;
+
+  canvas.addEventListener('pointerdown', (e) => {
+    isDragging = true;
+    prevMouseX = e.clientX;
+    prevMouseY = e.clientY;
+    dragDistance = 0;
+  });
+
+  window.addEventListener('pointermove', (e) => {
+    if (!isDragging) return;
+    const dx = e.clientX - prevMouseX;
+    const dy = e.clientY - prevMouseY;
+    dragDistance += Math.abs(dx) + Math.abs(dy);
+    prevMouseX = e.clientX;
+    prevMouseY = e.clientY;
+
+    const offset = new THREE.Vector3().subVectors(camera.position, currentLookAt);
+    let radius = offset.length();
+    let theta = Math.atan2(offset.x, offset.z);
+    let phi = Math.acos(Math.max(-1, Math.min(1, offset.y / radius)));
+
+    theta -= dx * 0.007;
+    phi = Math.max(0.15, Math.min(Math.PI / 2 - 0.05, phi - dy * 0.007));
+
+    offset.x = radius * Math.sin(phi) * Math.sin(theta);
+    offset.y = radius * Math.cos(phi);
+    offset.z = radius * Math.sin(phi) * Math.cos(theta);
+
+    camera.position.copy(currentLookAt).add(offset);
+    camera.lookAt(currentLookAt);
+  });
+
+  window.addEventListener('pointerup', (e) => {
+    if (isDragging && dragDistance < 6) {
+      const rect = canvas.getBoundingClientRect();
+      if (e.clientX >= rect.left && e.clientX <= rect.right &&
+          e.clientY >= rect.top && e.clientY <= rect.bottom) {
+        mouseVec.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        mouseVec.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+        raycaster.setFromCamera(mouseVec, camera);
+        const intersects = raycaster.intersectObjects([screenMesh, tvBodyMesh, standMesh], true);
+        if (intersects.length > 0) {
+          if (street3DState.currentKey !== 'tv') {
+            flyToStreetPoint('tv');
+          } else {
+            if (typeof openTvPopup === 'function') openTvPopup();
+          }
+        }
+      }
+    }
+    isDragging = false;
+  });
+
+  // Wheel Zoom (Clamped)
+  canvas.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const offset = new THREE.Vector3().subVectors(camera.position, currentLookAt);
+    let dist = offset.length();
+    dist = Math.max(2.4, Math.min(11.5, dist + e.deltaY * 0.004));
+    offset.setLength(dist);
+    camera.position.copy(currentLookAt).add(offset);
+    camera.lookAt(currentLookAt);
+  }, { passive: false });
+
+  // Resize handler
+  function handleResize() {
+    width = container.clientWidth || 800;
+    height = container.clientHeight || 560;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+  }
+  window.addEventListener('resize', handleResize);
+
+  // Accordion toggle trigger resize
+  document.querySelectorAll('.acc-banner').forEach(b => {
+    b.addEventListener('click', () => {
+      setTimeout(handleResize, 350);
+    });
+  });
+
+  // Hotspot Screen Projection
+  const projVec = new THREE.Vector3();
+  function updateHotspots() {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
+
+    Object.keys(streetHotspotsData).forEach(key => {
+      const item = streetHotspotsData[key];
+      const el = hotspotElements[key];
+      if (!el) return;
+
+      projVec.copy(item.pos);
+      projVec.project(camera);
+
+      if (projVec.z < 1.0) {
+        const x = (projVec.x * 0.5 + 0.5) * rect.width;
+        const y = (-(projVec.y * 0.5) + 0.5) * rect.height;
+        el.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+        el.style.opacity = '1';
+        el.style.pointerEvents = 'auto';
+      } else {
+        el.style.opacity = '0';
+        el.style.pointerEvents = 'none';
+      }
+    });
+  }
+
+  // Animation Loop with Clock
+  const clock = new THREE.Clock();
+  let isStreetVisible = true;
+  let animId = null;
+
+  function renderLoop() {
+    if (!isStreetVisible) {
+      animId = null;
+      return;
+    }
+    animId = requestAnimationFrame(renderLoop);
+
+    const time = clock.getElapsedTime();
+
+    // 1. Spinning Vinyl Record
+    if (vinylDisc) {
+      vinylDisc.rotation.y += 0.038;
+    }
+
+    // 2. Pulsing Subwoofers with Hip-Hop Bass Punch
+    const bassBeat = Math.max(0, Math.sin(time * 8.5) * 1.25 - 0.35);
+    subCones.forEach((cone) => {
+      cone.scale.set(1 + bassBeat * 0.12, 1 + bassBeat * 0.12, 1 + bassBeat * 0.35);
+    });
+
+    // 3. Dynamic Equalizer Meters
+    eqBars.forEach((bar, idx) => {
+      const wave = (Math.sin(time * 12 + idx * 1.5) * 0.5 + 0.5) * 0.8 + 0.2;
+      bar.scale.y = wave;
+    });
+
+    // 4. Phosphor TV Flicker Light
+    if (tvFlickerLight) {
+      tvFlickerLight.intensity = 1.7 + Math.sin(time * 14) * 0.25 + Math.cos(time * 31) * 0.15;
+    }
+
+    // 5. Update Screen Space Hotspots
+    updateHotspots();
+
+    // Render WebGL
+    renderer.render(scene, camera);
+  }
+
+  // IntersectionObserver to pause when off-screen
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isStreetVisible = entry.isIntersecting;
+        if (isStreetVisible && !animId) {
+          renderLoop();
+        }
+      });
+    }, { threshold: 0.05 });
+    observer.observe(container);
+  } else {
+    renderLoop();
+  }
+
+  setTimeout(() => {
+    handleResize();
+    renderLoop();
+  }, 100);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAbout3DStreetExperience);
+} else {
+  initAbout3DStreetExperience();
+}
+</script>
 
 </body>
 </html>
