@@ -5694,7 +5694,7 @@ section.acc-inner {
   text-transform: uppercase !important;
 }
 
-/* ── FLOATING RETRO TV WIDGET ── */
+/* ── FLOATING RETRO TV WIDGET (DOCKABLE MINI TV) ── */
 .floating-tv-launcher {
   position: fixed;
   bottom: 24px;
@@ -5734,9 +5734,10 @@ section.acc-inner {
 }
 .floating-tv-chassis {
   position: relative;
-  background: linear-gradient(145deg, #1f1b17, #0d0b09);
-  border: 3px solid #332b24;
-  border-radius: 12px;
+  background: linear-gradient(145deg, #b71a11, #88110b);
+  border: 3px solid #5a0905;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.75), 0 0 15px rgba(183, 26, 17, 0.4), inset 1px 1px 1px #ff8888;
+  border-radius: 14px;
   padding: 6px;
   cursor: pointer;
   width: 175px;
@@ -5744,8 +5745,8 @@ section.acc-inner {
 }
 .floating-tv-chassis:hover {
   transform: translateY(-4px) scale(1.03);
-  border-color: var(--brand);
-  box-shadow: 0 0 25px rgba(204, 0, 0, 0.55);
+  border-color: #ef4444;
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.7), inset 1px 1px 2px #fff;
 }
 .mini-tv-antenna {
   position: absolute;
@@ -5762,30 +5763,25 @@ section.acc-inner {
   width: 2px;
   height: 14px;
   background: linear-gradient(to top, #666, #aaa);
-}
-.mini-rod.rod-left {
-  left: 12px;
-  transform: rotate(-26deg);
-  transform-origin: bottom center;
-}
-.mini-rod.rod-right {
-  right: 12px;
-  transform: rotate(26deg);
+  left: 20px;
+  transform: rotate(20deg);
   transform-origin: bottom center;
 }
 .mini-tv-screen {
   position: relative;
   width: 100%;
   height: 105px;
-  background: #000;
-  border-radius: 6px;
+  background: #111;
+  border-radius: 8px;
   overflow: hidden;
-  border: 2px solid #141414;
+  border: 2px solid #232522;
+  box-shadow: inset 0 0 8px #000;
 }
 .mini-tv-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 .mini-tv-scanlines {
   position: absolute;
@@ -5828,11 +5824,470 @@ section.acc-inner {
   font-family: var(--font-sans);
   font-size: 0.58rem;
   font-weight: 800;
-  color: var(--brand);
+  color: #ffffff;
+  background: rgba(0,0,0,0.35);
+  padding: 2px 6px;
+  border-radius: 3px;
   letter-spacing: 0.08em;
 }
 
-/* ── RETRO TV POPUP MODAL ── */
+/* ══════════════════════════════════════════════════════════════
+   RETRO TELEVISION MODAL POPUP (AUTHENTIC TV.CSS ARCHITECTURE)
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  --television-width: 430px;
+  --television-height: 420px;
+  --television-bgcolor: #b71a11;
+  --television-bgcolor-dark: #88110b;
+  --antenna-gradient: linear-gradient(to top, #444 10%, #999 25% 40%, #444 70%, #2224 90%);
+}
+
+.retro-tv-modal-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 95vw;
+  max-height: 95vh;
+}
+.retro-tv-modal-content .d1-modal-close {
+  top: -24px;
+  right: -24px;
+  font-size: 2.2rem;
+  color: #ffffff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  z-index: 99;
+}
+.retro-tv-modal-content .d1-modal-close:hover {
+  color: var(--brand);
+  transform: scale(1.15);
+}
+
+.tv {
+  width: var(--television-width);
+  height: var(--television-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  user-select: none;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 40px rgba(183, 26, 17, 0.45));
+}
+
+.tv .antenna-container {
+  width: 235px;
+  height: 85px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.tv .antenna {
+  width: 100%;
+  height: 4px;
+  background: var(--antenna-gradient);
+  transform-origin: 100% 50%;
+  transform: rotate(20deg) translateY(3px);
+  z-index: 0;
+  display: flex;
+  align-items: center;
+}
+
+.tv .antenna::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 10px;
+  background: var(--antenna-gradient);
+  border-radius: 24% 53% 53% 24% / 36% 40% 40% 36%;
+  border: 1px solid #444;
+  border-left: 0;
+  border-bottom: 0;
+  transform: translateY(-1px);
+}
+
+.tv .television-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.tv .television {
+  width: 425px;
+  height: 300px;
+  border-radius: 35px / 45px;
+  box-shadow:
+    2px 2px 5px #0004,
+    2px -2px 2px darkred inset,
+    2px 1px 1px #fff inset,
+    0 0 3px 5px #0002;
+  background: var(--television-bgcolor);
+  background: linear-gradient(var(--television-bgcolor), var(--television-bgcolor-dark));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.tv .television-inner {
+  width: 93%;
+  height: 90%;
+  background: linear-gradient(to bottom, #454c45 5%, #232522 35% 45%);
+  border-bottom: 1px solid #fff;
+  box-shadow: 0 1px 2px #470404 inset;
+  border-radius: 25px / 25px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 0.8fr;
+  align-content: center;
+  gap: 3px;
+}
+
+.tv .television-screen-container {
+  border: 1px solid #222;
+  box-shadow:
+    0 2px 2px #888,
+    2px 0 2px #444,
+    -2px 0 2px #444,
+    0 -2px 2px #111;
+  border-radius: 35px / 25px;
+  margin: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    linear-gradient(70deg, #555 15%, transparent 30%),
+    repeating-conic-gradient(#222 0 30deg, #333 60deg, #222 90deg);
+}
+
+.tv .television-crt {
+  width: 99%;
+  height: 95%;
+  background: #111;
+  box-shadow:
+    0 0 5px 2px #111,
+    0 0 10px 2px #1112;
+  border-radius: 85px 85px 85px 85px / 100px 100px 100px 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tv .television-screen {
+  background: #302d30;
+  width: 95%;
+  height: 95%;
+  border-radius: 30%;
+  box-shadow: 0 0 5px 2px #111 inset;
+  overflow: hidden;
+  position: relative;
+}
+
+.tv .television-screen .television-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tv .television-screen .noise {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(to bottom, transparent, #aaa4, #8881, #6664, #4445, #2228, #4443, transparent),
+    repeating-linear-gradient(transparent 0 2px, #25242950 2px 4px);
+  animation: moveBand 8s linear infinite;
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.tv .television-screen .off {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(#222, #1a1a1a, #111);
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.tv.is-off .television-screen .off {
+  opacity: 1;
+}
+
+.tv-screen-badge {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(220, 38, 38, 0.5);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.tv-rec-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 6px #ef4444;
+  animation: recPulse 1.5s infinite;
+}
+@keyframes recPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.tv .television-lateral {
+  display: grid;
+  grid-template-rows: 1.1fr 1fr;
+  gap: 12px;
+  margin: 15px;
+  margin-left: 0;
+}
+
+.tv .dial-container {
+  border: 2px solid #333;
+  border-left: 1px solid #444;
+  border-bottom: 2px solid #444;
+  border-radius: 5px;
+  box-shadow:
+    -2px 2px 6px #111 inset,
+    -1px 2px 3px #aaa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.tv .dial {
+  width: 42px;
+  height: 42px;
+  border: 2px solid #6e706f;
+  border-radius: 50%;
+  box-shadow:
+    -4px 2px 4px #111,
+    0 0 1px 2px #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.tv .dial .data-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.tv .dial .data {
+  color: #888;
+  font-size: 6px;
+  text-shadow: 0 0 2px #888;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transform-origin: 50% 50%;
+}
+
+.tv .dial .data:nth-child(2) { transform: rotate(30deg); }
+.tv .dial .data:nth-child(3) { transform: rotate(60deg); }
+.tv .dial .data:nth-child(4) { transform: rotate(90deg); }
+.tv .dial .data:nth-child(5) { transform: rotate(120deg); }
+.tv .dial .data:nth-child(6) { transform: rotate(150deg); }
+.tv .dial .data:nth-child(7) { transform: rotate(180deg); }
+.tv .dial .data:nth-child(8) { transform: rotate(210deg); }
+.tv .dial .data:nth-child(9) { transform: rotate(240deg); }
+.tv .dial .data:nth-child(10) { transform: rotate(270deg); }
+.tv .dial .data:nth-child(11) { transform: rotate(300deg); }
+.tv .dial .data:nth-child(12) { transform: rotate(330deg); }
+
+.tv .dial .dial-core {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: conic-gradient(#eee 0deg 45deg, #666 70deg 285deg, #eee 320deg);
+  position: absolute;
+}
+
+.tv .dial .selector {
+  position: absolute;
+  width: 75%;
+  background: linear-gradient(#666 30%, #aaa 40%);
+  height: 4px;
+  border: 1px solid #666;
+  border-radius: 4px / 8px;
+  transform: rotate(calc(var(--value, 0deg) - 90deg));
+  transition: transform 0.25s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.tv .dial.channel-button {
+  background: #000;
+}
+.tv .dial.volume-button {
+  background: #ccc;
+}
+.tv .dial.volume-button .data {
+  color: #444;
+}
+
+.tv .speaker-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px 0;
+  margin-bottom: 12px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.tv .speaker-container div {
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(#000, #222);
+  border-radius: 50%;
+  border-bottom: 1px solid #fff;
+}
+
+.tv .buttons {
+  position: absolute;
+  bottom: 5px;
+  right: 30px;
+  width: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tv .buttons .button-container {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(to bottom, #fff 40%, #aaa 50% 55%, #666 70%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tv .buttons .button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(to top, #fff 40%, #aaa 50% 55%, #666 70%);
+  box-shadow: -1px -1px 1px 2px #000;
+  transform: translate(2px, 1px);
+  transition: transform 0.1s, box-shadow 0.1s;
+  cursor: pointer;
+}
+.tv .buttons .button:active {
+  transform: translate(0, 0);
+  box-shadow: 0 0 1px 2px #000;
+}
+
+.tv .television-base {
+  width: 350px;
+  height: 25px;
+  background: linear-gradient(var(--television-bgcolor), var(--television-bgcolor-dark));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 4px #0009;
+  position: relative;
+}
+.tv .television-base::before,
+.tv .television-base::after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 100%;
+  background-color: var(--television-bgcolor);
+  background-image: linear-gradient(var(--television-bgcolor), var(--television-bgcolor-dark));
+  transform: translateX(var(--x)) skewX(var(--skew-x));
+}
+.tv .television-base::before {
+  --skew-x: 10deg;
+  --x: -2px;
+}
+.tv .television-base::after {
+  --skew-x: -10deg;
+  --x: 2px;
+}
+
+.tv .television-base .slots {
+  width: 50%;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+.tv .television-base .slot {
+  width: 4px;
+  height: 100%;
+  background: #0b0000;
+  margin-left: 3px;
+  border-radius: 2px / 1px;
+}
+
+.tv .foot-container {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+.tv .foot {
+  width: 20px;
+  height: 10px;
+  background: var(--television-bgcolor);
+}
+.tv .foot.left {
+  box-shadow: 4px 0 #850101;
+}
+.tv .foot.right {
+  box-shadow: -4px 0 #850101;
+}
+
+@keyframes moveBand {
+  0% {
+    background-position-y: 0, 0;
+  }
+  100% {
+    background-position-y: -221px, -150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .retro-tv-modal-content .tv {
+    transform: scale(calc((100vw - 32px) / 430));
+    transform-origin: center center;
+  }
+  .retro-tv-modal-content .d1-modal-close {
+    top: -38px;
+    right: 5px;
+  }
+}
 
 /* ── MAIN KEY VISUAL (KV) SHOWCASE IN MARKETING SECTION ── */
 
@@ -7828,34 +8283,117 @@ body.gsap-ready .acc-section .rr {
   </div>
 </div>
 
-<!-- RETRO TV POPUP MODAL (AUTHENTIC VINTAGE CRT-90) -->
+<!-- RETRO TV POPUP MODAL (MANZDEV RETRO TELEVISION ARCHITECTURE) -->
 <div class="d1-modal" id="retro-tv-modal" onclick="if(event.target===this) closeTvPopup()">
   <div class="retro-tv-modal-content">
     <button class="d1-modal-close" onclick="closeTvPopup()" title="Close TV">&times;</button>
     
-    <div class="retro-tv-box modal-tv-box">
-      <div class="retro-tv-antenna">
-        <span class="antenna-rod left"></span>
-        <span class="antenna-rod right"></span>
+    <div class="tv" id="retro-tv">
+      <!-- Antenna -->
+      <div class="antenna-container">
+        <div class="antenna"></div>
       </div>
-      <div class="retro-tv-screen modal-tv-screen">
-        <div class="crt-poweron-overlay">
-          <div class="crt-flash-line"></div>
-          <div class="crt-static-noise"></div>
+
+      <!-- Television Container -->
+      <div class="television-container">
+        <div class="television">
+          <div class="television-inner">
+            <!-- Screen Housing -->
+            <div class="television-screen-container">
+              <div class="television-crt">
+                <div class="television-screen">
+                  <video id="modal-tv-video" autoplay loop playsinline class="television-video"
+                    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"></video>
+                  <div class="noise"></div>
+                  <div class="off"></div>
+                  <div class="tv-screen-badge">
+                    <span class="tv-rec-dot"></span>
+                    <span>CH-09 &bull; LIHF 2026 LIVE</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Lateral Control Panel -->
+            <div class="television-lateral">
+              <div class="dial-container">
+                <!-- Channel Rotary Dial -->
+                <div class="dial channel-button" id="tv-channel-dial" title="Click to rotate Channel Dial">
+                  <div class="data-container">
+                    <span class="data">1</span>
+                    <span class="data">2</span>
+                    <span class="data">3</span>
+                    <span class="data">4</span>
+                    <span class="data">5</span>
+                    <span class="data">6</span>
+                    <span class="data">7</span>
+                    <span class="data">8</span>
+                    <span class="data">9</span>
+                    <span class="data">10</span>
+                    <span class="data">11</span>
+                    <span class="data">12</span>
+                  </div>
+                  <div class="dial-core"></div>
+                  <div class="selector" style="--value: 90deg;"></div>
+                </div>
+
+                <!-- Volume Rotary Dial -->
+                <div class="dial volume-button" id="tv-volume-dial" title="Click to adjust Volume">
+                  <div class="data-container">
+                    <span class="data">1</span>
+                    <span class="data">2</span>
+                    <span class="data">3</span>
+                    <span class="data">4</span>
+                    <span class="data">5</span>
+                    <span class="data">6</span>
+                    <span class="data">7</span>
+                    <span class="data">8</span>
+                    <span class="data">9</span>
+                    <span class="data">10</span>
+                    <span class="data">11</span>
+                    <span class="data">12</span>
+                  </div>
+                  <div class="dial-core"></div>
+                  <div class="selector" style="--value: 240deg;"></div>
+                </div>
+              </div>
+
+              <!-- Speaker Perforations Grid (6x4) -->
+              <div class="speaker-container">
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+              </div>
+            </div>
+
+            <!-- Chrome Push Buttons -->
+            <div class="buttons">
+              <div class="button-container" title="Power On / Off">
+                <div class="button" id="tv-power-btn" onclick="toggleTvPower()"></div>
+              </div>
+              <div class="button-container" title="Sound Mute / Unmute">
+                <div class="button" id="tv-mute-btn" onclick="toggleTvMute()"></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <video id="modal-tv-video" controls autoplay loop playsinline class="retro-tv-video"
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"></video>
-        <div class="retro-tv-scanlines"></div>
-        <div class="retro-tv-vignette"></div>
-        <div class="retro-tv-badge"><span class="rec-dot"></span><span>REC • LIHF 2026 SHOWREEL</span></div>
-      </div>
-      <div class="retro-tv-panel">
-        <div class="retro-tv-speaker"><span></span><span></span><span></span><span></span><span></span></div>
-        <div class="retro-tv-brand">LIHF VINTAGE CRT-90 • BROADCASTING LIVE</div>
-        <div class="retro-tv-dials">
-          <div class="tv-rotary-knob" title="Volume Dial"><span class="knob-indicator"></span></div>
-          <div class="tv-rotary-knob" title="Tuning Dial"><span class="knob-indicator"></span></div>
-          <div class="tv-power-switch" title="Power Indicator"><span class="power-led"></span></div>
+
+        <!-- Television Base with Ventilation Slots -->
+        <div class="television-base">
+          <div class="slots">
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+          </div>
+        </div>
+
+        <!-- Television Feet -->
+        <div class="foot-container">
+          <div class="foot left"></div>
+          <div class="foot right"></div>
         </div>
       </div>
     </div>
@@ -10605,7 +11143,87 @@ setInterval(updateLihfCountdown, 1000);
 document.addEventListener('DOMContentLoaded', updateLihfCountdown);
 updateLihfCountdown();
 
-// ── RETRO TV FLOATING POPUP CONTROLS ──
+// ── RETRO TV FLOATING POPUP CONTROLS (TV.CSS ARCHITECTURE) ──
+let tvChannelAngle = 90;
+let tvVolumeAngle = 240;
+
+function setupTvInteractiveControls() {
+  const channelDial = document.getElementById('tv-channel-dial');
+  if (channelDial) {
+    const sel = channelDial.querySelector('.selector');
+    channelDial.addEventListener('click', (e) => {
+      e.stopPropagation();
+      tvChannelAngle = (tvChannelAngle + 30) % 360;
+      if (sel) sel.style.setProperty('--value', tvChannelAngle + 'deg');
+    });
+  }
+
+  const volumeDial = document.getElementById('tv-volume-dial');
+  if (volumeDial) {
+    const sel = volumeDial.querySelector('.selector');
+    const vid = document.getElementById('modal-tv-video');
+    volumeDial.addEventListener('click', (e) => {
+      e.stopPropagation();
+      tvVolumeAngle = (tvVolumeAngle + 30) % 360;
+      if (sel) sel.style.setProperty('--value', tvVolumeAngle + 'deg');
+      if (vid) {
+        vid.muted = false;
+        vid.volume = Math.max(0.1, (tvVolumeAngle / 360));
+      }
+    });
+  }
+}
+
+function openTvPopup() {
+  const modal = document.getElementById('retro-tv-modal');
+  if (modal) {
+    modal.classList.add('open');
+    const tv = document.getElementById('retro-tv');
+    if (tv) tv.classList.remove('is-off');
+    const vid = document.getElementById('modal-tv-video');
+    if (vid) {
+      vid.currentTime = 0;
+      vid.play().catch(e => console.log('Autoplay caught:', e));
+    }
+  }
+}
+
+function closeTvPopup() {
+  const modal = document.getElementById('retro-tv-modal');
+  if (modal) {
+    modal.classList.remove('open');
+    const vid = document.getElementById('modal-tv-video');
+    if (vid) vid.pause();
+  }
+}
+
+function toggleTvPower() {
+  const tv = document.getElementById('retro-tv');
+  const vid = document.getElementById('modal-tv-video');
+  if (!tv) return;
+  tv.classList.toggle('is-off');
+  if (tv.classList.contains('is-off')) {
+    if (vid) vid.pause();
+  } else {
+    if (vid) vid.play().catch(e => console.log(e));
+  }
+}
+
+function toggleTvMute() {
+  const vid = document.getElementById('modal-tv-video');
+  if (vid) {
+    vid.muted = !vid.muted;
+  }
+}
+
+function dismissFloatingTv(e) {
+  if (e) e.stopPropagation();
+  const ftv = document.getElementById('floating-tv-launcher');
+  if (ftv) ftv.classList.add('dismissed');
+}
+
+document.addEventListener('DOMContentLoaded', setupTvInteractiveControls);
+setupTvInteractiveControls();
 
 // ── KEY VISUAL LIGHTBOX MODAL CONTROLS ──
 
