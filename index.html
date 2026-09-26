@@ -5138,7 +5138,7 @@ section.acc-inner {
 
 
 /* ══════════════════════════════════════════════════════════════
-   HERO REFINED: RIGHT-SIDE EMBLEM, FLOATING TV & LIVE COUNTDOWN
+   HERO REFINED: RIGHT-SIDE EMBLEM, FLOATING TV & LIVE COUNTDOWN (UI/UX PRO MAX)
    ══════════════════════════════════════════════════════════════ */
 .hero-header-lockup {
   display: flex !important;
@@ -5147,14 +5147,56 @@ section.acc-inner {
   margin-bottom: 0.15rem !important;
 }
 
-/* ── HEADLINE: EQUAL FONT SIZE ACROSS ALL WORDS (ANTON STREET TYPOGRAPHY) ── */
+/* ── TOP BADGES ── */
+.hero-top-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.hero-top-badges .badge-launch {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--foreground);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+.hero-top-badges .badge-launch:hover {
+  background: rgba(255, 255, 255, 0.065);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.hero-top-badges .badge-launch.badge-gold {
+  border-color: rgba(212, 175, 55, 0.28);
+  color: var(--gold);
+  background: rgba(212, 175, 55, 0.05);
+}
+.hero-top-badges .badge-launch.badge-muted {
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #a1a1aa;
+}
+.hero-top-badges .mono-icon {
+  color: inherit;
+  opacity: 0.85;
+  flex-shrink: 0;
+}
+
+/* ── HEADLINE: ANTON STREET TYPOGRAPHY (BALANCED HIERARCHY) ── */
 .d1-headline {
   font-family: 'Anton', 'Barlow Condensed', sans-serif !important;
   font-weight: 900 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.02em !important;
   margin: 0 !important;
-  line-height: 0.96 !important;
+  line-height: 0.98 !important;
   display: flex !important;
   flex-direction: column !important;
   gap: 0.12rem !important;
@@ -5177,16 +5219,16 @@ section.acc-inner {
 .hero-date-countdown-card {
   width: 100%;
   max-width: 580px;
-  background: rgba(18, 18, 22, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(22, 22, 28, 0.9) 0%, rgba(12, 12, 16, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-left: 3px solid var(--brand);
   border-radius: 8px;
-  padding: 1rem 1.25rem;
+  padding: 1.1rem 1.35rem;
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  gap: 0.9rem;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 .hero-date-top {
   display: flex;
@@ -5198,13 +5240,25 @@ section.acc-inner {
 .hero-date-main-badge {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.7rem;
+}
+.hero-date-icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: rgba(204, 0, 0, 0.12);
+  border: 1px solid rgba(204, 0, 0, 0.25);
+  color: var(--brand);
+  flex-shrink: 0;
 }
 .hero-event-date-large {
   font-family: 'Anton', 'Inter', sans-serif;
   font-size: clamp(1.2rem, 1.8vw, 1.55rem);
   font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   color: #ffffff;
   line-height: 1;
 }
@@ -5213,13 +5267,13 @@ section.acc-inner {
   align-items: center;
   gap: 0.4rem;
   font-family: var(--font-sans);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--gold);
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  padding: 0.3rem 0.75rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  padding: 0.35rem 0.75rem;
   border-radius: 4px;
   text-transform: uppercase;
 }
@@ -5228,8 +5282,8 @@ section.acc-inner {
 .hero-countdown-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding-top: 0.65rem;
+  gap: 0.55rem;
+  padding-top: 0.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 .countdown-status-indicator {
@@ -5255,7 +5309,7 @@ section.acc-inner {
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.15em;
-  color: var(--muted-foreground);
+  color: #a1a1aa;
   text-transform: uppercase;
 }
 .hero-countdown-grid {
@@ -5269,12 +5323,17 @@ section.acc-inner {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-top: 2px solid var(--brand);
   border-radius: 6px;
-  padding: 0.5rem 0.4rem;
+  padding: 0.55rem 0.4rem;
   min-width: 58px;
+  transition: all 0.2s ease;
+}
+.cd-cell:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.14);
 }
 .cd-number {
   font-family: 'Anton', 'JetBrains Mono', monospace;
@@ -5290,11 +5349,11 @@ section.acc-inner {
 }
 .cd-unit {
   font-family: var(--font-sans);
-  font-size: 0.58rem;
-  font-weight: 800;
+  font-size: 0.6rem;
+  font-weight: 700;
   letter-spacing: 0.14em;
-  color: var(--gold);
-  margin-top: 0.2rem;
+  color: #a1a1aa;
+  margin-top: 0.22rem;
   text-transform: uppercase;
 }
 .cd-sep {
@@ -5374,6 +5433,10 @@ section.acc-inner {
   border-radius: 9999px;
   text-transform: uppercase;
 }
+.emblem-badge-pill .mono-icon {
+  color: var(--gold);
+  flex-shrink: 0;
+}
 .emblem-hint-text {
   font-family: var(--font-sans);
   font-size: 0.68rem;
@@ -5385,73 +5448,120 @@ section.acc-inner {
 
 /* ── SUB-DESCRIPTION ── */
 .hero-sub-blurb {
-  font-family: var(--ff-b) !important;
-  font-size: 0.95rem !important;
-  color: rgba(255, 255, 255, 0.8) !important;
-  line-height: 1.55 !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.98rem !important;
+  color: #a1a1aa !important;
+  line-height: 1.65 !important;
   max-width: 580px !important;
   margin: 0 !important;
-  padding-left: 0.85rem !important;
-  border-left: 3px solid var(--brand) !important;
+  padding-left: 0.95rem !important;
+  border-left: 2px solid var(--brand) !important;
+  font-weight: 400 !important;
 }
 
-/* ── CULTURE PILLARS ── */
+/* ── ACTION BUTTONS ── */
+.hero-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-top: 0.15rem;
+}
+
+/* ── CULTURE PILLARS (MONOTONE ICONS) ── */
 .hero-pillars-pills {
   display: flex !important;
   flex-wrap: wrap !important;
   gap: 0.45rem !important;
+  max-width: 580px !important;
+  margin-top: 0.25rem !important;
 }
-.pillar-pill {
-  font-family: var(--ff-a) !important;
+.hero-pillars-pills .pillar-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  font-family: var(--font-sans) !important;
   font-size: 0.72rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.1em !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  background: rgba(255, 255, 255, 0.05) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  padding: 0.3rem 0.75rem !important;
-  border-radius: 4px !important;
-  text-transform: uppercase !important;
-  transition: all 0.25s ease !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  color: #d4d4d8 !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding: 0.35rem 0.75rem !important;
+  border-radius: 9999px !important;
+  text-transform: none !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: default;
 }
-.pillar-pill:hover {
-  background: rgba(204, 0, 0, 0.2) !important;
-  border-color: var(--brand) !important;
+.hero-pillars-pills .pillar-pill .pillar-mono-icon {
+  color: #a1a1aa;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+}
+.hero-pillars-pills .pillar-pill:hover {
+  background: rgba(204, 0, 0, 0.12) !important;
+  border-color: rgba(204, 0, 0, 0.4) !important;
   color: #ffffff !important;
+  transform: translateY(-1px);
+}
+.hero-pillars-pills .pillar-pill:hover .pillar-mono-icon {
+  color: #ef4444;
 }
 
-/* ── STATS CHIPS ── */
+/* ── STATS CHIPS (MONOTONE MICRO-ICONS) ── */
 .d1-awards-row {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr) !important;
   gap: 0.65rem !important;
   width: 100% !important;
   max-width: 580px !important;
-  margin-top: 0.1rem !important;
+  margin-top: 0.4rem !important;
 }
 .d1-award-chip {
-  background: rgba(18, 18, 18, 0.85) !important;
+  background: linear-gradient(180deg, rgba(24, 24, 28, 0.75) 0%, rgba(14, 14, 18, 0.9) 100%) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-top: 3px solid var(--brand) !important;
-  border-radius: 4px !important;
-  padding: 0.55rem 0.75rem !important;
+  border-top: 2px solid var(--brand) !important;
+  border-radius: 6px !important;
+  padding: 0.65rem 0.85rem !important;
   text-align: left !important;
+  transition: all 0.2s ease !important;
+}
+.d1-award-chip:hover {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  border-top-color: #ef4444 !important;
+  transform: translateY(-1px);
+  background: rgba(28, 28, 34, 0.85) !important;
+}
+.d1-award-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.3rem;
 }
 .d1-award-name {
   font-family: 'Anton', sans-serif !important;
-  font-size: 1.22rem !important;
+  font-size: 1.25rem !important;
   color: #ffffff !important;
   line-height: 1 !important;
+  letter-spacing: 0.02em !important;
   display: block !important;
 }
+.d1-award-chip .chip-mono-icon {
+  color: var(--muted-foreground);
+  opacity: 0.65;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 2px;
+}
 .d1-award-count {
-  font-family: var(--ff-a) !important;
-  font-size: 0.65rem !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.62rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.12em !important;
-  color: var(--gr-l) !important;
-  margin-top: 0.25rem !important;
+  color: #a1a1aa !important;
+  margin-top: 0.3rem !important;
   display: block !important;
+  text-transform: uppercase !important;
 }
 
 /* ── FLOATING RETRO TV WIDGET ── */
@@ -7326,36 +7436,41 @@ body.gsap-ready .acc-section .rr {
       <!-- LEFT: Launch UI Hero Content -->
       <div class="hero-left-col" style="display:flex; flex-direction:column; gap:1.35rem; align-items:flex-start;">
 
-        <!-- Launch UI Top Pill Badge -->
-        <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
+        <!-- Launch UI Top Pill Badges (Monotone Icons + Cohesive Styling) -->
+        <div class="hero-top-badges">
           <span class="badge-launch">
             <span class="badge-pulse-dot"></span>
+            <svg class="mono-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             <span>OFFICIAL FESTIVAL PROPOSAL</span>
           </span>
-          <span class="badge-launch" style="border-color:rgba(212,175,55,0.3); color:var(--gold);">
-            <span>EST. 2017 &nbsp;•&nbsp; 9TH EDITION</span>
+          <span class="badge-launch badge-gold">
+            <svg class="mono-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H8v4h8v-4h-1c-.55 0-1-.45-1-1v-2.34"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+            <span>EST. 2017 &bull; 9TH EDITION</span>
           </span>
-          <span class="badge-launch" style="border-color:rgba(255,255,255,0.12); color:var(--foreground);">
+          <span class="badge-launch badge-muted">
+            <svg class="mono-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
             <span>VIENTIANE, LAOS</span>
           </span>
         </div>
 
         <!-- Launch UI Title: Equal Size Across All Words (Anton Street Typography) -->
         <h1 class="d1-headline" style="margin:0;">
-          <span class="d1-hl-line" style="font-size:clamp(2.2rem, 3.8vw, 3.7rem);">LAO INTERNATIONAL</span>
-          <span class="d1-hl-line" style="font-size:clamp(2.2rem, 3.8vw, 3.7rem);">HIPHOP FESTIVAL</span>
-          <span class="d1-hl-line d1-hl-year" style="font-size:clamp(2.2rem, 3.8vw, 3.7rem);">2026</span>
+          <span class="d1-hl-line">LAO INTERNATIONAL</span>
+          <span class="d1-hl-line">HIPHOP FESTIVAL</span>
+          <span class="d1-hl-line d1-hl-year">2026</span>
         </h1>
 
-        <!-- Large Event Date & Live Real-Time Countdown -->
+        <!-- Large Event Date & Live Real-Time Countdown Card -->
         <div class="hero-date-countdown-card">
           <div class="hero-date-top">
             <div class="hero-date-main-badge">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--brand);"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
-              <span class="hero-event-date-large">13 – 15 NOVEMBER 2026</span>
+              <span class="hero-date-icon-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+              </span>
+              <span class="hero-event-date-large">13 &ndash; 15 NOVEMBER 2026</span>
             </div>
             <div class="hero-venue-tag">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               <span>LAO-ITECC, VIENTIANE</span>
             </div>
           </div>
@@ -7379,61 +7494,98 @@ body.gsap-ready .acc-section .rr {
               <span class="cd-sep">:</span>
               <div class="cd-cell">
                 <span class="cd-number" id="cd-mins">--</span>
-                <span class="cd-unit">MINUTES</span>
+                <span class="cd-unit">MINS</span>
               </div>
               <span class="cd-sep">:</span>
               <div class="cd-cell">
                 <span class="cd-number cd-number-sec" id="cd-secs">--</span>
-                <span class="cd-unit">SECONDS</span>
+                <span class="cd-unit">SECS</span>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Sub-description -->
-        <p class="hero-sub-blurb" style="font-family:var(--font-sans); font-size:1.02rem; color:var(--muted-foreground); line-height:1.6; max-width:580px; margin:0; border-left:2px solid var(--brand); padding-left:1rem;">
-          Laos' premier urban youth, street culture &amp; regional dance platform — 9 years of building the movement uniting Breaking, Rap, DJing, Graffiti, and Community across Southeast Asia.
+        <p class="hero-sub-blurb">
+          Laos' premier urban youth, street culture &amp; regional dance platform &mdash; 9 years of building the movement uniting Breaking, Rap, DJing, Graffiti, and Community across Southeast Asia.
         </p>
 
-        <!-- Launch UI Dual Action Buttons -->
-        <div style="display:flex; align-items:center; gap:0.85rem; flex-wrap:wrap; margin-top:0.2rem;">
+        <!-- Launch UI Dual Action Buttons (Monotone SVG Icons) -->
+        <div class="hero-actions-group">
           <a href="#packages" class="btn-launch-primary">
             <span>Explore Sponsorship Packages</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
           </a>
           <button id="open-showreel-btn" onclick="openTvPopup()" class="btn-launch-secondary" title="Watch Vintage CRT-90 Showreel">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline><polygon points="10 11 15 14.5 10 18 10 11" fill="currentColor"></polygon></svg>
             <span>Watch Showreel TV</span>
           </button>
         </div>
 
-        <!-- 7 Culture Pillars Activity Pills -->
-        <div class="hero-pillars-pills" style="margin-top:0.4rem;">
-          <span class="pillar-pill">🔥 Breaking 2v2</span>
-          <span class="pillar-pill">💃 Open Style 2v2</span>
-          <span class="pillar-pill">🏆 Crew Showcase</span>
-          <span class="pillar-pill">🎧 DJ Open Format</span>
-          <span class="pillar-pill">🎨 Live Graffiti</span>
-          <span class="pillar-pill">🎤 Rap 7 to Smoke</span>
-          <span class="pillar-pill">⚡ Hip-Hop Concert</span>
+        <!-- 8 Culture Pillars Activity Pills (Pure Monotone SVG Icons) -->
+        <div class="hero-pillars-pills">
+          <span class="pillar-pill">
+            <svg class="pillar-mono-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Breaking 2v2</span>
+          </span>
+          <span class="pillar-pill">
+            <svg class="pillar-mono-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+            <span>Open Style 2v2</span>
+          </span>
+          <span class="pillar-pill">
+            <svg class="pillar-mono-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Crew Showcase</span>
+          </span>
+          <span class="pillar-pill">
+            <svg class="pillar-mono-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+            <span>DJ Open Format</span>
+          </span>
+          <span class="pillar-pill">
+            <svg class="pillar-mono-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+            <span>Live Graffiti</span>
+          </span>
+          <span class="pillar-pill">
+            <svg class="pillar-mono-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            <span>Rap 7 to Smoke</span>
+          </span>
+          <span class="pillar-pill">
+            <svg class="pillar-mono-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            <span>Dance Workshops</span>
+          </span>
+          <span class="pillar-pill">
+            <svg class="pillar-mono-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            <span>Hip-Hop Concert</span>
+          </span>
         </div>
 
-        <!-- Launch UI Key Impact Stats Grid -->
-        <div class="d1-awards-row" style="margin-top:0.5rem;">
+        <!-- Launch UI Key Impact Stats Grid (Monotone Accent Icons) -->
+        <div class="d1-awards-row">
           <div class="d1-award-chip">
-            <span class="d1-award-name">10,000+</span>
+            <div class="d1-award-top">
+              <span class="d1-award-name">10,000+</span>
+              <svg class="chip-mono-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
             <span class="d1-award-count">ATTENDEES</span>
           </div>
           <div class="d1-award-chip">
-            <span class="d1-award-name">10M+</span>
+            <div class="d1-award-top">
+              <span class="d1-award-name">10M+</span>
+              <svg class="chip-mono-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
             <span class="d1-award-count">MEDIA REACH</span>
           </div>
           <div class="d1-award-chip">
-            <span class="d1-award-name">500+</span>
+            <div class="d1-award-top">
+              <span class="d1-award-name">500+</span>
+              <svg class="chip-mono-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
             <span class="d1-award-count">TALENTS</span>
           </div>
           <div class="d1-award-chip">
-            <span class="d1-award-name">159M</span>
+            <div class="d1-award-top">
+              <span class="d1-award-name">159M</span>
+              <svg class="chip-mono-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H8v4h8v-4h-1c-.55 0-1-.45-1-1v-2.34"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+            </div>
             <span class="d1-award-count">LAK PRIZE POOL</span>
           </div>
         </div>
@@ -7441,8 +7593,8 @@ body.gsap-ready .acc-section .rr {
       </div>
 
       <!-- RIGHT: Large Official Festival Emblem Logo (Centerpiece with Shockwaves) -->
-      <div class="hero-right-col" style="display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative;">
-        <div class="hero-emblem-showcase" id="hero-logo-wrap" onclick="replayLogoIntro()" title="LIHF 2026 Official Emblem • Click to replay shockwaves">
+      <div class="hero-right-col">
+        <div class="hero-emblem-showcase" id="hero-logo-wrap" onclick="replayLogoIntro()" title="LIHF 2026 Official Emblem &bull; Click to replay shockwaves">
           <!-- Radial Ambient Glow & Expanding Shockwaves -->
           <div class="emblem-ambient-halo"></div>
           <div class="hero-logo-shockwave"></div>
@@ -7453,12 +7605,12 @@ body.gsap-ready .acc-section .rr {
         <div class="hero-emblem-caption">
           <div class="emblem-badge-pill">
             <span class="badge-pulse-dot" style="background:var(--gold);"></span>
+            <svg class="mono-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
             <span>OFFICIAL FESTIVAL EMBLEM</span>
           </div>
           <span class="emblem-hint-text">Click emblem to replay shockwave effect</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
