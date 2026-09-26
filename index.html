@@ -7,7 +7,7 @@
 <meta name="description" content="LIHF 2026 Official Sponsorship &amp; Partnership Proposal. 13–15 November 2026 at Lao-ITECC, Vientiane." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Teko:wght@600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Roboto+Mono:wght@600;700;800;900&family=Teko:wght@600;700&display=swap" rel="stylesheet" />
 <!-- GSAP loaded async — content visible by default, animations are progressive enhancement -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
@@ -5312,57 +5312,187 @@ section.acc-inner {
   color: #a1a1aa;
   text-transform: uppercase;
 }
-.hero-countdown-grid {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+@layer flip {
+  .flip > div:nth-of-type(2) {
+    z-index: 2;
+    rotate: x -180deg;
+    transform: rotateX(-180deg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .flip div:nth-of-type(3) {
+    z-index: 3;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
 }
-.cd-cell {
-  flex: 1;
+
+/* ── 3D SPLIT-FLAP COUNTDOWN BOARD (CRAFT OF UI) ── */
+:root {
+  --perspective: 2.2;
+}
+
+.board[data-hide*='day'] [data-key*='day'],
+.board[data-hide*='hour'] [data-key*='hour'] {
+  display: none;
+}
+
+.board {
+  align-items: center;
+  display: flex;
+  gap: 0.5ch;
+  position: relative;
+  flex-direction: row;
+  font-family: 'Roboto Mono', monospace;
+  padding: 8px 12px;
+  background: rgba(10, 10, 14, 0.95);
+  background: light-dark(hsl(0 0% 40%), hsl(0 0% 0%));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.8), 0 8px 24px rgba(0, 0, 0, 0.5);
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.board > span[data-key] {
+  display: inline-block;
+  width: 0;
+  opacity: 0.6;
+  height: 2.2rem;
+  position: relative;
+  margin: 0 0.35ch;
+  color: var(--gold, #d4af37);
+  flex-shrink: 0;
+}
+
+.board > span[data-key]::before,
+.board > span[data-key]::after {
+  content: '';
+  position: absolute;
+  width: 0.45ch;
+  height: 0.45ch;
+  top: 40%;
+  left: 50%;
+  translate: -50% -130%;
+  aspect-ratio: 1;
+  background: currentColor;
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.35);
+}
+.board > span[data-key]::after {
+  translate: -50% 60%;
+}
+
+.flip-segment {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-top: 2px solid var(--brand);
-  border-radius: 6px;
-  padding: 0.55rem 0.4rem;
-  min-width: 58px;
-  transition: all 0.2s ease;
+  gap: 0.35rem;
+  flex-shrink: 0;
 }
-.cd-cell:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.14);
+
+.flip-line {
+  display: flex;
+  gap: 0.4ch;
 }
-.cd-number {
-  font-family: 'Anton', 'JetBrains Mono', monospace;
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
-  font-weight: 900;
-  color: #ffffff;
-  line-height: 1;
-  letter-spacing: 0.04em;
-}
-.cd-number.cd-number-sec {
-  color: var(--brand);
-  text-shadow: 0 0 15px rgba(204, 0, 0, 0.5);
-}
-.cd-unit {
+
+.flip-unit-label {
   font-family: var(--font-sans);
   font-size: 0.6rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.14em;
-  color: #a1a1aa;
-  margin-top: 0.22rem;
+  color: var(--gold, #d4af37);
   text-transform: uppercase;
 }
-.cd-sep {
-  font-family: 'Anton', sans-serif;
-  font-size: 1.4rem;
-  color: rgba(204, 0, 0, 0.6);
-  font-weight: 900;
-  line-height: 1;
+
+.flip {
+  --font-level: 8;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 700;
+  color: var(--color, canvasText);
+  width: 1.5ch;
+  line-height: 1.25;
+  display: inline-block;
+  height: 1.25em;
+  text-align: center;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: calc(var(--perspective, 2) * 1em);
   user-select: none;
+}
+
+.flip::before,
+.flip::after {
+  content: '';
+  position: absolute;
+  width: calc(10% - 0.05em);
+  height: calc(20% - 0.05em);
+  background: color-mix(in oklch, canvas, canvasText 15%);
+  background: #2a2a34;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 10;
+  border-radius: 1px;
+}
+.flip::before {
+  left: -1px;
+}
+.flip::after {
+  right: -1px;
+}
+.flip .flip-holder {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.flip div {
+  position: absolute;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  inset: 0;
+  border-radius: 4px;
+  background: radial-gradient(
+      100% 100% at 50% 100%,
+      light-dark(hsl(0 0% 88% / 0.2), hsl(0 0% 60% / 0.2)),
+      #0000
+    ),
+    light-dark(hsl(0 0% 92%), hsl(0 0% 15%));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 4px 10px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.flip div:nth-of-type(odd) {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 40%,
+    calc(90% + 0.025em) 40%,
+    calc(90% + 0.025em) 48%,
+    calc(10% - 0.025em) 48%,
+    calc(10% - 0.025em) 40%,
+    0 40%
+  );
+}
+
+.flip div:nth-of-type(even) {
+  clip-path: polygon(
+    0 60%,
+    calc(10% - 0.025em) 60%,
+    calc(10% - 0.025em) 52%,
+    calc(90% + 0.025em) 52%,
+    calc(90% + 0.025em) 60%,
+    100% 60%,
+    100% 100%,
+    0 100%
+  );
+}
+
+.flip-segment[data-key='second'] .flip {
+  color: var(--brand, #ef4444);
+  text-shadow: 0 0 14px rgba(220, 38, 38, 0.5);
 }
 
 /* ── HERO RIGHT COLUMN: PROMINENT FESTIVAL LOGO WITH SHOCKWAVE ── */
@@ -7481,25 +7611,38 @@ body.gsap-ready .acc-section .rr {
               <span class="countdown-pulse-dot"></span>
               <span class="countdown-status-text">COUNTDOWN TO FESTIVAL KICKOFF</span>
             </div>
-            <div class="hero-countdown-grid" id="lihf-countdown">
-              <div class="cd-cell">
-                <span class="cd-number" id="cd-days">---</span>
-                <span class="cd-unit">DAYS</span>
+            <div class="board" id="lihf-countdown-board">
+              <!-- DAYS -->
+              <div class="flip-segment" data-key="day">
+                <div class="flip-line" id="flip-days"></div>
+                <span class="flip-unit-label">DAYS</span>
               </div>
-              <span class="cd-sep">:</span>
-              <div class="cd-cell">
-                <span class="cd-number" id="cd-hours">--</span>
-                <span class="cd-unit">HOURS</span>
+
+              <!-- SEPARATOR -->
+              <span data-key="day"></span>
+
+              <!-- HOURS -->
+              <div class="flip-segment" data-key="hour">
+                <div class="flip-line" id="flip-hours"></div>
+                <span class="flip-unit-label">HOURS</span>
               </div>
-              <span class="cd-sep">:</span>
-              <div class="cd-cell">
-                <span class="cd-number" id="cd-mins">--</span>
-                <span class="cd-unit">MINS</span>
+
+              <!-- SEPARATOR -->
+              <span data-key="hour"></span>
+
+              <!-- MINS -->
+              <div class="flip-segment" data-key="minute">
+                <div class="flip-line" id="flip-mins"></div>
+                <span class="flip-unit-label">MINS</span>
               </div>
-              <span class="cd-sep">:</span>
-              <div class="cd-cell">
-                <span class="cd-number cd-number-sec" id="cd-secs">--</span>
-                <span class="cd-unit">SECS</span>
+
+              <!-- SEPARATOR -->
+              <span data-key="minute"></span>
+
+              <!-- SECS -->
+              <div class="flip-segment" data-key="second">
+                <div class="flip-line" id="flip-secs"></div>
+                <span class="flip-unit-label">SECS</span>
               </div>
             </div>
           </div>
@@ -10297,35 +10440,167 @@ window.addEventListener('load', () => {
 
 <script>
 // ── LIVE COUNTDOWN TIMER TO LIHF 2026 KICKOFF ──
+// ── 3D SPLIT-FLAP REAL-TIME COUNTDOWN CONTROLLER (CRAFT OF UI) ──
+class FlipDigitSlot {
+  constructor(container, initialChar = '0', color = null) {
+    this.container = container;
+    this.currentChar = initialChar;
+    this.color = color;
+    this.element = this.create();
+    this.container.appendChild(this.element);
+
+    this.unfoldTop = this.element.children[0];
+    this.unfoldBottom = this.element.children[1];
+    this.foldTop = this.element.children[2];
+    this.foldBottom = this.element.children[3];
+
+    this.setInitial(initialChar);
+  }
+
+  create() {
+    const el = document.createElement('div');
+    el.className = 'flip';
+    if (this.color) el.style.setProperty('--color', this.color);
+    el.innerHTML = `
+      <!-- unfold top -->
+      <div></div>
+      <!-- unfold bottom -->
+      <div></div>
+      <!-- fold top -->
+      <div></div>
+      <!-- fold bottom -->
+      <div></div>
+    `;
+    return el;
+  }
+
+  setInitial(char) {
+    this.currentChar = char;
+    this.unfoldTop.innerText = char;
+    this.unfoldBottom.innerText = char;
+    this.foldTop.innerText = char;
+    this.foldBottom.innerText = char;
+    if (window.gsap) {
+      gsap.set(this.foldTop, { rotateX: 0 });
+      gsap.set(this.unfoldBottom, { rotateX: 180 });
+      gsap.set(this.unfoldTop, { filter: 'brightness(1)' });
+      gsap.set(this.foldBottom, { filter: 'brightness(1)' });
+    }
+  }
+
+  flipTo(nextChar, duration = 0.5) {
+    if (this.currentChar === nextChar) return;
+
+    const prevChar = this.currentChar;
+    this.currentChar = nextChar;
+
+    this.unfoldTop.innerText = nextChar;
+    this.unfoldBottom.innerText = nextChar;
+    this.foldTop.innerText = prevChar;
+    this.foldBottom.innerText = prevChar;
+
+    if (!window.gsap) {
+      this.foldTop.innerText = nextChar;
+      this.foldBottom.innerText = nextChar;
+      return;
+    }
+
+    gsap.killTweensOf([this.foldTop, this.unfoldBottom, this.foldBottom, this.unfoldTop]);
+
+    gsap.set(this.foldTop, { rotateX: 0 });
+    gsap.set(this.unfoldBottom, { rotateX: 180 });
+    gsap.set(this.unfoldTop, { filter: 'brightness(0.35)' });
+    gsap.set(this.foldBottom, { filter: 'brightness(1)' });
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        this.foldTop.innerText = nextChar;
+        this.foldBottom.innerText = nextChar;
+        gsap.set(this.foldTop, { rotateX: 0 });
+        gsap.set(this.unfoldBottom, { rotateX: 180 });
+        gsap.set(this.unfoldTop, { filter: 'brightness(1)' });
+        gsap.set(this.foldBottom, { filter: 'brightness(1)' });
+      }
+    });
+
+    tl.to(this.foldTop, {
+      rotateX: -180,
+      duration: duration,
+      ease: 'power2.inOut'
+    }, 0)
+    .to(this.unfoldBottom, {
+      rotateX: 0,
+      duration: duration,
+      ease: 'power2.inOut'
+    }, 0)
+    .to(this.unfoldTop, {
+      filter: 'brightness(1)',
+      duration: duration,
+      ease: 'power1.in'
+    }, 0)
+    .to(this.foldBottom, {
+      filter: 'brightness(0.35)',
+      duration: duration,
+      ease: 'power1.out'
+    }, 0);
+  }
+}
+
+let lihfFlipSlots = null;
+
+function initLihfFlipBoard(d, h, m, s) {
+  const lineDays = document.getElementById('flip-days');
+  const lineHours = document.getElementById('flip-hours');
+  const lineMins = document.getElementById('flip-mins');
+  const lineSecs = document.getElementById('flip-secs');
+
+  if (!lineDays || !lineHours || !lineMins || !lineSecs) return null;
+
+  lineDays.innerHTML = '';
+  lineHours.innerHTML = '';
+  lineMins.innerHTML = '';
+  lineSecs.innerHTML = '';
+
+  const dStr = String(d).padStart(2, '0');
+  const hStr = String(h).padStart(2, '0');
+  const mStr = String(m).padStart(2, '0');
+  const sStr = String(s).padStart(2, '0');
+
+  const days = dStr.split('').map(c => new FlipDigitSlot(lineDays, c));
+  const hours = hStr.split('').map(c => new FlipDigitSlot(lineHours, c));
+  const mins = mStr.split('').map(c => new FlipDigitSlot(lineMins, c));
+  const secs = sStr.split('').map(c => new FlipDigitSlot(lineSecs, c));
+
+  return { days, hours, mins, secs };
+}
+
 function updateLihfCountdown() {
   // Target: November 13, 2026, 09:00:00 Indochina Time (UTC+7)
   const target = new Date('2026-11-13T09:00:00+07:00').getTime();
   const now = Date.now();
-  const diff = target - now;
-
-  const daysEl = document.getElementById('cd-days');
-  const hoursEl = document.getElementById('cd-hours');
-  const minsEl = document.getElementById('cd-mins');
-  const secsEl = document.getElementById('cd-secs');
-
-  if (diff <= 0) {
-    if (daysEl) daysEl.textContent = '00';
-    if (hoursEl) hoursEl.textContent = '00';
-    if (minsEl) minsEl.textContent = '00';
-    if (secsEl) secsEl.textContent = '00';
-    return;
-  }
+  const diff = Math.max(0, target - now);
 
   const d = Math.floor(diff / (1000 * 60 * 60 * 24));
   const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-  if (daysEl) daysEl.textContent = String(d);
-  if (hoursEl) hoursEl.textContent = String(h).padStart(2, '0');
-  if (minsEl) minsEl.textContent = String(m).padStart(2, '0');
-  if (secsEl) secsEl.textContent = String(s).padStart(2, '0');
+  if (!lihfFlipSlots) {
+    lihfFlipSlots = initLihfFlipBoard(d, h, m, s);
+    if (!lihfFlipSlots) return;
+  }
+
+  const dStr = String(d).padStart(lihfFlipSlots.days.length, '0');
+  const hStr = String(h).padStart(2, '0');
+  const mStr = String(m).padStart(2, '0');
+  const sStr = String(s).padStart(2, '0');
+
+  dStr.split('').forEach((c, i) => lihfFlipSlots.days[i]?.flipTo(c));
+  hStr.split('').forEach((c, i) => lihfFlipSlots.hours[i]?.flipTo(c));
+  mStr.split('').forEach((c, i) => lihfFlipSlots.mins[i]?.flipTo(c));
+  sStr.split('').forEach((c, i) => lihfFlipSlots.secs[i]?.flipTo(c));
 }
+
 setInterval(updateLihfCountdown, 1000);
 document.addEventListener('DOMContentLoaded', updateLihfCountdown);
 updateLihfCountdown();
