@@ -5527,7 +5527,7 @@ nav { height: 60px !important; padding: 0 !important; }
 .acc-arrow {
   font-size: 1.3rem !important;
   color: var(--red) !important;
-  transition: transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.25s ease !important;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease !important;
   flex-shrink: 0 !important;
   line-height: 1 !important;
 }
@@ -5536,24 +5536,27 @@ nav { height: 60px !important; padding: 0 !important; }
   color: var(--gold) !important;
 }
 
-/* ── SMOOTH, BULLETPROOF ACCORDION EXPANSION ── */
+/* ── SMOOTH, BULLETPROOF ACCORDION EXPANSION (PURE CSS GRID INTERPOLATION) ── */
 .acc-body {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
-  pointer-events: none;
+  display: grid !important;
+  grid-template-rows: 0fr !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  transition: grid-template-rows 0.52s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  pointer-events: none !important;
 }
 .acc-body.is-open {
-  max-height: 35000px !important;
+  grid-template-rows: 1fr !important;
   opacity: 1 !important;
-  overflow: visible !important;
   pointer-events: auto !important;
 }
 .acc-body > section {
+  min-height: 0 !important;
+  overflow: hidden !important;
   padding-top: 3.5rem !important;
   padding-bottom: 4rem !important;
   border-bottom: none !important;
+  transition: padding 0.52s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 /* Remove default top/bottom padding from section when inside accordion */
@@ -7957,7 +7960,7 @@ body {
   --bg: hsl(0 0% 5%);
   --nav: hsl(0 0% 12%);
   --color: hsl(0 0% 90%);
-  --speed: 0.25s;
+  --speed: 0.38s;
 }
 
 :root.dark {
@@ -8045,10 +8048,10 @@ nav {
 .nav__control svg {
   width: 24px;
   height: 24px;
-  stroke-width: 2.5;
+  stroke-width: 2.2;
   stroke: var(--color);
   rotate: calc(var(--active-nav, 0) * 45deg);
-  transition: rotate var(--speed);
+  transition: rotate 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 input:focus-visible + label {
@@ -8085,7 +8088,7 @@ input:focus-visible + label {
   font-weight: 600;
   letter-spacing: 0.04em;
   white-space: nowrap;
-  transition: color var(--speed);
+  transition: color 0.25s ease, background 0.25s ease;
 }
 
 .nav__options svg {
@@ -8101,25 +8104,42 @@ input:focus-visible + label {
   position: absolute;
   right: -1rem;
   top: 100%;
-  background: var(--nav);
+  background: rgba(14, 14, 18, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   width: calc(100% + 2rem);
   translate: 0 calc(-100% + (var(--active-nav, 0) * (100% + 2px)));
-  transition: translate var(--speed);
+  transition: translate 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: -1;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @media(max-width: 767.98px) {
   .nav__options {
     pointer-events: none;
     opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.35s ease;
   }
-  :root:has(#menu:checked) .nav__options {
+  :root:has(#menu:checked) .nav__options,
+  .nav__options.is-open {
     pointer-events: auto;
     opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
   .nav__options a {
     padding: 1rem 1.5rem;
+    transition: background 0.25s ease, color 0.25s ease, padding-left 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav__options a:hover,
+  .nav__options a:active {
+    padding-left: 1.85rem;
+    background: rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -8152,8 +8172,10 @@ nav a:is(:hover, :focus-visible) {
 .link svg {
   opacity: var(--active, 0);
   rotate: calc(var(--active, 0) * -45deg);
-  scale: calc(1 + (var(--active, 0) * 0.1));
-  transition: opacity calc(var(--speed) * 1.5), rotate var(--speed), scale var(--speed);
+  scale: calc(1 + (var(--active, 0) * 0.12));
+  transition: opacity 0.3s ease,
+              rotate 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              scale 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .link span {
@@ -8181,7 +8203,7 @@ nav a:is(:hover, :focus-visible) {
 
 /* The :hover stuff */
 :root {
-  --speed: 0.25s;
+  --speed: 0.38s;
 }
 
 @media(min-width: 768px) {
@@ -8194,7 +8216,7 @@ nav a:is(:hover, :focus-visible) {
     --lerp-1: calc(sin(30deg));
     --lerp-2: calc(sin(20deg));
     --lerp-3: calc(sin(10deg));
-    --speed: 0.25s;
+    --speed: 0.38s;
   }
   .nav__control {
     display: none;
@@ -8206,12 +8228,18 @@ nav a:is(:hover, :focus-visible) {
     grid-auto-columns: 1fr;
     position: static;
     width: auto;
-    translate: 0 0;
+    translate: 0 0 !important;
+    transform: none !important;
     z-index: 1;
     overflow: visible;
     box-shadow: none;
     opacity: 1 !important;
     pointer-events: auto !important;
+    visibility: visible !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: none !important;
   }
 
   .nav__options a:not(:last-of-type) {	
@@ -8229,8 +8257,8 @@ nav a:is(:hover, :focus-visible) {
     z-index: -1;
     left: 0;
     right: 0;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    transition: background var(--speed);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
   }
 
   .link:first-of-type::before {
@@ -8243,7 +8271,9 @@ nav a:is(:hover, :focus-visible) {
 
   .link {
     translate: 0 calc(var(--lerp, 0) * 80%);
-    transition: translate var(--speed);
+    transition: translate 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+                color 0.25s ease;
+    will-change: translate;
   }
 
   :is(.link:hover, .link:focus-visible) {
@@ -13081,9 +13111,14 @@ function dismissFloatingTv(e) {
 // ── WAVE LERP NAVBAR MOBILE CONTROLS ──
 function setupWaveNavbar() {
   const menuCheckbox = document.getElementById('menu');
+  const navOptions = document.querySelector('.nav__options');
   if (menuCheckbox) {
     menuCheckbox.addEventListener('change', () => {
-      document.documentElement.style.setProperty('--active-nav', menuCheckbox.checked ? '1' : '0');
+      const active = menuCheckbox.checked;
+      document.documentElement.style.setProperty('--active-nav', active ? '1' : '0');
+      if (navOptions) {
+        navOptions.classList.toggle('is-open', active);
+      }
     });
   }
   document.querySelectorAll('.nav__options a').forEach(link => {
@@ -13091,6 +13126,9 @@ function setupWaveNavbar() {
       if (menuCheckbox && menuCheckbox.checked) {
         menuCheckbox.checked = false;
         document.documentElement.style.setProperty('--active-nav', '0');
+        if (navOptions) {
+          navOptions.classList.remove('is-open');
+        }
       }
     });
   });
