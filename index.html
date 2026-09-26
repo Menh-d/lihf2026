@@ -4770,6 +4770,101 @@ nav { height: 60px !important; padding: 0 !important; }
   }
 }
 
+
+/* --- MARKETING CHANNELS MATRIX & THUMB CARDS (uiux-designer) --- */
+.mkt-channels-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+}
+.mkt-ch-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.95rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  font-family: var(--ff-a);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+.mkt-ch-pill:hover {
+  background: rgba(229, 9, 20, 0.14);
+  border-color: rgba(229, 9, 20, 0.45);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(229, 9, 20, 0.28);
+}
+.mkt-ch-pill svg {
+  color: #ff2d46;
+  flex-shrink: 0;
+}
+.mpc-img-thumb, .ad-card-thumb {
+  position: relative;
+  width: 100%;
+  height: 155px;
+  overflow: hidden;
+  background: #000000;
+}
+.mpc-img-thumb img, .ad-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+.mkt-phase-card:hover .mpc-img-thumb img, .ad-card:hover .ad-card-thumb img {
+  transform: scale(1.08);
+}
+.mpc-img-overlay, .ad-card-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(13, 16, 23, 0.6) 55%, rgba(10, 13, 18, 0.98) 100%);
+}
+.mpc-top-bar, .ad-card-top-bar {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
+.mpc-dual-ring-icon, .ad-dual-ring-icon {
+  position: absolute;
+  bottom: -18px;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(13, 16, 23, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+}
+.mpc-dual-ring-icon::before, .ad-dual-ring-icon::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.mpc-content, .ad-card-body {
+  padding: 1.75rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 /* --- MARKETING SECTION STYLES --- */
 .mkt-phases-container {
   margin-top: 1rem;
@@ -10269,9 +10364,49 @@ body.no-webgl .intro-fallback-wrap {
         The campaign combines community channels, influencer content, media coverage, outdoor visibility, and event-day storytelling to build heat before, during, and after the festival.
       </p>
     </div>
-    <div style="text-align:center; margin:-0.5rem auto 2.5rem; padding:0.9rem 1.5rem; background:rgba(204,0,0,0.07); border:1px solid rgba(204,0,0,0.2); max-width:860px; border-radius:3px;">
-      <p style="font-family:var(--ff-a); font-size:0.72rem; font-weight:700; letter-spacing:0.2em; color:var(--red); margin-bottom:0.5rem;">CHANNELS</p>
-      <p style="font-family:var(--ff-b); font-size:0.9rem; color:var(--gr-l);">Facebook &nbsp;•&nbsp; Instagram &nbsp;•&nbsp; TikTok &nbsp;•&nbsp; YouTube &nbsp;•&nbsp; Media Partners &nbsp;•&nbsp; Influencers &nbsp;•&nbsp; Outdoor / LED &nbsp;•&nbsp; Press Release</p>
+    <!-- OMNICHANNEL DISTRIBUTION MATRIX (CHANNELS BAR) -->
+    <div class="mkt-channels-matrix" style="max-width:960px; margin:-0.5rem auto 3rem; padding:1.25rem 1.5rem; border-radius:14px; border:1px solid rgba(255,255,255,0.08); background:linear-gradient(180deg, rgba(204,0,0,0.08) 0%, rgba(10,13,18,0.75) 100%); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); box-shadow:0 10px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:0.75rem;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span class="badge-pulse-dot" style="background:#ff2d46;"></span>
+          <span style="font-family:var(--ff-a); font-size:0.75rem; font-weight:800; letter-spacing:0.18em; color:#ff2d46; text-transform:uppercase;">OMNICHANNEL DISTRIBUTION MATRIX</span>
+        </div>
+        <span style="font-family:var(--ff-a); font-size:0.7rem; font-weight:700; letter-spacing:0.1em; color:rgba(255,255,255,0.55); text-transform:uppercase;">360° CAMPAIGN COVERAGE</span>
+      </div>
+      <div class="mkt-channels-grid">
+        <div class="mkt-ch-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          <span>Facebook</span>
+        </div>
+        <div class="mkt-ch-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <span>Instagram</span>
+        </div>
+        <div class="mkt-ch-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+          <span>TikTok</span>
+        </div>
+        <div class="mkt-ch-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          <span>YouTube</span>
+        </div>
+        <div class="mkt-ch-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"></path><path d="M18 14h-8"></path><path d="M15 18h-5"></path><path d="M10 6h8v4h-8V6Z"></path></svg>
+          <span>Media Partners</span>
+        </div>
+        <div class="mkt-ch-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>30+ Influencers</span>
+        </div>
+        <div class="mkt-ch-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          <span>Outdoor / 3D LED</span>
+        </div>
+        <div class="mkt-ch-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"></path><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"></path><circle cx="12" cy="12" r="2"></circle><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"></path><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"></path></svg>
+          <span>Press Release</span>
+        </div>
+      </div>
     </div>
 
         <!-- BENTO UI MARKETING STRATEGY PILLARS (features-8) -->
@@ -10534,21 +10669,33 @@ body.no-webgl .intro-fallback-wrap {
 
           <!-- 4 Core Visual Motifs Bento Grid -->
           <div class="main-kv-bento-grid">
-            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:3px solid var(--brand); padding:0.85rem 1rem; border-radius:6px;">
-              <div style="font-family:'Anton',sans-serif; font-size:1.05rem; color:#fff;">3D STREET TYPOGRAPHY</div>
-              <div style="font-family:var(--font-sans); font-size:0.75rem; color:var(--muted-foreground); margin-top:0.25rem; line-height:1.4;">Extruded red and halftone white lettering delivering instant recognition from 50+ meters on outdoor billboards.</div>
+            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:3px solid var(--brand); padding:0.95rem 1.1rem; border-radius:8px;">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:0.35rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+                <div style="font-family:'Anton',sans-serif; font-size:1.05rem; color:#fff; letter-spacing:0.04em;">3D STREET TYPOGRAPHY</div>
+              </div>
+              <div style="font-family:var(--font-sans); font-size:0.75rem; color:var(--muted-foreground); line-height:1.45;">Extruded red and halftone white lettering delivering instant recognition from 50+ meters on outdoor billboards.</div>
             </div>
-            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:3px solid var(--gold); padding:0.85rem 1rem; border-radius:6px;">
-              <div style="font-family:'Anton',sans-serif; font-size:1.05rem; color:var(--gold);">DUAL LIGHTNING EMBLEM</div>
-              <div style="font-family:var(--font-sans); font-size:0.75rem; color:var(--muted-foreground); margin-top:0.25rem; line-height:1.4;">Official round medallion with yellow graffiti core, representing the electrifying energy of urban battle culture.</div>
+            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:3px solid var(--gold); padding:0.95rem 1.1rem; border-radius:8px;">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:0.35rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                <div style="font-family:'Anton',sans-serif; font-size:1.05rem; color:var(--gold); letter-spacing:0.04em;">DUAL LIGHTNING EMBLEM</div>
+              </div>
+              <div style="font-family:var(--font-sans); font-size:0.75rem; color:var(--muted-foreground); line-height:1.45;">Official round medallion with yellow graffiti core, representing the electrifying energy of urban battle culture.</div>
             </div>
-            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:3px solid var(--brand); padding:0.85rem 1rem; border-radius:6px;">
-              <div style="font-family:'Anton',sans-serif; font-size:1.05rem; color:#fff;">ARTIST &amp; BATTLE ROSTER</div>
-              <div style="font-family:var(--font-sans); font-size:0.75rem; color:var(--muted-foreground); margin-top:0.25rem; line-height:1.4;">Gritty monochrome artist tiles highlighting national and international dance icons and rap heavyweights.</div>
+            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:3px solid var(--brand); padding:0.95rem 1.1rem; border-radius:8px;">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:0.35rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <div style="font-family:'Anton',sans-serif; font-size:1.05rem; color:#fff; letter-spacing:0.04em;">ARTIST &amp; BATTLE ROSTER</div>
+              </div>
+              <div style="font-family:var(--font-sans); font-size:0.75rem; color:var(--muted-foreground); line-height:1.45;">Gritty monochrome artist tiles highlighting national and international dance icons and rap heavyweights.</div>
             </div>
-            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:3px solid var(--gold); padding:0.85rem 1rem; border-radius:6px;">
-              <div style="font-family:'Anton',sans-serif; font-size:1.05rem; color:var(--gold);">SPONSOR INTEGRATION</div>
-              <div style="font-family:var(--font-sans); font-size:0.75rem; color:var(--muted-foreground); margin-top:0.25rem; line-height:1.4;">Dedicated premium footer strip for Title &amp; Tier sponsors + live QR for direct ticket and promo activation.</div>
+            <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:3px solid var(--gold); padding:0.95rem 1.1rem; border-radius:8px;">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:0.35rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                <div style="font-family:'Anton',sans-serif; font-size:1.05rem; color:var(--gold); letter-spacing:0.04em;">SPONSOR INTEGRATION</div>
+              </div>
+              <div style="font-family:var(--font-sans); font-size:0.75rem; color:var(--muted-foreground); line-height:1.45;">Dedicated premium footer strip for Title &amp; Tier sponsors + live QR for direct ticket and promo activation.</div>
             </div>
           </div>
 
@@ -10556,11 +10703,11 @@ body.no-webgl .intro-fallback-wrap {
           <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:0.9rem; display:flex; flex-direction:column; gap:0.45rem;">
             <span style="font-family:var(--font-sans); font-size:0.72rem; font-weight:700; letter-spacing:0.12em; color:var(--gold); text-transform:uppercase;">CAMPAIGN MEDIA FORMAT ADAPTATIONS:</span>
             <div style="display:flex; flex-wrap:wrap; gap:0.45rem;">
-              <span class="pillar-pill">🏙️ OOH 3D LED Billboards (16:9)</span>
-              <span class="pillar-pill">📱 TikTok / Reels Cover (9:16)</span>
-              <span class="pillar-pill">📸 Instagram / FB Feed (1:1)</span>
-              <span class="pillar-pill">🎟️ Street Posters A1/A2</span>
-              <span class="pillar-pill">🎫 VIP Passes &amp; Lanyards</span>
+              <span class="pillar-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> OOH 3D LED Billboards (16:9)</span>
+              <span class="pillar-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg> TikTok / Reels Cover (9:16)</span>
+              <span class="pillar-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><circle cx="12" cy="12" r="3"></circle></svg> Instagram / FB Feed (1:1)</span>
+              <span class="pillar-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg> Street Posters A1/A2</span>
+              <span class="pillar-pill"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"></path></svg> VIP Passes &amp; Lanyards</span>
             </div>
           </div>
 
@@ -10614,7 +10761,7 @@ body.no-webgl .intro-fallback-wrap {
             <h4 class="art-card-title">Breaking 2 vs 2</h4>
             <p class="art-card-sub">Olympic-grade B-Boy &amp; B-Girl 2v2 knockout showdown with 64 athletes from 10+ nations.</p>
             <div class="art-card-footer">
-              <span class="art-card-prize">🏆 32M LAK Pool</span>
+              <span class="art-card-prize"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M18 4H6v7a6 6 0 0 0 12 0V4z"></path></svg>32M LAK Pool</span>
               <button onclick="viewArtwork('assets/battle_breaking.jpg', 'LIHF_2026_Breaking_2v2')" class="art-card-action-btn">View High-Res</button>
             </div>
           </div>
@@ -10634,7 +10781,7 @@ body.no-webgl .intro-fallback-wrap {
             <h4 class="art-card-title">Open Style 2 vs 2</h4>
             <p class="art-card-sub">Cross-genre street dance clash: Popping, Locking, Krump, Waacking, and Hip-Hop choreography.</p>
             <div class="art-card-footer">
-              <span class="art-card-prize">🏆 24M LAK Pool</span>
+              <span class="art-card-prize"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M18 4H6v7a6 6 0 0 0 12 0V4z"></path></svg>24M LAK Pool</span>
               <button onclick="viewArtwork('assets/battle_openstyle.jpg', 'LIHF_2026_OpenStyle_2v2')" class="art-card-action-btn">View High-Res</button>
             </div>
           </div>
@@ -10654,7 +10801,7 @@ body.no-webgl .intro-fallback-wrap {
             <h4 class="art-card-title">Crew Showcase</h4>
             <p class="art-card-sub">16 elite dance crews (6-12 dancers) in high-production synchronized choreography on main stage.</p>
             <div class="art-card-footer">
-              <span class="art-card-prize">🏆 40M LAK Pool</span>
+              <span class="art-card-prize"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M18 4H6v7a6 6 0 0 0 12 0V4z"></path></svg>40M LAK Pool</span>
               <button onclick="viewArtwork('assets/battle_crew.jpg', 'LIHF_2026_Crew_Showcase')" class="art-card-action-btn">View High-Res</button>
             </div>
           </div>
@@ -10674,7 +10821,7 @@ body.no-webgl .intro-fallback-wrap {
             <h4 class="art-card-title">DJ Open Format</h4>
             <p class="art-card-sub">Vinyl scratching, tone play, quick mixing, and party rocking battle between 8 invited regional turntablists.</p>
             <div class="art-card-footer">
-              <span class="art-card-prize">🏆 18M LAK Pool</span>
+              <span class="art-card-prize"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M18 4H6v7a6 6 0 0 0 12 0V4z"></path></svg>18M LAK Pool</span>
               <button onclick="viewArtwork('assets/battle_dj.jpg', 'LIHF_2026_DJ_Championship')" class="art-card-action-btn">View High-Res</button>
             </div>
           </div>
@@ -10694,7 +10841,7 @@ body.no-webgl .intro-fallback-wrap {
             <h4 class="art-card-title">Live Graffiti Jam</h4>
             <p class="art-card-sub">30-meter live collaborative aerosol mural painted live across 3 days by 12 premier ASEAN aerosol artists.</p>
             <div class="art-card-footer">
-              <span class="art-card-prize">🏆 15M LAK Pool</span>
+              <span class="art-card-prize"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M18 4H6v7a6 6 0 0 0 12 0V4z"></path></svg>15M LAK Pool</span>
               <button onclick="viewArtwork('assets/battle_graffiti.jpg', 'LIHF_2026_Live_Graffiti')" class="art-card-action-btn">View High-Res</button>
             </div>
           </div>
@@ -10714,7 +10861,7 @@ body.no-webgl .intro-fallback-wrap {
             <h4 class="art-card-title">Rap / MC Cypher</h4>
             <p class="art-card-sub">8 invited Southeast Asian lyricists competing 1v1 in rapid-fire 7-to-Smoke spontaneous freestyle cyphers.</p>
             <div class="art-card-footer">
-              <span class="art-card-prize">🏆 15M LAK Pool</span>
+              <span class="art-card-prize"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M18 4H6v7a6 6 0 0 0 12 0V4z"></path></svg>15M LAK Pool</span>
               <button onclick="viewArtwork('assets/battle_mc.jpg', 'LIHF_2026_Rap_Cypher')" class="art-card-action-btn">View High-Res</button>
             </div>
           </div>
@@ -10734,7 +10881,7 @@ body.no-webgl .intro-fallback-wrap {
             <h4 class="art-card-title">Dance Workshops</h4>
             <p class="art-card-sub">6 intensive clinics led by Olympic judges &amp; world champions with free scholarships for Lao youth.</p>
             <div class="art-card-footer">
-              <span class="art-card-prize">🎓 15M LAK Value</span>
+              <span class="art-card-prize"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>15M LAK Value</span>
               <button onclick="viewArtwork('assets/battle_workshop.jpg', 'LIHF_2026_Workshops')" class="art-card-action-btn">View High-Res</button>
             </div>
           </div>
@@ -10789,42 +10936,42 @@ body.no-webgl .intro-fallback-wrap {
             </thead>
             <tbody>
               <tr>
-                <td class="channel-name">🏙️ OOH 3D LED Billboards</td>
+                <td class="channel-name"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:6px;"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>OOH 3D LED Billboards</td>
                 <td>Commuters, Urban Youth, Vientiane Public</td>
                 <td>16:9 Anamorphic 3D Animated Main KV</td>
                 <td>6 Weeks Prior • Daily Continuous 15s Loops</td>
                 <td>High-status Title &amp; Platinum logo lockup at Patuxay, ITECC &amp; Parkson</td>
               </tr>
               <tr>
-                <td class="channel-name">📱 TikTok &amp; Reels</td>
+                <td class="channel-name"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:6px;"><rect x="5" y="2" width="14" height="20" rx="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>TikTok &amp; Reels</td>
                 <td>Gen Z, Street Dancers, Music Fans (16–28)</td>
                 <td>9:16 Vertical Video + 8 Activity Posters</td>
                 <td>Daily Content Drops • <em>#StreetToStage2026</em></td>
                 <td>Branded hashtag challenge, audio watermark, 3.5M+ organic video views</td>
               </tr>
               <tr>
-                <td class="channel-name">📸 Meta (FB &amp; IG)</td>
+                <td class="channel-name"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:6px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><circle cx="12" cy="12" r="3"></circle></svg>Meta (FB &amp; IG)</td>
                 <td>Regional ASEAN Community &amp; Families</td>
                 <td>1:1 High-Res Artwork Feed Posts &amp; Stories</td>
                 <td>3x Weekly Paid Boosting + Influencer Shares</td>
                 <td>Direct click-to-lead landing page, sponsor promo codes &amp; VIP giveaways</td>
               </tr>
               <tr>
-                <td class="channel-name">📺 4K Live Broadcast (YT/TikTok)</td>
+                <td class="channel-name"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:6px;"><rect x="2" y="7" width="20" height="15" rx="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>4K Live Broadcast (YT/TikTok)</td>
                 <td>Global Dance Community (10+ Countries)</td>
                 <td>Full HD Lower-Thirds &amp; Stage Overlays</td>
                 <td>Live During All 3 Event Days (16:00 – 02:00)</td>
                 <td>Permanent digital watermark, virtual commercial breaks, live MVP voting</td>
               </tr>
               <tr>
-                <td class="channel-name">🎟️ Physical Street Posters</td>
+                <td class="channel-name"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:6px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>Physical Street Posters</td>
                 <td>University Students, Urban Culture Hubs</td>
                 <td>A1 / A2 Silk-Finish Heavy Stock Posters</td>
                 <td>1,000+ Placements Across 50+ Vientiane Spots</td>
                 <td>Co-branded sponsor logo footer permanently visible in youth cafes &amp; gyms</td>
               </tr>
               <tr>
-                <td class="channel-name">🥤 Co-Branded Retail Merch</td>
+                <td class="channel-name"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:6px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>Co-Branded Retail Merch</td>
                 <td>Mass Retail Shoppers Nationwide</td>
                 <td>Product Packaging Adaptations &amp; Cups</td>
                 <td>Available 4 Weeks Prior in Nationwide Marts</td>
@@ -10842,80 +10989,127 @@ body.no-webgl .intro-fallback-wrap {
       <div class="mkt-phases-header">
         <span class="mph-tag">THE 4-PHASE TIMELINE</span>
         <h3 class="mph-title">From Initial Heat to Sustained Regional Legacy</h3>
+        <p style="font-family:var(--ff-b); font-size:0.95rem; color:rgba(255,255,255,0.72); max-width:760px; margin:0.5rem auto 0; line-height:1.6;">
+          Strategic multi-stage momentum designed to build anticipation, mobilize regional creators, and ensure stadium-scale attendance.
+        </p>
       </div>
 
       <div class="mkt-phases-grid">
         
         <!-- PHASE 1: LAUNCH -->
         <div class="mkt-phase-card ru">
-          <div class="mpc-top">
-            <span class="mpc-badge">PHASE 1</span>
-            <span class="mpc-time">JULY – AUGUST 2026</span>
+          <div class="mpc-img-thumb">
+            <img src="assets/main_kv.jpg" alt="Phase 1 Launch - Key Visual Reveal" loading="lazy">
+            <div class="mpc-img-overlay"></div>
+            <div class="mpc-top-bar">
+              <span class="mpc-badge">PHASE 1</span>
+              <span class="mpc-time">JULY – AUGUST 2026</span>
+            </div>
+            <div class="mpc-dual-ring-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff2d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+            </div>
           </div>
-          <div class="mpc-icon">🚀</div>
-          <h4 class="mpc-title">Launch &amp; Brand Reveal</h4>
-          <div class="mpc-sub">Building Initial Awareness &amp; Partner Announcement</div>
-          <ul class="mpc-list">
-            <li><strong>Official Visual Identity Drop:</strong> Key visual release, website relaunch, and national press conference.</li>
-            <li><strong>Sponsor Co-Branded Rollout:</strong> Title &amp; Platinum partner announcement reels on TikTok &amp; Facebook.</li>
-            <li><strong>Teaser Video Campaign:</strong> 15-second cinematic teasers highlighting the 9-year festival heritage.</li>
-            <li><strong>Regional Outreach:</strong> Coordination with dance federations in Thailand, Vietnam &amp; Singapore.</li>
-          </ul>
-          <div class="mpc-metric">Target: 1.5M+ Digital Views</div>
+          <div class="mpc-content">
+            <h4 class="mpc-title">Launch &amp; Brand Reveal</h4>
+            <div class="mpc-sub">Building Initial Awareness &amp; Partner Announcement</div>
+            <ul class="mpc-list">
+              <li><strong>Official Visual Identity Drop:</strong> Key visual release, website relaunch, and national press conference.</li>
+              <li><strong>Sponsor Co-Branded Rollout:</strong> Title &amp; Platinum partner announcement reels on TikTok &amp; Facebook.</li>
+              <li><strong>Teaser Video Campaign:</strong> 15-second cinematic teasers highlighting the 9-year festival heritage.</li>
+              <li><strong>Regional Outreach:</strong> Coordination with dance federations in Thailand, Vietnam &amp; Singapore.</li>
+            </ul>
+            <div class="mpc-metric">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:6px;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              Target: 1.5M+ Digital Views
+            </div>
+          </div>
         </div>
 
         <!-- PHASE 2: BUILD -->
         <div class="mkt-phase-card ru">
-          <div class="mpc-top">
-            <span class="mpc-badge">PHASE 2</span>
-            <span class="mpc-time">SEPTEMBER – OCTOBER 2026</span>
+          <div class="mpc-img-thumb">
+            <img src="assets/battle_openstyle.jpg" alt="Phase 2 Build - Community Hype" loading="lazy">
+            <div class="mpc-img-overlay"></div>
+            <div class="mpc-top-bar">
+              <span class="mpc-badge">PHASE 2</span>
+              <span class="mpc-time">SEPTEMBER – OCTOBER 2026</span>
+            </div>
+            <div class="mpc-dual-ring-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff2d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+            </div>
           </div>
-          <div class="mpc-icon">🔥</div>
-          <h4 class="mpc-title">Build &amp; Community Hype</h4>
-          <div class="mpc-sub">Lineup Drops, Registrations &amp; Creator Teasers</div>
-          <ul class="mpc-list">
-            <li><strong>Star Lineup Reveals:</strong> International judges, guest DJ announcements, and battle crew roster drops.</li>
-            <li><strong>ASEAN Registration Open:</strong> Competitor registration drive across 10+ countries.</li>
-            <li><strong>University Dance Tour:</strong> Pop-up cyphers &amp; ticket activations at National University of Laos (Dongdok).</li>
-            <li><strong>Viral TikTok Challenge:</strong> Launch of co-branded <em>#StreetToStage2026</em> dance &amp; rap challenge.</li>
-          </ul>
-          <div class="mpc-metric">Target: 3.5M+ Social Engagements</div>
+          <div class="mpc-content">
+            <h4 class="mpc-title">Build &amp; Community Hype</h4>
+            <div class="mpc-sub">Lineup Drops, Registrations &amp; Creator Teasers</div>
+            <ul class="mpc-list">
+              <li><strong>Star Lineup Reveals:</strong> International judges, guest DJ announcements, and battle crew roster drops.</li>
+              <li><strong>ASEAN Registration Open:</strong> Competitor registration drive across 10+ countries.</li>
+              <li><strong>University Dance Tour:</strong> Pop-up cyphers &amp; ticket activations at National University of Laos (Dongdok).</li>
+              <li><strong>Viral TikTok Challenge:</strong> Launch of co-branded <em>#StreetToStage2026</em> dance &amp; rap challenge.</li>
+            </ul>
+            <div class="mpc-metric">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:6px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              Target: 3.5M+ Social Engagements
+            </div>
+          </div>
         </div>
 
         <!-- PHASE 3: CONVERT -->
         <div class="mkt-phase-card ru highlight-phase">
-          <div class="mpc-top">
-            <span class="mpc-badge gold-badge">PHASE 3</span>
-            <span class="mpc-time">FINAL 4 WEEKS (OCT – NOV)</span>
+          <div class="mpc-img-thumb">
+            <img src="assets/battle_breaking.jpg" alt="Phase 3 Convert - Omnichannel Push" loading="lazy">
+            <div class="mpc-img-overlay"></div>
+            <div class="mpc-top-bar">
+              <span class="mpc-badge gold-badge">PHASE 3</span>
+              <span class="mpc-time" style="color:var(--gold);">FINAL 4 WEEKS (OCT – NOV)</span>
+            </div>
+            <div class="mpc-dual-ring-icon" style="border-color:rgba(212,175,55,0.4);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
           </div>
-          <div class="mpc-icon">⚡</div>
-          <h4 class="mpc-title">Convert &amp; Omnichannel Push</h4>
-          <div class="mpc-sub">Ticket Push, OOH Billboard Takeover &amp; Booth Previews</div>
-          <ul class="mpc-list">
-            <li><strong>Vientiane OOH Takeover:</strong> High-impact 3D LED digital billboards at Patuxay, ITECC &amp; Parkson.</li>
-            <li><strong>Attendance Blitz:</strong> Early-bird ticket push, VIP pass promos, and retail partner ticket giveaways.</li>
-            <li><strong>Sponsor Activation Teasers:</strong> Sneak peek videos of interactive brand booths &amp; sampling lounges.</li>
-            <li><strong>KOL Countdown Blitz:</strong> 30+ top Lao creators post countdown stories &amp; outfit inspiration.</li>
-          </ul>
-          <div class="mpc-metric">Target: 10,000+ Confirmed Attendees</div>
+          <div class="mpc-content">
+            <h4 class="mpc-title" style="color:var(--gold);">Convert &amp; Omnichannel Push</h4>
+            <div class="mpc-sub">Ticket Push, OOH Billboard Takeover &amp; Booth Previews</div>
+            <ul class="mpc-list">
+              <li><strong>Vientiane OOH Takeover:</strong> High-impact 3D LED digital billboards at Patuxay, ITECC &amp; Parkson.</li>
+              <li><strong>Attendance Blitz:</strong> Early-bird ticket push, VIP pass promos, and retail partner ticket giveaways.</li>
+              <li><strong>Sponsor Activation Teasers:</strong> Sneak peek videos of interactive brand booths &amp; sampling lounges.</li>
+              <li><strong>KOL Countdown Blitz:</strong> 30+ top Lao creators post countdown stories &amp; outfit inspiration.</li>
+            </ul>
+            <div class="mpc-metric" style="border-color:rgba(212,175,55,0.3); background:rgba(212,175,55,0.08); color:var(--gold);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:6px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Target: 10,000+ Confirmed Attendees
+            </div>
+          </div>
         </div>
 
         <!-- PHASE 4: AMPLIFY -->
         <div class="mkt-phase-card ru">
-          <div class="mpc-top">
-            <span class="mpc-badge">PHASE 4</span>
-            <span class="mpc-time">EVENT DAYS &amp; POST-EVENT</span>
+          <div class="mpc-img-thumb">
+            <img src="assets/battle_concert.jpg" alt="Phase 4 Amplify - Cultural Legacy" loading="lazy">
+            <div class="mpc-img-overlay"></div>
+            <div class="mpc-top-bar">
+              <span class="mpc-badge">PHASE 4</span>
+              <span class="mpc-time">EVENT DAYS &amp; POST-EVENT</span>
+            </div>
+            <div class="mpc-dual-ring-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff2d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M18 4H6v7a6 6 0 0 0 12 0V4z"></path></svg>
+            </div>
           </div>
-          <div class="mpc-icon">🏆</div>
-          <h4 class="mpc-title">Amplify &amp; Cultural Legacy</h4>
-          <div class="mpc-sub">Multi-Platform Live Streaming, Recap &amp; ROI Report</div>
-          <ul class="mpc-list">
-            <li><strong>Multi-Cam 4K Live Broadcast:</strong> Simultaneous livestream on TikTok, FB &amp; YT with live sponsor overlays.</li>
-            <li><strong>Real-Time Highlight Clips:</strong> Instant battle knockout clips uploaded to TikTok Reels within minutes.</li>
-            <li><strong>Official 4K Aftermovie:</strong> Cinema-grade recap documentary prominently featuring sponsor integration.</li>
-            <li><strong>Comprehensive ROI Audit:</strong> Transparent footfall analytics, media valuation, and PR delivery dossier.</li>
-          </ul>
-          <div class="mpc-metric">Target: 10M+ Total Media Impressions</div>
+          <div class="mpc-content">
+            <h4 class="mpc-title">Amplify &amp; Cultural Legacy</h4>
+            <div class="mpc-sub">Multi-Platform Live Streaming, Recap &amp; ROI Report</div>
+            <ul class="mpc-list">
+              <li><strong>Multi-Cam 4K Live Broadcast:</strong> Simultaneous livestream on TikTok, FB &amp; YT with live sponsor overlays.</li>
+              <li><strong>Real-Time Highlight Clips:</strong> Instant battle knockout clips uploaded to TikTok Reels within minutes.</li>
+              <li><strong>Official 4K Aftermovie:</strong> Cinema-grade recap documentary prominently featuring sponsor integration.</li>
+              <li><strong>Comprehensive ROI Audit:</strong> Transparent footfall analytics, media valuation, and PR delivery dossier.</li>
+            </ul>
+            <div class="mpc-metric">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:6px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              Target: 10M+ Total Media Impressions
+            </div>
+          </div>
         </div>
 
       </div>
@@ -10935,85 +11129,155 @@ body.no-webgl .intro-fallback-wrap {
         
         <!-- AD 01: 3D Billboard -->
         <div class="ad-card ru">
-          <div class="ad-card-badge">OOH ADVERTISING</div>
-          <div class="ad-card-icon">🏙️</div>
-          <h4 class="ad-card-title">Vientiane 3D Digital LED Takeover</h4>
-          <p class="ad-card-desc">Anamorphic 3D LED digital billboard campaign at Patuxay, ITECC Junction, Parkson / Center Point, and Dongpalane intersection where virtual 3D B-boys break out of the screen.</p>
-          <div class="ad-sponsor-fit">
-            <span class="asf-lbl">Sponsor Value:</span>
-            <span class="asf-val">Dominant co-branded logo loop reaching 500,000+ daily commuters in Vientiane.</span>
+          <div class="ad-card-thumb">
+            <img src="assets/main_kv_poster.jpg" alt="Vientiane 3D Digital LED Takeover" loading="lazy">
+            <div class="ad-card-thumb-overlay"></div>
+            <div class="ad-card-top-bar">
+              <span class="ad-card-badge">OOH ADVERTISING</span>
+            </div>
+            <div class="ad-dual-ring-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff2d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+          </div>
+          <div class="ad-card-body">
+            <h4 class="ad-card-title">Vientiane 3D Digital LED Takeover</h4>
+            <p class="ad-card-desc">Anamorphic 3D LED digital billboard campaign at Patuxay, ITECC Junction, Parkson / Center Point, and Dongpalane intersection where virtual 3D B-boys break out of the screen.</p>
+            <div class="ad-sponsor-fit">
+              <span class="asf-lbl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>Sponsor Value:</span>
+              <span class="asf-val">Dominant co-branded logo loop reaching 500,000+ daily commuters in Vientiane.</span>
+            </div>
           </div>
         </div>
 
         <!-- AD 02: TikTok Challenge -->
         <div class="ad-card ru">
-          <div class="ad-card-badge">VIRAL SOCIAL</div>
-          <div class="ad-card-icon">📱</div>
-          <h4 class="ad-card-title">Viral TikTok Challenge: #StreetToStage2026</h4>
-          <p class="ad-card-desc">Exclusive festival soundbite crafted by top Lao beatmakers. Youth across Laos and Thailand submit 15s freestyle dance or rap videos using the branded sound to win VIP All-Access passes.</p>
-          <div class="ad-sponsor-fit">
-            <span class="asf-lbl">Sponsor Value:</span>
-            <span class="asf-val">Massive organic UGC with 3M+ video views and branded hashtag sponsorship.</span>
+          <div class="ad-card-thumb">
+            <img src="assets/battle_breaking.jpg" alt="Viral TikTok Challenge" loading="lazy">
+            <div class="ad-card-thumb-overlay"></div>
+            <div class="ad-card-top-bar">
+              <span class="ad-card-badge">VIRAL SOCIAL</span>
+            </div>
+            <div class="ad-dual-ring-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff2d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"></rect><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+          </div>
+          <div class="ad-card-body">
+            <h4 class="ad-card-title">Viral TikTok Challenge: #StreetToStage2026</h4>
+            <p class="ad-card-desc">Exclusive festival soundbite crafted by top Lao beatmakers. Youth across Laos and Thailand submit 15s freestyle dance or rap videos using the branded sound to win VIP All-Access passes.</p>
+            <div class="ad-sponsor-fit">
+              <span class="asf-lbl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>Sponsor Value:</span>
+              <span class="asf-val">Massive organic UGC with 3M+ video views and branded hashtag sponsorship.</span>
+            </div>
           </div>
         </div>
 
         <!-- AD 03: Battle Pass App -->
         <div class="ad-card ru">
-          <div class="ad-card-badge">GAMIFICATION &amp; LEADS</div>
-          <div class="ad-card-icon">🎟️</div>
-          <h4 class="ad-card-title">'Battle Pass' QR Stamp Rally &amp; Web Mini-App</h4>
-          <p class="ad-card-desc">Zero-download mobile web app: visitors scan QR codes at sponsor booths (Sting, Beerlao, Tplus) to collect stamps, unlock digital selfie stickers, and enter the festival grand lucky draw.</p>
-          <div class="ad-sponsor-fit">
-            <span class="asf-lbl">Sponsor Value:</span>
-            <span class="asf-val">100% verified footfall, app downloads, and qualified opt-in customer leads for sponsors.</span>
+          <div class="ad-card-thumb">
+            <img src="assets/battle_graffiti.jpg" alt="Battle Pass Web Mini-App" loading="lazy">
+            <div class="ad-card-thumb-overlay"></div>
+            <div class="ad-card-top-bar">
+              <span class="ad-card-badge">GAMIFICATION &amp; LEADS</span>
+            </div>
+            <div class="ad-dual-ring-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff2d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </div>
+          </div>
+          <div class="ad-card-body">
+            <h4 class="ad-card-title">'Battle Pass' QR Stamp Rally &amp; Web Mini-App</h4>
+            <p class="ad-card-desc">Zero-download mobile web app: visitors scan QR codes at sponsor booths (Sting, Beerlao, Tplus) to collect stamps, unlock digital selfie stickers, and enter the festival grand lucky draw.</p>
+            <div class="ad-sponsor-fit">
+              <span class="asf-lbl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>Sponsor Value:</span>
+              <span class="asf-val">100% verified footfall, app downloads, and qualified opt-in customer leads for sponsors.</span>
+            </div>
           </div>
         </div>
 
         <!-- AD 04: Guerrilla Flashmobs -->
         <div class="ad-card ru">
-          <div class="ad-card-badge">GUERRILLA STREET</div>
-          <div class="ad-card-icon">⚡</div>
-          <h4 class="ad-card-title">University Flashmobs &amp; Pop-Up Cyphers</h4>
-          <p class="ad-card-desc">Unannounced pop-up street cyphers at National University of Laos (Dongdok Campus), Vientiane Night Market, and major malls with mobile DJ sound systems giving away limited stickers &amp; vouchers.</p>
-          <div class="ad-sponsor-fit">
-            <span class="asf-lbl">Sponsor Value:</span>
-            <span class="asf-val">Direct face-to-face sampling with high-energy university students (18–25 age group).</span>
+          <div class="ad-card-thumb">
+            <img src="assets/battle_crew.jpg" alt="University Flashmobs & Pop-Up Cyphers" loading="lazy">
+            <div class="ad-card-thumb-overlay"></div>
+            <div class="ad-card-top-bar">
+              <span class="ad-card-badge">GUERRILLA STREET</span>
+            </div>
+            <div class="ad-dual-ring-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff2d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+            </div>
+          </div>
+          <div class="ad-card-body">
+            <h4 class="ad-card-title">University Flashmobs &amp; Pop-Up Cyphers</h4>
+            <p class="ad-card-desc">Unannounced pop-up street cyphers at National University of Laos (Dongdok Campus), Vientiane Night Market, and major malls with mobile DJ sound systems giving away limited stickers &amp; vouchers.</p>
+            <div class="ad-sponsor-fit">
+              <span class="asf-lbl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>Sponsor Value:</span>
+              <span class="asf-val">Direct face-to-face sampling with high-energy university students (18–25 age group).</span>
+            </div>
           </div>
         </div>
 
         <!-- AD 05: Co-Branded Packaging -->
         <div class="ad-card ru">
-          <div class="ad-card-badge">RETAIL ACTIVATION</div>
-          <div class="ad-card-icon">🥤</div>
-          <h4 class="ad-card-title">Co-Branded Packaging &amp; Retail Cross-Promo</h4>
-          <p class="ad-card-desc">Limited-edition retail merchandise and packaging (e.g. <em>Sting Energy x LIHF Limited Street Can</em>, <em>Tplus 5G Festival SIM</em>, and <em>Beerlao festival stadium cups</em>) in nationwide marts.</p>
-          <div class="ad-sponsor-fit">
-            <span class="asf-lbl">Sponsor Value:</span>
-            <span class="asf-val">High-street retail shelf visibility in Mini Big C, Jiffy, and supermarkets 6 weeks prior.</span>
+          <div class="ad-card-thumb">
+            <img src="assets/battle_dj.jpg" alt="Co-Branded Packaging & Retail Cross-Promo" loading="lazy">
+            <div class="ad-card-thumb-overlay"></div>
+            <div class="ad-card-top-bar">
+              <span class="ad-card-badge">RETAIL ACTIVATION</span>
+            </div>
+            <div class="ad-dual-ring-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff2d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            </div>
+          </div>
+          <div class="ad-card-body">
+            <h4 class="ad-card-title">Co-Branded Packaging &amp; Retail Cross-Promo</h4>
+            <p class="ad-card-desc">Limited-edition retail merchandise and packaging (e.g. <em>Sting Energy x LIHF Limited Street Can</em>, <em>Tplus 5G Festival SIM</em>, and <em>Beerlao festival stadium cups</em>) in nationwide marts.</p>
+            <div class="ad-sponsor-fit">
+              <span class="asf-lbl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>Sponsor Value:</span>
+              <span class="asf-val">High-street retail shelf visibility in Mini Big C, Jiffy, and supermarkets 6 weeks prior.</span>
+            </div>
           </div>
         </div>
 
         <!-- AD 06: Creator Collective -->
         <div class="ad-card ru">
-          <div class="ad-card-badge">INFLUENCER MARKETING</div>
-          <div class="ad-card-icon">🎙️</div>
-          <h4 class="ad-card-title">Creator All-Access Squad (30+ KOLs)</h4>
-          <p class="ad-card-desc">Handpicked squad of top Lao lifestyle, fashion, and dance content creators equipped with exclusive VIP Creator Kits to film backstage 'Get Ready With Me' vlogs and sponsor booth challenges.</p>
-          <div class="ad-sponsor-fit">
-            <span class="asf-lbl">Sponsor Value:</span>
-            <span class="asf-val">High-trust, authentic endorsements reaching diverse Gen Z lifestyle segments.</span>
+          <div class="ad-card-thumb">
+            <img src="assets/battle_mc.jpg" alt="Creator All-Access Squad" loading="lazy">
+            <div class="ad-card-thumb-overlay"></div>
+            <div class="ad-card-top-bar">
+              <span class="ad-card-badge">INFLUENCER MARKETING</span>
+            </div>
+            <div class="ad-dual-ring-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff2d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+            </div>
+          </div>
+          <div class="ad-card-body">
+            <h4 class="ad-card-title">Creator All-Access Squad (30+ KOLs)</h4>
+            <p class="ad-card-desc">Handpicked squad of top Lao lifestyle, fashion, and dance content creators equipped with exclusive VIP Creator Kits to film backstage 'Get Ready With Me' vlogs and sponsor booth challenges.</p>
+            <div class="ad-sponsor-fit">
+              <span class="asf-lbl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>Sponsor Value:</span>
+              <span class="asf-val">High-trust, authentic endorsements reaching diverse Gen Z lifestyle segments.</span>
+            </div>
           </div>
         </div>
 
         <!-- AD 07: Live Broadcast & Voting -->
         <div class="ad-card ru">
-          <div class="ad-card-badge">BROADCAST MEDIA</div>
-          <div class="ad-card-icon">📺</div>
-          <h4 class="ad-card-title">Multi-Platform 4K Live Broadcast &amp; Voting</h4>
-          <p class="ad-card-desc">Studio-grade multi-cam live broadcast streamed on TikTok Live, Facebook, and YouTube with interactive live fan voting for 'Crowd MVP' powered directly by the sponsor digital portal.</p>
-          <div class="ad-sponsor-fit">
-            <span class="asf-lbl">Sponsor Value:</span>
-            <span class="asf-val">Permanent on-screen watermark, virtual commercial breaks, and regional reach across ASEAN.</span>
+          <div class="ad-card-thumb">
+            <img src="assets/battle_concert.jpg" alt="Multi-Platform 4K Live Broadcast & Voting" loading="lazy">
+            <div class="ad-card-thumb-overlay"></div>
+            <div class="ad-card-top-bar">
+              <span class="ad-card-badge">BROADCAST MEDIA</span>
+            </div>
+            <div class="ad-dual-ring-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff2d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
+            </div>
+          </div>
+          <div class="ad-card-body">
+            <h4 class="ad-card-title">Multi-Platform 4K Live Broadcast &amp; Voting</h4>
+            <p class="ad-card-desc">Studio-grade multi-cam live broadcast streamed on TikTok Live, Facebook, and YouTube with interactive live fan voting for 'Crowd MVP' powered directly by the sponsor digital portal.</p>
+            <div class="ad-sponsor-fit">
+              <span class="asf-lbl"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:middle; margin-right:4px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>Sponsor Value:</span>
+              <span class="asf-val">Permanent on-screen watermark, virtual commercial breaks, and regional reach across ASEAN.</span>
+            </div>
           </div>
         </div>
 
