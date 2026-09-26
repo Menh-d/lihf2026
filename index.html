@@ -7,7 +7,7 @@
 <meta name="description" content="LIHF 2026 Official Sponsorship &amp; Partnership Proposal. 13–15 November 2026 at Lao-ITECC, Vientiane." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Roboto+Mono:wght@600;700;800;900&family=Teko:wght@600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Poppins:wght@700;900&family=Inter:wght@300;400;500;600;700;800&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Roboto+Mono:wght@600;700;800;900&family=Teko:wght@600;700&display=swap" rel="stylesheet" />
 <!-- GSAP loaded async — content visible by default, animations are progressive enhancement -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
@@ -8272,6 +8272,323 @@ body.gsap-ready .acc-section .rr {
   }
 }
 
+
+/* ══════════════════════════════════════════════════════════════
+   CINEMATIC PAGE INTRO (INSPIRED BY INTRO.CSS / LIHF MOODBOARD)
+   ══════════════════════════════════════════════════════════════ */
+.intro {
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  transform-origin: top;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.intro-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  z-index: 10;
+}
+
+.clip {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clip__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Layer 1: Solid Fill Typography */
+.clip h1,
+.clip .h1__stroke {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: clamp(3.5rem, 15vw, 15rem);
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.85;
+  margin: 0;
+  padding: 0 1rem;
+  overflow: hidden;
+  transform: translate(-50%, -50%) scaleY(1.4);
+  pointer-events: none;
+  user-select: none;
+}
+
+.clip h1 {
+  z-index: 1;
+  color: #ffffff;
+}
+
+.clip h1 .text-red {
+  color: #ef4444;
+}
+
+.clip h1 .text-gold {
+  color: #d4af37;
+}
+
+/* Layer 2: Center Masked Video Cut */
+.clip figure {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: clamp(260px, 38vw, 560px);
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  clip-path: url(#svgClipPath);
+  overflow: hidden;
+  box-shadow: 0 0 80px rgba(183, 26, 17, 0.6);
+}
+
+.clip figure video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  filter: contrast(1.15) brightness(1.05);
+}
+
+.clip figure .figure-glow {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 50px rgba(183, 26, 17, 0.8), inset 0 0 20px #000;
+  pointer-events: none;
+}
+
+/* Layer 3: Foreground Stroke Typography */
+.clip .h1__stroke {
+  z-index: 3;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.95);
+}
+
+.clip .h1__stroke .text-red {
+  -webkit-text-stroke: 1.5px #ef4444;
+}
+
+.clip .h1__stroke .text-gold {
+  -webkit-text-stroke: 1.5px #d4af37;
+}
+
+.clip h1 span,
+.clip .h1__stroke span {
+  display: inline-block;
+}
+
+/* Layer 4: Festival Metadata */
+.clip-meta {
+  position: absolute;
+  z-index: 4;
+  bottom: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 90vw;
+  pointer-events: none;
+}
+
+.intro-date-badge {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: clamp(0.75rem, 1.4vw, 1.1rem);
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  color: #fff;
+  background: rgba(20, 20, 24, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 6px 20px;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.intro-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.7rem, 1.2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Layer 5: Rising Red Bar (.intro__red from Intro .css) */
+.intro__red {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 32%;
+  background: linear-gradient(180deg, #b71a11, #770905);
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  font-size: 26vw;
+  font-weight: 900;
+  line-height: 32vh;
+  overflow: hidden;
+  color: transparent;
+  text-align: center;
+  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.45);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  z-index: 5;
+  box-shadow: 0 -10px 40px rgba(183, 26, 17, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro__red div {
+  transform: scaleX(0.65) scaleY(1.4);
+  letter-spacing: -0.5vw;
+}
+
+/* Header & Controls */
+.intro__header {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  right: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+}
+
+.intro__badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.intro__badge-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ef4444;
+  animation: introPulseDot 1.2s infinite;
+}
+
+@keyframes introPulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+}
+
+.intro__skip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+}
+
+.intro__skip-btn:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+}
+
+.intro__skip-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Custom Interactive Cursor (.cursor from Intro .css) */
+.intro-cursor {
+  position: fixed;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  width: 72px;
+  height: 30px;
+  color: #000;
+  font-family: 'Anton', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.15s ease-out;
+}
+
+.intro-cursor::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ef4444;
+  border-radius: 9999px;
+  transform: rotate(-8deg);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.6);
+}
+
+@media (max-width: 768px) {
+  .intro__header {
+    top: 16px;
+    left: 16px;
+    right: 16px;
+  }
+  .intro-cursor {
+    display: none;
+  }
+}
+
 </style>
 
 <script src="https://rawcdn.githack.com/martinlaxenaire/curtainsjs/95957f855ad9fd51850e97312cd389af76e9704e/build/curtains.min.js"></script>
@@ -8280,6 +8597,80 @@ body.gsap-ready .acc-section .rr {
 </head>
 <body>
 <div id="curtains-canvas"></div>
+
+<!-- SVG Clip Path Definition for Intro Video Mask -->
+<svg width="0" height="0" style="position:absolute;pointer-events:none;">
+  <defs>
+    <!-- Geometric street-diamond polygon clip -->
+    <clipPath id="svgClipPath" clipPathUnits="objectBoundingBox">
+      <polygon points="0.5 0, 0.95 0.25, 0.95 0.75, 0.5 1, 0.05 0.75, 0.05 0.25" />
+    </clipPath>
+  </defs>
+</svg>
+
+<!-- ============================================================
+     CINEMATIC INTRO SCREEN (LIHF 2026 X INTRO.CSS ARCHITECTURE)
+     ============================================================ -->
+<div class="intro flex" id="page-intro" aria-hidden="false">
+  <div class="intro-noise"></div>
+
+  <!-- Interactive Custom Cursor -->
+  <div class="intro-cursor" id="intro-cursor">ENTER</div>
+
+  <!-- Header & Controls -->
+  <div class="intro__header">
+    <div class="intro__badge">
+      <span class="intro__badge-dot"></span>
+      <span>LIHF 2026 // LIVE INTRO</span>
+    </div>
+    <button class="intro__skip-btn" id="intro-skip-btn" aria-label="Enter Festival">
+      <span>ENTER FESTIVAL</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <!-- Central Video & Text Clip -->
+  <div class="clip flex">
+    <div class="clip__inner flex">
+      <!-- 1. Background Fill Text (z-index: 1) -->
+      <h1>
+        <span class="intro-word">LAO INTERNATIONAL</span><br>
+        <span class="intro-word text-red">HIPHOP</span> <span class="intro-word text-gold">FESTIVAL</span>
+      </h1>
+
+      <!-- 2. Masked Video Center Cut (z-index: 2) -->
+      <figure>
+        <video
+          id="intro-video"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+        ></video>
+        <div class="figure-glow"></div>
+      </figure>
+
+      <!-- 3. Foreground Stroke Text (z-index: 3) -->
+      <h1 class="h1__stroke">
+        <span class="intro-word">LAO INTERNATIONAL</span><br>
+        <span class="intro-word text-red">HIPHOP</span> <span class="intro-word text-gold">FESTIVAL</span>
+      </h1>
+
+      <!-- 4. Metadata (z-index: 4) -->
+      <div class="clip-meta">
+        <div class="intro-date-badge">13–15 NOVEMBER 2026 • VIENTIANE</div>
+        <p class="intro-desc">ONE REGION • ONE MOVEMENT • ONE CULTURE</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Rising Red Strip (.intro__red from Intro .css) -->
+  <div class="intro__red flex" id="intro-red-bar">
+    <div>LIHF 2026</div>
+  </div>
+</div>
+
 
 <!-- NAV (WAVE LERP HOVER NAVIGATION BAR) -->
 <nav id="main-nav">
@@ -11591,6 +11982,120 @@ function setupWaveNavbar() {
     });
   });
 }
+
+// ── CINEMATIC PAGE INTRO CONTROLLER (INTRO.CSS ARCHITECTURE) ──
+function initCinematicIntro() {
+  const intro = document.getElementById('page-intro');
+  if (!intro) return;
+  const skipBtn = document.getElementById('intro-skip-btn');
+  const video = document.getElementById('intro-video');
+  const cursor = document.getElementById('intro-cursor');
+
+  // Interactive Cursor following mouse on intro
+  if (cursor && window.innerWidth > 768) {
+    intro.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+    intro.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(0)';
+    });
+  }
+
+  if (typeof gsap === 'undefined') {
+    // Fallback if GSAP is not loaded
+    setTimeout(() => {
+      intro.style.display = 'none';
+      if (video) video.pause();
+    }, 2800);
+    return;
+  }
+
+  // GSAP Cinematic Timeline
+  const tl = gsap.timeline({
+    onComplete: finishIntro
+  });
+
+  // Initial States
+  gsap.set('.clip h1 span, .clip .h1__stroke span', { yPercent: 110, opacity: 0 });
+  gsap.set('.clip figure', { scale: 0.35, opacity: 0, rotate: -8 });
+  gsap.set('.clip-meta', { y: 35, opacity: 0 });
+  gsap.set('.intro__red', { scaleY: 0 });
+
+  // 1. Reveal typography and center masked video
+  tl.to('.clip h1 span, .clip .h1__stroke span', {
+    yPercent: 0,
+    opacity: 1,
+    duration: 1.0,
+    stagger: 0.08,
+    ease: 'power4.out'
+  })
+  .to('.clip figure', {
+    scale: 1,
+    opacity: 1,
+    rotate: 0,
+    duration: 1.2,
+    ease: 'expo.out'
+  }, '-=0.85')
+  .to('.clip-meta', {
+    y: 0,
+    opacity: 1,
+    duration: 0.7,
+    ease: 'power3.out'
+  }, '-=0.6')
+
+  // 2. Rising Red Surge (.intro__red from Intro .css)
+  .to('.intro__red', {
+    scaleY: 1,
+    duration: 0.85,
+    ease: 'expo.inOut'
+  }, '+=0.35')
+  .to('.intro__red div', {
+    letterSpacing: '0.05vw',
+    scaleX: 0.65,
+    duration: 0.7,
+    ease: 'power3.out'
+  }, '-=0.65')
+
+  // 3. Grand Reveal: Intro scales away upward to reveal page
+  .to('.intro', {
+    scaleY: 0,
+    duration: 0.95,
+    ease: 'expo.inOut',
+    transformOrigin: 'top'
+  }, '+=0.25');
+
+  let isIntroFinished = false;
+  function finishIntro() {
+    if (isIntroFinished) return;
+    isIntroFinished = true;
+    gsap.killTweensOf(intro);
+    intro.style.display = 'none';
+    if (cursor) cursor.style.display = 'none';
+    if (video) video.pause();
+  }
+
+  function handleExit(e) {
+    if (e) e.stopPropagation();
+    if (isIntroFinished) return;
+    tl.kill();
+    gsap.to(intro, {
+      scaleY: 0,
+      duration: 0.6,
+      ease: 'expo.inOut',
+      transformOrigin: 'top',
+      onComplete: finishIntro
+    });
+  }
+
+  if (skipBtn) skipBtn.addEventListener('click', handleExit);
+  intro.addEventListener('click', handleExit);
+}
+
+document.addEventListener('DOMContentLoaded', initCinematicIntro);
+initCinematicIntro();
+
 document.addEventListener('DOMContentLoaded', setupWaveNavbar);
 setupWaveNavbar();
 
