@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Poppins:wght@700;900&family=Inter:wght@300;400;500;600;700;800&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Roboto+Mono:wght@600;700;800;900&family=Teko:wght@600;700&display=swap" rel="stylesheet" />
 <!-- GSAP loaded async — content visible by default, animations are progressive enhancement -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -8274,7 +8275,7 @@ body.gsap-ready .acc-section .rr {
 
 
 /* ══════════════════════════════════════════════════════════════
-   CINEMATIC PAGE INTRO (INSPIRED BY INTRO.CSS / LIHF MOODBOARD)
+   3D WEB EXPERIENCE INTRO (THREE.JS + PATTERN + 3D LOGO)
    ══════════════════════════════════════════════════════════════ */
 .intro {
   position: fixed;
@@ -8283,7 +8284,7 @@ body.gsap-ready .acc-section .rr {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: #060608;
   transform-origin: top;
   overflow: hidden;
   display: flex;
@@ -8292,211 +8293,100 @@ body.gsap-ready .acc-section .rr {
   cursor: pointer;
 }
 
+/* 3D WebGL Canvas */
+#intro-3d-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+}
+
+/* Background Texture Layer with Vignette Glow */
+.intro-pattern-bg {
+  position: absolute;
+  inset: -10%;
+  width: 120%;
+  height: 120%;
+  background-image: url('assets/intro_pattern.png');
+  background-size: 800px auto;
+  background-repeat: repeat;
+  background-position: center center;
+  opacity: 0.18;
+  filter: contrast(1.2) brightness(0.9);
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.1s ease-out;
+}
+
+.intro-radial-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(183, 26, 17, 0.45) 0%, rgba(212, 175, 55, 0.15) 30%, rgba(0, 0, 0, 0.85) 65%, #050507 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .intro-noise {
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
   pointer-events: none;
   opacity: 0.4;
   mix-blend-mode: overlay;
-  z-index: 10;
-}
-
-.clip {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.clip__inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* Layer 1: Solid Fill Typography */
-.clip h1,
-.clip .h1__stroke {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  font-family: 'Bebas Neue', 'Anton', sans-serif;
-  font-size: clamp(3.5rem, 15vw, 15rem);
-  font-weight: 400;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 0.85;
-  margin: 0;
-  padding: 0 1rem;
-  overflow: hidden;
-  transform: translate(-50%, -50%) scaleY(1.4);
-  pointer-events: none;
-  user-select: none;
-}
-
-.clip h1 {
-  z-index: 1;
-  color: #ffffff;
-}
-
-.clip h1 .text-red {
-  color: #ef4444;
-}
-
-.clip h1 .text-gold {
-  color: #d4af37;
-}
-
-/* Layer 2: Center Masked Video Cut */
-.clip figure {
-  position: absolute;
   z-index: 2;
-  top: 50%;
-  left: 50%;
-  width: clamp(260px, 38vw, 560px);
-  aspect-ratio: 1 / 1;
-  margin: 0;
-  padding: 0;
-  transform: translate(-50%, -50%);
-  clip-path: url(#svgClipPath);
-  overflow: hidden;
-  box-shadow: 0 0 80px rgba(183, 26, 17, 0.6);
 }
 
-.clip figure video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
-  filter: contrast(1.15) brightness(1.05);
-}
-
-.clip figure .figure-glow {
-  position: absolute;
-  inset: 0;
-  box-shadow: inset 0 0 50px rgba(183, 26, 17, 0.8), inset 0 0 20px #000;
-  pointer-events: none;
-}
-
-/* Layer 3: Foreground Stroke Typography */
-.clip .h1__stroke {
+/* CSS 3D Fallback Container (for devices without WebGL) */
+.intro-fallback-wrap {
+  position: relative;
   z-index: 3;
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.95);
+  display: none;
+  perspective: 1000px;
+}
+body.no-webgl .intro-fallback-wrap {
+  display: block;
+}
+.intro-fallback-logo {
+  max-width: clamp(280px, 60vw, 650px);
+  height: auto;
+  filter: drop-shadow(0 15px 40px rgba(0,0,0,0.8)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.5));
+  animation: logoFloat 4s ease-in-out infinite;
+}
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0) rotateX(0deg); }
+  50% { transform: translateY(-12px) rotateX(6deg); }
 }
 
-.clip .h1__stroke .text-red {
-  -webkit-text-stroke: 1.5px #ef4444;
-}
-
-.clip .h1__stroke .text-gold {
-  -webkit-text-stroke: 1.5px #d4af37;
-}
-
-.clip h1 span,
-.clip .h1__stroke span {
-  display: inline-block;
-}
-
-/* Layer 4: Festival Metadata */
-.clip-meta {
-  position: absolute;
-  z-index: 4;
-  bottom: 8vh;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  width: 90vw;
-  pointer-events: none;
-}
-
-.intro-date-badge {
-  display: inline-block;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: clamp(0.75rem, 1.4vw, 1.1rem);
-  font-weight: 800;
-  letter-spacing: 0.25em;
-  color: #fff;
-  background: rgba(20, 20, 24, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 6px 20px;
-  border-radius: 9999px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-  margin-bottom: 0.5rem;
-}
-
-.intro-desc {
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(0.7rem, 1.2vw, 0.95rem);
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-/* Layer 5: Rising Red Bar (.intro__red from Intro .css) */
-.intro__red {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 32%;
-  background: linear-gradient(180deg, #b71a11, #770905);
-  font-family: 'Bebas Neue', 'Anton', sans-serif;
-  font-size: 26vw;
-  font-weight: 900;
-  line-height: 32vh;
-  overflow: hidden;
-  color: transparent;
-  text-align: center;
-  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.45);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  z-index: 5;
-  box-shadow: 0 -10px 40px rgba(183, 26, 17, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.intro__red div {
-  transform: scaleX(0.65) scaleY(1.4);
-  letter-spacing: -0.5vw;
-}
-
-/* Header & Controls */
+/* UI Elements Overlay */
 .intro__header {
   position: absolute;
-  top: 24px;
-  left: 32px;
-  right: 32px;
+  top: 28px;
+  left: 36px;
+  right: 36px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 20;
+  pointer-events: none;
 }
 
 .intro__badge {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  gap: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: rgba(255, 255, 255, 0.85);
+  background: rgba(10, 10, 14, 0.7);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
 }
 
 .intro__badge-dot {
@@ -8514,43 +8404,73 @@ body.gsap-ready .acc-section .rr {
 }
 
 .intro__skip-btn {
+  pointer-events: auto;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.25);
   color: #fff;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
-  padding: 8px 18px;
-  border-radius: 6px;
+  padding: 9px 20px;
+  border-radius: 8px;
   cursor: pointer;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .intro__skip-btn:hover {
   background: #ef4444;
   border-color: #ef4444;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+  box-shadow: 0 6px 25px rgba(239, 68, 68, 0.6);
 }
 
 .intro__skip-btn svg {
   width: 14px;
   height: 14px;
+  stroke-width: 2.5;
 }
 
-/* Custom Interactive Cursor (.cursor from Intro .css) */
+/* Footer Tagline */
+.intro__footer {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  text-align: center;
+  pointer-events: none;
+  width: 90vw;
+}
+
+.intro-date-badge {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: clamp(0.75rem, 1.3vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  color: #fff;
+  background: rgba(14, 14, 18, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 8px 22px;
+  border-radius: 9999px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+/* Custom Interactive Cursor */
 .intro-cursor {
   position: fixed;
   z-index: 100000;
   top: 0;
   left: 0;
-  width: 72px;
-  height: 30px;
+  width: 76px;
+  height: 32px;
   color: #000;
   font-family: 'Anton', sans-serif;
   font-size: 13px;
@@ -8572,17 +8492,20 @@ body.gsap-ready .acc-section .rr {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #ef4444;
+  background: linear-gradient(135deg, #ffd700, #ef4444);
   border-radius: 9999px;
-  transform: rotate(-8deg);
-  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.6);
+  transform: rotate(-6deg);
+  box-shadow: 0 4px 18px rgba(239, 68, 68, 0.7);
 }
 
 @media (max-width: 768px) {
   .intro__header {
-    top: 16px;
-    left: 16px;
-    right: 16px;
+    top: 18px;
+    left: 18px;
+    right: 18px;
+  }
+  .intro__footer {
+    bottom: 24px;
   }
   .intro-cursor {
     display: none;
@@ -8598,76 +8521,41 @@ body.gsap-ready .acc-section .rr {
 <body>
 <div id="curtains-canvas"></div>
 
-<!-- SVG Clip Path Definition for Intro Video Mask -->
-<svg width="0" height="0" style="position:absolute;pointer-events:none;">
-  <defs>
-    <!-- Geometric street-diamond polygon clip -->
-    <clipPath id="svgClipPath" clipPathUnits="objectBoundingBox">
-      <polygon points="0.5 0, 0.95 0.25, 0.95 0.75, 0.5 1, 0.05 0.75, 0.05 0.25" />
-    </clipPath>
-  </defs>
-</svg>
-
 <!-- ============================================================
-     CINEMATIC INTRO SCREEN (LIHF 2026 X INTRO.CSS ARCHITECTURE)
+     3D WEB EXPERIENCE INTRO (THREE.JS + PATTERN + 3D LOGO)
      ============================================================ -->
 <div class="intro flex" id="page-intro" aria-hidden="false">
+  <!-- Dynamic Texture Pattern Background -->
+  <div class="intro-pattern-bg" id="intro-pattern-bg"></div>
+  <div class="intro-radial-glow"></div>
   <div class="intro-noise"></div>
+
+  <!-- Three.js 3D WebGL Canvas -->
+  <canvas id="intro-3d-canvas"></canvas>
+
+  <!-- Non-WebGL Fallback -->
+  <div class="intro-fallback-wrap">
+    <img src="assets/intro_logo_3d.png" alt="LIHF 2026 3D Logo" class="intro-fallback-logo">
+  </div>
 
   <!-- Interactive Custom Cursor -->
   <div class="intro-cursor" id="intro-cursor">ENTER</div>
 
-  <!-- Header & Controls -->
+  <!-- Header Controls -->
   <div class="intro__header">
     <div class="intro__badge">
       <span class="intro__badge-dot"></span>
-      <span>LIHF 2026 // LIVE INTRO</span>
+      <span>LIHF 2026 // 3D EXPERIENCE</span>
     </div>
     <button class="intro__skip-btn" id="intro-skip-btn" aria-label="Enter Festival">
       <span>ENTER FESTIVAL</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </button>
   </div>
 
-  <!-- Central Video & Text Clip -->
-  <div class="clip flex">
-    <div class="clip__inner flex">
-      <!-- 1. Background Fill Text (z-index: 1) -->
-      <h1>
-        <span class="intro-word">LAO INTERNATIONAL</span><br>
-        <span class="intro-word text-red">HIPHOP</span> <span class="intro-word text-gold">FESTIVAL</span>
-      </h1>
-
-      <!-- 2. Masked Video Center Cut (z-index: 2) -->
-      <figure>
-        <video
-          id="intro-video"
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260725_114042_d2ed2a89-f2fa-449b-9609-da456344257b.mp4"
-          autoplay
-          muted
-          loop
-          playsinline
-        ></video>
-        <div class="figure-glow"></div>
-      </figure>
-
-      <!-- 3. Foreground Stroke Text (z-index: 3) -->
-      <h1 class="h1__stroke">
-        <span class="intro-word">LAO INTERNATIONAL</span><br>
-        <span class="intro-word text-red">HIPHOP</span> <span class="intro-word text-gold">FESTIVAL</span>
-      </h1>
-
-      <!-- 4. Metadata (z-index: 4) -->
-      <div class="clip-meta">
-        <div class="intro-date-badge">13–15 NOVEMBER 2026 • VIENTIANE</div>
-        <p class="intro-desc">ONE REGION • ONE MOVEMENT • ONE CULTURE</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 5. Rising Red Strip (.intro__red from Intro .css) -->
-  <div class="intro__red flex" id="intro-red-bar">
-    <div>LIHF 2026</div>
+  <!-- Footer Tagline -->
+  <div class="intro__footer">
+    <div class="intro-date-badge">13–15 NOVEMBER 2026 • LAO-ITECC • VIENTIANE</div>
   </div>
 </div>
 
@@ -11983,15 +11871,24 @@ function setupWaveNavbar() {
   });
 }
 
-// ── CINEMATIC PAGE INTRO CONTROLLER (INTRO.CSS ARCHITECTURE) ──
-function initCinematicIntro() {
+// ── 3D WEB EXPERIENCE INTRO CONTROLLER (THREE.JS + PATTERN + 3D LOGO) ──
+function init3DExperienceIntro() {
   const intro = document.getElementById('page-intro');
   if (!intro) return;
-  const skipBtn = document.getElementById('intro-skip-btn');
-  const video = document.getElementById('intro-video');
-  const cursor = document.getElementById('intro-cursor');
 
-  // Interactive Cursor following mouse on intro
+  const canvas = document.getElementById('intro-3d-canvas');
+  const skipBtn = document.getElementById('intro-skip-btn');
+  const cursor = document.getElementById('intro-cursor');
+  const patternBg = document.getElementById('intro-pattern-bg');
+
+  let isIntroFinished = false;
+  let animFrameId = null;
+
+  // Mouse / Touch tracking for interactive 3D rotation
+  let mouseX = 0, mouseY = 0;
+  let targetRotX = 0, targetRotY = 0;
+
+  // Custom pill cursor follower
   if (cursor && window.innerWidth > 768) {
     intro.addEventListener('mousemove', (e) => {
       cursor.style.left = e.clientX + 'px';
@@ -12003,98 +11900,278 @@ function initCinematicIntro() {
     });
   }
 
-  if (typeof gsap === 'undefined') {
-    // Fallback if GSAP is not loaded
-    setTimeout(() => {
-      intro.style.display = 'none';
-      if (video) video.pause();
-    }, 2800);
+  // Interactive mousemove for 3D parallax
+  window.addEventListener('mousemove', (e) => {
+    if (isIntroFinished) return;
+    mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+    mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+    targetRotY = mouseX * 0.45;
+    targetRotX = -mouseY * 0.35;
+
+    if (patternBg) {
+      patternBg.style.transform = `translate(${-mouseX * 25}px, ${mouseY * 25}px)`;
+    }
+  });
+
+  // Check WebGL Support
+  function isWebGLAvailable() {
+    try {
+      const testCanvas = document.createElement('canvas');
+      return !!(window.WebGLRenderingContext && (testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl')));
+    } catch (e) {
+      return false;
+    }
+  }
+
+  if (typeof THREE === 'undefined' || !isWebGLAvailable()) {
+    document.body.classList.add('no-webgl');
+    // Simple fallback timeout
+    setTimeout(finishIntro, 3500);
+    if (skipBtn) skipBtn.addEventListener('click', finishIntro);
+    intro.addEventListener('click', finishIntro);
     return;
   }
 
-  // GSAP Cinematic Timeline
-  const tl = gsap.timeline({
-    onComplete: finishIntro
+  // Three.js Scene Setup
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.z = 8.5;
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: true,
+    powerPreference: 'high-performance'
   });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // Initial States
-  gsap.set('.clip h1 span, .clip .h1__stroke span', { yPercent: 110, opacity: 0 });
-  gsap.set('.clip figure', { scale: 0.35, opacity: 0, rotate: -8 });
-  gsap.set('.clip-meta', { y: 35, opacity: 0 });
-  gsap.set('.intro__red', { scaleY: 0 });
+  // 3D Lighting Setup (1 Ambient + 2 Accent PointLights + 1 Mouse PointLight)
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+  scene.add(ambientLight);
 
-  // 1. Reveal typography and center masked video
-  tl.to('.clip h1 span, .clip .h1__stroke span', {
-    yPercent: 0,
-    opacity: 1,
-    duration: 1.0,
-    stagger: 0.08,
-    ease: 'power4.out'
-  })
-  .to('.clip figure', {
-    scale: 1,
-    opacity: 1,
-    rotate: 0,
-    duration: 1.2,
-    ease: 'expo.out'
-  }, '-=0.85')
-  .to('.clip-meta', {
-    y: 0,
-    opacity: 1,
-    duration: 0.7,
-    ease: 'power3.out'
-  }, '-=0.6')
+  const goldRimLight = new THREE.PointLight(0xffd700, 3.2, 18);
+  goldRimLight.position.set(4, 2, 4);
+  scene.add(goldRimLight);
 
-  // 2. Rising Red Surge (.intro__red from Intro .css)
-  .to('.intro__red', {
-    scaleY: 1,
-    duration: 0.85,
-    ease: 'expo.inOut'
-  }, '+=0.35')
-  .to('.intro__red div', {
-    letterSpacing: '0.05vw',
-    scaleX: 0.65,
-    duration: 0.7,
-    ease: 'power3.out'
-  }, '-=0.65')
+  const redRimLight = new THREE.PointLight(0xcc0000, 2.8, 18);
+  redRimLight.position.set(-4, -2, 4);
+  scene.add(redRimLight);
 
-  // 3. Grand Reveal: Intro scales away upward to reveal page
-  .to('.intro', {
-    scaleY: 0,
-    duration: 0.95,
-    ease: 'expo.inOut',
-    transformOrigin: 'top'
-  }, '+=0.25');
+  const mouseLight = new THREE.PointLight(0xffffff, 1.8, 12);
+  mouseLight.position.set(0, 0, 3.5);
+  scene.add(mouseLight);
 
-  let isIntroFinished = false;
-  function finishIntro() {
-    if (isIntroFinished) return;
-    isIntroFinished = true;
-    gsap.killTweensOf(intro);
-    intro.style.display = 'none';
-    if (cursor) cursor.style.display = 'none';
-    if (video) video.pause();
+  // Group for the 3D Logo object
+  const logoGroup = new THREE.Group();
+  scene.add(logoGroup);
+
+  // Texture Loader for Logo & Bevels
+  const textureLoader = new THREE.TextureLoader();
+  const logoTexture = textureLoader.load('assets/intro_logo_3d.png', () => {
+    renderer.render(scene, camera);
+  });
+  logoTexture.generateMipmaps = true;
+
+  // Aspect Ratio for the Logo (1024 / 507 approx 2.02)
+  const logoWidth = window.innerWidth < 768 ? 3.4 : 4.8;
+  const logoHeight = logoWidth / 2.02;
+
+  // 1. Back Shadow / Depth Layer (adds real 3D physical thickness)
+  const shadowGeo = new THREE.PlaneGeometry(logoWidth, logoHeight);
+  const shadowMat = new THREE.MeshBasicMaterial({
+    map: logoTexture,
+    transparent: true,
+    color: 0x050505,
+    opacity: 0.65
+  });
+  const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
+  shadowMesh.position.set(0.08, -0.08, -0.15);
+  logoGroup.add(shadowMesh);
+
+  // 2. Extruded Depth Rim Layer
+  const depthGeo = new THREE.PlaneGeometry(logoWidth, logoHeight);
+  const depthMat = new THREE.MeshBasicMaterial({
+    map: logoTexture,
+    transparent: true,
+    color: 0x886600,
+    opacity: 0.8
+  });
+  const depthMesh = new THREE.Mesh(depthGeo, depthMat);
+  depthMesh.position.set(0, 0, -0.06);
+  logoGroup.add(depthMesh);
+
+  // 3. Main Glossy 3D Gold Logo Surface
+  const mainGeo = new THREE.PlaneGeometry(logoWidth, logoHeight);
+  const mainMat = new THREE.MeshStandardMaterial({
+    map: logoTexture,
+    transparent: true,
+    roughness: 0.15,
+    metalness: 0.7,
+    alphaTest: 0.02
+  });
+  const mainMesh = new THREE.Mesh(mainGeo, mainMat);
+  mainMesh.position.z = 0;
+  logoGroup.add(mainMesh);
+
+  // 4. Floating 3D Sparkle / Embers Particle Field
+  const particleCount = window.innerWidth < 768 ? 60 : 130;
+  const partGeo = new THREE.BufferGeometry();
+  const positions = new Float32Array(particleCount * 3);
+  const colors = new Float32Array(particleCount * 3);
+
+  for (let i = 0; i < particleCount * 3; i += 3) {
+    positions[i] = (Math.random() - 0.5) * 12;
+    positions[i + 1] = (Math.random() - 0.5) * 8;
+    positions[i + 2] = (Math.random() - 0.5) * 6;
+
+    if (Math.random() > 0.4) {
+      colors[i] = 1.0; colors[i + 1] = 0.84; colors[i + 2] = 0.0; // gold
+    } else {
+      colors[i] = 0.95; colors[i + 1] = 0.15; colors[i + 2] = 0.15; // red
+    }
   }
+  partGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  partGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-  function handleExit(e) {
-    if (e) e.stopPropagation();
-    if (isIntroFinished) return;
-    tl.kill();
-    gsap.to(intro, {
-      scaleY: 0,
-      duration: 0.6,
-      ease: 'expo.inOut',
-      transformOrigin: 'top',
-      onComplete: finishIntro
+  const partMat = new THREE.PointsMaterial({
+    size: 0.07,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.85
+  });
+  const particles = new THREE.Points(partGeo, partMat);
+  scene.add(particles);
+
+  // GSAP Camera & Logo Reveal Sequence
+  if (typeof gsap !== 'undefined') {
+    // Zoom in from deep space
+    gsap.from(camera.position, {
+      z: 13,
+      duration: 1.4,
+      ease: 'power3.out'
+    });
+    // Logo scale & bounce settle
+    gsap.from(logoGroup.scale, {
+      x: 0.3,
+      y: 0.3,
+      z: 0.3,
+      duration: 1.5,
+      ease: 'elastic.out(1, 0.65)'
+    });
+    // Fade in particles
+    gsap.from(partMat, {
+      opacity: 0,
+      duration: 1.2,
+      ease: 'power2.out'
     });
   }
 
-  if (skipBtn) skipBtn.addEventListener('click', handleExit);
-  intro.addEventListener('click', handleExit);
+  // Animation Loop with Clock
+  const clock = new THREE.Clock();
+  function renderScene() {
+    if (isIntroFinished) return;
+    animFrameId = requestAnimationFrame(renderScene);
+
+    const time = clock.getElapsedTime();
+
+    // Smooth spring interpolation towards mouse tilt
+    logoGroup.rotation.y += (targetRotY - logoGroup.rotation.y) * 0.08;
+    logoGroup.rotation.x += (targetRotX - logoGroup.rotation.x) * 0.08;
+
+    // Organic levitation breathing
+    logoGroup.position.y = Math.sin(time * 2.2) * 0.1;
+    logoGroup.rotation.z = Math.sin(time * 1.5) * 0.02;
+
+    // Light moves with mouse to reflect off gold bevels
+    mouseLight.position.x = mouseX * 4;
+    mouseLight.position.y = mouseY * 3;
+
+    // Ambient particles drift
+    particles.rotation.y = time * 0.04;
+    particles.rotation.x = time * 0.02;
+
+    renderer.render(scene, camera);
+  }
+  renderScene();
+
+  // Responsive Resize
+  function onWindowResize() {
+    if (isIntroFinished) return;
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+  window.addEventListener('resize', onWindowResize);
+
+  // Finish Intro & Clean up WebGL resources
+  function finishIntro() {
+    if (isIntroFinished) return;
+    isIntroFinished = true;
+
+    if (animFrameId) cancelAnimationFrame(animFrameId);
+    window.removeEventListener('resize', onWindowResize);
+
+    if (typeof gsap !== 'undefined') {
+      // Hyperspace punch zoom into the logo on exit
+      gsap.to(camera.position, {
+        z: 1.2,
+        duration: 0.7,
+        ease: 'power4.in'
+      });
+      gsap.to(intro, {
+        scaleY: 0,
+        duration: 0.8,
+        delay: 0.15,
+        ease: 'expo.inOut',
+        transformOrigin: 'top',
+        onComplete: disposeWebGL
+      });
+    } else {
+      intro.style.display = 'none';
+      disposeWebGL();
+    }
+  }
+
+  function disposeWebGL() {
+    intro.style.display = 'none';
+    if (cursor) cursor.style.display = 'none';
+    // Clean up Three.js scene & GPU memory
+    try {
+      scene.remove(logoGroup);
+      scene.remove(particles);
+      partGeo.dispose();
+      partMat.dispose();
+      mainGeo.dispose();
+      mainMat.dispose();
+      depthGeo.dispose();
+      depthMat.dispose();
+      shadowGeo.dispose();
+      shadowMat.dispose();
+      logoTexture.dispose();
+      renderer.dispose();
+    } catch (e) {
+      console.log('Cleanup complete');
+    }
+  }
+
+  // Auto transition after 3.8 seconds
+  const autoTimer = setTimeout(() => {
+    finishIntro();
+  }, 3800);
+
+  function handleUserExit(e) {
+    if (e) e.stopPropagation();
+    clearTimeout(autoTimer);
+    finishIntro();
+  }
+
+  if (skipBtn) skipBtn.addEventListener('click', handleUserExit);
+  intro.addEventListener('click', handleUserExit);
 }
 
-document.addEventListener('DOMContentLoaded', initCinematicIntro);
-initCinematicIntro();
+document.addEventListener('DOMContentLoaded', init3DExperienceIntro);
+init3DExperienceIntro();
 
 document.addEventListener('DOMContentLoaded', setupWaveNavbar);
 setupWaveNavbar();
