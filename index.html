@@ -9466,7 +9466,7 @@ body.gsap-ready .acc-section .rr {
     </button>
   </div>
 
-  <!-- 5 MASCOT CREW 3D STAGE (SLIDE-DOWN EFFECT) -->
+  <!-- 4 MASCOT CREW 3D STAGE (SLIDE-DOWN EFFECT) -->
   <div class="intro-mascot-stage" id="intro-mascot-stage">
     <div class="mascot-stage-ambient-glow"></div>
     <div class="intro-mascot-lineup" id="intro-mascot-lineup">
@@ -9507,7 +9507,7 @@ body.gsap-ready .acc-section .rr {
       </div>
 
       <!-- 4. MC RAPPER WITH MIC MASCOT -->
-      <div class="mascot-card mascot-pos-4" data-index="3" data-role="MC CYPHER" style="--mascot-z: 4;">
+      <div class="mascot-card mascot-pos-4" data-index="3" data-role="MC CYPHER" style="--mascot-z: 3;">
         <div class="mascot-shadow"></div>
         <div class="mascot-img-wrap">
           <img src="assets/mascot/mascot_5.png" alt="LIHF MC Mascot" class="mascot-img" loading="eager">
@@ -9517,24 +9517,12 @@ body.gsap-ready .acc-section .rr {
           <span>MC CYPHER</span>
         </div>
       </div>
-
-      <!-- 5. STREET DANCER HYPE MASCOT -->
-      <div class="mascot-card mascot-pos-5" data-index="4" data-role="ALL STYLE" style="--mascot-z: 2;">
-        <div class="mascot-shadow"></div>
-        <div class="mascot-img-wrap">
-          <img src="assets/mascot/mascot_1.png" alt="LIHF Street Style Mascot" class="mascot-img" loading="eager">
-        </div>
-        <div class="mascot-pill">
-          <span class="pill-dot"></span>
-          <span>STREET STYLE</span>
-        </div>
-      </div>
     </div>
 
     <!-- Crew Headline Banner under characters -->
     <div class="intro-crew-caption" id="intro-crew-caption">
       <div class="crew-caption-tag">LIHF 2026 // OFFICIAL MASCOT SQUAD</div>
-      <h2 class="crew-caption-title">THE 5 ELEMENTS OF HIP-HOP</h2>
+      <h2 class="crew-caption-title">THE 4 ELEMENTS OF HIP-HOP</h2>
     </div>
   </div>
 
@@ -13364,7 +13352,7 @@ function init3DExperienceIntro() {
       y: -window.innerHeight * 1.35,
       opacity: 0,
       scale: 1.18,
-      rotate: (i) => [-9, -4, 0, 4, 9][i] || 0
+      rotate: (i) => [-7, -2.5, 2.5, 7][i] || 0
     });
     gsap.set('.mascot-shadow', { scaleX: 0.2, opacity: 0 });
     gsap.set('.mascot-pill', { scale: 0.4, opacity: 0 });
@@ -13396,7 +13384,7 @@ function init3DExperienceIntro() {
             { y: 0, duration: 0.16, ease: 'power2.out' }
           );
         }
-      }, index * 0.28);
+      }, index * 0.32);
 
       // Shadow expands upon impact
       if (shadow) {
@@ -13405,7 +13393,7 @@ function init3DExperienceIntro() {
           opacity: 1,
           duration: 0.45,
           ease: 'power2.out'
-        }, index * 0.28 + 0.22);
+        }, index * 0.32 + 0.22);
       }
 
       // Pill badge pops in
@@ -13415,7 +13403,7 @@ function init3DExperienceIntro() {
           opacity: 1,
           duration: 0.38,
           ease: 'back.out(2.2)'
-        }, index * 0.28 + 0.35);
+        }, index * 0.32 + 0.35);
       }
     });
 
