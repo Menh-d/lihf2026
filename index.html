@@ -5527,7 +5527,7 @@ nav { height: 60px !important; padding: 0 !important; }
 .acc-arrow {
   font-size: 1.3rem !important;
   color: var(--red) !important;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease !important;
+  transition: transform 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.25s ease !important;
   flex-shrink: 0 !important;
   line-height: 1 !important;
 }
@@ -5536,27 +5536,24 @@ nav { height: 60px !important; padding: 0 !important; }
   color: var(--gold) !important;
 }
 
-/* ── SMOOTH, BULLETPROOF ACCORDION EXPANSION (PURE CSS GRID INTERPOLATION) ── */
+/* ── SMOOTH, BULLETPROOF ACCORDION EXPANSION ── */
 .acc-body {
-  display: grid !important;
-  grid-template-rows: 0fr !important;
-  opacity: 0 !important;
-  overflow: hidden !important;
-  transition: grid-template-rows 0.52s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  pointer-events: none !important;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease;
+  pointer-events: none;
 }
 .acc-body.is-open {
-  grid-template-rows: 1fr !important;
+  max-height: 35000px !important;
   opacity: 1 !important;
+  overflow: visible !important;
   pointer-events: auto !important;
 }
 .acc-body > section {
-  min-height: 0 !important;
-  overflow: hidden !important;
   padding-top: 3.5rem !important;
   padding-bottom: 4rem !important;
   border-bottom: none !important;
-  transition: padding 0.52s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 /* Remove default top/bottom padding from section when inside accordion */
@@ -6152,24 +6149,13 @@ section.acc-inner {
   height: auto !important;
   max-height: 480px !important;
   object-fit: contain !important;
-  filter: drop-shadow(0 0 45px rgba(204, 0, 0, 0.85)) drop-shadow(0 0 85px rgba(212, 175, 55, 0.45)) !important;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.65)) !important;
   animation: heroLogoEntrance 1.2s cubic-bezier(0.22, 1.25, 0.36, 1) both, emblemFloat 5s ease-in-out 1.2s infinite !important;
   transform-origin: center !important;
   user-select: none !important;
 }
 .emblem-ambient-halo {
-  position: absolute;
-  width: clamp(340px, 34vw, 540px) !important;
-  height: clamp(340px, 34vw, 540px) !important;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(204, 0, 0, 0.35) 0%, rgba(212, 175, 55, 0.15) 50%, transparent 75%);
-  filter: blur(25px);
-  pointer-events: none;
-  animation: pulseHalo 4s ease-in-out infinite alternate;
-}
-@keyframes pulseHalo {
-  0% { transform: scale(0.9); opacity: 0.6; }
-  100% { transform: scale(1.15); opacity: 0.95; }
+  display: none !important;
 }
 .hero-emblem-caption {
   display: flex;
@@ -7960,7 +7946,7 @@ body {
   --bg: hsl(0 0% 5%);
   --nav: hsl(0 0% 12%);
   --color: hsl(0 0% 90%);
-  --speed: 0.38s;
+  --speed: 0.25s;
 }
 
 :root.dark {
@@ -8048,10 +8034,10 @@ nav {
 .nav__control svg {
   width: 24px;
   height: 24px;
-  stroke-width: 2.2;
+  stroke-width: 2.5;
   stroke: var(--color);
   rotate: calc(var(--active-nav, 0) * 45deg);
-  transition: rotate 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: rotate var(--speed);
 }
 
 input:focus-visible + label {
@@ -8088,7 +8074,7 @@ input:focus-visible + label {
   font-weight: 600;
   letter-spacing: 0.04em;
   white-space: nowrap;
-  transition: color 0.25s ease, background 0.25s ease;
+  transition: color var(--speed);
 }
 
 .nav__options svg {
@@ -8104,42 +8090,25 @@ input:focus-visible + label {
   position: absolute;
   right: -1rem;
   top: 100%;
-  background: rgba(14, 14, 18, 0.98);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: var(--nav);
   width: calc(100% + 2rem);
   translate: 0 calc(-100% + (var(--active-nav, 0) * (100% + 2px)));
-  transition: translate 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: translate var(--speed);
   z-index: -1;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 
 @media(max-width: 767.98px) {
   .nav__options {
     pointer-events: none;
     opacity: 0;
-    visibility: hidden;
-    transform: translateY(-12px);
-    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
-                visibility 0.35s ease;
   }
-  :root:has(#menu:checked) .nav__options,
-  .nav__options.is-open {
+  :root:has(#menu:checked) .nav__options {
     pointer-events: auto;
     opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
   }
   .nav__options a {
     padding: 1rem 1.5rem;
-    transition: background 0.25s ease, color 0.25s ease, padding-left 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .nav__options a:hover,
-  .nav__options a:active {
-    padding-left: 1.85rem;
-    background: rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -8172,10 +8141,8 @@ nav a:is(:hover, :focus-visible) {
 .link svg {
   opacity: var(--active, 0);
   rotate: calc(var(--active, 0) * -45deg);
-  scale: calc(1 + (var(--active, 0) * 0.12));
-  transition: opacity 0.3s ease,
-              rotate 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-              scale 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  scale: calc(1 + (var(--active, 0) * 0.1));
+  transition: opacity calc(var(--speed) * 1.5), rotate var(--speed), scale var(--speed);
 }
 
 .link span {
@@ -8203,7 +8170,7 @@ nav a:is(:hover, :focus-visible) {
 
 /* The :hover stuff */
 :root {
-  --speed: 0.38s;
+  --speed: 0.25s;
 }
 
 @media(min-width: 768px) {
@@ -8216,7 +8183,7 @@ nav a:is(:hover, :focus-visible) {
     --lerp-1: calc(sin(30deg));
     --lerp-2: calc(sin(20deg));
     --lerp-3: calc(sin(10deg));
-    --speed: 0.38s;
+    --speed: 0.25s;
   }
   .nav__control {
     display: none;
@@ -8228,18 +8195,12 @@ nav a:is(:hover, :focus-visible) {
     grid-auto-columns: 1fr;
     position: static;
     width: auto;
-    translate: 0 0 !important;
-    transform: none !important;
+    translate: 0 0;
     z-index: 1;
     overflow: visible;
     box-shadow: none;
     opacity: 1 !important;
     pointer-events: auto !important;
-    visibility: visible !important;
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border-bottom: none !important;
   }
 
   .nav__options a:not(:last-of-type) {	
@@ -8257,8 +8218,8 @@ nav a:is(:hover, :focus-visible) {
     z-index: -1;
     left: 0;
     right: 0;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-    transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: background var(--speed);
   }
 
   .link:first-of-type::before {
@@ -8271,9 +8232,7 @@ nav a:is(:hover, :focus-visible) {
 
   .link {
     translate: 0 calc(var(--lerp, 0) * 80%);
-    transition: translate 0.42s cubic-bezier(0.16, 1, 0.3, 1),
-                color 0.25s ease;
-    will-change: translate;
+    transition: translate var(--speed);
   }
 
   :is(.link:hover, .link:focus-visible) {
@@ -9101,39 +9060,17 @@ body.gsap-ready .acc-section .rr {
   display: block;
 }
 
-/* Background Texture Layer with Vignette Glow */
+/* Background Texture Layer & Glow (Hidden per user request) */
 .intro-pattern-bg {
-  position: absolute;
-  inset: -10%;
-  width: 120%;
-  height: 120%;
-  background-image: url('assets/intro_pattern.png');
-  background-size: 800px auto;
-  background-repeat: repeat;
-  background-position: center center;
-  opacity: 0.28;
-  filter: contrast(1.15) brightness(1.1);
-  pointer-events: none;
-  z-index: 0;
-  transition: transform 0.1s ease-out;
+  display: none !important;
 }
 
 .intro-radial-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(183, 26, 17, 0.45) 0%, rgba(212, 175, 55, 0.15) 30%, rgba(0, 0, 0, 0.85) 65%, #050507 100%);
-  pointer-events: none;
-  z-index: 0;
+  display: none !important;
 }
 
 .intro-noise {
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
-  pointer-events: none;
-  opacity: 0.4;
-  mix-blend-mode: overlay;
-  z-index: 2;
+  display: none !important;
 }
 
 /* CSS 3D Fallback Container (for devices without WebGL) */
@@ -9149,7 +9086,7 @@ body.no-webgl .intro-fallback-wrap {
 .intro-fallback-logo {
   max-width: clamp(280px, 60vw, 650px);
   height: auto;
-  filter: drop-shadow(0 15px 40px rgba(0,0,0,0.8)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.5));
+  filter: drop-shadow(0 15px 40px rgba(0,0,0,0.85));
   animation: logoFloat 4s ease-in-out infinite;
 }
 @keyframes logoFloat {
@@ -13111,14 +13048,9 @@ function dismissFloatingTv(e) {
 // ── WAVE LERP NAVBAR MOBILE CONTROLS ──
 function setupWaveNavbar() {
   const menuCheckbox = document.getElementById('menu');
-  const navOptions = document.querySelector('.nav__options');
   if (menuCheckbox) {
     menuCheckbox.addEventListener('change', () => {
-      const active = menuCheckbox.checked;
-      document.documentElement.style.setProperty('--active-nav', active ? '1' : '0');
-      if (navOptions) {
-        navOptions.classList.toggle('is-open', active);
-      }
+      document.documentElement.style.setProperty('--active-nav', menuCheckbox.checked ? '1' : '0');
     });
   }
   document.querySelectorAll('.nav__options a').forEach(link => {
@@ -13126,15 +13058,12 @@ function setupWaveNavbar() {
       if (menuCheckbox && menuCheckbox.checked) {
         menuCheckbox.checked = false;
         document.documentElement.style.setProperty('--active-nav', '0');
-        if (navOptions) {
-          navOptions.classList.remove('is-open');
-        }
       }
     });
   });
 }
 
-// ── 3D WEB EXPERIENCE INTRO CONTROLLER (THREE.JS + PATTERN + 3D LOGO) ──
+// ── 3D WEB EXPERIENCE INTRO CONTROLLER (THREE.JS + 3D LOGO - NO LIGHTS / NO PATTERN) ──
 function init3DExperienceIntro() {
   const intro = document.getElementById('page-intro');
   if (!intro) return;
@@ -13142,7 +13071,6 @@ function init3DExperienceIntro() {
   const canvas = document.getElementById('intro-3d-canvas');
   const skipBtn = document.getElementById('intro-skip-btn');
   const cursor = document.getElementById('intro-cursor');
-  const patternBg = document.getElementById('intro-pattern-bg');
 
   let isIntroFinished = false;
   let animFrameId = null;
@@ -13170,10 +13098,6 @@ function init3DExperienceIntro() {
     mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
     targetRotY = mouseX * 0.45;
     targetRotX = -mouseY * 0.35;
-
-    if (patternBg) {
-      patternBg.style.transform = `translate(${-mouseX * 25}px, ${mouseY * 25}px)`;
-    }
   });
 
   // Check WebGL Support
@@ -13209,27 +13133,15 @@ function init3DExperienceIntro() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // 3D Lighting Setup (1 Ambient + 2 Accent PointLights + 1 Mouse PointLight)
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+  // Clean Neutral Ambient Lighting - No harsh colored lights or glare
+  const ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
   scene.add(ambientLight);
-
-  const goldRimLight = new THREE.PointLight(0xffd700, 3.2, 18);
-  goldRimLight.position.set(4, 2, 4);
-  scene.add(goldRimLight);
-
-  const redRimLight = new THREE.PointLight(0xcc0000, 2.8, 18);
-  redRimLight.position.set(-4, -2, 4);
-  scene.add(redRimLight);
-
-  const mouseLight = new THREE.PointLight(0xffffff, 1.8, 12);
-  mouseLight.position.set(0, 0, 3.5);
-  scene.add(mouseLight);
 
   // Group for the 3D Logo object
   const logoGroup = new THREE.Group();
   scene.add(logoGroup);
 
-  // Texture Loader for Logo & Bevels
+  // Texture Loader for Logo
   const textureLoader = new THREE.TextureLoader();
   const logoTexture = textureLoader.load('assets/intro_logo_3d.png', () => {
     renderer.render(scene, camera);
@@ -13240,71 +13152,28 @@ function init3DExperienceIntro() {
   const logoWidth = window.innerWidth < 768 ? 3.4 : 4.8;
   const logoHeight = logoWidth / 2.017;
 
-  // 1. Back Shadow / Depth Layer (adds real 3D physical thickness)
+  // 1. Clean Subtle Shadow Layer (creates gentle 3D depth separation without glare)
   const shadowGeo = new THREE.PlaneGeometry(logoWidth, logoHeight);
   const shadowMat = new THREE.MeshBasicMaterial({
     map: logoTexture,
     transparent: true,
-    color: 0x050505,
-    opacity: 0.65
+    color: 0x000000,
+    opacity: 0.35
   });
   const shadowMesh = new THREE.Mesh(shadowGeo, shadowMat);
-  shadowMesh.position.set(0.08, -0.08, -0.15);
+  shadowMesh.position.set(0.06, -0.06, -0.1);
   logoGroup.add(shadowMesh);
 
-  // 2. Extruded Depth Rim Layer
-  const depthGeo = new THREE.PlaneGeometry(logoWidth, logoHeight);
-  const depthMat = new THREE.MeshBasicMaterial({
-    map: logoTexture,
-    transparent: true,
-    color: 0x886600,
-    opacity: 0.8
-  });
-  const depthMesh = new THREE.Mesh(depthGeo, depthMat);
-  depthMesh.position.set(0, 0, -0.06);
-  logoGroup.add(depthMesh);
-
-  // 3. Main Glossy 3D Gold Logo Surface
+  // 2. Main 3D Logo Surface (Pure original colors, unlit, NO glare or light wash)
   const mainGeo = new THREE.PlaneGeometry(logoWidth, logoHeight);
-  const mainMat = new THREE.MeshStandardMaterial({
+  const mainMat = new THREE.MeshBasicMaterial({
     map: logoTexture,
     transparent: true,
-    roughness: 0.15,
-    metalness: 0.7,
     alphaTest: 0.02
   });
   const mainMesh = new THREE.Mesh(mainGeo, mainMat);
   mainMesh.position.z = 0;
   logoGroup.add(mainMesh);
-
-  // 4. Floating 3D Sparkle / Embers Particle Field
-  const particleCount = window.innerWidth < 768 ? 60 : 130;
-  const partGeo = new THREE.BufferGeometry();
-  const positions = new Float32Array(particleCount * 3);
-  const colors = new Float32Array(particleCount * 3);
-
-  for (let i = 0; i < particleCount * 3; i += 3) {
-    positions[i] = (Math.random() - 0.5) * 12;
-    positions[i + 1] = (Math.random() - 0.5) * 8;
-    positions[i + 2] = (Math.random() - 0.5) * 6;
-
-    if (Math.random() > 0.4) {
-      colors[i] = 1.0; colors[i + 1] = 0.84; colors[i + 2] = 0.0; // gold
-    } else {
-      colors[i] = 0.95; colors[i + 1] = 0.15; colors[i + 2] = 0.15; // red
-    }
-  }
-  partGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  partGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-  const partMat = new THREE.PointsMaterial({
-    size: 0.07,
-    vertexColors: true,
-    transparent: true,
-    opacity: 0.85
-  });
-  const particles = new THREE.Points(partGeo, partMat);
-  scene.add(particles);
 
   // GSAP Camera & Logo Reveal Sequence
   if (typeof gsap !== 'undefined') {
@@ -13321,12 +13190,6 @@ function init3DExperienceIntro() {
       z: 0.3,
       duration: 1.5,
       ease: 'elastic.out(1, 0.65)'
-    });
-    // Fade in particles
-    gsap.from(partMat, {
-      opacity: 0,
-      duration: 1.2,
-      ease: 'power2.out'
     });
   }
 
@@ -13345,14 +13208,6 @@ function init3DExperienceIntro() {
     // Organic levitation breathing
     logoGroup.position.y = Math.sin(time * 2.2) * 0.1;
     logoGroup.rotation.z = Math.sin(time * 1.5) * 0.02;
-
-    // Light moves with mouse to reflect off gold bevels
-    mouseLight.position.x = mouseX * 4;
-    mouseLight.position.y = mouseY * 3;
-
-    // Ambient particles drift
-    particles.rotation.y = time * 0.04;
-    particles.rotation.x = time * 0.02;
 
     renderer.render(scene, camera);
   }
@@ -13402,13 +13257,8 @@ function init3DExperienceIntro() {
     // Clean up Three.js scene & GPU memory
     try {
       scene.remove(logoGroup);
-      scene.remove(particles);
-      partGeo.dispose();
-      partMat.dispose();
       mainGeo.dispose();
       mainMat.dispose();
-      depthGeo.dispose();
-      depthMat.dispose();
       shadowGeo.dispose();
       shadowMat.dispose();
       logoTexture.dispose();
