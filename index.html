@@ -33,22 +33,14 @@ section{position:relative;padding:5.5rem 0;overflow:hidden;clear:both;z-index:2}
 .container{max-width:1180px;margin:0 auto;padding:0 2rem}
 .section-divider{width:100%;height:2px;background:linear-gradient(90deg,transparent,var(--red),var(--gold),var(--red),transparent);opacity:.35}
 
-/* ---- NAV ---- */
-nav{position:fixed;top:0;left:0;right:0;height:76px;z-index:1000;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(204,0,0,.25);transition:box-shadow .3s}
-.nav-logo{font-family:var(--ff-d);font-size:1.75rem;letter-spacing:.1em;color:var(--wh);text-decoration:none}
-.nav-logo span{color:var(--red)}
-.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
-.nav-links a{font-family:var(--ff-a);font-size:.84rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gr-l);text-decoration:none;transition:color .3s}
-.nav-links a:hover{color:var(--red)}
-.nav-cta{background:var(--red)!important;color:var(--wh)!important;padding:.45rem 1.1rem;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%)}
-.nav-cta:hover{background:var(--red-b)!important}
-@media(max-width:768px){.nav-links{display:none}}
+/* ---- BASE NAV (SUPERSEDED BY WAVE LERP HOVER NAV) ---- */
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
 
 /* ---- TICKER ---- */
 .ticker-wrap {
   position: relative;
   z-index: 100;
-  margin-top: 76px !important;
+  margin-top: 60px !important;
   padding: 0.82rem 0 !important;
   min-height: 48px !important;
   background: var(--red) !important;
@@ -734,13 +726,10 @@ section { padding: 6.5rem 0 !important; }
 .red-line { width: 85px !important; height: 5px !important; margin: 1.8rem 0 !important; }
 
 /* Navigation */
-nav { height: 76px !important; padding: 0 2rem !important; }
-.nav-logo { font-size: 2rem !important; letter-spacing: 0.02em !important; }
-.nav-links a { font-size: 0.92rem !important; }
-.nav-cta { font-size: 0.92rem !important; padding: 0.55rem 1.4rem !important; }
+nav { height: 60px !important; padding: 0 !important; }
 
 /* Ticker */
-.ticker-wrap { padding: 0.82rem 0 !important; min-height: 48px !important; margin-top: 76px !important; }
+.ticker-wrap { padding: 0.82rem 0 !important; min-height: 48px !important; margin-top: 60px !important; }
 .ticker-item { font-size: 1.25rem !important; line-height: 1 !important; display: inline-flex !important; align-items: center !important; }
 
 /* Hero Section Upscale */
@@ -7216,33 +7205,357 @@ body {
   display: block !important;
 }
 
-/* Launch UI Navbar */
+/* ══════════════════════════════════════════════════════════════
+   WAVE LERP HOVER NAVIGATION BAR (BRUTALIST UNDULATING TABS)
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  --bg: hsl(0 0% 5%);
+  --nav: hsl(0 0% 12%);
+  --color: hsl(0 0% 90%);
+  --speed: 0.25s;
+}
+
+:root.dark {
+  --bg: hsl(0 0% 0%);
+  --nav: hsl(0 0% 14%);
+  --color: hsl(0 0% 90%);
+}
+
 nav {
-  background: rgba(9, 9, 11, 0.8) !important;
-  backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid var(--border) !important;
+  height: 60px !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  text-transform: uppercase !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+  font-size: 13px !important;
+  background: var(--nav) !important;
+  z-index: 1000 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-bottom: 2px solid var(--bg) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+  overflow: visible !important;
+  display: block !important;
 }
-.nav-links a {
-  font-family: var(--font-sans) !important;
-  font-size: 0.84rem !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.02em !important;
-  color: var(--muted-foreground) !important;
-  transition: color 0.2s ease !important;
+
+.nav__content {
+  width: 1280px;
+  display: flex;
+  max-width: calc(100% - 2rem);
+  margin: 0 auto;
+  height: 100%;
+  gap: 0.75rem;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--nav);
+  overflow: visible;
 }
-.nav-links a:hover {
-  color: var(--foreground) !important;
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  height: 60px;
+  flex-shrink: 0;
+  padding: 0 0.5rem;
+  transition: transform var(--speed);
 }
-.nav-cta {
-  border-radius: 0.5rem !important;
-  background: var(--brand) !important;
-  color: #fff !important;
-  padding: 0.45rem 1.1rem !important;
-  font-family: var(--font-sans) !important;
-  font-size: 0.82rem !important;
-  font-weight: 600 !important;
-  clip-path: none !important;
-  box-shadow: 0 4px 15px rgba(204, 0, 0, 0.4) !important;
+.nav__brand:hover {
+  transform: scale(1.04);
+}
+.nav__brand-img {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6)) drop-shadow(0 0 18px rgba(204, 0, 0, 0.4));
+}
+.nav__brand-text {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+.nav__brand-text span {
+  color: var(--brand, #ef4444);
+}
+
+.nav__control {
+  width: 60px;
+  height: 60px;
+}
+
+.nav__control label {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.nav__control svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.5;
+  stroke: var(--color);
+  rotate: calc(var(--active-nav, 0) * 45deg);
+  transition: rotate var(--speed);
+}
+
+input:focus-visible + label {
+  outline: 1px solid red;
+}
+
+.nav__content > a svg {
+  width: 32px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.nav__options a {
+  position: relative;
+  padding: 0.75rem 0.5rem;
+  height: 60px;
+  display: flex;
+  place-items: center;
+  text-decoration: none;
+  justify-content: space-between;
+  color: var(--color);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: color var(--speed);
+}
+
+.nav__options svg {
+  height: 14px;
+  width: 14px;
+  stroke-width: 2.5px;
+  stroke: currentColor;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+.nav__options {
+  position: absolute;
+  right: -1rem;
+  top: 100%;
+  background: var(--nav);
+  width: calc(100% + 2rem);
+  translate: 0 calc(-100% + (var(--active-nav, 0) * (100% + 2px)));
+  transition: translate var(--speed);
+  z-index: -1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+@media(max-width: 767.98px) {
+  .nav__options {
+    pointer-events: none;
+    opacity: 0;
+  }
+  :root:has(#menu:checked) .nav__options {
+    pointer-events: auto;
+    opacity: 1;
+  }
+  .nav__options a {
+    padding: 1rem 1.5rem;
+  }
+}
+
+a:focus-visible {
+  outline: 1px solid red;
+}
+
+:root:has(#menu:checked) {
+  --active-nav: 1;
+}
+
+.nav__options a:not(:last-of-type) {
+  border-bottom: 2px solid var(--bg);
+}
+
+nav a {
+  display: flex;
+  place-items: center;
+  padding: 1rem;
+  text-decoration: none;
+  justify-content: space-between;
+  color: currentColor;
+}
+
+nav a:is(:hover, :focus-visible) {
+  --active: 1;
+  color: #ffffff;
+}
+
+.link svg {
+  opacity: var(--active, 0);
+  rotate: calc(var(--active, 0) * -45deg);
+  scale: calc(1 + (var(--active, 0) * 0.1));
+  transition: opacity calc(var(--speed) * 1.5), rotate var(--speed), scale var(--speed);
+}
+
+.link span {
+  white-space: nowrap;
+}
+
+.link.nav__cta-link {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+.link.nav__cta-link:is(:hover, :focus-visible) {
+  color: #ffffff;
+}
+
+.ebook {
+  display: none;
+}
+
+@media(min-width: 1200px) {
+  .ebook {
+    display: flex;
+  }
+}
+
+/* The :hover stuff */
+:root {
+  --speed: 0.25s;
+}
+
+@media(min-width: 768px) {
+  :root {
+    --lerp-0: 1; /* === sin(90deg) */
+    --lerp-1: 0.5;
+    --lerp-2: 0.342;
+    --lerp-3: 0.1736;
+    --lerp-4: 0;
+    --lerp-1: calc(sin(30deg));
+    --lerp-2: calc(sin(20deg));
+    --lerp-3: calc(sin(10deg));
+    --speed: 0.25s;
+  }
+  .nav__control {
+    display: none;
+  }
+  .nav__options {
+    flex: 1;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    position: static;
+    width: auto;
+    translate: 0 0;
+    z-index: 1;
+    overflow: visible;
+    box-shadow: none;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .nav__options a:not(:last-of-type) {	
+    border-bottom: 0;
+  }
+
+  .link::before {
+    content: "";
+    position: absolute;
+    height: 300%;
+    border-right: 2px solid var(--bg);
+    border-bottom: 2px solid var(--bg);
+    bottom: 0;
+    background: var(--nav);
+    z-index: -1;
+    left: 0;
+    right: 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: background var(--speed);
+  }
+
+  .link:first-of-type::before {
+    border-left: 2px solid var(--bg);
+  }
+
+  .link.nav__cta-link:is(:hover, :focus-visible)::before {
+    background: #b71a11;
+  }
+
+  .link {
+    translate: 0 calc(var(--lerp, 0) * 80%);
+    transition: translate var(--speed);
+  }
+
+  :is(.link:hover, .link:focus-visible) {
+    --lerp: var(--lerp-0);
+    z-index: 5;
+  }
+  .link:has( + :is(.link:hover, .link:focus-visible)),
+  :is(.link:hover, .link:focus-visible) + .link {
+    --lerp: var(--lerp-1);
+    z-index: 4;
+  }
+  .link:has( + .link + :is(.link:hover, .link:focus-visible)),
+  :is(.link:hover, .link:focus-visible) + .link + .link {
+    --lerp: var(--lerp-2);
+    z-index: 3;
+  }
+  .link:has( + .link + .link + :is(.link:hover, .link:focus-visible)),
+  :is(.link:hover, .link:focus-visible) + .link + .link + .link {
+    --lerp: var(--lerp-3);
+    z-index: 2;
+  }
+  .link:has( + .link + .link + .link + :is(.link:hover, .link:focus-visible)),
+  :is(.link:hover, .link:focus-visible) + .link + .link + .link + .link {
+    --lerp: var(--lerp-4);
+    z-index: 1;
+  }
+}
+
+@media(min-width: 1024px) {
+  .nav__options a {
+    padding: 0.75rem 0.85rem;
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1280px) {
+  .nav__options a {
+    padding: 0.75rem 1.25rem;
+    font-size: 13.5px;
+  }
+}
+
+/* Polygon clipper animation */
+@keyframes slice {
+  0% {
+    clip-path: polygon(
+      0 -110%, 25% -110%, 25% -110%, 50% -110%, 50% -110%, 75% -110%, 75% -110%, 100% -110%,
+      100% -110%, 75% -110%, 75% -110%, 50% -110%, 50% -110%, 25% -110%, 25% -110%, 0 -110%
+    );
+  }
+  100% {
+    clip-path: polygon(
+      0 0, 25% 0, 25% 0, 50% 0, 50% 0, 75% 0, 75% 0, 100% 0,
+      100% calc(100% + 40px), 75% calc(100% + 40px), 75% calc(100% + 100px), 50% calc(100% + 100px),
+      50% calc(100% + 60px), 25% calc(100% + 60px), 25% 100%, 0 100%
+    );
+  }
 }
 
 /* Launch UI Marquee / Ticker */
@@ -7968,19 +8281,57 @@ body.gsap-ready .acc-section .rr {
 <body>
 <div id="curtains-canvas"></div>
 
-<!-- NAV -->
+<!-- NAV (WAVE LERP HOVER NAVIGATION BAR) -->
 <nav id="main-nav">
-  <a href="#hero" class="nav-logo" style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;"><img src="assets/logo_lihf_3d.png" alt="LIHF 2026" style="height:46px;width:auto;object-fit:contain;filter:drop-shadow(0 0 10px rgba(212,175,55,0.7)) drop-shadow(0 0 20px rgba(204,0,0,0.4));transition:transform 0.3s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'"></a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#regional">Regional</a></li>
-    <li><a href="#battles">Activities</a></li>
-    <li><a href="#marketing">Marketing</a></li>
-    <li><a href="#venue">Venue</a></li>
-    <li><a href="#packages">Packages</a></li>
-    <li><a href="#organizer">Organizer</a></li>
-    <li><a href="#contact" class="nav-cta">Partner With Us</a></li>
-  </ul>
+  <div class="nav__content">
+    <a href="#hero" class="nav__brand" aria-label="LIHF 2026 Home">
+      <img src="assets/logo_lihf_3d.png" alt="LIHF 2026" class="nav__brand-img">
+      <span class="nav__brand-text">LIHF<span>2026</span></span>
+    </a>
+    <input type="checkbox" id="menu" class="sr-only" aria-label="Toggle navigation">
+    <div class="nav__control">
+      <label for="menu" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+      </label>
+    </div>
+    <div class="nav__options">
+      <a href="#about" class="link">
+        <span>About</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <a href="#regional" class="link">
+        <span>Regional</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <a href="#battles" class="link">
+        <span>Activities</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <a href="#marketing" class="link">
+        <span>Marketing</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <a href="#venue" class="link">
+        <span>Venue</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <a href="#packages" class="link">
+        <span>Packages</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <a href="#organizer" class="link">
+        <span>Organizer</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <a href="#contact" class="link nav__cta-link">
+        <span>Partner</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  </div>
 </nav>
 
 <!-- TICKER -->
@@ -11221,6 +11572,27 @@ function dismissFloatingTv(e) {
   const ftv = document.getElementById('floating-tv-launcher');
   if (ftv) ftv.classList.add('dismissed');
 }
+
+
+// ── WAVE LERP NAVBAR MOBILE CONTROLS ──
+function setupWaveNavbar() {
+  const menuCheckbox = document.getElementById('menu');
+  if (menuCheckbox) {
+    menuCheckbox.addEventListener('change', () => {
+      document.documentElement.style.setProperty('--active-nav', menuCheckbox.checked ? '1' : '0');
+    });
+  }
+  document.querySelectorAll('.nav__options a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (menuCheckbox && menuCheckbox.checked) {
+        menuCheckbox.checked = false;
+        document.documentElement.style.setProperty('--active-nav', '0');
+      }
+    });
+  });
+}
+document.addEventListener('DOMContentLoaded', setupWaveNavbar);
+setupWaveNavbar();
 
 document.addEventListener('DOMContentLoaded', setupTvInteractiveControls);
 setupTvInteractiveControls();
