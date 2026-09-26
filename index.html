@@ -4594,35 +4594,37 @@ nav { height: 60px !important; padding: 0 !important; }
 /* --- HERO DESKTOP VIEWPORT FIT (Eliminates excessive height / cutoffs) --- */
 @media (min-width: 1024px) {
   .design1-hero {
-    height: calc(100vh - 115px) !important;
-    min-height: 560px !important;
-    max-height: 800px !important;
-    padding: 0 !important;
+    height: auto !important;
+    min-height: calc(100vh - 100px) !important;
+    max-height: none !important;
+    padding: 3rem 0 3.5rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     overflow: hidden !important;
   }
-  .design1-content {
-    height: 100% !important;
-    min-height: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    padding: 0.8rem 3rem !important;
-    max-width: 1360px !important;
+  .hero-fullwidth-container {
+    width: 100% !important;
+    max-width: 1760px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: clamp(1.5rem, 4.5vw, 5.5rem) !important;
+    padding-right: clamp(1.5rem, 4.5vw, 5.5rem) !important;
   }
   .hero-main-grid {
     display: grid !important;
-    grid-template-columns: 1.25fr 0.75fr !important;
-    gap: 2.5rem !important;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.95fr) !important;
+    gap: clamp(2.5rem, 5vw, 6.5rem) !important;
     align-items: center !important;
+    justify-content: space-between !important;
     width: 100% !important;
   }
   .hero-left-col {
+    width: 100% !important;
+    max-width: 860px !important;
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.85rem !important;
+    gap: 1.35rem !important;
   }
   .hero-top-meta-row {
     display: flex !important;
@@ -5193,10 +5195,10 @@ section.acc-inner {
 }
 .d1-headline .d1-hl-line {
   font-family: 'Anton', 'Barlow Condensed', sans-serif !important;
-  font-size: clamp(2.3rem, 3.8vw, 3.8rem) !important;
+  font-size: clamp(2.5rem, 4.4vw, 4.8rem) !important;
   font-weight: 900 !important;
   color: #ffffff !important;
-  line-height: 1.0 !important;
+  line-height: 0.96 !important;
   letter-spacing: 0.02em !important;
   display: block !important;
 }
@@ -5208,7 +5210,7 @@ section.acc-inner {
 /* ── ENLARGED EVENT DATE & LIVE REAL-TIME COUNTDOWN CARD ── */
 .hero-date-countdown-card {
   width: 100%;
-  max-width: 580px;
+  max-width: 720px;
   background: linear-gradient(135deg, rgba(22, 22, 28, 0.9) 0%, rgba(12, 12, 16, 0.95) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-left: 3px solid var(--brand);
@@ -5507,19 +5509,19 @@ section.acc-inner {
   transform: scale(1.04) !important;
 }
 .hero-logo-large {
-  width: clamp(210px, 22vw, 310px) !important;
+  width: clamp(260px, 28vw, 460px) !important;
   height: auto !important;
-  max-height: 320px !important;
+  max-height: 480px !important;
   object-fit: contain !important;
-  filter: drop-shadow(0 0 35px rgba(204, 0, 0, 0.85)) drop-shadow(0 0 70px rgba(212, 175, 55, 0.4)) !important;
+  filter: drop-shadow(0 0 45px rgba(204, 0, 0, 0.85)) drop-shadow(0 0 85px rgba(212, 175, 55, 0.45)) !important;
   animation: heroLogoEntrance 1.2s cubic-bezier(0.22, 1.25, 0.36, 1) both, emblemFloat 5s ease-in-out 1.2s infinite !important;
   transform-origin: center !important;
   user-select: none !important;
 }
 .emblem-ambient-halo {
   position: absolute;
-  width: 320px;
-  height: 320px;
+  width: clamp(340px, 34vw, 540px) !important;
+  height: clamp(340px, 34vw, 540px) !important;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(204, 0, 0, 0.35) 0%, rgba(212, 175, 55, 0.15) 50%, transparent 75%);
   filter: blur(25px);
@@ -8274,6 +8276,42 @@ body.gsap-ready .acc-section .rr {
 }
 
 
+
+/* ── FULLWIDTH HERO & PARTNERS CONTAINER SYSTEM ── */
+.hero-fullwidth-container {
+  width: 100% !important;
+  max-width: 1760px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: clamp(1.5rem, 4.5vw, 5.5rem) !important;
+  padding-right: clamp(1.5rem, 4.5vw, 5.5rem) !important;
+  box-sizing: border-box !important;
+}
+
+.hero-sub-blurb {
+  max-width: 720px !important;
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem) !important;
+  line-height: 1.6 !important;
+}
+
+.hero-pillars-pills {
+  max-width: 760px !important;
+}
+
+.d1-awards-row {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: clamp(0.6rem, 1.2vw, 1.1rem) !important;
+  width: 100% !important;
+  max-width: 720px !important;
+}
+
+.partners-strip .container {
+  max-width: 1760px !important;
+  padding-left: clamp(1.5rem, 4.5vw, 5.5rem) !important;
+  padding-right: clamp(1.5rem, 4.5vw, 5.5rem) !important;
+}
+
 /* ══════════════════════════════════════════════════════════════
    3D WEB EXPERIENCE INTRO (THREE.JS + PATTERN + 3D LOGO)
    ══════════════════════════════════════════════════════════════ */
@@ -8629,11 +8667,11 @@ body.no-webgl .intro-fallback-wrap {
   </div>
 </div>
 
-<!-- HERO — PROPORTIONAL 2-COLUMN VIEWPORT-FITTED LAYOUT -->
-<section id="hero" class="design1-hero line-b" style="position:relative; overflow:hidden; padding: 3rem 0 3.5rem;">
-  <!-- Ambient Radial Glows -->
-  <div class="ambient-glow glow-red" style="top: -100px; left: 10%; width: 500px; height: 500px;"></div>
-  <div class="ambient-glow glow-gold" style="bottom: 0; right: 10%; width: 450px; height: 450px;"></div>
+<!-- HERO — FULLWIDTH BALANCED 2-COLUMN VIEWPORT LAYOUT -->
+<section id="hero" class="design1-hero line-b" style="position:relative; overflow:hidden; padding: 3.5rem 0 4rem;">
+  <!-- Ambient Radial Glows Expanded Edge-to-Edge -->
+  <div class="ambient-glow glow-red" style="top: -100px; left: 4%; width: 650px; height: 650px;"></div>
+  <div class="ambient-glow glow-gold" style="bottom: 0; right: 4%; width: 600px; height: 600px;"></div>
 
   <!-- Background Action Slideshow with Subtle Overlay -->
   <div class="hiphop-hero-bg-container" style="opacity:0.25; filter:grayscale(60%);">
@@ -8645,8 +8683,8 @@ body.no-webgl .intro-fallback-wrap {
     <div class="hiphop-bg-slide" style="background-image: url('assets/battle_mc.jpg');"></div>
   </div>
 
-  <div class="max-w-container line-y line-dashed" style="position:relative; z-index:10; padding-top: 1.5rem; padding-bottom: 2rem;">
-    <div class="hero-main-grid" style="display:grid; grid-template-columns: 1.25fr 0.75fr; gap: 3.5rem; align-items: center;">
+  <div class="hero-fullwidth-container" style="position:relative; z-index:10; padding-top: 1.5rem; padding-bottom: 2rem;">
+    <div class="hero-main-grid">
 
       <!-- LEFT: Launch UI Hero Content -->
       <div class="hero-left-col" style="display:flex; flex-direction:column; gap:1.35rem; align-items:flex-start;">
