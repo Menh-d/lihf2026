@@ -9465,12 +9465,15 @@ body.gsap-ready .acc-section .rr {
   box-shadow: 0 0 8px #ffd700;
 }
 
-/* Crew Caption Tagline */
+/* Crew Caption Tagline & Enter Controls */
 .intro-crew-caption {
-  margin-top: 1.8rem;
+  margin-top: 1.4rem;
   text-align: center;
-  z-index: 2;
-  pointer-events: none;
+  z-index: 25;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .crew-caption-tag {
   font-family: var(--font-sans);
@@ -9490,6 +9493,83 @@ body.gsap-ready .acc-section .rr {
   margin: 0;
   text-transform: uppercase;
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9);
+}
+
+/* Intro Enter Action Button */
+.intro-enter-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1.25rem;
+  padding: 0.72rem 2.2rem;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.95), rgba(185, 28, 28, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  color: #ffffff;
+  font-family: 'Akira', 'Poppins', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  pointer-events: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.55), 0 0 20px rgba(220, 38, 38, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: visible;
+}
+.intro-enter-action-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  box-shadow: 0 16px 45px rgba(220, 38, 38, 0.75), 0 0 35px rgba(255, 255, 255, 0.4);
+  border-color: #ffffff;
+}
+.iea-pulse-ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 999px;
+  border: 2px solid rgba(220, 38, 38, 0.7);
+  animation: introBtnPulse 2.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+  pointer-events: none;
+}
+@keyframes introBtnPulse {
+  0% { transform: scale(0.96); opacity: 1; }
+  100% { transform: scale(1.15, 1.4); opacity: 0; }
+}
+
+/* 45s Countdown Pill & Progress Line */
+.intro-auto-timer-pill {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 0.85rem;
+  padding: 0.35rem 1.3rem;
+  background: rgba(14, 14, 18, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.75);
+  pointer-events: none;
+}
+.intro-timer-progress-bar {
+  width: 140px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.itpb-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--red));
+  transition: width 0.3s linear;
 }
 
 @media (max-width: 1024px) {
@@ -9774,6 +9854,20 @@ body.gsap-ready .acc-section .rr {
     <div class="intro-crew-caption" id="intro-crew-caption">
       <div class="crew-caption-tag">LIHF 2026 // OFFICIAL MASCOT SQUAD</div>
       <h2 class="crew-caption-title">THE 4 ELEMENTS OF HIP-HOP</h2>
+
+      <!-- Prominent Click-to-Enter Button -->
+      <button class="intro-enter-action-btn" id="intro-enter-btn" title="Click to Enter Festival">
+        <span class="iea-pulse-ring"></span>
+        <span class="iea-icon">⚡</span>
+        <span class="iea-text">ENTER FESTIVAL</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+
+      <!-- 45-Second Auto-Enter Countdown Bar -->
+      <div class="intro-auto-timer-pill" id="intro-auto-timer">
+        <span class="iat-text">CLICK ANYWHERE TO ENTER &bull; AUTO IN <span id="intro-timer-seconds">45</span>s</span>
+        <div class="intro-timer-progress-bar"><div class="itpb-fill" id="itpb-fill"></div></div>
+      </div>
     </div>
   </div>
 
@@ -13869,61 +13963,339 @@ function init3DExperienceIntro() {
     idleRaf = requestAnimationFrame(loop);
   }
 
+  // Prepare Hero elements at their starting positions immediately so they are hidden behind intro
+  prepareHeroElementsForEntrance();
+
+  // 45-Second Auto-Transition fallback as requested by the user
+  const AUTO_ENTER_DELAY_MS = 45000;
+  let remainingSeconds = 45;
+  const timerSecElem = document.getElementById('intro-timer-seconds');
+  const timerFillElem = document.getElementById('itpb-fill');
+
+  const countdownInterval = setInterval(() => {
+    remainingSeconds--;
+    if (timerSecElem) {
+      timerSecElem.textContent = remainingSeconds;
+    }
+    if (timerFillElem) {
+      const progress = ((45 - remainingSeconds) / 45) * 100;
+      timerFillElem.style.width = progress + '%';
+    }
+    if (remainingSeconds <= 0) {
+      clearInterval(countdownInterval);
+    }
+  }, 1000);
+
+  const autoTimer = setTimeout(() => {
+    finishIntro();
+  }, AUTO_ENTER_DELAY_MS);
+
   // Finish Intro & Transition to main page
-  function finishIntro() {
+  function finishIntro(e) {
+    if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
     if (isIntroFinished) return;
     isIntroFinished = true;
 
     if (idleRaf) cancelAnimationFrame(idleRaf);
     clearTimeout(autoTimer);
+    clearInterval(countdownInterval);
 
     if (cursor) cursor.style.display = 'none';
 
     if (typeof gsap !== 'undefined') {
       // Mascots burst forward toward the screen
       gsap.to(cards, {
-        scale: 1.85,
-        y: -50,
+        scale: 2.1,
+        y: -80,
         opacity: 0,
         stagger: 0.05,
         duration: 0.55,
         ease: 'power3.in'
       });
-      gsap.to('#intro-crew-caption', {
+      gsap.to(['#intro-crew-caption', '#intro-enter-btn', '#intro-auto-timer'], {
         opacity: 0,
-        y: -20,
+        y: -25,
         duration: 0.35
       });
       gsap.to(intro, {
         scaleY: 0,
         duration: 0.75,
-        delay: 0.2,
+        delay: 0.18,
         ease: 'expo.inOut',
         transformOrigin: 'top',
         onComplete: () => {
           intro.style.display = 'none';
         }
       });
+
+      // Play the full staggered Hero elements rush-in effect!
+      playHeroEntranceAnimation();
     } else {
       intro.style.display = 'none';
+      playHeroEntranceAnimation();
     }
   }
 
-  // Auto transition after 5.5 seconds to enjoy the mascots
-  const autoTimer = setTimeout(finishIntro, 5500);
-
   function handleUserExit(e) {
-    if (e) e.stopPropagation();
-    clearTimeout(autoTimer);
+    if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
     finishIntro();
   }
 
   if (skipBtn) skipBtn.addEventListener('click', handleUserExit);
+  const enterBtn = document.getElementById('intro-enter-btn');
+  if (enterBtn) enterBtn.addEventListener('click', handleUserExit);
   intro.addEventListener('click', handleUserExit);
 }
 
-document.addEventListener('DOMContentLoaded', init3DExperienceIntro);
-init3DExperienceIntro();
+// ── PREPARE HERO ELEMENTS IN DEEP WARP / OFF-SCREEN POSITIONS ──
+function prepareHeroElementsForEntrance() {
+  if (typeof gsap === 'undefined') return;
+  const hero = document.getElementById('hero');
+  if (!hero) return;
+
+  const nav = document.getElementById('main-nav');
+  const ambientRed = hero.querySelector('.ambient-glow.glow-red');
+  const ambientGold = hero.querySelector('.ambient-glow.glow-gold');
+  const bgSlides = hero.querySelector('.hiphop-hero-bg-container');
+
+  const badges = hero.querySelectorAll('.hero-top-badges .badge-launch');
+  const headlineLines = hero.querySelectorAll('.d1-headline .d1-hl-line');
+  const dateCard = hero.querySelector('.hero-date-countdown-card');
+  const dateBadge = hero.querySelector('.hero-date-main-badge');
+  const venueTag = hero.querySelector('.hero-venue-tag');
+  const countdownIndicator = hero.querySelector('.countdown-status-indicator');
+  const countdownSegments = hero.querySelectorAll('#lihf-countdown-board .flip-segment');
+
+  const subBlurb = hero.querySelector('.hero-sub-blurb');
+  const circleItems = hero.querySelectorAll('.hero-hiphop-icons-row .hiphop-circle-item');
+  const awardChips = hero.querySelectorAll('.d1-awards-row .d1-award-chip');
+
+  const emblemLogo = document.getElementById('hero-logo-main');
+  const emblemCaption = hero.querySelector('.hero-emblem-caption');
+
+  if (nav) gsap.set(nav, { y: -70, opacity: 0 });
+  if (ambientRed) gsap.set(ambientRed, { scale: 0.15, opacity: 0 });
+  if (ambientGold) gsap.set(ambientGold, { scale: 0.15, opacity: 0 });
+  if (bgSlides) gsap.set(bgSlides, { opacity: 0, scale: 1.15 });
+
+  if (badges.length) gsap.set(badges, { x: -80, y: -20, scale: 0.5, opacity: 0 });
+  if (headlineLines.length) gsap.set(headlineLines, { scale: 2.2, opacity: 0, filter: 'blur(16px)' });
+  if (dateCard) gsap.set(dateCard, { y: 70, scale: 0.85, opacity: 0 });
+  if (dateBadge) gsap.set(dateBadge, { x: -40, opacity: 0 });
+  if (venueTag) gsap.set(venueTag, { x: 40, opacity: 0 });
+  if (countdownIndicator) gsap.set(countdownIndicator, { scale: 0.7, opacity: 0 });
+  if (countdownSegments.length) gsap.set(countdownSegments, { y: 30, scale: 0.4, opacity: 0 });
+
+  if (subBlurb) gsap.set(subBlurb, { x: -60, opacity: 0 });
+  if (circleItems.length) gsap.set(circleItems, { y: 90, scale: 0.25, opacity: 0, rotate: (i) => (i % 2 === 0 ? -15 : 15) });
+  if (awardChips.length) gsap.set(awardChips, { y: 50, scale: 0.6, opacity: 0 });
+
+  if (emblemLogo) gsap.set(emblemLogo, { scale: 2.5, rotate: -15, opacity: 0, filter: 'blur(20px)' });
+  if (emblemCaption) gsap.set(emblemCaption, { y: 30, scale: 0.7, opacity: 0 });
+}
+
+// ── HERO ENTRANCE ORCHESTRATION: ELEMENTS RUSH/SHOOT IN ONE-BY-ONE ──
+function playHeroEntranceAnimation() {
+  if (typeof gsap === 'undefined') return;
+
+  const hero = document.getElementById('hero');
+  if (!hero) return;
+
+  const nav = document.getElementById('main-nav');
+  const ambientRed = hero.querySelector('.ambient-glow.glow-red');
+  const ambientGold = hero.querySelector('.ambient-glow.glow-gold');
+  const bgSlides = hero.querySelector('.hiphop-hero-bg-container');
+
+  const badges = hero.querySelectorAll('.hero-top-badges .badge-launch');
+  const headlineLines = hero.querySelectorAll('.d1-headline .d1-hl-line');
+  const dateCard = hero.querySelector('.hero-date-countdown-card');
+  const dateBadge = hero.querySelector('.hero-date-main-badge');
+  const venueTag = hero.querySelector('.hero-venue-tag');
+  const countdownIndicator = hero.querySelector('.countdown-status-indicator');
+  const countdownSegments = hero.querySelectorAll('#lihf-countdown-board .flip-segment');
+
+  const subBlurb = hero.querySelector('.hero-sub-blurb');
+  const circleItems = hero.querySelectorAll('.hero-hiphop-icons-row .hiphop-circle-item');
+  const awardChips = hero.querySelectorAll('.d1-awards-row .d1-award-chip');
+
+  const emblemLogo = document.getElementById('hero-logo-main');
+  const emblemCaption = hero.querySelector('.hero-emblem-caption');
+
+  // MASTER TIMELINE: Every single element shoots in sequentially!
+  const htl = gsap.timeline({
+    delay: 0.25,
+    onComplete: () => {
+      // Clear inline transform/filter overrides so CSS hover micro-interactions work seamlessly
+      if (circleItems.length) gsap.set(circleItems, { clearProps: 'transform,rotate,scale' });
+      if (awardChips.length) gsap.set(awardChips, { clearProps: 'transform,scale' });
+      if (badges.length) gsap.set(badges, { clearProps: 'transform,scale' });
+      if (headlineLines.length) gsap.set(headlineLines, { clearProps: 'transform,scale,filter' });
+    }
+  });
+
+  // 1. Ambient lighting expands outward like stadium ignition
+  htl.to([ambientRed, ambientGold], {
+    scale: 1,
+    opacity: 1,
+    duration: 1.1,
+    ease: 'power2.out'
+  }, 0);
+
+  htl.to(bgSlides, {
+    opacity: 0.25,
+    scale: 1,
+    duration: 1.3,
+    ease: 'power2.out'
+  }, 0.08);
+
+  // 2. Navigation bar drops down
+  if (nav) {
+    htl.to(nav, {
+      y: 0,
+      opacity: 1,
+      duration: 0.55,
+      ease: 'back.out(1.6)'
+    }, 0.12);
+  }
+
+  // 3. Top Badges shoot in from upper-left one-by-one
+  if (badges.length) {
+    htl.to(badges, {
+      x: 0,
+      y: 0,
+      scale: 1,
+      opacity: 1,
+      duration: 0.5,
+      stagger: 0.08,
+      ease: 'back.out(2.2)'
+    }, 0.22);
+  }
+
+  // 4. Headline lines shoot forward from deep space one-by-one with immense sonic impact!
+  if (headlineLines.length) {
+    headlineLines.forEach((line, i) => {
+      htl.to(line, {
+        scale: 1,
+        opacity: 1,
+        filter: 'blur(0px)',
+        duration: 0.65,
+        ease: i === 2 ? 'elastic.out(1.15, 0.6)' : 'power4.out'
+      }, 0.32 + i * 0.14);
+    });
+  }
+
+  // 5. Official Emblem Logo on the right shoots in with shockwave eruption!
+  if (emblemLogo) {
+    htl.to(emblemLogo, {
+      scale: 1,
+      rotate: 0,
+      opacity: 1,
+      filter: 'blur(0px)',
+      duration: 0.85,
+      ease: 'back.out(1.8)',
+      onStart: () => {
+        if (typeof replayLogoIntro === 'function') {
+          replayLogoIntro();
+        }
+      }
+    }, 0.44);
+  }
+
+  if (emblemCaption) {
+    htl.to(emblemCaption, {
+      y: 0,
+      scale: 1,
+      opacity: 1,
+      duration: 0.45,
+      ease: 'back.out(1.5)'
+    }, 0.68);
+  }
+
+  // 6. Date & Countdown Card shoots in from bottom
+  if (dateCard) {
+    htl.to(dateCard, {
+      y: 0,
+      scale: 1,
+      opacity: 1,
+      duration: 0.65,
+      ease: 'back.out(1.6)'
+    }, 0.52);
+
+    htl.to([dateBadge, venueTag], {
+      x: 0,
+      opacity: 1,
+      duration: 0.45,
+      stagger: 0.07,
+      ease: 'power3.out'
+    }, 0.62);
+
+    if (countdownIndicator) {
+      htl.to(countdownIndicator, {
+        scale: 1,
+        opacity: 1,
+        duration: 0.4,
+        ease: 'back.out(2)'
+      }, 0.70);
+    }
+
+    if (countdownSegments.length) {
+      htl.to(countdownSegments, {
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        duration: 0.48,
+        stagger: 0.06,
+        ease: 'back.out(2.4)'
+      }, 0.76);
+    }
+  }
+
+  // 7. Sub-blurb description slides in
+  if (subBlurb) {
+    htl.to(subBlurb, {
+      x: 0,
+      opacity: 1,
+      duration: 0.55,
+      ease: 'power3.out'
+    }, 0.82);
+  }
+
+  // 8. The 6 Hip-Hop Circle Items shoot up from below one-by-one!
+  if (circleItems.length) {
+    htl.to(circleItems, {
+      y: 0,
+      scale: 1,
+      rotate: 0,
+      opacity: 1,
+      duration: 0.52,
+      stagger: 0.07,
+      ease: 'back.out(2.2)'
+    }, 0.92);
+  }
+
+  // 9. The 4 Stat chips shoot in one-by-one!
+  if (awardChips.length) {
+    htl.to(awardChips, {
+      y: 0,
+      scale: 1,
+      opacity: 1,
+      duration: 0.48,
+      stagger: 0.06,
+      ease: 'back.out(1.8)'
+    }, 1.12);
+  }
+}
+
+let _introInitialized = false;
+function setupIntroOnce() {
+  if (_introInitialized) return;
+  _introInitialized = true;
+  init3DExperienceIntro();
+}
+document.addEventListener('DOMContentLoaded', setupIntroOnce);
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+  setupIntroOnce();
+}
 
 document.addEventListener('DOMContentLoaded', setupWaveNavbar);
 setupWaveNavbar();
