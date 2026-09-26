@@ -15,6 +15,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <style>
+/* ── AKIRA EXPANDED FONT-FACE ── */
+@font-face {
+  font-family: 'Akira Expanded';
+  src: url('assets/fonts/AkiraExpanded.woff2') format('woff2'),
+       url('assets/fonts/AkiraExpanded.ttf') format('truetype'),
+       url('https://db.onlinewebfonts.com/t/6fa591daa0aa2d0f845653486954aca5.woff2') format('woff2');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Akira';
+  src: url('assets/fonts/AkiraExpanded.woff2') format('woff2'),
+       url('assets/fonts/AkiraExpanded.ttf') format('truetype'),
+       url('https://db.onlinewebfonts.com/t/6fa591daa0aa2d0f845653486954aca5.woff2') format('woff2');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root{--red:#CC0000;--red-b:#FF1111;--red-d:#8B0000;--gold:#D4AF37;--gold-l:#F5D06A;--blk:#050505;--d1:#0A0A0A;--d2:#111111;--d3:#1A1A1A;--wh:#FFFFFF;--gr:#888888;--gr-l:#CCCCCC;--ff-d:'Anton','Barlow Condensed',sans-serif;--ff-b:'DM Sans',system-ui,sans-serif;--ff-a:'Barlow Condensed',sans-serif;--ff-g:'Permanent Marker',cursive}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -5689,30 +5709,122 @@ section.acc-inner {
   flex-shrink: 0;
 }
 
-/* ── HEADLINE: ANTON STREET TYPOGRAPHY (BALANCED HIERARCHY) ── */
+/* ── HEADLINE: AKIRA EXPANDED & CYBER GLITCH EFFECT ── */
+.center-text,
 .d1-headline {
-  font-family: 'Anton', 'Barlow Condensed', sans-serif !important;
+  font-family: 'Akira Expanded', 'Akira', 'Anton', sans-serif !important;
   font-weight: 900 !important;
   text-transform: uppercase !important;
-  letter-spacing: 0.02em !important;
+  letter-spacing: 0.04em !important;
   margin: 0 !important;
-  line-height: 0.98 !important;
+  line-height: 1.1 !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.12rem !important;
+  gap: 0.35rem !important;
 }
 .d1-headline .d1-hl-line {
-  font-family: 'Anton', 'Barlow Condensed', sans-serif !important;
-  font-size: clamp(2.5rem, 4.4vw, 4.8rem) !important;
+  font-family: 'Akira Expanded', 'Akira', 'Anton', sans-serif !important;
+  font-size: clamp(1.6rem, 3.2vw, 3.2rem) !important;
   font-weight: 900 !important;
   color: #ffffff !important;
-  line-height: 0.96 !important;
-  letter-spacing: 0.02em !important;
-  display: block !important;
+  line-height: 1.08 !important;
+  letter-spacing: 0.04em !important;
+  display: inline-block !important;
+  width: fit-content !important;
 }
 .d1-headline .d1-hl-year {
-  color: var(--brand) !important;
+  font-size: clamp(2rem, 3.8vw, 3.8rem) !important;
+  color: var(--brand, #ff2d46) !important;
   text-shadow: 0 0 35px rgba(204, 0, 0, 0.75) !important;
+}
+
+/* Glitch Effect Core */
+.glitch {
+  position: relative;
+  display: inline-block;
+  color: white;
+  mix-blend-mode: lighten;
+  font-family: 'Akira Expanded', 'Akira', sans-serif !important;
+  user-select: none;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+.glitch::before {
+  left: -2px;
+  text-shadow: 2px 0 rgba(255, 0, 60, 0.75);
+  animation: glitch-loop-1 3.2s infinite ease-in-out alternate-reverse;
+}
+.glitch::after {
+  left: 2px;
+  text-shadow: -2px 0 rgba(0, 210, 255, 0.75);
+  animation: glitch-loop-2 3.8s infinite ease-in-out alternate-reverse;
+}
+.glitch:hover::before,
+.d1-headline:hover .glitch::before {
+  text-shadow: 4px 0 rgba(255, 0, 60, 0.85);
+  animation: glitch-loop-1 0.8s infinite ease-in-out alternate-reverse;
+}
+.glitch:hover::after,
+.d1-headline:hover .glitch::after {
+  text-shadow: -5px 0 rgba(0, 210, 255, 0.85);
+  animation: glitch-loop-2 0.8s infinite ease-in-out alternate-reverse;
+}
+
+/* Glitch for Year 2026 */
+.glitch.d1-hl-year {
+  color: var(--brand, #ff2d46) !important;
+}
+.glitch.d1-hl-year::before {
+  text-shadow: 2px 0 rgba(212, 175, 55, 0.85);
+}
+.glitch.d1-hl-year::after {
+  text-shadow: -2px 0 rgba(255, 0, 60, 0.85);
+}
+.glitch.d1-hl-year:hover::before,
+.d1-headline:hover .glitch.d1-hl-year::before {
+  text-shadow: 4px 0 rgba(212, 175, 55, 0.95);
+  animation: glitch-loop-1 0.8s infinite ease-in-out alternate-reverse;
+}
+.glitch.d1-hl-year:hover::after,
+.d1-headline:hover .glitch.d1-hl-year::after {
+  text-shadow: -5px 0 rgba(255, 0, 60, 0.95);
+  animation: glitch-loop-2 0.8s infinite ease-in-out alternate-reverse;
+}
+
+@keyframes glitch-loop-1 {
+  0% { clip: rect(36px, 9999px, 9px, 0); }
+  25% { clip: rect(25px, 9999px, 99px, 0); }
+  50% { clip: rect(50px, 9999px, 102px, 0); }
+  75% { clip: rect(30px, 9999px, 92px, 0); }
+  100% { clip: rect(91px, 9999px, 98px, 0); }
+}
+
+@keyframes glitch-loop-2 {
+  0% { top: -1px; left: 1px; clip: rect(65px, 9999px, 119px, 0); }
+  25% { top: -6px; left: 4px; clip: rect(79px, 9999px, 19px, 0); }
+  50% { top: -3px; left: 2px; clip: rect(68px, 9999px, 11px, 0); }
+  75% { top: 0px; left: -4px; clip: rect(95px, 9999px, 53px, 0); }
+  100% { top: -1px; left: -1px; clip: rect(31px, 9999px, 149px, 0); }
+}
+
+@media (max-width: 768px) {
+  .d1-headline .d1-hl-line {
+    font-size: clamp(1.35rem, 5.8vw, 2.2rem) !important;
+    letter-spacing: 0.02em !important;
+  }
+  .d1-headline .d1-hl-year {
+    font-size: clamp(1.75rem, 7vw, 2.8rem) !important;
+  }
 }
 
 /* ── ENLARGED EVENT DATE & LIVE REAL-TIME COUNTDOWN CARD ── */
@@ -9201,11 +9313,11 @@ body.no-webgl .intro-fallback-wrap {
           </span>
         </div>
 
-        <!-- Launch UI Title: Equal Size Across All Words (Anton Street Typography) -->
-        <h1 class="d1-headline" style="margin:0;">
-          <span class="d1-hl-line">LAO INTERNATIONAL</span>
-          <span class="d1-hl-line">HIPHOP FESTIVAL</span>
-          <span class="d1-hl-line d1-hl-year">2026</span>
+        <!-- Launch UI Title: Akira Expanded Typography with Cyber Glitch Effect -->
+        <h1 class="d1-headline center-text" style="margin:0;">
+          <span class="d1-hl-line glitch" data-text="LAO INTERNATIONAL">LAO INTERNATIONAL</span>
+          <span class="d1-hl-line glitch" data-text="HIP-HOP FESTIVAL">HIP-HOP FESTIVAL</span>
+          <span class="d1-hl-line d1-hl-year glitch" data-text="2026">2026</span>
         </h1>
 
         <!-- Large Event Date & Live Real-Time Countdown Card -->
