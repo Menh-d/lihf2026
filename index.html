@@ -2837,7 +2837,110 @@ nav { height: 60px !important; padding: 0 !important; }
   font-size: 0.86rem;
   color: rgba(255, 255, 255, 0.72);
   line-height: 1.65;
-  margin-bottom: 1.6rem;
+  margin-bottom: 0.85rem;
+}
+
+/* ── ABOUT PILLARS REAL FESTIVAL 3-PHOTO LOOP SLIDESHOW ── */
+.alc-slideshow {
+  position: relative;
+  width: 100%;
+  height: 142px;
+  margin: 0.4rem 0 1.25rem;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #08080c;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), inset 0 0 15px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.35s ease;
+}
+.about-line-col:hover .alc-slideshow {
+  border-color: rgba(220, 38, 38, 0.55);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), 0 0 20px rgba(220, 38, 38, 0.25);
+}
+.alc-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.alc-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+.about-line-col:hover .alc-slide.active img {
+  transform: scale(1.06);
+}
+.alc-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.06) brightness(0.92);
+  transition: transform 0.6s ease;
+}
+.alc-slideshow-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, transparent 45%, rgba(0, 0, 0, 0.75) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+.alc-slide-caption {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(10, 10, 14, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 3px;
+  padding: 2px 7px;
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.alc-cam-icon {
+  font-size: 0.65rem;
+  line-height: 1;
+}
+.alc-slide-indicators {
+  position: absolute;
+  bottom: 7px;
+  right: 8px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 3px 6px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+.alc-ind-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.alc-ind-dot.active {
+  background: var(--brand, #ff2d46);
+  width: 14px;
+  border-radius: 999px;
+  box-shadow: 0 0 6px var(--brand, #ff2d46);
 }
 
 .alc-pill {
@@ -10779,6 +10882,37 @@ body.gsap-ready .acc-section .rr {
         </div>
 
         <div>
+          <!-- Real Festival Atmosphere 3-Photo Showcase (Looping) -->
+          <div class="alc-slideshow" title="Click to view next festival photo">
+            <div class="alc-slide active">
+              <img src="assets/festival/about-festival.webp" alt="Historic Festival Stage" loading="lazy">
+              <div class="alc-slide-caption">
+                <span class="alc-cam-icon">📷</span>
+                <span>HISTORIC FESTIVAL STAGE</span>
+              </div>
+            </div>
+            <div class="alc-slide">
+              <img src="assets/festival/crew.webp" alt="Original Dance Crews" loading="lazy">
+              <div class="alc-slide-caption">
+                <span class="alc-cam-icon">📷</span>
+                <span>ORIGINAL DANCE CREWS</span>
+              </div>
+            </div>
+            <div class="alc-slide">
+              <img src="assets/festival/hero-background.webp" alt="9-Year Culture Heritage" loading="lazy">
+              <div class="alc-slide-caption">
+                <span class="alc-cam-icon">📷</span>
+                <span>9-YEAR CULTURE HERITAGE</span>
+              </div>
+            </div>
+            <div class="alc-slideshow-overlay"></div>
+            <div class="alc-slide-indicators">
+              <span class="alc-ind-dot active"></span>
+              <span class="alc-ind-dot"></span>
+              <span class="alc-ind-dot"></span>
+            </div>
+          </div>
+
           <div class="alc-pill">
             <span class="alc-pill-dot"></span>
             <span>EST. 2017 &bull; PIONEER</span>
@@ -10818,6 +10952,37 @@ body.gsap-ready .acc-section .rr {
         </div>
 
         <div>
+          <!-- Real Festival Atmosphere 3-Photo Showcase (Looping) -->
+          <div class="alc-slideshow" title="Click to view next festival photo">
+            <div class="alc-slide active">
+              <img src="assets/festival/breaking-2on2.webp" alt="2vs2 Breaking Battle Lao-ITECC" loading="lazy">
+              <div class="alc-slide-caption">
+                <span class="alc-cam-icon">📷</span>
+                <span>2VS2 BREAKING • LAO-ITECC</span>
+              </div>
+            </div>
+            <div class="alc-slide">
+              <img src="assets/festival/open-style-2on2.webp" alt="Open-Style Freestyle Showdown" loading="lazy">
+              <div class="alc-slide-caption">
+                <span class="alc-cam-icon">📷</span>
+                <span>OPEN-STYLE FREESTYLE BATTLE</span>
+              </div>
+            </div>
+            <div class="alc-slide">
+              <img src="assets/battle_breaking.jpg" alt="500+ Regional Athletes" loading="lazy">
+              <div class="alc-slide-caption">
+                <span class="alc-cam-icon">📷</span>
+                <span>500+ REGIONAL ATHLETES</span>
+              </div>
+            </div>
+            <div class="alc-slideshow-overlay"></div>
+            <div class="alc-slide-indicators">
+              <span class="alc-ind-dot active"></span>
+              <span class="alc-ind-dot"></span>
+              <span class="alc-ind-dot"></span>
+            </div>
+          </div>
+
           <div class="alc-pill">
             <span class="alc-pill-dot"></span>
             <span>10+ NATIONS &bull; 500+ TALENTS</span>
@@ -10852,6 +11017,37 @@ body.gsap-ready .acc-section .rr {
         </div>
 
         <div>
+          <!-- Real Festival Atmosphere 3-Photo Showcase (Looping) -->
+          <div class="alc-slideshow" title="Click to view next festival photo">
+            <div class="alc-slide active">
+              <img src="assets/battle_workshop.jpg" alt="Youth Dance Masterclass" loading="lazy">
+              <div class="alc-slide-caption">
+                <span class="alc-cam-icon">📷</span>
+                <span>YOUTH DANCE MASTERCLASS</span>
+              </div>
+            </div>
+            <div class="alc-slide">
+              <img src="assets/festival/rap.webp" alt="Next-Gen MC Cypher Battle" loading="lazy">
+              <div class="alc-slide-caption">
+                <span class="alc-cam-icon">📷</span>
+                <span>NEXT-GEN MC CYPHER BATTLE</span>
+              </div>
+            </div>
+            <div class="alc-slide">
+              <img src="assets/battle_openstyle.jpg" alt="Grassroots Dance Workshop" loading="lazy">
+              <div class="alc-slide-caption">
+                <span class="alc-cam-icon">📷</span>
+                <span>GRASSROOTS YOUTH CYPHER</span>
+              </div>
+            </div>
+            <div class="alc-slideshow-overlay"></div>
+            <div class="alc-slide-indicators">
+              <span class="alc-ind-dot active"></span>
+              <span class="alc-ind-dot"></span>
+              <span class="alc-ind-dot"></span>
+            </div>
+          </div>
+
           <div class="alc-pill">
             <span class="alc-pill-dot"></span>
             <span>10,000+ YOUTH REACH</span>
@@ -10889,6 +11085,37 @@ body.gsap-ready .acc-section .rr {
         </div>
 
         <div>
+          <!-- Real Festival Atmosphere 3-Photo Showcase (Looping) -->
+          <div class="alc-slideshow" title="Click to view next festival photo">
+            <div class="alc-slide active">
+              <img src="assets/festival/concert-market.webp" alt="Vientiane Concert & Night Market" loading="lazy">
+              <div class="alc-slide-caption">
+                <span class="alc-cam-icon">📷</span>
+                <span>VIENTIANE CONCERT &amp; NIGHT MARKET</span>
+              </div>
+            </div>
+            <div class="alc-slide">
+              <img src="assets/festival/graffiti.webp" alt="Live Urban Graffiti Art" loading="lazy">
+              <div class="alc-slide-caption">
+                <span class="alc-cam-icon">📷</span>
+                <span>LIVE URBAN GRAFFITI ART</span>
+              </div>
+            </div>
+            <div class="alc-slide">
+              <img src="assets/festival/dj.webp" alt="International DJ Turntablism" loading="lazy">
+              <div class="alc-slide-caption">
+                <span class="alc-cam-icon">📷</span>
+                <span>INTERNATIONAL DJ TURNTABLISM</span>
+              </div>
+            </div>
+            <div class="alc-slideshow-overlay"></div>
+            <div class="alc-slide-indicators">
+              <span class="alc-ind-dot active"></span>
+              <span class="alc-ind-dot"></span>
+              <span class="alc-ind-dot"></span>
+            </div>
+          </div>
+
           <div class="alc-pill">
             <span class="alc-pill-dot"></span>
             <span>VIENTIANE HUB</span>
@@ -14718,6 +14945,54 @@ setupWaveNavbar();
 
 document.addEventListener('DOMContentLoaded', setupTvInteractiveControls);
 setupTvInteractiveControls();
+
+// ── ABOUT 4 PILLARS REAL FESTIVAL 3-PHOTO SLIDESHOW ──
+function initAboutPillarsSlideshow() {
+  const slideshows = document.querySelectorAll('.alc-slideshow');
+  slideshows.forEach((show, idx) => {
+    const slides = show.querySelectorAll('.alc-slide');
+    const dots = show.querySelectorAll('.alc-ind-dot');
+    if (slides.length <= 1) return;
+    let current = 0;
+    let timer = null;
+    const intervalTime = 3400 + (idx * 650); // Stagger loops: 3.4s, 4.05s, 4.7s, 5.35s
+
+    function showSlide(index) {
+      slides[current].classList.remove('active');
+      if (dots[current]) dots[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      if (dots[current]) dots[current].classList.add('active');
+    }
+
+    function nextSlide() {
+      showSlide(current + 1);
+    }
+
+    timer = setInterval(nextSlide, intervalTime);
+
+    // Click on slideshow to immediately advance to next photo
+    show.addEventListener('click', (e) => {
+      e.stopPropagation();
+      clearInterval(timer);
+      nextSlide();
+      timer = setInterval(nextSlide, intervalTime);
+    });
+
+    // Click on dots
+    dots.forEach((dot, dotIdx) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        clearInterval(timer);
+        showSlide(dotIdx);
+        timer = setInterval(nextSlide, intervalTime);
+      });
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initAboutPillarsSlideshow);
+initAboutPillarsSlideshow();
 
 // ── KEY VISUAL LIGHTBOX MODAL CONTROLS ──
 
