@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <title>LIHF 2026 — Official Sponsorship Deck</title>
 <meta name="description" content="LIHF 2026 Official Sponsorship &amp; Partnership Proposal. 13–15 November 2026 at Lao-ITECC, Vientiane." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -9763,8 +9766,82 @@ body.gsap-ready .acc-section .rr {
   }
   .intro__footer {
     bottom: 24px;
-  }
   .intro-cursor {
+    display: none;
+  }
+}
+
+/* Replay Intro Buttons */
+.nav-replay-intro-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 45, 70, 0.12);
+  border: 1px solid rgba(255, 45, 70, 0.45);
+  color: #ff2d46;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-left: 0.5rem;
+}
+.nav-replay-intro-btn:hover {
+  background: #ff2d46;
+  color: #fff;
+  border-color: #ff2d46;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255, 45, 70, 0.4);
+}
+.floating-replay-intro {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: rgba(10, 10, 14, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 45, 70, 0.4);
+  border-radius: 999px;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(255, 45, 70, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.floating-replay-intro:hover {
+  background: #ff2d46;
+  border-color: #ff2d46;
+  color: #fff;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 14px 40px rgba(255, 45, 70, 0.5);
+}
+.floating-replay-intro svg {
+  transition: transform 0.4s ease;
+}
+.floating-replay-intro:hover svg {
+  transform: rotate(-180deg);
+}
+@media (max-width: 768px) {
+  .floating-replay-intro {
+    bottom: 16px;
+    right: 16px;
+    padding: 8px 14px;
+    font-size: 0.68rem;
+  }
+  .nav-replay-intro-btn {
     display: none;
   }
 }
@@ -9927,9 +10004,19 @@ body.gsap-ready .acc-section .rr {
         <span>Partner</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </a>
+      <button type="button" onclick="replayFestivalIntro()" class="nav-replay-intro-btn" title="Replay Mascot Intro &amp; Hero Entrance">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+        <span>REPLAY INTRO</span>
+      </button>
     </div>
   </div>
 </nav>
+
+<!-- FLOATING REPLAY INTRO BUTTON -->
+<button id="floating-replay-intro-btn" onclick="replayFestivalIntro()" class="floating-replay-intro" title="Replay Mascot Intro &amp; Hero Entrance">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+  <span>REPLAY INTRO ⚡</span>
+</button>
 
 <!-- TICKER -->
 <div class="ticker-wrap">
@@ -13826,18 +13913,48 @@ function setupWaveNavbar() {
   });
 }
 
-// ── INTRO: 5 HIP-HOP MASCOTS SLIDE-DOWN CONTROLLER ──
+// ── INTRO: HIP-HOP MASCOTS SLIDE-DOWN & HERO WARP-IN CONTROLLER ──
 function init3DExperienceIntro() {
   const intro = document.getElementById('page-intro');
   if (!intro) return;
+
+  // Prevent browser restoring previous scroll or jumping to #hash
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+  if (window.location.hash) {
+    try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch(e){}
+  }
 
   const stage = document.getElementById('intro-mascot-stage');
   const cards = document.querySelectorAll('.mascot-card');
   const skipBtn = document.getElementById('intro-skip-btn');
   const cursor = document.getElementById('intro-cursor');
+  const caption = document.getElementById('intro-crew-caption');
+  const enterBtn = document.getElementById('intro-enter-btn');
+  const timerPill = document.getElementById('intro-auto-timer');
+  const timerSecElem = document.getElementById('intro-timer-seconds');
+  const timerFillElem = document.getElementById('itpb-fill');
 
   let isIntroFinished = false;
-  let idleRaf = null;
+
+  // Clear any existing timers or frame loops
+  if (window._introAutoTimer) clearTimeout(window._introAutoTimer);
+  if (window._introCountdownInterval) clearInterval(window._introCountdownInterval);
+  if (window._introIdleRaf) cancelAnimationFrame(window._introIdleRaf);
+
+  // Restore elements if replaying
+  intro.style.display = 'flex';
+  intro.style.opacity = '1';
+  intro.style.transform = 'none';
+  intro.setAttribute('aria-hidden', 'false');
+  if (cursor) cursor.style.display = '';
+  if (caption && typeof gsap !== 'undefined') gsap.set(caption, { opacity: 0, y: 30 });
+  if (enterBtn && typeof gsap !== 'undefined') gsap.set(enterBtn, { opacity: 1, y: 0 });
+  if (timerPill && typeof gsap !== 'undefined') gsap.set(timerPill, { opacity: 1, y: 0 });
+  if (timerSecElem) timerSecElem.textContent = '45';
+  if (timerFillElem) timerFillElem.style.width = '0%';
 
   // Custom pill cursor follower
   if (cursor && window.innerWidth > 768) {
@@ -13958,9 +14075,9 @@ function init3DExperienceIntro() {
           gsap.set(card, { y: bob, rotate: sway });
         }
       });
-      idleRaf = requestAnimationFrame(loop);
+      window._introIdleRaf = requestAnimationFrame(loop);
     }
-    idleRaf = requestAnimationFrame(loop);
+    window._introIdleRaf = requestAnimationFrame(loop);
   }
 
   // Prepare Hero elements at their starting positions immediately so they are hidden behind intro
@@ -13969,10 +14086,8 @@ function init3DExperienceIntro() {
   // 45-Second Auto-Transition fallback as requested by the user
   const AUTO_ENTER_DELAY_MS = 45000;
   let remainingSeconds = 45;
-  const timerSecElem = document.getElementById('intro-timer-seconds');
-  const timerFillElem = document.getElementById('itpb-fill');
 
-  const countdownInterval = setInterval(() => {
+  window._introCountdownInterval = setInterval(() => {
     remainingSeconds--;
     if (timerSecElem) {
       timerSecElem.textContent = remainingSeconds;
@@ -13982,11 +14097,11 @@ function init3DExperienceIntro() {
       timerFillElem.style.width = progress + '%';
     }
     if (remainingSeconds <= 0) {
-      clearInterval(countdownInterval);
+      clearInterval(window._introCountdownInterval);
     }
   }, 1000);
 
-  const autoTimer = setTimeout(() => {
+  window._introAutoTimer = setTimeout(() => {
     finishIntro();
   }, AUTO_ENTER_DELAY_MS);
 
@@ -13996,17 +14111,23 @@ function init3DExperienceIntro() {
     if (isIntroFinished) return;
     isIntroFinished = true;
 
-    if (idleRaf) cancelAnimationFrame(idleRaf);
-    clearTimeout(autoTimer);
-    clearInterval(countdownInterval);
+    if (window._introIdleRaf) cancelAnimationFrame(window._introIdleRaf);
+    if (window._introAutoTimer) clearTimeout(window._introAutoTimer);
+    if (window._introCountdownInterval) clearInterval(window._introCountdownInterval);
 
     if (cursor) cursor.style.display = 'none';
 
+    // Clear hash and force viewport to top (0, 0) so user views the full Hero rush-in
+    if (window.location.hash) {
+      try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch(err){}
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
     if (typeof gsap !== 'undefined') {
-      // Mascots burst forward toward the screen
+      // Mascots burst forward toward the screen with immense energy
       gsap.to(cards, {
-        scale: 2.1,
-        y: -80,
+        scale: 2.2,
+        y: -100,
         opacity: 0,
         stagger: 0.05,
         duration: 0.55,
@@ -14014,17 +14135,18 @@ function init3DExperienceIntro() {
       });
       gsap.to(['#intro-crew-caption', '#intro-enter-btn', '#intro-auto-timer'], {
         opacity: 0,
-        y: -25,
-        duration: 0.35
+        y: -30,
+        duration: 0.32
       });
       gsap.to(intro, {
         scaleY: 0,
         duration: 0.75,
-        delay: 0.18,
+        delay: 0.15,
         ease: 'expo.inOut',
         transformOrigin: 'top',
         onComplete: () => {
           intro.style.display = 'none';
+          intro.setAttribute('aria-hidden', 'true');
         }
       });
 
@@ -14032,6 +14154,7 @@ function init3DExperienceIntro() {
       playHeroEntranceAnimation();
     } else {
       intro.style.display = 'none';
+      intro.setAttribute('aria-hidden', 'true');
       playHeroEntranceAnimation();
     }
   }
@@ -14041,10 +14164,9 @@ function init3DExperienceIntro() {
     finishIntro();
   }
 
-  if (skipBtn) skipBtn.addEventListener('click', handleUserExit);
-  const enterBtn = document.getElementById('intro-enter-btn');
-  if (enterBtn) enterBtn.addEventListener('click', handleUserExit);
-  intro.addEventListener('click', handleUserExit);
+  if (skipBtn) skipBtn.onclick = handleUserExit;
+  if (enterBtn) enterBtn.onclick = handleUserExit;
+  intro.onclick = handleUserExit;
 }
 
 // ── PREPARE HERO ELEMENTS IN DEEP WARP / OFF-SCREEN POSITIONS ──
@@ -14073,30 +14195,41 @@ function prepareHeroElementsForEntrance() {
   const emblemLogo = document.getElementById('hero-logo-main');
   const emblemCaption = hero.querySelector('.hero-emblem-caption');
 
-  if (nav) gsap.set(nav, { y: -70, opacity: 0 });
-  if (ambientRed) gsap.set(ambientRed, { scale: 0.15, opacity: 0 });
-  if (ambientGold) gsap.set(ambientGold, { scale: 0.15, opacity: 0 });
-  if (bgSlides) gsap.set(bgSlides, { opacity: 0, scale: 1.15 });
+  if (nav) gsap.set(nav, { y: -80, opacity: 0 });
+  if (ambientRed) gsap.set(ambientRed, { scale: 0.1, opacity: 0 });
+  if (ambientGold) gsap.set(ambientGold, { scale: 0.1, opacity: 0 });
+  if (bgSlides) gsap.set(bgSlides, { opacity: 0, scale: 1.25 });
 
-  if (badges.length) gsap.set(badges, { x: -80, y: -20, scale: 0.5, opacity: 0 });
-  if (headlineLines.length) gsap.set(headlineLines, { scale: 2.2, opacity: 0, filter: 'blur(16px)' });
-  if (dateCard) gsap.set(dateCard, { y: 70, scale: 0.85, opacity: 0 });
-  if (dateBadge) gsap.set(dateBadge, { x: -40, opacity: 0 });
-  if (venueTag) gsap.set(venueTag, { x: 40, opacity: 0 });
-  if (countdownIndicator) gsap.set(countdownIndicator, { scale: 0.7, opacity: 0 });
-  if (countdownSegments.length) gsap.set(countdownSegments, { y: 30, scale: 0.4, opacity: 0 });
+  if (badges.length) gsap.set(badges, { x: -100, y: -30, scale: 0.4, opacity: 0, rotate: -15 });
+  if (headlineLines.length) gsap.set(headlineLines, { scale: 2.8, opacity: 0, filter: 'blur(22px)' });
+  if (dateCard) gsap.set(dateCard, { y: 100, scale: 0.8, opacity: 0 });
+  if (dateBadge) gsap.set(dateBadge, { x: -50, opacity: 0 });
+  if (venueTag) gsap.set(venueTag, { x: 50, opacity: 0 });
+  if (countdownIndicator) gsap.set(countdownIndicator, { scale: 0.4, opacity: 0 });
+  if (countdownSegments.length) gsap.set(countdownSegments, { y: 40, scale: 0.3, opacity: 0, rotateX: -60 });
 
-  if (subBlurb) gsap.set(subBlurb, { x: -60, opacity: 0 });
-  if (circleItems.length) gsap.set(circleItems, { y: 90, scale: 0.25, opacity: 0, rotate: (i) => (i % 2 === 0 ? -15 : 15) });
-  if (awardChips.length) gsap.set(awardChips, { y: 50, scale: 0.6, opacity: 0 });
+  if (subBlurb) gsap.set(subBlurb, { x: -80, opacity: 0 });
+  if (circleItems.length) gsap.set(circleItems, { y: 120, scale: 0.15, opacity: 0, rotate: (i) => (i % 2 === 0 ? -25 : 25) });
+  if (awardChips.length) gsap.set(awardChips, { y: 60, scale: 0.5, opacity: 0 });
 
-  if (emblemLogo) gsap.set(emblemLogo, { scale: 2.5, rotate: -15, opacity: 0, filter: 'blur(20px)' });
-  if (emblemCaption) gsap.set(emblemCaption, { y: 30, scale: 0.7, opacity: 0 });
+  if (emblemLogo) gsap.set(emblemLogo, { scale: 3.2, rotate: -25, opacity: 0, filter: 'blur(30px)' });
+  if (emblemCaption) gsap.set(emblemCaption, { y: 40, scale: 0.6, opacity: 0 });
 }
 
 // ── HERO ENTRANCE ORCHESTRATION: ELEMENTS RUSH/SHOOT IN ONE-BY-ONE ──
 function playHeroEntranceAnimation() {
-  if (typeof gsap === 'undefined') return;
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  if (typeof gsap === 'undefined') {
+    const hero = document.getElementById('hero');
+    if (hero) {
+      hero.querySelectorAll('*').forEach(el => {
+        el.style.opacity = '';
+        el.style.transform = '';
+        el.style.filter = '';
+      });
+    }
+    return;
+  }
 
   const hero = document.getElementById('hero');
   if (!hero) return;
@@ -14123,20 +14256,24 @@ function playHeroEntranceAnimation() {
 
   // MASTER TIMELINE: Every single element shoots in sequentially!
   const htl = gsap.timeline({
-    delay: 0.25,
+    delay: 0.15,
     onComplete: () => {
       // Clear inline transform/filter overrides so CSS hover micro-interactions work seamlessly
-      if (circleItems.length) gsap.set(circleItems, { clearProps: 'transform,rotate,scale' });
-      if (awardChips.length) gsap.set(awardChips, { clearProps: 'transform,scale' });
-      if (badges.length) gsap.set(badges, { clearProps: 'transform,scale' });
-      if (headlineLines.length) gsap.set(headlineLines, { clearProps: 'transform,scale,filter' });
+      [nav, ambientRed, ambientGold, bgSlides, dateCard, dateBadge, venueTag, countdownIndicator, subBlurb, emblemLogo, emblemCaption].forEach(el => {
+        if (el) gsap.set(el, { clearProps: 'transform,rotate,scale,filter,opacity' });
+      });
+      if (circleItems.length) gsap.set(circleItems, { clearProps: 'all' });
+      if (awardChips.length) gsap.set(awardChips, { clearProps: 'all' });
+      if (badges.length) gsap.set(badges, { clearProps: 'all' });
+      if (headlineLines.length) gsap.set(headlineLines, { clearProps: 'all' });
+      if (countdownSegments.length) gsap.set(countdownSegments, { clearProps: 'all' });
     }
   });
 
   // 1. Ambient lighting expands outward like stadium ignition
   htl.to([ambientRed, ambientGold], {
     scale: 1,
-    opacity: 1,
+    opacity: 0.8,
     duration: 1.1,
     ease: 'power2.out'
   }, 0);
@@ -14144,9 +14281,9 @@ function playHeroEntranceAnimation() {
   htl.to(bgSlides, {
     opacity: 0.25,
     scale: 1,
-    duration: 1.3,
+    duration: 1.2,
     ease: 'power2.out'
-  }, 0.08);
+  }, 0.05);
 
   // 2. Navigation bar drops down
   if (nav) {
@@ -14154,8 +14291,8 @@ function playHeroEntranceAnimation() {
       y: 0,
       opacity: 1,
       duration: 0.55,
-      ease: 'back.out(1.6)'
-    }, 0.12);
+      ease: 'back.out(1.7)'
+    }, 0.10);
   }
 
   // 3. Top Badges shoot in from upper-left one-by-one
@@ -14164,14 +14301,15 @@ function playHeroEntranceAnimation() {
       x: 0,
       y: 0,
       scale: 1,
+      rotate: 0,
       opacity: 1,
-      duration: 0.5,
+      duration: 0.52,
       stagger: 0.08,
-      ease: 'back.out(2.2)'
-    }, 0.22);
+      ease: 'back.out(2.4)'
+    }, 0.18);
   }
 
-  // 4. Headline lines shoot forward from deep space one-by-one with immense sonic impact!
+  // 4. Headline lines shoot forward from deep space one-by-one with sonic impact!
   if (headlineLines.length) {
     headlineLines.forEach((line, i) => {
       htl.to(line, {
@@ -14179,8 +14317,8 @@ function playHeroEntranceAnimation() {
         opacity: 1,
         filter: 'blur(0px)',
         duration: 0.65,
-        ease: i === 2 ? 'elastic.out(1.15, 0.6)' : 'power4.out'
-      }, 0.32 + i * 0.14);
+        ease: i === 1 ? 'elastic.out(1.2, 0.55)' : (i === 2 ? 'back.out(2)' : 'power4.out')
+      }, 0.28 + i * 0.15);
     });
   }
 
@@ -14192,7 +14330,7 @@ function playHeroEntranceAnimation() {
       opacity: 1,
       filter: 'blur(0px)',
       duration: 0.85,
-      ease: 'back.out(1.8)',
+      ease: 'back.out(2.2)',
       onStart: () => {
         if (typeof replayLogoIntro === 'function') {
           replayLogoIntro();
@@ -14207,7 +14345,7 @@ function playHeroEntranceAnimation() {
       scale: 1,
       opacity: 1,
       duration: 0.45,
-      ease: 'back.out(1.5)'
+      ease: 'back.out(1.8)'
     }, 0.68);
   }
 
@@ -14218,7 +14356,7 @@ function playHeroEntranceAnimation() {
       scale: 1,
       opacity: 1,
       duration: 0.65,
-      ease: 'back.out(1.6)'
+      ease: 'back.out(1.8)'
     }, 0.52);
 
     htl.to([dateBadge, venueTag], {
@@ -14234,8 +14372,8 @@ function playHeroEntranceAnimation() {
         scale: 1,
         opacity: 1,
         duration: 0.4,
-        ease: 'back.out(2)'
-      }, 0.70);
+        ease: 'back.out(2.2)'
+      }, 0.68);
     }
 
     if (countdownSegments.length) {
@@ -14246,7 +14384,7 @@ function playHeroEntranceAnimation() {
         duration: 0.48,
         stagger: 0.06,
         ease: 'back.out(2.4)'
-      }, 0.76);
+      }, 0.74);
     }
   }
 
@@ -14257,7 +14395,7 @@ function playHeroEntranceAnimation() {
       opacity: 1,
       duration: 0.55,
       ease: 'power3.out'
-    }, 0.82);
+    }, 0.78);
   }
 
   // 8. The 6 Hip-Hop Circle Items shoot up from below one-by-one!
@@ -14269,8 +14407,8 @@ function playHeroEntranceAnimation() {
       opacity: 1,
       duration: 0.52,
       stagger: 0.07,
-      ease: 'back.out(2.2)'
-    }, 0.92);
+      ease: 'back.out(2.4)'
+    }, 0.88);
   }
 
   // 9. The 4 Stat chips shoot in one-by-one!
@@ -14281,10 +14419,24 @@ function playHeroEntranceAnimation() {
       opacity: 1,
       duration: 0.48,
       stagger: 0.06,
-      ease: 'back.out(1.8)'
-    }, 1.12);
+      ease: 'back.out(2)'
+    }, 1.10);
   }
 }
+
+// ── REPLAY FESTIVAL INTRO CONTROLLER ──
+window.replayFestivalIntro = function() {
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  const intro = document.getElementById('page-intro');
+  if (intro) {
+    intro.style.display = 'flex';
+    intro.setAttribute('aria-hidden', 'false');
+    if (typeof gsap !== 'undefined') {
+      gsap.set(intro, { scaleY: 1, opacity: 1, transformOrigin: 'top' });
+    }
+  }
+  init3DExperienceIntro();
+};
 
 let _introInitialized = false;
 function setupIntroOnce() {
