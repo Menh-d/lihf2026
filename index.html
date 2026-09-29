@@ -10667,6 +10667,636 @@ body.gsap-ready .acc-section .rr {
     display: none;
   }
 }
+
+
+/* ==========================================================================
+   CARD-FREE ARCHITECTURAL STYLES FOR ALL DROPDOWNS & STANDALONE SECTIONS
+   ========================================================================== */
+
+/* ── 1. CARD-FREE AUDIENCE (SECTION 03) ── */
+.cf-audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  margin-top: 2rem;
+}
+.cf-aud-col {
+  padding: 2.4rem 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  transition: background 0.3s ease;
+}
+.cf-aud-col:last-child {
+  border-right: none;
+}
+.cf-aud-col:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+.cf-aud-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+.cf-aud-num {
+  font-family: var(--ff-d);
+  font-size: clamp(3.2rem, 5.5vw, 4.8rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--red);
+}
+.cf-aud-tag {
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid rgba(204, 0, 0, 0.4);
+  color: #ff4d4d;
+  border-radius: 2px;
+}
+.cf-aud-title {
+  font-family: var(--ff-d);
+  font-size: 1.45rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+.cf-aud-sub {
+  font-family: var(--ff-b);
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 1.2rem;
+  line-height: 1.4;
+}
+.cf-aud-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cf-aud-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  font-family: var(--ff-b);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+.cf-aud-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* Card-free Sponsor Fit Bar */
+.cf-sponsor-fit-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  margin-top: 1rem;
+}
+.cf-fit-badge {
+  font-family: var(--ff-a);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.cf-fit-categories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 0.8rem;
+  font-family: var(--ff-b);
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.cf-fit-sep {
+  color: rgba(212, 175, 55, 0.45);
+}
+
+@media (max-width: 900px) {
+  .cf-audience-grid {
+    grid-template-columns: 1fr;
+  }
+  .cf-aud-col {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.8rem 1rem;
+  }
+  .cf-aud-col:last-child {
+    border-bottom: none;
+  }
+  .cf-sponsor-fit-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ── 2. CARD-FREE CULTURE PILLARS / BATTLES (SECTION 04) ── */
+.cf-pillars-lineup {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 2rem;
+}
+.cf-pillar-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.8rem;
+  padding: 1.35rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+.cf-pillar-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--red);
+  opacity: 0;
+  transform: scaleY(0.4);
+  transition: all 0.25s ease;
+}
+.cf-pillar-row:hover {
+  background: rgba(255, 255, 255, 0.025);
+  padding-left: 1.4rem;
+}
+.cf-pillar-row:hover::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+.cf-prow-left {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.cf-prow-num {
+  font-family: var(--ff-a);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  min-width: 32px;
+}
+.cf-prow-thumb {
+  width: 95px;
+  height: 64px;
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+  position: relative;
+}
+.cf-prow-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.cf-pillar-row:hover .cf-prow-thumb img {
+  transform: scale(1.08);
+}
+.cf-prow-center {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.cf-prow-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+.cf-prow-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--red);
+  display: inline-block;
+}
+.cf-prow-title {
+  font-family: var(--ff-d);
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.15;
+  transition: color 0.2s ease;
+}
+.cf-pillar-row:hover .cf-prow-title {
+  color: #ff3333;
+}
+.cf-prow-desc {
+  font-family: var(--ff-b);
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  line-height: 1.45;
+}
+.cf-prow-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-shrink: 0;
+}
+.cf-prow-pills {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+}
+.cf-pill-prize {
+  font-family: var(--ff-a);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 0.25rem 0.65rem;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.cf-pill-sched {
+  font-family: var(--ff-b);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+}
+.cf-prow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--ff-a);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.cf-pillar-row:hover .cf-prow-btn {
+  background: var(--red);
+  border-color: var(--red);
+  box-shadow: 0 0 15px rgba(204, 0, 0, 0.5);
+}
+
+@media (max-width: 900px) {
+  .cf-pillar-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.2rem 0.5rem;
+  }
+  .cf-prow-right {
+    justify-content: space-between;
+    width: 100%;
+  }
+  .cf-prow-pills {
+    align-items: flex-start;
+  }
+}
+
+/* ── 3. CARD-FREE SPONSORSHIP PACKAGES (SECTION 07) ── */
+.cf-principles-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 3rem;
+  background: transparent;
+}
+.cf-principle-item {
+  padding: 1.2rem 1.4rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+.cf-principle-item:last-child {
+  border-right: none;
+}
+.cf-prin-head {
+  font-family: var(--ff-d);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+.cf-prin-sub {
+  font-family: var(--ff-b);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.4;
+}
+
+.cf-packages-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 2px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  margin-top: 2rem;
+}
+.cf-pkg-col {
+  padding: 2.2rem 1.4rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: background 0.3s ease;
+}
+.cf-pkg-col:last-child {
+  border-right: none;
+}
+.cf-pkg-col:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+.cf-pkg-col.feat {
+  background: rgba(204, 0, 0, 0.04);
+  border-top: 2px solid var(--red);
+  margin-top: -2px;
+}
+.cf-pkg-col.feat:hover {
+  background: rgba(204, 0, 0, 0.07);
+}
+.cf-pkg-top-bar {
+  margin-bottom: 1.2rem;
+}
+.cf-pkg-crown {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+.cf-pkg-name {
+  font-family: var(--ff-d);
+  font-size: 1.35rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+.cf-pkg-price {
+  font-family: var(--ff-d);
+  font-size: 1.65rem;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
+}
+.cf-pkg-price span {
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: 0.3rem;
+}
+.cf-pkg-slots {
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+.cf-pkg-perks {
+  list-style: none;
+  padding: 0;
+  margin: 1.4rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.cf-pkg-perks li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-family: var(--ff-b);
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.45;
+}
+.cf-pkg-perks li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--red);
+  font-size: 0.65rem;
+  top: 0.2rem;
+}
+.cf-pkg-col.feat .cf-pkg-perks li::before {
+  color: var(--gold);
+}
+.cf-pkg-action {
+  margin-top: auto;
+}
+
+@media (max-width: 1100px) {
+  .cf-principles-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cf-packages-grid {
+    grid-template-columns: 1fr;
+  }
+  .cf-pkg-col {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ── 4. STANDALONE FANGLAO ORGANIZER SECTION ── */
+.fanglao-standalone-section {
+  position: relative;
+  padding: 4.5rem 0 3.5rem;
+  background: linear-gradient(180deg, rgba(8,8,10,0.95) 0%, rgba(14,10,12,0.98) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+.fl-top-lockup {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  align-items: center;
+  gap: 3.5rem;
+  margin-bottom: 3rem;
+}
+.fl-logo-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+  position: relative;
+}
+.fl-logo-area::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 4px;
+  border: 1px solid rgba(204, 0, 0, 0.3);
+  pointer-events: none;
+  opacity: 0.6;
+}
+.fl-official-logo {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 25px rgba(204, 0, 0, 0.35));
+}
+.fl-header-text {
+  display: flex;
+  flex-direction: column;
+}
+.fl-title {
+  font-family: var(--ff-d);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.fl-desc {
+  font-family: var(--ff-b);
+  font-size: 1.02rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Fanglao 4 Metrics Bar */
+.fl-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  margin-bottom: 2.5rem;
+}
+.fl-stat-item {
+  padding: 1.6rem 1.4rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+.fl-stat-item:last-child {
+  border-right: none;
+}
+.fl-stat-val {
+  font-family: var(--ff-d);
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  line-height: 1;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+}
+.fl-stat-val.gold { color: var(--gold); }
+.fl-stat-val.red { color: var(--red); }
+.fl-stat-lbl {
+  font-family: var(--ff-a);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+.fl-stat-sub {
+  font-family: var(--ff-b);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Fanglao 3 Credential Columns */
+.fl-creds-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.fl-cred-item {
+  display: flex;
+  gap: 1.1rem;
+}
+.fl-cred-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 0.2rem;
+}
+.fl-cred-title {
+  font-family: var(--ff-d);
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+}
+.fl-cred-desc {
+  font-family: var(--ff-b);
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .fl-top-lockup {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+  .fl-logo-area {
+    max-width: 260px;
+  }
+  .fl-stats-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fl-stat-item:nth-child(2) {
+    border-right: none;
+  }
+  .fl-stat-item:nth-child(1), .fl-stat-item:nth-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .fl-creds-strip {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+}
+
+/* ── 5. STANDALONE CONTACT SECTION ── */
+.contact-standalone-section {
+  position: relative;
+  padding: 4.5rem 0;
+  background: var(--blk);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 </style>
 
 <script src="https://rawcdn.githack.com/martinlaxenaire/curtainsjs/95957f855ad9fd51850e97312cd389af76e9704e/build/curtains.min.js"></script>
@@ -11898,30 +12528,96 @@ body.gsap-ready .acc-section .rr {
   <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
     <div class="acc-num">03</div>
     <div class="acc-title-wrap">
-      <div class="acc-label">TARGET AUDIENCE</div>
-      <div class="acc-h2">TARGET <span class="hl">AUDIENCE</span></div>
+      <div class="acc-label">TARGET AUDIENCE • ຜູ້ຊົມເປົ້າໝາຍ</div>
+      <div class="acc-h2">TARGET <span class="hl">AUDIENCE</span> &amp; SEGMENTS</div>
     </div>
     <div class="acc-arrow">▼</div>
   </div>
   <div class="acc-body">
     <section id="audience" class="acc-inner">
-  <div class="noise-overlay"></div>
-  <div class="container">
-    <div class="section-label ru">Target Audience • A valuable youth-driven market</div>
-    <h2 class="section-title ru">HIGH-VALUE, <span class="hl">PASSION-LED</span><br>CONSUMER SEGMENTS</h2>
-    <div class="red-line ru"></div>
-    <div class="aud-grid">
-      <div class="aud-card ru"><div class="aud-pct">50%</div><span class="aud-badge">50% of Audience</span><h3 class="aud-seg-title">Young Adults (19–35)</h3><ul class="aud-list"><li>Working professionals, university students, urban trendsetters</li><li>High disposable income for lifestyle, tech, fashion, food &amp; beverage</li><li>Key influencers; early adopters of digital payment and telecom services</li></ul></div>
-      <div class="aud-card ru"><div class="aud-pct">35%</div><span class="aud-badge">35% of Audience</span><h3 class="aud-seg-title">Youth &amp; Teens (13–18)</h3><ul class="aud-list"><li>High school students, emerging dancers, gamers, content creators</li><li>Extremely high digital fluency and social media viral sharing behavior</li><li>Long-term brand loyalty potential through authentic early engagement</li></ul></div>
-      <div class="aud-card ru"><div class="aud-pct">15%</div><span class="aud-badge">15% of Audience</span><h3 class="aud-seg-title">Industry &amp; Adults (36–45+)</h3><ul class="aud-list"><li>Creative agency directors, business owners, parents, media guests</li><li>Premium purchasing power for VIP hospitality and premium goods</li><li>Appreciators of cultural diplomacy, arts development, and corporate CSR</li></ul></div>
-    </div>
-    <div style="margin-top:2.5rem; padding:1.2rem 1.5rem; background:rgba(212,175,55,0.06); border:1px solid rgba(212,175,55,0.2); border-radius:4px; text-align:center;">
-      <p style="font-family:var(--ff-a); font-size:0.78rem; font-weight:700; letter-spacing:0.2em; color:var(--gold); margin-bottom:0.8rem;">CORE SPONSOR FIT</p>
-      <p style="font-family:var(--ff-b); font-size:0.95rem; color:var(--gr-l); line-height:1.7;">FMCG &nbsp;•&nbsp; Telecom &nbsp;•&nbsp; Banking &nbsp;•&nbsp; Fashion &nbsp;•&nbsp; Lifestyle &nbsp;•&nbsp; Mobility &nbsp;•&nbsp; Technology &nbsp;•&nbsp; Youth-focused Brands</p>
-    </div>
-  </div>
-</section>
-</div><!-- /acc-body audience -->
+      <div class="noise-overlay"></div>
+      <div class="container cardfree-layout">
+        <div style="text-align:center; max-width:850px; margin:0 auto 2rem;">
+          <div class="section-label ru" style="justify-content:center;">Target Audience • A valuable youth-driven market</div>
+          <h2 class="section-title ru font-serif-display" style="font-size:clamp(2.4rem, 5vw, 4rem);">
+            HIGH-VALUE, <span class="hl">PASSION-LED</span><br>CONSUMER SEGMENTS
+          </h2>
+          <div class="red-line ru" style="margin:1.2rem auto;"></div>
+          <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.65;">
+            LIHF 2026 connects brands directly with the most active, trend-setting demographics in Laos and Southeast Asia—driven by urban culture, passion, and high digital engagement.
+          </p>
+        </div>
+
+        <!-- Card-Free Architectural Audience Grid -->
+        <div class="cf-audience-grid ru">
+          <!-- Segment 1: Young Adults (50%) -->
+          <div class="cf-aud-col">
+            <div class="cf-aud-header">
+              <div class="cf-aud-num">50%</div>
+              <span class="cf-aud-tag">CORE AUDIENCE</span>
+            </div>
+            <h3 class="cf-aud-title">Young Adults (19–35)</h3>
+            <p class="cf-aud-sub">Working professionals, university students &amp; urban trendsetters</p>
+            <ul class="cf-aud-list">
+              <li>High disposable income for lifestyle, tech, fashion, streetwear, food &amp; beverage</li>
+              <li>Key cultural influencers; early adopters of digital banking and mobile payment services</li>
+              <li>Peak evening concert attendance and primary consumers of festival retail &amp; F&amp;B</li>
+            </ul>
+          </div>
+
+          <!-- Segment 2: Youth & Teens (35%) -->
+          <div class="cf-aud-col">
+            <div class="cf-aud-header">
+              <div class="cf-aud-num" style="color:var(--gold);">35%</div>
+              <span class="cf-aud-tag" style="border-color:rgba(212,175,55,0.4); color:var(--gold);">DIGITAL NATIVES</span>
+            </div>
+            <h3 class="cf-aud-title">Youth &amp; Teens (13–18)</h3>
+            <p class="cf-aud-sub">High school students, emerging dancers, gamers &amp; creators</p>
+            <ul class="cf-aud-list">
+              <li>Extremely high digital fluency and social media viral sharing behavior on TikTok &amp; IG</li>
+              <li>Long-term brand loyalty potential through authentic early lifestyle engagement</li>
+              <li>Direct participants in grassroots workshops, open cyphers &amp; youth dance battles</li>
+            </ul>
+          </div>
+
+          <!-- Segment 3: Industry & Adults (15%) -->
+          <div class="cf-aud-col">
+            <div class="cf-aud-header">
+              <div class="cf-aud-num" style="color:#ffffff;">15%</div>
+              <span class="cf-aud-tag" style="border-color:rgba(255,255,255,0.25); color:rgba(255,255,255,0.7);">PREMIUM &amp; VIP</span>
+            </div>
+            <h3 class="cf-aud-title">Industry &amp; Adults (36–45+)</h3>
+            <p class="cf-aud-sub">Creative agency directors, business owners, parents &amp; media guests</p>
+            <ul class="cf-aud-list">
+              <li>Premium purchasing power for VIP hospitality, luxury goods and corporate networking</li>
+              <li>Appreciators of cultural diplomacy, national arts development &amp; corporate CSR</li>
+              <li>Key decision-makers for media endorsements, brand sponsorships &amp; talent bookings</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Sleek Card-Free Core Sponsor Fit Bar -->
+        <div class="cf-sponsor-fit-bar ru">
+          <span class="cf-fit-badge">CORE SPONSOR FIT</span>
+          <div class="cf-fit-categories">
+            <span>FMCG &amp; Beverage</span>
+            <span class="cf-fit-sep">•</span>
+            <span>Telecom &amp; 5G</span>
+            <span class="cf-fit-sep">•</span>
+            <span>Fintech &amp; Banking</span>
+            <span class="cf-fit-sep">•</span>
+            <span>Streetwear &amp; Fashion</span>
+            <span class="cf-fit-sep">•</span>
+            <span>Automotive &amp; Mobility</span>
+            <span class="cf-fit-sep">•</span>
+            <span>Consumer Tech</span>
+            <span class="cf-fit-sep">•</span>
+            <span>Tourism &amp; Hospitality</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div><!-- /acc-body audience -->
 </div><!-- /acc-section audience -->
 
 <!-- BATTLES (Event Pillars — Immersive 3D Tilt Cards & Expandable Modal) -->
@@ -11930,263 +12626,265 @@ body.gsap-ready .acc-section .rr {
   <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
     <div class="acc-num">04</div>
     <div class="acc-title-wrap">
-      <div class="acc-label">8 CULTURE PILLARS</div>
+      <div class="acc-label">8 CULTURE PILLARS • 8 ເສົາຫຼັກວັດທະນະທຳ</div>
       <div class="acc-h2">8 CULTURE <span class="hl">PILLARS</span> &amp; ACTIVITIES</div>
     </div>
     <div class="acc-arrow">▼</div>
   </div>
   <div class="acc-body">
     <section id="battles" class="acc-inner">
-  <div class="noise-overlay"></div>
-  <div class="container">
-    <div style="text-align:center; max-width:850px; margin:0 auto 2.5rem;">
-      <div class="section-label ru" style="justify-content:center;">Seven Culture Pillars • One Festival Platform</div>
-      <h2 class="section-title ru">THE 8 <span class="hl">MAIN ACTIVITIES</span> &amp; BATTLE SHOWCASES</h2>
-      <div class="red-line ru" style="margin:1.2rem auto;"></div>
-      <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.8); line-height:1.65;">
-        Each activity creates a distinct activation angle for audiences and sponsors: performance, competition, community, commerce, content, and high-impact media moments. <strong style="color:var(--gold);">Click on any activity card below to inspect full rules, schedule, prizes &amp; sponsor integration options.</strong>
-      </p>
-    </div>
-
-    <!-- 8 Activities FUI Bento Grid Dark -->
-    <div class="activities-interactive-grid">
-      
-      <!-- ACTIVITY 01: Breaking 2 vs 2 -->
-      <div class="act-card bento-card bento-col-6 bento-corner-tl ru" data-act-id="0">
-        <div class="bento-graphic-wrap">
-          <div class="bento-graphic-img" style="background-image:url('assets/battle_breaking.jpg');"></div>
-          <div class="bento-fade-top"></div>
-          <div class="bento-fade-bottom"></div>
-          <div class="bento-badge-tag">
-            <span class="bento-badge-dot"></span>
-            <span>01 • INTERNATIONAL BATTLE</span>
-          </div>
+      <div class="noise-overlay"></div>
+      <div class="container cardfree-layout">
+        <div style="text-align:center; max-width:850px; margin:0 auto 2.5rem;">
+          <div class="section-label ru" style="justify-content:center;">Seven Culture Pillars • One Festival Platform</div>
+          <h2 class="section-title ru font-serif-display" style="font-size:clamp(2.4rem, 5.2vw, 4rem);">
+            THE 8 <span class="hl">MAIN ACTIVITIES</span> &amp; BATTLE SHOWCASES
+          </h2>
+          <div class="red-line ru" style="margin:1.2rem auto;"></div>
+          <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.65;">
+            Each activity creates a distinct activation angle for audiences and sponsors: performance, competition, community, commerce, content, and high-impact media moments. <strong style="color:var(--gold);">Click on any activity row below to inspect full rules, schedule, prizes &amp; sponsor integration options.</strong>
+          </p>
         </div>
-        <div class="bento-card-body">
-          <div class="bento-eyebrow">
-            <span>Olympic Pillar</span>
-            <span style="color:rgba(255,255,255,0.4);">64 Dancers • 32 Crews</span>
+
+        <!-- Card-Free Architectural Culture Pillars Lineup -->
+        <div class="cf-pillars-lineup ru">
+          
+          <!-- ACTIVITY 01: Breaking 2 vs 2 -->
+          <div class="act-card cf-pillar-row" data-act-id="0" role="button" tabindex="0">
+            <div class="cf-prow-left">
+              <span class="cf-prow-num">// 01</span>
+              <div class="cf-prow-thumb">
+                <img src="assets/battle_breaking.jpg" alt="Breaking 2 vs 2 Battle" loading="lazy">
+              </div>
+            </div>
+            <div class="cf-prow-center">
+              <div class="cf-prow-eyebrow">
+                <span>Olympic Pillar</span>
+                <span class="cf-prow-dot"></span>
+                <span>64 Dancers • 32 Crews</span>
+              </div>
+              <h3 class="cf-prow-title">Breaking 2 vs 2 Battle</h3>
+              <p class="cf-prow-desc">Olympic-caliber B-Boy &amp; B-Girl 2v2 knockout championship uniting top dancers from ASEAN, Japan &amp; Europe.</p>
+            </div>
+            <div class="cf-prow-right">
+              <div class="cf-prow-pills">
+                <span class="cf-pill-prize">🏆 32,000,000 LAK Pool</span>
+                <span class="cf-pill-sched">Day 1 &amp; Day 2 Knockout</span>
+              </div>
+              <div class="cf-prow-btn">
+                <span>Inspect Specs</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
           </div>
-          <h3 class="bento-card-title">Breaking 2 vs 2 Battle</h3>
-          <p class="bento-card-desc">Olympic-caliber B-Boy &amp; B-Girl 2v2 knockout championship uniting top dancers from ASEAN, Japan &amp; Europe.</p>
-          <div class="bento-meta-wrap">
-            <span class="bento-pill-prize">🏆 32,000,000 LAK Pool</span>
-            <span class="bento-pill-sched">Day 1 &amp; Day 2 Knockout</span>
+
+          <!-- ACTIVITY 02: Open Style 2 vs 2 -->
+          <div class="act-card cf-pillar-row" data-act-id="1" role="button" tabindex="0">
+            <div class="cf-prow-left">
+              <span class="cf-prow-num">// 02</span>
+              <div class="cf-prow-thumb">
+                <img src="assets/battle_openstyle.jpg" alt="Open Style 2 vs 2 Battle" loading="lazy">
+              </div>
+            </div>
+            <div class="cf-prow-center">
+              <div class="cf-prow-eyebrow">
+                <span>Freestyle Pillar</span>
+                <span class="cf-prow-dot"></span>
+                <span>48 Duos • All Street Styles</span>
+              </div>
+              <h3 class="cf-prow-title">Open Style 2 vs 2 Battle</h3>
+              <p class="cf-prow-desc">HipHop, Popping, Locking, Krump, Waacking and freestyle street dance showdown celebrating raw musicality.</p>
+            </div>
+            <div class="cf-prow-right">
+              <div class="cf-prow-pills">
+                <span class="cf-pill-prize">🏆 27,000,000 LAK Pool</span>
+                <span class="cf-pill-sched">Day 1 &amp; Day 2 Arena</span>
+              </div>
+              <div class="cf-prow-btn">
+                <span>Inspect Specs</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
           </div>
-          <div class="bento-cta-btn">
-            <span>Inspect Rules &amp; Sponsor Specs</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+
+          <!-- ACTIVITY 03: Crew Competition -->
+          <div class="act-card cf-pillar-row" data-act-id="2" role="button" tabindex="0">
+            <div class="cf-prow-left">
+              <span class="cf-prow-num">// 03</span>
+              <div class="cf-prow-thumb">
+                <img src="assets/battle_crew.jpg" alt="Crew Choreography Showdown" loading="lazy">
+              </div>
+            </div>
+            <div class="cf-prow-center">
+              <div class="cf-prow-eyebrow">
+                <span>Mega Showcase</span>
+                <span class="cf-prow-dot"></span>
+                <span>16 Elite Crews (5–12 Members)</span>
+              </div>
+              <h3 class="cf-prow-title">Crew Choreography Showdown</h3>
+              <p class="cf-prow-desc">Spectacular synchronized choreography showcase on the main festival stage with theatrical lighting and broadcast coverage.</p>
+            </div>
+            <div class="cf-prow-right">
+              <div class="cf-prow-pills">
+                <span class="cf-pill-prize">🏆 35,000,000 LAK Pool</span>
+                <span class="cf-pill-sched">Day 2 Grand Finals</span>
+              </div>
+              <div class="cf-prow-btn">
+                <span>Inspect Specs</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
           </div>
+
+          <!-- ACTIVITY 04: DJ Open Format Showdown -->
+          <div class="act-card cf-pillar-row" data-act-id="3" role="button" tabindex="0">
+            <div class="cf-prow-left">
+              <span class="cf-prow-num">// 04</span>
+              <div class="cf-prow-thumb">
+                <img src="assets/battle_dj.jpg" alt="DJ Turntablism Showdown" loading="lazy">
+              </div>
+            </div>
+            <div class="cf-prow-center">
+              <div class="cf-prow-eyebrow">
+                <span>Music Pillar</span>
+                <span class="cf-prow-dot"></span>
+                <span>12 Elite Turntablists</span>
+              </div>
+              <h3 class="cf-prow-title">DJ Turntablism Showdown</h3>
+              <p class="cf-prow-desc">Vinyl scratching, speed mixing, beat juggling and party rocking battles judged on technique, track selection &amp; stage presence.</p>
+            </div>
+            <div class="cf-prow-right">
+              <div class="cf-prow-pills">
+                <span class="cf-pill-prize">🏆 20,000,000 LAK Pool</span>
+                <span class="cf-pill-sched">Day 1 Evening Battle</span>
+              </div>
+              <div class="cf-prow-btn">
+                <span>Inspect Specs</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTIVITY 05: Graffiti Art Exhibition -->
+          <div class="act-card cf-pillar-row" data-act-id="4" role="button" tabindex="0">
+            <div class="cf-prow-left">
+              <span class="cf-prow-num">// 05</span>
+              <div class="cf-prow-thumb">
+                <img src="assets/battle_graffiti.jpg" alt="Graffiti Art Live Exhibition" loading="lazy">
+              </div>
+            </div>
+            <div class="cf-prow-center">
+              <div class="cf-prow-eyebrow">
+                <span>Visual Pillar</span>
+                <span class="cf-prow-dot"></span>
+                <span>8 Master Aerosol Artists</span>
+              </div>
+              <h3 class="cf-prow-title">Graffiti Art Live Exhibition</h3>
+              <p class="cf-prow-desc">Live large-scale aerosol mural creation across 50m festival walls, converting urban spaces into vibrant interactive public art.</p>
+            </div>
+            <div class="cf-prow-right">
+              <div class="cf-prow-pills">
+                <span class="cf-pill-prize">🏆 15,000,000 LAK Value</span>
+                <span class="cf-pill-sched">Day 1 to Day 3 Canvas</span>
+              </div>
+              <div class="cf-prow-btn">
+                <span>Inspect Specs</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTIVITY 06: Rap 7 to Smoke Cypher -->
+          <div class="act-card cf-pillar-row" data-act-id="5" role="button" tabindex="0">
+            <div class="cf-prow-left">
+              <span class="cf-prow-num">// 06</span>
+              <div class="cf-prow-thumb">
+                <img src="assets/battle_mc.jpg" alt="Rap 7-to-Smoke Cypher" loading="lazy">
+              </div>
+            </div>
+            <div class="cf-prow-center">
+              <div class="cf-prow-eyebrow">
+                <span>Vocal Pillar</span>
+                <span class="cf-prow-dot"></span>
+                <span>8 Selected MCs • 20 Mins</span>
+              </div>
+              <h3 class="cf-prow-title">Rap 7 to Smoke Cypher</h3>
+              <p class="cf-prow-desc">High-pressure rapid-fire rap cypher knockout where the reigning MC must defend against 7 contenders consecutively to claim glory.</p>
+            </div>
+            <div class="cf-prow-right">
+              <div class="cf-prow-pills">
+                <span class="cf-pill-prize">🏆 15,000,000 LAK Pool</span>
+                <span class="cf-pill-sched">Day 2 Main Stage</span>
+              </div>
+              <div class="cf-prow-btn">
+                <span>Inspect Specs</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTIVITY 07: Headline Hip-Hop Concert -->
+          <div class="act-card cf-pillar-row" data-act-id="6" role="button" tabindex="0">
+            <div class="cf-prow-left">
+              <span class="cf-prow-num">// 07</span>
+              <div class="cf-prow-thumb">
+                <img src="assets/battle_concert.jpg" alt="Headline Hip-Hop Concert" loading="lazy">
+              </div>
+            </div>
+            <div class="cf-prow-center">
+              <div class="cf-prow-eyebrow">
+                <span>Festival Finale</span>
+                <span class="cf-prow-dot"></span>
+                <span>Regional Headliners &amp; Guest Stars</span>
+              </div>
+              <h3 class="cf-prow-title">Headline Hip-Hop Concert</h3>
+              <p class="cf-prow-desc">Explosive festival closing concert featuring top-tier Lao, Thai, and regional hip-hop artists with arena lighting &amp; VIP hospitality.</p>
+            </div>
+            <div class="cf-prow-right">
+              <div class="cf-prow-pills">
+                <span class="cf-pill-prize" style="color:#ffffff; background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.2);">⭐ 5,000+ Crowd Peak</span>
+                <span class="cf-pill-sched">Day 3 Evening Prime</span>
+              </div>
+              <div class="cf-prow-btn">
+                <span>Inspect Specs</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTIVITY 08: Dance Workshops & Masterclasses -->
+          <div class="act-card cf-pillar-row" data-act-id="7" role="button" tabindex="0">
+            <div class="cf-prow-left">
+              <span class="cf-prow-num">// 08</span>
+              <div class="cf-prow-thumb">
+                <img src="assets/battle_workshop.jpg" alt="Dance Workshops & Classes" loading="lazy">
+              </div>
+            </div>
+            <div class="cf-prow-center">
+              <div class="cf-prow-eyebrow">
+                <span>Education Pillar</span>
+                <span class="cf-prow-dot"></span>
+                <span>6 Intensive Masterclasses</span>
+              </div>
+              <h3 class="cf-prow-title">Dance Workshops &amp; Classes</h3>
+              <p class="cf-prow-desc">6 intensive masterclasses taught by international judges across Breaking, Popping, Locking &amp; Choreography for youth development.</p>
+            </div>
+            <div class="cf-prow-right">
+              <div class="cf-prow-pills">
+                <span class="cf-pill-prize">🎓 15,000,000 LAK Value</span>
+                <span class="cf-pill-sched">Days 1, 2 &amp; 3 Halls</span>
+              </div>
+              <div class="cf-prow-btn">
+                <span>Inspect Specs</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      <!-- ACTIVITY 02: Open Style 2 vs 2 -->
-      <div class="act-card bento-card bento-col-6 bento-corner-tr ru" data-act-id="1">
-        <div class="bento-graphic-wrap">
-          <div class="bento-graphic-img" style="background-image:url('assets/battle_openstyle.jpg');"></div>
-          <div class="bento-fade-top"></div>
-          <div class="bento-fade-bottom"></div>
-          <div class="bento-badge-tag">
-            <span class="bento-badge-dot"></span>
-            <span>02 • ALL-STYLE BATTLE</span>
-          </div>
-        </div>
-        <div class="bento-card-body">
-          <div class="bento-eyebrow">
-            <span>Freestyle Pillar</span>
-            <span style="color:rgba(255,255,255,0.4);">48 Duos • All Street Styles</span>
-          </div>
-          <h3 class="bento-card-title">Open Style 2 vs 2 Battle</h3>
-          <p class="bento-card-desc">HipHop, Popping, Locking, Krump, Waacking and freestyle street dance showdown celebrating raw musicality.</p>
-          <div class="bento-meta-wrap">
-            <span class="bento-pill-prize">🏆 27,000,000 LAK Pool</span>
-            <span class="bento-pill-sched">Day 1 &amp; Day 2 Arena</span>
-          </div>
-          <div class="bento-cta-btn">
-            <span>Inspect Rules &amp; Sponsor Specs</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- ACTIVITY 03: Crew Competition -->
-      <div class="act-card bento-card bento-col-4 ru" data-act-id="2">
-        <div class="bento-graphic-wrap">
-          <div class="bento-graphic-img" style="background-image:url('assets/battle_crew.jpg');"></div>
-          <div class="bento-fade-top"></div>
-          <div class="bento-fade-bottom"></div>
-          <div class="bento-badge-tag">
-            <span class="bento-badge-dot"></span>
-            <span>03 • MEGA SHOWCASE</span>
-          </div>
-        </div>
-        <div class="bento-card-body">
-          <div class="bento-eyebrow">
-            <span>Choreography Pillar</span>
-            <span style="color:rgba(255,255,255,0.4);">16 Mega Crews</span>
-          </div>
-          <h3 class="bento-card-title">Crew Choreography (5–8 Members)</h3>
-          <p class="bento-card-desc">Theatrical mega-crew choreography championship with custom concept routines and high-impact visual stunts.</p>
-          <div class="bento-meta-wrap">
-            <span class="bento-pill-prize">🏆 56,000,000 LAK Pool</span>
-            <span class="bento-pill-sched">Day 2 Main Stage</span>
-          </div>
-          <div class="bento-cta-btn">
-            <span>Inspect Rules &amp; Sponsor Specs</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- ACTIVITY 04: DJ Open Format Showdown -->
-      <div class="act-card bento-card bento-col-4 ru" data-act-id="3">
-        <div class="bento-graphic-wrap">
-          <div class="bento-graphic-img" style="background-image:url('assets/battle_dj.jpg');"></div>
-          <div class="bento-fade-top"></div>
-          <div class="bento-fade-bottom"></div>
-          <div class="bento-badge-tag">
-            <span class="bento-badge-dot"></span>
-            <span>04 • TURNTABLISM</span>
-          </div>
-        </div>
-        <div class="bento-card-body">
-          <div class="bento-eyebrow">
-            <span>Turntablism Pillar</span>
-            <span style="color:rgba(255,255,255,0.4);">12 Elite DJs</span>
-          </div>
-          <h3 class="bento-card-title">DJ Open Format Showdown</h3>
-          <p class="bento-card-desc">Live vinyl scratching, beat juggling, tone play, and crowd control competition among Asia's top turntablists.</p>
-          <div class="bento-meta-wrap">
-            <span class="bento-pill-prize">🏆 17,000,000 LAK Pool</span>
-            <span class="bento-pill-sched">Day 2 Afternoon</span>
-          </div>
-          <div class="bento-cta-btn">
-            <span>Inspect Rules &amp; Sponsor Specs</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- ACTIVITY 05: Graffiti Art Exhibition -->
-      <div class="act-card bento-card bento-col-4 ru" data-act-id="4">
-        <div class="bento-graphic-wrap">
-          <div class="bento-graphic-img" style="background-image:url('assets/battle_graffiti.jpg');"></div>
-          <div class="bento-fade-top"></div>
-          <div class="bento-fade-bottom"></div>
-          <div class="bento-badge-tag">
-            <span class="bento-badge-dot"></span>
-            <span>05 • LIVE STREET ART</span>
-          </div>
-        </div>
-        <div class="bento-card-body">
-          <div class="bento-eyebrow">
-            <span>Visual Arts Pillar</span>
-            <span style="color:rgba(255,255,255,0.4);">10 Mural Masters</span>
-          </div>
-          <h3 class="bento-card-title">Graffiti Art Exhibition</h3>
-          <p class="bento-card-desc">Live 8-hour aerosol mural painting on giant 3x2m canvas panels under 'HipHop Beyond Borders'.</p>
-          <div class="bento-meta-wrap">
-            <span class="bento-pill-prize">🏆 15,000,000 LAK Pool</span>
-            <span class="bento-pill-sched">Day 1 &amp; Day 2</span>
-          </div>
-          <div class="bento-cta-btn">
-            <span>Inspect Rules &amp; Sponsor Specs</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- ACTIVITY 06: Rap 7 to Smoke Cypher -->
-      <div class="act-card bento-card bento-col-4 bento-corner-bl ru" data-act-id="5">
-        <div class="bento-graphic-wrap">
-          <div class="bento-graphic-img" style="background-image:url('assets/battle_mc.jpg');"></div>
-          <div class="bento-fade-top"></div>
-          <div class="bento-fade-bottom"></div>
-          <div class="bento-badge-tag">
-            <span class="bento-badge-dot"></span>
-            <span>06 • LAO MC BATTLE</span>
-          </div>
-        </div>
-        <div class="bento-card-body">
-          <div class="bento-eyebrow">
-            <span>MC &amp; Lyrics Pillar</span>
-            <span style="color:rgba(255,255,255,0.4);">8 Finalist MCs</span>
-          </div>
-          <h3 class="bento-card-title">Rap 7 to Smoke Cypher</h3>
-          <p class="bento-card-desc">Electrifying 7-to-smoke freestyle rap cypher format crowning the supreme lyrical champion of Laos.</p>
-          <div class="bento-meta-wrap">
-            <span class="bento-pill-prize">🏆 7,000,000 LAK Pool</span>
-            <span class="bento-pill-sched">Day 1 Night Arena</span>
-          </div>
-          <div class="bento-cta-btn">
-            <span>Inspect Rules &amp; Sponsor Specs</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- ACTIVITY 07: Headline Hip-Hop Concert -->
-      <div class="act-card bento-card bento-col-4 ru" data-act-id="6">
-        <div class="bento-graphic-wrap">
-          <div class="bento-graphic-img" style="background-image:url('assets/battle_concert.jpg');"></div>
-          <div class="bento-fade-top"></div>
-          <div class="bento-fade-bottom"></div>
-          <div class="bento-badge-tag">
-            <span class="bento-badge-dot"></span>
-            <span>07 • FESTIVAL FINALE</span>
-          </div>
-        </div>
-        <div class="bento-card-body">
-          <div class="bento-eyebrow">
-            <span>Festival Finale Pillar</span>
-            <span style="color:rgba(255,255,255,0.4);">3,000+ Crowd Capacity</span>
-          </div>
-          <h3 class="bento-card-title">Headline Hip-Hop Concert</h3>
-          <p class="bento-card-desc">2-Night grand concert finale uniting thousands of fans with top Lao headliners and ASEAN guest artists.</p>
-          <div class="bento-meta-wrap">
-            <span class="bento-pill-prize">🏆 3,000+ Arena Fans</span>
-            <span class="bento-pill-sched">Day 2 &amp; Day 3 Nights</span>
-          </div>
-          <div class="bento-cta-btn">
-            <span>Inspect Rules &amp; Sponsor Specs</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- ACTIVITY 08: Dance Workshops & Masterclasses -->
-      <div class="act-card bento-card bento-col-4 bento-corner-br ru" data-act-id="7">
-        <div class="bento-graphic-wrap">
-          <div class="bento-graphic-img" style="background-image:url('assets/battle_workshop.jpg');"></div>
-          <div class="bento-fade-top"></div>
-          <div class="bento-fade-bottom"></div>
-          <div class="bento-badge-tag">
-            <span class="bento-badge-dot"></span>
-            <span>08 • MASTERCLASSES</span>
-          </div>
-        </div>
-        <div class="bento-card-body">
-          <div class="bento-eyebrow">
-            <span>Education Pillar</span>
-            <span style="color:rgba(255,255,255,0.4);">6 Intensive Sessions</span>
-          </div>
-          <h3 class="bento-card-title">Dance Workshops &amp; Classes</h3>
-          <p class="bento-card-desc">6 intensive masterclasses taught by international judges across Breaking, Popping, Locking &amp; Choreography.</p>
-          <div class="bento-meta-wrap">
-            <span class="bento-pill-prize">🎓 15,000,000 LAK Value</span>
-            <span class="bento-pill-sched">Days 1, 2 &amp; 3 Halls</span>
-          </div>
-          <div class="bento-cta-btn">
-            <span>Inspect Rules &amp; Sponsor Specs</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-</div><!-- /acc-body battles -->
+    </section>
+  </div><!-- /acc-body battles -->
 </div><!-- /acc-section battles -->
 
 <!-- COMPREHENSIVE INTERACTIVE ACTIVITY DETAIL MODAL -->
@@ -12564,136 +13262,160 @@ body.gsap-ready .acc-section .rr {
   <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
     <div class="acc-num">07</div>
     <div class="acc-title-wrap">
-      <div class="acc-label">SPONSORSHIP PACKAGES</div>
-      <div class="acc-h2">SPONSORSHIP <span class="hl">PACKAGES</span></div>
+      <div class="acc-label">SPONSORSHIP PACKAGES • ແພັກເກດຜູ້ສະໜັບສະໜູນ</div>
+      <div class="acc-h2">SPONSORSHIP <span class="hl">PACKAGES</span> &amp; TIERS</div>
     </div>
     <div class="acc-arrow">▼</div>
   </div>
   <div class="acc-body">
     <section id="packages" class="acc-inner">
-  <div class="noise-overlay"></div>
-  <div class="container">
-    
-    <!-- SPONSOR BENEFITS (Slide 16) -->
-    <div style="margin-bottom:3rem;">
-      <div class="section-label ru">Sponsor Benefits • From exposure to conversion</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; margin-top:1.2rem;">
-        <div style="padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border-left:3px solid var(--red);">
-          <div style="font-family:'Anton',sans-serif; font-size:1rem; color:var(--wh); margin-bottom:0.3rem;">BRAND AWARENESS</div>
-          <div style="font-family:var(--ff-b); font-size:0.82rem; color:var(--gr);">Logo, stage, LED, media coverage</div>
+      <div class="noise-overlay"></div>
+      <div class="container cardfree-layout">
+        
+        <!-- Header -->
+        <div style="text-align:center; max-width:850px; margin:0 auto 2.5rem;">
+          <div class="section-label ru" style="justify-content:center;">Sponsorship Packages • Clear levels for different investment goals</div>
+          <h2 class="section-title ru font-serif-display" style="font-size:clamp(2.4rem, 5vw, 4rem);">
+            TIERED INVESTMENT<br>&amp; <span class="hl">STRATEGIC</span> ROLES
+          </h2>
+          <div class="red-line ru" style="margin:1.2rem auto;"></div>
+          <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.65;">
+            Structured investment tiers designed to align directly with your brand objectives: visual dominance, experiential sampling, digital reach, community empowerment, and verified business ROI.
+          </p>
         </div>
-        <div style="padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border-left:3px solid var(--red);">
-          <div style="font-family:'Anton',sans-serif; font-size:1rem; color:var(--wh); margin-bottom:0.3rem;">AUDIENCE ENGAGEMENT</div>
-          <div style="font-family:var(--ff-b); font-size:0.82rem; color:var(--gr);">Games, challenges, sampling activations</div>
-        </div>
-        <div style="padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border-left:3px solid var(--red);">
-          <div style="font-family:'Anton',sans-serif; font-size:1rem; color:var(--wh); margin-bottom:0.3rem;">PRODUCT EXPOSURE</div>
-          <div style="font-family:var(--ff-b); font-size:0.82rem; color:var(--gr);">Booth, product integration, MC mention</div>
-        </div>
-        <div style="padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border-left:3px solid var(--red);">
-          <div style="font-family:'Anton',sans-serif; font-size:1rem; color:var(--wh); margin-bottom:0.3rem;">DIGITAL VISIBILITY</div>
-          <div style="font-family:var(--ff-b); font-size:0.82rem; color:var(--gr);">Social posts, reels, creator content</div>
-        </div>
-        <div style="padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border-left:3px solid var(--red);">
-          <div style="font-family:'Anton',sans-serif; font-size:1rem; color:var(--wh); margin-bottom:0.3rem;">MEDIA VALUE</div>
-          <div style="font-family:var(--ff-b); font-size:0.82rem; color:var(--gr);">Press release, photo set, recap video</div>
-        </div>
-        <div style="padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border-left:3px solid var(--red);">
-          <div style="font-family:'Anton',sans-serif; font-size:1rem; color:var(--wh); margin-bottom:0.3rem;">COMMUNITY IMPACT</div>
-          <div style="font-family:var(--ff-b); font-size:0.82rem; color:var(--gr);">Youth culture and creative economy</div>
-        </div>
-      </div>
-      <p style="font-family:var(--ff-b); font-size:0.9rem; color:var(--gr); margin-top:1rem; font-style:italic;">The strongest package is the one that combines visibility + participation + shareable content.</p>
-    </div>
-    <div class="section-label ru">Sponsorship Packages • Clear levels for different investment goals</div>
-    <h2 class="section-title ru">TIERED INVESTMENT<br>&amp; <span class="hl">STRATEGIC</span> ROLES</h2>
-    <div class="red-line ru"></div>
-    <div class="pkg-grid-5tiers">
-      
-      <!-- TITLE PARTNER -->
-      <div class="pkg feat ru">
-        <span class="pkg-crown">🏆</span>
-        <div class="pkg-tier" style="color:var(--gold)">Title Partner</div>
-        <div class="pkg-price"><span>500,000,000</span>LAK &nbsp;•&nbsp; 1 Exclusive Partner</div>
-        <div class="pkg-slots">Exclusive — 1 Slot Only</div>
-        <ul class="pkg-perks">
-          <li><strong>Naming Rights:</strong> 'LIHF 2026 Presented by [Brand]'</li>
-          <li><strong>Main Stage Lead Branding:</strong> Prime visual dominance &amp; top-tier billing</li>
-          <li><strong>Category Exclusivity:</strong> Full exclusivity across industry domain</li>
-          <li><strong>100 sq.m Mega Experiential Booth</strong> at prime entrance location</li>
-          <li><strong>Opening &amp; Closing Ceremony</strong> Keynote &amp; Grand Trophy Presenter</li>
-          <li><strong>Full Digital &amp; OOH Integration:</strong> 10M+ reach campaign priority</li>
-          <li><strong>20 VIP All-Access Passes</strong> with VIP Concert Lounge hospitality</li>
-        </ul>
-        <a href="#contact" class="btn-p" style="text-align:center;margin-top:auto">Claim Title Rights</a>
-      </div>
 
-      <!-- PLATINUM PARTNER -->
-      <div class="pkg ru">
-        <span class="pkg-crown">💎</span>
-        <div class="pkg-tier" style="color:#E5E4E2">Platinum Partner</div>
-        <div class="pkg-price"><span style="color:#E5E4E2">250,000,000</span>LAK &nbsp;•&nbsp; Max 2 Partners</div>
-        <div class="pkg-slots">Maximum 2 Slots</div>
-        <ul class="pkg-perks">
-          <li><strong>Major Stage Branding:</strong> Second billing on main stage LED &amp; backdrops</li>
-          <li><strong>Prime 50 sq.m Booth Space:</strong> Central audience circulation area</li>
-          <li><strong>Strong Digital &amp; Media Campaign:</strong> Dedicated reels, TikTok feature &amp; PR</li>
-          <li><strong>Major Battle Category Naming:</strong> Own 1 flagship competition pillar</li>
-          <li><strong>10 VIP All-Access Passes</strong> with stage-side viewing access</li>
-        </ul>
-        <a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Partner as Platinum</a>
-      </div>
+        <!-- 5 Strategic Pillars Strip (Card-Free Hairlines) -->
+        <div class="cf-principles-strip ru">
+          <div class="cf-principle-item">
+            <h4 class="cf-prin-head">BRAND DOMINANCE</h4>
+            <p class="cf-prin-sub">Stage naming rights, master banner lockup &amp; category exclusivity</p>
+          </div>
+          <div class="cf-principle-item">
+            <h4 class="cf-prin-head">PRODUCT EXPOSURE</h4>
+            <p class="cf-prin-sub">Prime experiential booths, sampling rights &amp; live MC mentions</p>
+          </div>
+          <div class="cf-principle-item">
+            <h4 class="cf-prin-head">DIGITAL VISIBILITY</h4>
+            <p class="cf-prin-sub">Dedicated Reels, TikTok challenge, 4K livestream bugs &amp; creator UGC</p>
+          </div>
+          <div class="cf-principle-item">
+            <h4 class="cf-prin-head">MEDIA VALUE</h4>
+            <p class="cf-prin-sub">National press release, 4K festival aftermovie &amp; photo distribution</p>
+          </div>
+          <div class="cf-principle-item">
+            <h4 class="cf-prin-head">COMMUNITY IMPACT</h4>
+            <p class="cf-prin-sub">Direct empowerment of Lao youth, urban artists &amp; creative economy</p>
+          </div>
+        </div>
 
-      <!-- GOLD PARTNER -->
-      <div class="pkg ru">
-        <span class="pkg-crown">🥇</span>
-        <div class="pkg-tier" style="color:var(--gold)">Gold Partner</div>
-        <div class="pkg-price"><span style="color:var(--gold-l)">100,000,000</span>LAK &nbsp;•&nbsp; Max 4 Partners</div>
-        <div class="pkg-slots">Maximum 4 Slots</div>
-        <ul class="pkg-perks">
-          <li><strong>Shared Stage Branding:</strong> Prominent logo in main stage rotation loop</li>
-          <li><strong>25 sq.m Activation Booth:</strong> Product trial, sales &amp; consumer engagement</li>
-          <li><strong>Social Media Inclusion:</strong> 3 dedicated campaign posts &amp; stories</li>
-          <li><strong>Media Recap Inclusion:</strong> Logo in official 4K aftermovie &amp; photos</li>
-          <li><strong>5 VIP Passes</strong> with all-area exhibition access</li>
-        </ul>
-        <a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Partner as Gold</a>
-      </div>
+        <!-- Card-Free 5-Tier Columns Grid -->
+        <div class="cf-packages-grid ru">
+          
+          <!-- TIER 1: TITLE PARTNER -->
+          <div class="cf-pkg-col feat">
+            <div class="cf-pkg-top-bar">
+              <span class="cf-pkg-crown">🏆</span>
+              <h3 class="cf-pkg-name" style="color:var(--gold);">Title Partner</h3>
+              <div class="cf-pkg-price" style="color:var(--gold);">500M <span>LAK</span></div>
+              <div class="cf-pkg-slots" style="color:var(--gold); font-weight:700;">Exclusive — 1 Slot Only</div>
+            </div>
+            <ul class="cf-pkg-perks">
+              <li><strong>Naming Rights:</strong> 'LIHF 2026 Presented by [Brand]'</li>
+              <li><strong>Main Stage Lead Branding:</strong> Prime visual dominance &amp; top-tier billing</li>
+              <li><strong>Category Exclusivity:</strong> Full exclusivity across industry domain</li>
+              <li><strong>100 sq.m Mega Experiential Booth</strong> at prime entrance location</li>
+              <li><strong>Opening &amp; Closing Ceremony</strong> Keynote &amp; Grand Trophy Presenter</li>
+              <li><strong>Full Digital &amp; OOH Integration:</strong> 10M+ reach campaign priority</li>
+              <li><strong>20 VIP All-Access Passes</strong> with VIP Concert Lounge hospitality</li>
+            </ul>
+            <div class="cf-pkg-action">
+              <a href="#contact" class="btn-p" style="display:block; text-align:center; width:100%;">Claim Title Rights</a>
+            </div>
+          </div>
 
-      <!-- SUPPORTING PARTNER -->
-      <div class="pkg ru">
-        <span class="pkg-crown">🥈</span>
-        <div class="pkg-tier" style="color:var(--gr-l)">Supporting Partner</div>
-        <div class="pkg-price"><span style="color:var(--gr-l)">50,000,000</span>LAK &nbsp;•&nbsp; Open Slots</div>
-        <div class="pkg-slots">Open Category</div>
-        <ul class="pkg-perks">
-          <li><strong>Logo Placement:</strong> Included on official festival banners &amp; website</li>
-          <li><strong>12 sq.m Booth Space or Sampling Rights:</strong> Direct consumer contact</li>
-          <li><strong>Selected Digital Exposure:</strong> Group sponsor announcement feature</li>
-          <li><strong>2 VIP Passes</strong> with full festival access</li>
-        </ul>
-        <a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Join As Supporting</a>
-      </div>
+          <!-- TIER 2: PLATINUM PARTNER -->
+          <div class="cf-pkg-col">
+            <div class="cf-pkg-top-bar">
+              <span class="cf-pkg-crown">💎</span>
+              <h3 class="cf-pkg-name" style="color:#E5E4E2;">Platinum</h3>
+              <div class="cf-pkg-price" style="color:#E5E4E2;">250M <span>LAK</span></div>
+              <div class="cf-pkg-slots">Maximum 2 Slots</div>
+            </div>
+            <ul class="cf-pkg-perks">
+              <li><strong>Major Stage Branding:</strong> Second billing on main stage LED &amp; backdrops</li>
+              <li><strong>Prime 50 sq.m Booth Space:</strong> Central audience circulation area</li>
+              <li><strong>Strong Digital &amp; Media Campaign:</strong> Dedicated reels, TikTok feature &amp; PR</li>
+              <li><strong>Major Battle Category Naming:</strong> Own 1 flagship competition pillar</li>
+              <li><strong>10 VIP All-Access Passes</strong> with stage-side viewing access</li>
+            </ul>
+            <div class="cf-pkg-action">
+              <a href="#contact" class="btn-s" style="display:block; text-align:center; width:100%;">Partner as Platinum</a>
+            </div>
+          </div>
 
-      <!-- PRODUCT / IN-KIND PARTNER -->
-      <div class="pkg ru inkind-pkg">
-        <span class="pkg-crown">🎁</span>
-        <div class="pkg-tier" style="color:#FFB800">Product / In-Kind</div>
-        <div class="pkg-price"><span style="color:#FFB800">20,000,000+</span>LAK Value</div>
-        <div class="pkg-slots">Custom Goods &amp; Services</div>
-        <ul class="pkg-perks">
-          <li><strong>Product Integration:</strong> Official supplier status (beverage, apparel, gear)</li>
-          <li><strong>Direct Sampling Rights:</strong> Distribution to competitors, VIPs &amp; crew</li>
-          <li><strong>Community Support Credit:</strong> Logo recognition as cultural supporter</li>
-          <li><strong>2 Festival Passes:</strong> Staff and guest entry</li>
-        </ul>
-        <a href="#contact" class="btn-s" style="text-align:center;margin-top:auto">Inquire In-Kind</a>
-      </div>
+          <!-- TIER 3: GOLD PARTNER -->
+          <div class="cf-pkg-col">
+            <div class="cf-pkg-top-bar">
+              <span class="cf-pkg-crown">🥇</span>
+              <h3 class="cf-pkg-name" style="color:var(--gold);">Gold Partner</h3>
+              <div class="cf-pkg-price" style="color:var(--gold-l);">100M <span>LAK</span></div>
+              <div class="cf-pkg-slots">Maximum 4 Slots</div>
+            </div>
+            <ul class="cf-pkg-perks">
+              <li><strong>Shared Stage Branding:</strong> Prominent logo in main stage rotation loop</li>
+              <li><strong>25 sq.m Activation Booth:</strong> Product trial, sales &amp; consumer engagement</li>
+              <li><strong>Social Media Inclusion:</strong> 3 dedicated campaign posts &amp; stories</li>
+              <li><strong>Media Recap Inclusion:</strong> Logo in official 4K aftermovie &amp; photos</li>
+              <li><strong>5 VIP Passes</strong> with all-area exhibition access</li>
+            </ul>
+            <div class="cf-pkg-action">
+              <a href="#contact" class="btn-s" style="display:block; text-align:center; width:100%;">Partner as Gold</a>
+            </div>
+          </div>
 
-    </div>
-  </div>
-</section>
-</div><!-- /acc-body packages -->
+          <!-- TIER 4: SUPPORTING PARTNER -->
+          <div class="cf-pkg-col">
+            <div class="cf-pkg-top-bar">
+              <span class="cf-pkg-crown">🥈</span>
+              <h3 class="cf-pkg-name" style="color:var(--gr-l);">Supporting</h3>
+              <div class="cf-pkg-price" style="color:var(--gr-l);">50M <span>LAK</span></div>
+              <div class="cf-pkg-slots">Open Category</div>
+            </div>
+            <ul class="cf-pkg-perks">
+              <li><strong>Logo Placement:</strong> Included on official festival banners &amp; website</li>
+              <li><strong>12 sq.m Booth Space or Sampling Rights:</strong> Direct consumer contact</li>
+              <li><strong>Selected Digital Exposure:</strong> Group sponsor announcement feature</li>
+              <li><strong>2 VIP Passes</strong> with full festival access</li>
+            </ul>
+            <div class="cf-pkg-action">
+              <a href="#contact" class="btn-s" style="display:block; text-align:center; width:100%;">Join As Supporting</a>
+            </div>
+          </div>
+
+          <!-- TIER 5: IN-KIND PARTNER -->
+          <div class="cf-pkg-col">
+            <div class="cf-pkg-top-bar">
+              <span class="cf-pkg-crown">🎁</span>
+              <h3 class="cf-pkg-name" style="color:#FFB800;">Product / In-Kind</h3>
+              <div class="cf-pkg-price" style="color:#FFB800;">20M+ <span>LAK Value</span></div>
+              <div class="cf-pkg-slots">Custom Goods &amp; Services</div>
+            </div>
+            <ul class="cf-pkg-perks">
+              <li><strong>Product Integration:</strong> Official supplier status (beverage, apparel, gear)</li>
+              <li><strong>Direct Sampling Rights:</strong> Distribution to competitors, VIPs &amp; crew</li>
+              <li><strong>Community Support Credit:</strong> Logo recognition as cultural supporter</li>
+              <li><strong>2 Festival Passes:</strong> Staff and guest entry</li>
+            </ul>
+            <div class="cf-pkg-action">
+              <a href="#contact" class="btn-s" style="display:block; text-align:center; width:100%;">Inquire In-Kind</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </div><!-- /acc-body packages -->
 </div><!-- /acc-section packages -->
 
 <!-- MATRIX -->
@@ -12798,172 +13520,81 @@ body.gsap-ready .acc-section .rr {
 </div><!-- /acc-body matrix -->
 </div><!-- /acc-section matrix -->
 
-<!-- ORGANIZER -->
-<div class="section-divider"></div>
-<div class="acc-section" data-acc="organizer">
-  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-    <div class="acc-num">09</div>
-    <div class="acc-title-wrap">
-      <div class="acc-label">ORGANIZER PROFILE</div>
-      <div class="acc-h2">ORGANIZER <span class="hl">PROFILE</span></div>
-    </div>
-    <div class="acc-arrow">▼</div>
-  </div>
-  <div class="acc-body">
-    <section id="organizer" class="acc-inner" style="padding: 2.2rem 0 2.5rem 0;">
+<!-- STANDALONE SECTION: OFFICIAL ORGANIZER — FANGLAO DANCE STUDIO -->
+<section id="organizer" class="fanglao-standalone-section ru">
   <div class="noise-overlay"></div>
-  <div class="container" style="max-width: 1240px; margin: 0 auto; padding: 0 1.5rem;">
+  <div class="container" style="max-width:1200px; margin:0 auto; padding:0 1.5rem;">
     
-    <!-- Top Header Lockup: Compact Badge & Title -->
-    <div style="margin-bottom: 1.2rem;">
-      <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap; margin-bottom:0.5rem;">
-        <span class="badge-launch">
-          <span class="badge-pulse-dot"></span>
-          <span>OFFICIAL ORGANIZER • ຜູ້ຈັດງານຢ່າງເປັນທາງການ</span>
-        </span>
-        <span class="badge-launch" style="border-color:rgba(212,175,55,0.3); color:var(--gold);">
-          <span>EST. 2017 &nbsp;•&nbsp; 9 YEARS OF LEGACY</span>
-        </span>
+    <!-- Top Editorial Header with Official Logo -->
+    <div class="fl-top-lockup">
+      <div class="fl-logo-area">
+        <img src="assets/fanglao_logo_transparent.png" alt="Fanglao Dance Studio Official Logo" class="fl-official-logo">
       </div>
-      <h2 class="org-compact-title">
-        FANGLAO DANCE STUDIO: <span class="hl">9 YEARS</span> OF CREATIVE LEADERSHIP IN LAOS
-      </h2>
-    </div>
-
-    <!-- 4 Stats Compact Strip -->
-    <div class="org-stats-strip">
-      <div class="os-chip">
-        <span class="os-chip-n">9</span>
-        <div>
-          <div class="os-chip-l">Years Founded</div>
-          <div class="os-chip-sub">2017 – 2026 Heritage</div>
-        </div>
-      </div>
-      <div class="os-chip">
-        <span class="os-chip-n">10K+</span>
-        <div>
-          <div class="os-chip-l">Youth Empowered</div>
-          <div class="os-chip-sub">Nationwide Community</div>
-        </div>
-      </div>
-      <div class="os-chip">
-        <span class="os-chip-n">10+</span>
-        <div>
-          <div class="os-chip-l">Countries Toured</div>
-          <div class="os-chip-sub">ASEAN &amp; Global</div>
-        </div>
-      </div>
-      <div class="os-chip">
-        <span class="os-chip-n">7</span>
-        <div>
-          <div class="os-chip-l">Battle Categories</div>
-          <div class="os-chip-sub">Culture Spectrum</div>
-        </div>
+      <div class="fl-header-text">
+        <div class="section-label" style="margin-bottom:0.4rem;">Official Organizer • ຜູ້ຈັດງານຢ່າງເປັນທາງການ</div>
+        <h2 class="fl-title">
+          FANGLAO DANCE STUDIO: <span class="hl">11+ YEARS</span> PIONEERING URBAN CULTURE IN LAOS
+        </h2>
+        <p class="fl-desc">
+          Founded in 2013 by Ounla Phaoudom (Khen), Fanglao Dance Studio is Laos’ premier urban and contemporary dance organization. Over 11+ years, Fanglao has trained 10,000+ youth, represented Lao culture across 20+ countries, and pioneered urban youth festivals nationwide—organizing the Lao International HipHop Festival since 2017.
+        </p>
       </div>
     </div>
 
-    <!-- Main Content Grid: 2x2 Bento Pillars (Left) + Gallery Showcase (Right) -->
-    <div class="org-compact-lay">
-      
-      <!-- LEFT: 2x2 Bento Grid of Core Pillars -->
-      <div class="org-pillars-2x2">
-        <div class="op-compact">
-          <div class="op-head">
-            <span class="op-ic-mini">🏆</span>
-            <h4>Pioneers in Urban Arts</h4>
-          </div>
-          <p>Founded in 2017 in Vientiane, Laos' premier contemporary and street dance institution empowering 10,000+ youth through professional education &amp; showcases.</p>
-        </div>
-        <div class="op-compact">
-          <div class="op-head">
-            <span class="op-ic-mini">🌟</span>
-            <h4>Proven Track Record</h4>
-          </div>
-          <p>9+ years producing signature landmarks: Lao HipHop Festival, UYD Youth Festival, Fanglao Jam, representing Lao artists across ASEAN, Europe &amp; Asia-Pacific.</p>
-        </div>
-        <div class="op-compact">
-          <div class="op-head">
-            <span class="op-ic-mini">🤝</span>
-            <h4>Organic Youth Network</h4>
-          </div>
-          <p>Direct authentic connections with schools, universities, dance crews, graffiti artists, DJs, MCs, beatmakers, and youth influencers across all 18 provinces.</p>
-        </div>
-        <div class="op-compact">
-          <div class="op-head">
-            <span class="op-ic-mini">💼</span>
-            <h4>Turnkey Production</h4>
-          </div>
-          <p>Complete in-house technical capabilities: stage design, line-array acoustics, LED screen production, live multi-cam broadcasting, and hospitality protocols.</p>
+    <!-- 4 Key Metrics Bar (Card-free Hairline Strip) -->
+    <div class="fl-stats-strip">
+      <div class="fl-stat-item">
+        <span class="fl-stat-val gold">11+</span>
+        <span class="fl-stat-lbl">Years Heritage</span>
+        <span class="fl-stat-sub">Est. 2013 • Vientiane</span>
+      </div>
+      <div class="fl-stat-item">
+        <span class="fl-stat-val red">10,000+</span>
+        <span class="fl-stat-lbl">Lao Youth Trained</span>
+        <span class="fl-stat-sub">Nationwide Community</span>
+      </div>
+      <div class="fl-stat-item">
+        <span class="fl-stat-val">20+</span>
+        <span class="fl-stat-lbl">Nations Toured</span>
+        <span class="fl-stat-sub">ASEAN, Europe &amp; Asia</span>
+      </div>
+      <div class="fl-stat-item">
+        <span class="fl-stat-val gold">9th Year</span>
+        <span class="fl-stat-lbl">Organizing LIHF</span>
+        <span class="fl-stat-sub">2017 – 2026 Platform</span>
+      </div>
+    </div>
+
+    <!-- Concise Core Competencies (Card-free 3-column Hairline Bar) -->
+    <div class="fl-creds-strip">
+      <div class="fl-cred-item">
+        <div class="fl-cred-icon">🏆</div>
+        <div>
+          <h4 class="fl-cred-title">International Production</h4>
+          <p class="fl-cred-desc">World-class stage management, international artist coordination, Olympic-tier dance judging &amp; live multi-cam broadcasting.</p>
         </div>
       </div>
-
-      <!-- RIGHT: Photo Gallery Swiper Showcase -->
-      <div class="org-gallery-compact">
-        <div class="org-gallery-title">
-          <span>📷 FANGLAO ARCHIVE &amp; HIGHLIGHTS</span>
-          <span style="font-size:0.75rem; color:var(--gold); font-family:var(--font-sans); font-weight:700;">2017 – 2026</span>
-        </div>
-        <div class="swiper org-swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="org-slide-img-wrap">
-                <img src="assets/battle_crew.jpg" alt="Fanglao Dance Crew">
-                <div class="org-slide-caption">
-                  <h5>Fanglao Stage Production</h5>
-                  <p>World-class choreography, lighting design, and live performance execution.</p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="org-slide-img-wrap">
-                <img src="assets/battle_openstyle.jpg" alt="Urban Youth Workshops">
-                <div class="org-slide-caption">
-                  <h5>Youth &amp; Cultural Empowerment</h5>
-                  <p>Fostering healthy youth development, discipline, and creative artistic expression.</p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="org-slide-img-wrap">
-                <img src="assets/battle_breaking.jpg" alt="Lao Breaking Championship">
-                <div class="org-slide-caption">
-                  <h5>Lao HipHop Festival Legacy</h5>
-                  <p>Bringing together top Southeast Asian dancers &amp; international Olympic-tier judges.</p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="org-slide-img-wrap">
-                <img src="assets/battle_dj.jpg" alt="Music &amp; Sound Production">
-                <div class="org-slide-caption">
-                  <h5>Live Audio &amp; Festival Atmosphere</h5>
-                  <p>Pioneering urban music culture, DJ turntablism, and sound engineering in Laos.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="fl-cred-item">
+        <div class="fl-cred-icon">🤝</div>
+        <div>
+          <h4 class="fl-cred-title">Authentic Youth Network</h4>
+          <p class="fl-cred-desc">Direct grassroots connections with schools, universities, dance crews, graffiti artists, DJs, beatmakers &amp; creators across 18 provinces.</p>
         </div>
       </div>
-
+      <div class="fl-cred-item">
+        <div class="fl-cred-icon">🌐</div>
+        <div>
+          <h4 class="fl-cred-title">Diplomacy &amp; Tourism</h4>
+          <p class="fl-cred-desc">Official partnerships with embassies, cultural institutes, and ministries, positioning Vientiane as a regional creative destination.</p>
+        </div>
+      </div>
     </div>
 
   </div>
 </section>
-</div><!-- /acc-body organizer -->
-</div><!-- /acc-section organizer -->
 
-<!-- CONTACT -->
-<div class="acc-section" data-acc="contact">
-  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-    <div class="acc-num">10</div>
-    <div class="acc-title-wrap">
-      <div class="acc-label">LET'S BUILD TOGETHER</div>
-      <div class="acc-h2">LET'S <span class="hl">BUILD</span> TOGETHER</div>
-    </div>
-    <div class="acc-arrow">▼</div>
-  </div>
-  <div class="acc-body">
-    <section id="contact" class="acc-inner">
+<!-- STANDALONE SECTION: LET'S BUILD TOGETHER (CONTACT & NEXT STEPS) -->
+<section id="contact" class="contact-standalone-section ru">
   <div class="cta-bg"></div>
   <div class="noise-overlay"></div>
   <div class="container">
@@ -12997,8 +13628,6 @@ body.gsap-ready .acc-section .rr {
     </div>
   </div>
 </section>
-</div><!-- /acc-body contact -->
-</div><!-- /acc-section contact -->
 
 <footer>
   <div class="ft-logo-wrap" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.8rem; margin-bottom:1.5rem;">
@@ -13040,7 +13669,7 @@ if(ticker){
 if(typeof Swiper !== 'undefined'){
   try{
     new Swiper('.hero-swiper',{effect:'fade',loop:true,speed:1400,autoplay:{delay:3500,disableOnInteraction:false},allowTouchMove:false});
-    new Swiper('.org-swiper',{effect:'fade',loop:true,speed:1000,autoplay:{delay:3000,disableOnInteraction:false}});
+    if (document.querySelector('.org-swiper')) { new Swiper('.org-swiper',{effect:'fade',loop:true,speed:1000,autoplay:{delay:3000,disableOnInteraction:false}}); }
   } catch(e){ console.warn('Swiper init error',e); }
 }
 
@@ -15359,6 +15988,12 @@ function replayLogoIntro(){
             window.scrollTo({ top: y, behavior: 'smooth' });
           }
         }, 120);
+      } else {
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          const y = targetEl.getBoundingClientRect().top + window.scrollY - 85;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
       }
     });
   });
