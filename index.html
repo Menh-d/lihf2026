@@ -1056,14 +1056,16 @@ nav { height: 60px !important; padding: 0 !important; }
   background-size: cover;
   background-position: center center;
   opacity: 0;
-  filter: brightness(0.55) contrast(1.2) saturate(1.15);
+  z-index: 1;
+  filter: brightness(0.6) contrast(1.18) saturate(1.15);
   transition: opacity 1.8s ease-in-out, transform 9s ease-out;
   transform: scale(1.02);
 }
 
 .hiphop-bg-slide.active {
   opacity: 1;
-  transform: scale(1.12);
+  z-index: 2;
+  transform: scale(1.1);
 }
 
 .design1-overlay {
@@ -12082,14 +12084,24 @@ body.gsap-ready .acc-section .rr {
   <div class="ambient-glow glow-red" style="top: -100px; left: 4%; width: 650px; height: 650px;"></div>
   <div class="ambient-glow glow-gold" style="bottom: 0; right: 4%; width: 600px; height: 600px;"></div>
 
-  <!-- Background Action Slideshow with Subtle Overlay -->
-  <div class="hiphop-hero-bg-container" style="opacity:0.25; filter:grayscale(60%);">
-    <div class="hiphop-bg-slide active" style="background-image: url('assets/battle_breaking.jpg');"></div>
-    <div class="hiphop-bg-slide" style="background-image: url('assets/battle_crew.jpg');"></div>
-    <div class="hiphop-bg-slide" style="background-image: url('assets/battle_openstyle.jpg');"></div>
-    <div class="hiphop-bg-slide" style="background-image: url('assets/battle_dj.jpg');"></div>
-    <div class="hiphop-bg-slide" style="background-image: url('assets/battle_graffiti.jpg');"></div>
-    <div class="hiphop-bg-slide" style="background-image: url('assets/battle_mc.jpg');"></div>
+  <!-- Background Action Slideshow with Subtle Overlay (Hero bg 1-16) -->
+  <div class="hiphop-hero-bg-container" style="opacity:0.32; filter:grayscale(20%);">
+    <div class="hiphop-bg-slide active" style="background-image: url('assets/hero/hero_bg_1.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_2.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_3.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_4.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_5.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_6.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_7.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_8.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_9.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_10.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_11.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_12.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_13.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_14.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_15.jpg');"></div>
+    <div class="hiphop-bg-slide" style="background-image: url('assets/hero/hero_bg_16.jpg');"></div>
   </div>
 
   <div class="hero-fullwidth-container" style="position:relative; z-index:10; padding-top: 1.5rem; padding-bottom: 2rem;">
