@@ -10383,17 +10383,59 @@ footer {
 /* Eliminate any negative translate or shifts on .rl and .rr inside accordions / ct-lay */
 .ct-lay .rl, 
 .ct-lay .rr,
+.ct-lay .ru,
 .acc-section .rl,
 .acc-section .rr,
 .acc-section .ru,
+.acc-body .rl,
+.acc-body .rr,
+.acc-body .ru,
+.acc-inner .rl,
+.acc-inner .rr,
+.acc-inner .ru,
 body.gsap-ready .ct-lay .rl,
 body.gsap-ready .ct-lay .rr,
+body.gsap-ready .ct-lay .ru,
 body.gsap-ready .acc-section .rl,
-body.gsap-ready .acc-section .rr {
+body.gsap-ready .acc-section .rr,
+body.gsap-ready .acc-section .ru,
+body.gsap-ready .acc-body .rl,
+body.gsap-ready .acc-body .rr,
+body.gsap-ready .acc-body .ru,
+body.gsap-ready .acc-inner .rl,
+body.gsap-ready .acc-inner .rr,
+body.gsap-ready .acc-inner .ru {
   transform: none !important;
   opacity: 1 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+
+/* Bulletproof heading and label typography spacing without overlap */
+.acc-section .section-label,
+.acc-body .section-label,
+.section-label {
+  font-family: var(--font-sans) !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  color: var(--muted-foreground) !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-bottom: 0.85rem !important;
+}
+
+.acc-section .section-title,
+.acc-body .section-title {
+  font-family: 'Akira Expanded', 'Akira', sans-serif !important;
+  font-size: clamp(1.4rem, 2.7vw, 2.25rem) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  line-height: 1.35 !important;
+  margin-bottom: 1.35rem !important;
 }
 
 /* Card Container: Strictly contained inside the frame */
@@ -10597,7 +10639,7 @@ body.gsap-ready .acc-section .rr {
 
 
 /* ══════════════════════════════════════════════════════════════
-   COMPACT ORGANIZER PROFILE (ກະທັດຮັດ & LAUNCH UI STYLE)
+   COMPACT ORGANIZER PROFILE (LAUNCH UI STYLE)
    ══════════════════════════════════════════════════════════════ */
 .org-compact-title {
   font-family: var(--font-display) !important;
@@ -13270,8 +13312,8 @@ body.gsap-ready .acc-section .rr {
   <!-- Main Expanded Content Container -->
   <div class="about-4grid-container">
     <div style="text-align:center;">
-      <div class="section-label ru" style="justify-content:center;">About LIHF 2026 • From local movement to regional platform</div>
-      <h2 class="section-title ru" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.2; text-transform:uppercase;">
+      <div class="section-label" style="justify-content:center; margin-bottom:0.85rem;">ABOUT LIHF 2026 • FROM LOCAL MOVEMENT TO REGIONAL PLATFORM</div>
+      <h2 class="section-title" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.35; text-transform:uppercase; margin-bottom:1.35rem;">
         <span class="animate-word-pop delay-100">THE</span>
         <span class="animate-word-pop delay-200 hl">PREMIER</span>
         <span class="animate-word-pop delay-300">URBAN</span>
@@ -13280,7 +13322,7 @@ body.gsap-ready .acc-section .rr {
         <span class="animate-word-pop delay-600">COMMUNITY</span>
         <span class="animate-word-pop delay-700">PLATFORM</span>
       </h2>
-      <div class="red-line ru" style="margin:1.4rem auto;"></div>
+      <div class="red-line" style="margin:1.4rem auto;"></div>
     </div>
 
 
@@ -13288,7 +13330,7 @@ body.gsap-ready .acc-section .rr {
     <!-- 4 Line-Art (ลายเส้น) Pillars with Monotone Animated Icons -->
     <div class="about-line-grid">
       <!-- COLUMN 1: 9-Year Heritage -->
-      <div class="about-line-col ru" data-block="0">
+      <div class="about-line-col" data-block="0">
         <div class="alc-corner tl"></div><div class="alc-corner tr"></div>
         <div class="alc-corner bl"></div><div class="alc-corner br"></div>
 
@@ -13362,7 +13404,7 @@ body.gsap-ready .acc-section .rr {
       </div>
 
       <!-- COLUMN 2: Regional Powerhouse -->
-      <div class="about-line-col ru" data-block="1">
+      <div class="about-line-col" data-block="1">
         <div class="alc-corner tl"></div><div class="alc-corner tr"></div>
         <div class="alc-corner bl"></div><div class="alc-corner br"></div>
 
@@ -13432,7 +13474,7 @@ body.gsap-ready .acc-section .rr {
       </div>
 
       <!-- COLUMN 3: Youth Empowerment -->
-      <div class="about-line-col ru" data-block="2">
+      <div class="about-line-col" data-block="2">
         <div class="alc-corner tl"></div><div class="alc-corner tr"></div>
         <div class="alc-corner bl"></div><div class="alc-corner br"></div>
 
@@ -13497,7 +13539,7 @@ body.gsap-ready .acc-section .rr {
       </div>
 
       <!-- COLUMN 4: Destination Laos -->
-      <div class="about-line-col ru" data-block="3">
+      <div class="about-line-col" data-block="3">
         <div class="alc-corner tl"></div><div class="alc-corner tr"></div>
         <div class="alc-corner bl"></div><div class="alc-corner br"></div>
 
@@ -13622,18 +13664,17 @@ body.gsap-ready .acc-section .rr {
 
     <!-- SECTION TITLE & EDITORIAL INTRO -->
     <div style="text-align:center; max-width:920px; margin:0 auto 2.5rem;">
-      <div class="section-label ru" style="justify-content:center;">Scale, Opportunity &amp; Regional Movement • ຂະໜາດ, ໂອກາດ ແລະ ບໍລິບົດພາກພື້ນ</div>
-      <h2 class="section-title ru" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.2; text-transform:uppercase;">
+      <div class="section-label" style="justify-content:center; margin-bottom:0.85rem;">SCALE, OPPORTUNITY &amp; REGIONAL MOVEMENT</div>
+      <h2 class="section-title" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.35; text-transform:uppercase; margin-bottom:1.35rem;">
         MEET YOUTH <span class="hl">INSIDE CULTURE</span><br>AT REGIONAL SCALE
       </h2>
-      <div class="red-line ru" style="margin:1.3rem auto;"></div>
-      <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.7;">
+      <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.75; margin-top:0.5rem;">
         LIHF 2026 bridges Lao youth culture with Southeast Asia's thriving hip-hop ecosystem. For sponsors, this is not static logo placement — it is active, authentic participation inside dance, music, street art, fashion, and digital creators.
       </p>
     </div>
 
     <!-- 1. GUARANTEED SCALE & MEASURABLE REACH -->
-    <div class="metric-hud-strip ru">
+    <div class="metric-hud-strip">
       <div class="mhs-item">
         <span class="mhs-num gold"><span class="kn" data-n="10000" data-s="+">10,000+</span></span>
         <span class="mhs-label">Expected Attendees</span>
@@ -13667,14 +13708,14 @@ body.gsap-ready .acc-section .rr {
     </div>
 
     <!-- 2. THE SPONSOR VALUE -->
-    <div style="margin-top:1.5rem; margin-bottom:1.5rem;">
-      <div class="section-label ru">The Sponsor Value • 4 ໂອກາດຫຼັກສຳລັບຜູ້ສະໜັບສະໜູນ</div>
-      <h3 style="font-family:var(--ff-d); font-size:clamp(1.8rem, 3.2vw, 2.5rem); text-transform:uppercase; color:#fff; line-height:1.1;">
+    <div style="margin-top:3.5rem; margin-bottom:1.5rem;">
+      <div class="section-label" style="margin-bottom:0.65rem;">THE SPONSOR VALUE • 4 STRATEGIC PILLARS</div>
+      <h3 style="font-family:var(--ff-d); font-size:clamp(1.8rem, 3.2vw, 2.5rem); text-transform:uppercase; color:#fff; line-height:1.15; margin-top:0.3rem; margin-bottom:1.25rem;">
         WHY BRANDS SUCCEED <span class="hl">INSIDE LIHF</span>
       </h3>
     </div>
 
-    <div class="cf-opp-grid ru">
+    <div class="cf-opp-grid">
       <div class="cf-opp-item">
         <div class="cf-opp-index">01</div>
         <div class="cf-opp-title">Emotional Cultural Resonance</div>
@@ -13698,8 +13739,8 @@ body.gsap-ready .acc-section .rr {
     </div>
 
     <!-- ACTIVATION JOURNEY FLOW -->
-    <div class="cf-journey-bar ru">
-      <div class="cf-journey-label">SPONSOR ACTIVATION JOURNEY • ເສັ້ນທາງການມີສ່ວນຮ່ວມ</div>
+    <div class="cf-journey-bar">
+      <div class="cf-journey-label">SPONSOR ACTIVATION JOURNEY • 4 PHASES</div>
       <div class="cf-journey-steps">
         <span class="cf-journey-step" style="color:var(--red);">TRY</span>
         <span class="cf-journey-arrow">➔</span>
@@ -13713,15 +13754,15 @@ body.gsap-ready .acc-section .rr {
     </div>
 
     <!-- 3. REGIONAL HIP-HOP BENCHMARKS WITH REAL EVENT PHOTOS -->
-    <div style="margin-top:2.5rem; margin-bottom:1.2rem;">
-      <div class="section-label ru">Regional Benchmarks • ເວທີມາດຕະຖານລະດັບພາກພື້ນອາຊຽນ</div>
-      <h3 style="font-family:var(--ff-d); font-size:clamp(1.8rem, 3.2vw, 2.5rem); text-transform:uppercase; color:#fff; line-height:1.1;">
+    <div style="margin-top:3.5rem; margin-bottom:1.5rem;">
+      <div class="section-label" style="margin-bottom:0.65rem;">REGIONAL BENCHMARKS • ASEAN PLATFORM ECOSYSTEM</div>
+      <h3 style="font-family:var(--ff-d); font-size:clamp(1.8rem, 3.2vw, 2.5rem); text-transform:uppercase; color:#fff; line-height:1.15; margin-top:0.3rem; margin-bottom:1.25rem;">
         POSITIONING LAOS ON THE <span class="hl">SOUTHEAST ASIAN</span> MAP
       </h3>
     </div>
 
     <!-- 5 Regional Benchmark Cards with Real Photos -->
-    <div class="cf-benchmarks-grid ru">
+    <div class="cf-benchmarks-grid">
       <!-- 1. Vietnam: HIPFEST -->
       <div class="cf-bm-card">
         <div class="cf-bm-img-wrap">
@@ -13799,9 +13840,9 @@ body.gsap-ready .acc-section .rr {
     </div>
 
     <!-- STRATEGIC POSITIONING STRIP -->
-    <div class="cf-positioning-bar ru">
+    <div class="cf-positioning-bar">
       <div class="cf-pos-left">
-        <span class="cf-pos-tag">LAOS STRATEGIC POSITIONING • ບົດບາດຍຸດທະສາດຂອງລາວ</span>
+        <span class="cf-pos-tag">LAOS STRATEGIC POSITIONING</span>
         <h4 class="cf-pos-title">LIHF Positions Laos as an Emerging Regional Hub for Authentic Hip-Hop Culture</h4>
         <p class="cf-pos-desc">By creating an international-standard stage at Lao-ITECC, LIHF brings top talent, regional tourism, and corporate sponsors into an authentic youth movement connecting Laos with the greater Southeast Asian creative economy.</p>
       </div>
@@ -13816,19 +13857,18 @@ body.gsap-ready .acc-section .rr {
     <!-- ── 3. AUDIENCE & DEMOGRAPHICS (Combined into Section 01) ── -->
     <div id="audience" style="position:relative; top:-70px; visibility:hidden;"></div>
 
-    <div style="text-align:center; max-width:850px; margin:0 auto 2rem;">
-      <div class="section-label ru" style="justify-content:center;">Target Audience • A valuable youth-driven market</div>
-      <h2 class="section-title ru" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.2; text-transform:uppercase;">
+    <div style="text-align:center; max-width:850px; margin:0 auto 2.5rem;">
+      <div class="section-label" style="justify-content:center; margin-bottom:0.85rem;">TARGET AUDIENCE • A VALUABLE YOUTH-DRIVEN MARKET</div>
+      <h2 class="section-title" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.35; text-transform:uppercase; margin-bottom:1.35rem;">
         HIGH-VALUE, <span class="hl">PASSION-LED</span><br>CONSUMER SEGMENTS
       </h2>
-      <div class="red-line ru" style="margin:1.2rem auto;"></div>
-      <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.65;">
+      <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.75; margin-top:0.5rem;">
         LIHF 2026 connects brands directly with the most active, trend-setting demographics in Laos and Southeast Asia—driven by urban culture, passion, and high digital engagement.
       </p>
     </div>
 
     <!-- Card-Free Architectural Audience Grid -->
-    <div class="cf-audience-grid ru">
+    <div class="cf-audience-grid">
       <!-- Segment 1: Young Adults (50%) -->
       <div class="cf-aud-col">
         <div class="cf-aud-header">
@@ -13876,7 +13916,7 @@ body.gsap-ready .acc-section .rr {
     </div>
 
     <!-- Sleek Card-Free Core Sponsor Fit Bar -->
-    <div class="cf-sponsor-fit-bar ru">
+    <div class="cf-sponsor-fit-bar">
       <span class="cf-fit-badge">CORE SPONSOR FIT</span>
       <div class="cf-fit-categories">
         <span>FMCG &amp; Beverage</span>
@@ -13905,7 +13945,7 @@ body.gsap-ready .acc-section .rr {
   <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
     <div class="acc-num">02</div>
     <div class="acc-title-wrap">
-      <div class="acc-label">8 CULTURE PILLARS • 8 ເສົາຫຼັກວັດທະນະທຳ</div>
+      <div class="acc-label">8 CULTURE PILLARS • CHAMPIONSHIP LINEUP</div>
       <div class="acc-h2">8 CULTURE <span class="hl">PILLARS</span> &amp; ACTIVITIES</div>
     </div>
     <div class="acc-arrow">▼</div>
@@ -13915,18 +13955,18 @@ body.gsap-ready .acc-section .rr {
       <div class="noise-overlay"></div>
       <div class="container cardfree-layout">
         <div style="text-align:center; max-width:850px; margin:0 auto 2.5rem;">
-          <div class="section-label ru" style="justify-content:center;">Seven Culture Pillars • One Festival Platform</div>
-          <h2 class="section-title ru" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.2; text-transform:uppercase;">
+          <div class="section-label" style="justify-content:center; margin-bottom:0.85rem;">EIGHT CULTURE PILLARS • ONE FESTIVAL PLATFORM</div>
+          <h2 class="section-title" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.35; text-transform:uppercase; margin-bottom:1.35rem;">
             THE 8 <span class="hl">MAIN ACTIVITIES</span> &amp; BATTLE SHOWCASES
           </h2>
-          <div class="red-line ru" style="margin:1.2rem auto;"></div>
+          <div class="red-line" style="margin:1.2rem auto;"></div>
           <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.65;">
             Each activity creates a distinct activation angle for audiences and sponsors: performance, competition, community, commerce, content, and high-impact media moments. <strong style="color:var(--gold);">Click on any activity card below to inspect full rules, schedule, prizes &amp; sponsor integration options.</strong>
           </p>
         </div>
 
         <!-- Notched Project Cards Lineup (card new.js style with transparent 3D layers) -->
-        <div class="notched-activities-grid ru">
+        <div class="notched-activities-grid">
 
           <!-- ACTIVITY 01: Breaking 2 vs 2 Battle -->
           <div class="act-card notched-card" data-act-id="0" role="button" tabindex="0">
@@ -14307,18 +14347,18 @@ body.gsap-ready .acc-section .rr {
         
         <!-- SECTION TITLE & EDITORIAL INTRO -->
         <div style="text-align:center; max-width:880px; margin:0 auto 2rem;">
-          <div class="section-label ru" style="justify-content:center;">Marketing &amp; Communication Plan • ແຜນການຕະຫຼາດ ແລະ ການສື່ສານ</div>
-          <h2 class="section-title ru" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.2; text-transform:uppercase;">
+          <div class="section-label" style="justify-content:center; margin-bottom:0.85rem;">MARKETING &amp; COMMUNICATION PLAN</div>
+          <h2 class="section-title" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.35; text-transform:uppercase; margin-bottom:1.35rem;">
             CAMPAIGN ROADMAP &amp;<br><span class="hl">COMMUNICATION</span> STRATEGY
           </h2>
-          <div class="red-line ru" style="margin:1.2rem auto;"></div>
+          <div class="red-line" style="margin:1.2rem auto;"></div>
           <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.65;">
             A targeted 360° promotional campaign delivering <strong>10M+ impressions</strong> across digital channels, viral TikTok challenges, 3D LED city takeovers, and 30+ regional creators to build maximum anticipation before, during, and after LIHF 2026.
           </p>
         </div>
 
         <!-- 360° CHANNELS STRIP -->
-        <div class="mkt-channels-bar ru">
+        <div class="mkt-channels-bar">
           <div class="mkt-ch-item"><span class="mkt-ch-dot"></span><span>TikTok &amp; Reels</span><span class="highlight">(3.5M+ Views)</span></div>
           <div class="mkt-ch-item"><span class="mkt-ch-dot"></span><span>Meta / FB &amp; IG</span><span class="highlight">(Targeted Ads)</span></div>
           <div class="mkt-ch-item"><span class="mkt-ch-dot"></span><span>3D LED Billboards</span><span class="highlight">(Patuxay &amp; ITECC)</span></div>
@@ -14328,17 +14368,17 @@ body.gsap-ready .acc-section .rr {
 
         <!-- 1. THE 4-PHASE CAMPAIGN ROADMAP (Streamlined) -->
         <div style="margin-top:1rem; margin-bottom:1.2rem;">
-          <div class="section-label ru">The 4-Phase Timeline • 4 ໄລຍະການໂຄສະນາສື່ສານ</div>
+          <div class="section-label" style="margin-bottom:0.65rem;">THE 4-PHASE TIMELINE</div>
           <h3 style="font-family:var(--ff-d); font-size:clamp(1.7rem, 2.8vw, 2.3rem); text-transform:uppercase; color:#fff; line-height:1.1;">
             FROM INITIAL BUZZ TO <span class="hl">REGIONAL LEGACY</span>
           </h3>
         </div>
 
         <!-- 1. THE 4-PHASE HORIZON TIMELINE (Style: Timeline Horizon.html) -->
-        <div class="timeline-horizon-scroll-container ru">
+        <div class="timeline-horizon-scroll-container">
           <div class="timeline-horizon-hint">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7M12 19l-7-7 7-7"/></svg>
-            <span>⇄ SCROLL HORIZONTALLY • ແຜນກຳນົດເວລາແນວນອນ</span>
+            <span>⇄ SCROLL HORIZONTALLY</span>
           </div>
           
           <div class="timeline-horizon-canvas">
@@ -14435,13 +14475,13 @@ body.gsap-ready .acc-section .rr {
 
         <!-- 2. HIGH-IMPACT SPONSOR ACTIVATIONS (Compact 4-column) -->
         <div style="margin-top:2rem; margin-bottom:1.2rem;">
-          <div class="section-label ru">Key Activations • ຮູບແບບການຕະຫຼາດທີ່ໂດດເດັ່ນ</div>
+          <div class="section-label" style="margin-bottom:0.65rem;">KEY ACTIVATIONS &amp; BRAND EXPERIENCES</div>
           <h3 style="font-family:var(--ff-d); font-size:clamp(1.7rem, 2.8vw, 2.3rem); text-transform:uppercase; color:#fff; line-height:1.1;">
             CREATIVE ADVERTISING <span class="hl">&amp; ACTIVATIONS</span>
           </h3>
         </div>
 
-        <div class="mkt-activations-grid ru">
+        <div class="mkt-activations-grid">
 
           <!-- Activation 1: 3D Digital LED Takeover -->
           <div class="card dark" onclick="viewArtwork('assets/elements/act_3d_led.png', '3D Digital LED Takeover', 'Anamorphic 3D LED Billboard Takeover • Patuxay &amp; ITECC')">
@@ -14506,23 +14546,23 @@ body.gsap-ready .acc-section .rr {
         </div>
 
         <!-- 3. OFFICIAL MASTER KEY VISUAL & BRAND IDENTITY SYSTEM -->
-        <div class="mkt-kv-master-showcase ru">
+        <div class="mkt-kv-master-showcase">
           
           <div style="text-align:center; max-width:880px; margin:0 auto 2.5rem;">
-            <div class="section-label ru" style="justify-content:center;">Visual Identity &amp; Campaign Artwork • ອັດຕະລັກ ແລະ ພາບສັນຍະລັກຫຼັກ</div>
+            <div class="section-label" style="justify-content:center; margin-bottom:0.85rem;">VISUAL IDENTITY &amp; CAMPAIGN ARTWORK</div>
             <h3 style="font-family:var(--ff-d); font-size:clamp(2rem, 3.8vw, 3.2rem); text-transform:uppercase; color:#fff; line-height:1.1; margin-bottom:0.8rem;">
               OFFICIAL MASTER <span class="hl">KEY VISUAL</span> &amp; BRAND SYSTEM
             </h3>
-            <div class="red-line ru" style="margin:1rem auto 1.3rem;"></div>
-            <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.65;">
-              ພາບສັນຍະລັກຫຼັກ (Master Key Visual) ຂອງງານ LIHF 2026 ຖືກອອກແບບຢ່າງພິຖີພິຖັນ ໂດຍການຜະສົມຜະສານລະຫວ່າງ 4 ເສົາຫຼັກຂອງວັດທະນະທຳ Hip-Hop ສາກົນ ເຂົ້າກັບລວດລາຍສິລະປະລາວຮ່ວມສະໄໝ. ພ້ອມຮອງຮັບການສະແດງຜົນໃນຂະໜາດໃຫຍ່ ເຊັ່ນ: ຈໍ 3D LED ກາງແຈ້ງ, ເວທີຫຼັກ, ສື່ສິ່ງພິມ ແລະ ແຄມເປນດິຈິທອນທົ່ວພາກພື້ນ.
+            <div class="red-line" style="margin:1rem auto 1.3rem;"></div>
+            <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.75; margin-top:0.5rem;">
+              The Master Key Visual for LIHF 2026 merges the 4 core pillars of global hip-hop culture with contemporary Lao artistic aesthetics. Formatted for high-impact display across 3D anamorphic LED billboards, arena stage backdrops, print media, and regional digital campaigns.
             </p>
           </div>
 
           <!-- 2-Column Hero Showcase: Full Poster (Left) + Core Brand Assets (Right) -->
-          <div class="mkt-kv-hero-grid ru">
+          <div class="mkt-kv-hero-grid">
             
-            <!-- LEFT: Full Master Key Visual Poster (ຮູບເຕັມ) -->
+            <!-- LEFT: Full Master Key Visual Poster -->
             <div class="mkt-kv-poster-wrap">
               <div class="mkt-kv-poster-frame" onclick="viewArtwork('assets/lihf26_master_kv.png', 'LIHF 2026 Official Master Key Visual')" title="Click to inspect full resolution poster">
                 <div class="mkt-kv-badge-top">
@@ -14570,7 +14610,7 @@ body.gsap-ready .acc-section .rr {
                   </div>
                 </div>
                 <p class="mkt-kv-subcard-desc">
-                  ກາສັນຍະລັກວົງມົນ 360 ອົງສາ ທີ່ລວບລວມເອົາ 4 ເສົາຫຼັກ Hip-Hop (<strong>BREAKING • MC • DJ • GRAFFITI</strong>) ໄວ້ເທິງຂອບນອກ ພ້ອມຕົວອັກສອນກຣາຟຟິຕີ <strong>LIHF 2026</strong> ສີທອງສະຫວ່າງເຫຼືອງຄຳ ທີ່ໂດດເດັ່ນຢູ່ໃຈກາງ.
+                  A 360° circular crest uniting the 4 core hip-hop pillars (<strong>BREAKING • MC • DJ • GRAFFITI</strong>) along its outer ring, centered with bold metallic gold <strong>LIHF 2026</strong> graffiti lettering.
                 </p>
                 <button onclick="viewArtwork('assets/lihf_official_logo.png', 'LIHF 2026 Official Circular Emblem Logo')" class="mkt-kv-subcard-action">
                   <span>Inspect High-Res Logo →</span>
@@ -14590,7 +14630,7 @@ body.gsap-ready .acc-section .rr {
                   </div>
                 </div>
                 <p class="mkt-kv-subcard-desc">
-                  ລວດລາຍສິລະປະສະເພາະຕົວ (Custom Graphic Pattern) ທີ່ຮ້ອຍຮຽງຮູບພາບ B-Boy, ເຄື່ອງຫຼິ້ນແຜ່ນສຽງ Vinyl, ໄມໂຄຣໂຟນ ແລະ ກະປ໋ອງສີສະເປຣ Graffiti ເຂົ້າກັບເສັ້ນສາຍລາຍເມກ/ລາຍໄຟລາວ ໃຊ້ສຳລັບພື້ນຫຼັງເວທີ, ເສື້ອຜ້າ Merchandise ແລະ ສື່ Motion Graphic.
+                  A proprietary graphic pattern intertwining B-Boy silhouettes, vinyl turntables, vocal mics, and spray cans with dynamic Lao flame motifs for stage scrims, apparel, and broadcast motion graphics.
                 </p>
                 <button onclick="viewArtwork('assets/pattern_element.png', 'LIHF 2026 Official Urban Pattern Element')" class="mkt-kv-subcard-action">
                   <span>Inspect High-Res Pattern →</span>
@@ -14601,9 +14641,9 @@ body.gsap-ready .acc-section .rr {
               <div style="padding:1.2rem 1.4rem; border-left:3px solid var(--red); background:rgba(255,255,255,0.02);">
                 <div style="font-family:var(--ff-a); font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--gold); margin-bottom:0.4rem; text-transform:uppercase;">KEY VISUAL COMPOSITION HIGHLIGHTS</div>
                 <ul style="list-style:none; padding:0; margin:0; font-family:var(--ff-b); font-size:0.86rem; color:rgba(255,255,255,0.78); line-height:1.6;">
-                  <li>✦ <strong>3D Mascot Integration:</strong> ຕົວລະຄອນ Mascot ໃສ່ເສື້ອແດງ, ໝວກ Bucket Hat, ແລະ ເກີບ Streetwear ສະທ້ອນຕົວຕົນໄວໜຸ່ມ Gen Z</li>
-                  <li>✦ <strong>Sting Energy Lead Title Lockup:</strong> ພື້ນທີ່ໂລໂກ້ຜູ້ສະໜັບສະໜູນຫຼັກຢູ່ປ້າຍທຸງແດງດ້ານຊ້າຍ ແລະ ຈຸດແຖວຕຸກນ້ຳໜ້າເວທີ</li>
-                  <li>✦ <strong>Lineup &amp; 8 Activities:</strong> ສະແດງ 8 ກິດຈະກຳຫຼັກ ແລະ ລາຍຊື່ DJ/ສິລະປິນສາກົນຢ່າງຊັດເຈນ</li>
+                  <li>✦ <strong>3D Mascot Integration:</strong> Original character in crimson puffer, bucket hat, and sneakers embodying Gen Z street style.</li>
+                  <li>✦ <strong>Lead Title Sponsor Lockup:</strong> Dedicated premium branding space for primary presenting sponsors on hero banner flags.</li>
+                  <li>✦ <strong>Lineup &amp; 8 Activities:</strong> Direct prominence for all 8 competition categories and ASEAN international guest artists.</li>
                 </ul>
               </div>
 
@@ -14612,16 +14652,16 @@ body.gsap-ready .acc-section .rr {
           </div>
 
           <!-- 2. OFFICIAL FESTIVAL MASCOT: 4 ELEMENTS & 3D CHARACTER ANATOMY -->
-          <div class="mkt-mascot-master-wrap ru">
+          <div class="mkt-mascot-master-wrap">
             
             <div class="mkt-mascot-header-row">
               <div style="max-width:820px;">
-                <div class="section-label ru">Official Festival Mascot &amp; Character IP • ຕົວລະຄອນສັນຍະລັກ ແລະ ລິຂະສິດ IP</div>
+                <div class="section-label" style="margin-bottom:0.65rem;">OFFICIAL FESTIVAL MASCOT &amp; CHARACTER IP</div>
                 <h4 style="font-family:var(--ff-d); font-size:clamp(1.6rem, 2.8vw, 2.4rem); text-transform:uppercase; color:#fff; line-height:1.15; margin:0.4rem 0 0.8rem;">
                   THE 4 ELEMENTS <span class="hl">MASCOT</span> &amp; 3D CHARACTER ANATOMY
                 </h4>
-                <p style="font-family:var(--ff-b); font-size:0.95rem; color:rgba(255,255,255,0.8); line-height:1.6; margin:0;">
-                  ຕົວລະຄອນສັນຍະລັກ (Official Mascot) ປະຈຳງານ LIHF 2026 ຖືກອອກແບບໃນຮູບແບບ <strong>3D Street Character</strong> ທີ່ຜະສົມຜະສານຫົວລຳໂພງ Boombox, ແຂ້ວຄຳ Golden Grillz, ເສື້ອແຈັກເກັດ Puffer ແດງຕັດລວດລາຍສິລະປະລາວ ແລະ ເກີບ Sneaker High-Top. ສະແດງທັງ 4 ເສົາຫຼັກວັດທະນະທຳ Hip-Hop ພ້ອມມຸມມອງ 360° ຮອບດ້ານສຳລັບການນຳໃຊ້ໃນສື່ທຸກຮູບແບບ.
+                <p style="font-family:var(--ff-b); font-size:0.95rem; color:rgba(255,255,255,0.8); line-height:1.65; margin:0;">
+                  The Official LIHF 2026 Mascot is an original <strong>3D Street Character</strong> combining a vintage Boombox head, golden grillz, festival crimson puffer jacket trimmed with contemporary Lao motifs, and high-top sneakers. Representing all 4 culture pillars with complete 360° turnaround assets ready for licensing, collectibles, and AR activations.
                 </p>
               </div>
               <div style="display:flex; align-items:center; gap:0.6rem;">
@@ -14632,7 +14672,7 @@ body.gsap-ready .acc-section .rr {
             </div>
 
             <!-- 4-Column Architectural Grid: The 4 Elements Poses -->
-            <div class="mkt-mascot-grid ru">
+            <div class="mkt-mascot-grid">
               
               <!-- 01: MC (Layer 5) -->
               <div class="mkt-mascot-col">
@@ -14647,9 +14687,9 @@ body.gsap-ready .acc-section .rr {
                 </div>
                 <div class="mkt-mascot-details">
                   <h5 class="mkt-mascot-title">The Mic Controller</h5>
-                  <span class="mkt-mascot-lao-role">ເສົາຫຼັກ MC • ພະລັງສຽງຮ້ອງ &amp; Rhyme</span>
+                  <span class="mkt-mascot-lao-role">MC PILLAR • VOCAL POWER &amp; RHYME</span>
                   <p class="mkt-mascot-desc">
-                    ທ່າທາງຈັບໄມໂຄຣໂຟນສົ່ງສຽງຮ້ອງປຸກພະລັງຜູ້ຊົມ (Crowd Hype), ຖ່າຍທອດຈິດວິນຍານການເລົ່າເລື່ອງ, ການ Rap Cypher ແລະ ການດວນຄຳກອນເທິງເວທີ.
+                    Crowd hype pose holding the microphone, expressing lyrical storytelling, live rap cyphers, and stage mastery.
                   </p>
                 </div>
               </div>
@@ -14667,9 +14707,9 @@ body.gsap-ready .acc-section .rr {
                 </div>
                 <div class="mkt-mascot-details">
                   <h5 class="mkt-mascot-title">The Beat Alchemist</h5>
-                  <span class="mkt-mascot-lao-role">ເສົາຫຼັກ DJ • ແຜ່ນສຽງ Vinyl &amp; Scratch</span>
+                  <span class="mkt-mascot-lao-role">DJ PILLAR • VINYL TURNTABLES &amp; SCRATCH</span>
                   <p class="mkt-mascot-desc">
-                    ປະຈຳການເທິງ Twin Turntables ພ້ອມຫູຟັງ ແລະ ການສະແຄຣັດແຜ່ນໄວນິວຢ່າງເມົາພັນ, ສ້າງຈັງຫວະ Beat ທີ່ຂັບເຄື່ອນທຸກການເຄື່ອນໄຫວໃນງານ.
+                    Rocking dual turntables and headphones, crafting seamless scratches and driving the musical pulse of the festival.
                   </p>
                 </div>
               </div>
@@ -14687,9 +14727,9 @@ body.gsap-ready .acc-section .rr {
                 </div>
                 <div class="mkt-mascot-details">
                   <h5 class="mkt-mascot-title">The Power Freeze</h5>
-                  <span class="mkt-mascot-lao-role">ເສົາຫຼັກ Breaking • ທ່າລັອກ Power Move</span>
+                  <span class="mkt-mascot-lao-role">BREAKING PILLAR • POWER MOVE &amp; FREEZE</span>
                   <p class="mkt-mascot-desc">
-                    ທ່າຫົວດິ່ງລົງພື້ນຢືນມືດຽວ (One-Hand Ground Freeze) ທີ່ສະແດງທັງກຳລັງກາຍ, ຄວາມຍືດຍຸ່ນ, ແລະ ຄວາມກ້າຫານຂອງນັກເຕັ້ນ B-Boy/B-Girl ສາກົນ.
+                    A one-hand ground freeze showcasing the athletic power, flexibility, and courage of international B-Boys and B-Girls.
                   </p>
                 </div>
               </div>
@@ -14707,9 +14747,9 @@ body.gsap-ready .acc-section .rr {
                 </div>
                 <div class="mkt-mascot-details">
                   <h5 class="mkt-mascot-title">The Visual Writer</h5>
-                  <span class="mkt-mascot-lao-role">ເສົາຫຼັກ Graffiti • ສີສະເປຣ &amp; ສິລະປະ</span>
+                  <span class="mkt-mascot-lao-role">GRAFFITI PILLAR • AEROSOL ART &amp; MURALS</span>
                   <p class="mkt-mascot-desc">
-                    ກຳກະປ໋ອງສີ Aerosol Can ພ້ອມພົ່ນສີສ້າງສັນຜົນງານກຳແພງ, ແປງພື້ນທີ່ເມືອງໃຫ້ເປັນຜືນຜ້າໃບແຫ່ງການສະແດງອອກທາງສິລະປະຢ່າງເສລີ.
+                    Brandishing aerosol cans, transforming blank urban walls into explosive murals of vibrant creative expression.
                   </p>
                 </div>
               </div>
@@ -14717,10 +14757,10 @@ body.gsap-ready .acc-section .rr {
             </div>
 
             <!-- 360° 3D Turnaround Gallery -->
-            <div class="mkt-360-turnaround-wrap ru">
+            <div class="mkt-360-turnaround-wrap">
               <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
                 <div>
-                  <div class="section-label ru" style="margin-bottom:0.3rem;">3D Model Anatomy &amp; Turnaround Sheet • ມຸມມອງ 360 ອົງສາ</div>
+                  <div class="section-label" style="margin-bottom:0.5rem;">3D MODEL ANATOMY &amp; TURNAROUND SHEET</div>
                   <h5 style="font-family:var(--ff-d); font-size:1.45rem; text-transform:uppercase; color:#fff; margin:0;">
                     360° CHARACTER ANATOMY <span class="hl">&amp; IP MODEL SHEETS</span>
                   </h5>
@@ -14737,57 +14777,57 @@ body.gsap-ready .acc-section .rr {
                   <span class="mkt-360-badge">0° FRONT VIEW</span>
                   <img src="assets/mascot/mascot_01.png" alt="LIHF 2026 Mascot Front View" loading="lazy">
                   <h6 class="mkt-360-caption">Front Hero Stance</h6>
-                  <span class="mkt-360-sub">ທ່າຢືນດ້ານໜ້າ • Boombox Face &amp; Pockets</span>
+                  <span class="mkt-360-sub">FRONT VIEW • Boombox Face &amp; Pockets</span>
                 </div>
 
                 <div class="mkt-360-col" onclick="viewArtwork('assets/mascot/mascot_02.png', 'LIHF 2026 Mascot 3D Right Profile (90°)')" title="Click to view 4K Right Profile">
                   <span class="mkt-360-badge">90° RIGHT SIDE</span>
                   <img src="assets/mascot/mascot_02.png" alt="LIHF 2026 Mascot Right Side Profile" loading="lazy">
                   <h6 class="mkt-360-caption">Right Profile</h6>
-                  <span class="mkt-360-sub">ດ້ານຂ້າງຂວາ • Speaker Depth &amp; High-Tops</span>
+                  <span class="mkt-360-sub">RIGHT PROFILE • Speaker Depth &amp; High-Tops</span>
                 </div>
 
                 <div class="mkt-360-col" onclick="viewArtwork('assets/mascot/mascot_03.png', 'LIHF 2026 Mascot 3D Rear View (180°)')" title="Click to view 4K Rear View">
                   <span class="mkt-360-badge">180° REAR VIEW</span>
                   <img src="assets/mascot/mascot_03.png" alt="LIHF 2026 Mascot Rear View" loading="lazy">
                   <h6 class="mkt-360-caption">Rear Silhouette</h6>
-                  <span class="mkt-360-sub">ດ້ານຫຼັງ • Hoodie Structure &amp; Port Tuning</span>
+                  <span class="mkt-360-sub">BACK VIEW • Hoodie Structure &amp; Port Tuning</span>
                 </div>
 
                 <div class="mkt-360-col" onclick="viewArtwork('assets/mascot/mascot_04.png', 'LIHF 2026 Mascot 3D Left Profile (270°)')" title="Click to view 4K Left Profile">
                   <span class="mkt-360-badge">270° LEFT SIDE</span>
                   <img src="assets/mascot/mascot_04.png" alt="LIHF 2026 Mascot Left Side Profile" loading="lazy">
                   <h6 class="mkt-360-caption">Left Profile</h6>
-                  <span class="mkt-360-sub">ດ້ານຂ້າງຊ້າຍ • Street Proportions &amp; Silhouette</span>
+                  <span class="mkt-360-sub">LEFT PROFILE • Street Proportions &amp; Silhouette</span>
                 </div>
 
               </div>
 
               <!-- Character Anatomy & IP Specs (Card-Free 4-Column Bar) -->
-              <div class="mkt-anatomy-specs-grid ru">
+              <div class="mkt-anatomy-specs-grid">
                 
                 <div class="mkt-anatomy-item">
                   <span class="mkt-anatomy-num">A • ACOUSTIC HEAD</span>
                   <h6 class="mkt-anatomy-title">Boombox Head &amp; Grill</h6>
-                  <p class="mkt-anatomy-desc">ຫົວລຳໂພງສະໄຕລ໌ Boombox 80s ພ້ອມໄຟຕາ LED ແດງ ແລະ ແຂ້ວຄຳ Golden Grillz ເອກະລັກ Hip-Hop ສາກົນ.</p>
+                  <p class="mkt-anatomy-desc">Authentic 80s boombox head casing featuring twin red LED eyes and signature golden grillz teeth.</p>
                 </div>
 
                 <div class="mkt-anatomy-item">
                   <span class="mkt-anatomy-num">B • HERITAGE APPAREL</span>
                   <h6 class="mkt-anatomy-title">Crimson Puffer Jacket</h6>
-                  <p class="mkt-anatomy-desc">ເສື້ອກັນໜາວ Puffer ສີແດງ Festival Crimson ຕັດແຖບລວດລາຍສິລະປະລາວຮ່ວມສະໄໝທີ່ແຂນ ແລະ ຫຼັງເສື້ອ.</p>
+                  <p class="mkt-anatomy-desc">Festival Crimson puffer jacket trimmed with contemporary Lao art patterns along sleeves and back.</p>
                 </div>
 
                 <div class="mkt-anatomy-item">
                   <span class="mkt-anatomy-num">C • URBAN GEAR</span>
                   <h6 class="mkt-anatomy-title">Charcoal Cargo &amp; Kicks</h6>
-                  <p class="mkt-anatomy-desc">ໂສ້ງ Baggy Cargo ສີດຳດ້ານຄູ່ກັບເກີບ Sneaker Retro High-Top ແດງ-ຂາວ-ດຳ ສະທ້ອນແຟຊັ່ນ Streetwear.</p>
+                  <p class="mkt-anatomy-desc">Matte black streetwear cargo pants paired with crimson, white, and black retro high-top sneakers.</p>
                 </div>
 
                 <div class="mkt-anatomy-item">
                   <span class="mkt-anatomy-num">D • COMMERCIAL IP</span>
                   <h6 class="mkt-anatomy-title">Licensing &amp; Merchandise</h6>
-                  <p class="mkt-anatomy-desc">ຮອງຮັບການຜະລິດ Vinyl Art Toys, Plush Doll, AR Filters ເທິງ TikTok/IG, ແລະ 3D Anamorphic LED Billboard.</p>
+                  <p class="mkt-anatomy-desc">Ready for production: vinyl art toys, plush collectibles, AR social filters, and 3D anamorphic billboards.</p>
                 </div>
 
               </div>
@@ -14796,20 +14836,20 @@ body.gsap-ready .acc-section .rr {
 
           </div>
 
-          <!-- 3. COMPREHENSIVE COLOR PALETTE & SYSTEM EXPLANATION (ອະທິບາຍສີ ແບບລວມໆ) -->
-          <div class="mkt-color-system-wrap ru">
+          <!-- 3. COMPREHENSIVE COLOR PALETTE & SYSTEM EXPLANATION -->
+          <div class="mkt-color-system-wrap">
             <div style="margin-bottom:0.8rem;">
-              <div class="section-label ru">Color System &amp; Brand Philosophy • ລະບົບສີ ແລະ ປັດຊະຍາການອອກແບບ</div>
+              <div class="section-label" style="margin-bottom:0.65rem;">COLOR SYSTEM &amp; BRAND PHILOSOPHY</div>
               <h4 style="font-family:var(--ff-d); font-size:clamp(1.5rem, 2.5vw, 2.1rem); text-transform:uppercase; color:#fff; line-height:1.15;">
                 THE 4-CORE COLOR PALETTE <span class="hl">&amp; BRAND HARMONY</span>
               </h4>
-              <p style="font-family:var(--ff-b); font-size:0.92rem; color:rgba(255,255,255,0.7); line-height:1.55; margin-top:0.4rem;">
-                ການເລືອກໃຊ້ໂທນສີໃນ Key Visual ໄດ້ຖືກຄິດໄລ່ຢ່າງລະອຽດ ເພື່ອຖ່າຍທອດພະລັງຂອງວັດທະນະທຳ Hip-Hop ສາກົນ ພ້ອມທັງເຊີດຊູມູນເຊື້ອ ແລະ ເອກະລັກຂອງຊາດລາວຢ່າງກົມກຽວ:
+              <p style="font-family:var(--ff-b); font-size:0.92rem; color:rgba(255,255,255,0.7); line-height:1.6; margin-top:0.4rem;">
+                The LIHF 2026 color palette is precisely engineered to balance the raw energy of global hip-hop culture with the dignity of Lao cultural heritage:
               </p>
             </div>
 
             <!-- 4-Color Architectural Grid (Card-Free) -->
-            <div class="mkt-palette-grid ru">
+            <div class="mkt-palette-grid">
               
               <!-- COLOR 1: FESTIVAL CRIMSON RED -->
               <div class="mkt-palette-col">
@@ -14821,12 +14861,12 @@ body.gsap-ready .acc-section .rr {
                   </div>
                 </div>
                 <h5 class="mkt-palette-title" style="color:#ff4d4d;">Festival Crimson Red</h5>
-                <span class="mkt-palette-role">ສີພະລັງ &amp; ໄຟແຫ່ງການຕໍ່ສູ້</span>
+                <span class="mkt-palette-role">POWER &amp; BATTLE PASSION</span>
                 <p class="mkt-palette-lao-desc">
-                  <strong>ຄວາມໝາຍ:</strong> ສີແດງຄືສັນຍະລັກແຫ່ງພະລັງ underground, ຄວາມດຸເດືອດຂອງ battle arena, ຈັງຫວະ hip-hop ແລະ ສີຫຼັກໃນທຸງຊາດລາວ ທີ່ສື່ເຖິງຄວາມກ້າຫານ, ຄວາມຕື່ນເຕັ້ນ ແລະ ຄວາມມີຊີວິດຊີວາຂອງຄົນຮຸ່ນໃໝ່.
+                  <strong>Significance:</strong> Underground power, battle arena intensity, hip-hop rhythm, and the bold red in the Lao flag—representing courage and young vitality.
                 </p>
                 <div class="mkt-palette-usage">
-                  <strong>ການນຳໃຊ້:</strong> ຕົວອັກສອນ 3D "HIPHOP", ແສງໄຟເວທີຫຼັກ, ເສື້ອກັນໜາວ Mascot, ປ້າຍເນັ້ນ Call-to-Action ແລະ ກອບທຸງງານ.
+                  <strong>Applications:</strong> 3D "HIPHOP" typography, main stage illumination, Mascot puffer jacket, CTA badges, and hero flag framing.
                 </div>
               </div>
 
@@ -14840,12 +14880,12 @@ body.gsap-ready .acc-section .rr {
                   </div>
                 </div>
                 <h5 class="mkt-palette-title" style="color:var(--gold);">Lao Heritage Gold</h5>
-                <span class="mkt-palette-role" style="color:var(--gold-l);">ມໍລະດົກວັດທະນະທຳ &amp; ໄຊຊະນະ</span>
+                <span class="mkt-palette-role" style="color:var(--gold-l);">HERITAGE &amp; CHAMPIONSHIP VICTORY</span>
                 <p class="mkt-palette-lao-desc">
-                  <strong>ຄວາມໝາຍ:</strong> ສີທອງ/ເຫຼືອງຄຳ ສະທ້ອນເຖິງມໍລະດົກວັດທະນະທຳລາວອັນລ້ຳຄ່າ (ສີທອງຂອງພຣະທາດຫຼວງ), ຄວາມສຳເລັດລະດັບແຊ້ມປຽນ, ມູນຄ່າເງິນລາງວັນ 159M LAK ແລະ ມາດຕະຖານລະດັບສາກົນ.
+                  <strong>Significance:</strong> Honors precious Lao cultural heritage (golden Pha That Luang), champion victory, the 159M LAK prize pool, and international excellence.
                 </p>
                 <div class="mkt-palette-usage">
-                  <strong>ການນຳໃຊ້:</strong> ຕົວອັກສອນກຣາຟຟິຕີ LIHF Logo, ຕົວເລກວັນທີ 13-15 NOV 2026, ມົງກຸດແພັກເກດ Sponsor ແລະ ເສັ້ນກອບຄຳພຣີມຽມ.
+                  <strong>Applications:</strong> Metallic graffiti logo, dates (13-15 NOV 2026), sponsor package crowns, and luxury metallic accents.
                 </div>
               </div>
 
@@ -14859,12 +14899,12 @@ body.gsap-ready .acc-section .rr {
                   </div>
                 </div>
                 <h5 class="mkt-palette-title">Urban Charcoal Black</h5>
-                <span class="mkt-palette-role">ຄວາມດິບ &amp; ບັນຍາກາດຍາມຄ່ຳຄືນ</span>
+                <span class="mkt-palette-role">RAW STREET CULTURE &amp; NIGHT ENERGY</span>
                 <p class="mkt-palette-lao-desc">
-                  <strong>ຄວາມໝາຍ:</strong> ສີດຳ ແລະ ເທົາເຂັ້ມ ສະທ້ອນເຖິງຖະໜົນຫົນທາງ, ບັນຍາກາດ underground cyphers, ແຜ່ນສຽງ vinyl ແລະ ຕູ້ລຳໂພງ subwoofer. ເປັນພື້ນຖານທີ່ຊ່ວຍຂັບເນັ້ນສີແດງ ແລະ ສີທອງໃຫ້ເປ່ງປະກາຍຄົມຊັດ.
+                  <strong>Significance:</strong> Asphalt streets, underground cyphers, vinyl records, and subwoofer cabinets, providing deep contrast to ignite red and gold.
                 </p>
                 <div class="mkt-palette-usage">
-                  <strong>ການນຳໃຊ້:</strong> ພື້ນຫຼັງຫຼັກຂອງໂປສເຕີ, ວົງລໍ້ Emblem, ກ່ອງອຸປະກອນ Road Case ແລະ ພື້ນທີ່ Backdrop ເວທີ.
+                  <strong>Applications:</strong> Poster base gradients, circular emblem rim, road case framing, and main arena backdrop.
                 </div>
               </div>
 
@@ -14878,12 +14918,12 @@ body.gsap-ready .acc-section .rr {
                   </div>
                 </div>
                 <h5 class="mkt-palette-title" style="color:#ffffff;">Crisp Stage White</h5>
-                <span class="mkt-palette-role">ຄວາມຄົມຊັດ &amp; ຄວາມທັນສະໄໝ</span>
+                <span class="mkt-palette-role">PRECISION &amp; MODERN CLARITY</span>
                 <p class="mkt-palette-lao-desc">
-                  <strong>ຄວາມໝາຍ:</strong> ສີຂາວ ແລະ ເງິນໂຄຣມຽມ ໃຫ້ຄວາມຄົມຊັດ, ຄວາມທັນສະໄໝ, ຄວາມເປັນມືອາຊີບ ແລະ ຄວາມຊັດເຈນໃນການສື່ສານຂໍ້ຄວາມສຳຄັນທຸກໄລຍະການເບິ່ງເຫັນ.
+                  <strong>Significance:</strong> Clean white and chrome deliver maximum contrast, contemporary polish, and immediate typographic readability at all distances.
                 </p>
                 <div class="mkt-palette-usage">
-                  <strong>ການນຳໃຊ້:</strong> ຂໍ້ຄວາມຫົວຂໍ້ LAO INTERNATIONAL, ຕາຕະລາງລາຍຊື່ສິລະປິນ, ໝວດການແຂ່ງຂັນ ແລະ QR Code ລົງທະບຽນ.
+                  <strong>Applications:</strong> Header titles, artist schedules, competition category tables, and registration QR codes.
                 </div>
               </div>
 
@@ -14997,7 +15037,7 @@ body.gsap-ready .acc-section .rr {
   <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
     <div class="acc-num">05</div>
     <div class="acc-title-wrap">
-      <div class="acc-label">SPONSORSHIP PACKAGES • ແພັກເກດຜູ້ສະໜັບສະໜູນ</div>
+      <div class="acc-label">SPONSORSHIP PACKAGES • TIERED INVESTMENT ROLES</div>
       <div class="acc-h2">SPONSORSHIP <span class="hl">PACKAGES</span> &amp; TIERS</div>
     </div>
     <div class="acc-arrow">▼</div>
@@ -15009,18 +15049,18 @@ body.gsap-ready .acc-section .rr {
         
         <!-- Header -->
         <div style="text-align:center; max-width:850px; margin:0 auto 2.5rem;">
-          <div class="section-label ru" style="justify-content:center;">Sponsorship Packages • Clear levels for different investment goals</div>
-          <h2 class="section-title ru" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.2; text-transform:uppercase;">
+          <div class="section-label" style="justify-content:center; margin-bottom:0.85rem;">SPONSORSHIP PACKAGES • CLEAR INVESTMENT LEVELS</div>
+          <h2 class="section-title" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.35; text-transform:uppercase; margin-bottom:1.35rem;">
             TIERED INVESTMENT<br>&amp; <span class="hl">STRATEGIC</span> ROLES
           </h2>
-          <div class="red-line ru" style="margin:1.2rem auto;"></div>
+          <div class="red-line" style="margin:1.2rem auto;"></div>
           <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.65;">
             Structured investment tiers designed to align directly with your brand objectives: visual dominance, experiential sampling, digital reach, community empowerment, and verified business ROI.
           </p>
         </div>
 
         <!-- 5 Strategic Pillars Strip (Card-Free Hairlines) -->
-        <div class="cf-principles-strip ru">
+        <div class="cf-principles-strip">
           <div class="cf-principle-item">
             <h4 class="cf-prin-head">BRAND DOMINANCE</h4>
             <p class="cf-prin-sub">Stage naming rights, master banner lockup &amp; category exclusivity</p>
@@ -15044,7 +15084,7 @@ body.gsap-ready .acc-section .rr {
         </div>
 
         <!-- Card-Free 5-Tier Columns Grid -->
-        <div class="cf-packages-grid ru">
+        <div class="cf-packages-grid">
           
           <!-- TIER 1: TITLE PARTNER -->
           <div class="cf-pkg-col feat">
@@ -15167,10 +15207,10 @@ body.gsap-ready .acc-section .rr {
     <section id="matrix" class="acc-inner">
   <div class="noise-overlay"></div>
   <div class="container">
-    <div class="section-label ru">Deliverables Matrix</div>
-    <h2 class="section-title ru">CROSS-TIER BENEFITS<br><span class="hl">COMPARISON</span></h2>
-    <div class="red-line ru"></div>
-    <div class="mtx-wrap ru">
+    <div class="section-label" style="margin-bottom:0.65rem;">DELIVERABLES MATRIX</div>
+    <h2 class="section-title">CROSS-TIER BENEFITS<br><span class="hl">COMPARISON</span></h2>
+    <div class="red-line"></div>
+    <div class="mtx-wrap">
       <table class="mtx">
         <thead>
           <tr>
@@ -15266,7 +15306,7 @@ body.gsap-ready .acc-section .rr {
         <img src="assets/fanglao_logo_transparent.png" alt="Fanglao Dance Studio Official Logo" class="fl-official-logo">
       </div>
       <div class="fl-header-text">
-        <div class="section-label" style="margin-bottom:0.4rem;">Official Organizer • ຜູ້ຈັດງານຢ່າງເປັນທາງການ</div>
+        <div class="section-label" style="margin-bottom:0.4rem;">OFFICIAL ORGANIZER • FANGLAO DANCE STUDIO</div>
         <h2 class="fl-title">
           FANGLAO DANCE STUDIO: <span class="hl">11+ YEARS</span> PIONEERING URBAN CULTURE IN LAOS
         </h2>
@@ -15441,8 +15481,12 @@ if(typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined'){
       }
     });
 
-    // Section reveal animations — gsap.fromTo guarantees final state opacity:1
+    // Section reveal animations — only for standalone sections outside accordions
     document.querySelectorAll('.ru,.rl,.rr').forEach(el=>{
+      if (el.closest('.acc-section') || el.closest('.acc-body') || el.closest('.acc-item') || el.closest('.accordion') || el.closest('.acc-inner')) {
+        gsap.set(el, { opacity: 1, x: 0, y: 0, clearProps: 'all' });
+        return;
+      }
       let fx=0,fy=0;
       if(el.classList.contains('ru')) fy=45;
       if(el.classList.contains('rl')) fx=-55;
@@ -15450,7 +15494,7 @@ if(typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined'){
       gsap.fromTo(el,
         {opacity:0,x:fx,y:fy},
         {opacity:1,x:0,y:0,duration:.85,ease:'power3.out',
-          clearProps:'transform',
+          clearProps:'all',
           scrollTrigger:{trigger:el,start:'top 92%',toggleActions:'play none none none'}}
       );
     });
