@@ -10498,202 +10498,433 @@ body.gsap-ready .acc-inner .ru {
   margin-bottom: 1.35rem !important;
 }
 
-/* Card Container: Strictly contained inside the frame */
+/* ═════════════════════════════════════════════════════════════════════
+   CONTACT & LET'S BUILD CARD (BLACK & RED TONE, HORIZONTAL TIMELINE)
+   ═════════════════════════════════════════════════════════════════════ */
+.contact-standalone-section {
+  position: relative;
+  padding: 5rem 0 6rem;
+  background: #06070a;
+  overflow: hidden;
+}
+.contact-standalone-section .container {
+  max-width: 1440px !important;
+  padding: 0 clamp(1.2rem, 3.5vw, 3rem) !important;
+}
+
+/* Card Container: Dedicated Black & Red Luxury Aesthetic */
 .ct-lay {
-  background: linear-gradient(180deg, rgba(204, 0, 0, 0.08) 0%, rgba(18, 18, 21, 0.96) 100%) !important;
-  border: 1px solid var(--border) !important;
-  border-top: 1px solid rgba(204, 0, 0, 0.45) !important;
-  border-radius: 1.5rem !important;
-  padding: 3.2rem 3rem !important;
-  backdrop-filter: blur(20px) !important;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 50px rgba(204, 0, 0, 0.15) !important;
-  display: grid !important;
-  grid-template-columns: 1.1fr 0.9fr !important;
-  gap: 3.5rem !important;
-  align-items: start !important;
+  background: radial-gradient(130% 120% at 50% 0%, rgba(220, 20, 20, 0.14) 0%, rgba(13, 14, 19, 0.96) 45%, #08090d 100%) !important;
+  border: 1px solid rgba(220, 20, 20, 0.32) !important;
+  border-top: 1px solid rgba(255, 50, 50, 0.75) !important;
+  border-radius: 28px !important;
+  padding: clamp(2rem, 3.5vw, 3.5rem) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 60px rgba(220, 20, 20, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2.2rem !important;
   box-sizing: border-box !important;
   overflow: hidden !important;
   position: relative !important;
   width: 100% !important;
 }
 
-/* Headline: Scaled to fit perfectly within the column without overflowing */
-.ct-hl {
-  font-family: var(--font-display) !important;
-  font-size: clamp(2rem, 3.2vw, 3.2rem) !important;
-  font-weight: 900 !important;
-  line-height: 1.0 !important;
-  letter-spacing: 0.02em !important;
-  text-transform: uppercase !important;
-  color: #ffffff !important;
-  margin: 0.6rem 0 1.4rem !important;
-  word-break: break-word !important;
-  overflow-wrap: break-word !important;
+/* Red Pulse Indicator */
+.ct-label-red {
+  color: #ff3b3b !important;
+  letter-spacing: 0.16em !important;
 }
-.ct-hl .big-r {
-  color: var(--brand) !important;
-  display: block !important;
-  text-shadow: 0 0 25px rgba(204, 0, 0, 0.6) !important;
+.ct-pulse-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff1a1a;
+  box-shadow: 0 0 10px #ff1a1a;
+  animation: ctRedPulse 2s infinite ease-in-out;
 }
-
-/* Contact Details */
-.ct-details {
-  margin-top: 1.4rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.2rem !important;
-}
-.ct-item {
-  display: flex !important;
-  align-items: flex-start !important;
-  gap: 0.85rem !important;
-  padding: 0.75rem 0 !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
-}
-.ct-item:last-child {
-  border-bottom: none !important;
-}
-.ct-ic {
-  font-size: 1.15rem !important;
-  line-height: 1 !important;
-  margin-top: 0.15rem !important;
-}
-.ct-lbl {
-  font-family: var(--font-sans) !important;
-  font-size: 0.68rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.14em !important;
-  text-transform: uppercase !important;
-  color: var(--muted-foreground) !important;
-  margin-bottom: 0.2rem !important;
-}
-.ct-val {
-  font-family: var(--font-sans) !important;
-  font-size: 0.88rem !important;
-  color: #ffffff !important;
-}
-.ct-val a {
-  color: #ffffff !important;
-  text-decoration: underline !important;
-  text-decoration-color: rgba(204, 0, 0, 0.4) !important;
-  transition: color 0.2s ease !important;
-}
-.ct-val a:hover {
-  color: var(--brand) !important;
+@keyframes ctRedPulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; box-shadow: 0 0 8px #ff1a1a; }
+  50% { transform: scale(1.35); opacity: 1; box-shadow: 0 0 16px #ff4d4d; }
 }
 
-/* Action Buttons */
-.ct-btns {
-  margin-top: 1.6rem !important;
-  display: flex !important;
-  gap: 0.85rem !important;
-  flex-wrap: wrap !important;
+/* Header Block & Action Buttons */
+.ct-header-block {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
-.ct-btns .btn-p {
+.ct-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.ct-btns-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+.ct-btn-glow {
   display: inline-flex !important;
   align-items: center !important;
-  justify-content: center !important;
-  background: var(--brand) !important;
+  gap: 0.5rem !important;
+  background: linear-gradient(135deg, #ff1a1a 0%, #b30000 100%) !important;
   color: #ffffff !important;
-  border-radius: 0.6rem !important;
-  padding: 0.7rem 1.4rem !important;
-  font-family: var(--font-sans) !important;
-  font-size: 0.88rem !important;
-  font-weight: 600 !important;
+  border: 1px solid rgba(255, 80, 80, 0.5) !important;
+  border-radius: 999px !important;
+  padding: 0.65rem 1.4rem !important;
+  font-family: var(--ff-a) !important;
+  font-size: 0.75rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
   text-decoration: none !important;
-  clip-path: none !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  box-shadow: 0 4px 20px rgba(204, 0, 0, 0.4) !important;
-  transition: all 0.25s ease !important;
+  box-shadow: 0 4px 22px rgba(220, 20, 20, 0.45) !important;
+  transition: all 0.3s ease !important;
 }
-.ct-btns .btn-p:hover {
-  background: #e00000 !important;
-  box-shadow: 0 6px 28px rgba(204, 0, 0, 0.6) !important;
-  transform: translateY(-1px) !important;
+.ct-btn-glow:hover {
+  background: linear-gradient(135deg, #ff3333 0%, #d40000 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 30px rgba(255, 30, 30, 0.65) !important;
 }
-.ct-btns .btn-s {
+.ct-btn-dark {
   display: inline-flex !important;
   align-items: center !important;
-  justify-content: center !important;
+  gap: 0.45rem !important;
   background: rgba(255, 255, 255, 0.05) !important;
-  color: var(--foreground) !important;
-  border: 1px solid rgba(255, 255, 255, 0.14) !important;
-  border-radius: 0.6rem !important;
-  padding: 0.7rem 1.4rem !important;
-  font-family: var(--font-sans) !important;
-  font-size: 0.88rem !important;
-  font-weight: 600 !important;
-  text-decoration: none !important;
-  clip-path: none !important;
-  backdrop-filter: blur(10px) !important;
-  transition: all 0.25s ease !important;
-}
-.ct-btns .btn-s:hover {
-  background: rgba(255, 255, 255, 0.09) !important;
-  border-color: rgba(255, 255, 255, 0.25) !important;
-}
-
-/* Partnership Roadmap */
-.roadmap {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0 !important;
-  margin-top: 1rem !important;
-}
-.rs {
-  display: flex !important;
-  gap: 1.2rem !important;
-  align-items: flex-start !important;
-  padding: 1.1rem 0 !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
-}
-.rs:last-child {
-  border-bottom: none !important;
-}
-.rs-n {
-  font-family: var(--font-display) !important;
-  font-size: 2.2rem !important;
-  color: var(--brand) !important;
-  opacity: 0.85 !important;
-  line-height: 1 !important;
-  width: 2.8rem !important;
-  flex-shrink: 0 !important;
-}
-.rs-c h4 {
-  font-family: var(--font-sans) !important;
-  font-size: 0.88rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
   color: #ffffff !important;
-  margin: 0 0 0.25rem 0 !important;
-}
-.rs-c p {
-  font-family: var(--font-sans) !important;
-  font-size: 0.82rem !important;
-  color: var(--muted-foreground) !important;
-  line-height: 1.5 !important;
-  margin: 0 !important;
-}
-.rs-c .dt {
-  font-family: var(--font-sans) !important;
-  font-size: 0.7rem !important;
+  border: 1px solid rgba(220, 20, 20, 0.4) !important;
+  border-radius: 999px !important;
+  padding: 0.65rem 1.35rem !important;
+  font-family: var(--ff-a) !important;
+  font-size: 0.75rem !important;
   font-weight: 700 !important;
-  letter-spacing: 0.12em !important;
-  color: var(--gold) !important;
-  margin-top: 0.35rem !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
+  text-decoration: none !important;
+  backdrop-filter: blur(12px) !important;
+  transition: all 0.3s ease !important;
+}
+.ct-btn-dark:hover {
+  background: rgba(220, 20, 20, 0.15) !important;
+  border-color: #ff3333 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(220, 20, 20, 0.3) !important;
 }
 
-/* Mobile & Tablet Responsiveness */
-@media (max-width: 1024px) {
-  .ct-lay {
-    grid-template-columns: 1fr !important;
-    gap: 2.5rem !important;
-    padding: 2.2rem 1.6rem !important;
+/* 2-Color Gradient Headline in Akira */
+.ct-hl {
+  font-family: 'Akira Expanded', 'Akira', sans-serif !important;
+  font-size: clamp(1.45rem, 2.7vw, 2.5rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase !important;
+  margin: 0.5rem 0 0.8rem !important;
+  background: linear-gradient(135deg, #ffffff 15%, #ff2626 85%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 0 35px rgba(220, 20, 20, 0.45)) !important;
+  word-break: normal !important;
+}
+
+/* Contact Details: 5 Horizontal Chips */
+.ct-contacts-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+.ct-chip {
+  background: rgba(18, 20, 26, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.6rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+.ct-chip:hover {
+  background: rgba(30, 16, 20, 0.8);
+  border-color: rgba(255, 40, 40, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(220, 20, 20, 0.2);
+}
+.ct-chip-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ct-chip-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.ct-chip-lbl {
+  font-family: var(--ff-a);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 120, 120, 0.85);
+}
+.ct-chip-val {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.4;
+  word-break: break-word;
+}
+.ct-chip-val a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 40, 40, 0.45);
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.ct-chip-val a:hover {
+  color: #ff4d4d;
+  text-decoration-color: #ff4d4d;
+}
+
+/* Partnership Roadmap: Horizontal Timeline */
+.ct-timeline-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.ct-timeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.ct-timeline-badge {
+  font-family: var(--ff-a);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #ff3b3b;
+  background: rgba(255, 30, 30, 0.1);
+  border: 1px solid rgba(255, 30, 30, 0.35);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  text-transform: uppercase;
+}
+
+/* Horizontal Track Line */
+.ct-timeline-track-wrap {
+  position: relative;
+  width: 100%;
+}
+.ct-timeline-base-line {
+  position: absolute;
+  top: 24px;
+  left: 5%;
+  right: 5%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  z-index: 1;
+}
+.ct-timeline-active-line {
+  position: absolute;
+  top: 24px;
+  left: 5%;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff1a1a 0%, #ff4d4d 100%);
+  box-shadow: 0 0 12px rgba(255, 30, 30, 0.9);
+  border-radius: 2px;
+  z-index: 1;
+  transition: width 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 5 Steps Grid */
+.ct-timeline-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.1rem;
+  position: relative;
+  z-index: 2;
+}
+.ct-t-step {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Sequential Stagger Delays when in view */
+.timeline-in-view .ct-timeline-active-line {
+  width: 90%;
+}
+.timeline-in-view .ct-t-step:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+.timeline-in-view .ct-t-step:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.28s;
+}
+.timeline-in-view .ct-t-step:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.46s;
+}
+.timeline-in-view .ct-t-step:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.64s;
+}
+.timeline-in-view .ct-t-step:nth-child(5) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.82s;
+}
+
+/* Node Circle (01–05) */
+.ct-t-node {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #090a0f;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Akira Expanded', 'Akira', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 auto 1.3rem;
+  transition: all 0.45s ease;
+  box-shadow: 0 0 0 6px #090a0f;
+}
+.timeline-in-view .ct-t-step .ct-t-node {
+  border-color: #ff2626;
+  background: linear-gradient(135deg, #ff2626 0%, #990000 100%);
+  box-shadow: 0 0 0 6px #090a0f, 0 0 24px rgba(255, 38, 38, 0.7);
+}
+
+/* Step Card Box */
+.ct-t-card {
+  background: rgba(18, 20, 28, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.25rem 1.05rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(12px);
+}
+.ct-t-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 38, 38, 0.5);
+  background: rgba(28, 16, 20, 0.75);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(220, 20, 20, 0.22);
+}
+.ct-t-title {
+  font-family: var(--ff-a);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0 0 0.45rem 0;
+  line-height: 1.3;
+}
+.ct-t-desc {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+  margin: 0;
+}
+.ct-t-date-badge {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 0.85rem;
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: var(--ff-a);
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ct-t-date-highlight {
+  background: rgba(255, 38, 38, 0.14);
+  border-color: rgba(255, 38, 38, 0.45);
+  color: #ff5252;
+}
+.ct-t-date-festival {
+  background: linear-gradient(135deg, rgba(255, 38, 38, 0.25) 0%, rgba(180, 0, 0, 0.25) 100%);
+  border-color: #ff3333;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 38, 38, 0.35);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1100px) {
+  .ct-contacts-row {
+    grid-template-columns: repeat(3, 1fr);
   }
-  .ct-hl {
-    font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
+  .ct-timeline-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+  .ct-timeline-base-line,
+  .ct-timeline-active-line {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .ct-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ct-btns-row {
+    width: 100%;
+  }
+  .ct-btns-row a {
+    flex: 1;
+    justify-content: center;
+  }
+  .ct-contacts-row {
+    grid-template-columns: 1fr;
+  }
+  .ct-timeline-steps {
+    grid-template-columns: 1fr;
+  }
+  .ct-t-node {
+    margin: 0 0 0.8rem 0;
+  }
+  .ct-t-step {
+    flex-direction: row;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .ct-t-card {
+    flex: 1;
+    min-height: auto;
   }
 }
 
@@ -17044,7 +17275,7 @@ body.gsap-ready .contact-standalone-section * {
     <div class="lihf-bento-header">
       <div class="section-label">FESTIVAL 360° SYNTHESIS • EXECUTIVE BRIEFING</div>
       <h2 class="section-title">
-        LIHF 2026 AT A GLANCE <span class="hl">BENTO OVERVIEW</span>
+        LIHF 2026 <span class="hl">SUMMARIZE...</span>
       </h2>
       <div class="red-line" style="margin: 0.8rem auto 1.2rem;"></div>
       <p class="lihf-bento-header-desc">
@@ -17322,32 +17553,165 @@ body.gsap-ready .contact-standalone-section * {
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="ct-lay">
-      <div class="ct-col-left">
-        <div class="section-label">Let's Build Together • Recommended Next Steps</div>
-        <h2 class="ct-hl">LET'S BUILD<br>THE NEXT<br><span class="big-r">REGIONAL<br>HIP-HOP<br>DESTINATION</span></h2>
-        <div class="red-line"></div>
-        <div class="ct-details">
-          <div class="ct-item"><div class="ct-ic">🏢</div><div><div class="ct-lbl">Organization</div><div class="ct-val">Fanglao Dance Studio / LIHF Committee</div></div></div>
-          <div class="ct-item"><div class="ct-ic">📧</div><div><div class="ct-lbl">Email</div><div class="ct-val"><a href="mailto:contact@fanglaostudio.com">contact@fanglaostudio.com</a></div></div></div>
-          <div class="ct-item"><div class="ct-ic">🌐</div><div><div class="ct-lbl">Website</div><div class="ct-val"><a href="https://www.fanglaostudio.com" target="_blank">www.fanglaostudio.com</a></div></div></div>
-          <div class="ct-item"><div class="ct-ic">📱</div><div><div class="ct-lbl">Social Channels</div><div class="ct-val">@fanglaostudio (Facebook / Instagram / TikTok)</div></div></div>
-          <div class="ct-item"><div class="ct-ic">📍</div><div><div class="ct-lbl">Office Location</div><div class="ct-val">Vientiane Capital, Lao PDR</div></div></div>
+      
+      <!-- TOP: HEADER & ACTION BUTTONS -->
+      <div class="ct-header-block">
+        <div class="ct-header-top">
+          <div class="section-label ct-label-red">
+            <span class="ct-pulse-dot"></span>
+            LET'S BUILD TOGETHER • RECOMMENDED NEXT STEPS
+          </div>
+          <div class="ct-btns-row">
+            <a href="mailto:contact@fanglaostudio.com" class="btn-p ct-btn-glow">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>Send Partnership Inquiry</span>
+            </a>
+            <a href="https://www.fanglaostudio.com" target="_blank" class="btn-s ct-btn-dark">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              <span>Visit Website</span>
+            </a>
+          </div>
         </div>
-        <div class="ct-btns">
-          <a href="mailto:contact@fanglaostudio.com" class="btn-p">Send Partnership Inquiry</a>
-          <a href="https://www.fanglaostudio.com" target="_blank" class="btn-s">Visit Website</a>
+
+        <h2 class="ct-hl">LET'S BUILD THE NEXT REGIONAL HIP-HOP DESTINATION</h2>
+        <div class="red-line" style="margin: 0.8rem 0 1.6rem;"></div>
+      </div>
+
+      <!-- MIDDLE: CONTACT DETAILS (HORIZONTALLY ALIGNED) -->
+      <div class="ct-contacts-row">
+        <div class="ct-chip">
+          <div class="ct-chip-head">
+            <span class="ct-chip-icon">🏢</span>
+            <span class="ct-chip-lbl">Organization</span>
+          </div>
+          <div class="ct-chip-val">Fanglao Dance Studio / LIHF Committee</div>
+        </div>
+
+        <div class="ct-chip">
+          <div class="ct-chip-head">
+            <span class="ct-chip-icon">📧</span>
+            <span class="ct-chip-lbl">Email</span>
+          </div>
+          <div class="ct-chip-val">
+            <a href="mailto:contact@fanglaostudio.com">contact@fanglaostudio.com</a>
+          </div>
+        </div>
+
+        <div class="ct-chip">
+          <div class="ct-chip-head">
+            <span class="ct-chip-icon">🌐</span>
+            <span class="ct-chip-lbl">Website</span>
+          </div>
+          <div class="ct-chip-val">
+            <a href="https://www.fanglaostudio.com" target="_blank">www.fanglaostudio.com</a>
+          </div>
+        </div>
+
+        <div class="ct-chip">
+          <div class="ct-chip-head">
+            <span class="ct-chip-icon">📱</span>
+            <span class="ct-chip-lbl">Social Channels</span>
+          </div>
+          <div class="ct-chip-val">@fanglaostudio (Facebook / Instagram / TikTok)</div>
+        </div>
+
+        <div class="ct-chip">
+          <div class="ct-chip-head">
+            <span class="ct-chip-icon">📍</span>
+            <span class="ct-chip-lbl">Office Location</span>
+          </div>
+          <div class="ct-chip-val">Vientiane Capital, Lao PDR</div>
         </div>
       </div>
-      <div class="ct-col-right">
-        <div class="section-label">Partnership Roadmap</div>
-        <div class="roadmap">
-          <div class="rs"><div class="rs-n">01</div><div class="rs-c"><h4>Select Sponsorship Level</h4><p>Choose your preferred tier or request a custom activation package tailored to your brand goals.</p></div></div>
-          <div class="rs"><div class="rs-n">02</div><div class="rs-c"><h4>Confirm Category &amp; Exclusivity</h4><p>Lock in sponsor category exclusivity and confirm your brand's activation territory.</p><div class="dt">June 2026</div></div></div>
-          <div class="rs"><div class="rs-n">03</div><div class="rs-c"><h4>Finalize Activation Concept</h4><p>Define your on-ground experience: booth design, content plan, sampling strategy, and brand integration.</p><div class="dt">August 2026</div></div></div>
-          <div class="rs"><div class="rs-n">04</div><div class="rs-c"><h4>Approve Logo &amp; Content Plan</h4><p>Review and sign off on all logo placements, digital assets, and campaign content before launch.</p></div></div>
-          <div class="rs"><div class="rs-n">05</div><div class="rs-c"><h4>Launch Joint Announcement</h4><p>Go live together — co-branded reveal across social, press, and digital channels to kick off the partnership campaign.</p><div class="dt">November 13–15, 2026</div></div></div>
+
+      <!-- BOTTOM: PARTNERSHIP ROADMAP (HORIZONTAL TIMELINE WITH SEQUENTIAL ANIMATION) -->
+      <div class="ct-timeline-section" id="partnership-timeline">
+        <div class="ct-timeline-header">
+          <div class="section-label ct-label-red">
+            <span class="ct-pulse-dot"></span>
+            PARTNERSHIP ROADMAP • 5 PHASE ONBOARDING
+          </div>
+          <div class="ct-timeline-badge">2026 ROADMAP</div>
+        </div>
+
+        <div class="ct-timeline-track-wrap">
+          <div class="ct-timeline-base-line"></div>
+          <div class="ct-timeline-active-line" id="ct-timeline-progress"></div>
+
+          <div class="ct-timeline-steps">
+            <!-- STEP 01 -->
+            <div class="ct-t-step" data-step="1">
+              <div class="ct-t-node">
+                <span>01</span>
+              </div>
+              <div class="ct-t-card">
+                <div>
+                  <h4 class="ct-t-title">Select Sponsorship Level</h4>
+                  <p class="ct-t-desc">Choose your preferred tier or request a custom activation package tailored to your brand goals.</p>
+                </div>
+                <div class="ct-t-date-badge">PHASE 01</div>
+              </div>
+            </div>
+
+            <!-- STEP 02 -->
+            <div class="ct-t-step" data-step="2">
+              <div class="ct-t-node">
+                <span>02</span>
+              </div>
+              <div class="ct-t-card">
+                <div>
+                  <h4 class="ct-t-title">Confirm Category &amp; Exclusivity</h4>
+                  <p class="ct-t-desc">Lock in sponsor category exclusivity and confirm your brand's activation territory.</p>
+                </div>
+                <div class="ct-t-date-badge ct-t-date-highlight">JUNE 2026</div>
+              </div>
+            </div>
+
+            <!-- STEP 03 -->
+            <div class="ct-t-step" data-step="3">
+              <div class="ct-t-node">
+                <span>03</span>
+              </div>
+              <div class="ct-t-card">
+                <div>
+                  <h4 class="ct-t-title">Finalize Activation Concept</h4>
+                  <p class="ct-t-desc">Define your on-ground experience: booth design, content plan, sampling strategy, and brand integration.</p>
+                </div>
+                <div class="ct-t-date-badge ct-t-date-highlight">AUGUST 2026</div>
+              </div>
+            </div>
+
+            <!-- STEP 04 -->
+            <div class="ct-t-step" data-step="4">
+              <div class="ct-t-node">
+                <span>04</span>
+              </div>
+              <div class="ct-t-card">
+                <div>
+                  <h4 class="ct-t-title">Approve Logo &amp; Content Plan</h4>
+                  <p class="ct-t-desc">Review and sign off on all logo placements, digital assets, and campaign content before launch.</p>
+                </div>
+                <div class="ct-t-date-badge">OCTOBER 2026</div>
+              </div>
+            </div>
+
+            <!-- STEP 05 -->
+            <div class="ct-t-step" data-step="5">
+              <div class="ct-t-node">
+                <span>05</span>
+              </div>
+              <div class="ct-t-card">
+                <div>
+                  <h4 class="ct-t-title">Launch Joint Announcement</h4>
+                  <p class="ct-t-desc">Go live together — co-branded reveal across social, press, and digital channels to kick off the partnership campaign.</p>
+                </div>
+                <div class="ct-t-date-badge ct-t-date-festival">NOVEMBER 13–15, 2026</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -19863,6 +20227,40 @@ function replayLogoIntro(){
   const initialRandom = Math.floor(Math.random() * slides.length);
   updateSlide(initialRandom);
   resetTimer();
+})();
+</script>
+
+<script>
+/* ═════════════════════════════════════════════════════════════════════
+   LIHF 2026 Partnership Roadmap Horizontal Timeline Sequence Trigger
+   Sequentially animates track line and nodes (01–05) on scroll view
+   ═════════════════════════════════════════════════════════════════════ */
+(function initPartnershipTimelineSequence() {
+  const timeline = document.getElementById('partnership-timeline');
+  if (!timeline) return;
+
+  function activateTimeline() {
+    timeline.classList.add('timeline-in-view');
+  }
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          activateTimeline();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '0px 0px -60px 0px',
+      threshold: 0.15
+    });
+
+    observer.observe(timeline);
+  } else {
+    activateTimeline();
+  }
 })();
 </script>
 
