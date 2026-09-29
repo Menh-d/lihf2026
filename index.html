@@ -4072,6 +4072,243 @@ nav { height: 60px !important; padding: 0 !important; }
 }
 .partners-strip-link:hover { color: #ffffff; text-decoration: underline; }
 
+/* --- NOTCHED PROJECT CARDS (THE 8 MAIN ACTIVITIES & BATTLE SHOWCASES) --- */
+.notched-activities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.notched-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 28px;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.notched-card:hover {
+  transform: translateY(-6px);
+}
+
+.notched-cover-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.notched-cover {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #111216;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.notched-cover-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(40%) brightness(0.62);
+  transition: filter 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.notched-card:hover .notched-cover-bg {
+  filter: grayscale(0%) brightness(0.85);
+  transform: scale(1.04);
+}
+
+.notched-cover-dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.notched-cover-screen {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 82%;
+  height: 90%;
+  object-fit: contain;
+  transform-origin: bottom right;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.65));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.notched-card:hover .notched-cover-screen {
+  transform: scale(1.08) translateY(-4px);
+}
+
+.notched-badge-wrap {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.85rem;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.notched-badge {
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  padding: 0.25rem 0.75rem;
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+/* The Notch Geometry */
+/* DISC = 56px, BLOCK = 72px, radius = BLOCK - DISC/2 = 72 - 28 = 44px */
+.notched-notch-block {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 72px;
+  height: 72px;
+  border-top-left-radius: 44px;
+  background: var(--blk, #050505);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.notched-fillet {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.notched-fillet-v {
+  bottom: 72px;
+  right: 0;
+  background: radial-gradient(circle at top left, transparent 23.5px, var(--blk, #050505) 24px);
+}
+
+.notched-fillet-h {
+  bottom: 0;
+  right: 72px;
+  background: radial-gradient(circle at top left, transparent 23.5px, var(--blk, #050505) 24px);
+}
+
+/* The Arrow Disc inside the Notch */
+.notched-arrow-disc {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: #18191f;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 4;
+}
+
+.notched-card:hover .notched-arrow-disc {
+  background: var(--red);
+  color: #ffffff;
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(230, 20, 20, 0.45);
+}
+
+.notched-arrow-disc svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.notched-card:hover .notched-arrow-disc svg {
+  transform: translate(2px, -2px);
+}
+
+/* Card Typography & Tags below cover */
+.notched-card-info {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.1rem;
+}
+
+.notched-card-title {
+  font-family: var(--ff-d);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.45rem;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+
+.notched-card-desc {
+  font-family: var(--ff-b);
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.48;
+  margin: 0 0 0.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.notched-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notched-card-tag {
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.22rem 0.55rem;
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+}
+
+@media (max-width: 1200px) {
+  .notched-activities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .notched-activities-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
 /* --- FUI BENTO GRID DARK (THE 8 MAIN ACTIVITIES) --- */
 .activities-interactive-grid {
   display: grid !important;
@@ -5923,76 +6160,152 @@ nav { height: 60px !important; padding: 0 !important; }
   color: rgba(255,255,255,0.55);
 }
 
-/* Regional Benchmark Comparison Strip (Card-free horizontal rows) */
-.cf-benchmarks-wrap {
-  margin-top: 2rem;
-  margin-bottom: 3.5rem;
-  border-top: 1px solid rgba(255,255,255,0.12);
-}
-.cf-benchmark-row {
+/* Regional Benchmark Comparison Grid with Real Event Photos */
+.cf-benchmarks-grid {
   display: grid;
-  grid-template-columns: 180px 220px 180px 1fr;
-  align-items: center;
-  padding: 1.1rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  transition: background 0.25s ease;
-}
-.cf-benchmark-row:hover {
-  background: rgba(255,255,255,0.02);
-}
-.cf-benchmark-row.laos-row {
-  background: rgba(204,0,0,0.06);
-  border-bottom: 1px solid rgba(204,0,0,0.35);
-  border-left: 3px solid var(--red);
-  padding-left: 1rem;
-}
-.cf-bm-country {
-  font-family: var(--ff-a);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--gold);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.cf-bm-name {
-  font-family: var(--ff-d);
-  font-size: 1.35rem;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-}
-.cf-bm-stat {
-  font-family: var(--ff-a);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.9);
-  letter-spacing: 0.04em;
-}
-.cf-bm-role {
-  font-family: var(--ff-b);
-  font-size: 0.86rem;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.45;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+  margin: 2rem 0 3rem;
 }
 
-@media (max-width: 860px) {
-  .cf-benchmark-row {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem 1rem;
-    padding: 1.2rem 0;
-  }
-  .cf-bm-role {
-    grid-column: span 2;
+.cf-bm-card {
+  display: flex;
+  flex-direction: column;
+  background: #0d0e12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s ease, 
+              box-shadow 0.35s ease;
+}
+
+.cf-bm-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+}
+
+.cf-bm-card.featured-laos {
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  background: linear-gradient(180deg, rgba(204, 0, 0, 0.12) 0%, rgba(13, 14, 18, 0.98) 100%);
+  box-shadow: 0 12px 30px rgba(204, 0, 0, 0.2), 0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+.cf-bm-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #14151a;
+}
+
+.cf-bm-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.cf-bm-card:hover .cf-bm-img-wrap img {
+  transform: scale(1.07);
+  filter: brightness(1);
+}
+
+.cf-bm-badge {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  padding: 0.25rem 0.65rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+.cf-bm-badge.gold {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.cf-bm-content {
+  padding: 1.1rem 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cf-bm-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.cf-bm-title {
+  font-family: var(--ff-d);
+  font-size: 1.22rem;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.cf-bm-title.gold {
+  color: var(--gold);
+}
+
+.cf-bm-stat {
+  font-family: var(--ff-a);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.18rem 0.5rem;
+  border-radius: 4px;
+}
+
+.cf-bm-stat.red {
+  color: #ffffff;
+  background: var(--red);
+}
+
+.cf-bm-desc {
+  font-family: var(--ff-b);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.48;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .cf-benchmarks-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
   }
 }
-@media (max-width: 520px) {
-  .cf-benchmark-row {
-    grid-template-columns: 1fr;
-    gap: 0.35rem;
+
+@media (max-width: 768px) {
+  .cf-benchmarks-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
-  .cf-bm-role {
-    grid-column: span 1;
+}
+
+@media (max-width: 520px) {
+  .cf-benchmarks-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }
 
@@ -12916,9 +13229,8 @@ body.gsap-ready .acc-section .rr {
 <div class="acc-section" data-acc="about">
   <div class="acc-banner is-open" role="button" tabindex="0" aria-expanded="true">
     <div class="acc-num">01</div>
-    <div class="acc-title-wrap">
-      <div class="acc-label">ABOUT LIHF 2026</div>
-      <div class="acc-h2">ABOUT <span class="hl">LIHF</span> 2026</div>
+      <div class="acc-label">FESTIVAL OVERVIEW, REGIONAL ECOSYSTEM &amp; AUDIENCE</div>
+      <div class="acc-h2">ABOUT, REGIONAL <span class="hl">&amp; AUDIENCE</span></div>
     </div>
     <div class="acc-arrow">▼</div>
   </div>
@@ -13300,285 +13612,298 @@ body.gsap-ready .acc-section .rr {
         </div>
       </div>
     </div>
-  </div>
+
+    <!-- ── 2. REGIONAL SCALE & 5 BENCHMARK PLATFORMS ── -->
+    <div id="regional" style="position:relative; top:-70px; visibility:hidden;"></div>
+    <div id="market" style="position:relative; top:-70px; visibility:hidden;"></div>
+    <div id="kpi" style="position:relative; top:-70px; visibility:hidden;"></div>
+
+    <div class="section-divider" style="margin: 3.5rem 0 3rem;"></div>
+
+    <!-- SECTION TITLE & EDITORIAL INTRO -->
+    <div style="text-align:center; max-width:920px; margin:0 auto 2.5rem;">
+      <div class="section-label ru" style="justify-content:center;">Scale, Opportunity &amp; Regional Movement • ຂະໜາດ, ໂອກາດ ແລະ ບໍລິບົດພາກພື້ນ</div>
+      <h2 class="section-title ru" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.2; text-transform:uppercase;">
+        MEET YOUTH <span class="hl">INSIDE CULTURE</span><br>AT REGIONAL SCALE
+      </h2>
+      <div class="red-line ru" style="margin:1.3rem auto;"></div>
+      <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.7;">
+        LIHF 2026 bridges Lao youth culture with Southeast Asia's thriving hip-hop ecosystem. For sponsors, this is not static logo placement — it is active, authentic participation inside dance, music, street art, fashion, and digital creators.
+      </p>
+    </div>
+
+    <!-- 1. GUARANTEED SCALE & MEASURABLE REACH -->
+    <div class="metric-hud-strip ru">
+      <div class="mhs-item">
+        <span class="mhs-num gold"><span class="kn" data-n="10000" data-s="+">10,000+</span></span>
+        <span class="mhs-label">Expected Attendees</span>
+        <p class="mhs-desc">Gen Z youth, urban dancers, creators &amp; inbound regional tourists</p>
+      </div>
+      <div class="mhs-item">
+        <span class="mhs-num red"><span class="kn" data-n="10" data-s="M+">10M+</span></span>
+        <span class="mhs-label">Media &amp; Online Reach</span>
+        <p class="mhs-desc">Cross-platform digital reach: TikTok, Reels, FB, YouTube &amp; OOH</p>
+      </div>
+      <div class="mhs-item">
+        <span class="mhs-num"><span class="kn" data-n="500" data-s="+">500+</span></span>
+        <span class="mhs-label">Athletes &amp; Artists</span>
+        <p class="mhs-desc">Elite competitors, dancers, MCs &amp; judges from 10+ ASEAN nations</p>
+      </div>
+      <div class="mhs-item">
+        <span class="mhs-num gold"><span class="kn" data-n="159" data-s="M">159M</span></span>
+        <span class="mhs-label">LAK Prize Pool</span>
+        <p class="mhs-desc">Rewarding excellence across 7 official festival culture pillars</p>
+      </div>
+      <div class="mhs-item">
+        <span class="mhs-num"><span class="kn">50–70</span></span>
+        <span class="mhs-label">Lifestyle &amp; Food Booths</span>
+        <p class="mhs-desc">Curated streetwear market, urban lifestyle &amp; culinary village</p>
+      </div>
+      <div class="mhs-item">
+        <span class="mhs-num"><span class="kn" data-n="100" data-s="+">100+</span></span>
+        <span class="mhs-label">Operations Crew</span>
+        <p class="mhs-desc">Dedicated youth crew and volunteers ensuring flawless execution</p>
+      </div>
+    </div>
+
+    <!-- 2. THE SPONSOR VALUE -->
+    <div style="margin-top:1.5rem; margin-bottom:1.5rem;">
+      <div class="section-label ru">The Sponsor Value • 4 ໂອກາດຫຼັກສຳລັບຜູ້ສະໜັບສະໜູນ</div>
+      <h3 style="font-family:var(--ff-d); font-size:clamp(1.8rem, 3.2vw, 2.5rem); text-transform:uppercase; color:#fff; line-height:1.1;">
+        WHY BRANDS SUCCEED <span class="hl">INSIDE LIHF</span>
+      </h3>
+    </div>
+
+    <div class="cf-opp-grid ru">
+      <div class="cf-opp-item">
+        <div class="cf-opp-index">01</div>
+        <div class="cf-opp-title">Emotional Cultural Resonance</div>
+        <p class="cf-opp-desc">Connect where Gen Z identity is forged — inside live dance battles, music cyphers, and street fashion, creating authentic emotional memory.</p>
+      </div>
+      <div class="cf-opp-item">
+        <div class="cf-opp-index">02</div>
+        <div class="cf-opp-title">Direct Trial &amp; Sampling</div>
+        <p class="cf-opp-desc">High-energy interactive booths, product giveaways, and QR challenges turn crowd enthusiasm into immediate product trials and sales.</p>
+      </div>
+      <div class="cf-opp-item">
+        <div class="cf-opp-index">03</div>
+        <div class="cf-opp-title">Viral Short-Form Content</div>
+        <p class="cf-opp-desc">Every explosive battle round, DJ scratch, and live mural generates organic, user-shared TikTok, Reels, and Shorts content with sponsor branding.</p>
+      </div>
+      <div class="cf-opp-item">
+        <div class="cf-opp-index">04</div>
+        <div class="cf-opp-title">Long-Term Youth Loyalty</div>
+        <p class="cf-opp-desc">Youth consumers remember brands that build the culture they love. Convert festival presence into enduring community respect and brand equity.</p>
+      </div>
+    </div>
+
+    <!-- ACTIVATION JOURNEY FLOW -->
+    <div class="cf-journey-bar ru">
+      <div class="cf-journey-label">SPONSOR ACTIVATION JOURNEY • ເສັ້ນທາງການມີສ່ວນຮ່ວມ</div>
+      <div class="cf-journey-steps">
+        <span class="cf-journey-step" style="color:var(--red);">TRY</span>
+        <span class="cf-journey-arrow">➔</span>
+        <span class="cf-journey-step">CREATE</span>
+        <span class="cf-journey-arrow">➔</span>
+        <span class="cf-journey-step accent">SHARE</span>
+        <span class="cf-journey-arrow">➔</span>
+        <span class="cf-journey-step">REMEMBER</span>
+      </div>
+      <div class="cf-journey-sub">Inviting active consumer participation rather than passive logo exposure.</div>
+    </div>
+
+    <!-- 3. REGIONAL HIP-HOP BENCHMARKS WITH REAL EVENT PHOTOS -->
+    <div style="margin-top:2.5rem; margin-bottom:1.2rem;">
+      <div class="section-label ru">Regional Benchmarks • ເວທີມາດຕະຖານລະດັບພາກພື້ນອາຊຽນ</div>
+      <h3 style="font-family:var(--ff-d); font-size:clamp(1.8rem, 3.2vw, 2.5rem); text-transform:uppercase; color:#fff; line-height:1.1;">
+        POSITIONING LAOS ON THE <span class="hl">SOUTHEAST ASIAN</span> MAP
+      </h3>
+    </div>
+
+    <!-- 5 Regional Benchmark Cards with Real Photos -->
+    <div class="cf-benchmarks-grid ru">
+      <!-- 1. Vietnam: HIPFEST -->
+      <div class="cf-bm-card">
+        <div class="cf-bm-img-wrap">
+          <img src="assets/benchmarks/bm_hipfest.jpg" alt="HIPFEST Vietnam" loading="lazy" />
+          <span class="cf-bm-badge">🇻🇳 VIETNAM</span>
+        </div>
+        <div class="cf-bm-content">
+          <div class="cf-bm-header">
+            <h4 class="cf-bm-title">HIPFEST</h4>
+            <span class="cf-bm-stat">40+ Countries</span>
+          </div>
+          <p class="cf-bm-desc">Southeast Asia's massive urban culture gathering uniting thousands of international dancers, MCs, and graffiti writers across multi-day exchange.</p>
+        </div>
+      </div>
+
+      <!-- 2. Singapore: SUPER 24 -->
+      <div class="cf-bm-card">
+        <div class="cf-bm-img-wrap">
+          <img src="assets/benchmarks/bm_super24.jpg" alt="SUPER 24 Singapore" loading="lazy" />
+          <span class="cf-bm-badge">🇸🇬 SINGAPORE</span>
+        </div>
+        <div class="cf-bm-content">
+          <div class="cf-bm-header">
+            <h4 class="cf-bm-title">SUPER 24</h4>
+            <span class="cf-bm-stat">100 Teams • 15K+ Fans</span>
+          </div>
+          <p class="cf-bm-desc">The ultimate 4-sided 24-dancer team choreography championship setting the gold standard for creative team excellence and stadium spectacles.</p>
+        </div>
+      </div>
+
+      <!-- 3. Thailand: BC ONE SEA -->
+      <div class="cf-bm-card">
+        <div class="cf-bm-img-wrap">
+          <img src="assets/benchmarks/bm_bcone.jpg" alt="BC ONE SEA Thailand" loading="lazy" />
+          <span class="cf-bm-badge">🇹🇭 THAILAND</span>
+        </div>
+        <div class="cf-bm-content">
+          <div class="cf-bm-header">
+            <h4 class="cf-bm-title">BC ONE SEA</h4>
+            <span class="cf-bm-stat">10 SEA Nations</span>
+          </div>
+          <p class="cf-bm-desc">The premier Olympic-standard 1v1 Breaking battle pathway sending Southeast Asia's top b-boys and b-girls directly to the Red Bull BC One World Finals.</p>
+        </div>
+      </div>
+
+      <!-- 4. Global: HHI WORLDS -->
+      <div class="cf-bm-card">
+        <div class="cf-bm-img-wrap">
+          <img src="assets/benchmarks/bm_hhi.jpg" alt="HHI WORLDS Global" loading="lazy" />
+          <span class="cf-bm-badge">🌍 GLOBAL</span>
+        </div>
+        <div class="cf-bm-content">
+          <div class="cf-bm-header">
+            <h4 class="cf-bm-title">HHI WORLDS</h4>
+            <span class="cf-bm-stat">PH • JP • TH Champions</span>
+          </div>
+          <p class="cf-bm-desc">The world championship stage proving Southeast Asian urban dancers can triumph over the world's best, inspiring Lao youth to compete globally.</p>
+        </div>
+      </div>
+
+      <!-- 5. Laos: LIHF VIENTIANE (Featured Card) -->
+      <div class="cf-bm-card featured-laos">
+        <div class="cf-bm-img-wrap">
+          <img src="assets/benchmarks/bm_lihf.jpg" alt="LIHF Vientiane Laos" loading="lazy" />
+          <span class="cf-bm-badge gold">🇱🇦 LAOS (LIHF 2026)</span>
+        </div>
+        <div class="cf-bm-content">
+          <div class="cf-bm-header">
+            <h4 class="cf-bm-title gold">LIHF VIENTIANE</h4>
+            <span class="cf-bm-stat red">Lao-ITECC Platform</span>
+          </div>
+          <p class="cf-bm-desc">The premier international urban culture platform establishing Laos as an emerging regional epicenter, connecting Lao youth with Vietnam, Thailand, Singapore, and beyond.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC POSITIONING STRIP -->
+    <div class="cf-positioning-bar ru">
+      <div class="cf-pos-left">
+        <span class="cf-pos-tag">LAOS STRATEGIC POSITIONING • ບົດບາດຍຸດທະສາດຂອງລາວ</span>
+        <h4 class="cf-pos-title">LIHF Positions Laos as an Emerging Regional Hub for Authentic Hip-Hop Culture</h4>
+        <p class="cf-pos-desc">By creating an international-standard stage at Lao-ITECC, LIHF brings top talent, regional tourism, and corporate sponsors into an authentic youth movement connecting Laos with the greater Southeast Asian creative economy.</p>
+      </div>
+      <div class="cf-pos-right">
+        <a href="#packages" class="btn-p" style="white-space:nowrap;">Become A Regional Partner →</a>
+        <span class="cf-pos-sources">Sources: HIPFEST official, Super 24 official, Red Bull BC One SEA, Hip Hop International.</span>
+      </div>
+    </div>
+
+    <div class="section-divider" style="margin: 3.5rem 0 3rem;"></div>
+
+    <!-- ── 3. AUDIENCE & DEMOGRAPHICS (Combined into Section 01) ── -->
+    <div id="audience" style="position:relative; top:-70px; visibility:hidden;"></div>
+
+    <div style="text-align:center; max-width:850px; margin:0 auto 2rem;">
+      <div class="section-label ru" style="justify-content:center;">Target Audience • A valuable youth-driven market</div>
+      <h2 class="section-title ru" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.2; text-transform:uppercase;">
+        HIGH-VALUE, <span class="hl">PASSION-LED</span><br>CONSUMER SEGMENTS
+      </h2>
+      <div class="red-line ru" style="margin:1.2rem auto;"></div>
+      <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.65;">
+        LIHF 2026 connects brands directly with the most active, trend-setting demographics in Laos and Southeast Asia—driven by urban culture, passion, and high digital engagement.
+      </p>
+    </div>
+
+    <!-- Card-Free Architectural Audience Grid -->
+    <div class="cf-audience-grid ru">
+      <!-- Segment 1: Young Adults (50%) -->
+      <div class="cf-aud-col">
+        <div class="cf-aud-header">
+          <div class="cf-aud-num">50%</div>
+          <span class="cf-aud-tag">CORE AUDIENCE</span>
+        </div>
+        <h3 class="cf-aud-title">Young Adults (19–35)</h3>
+        <p class="cf-aud-sub">Working professionals, university students &amp; urban trendsetters</p>
+        <ul class="cf-aud-list">
+          <li>High disposable income for lifestyle, tech, fashion, streetwear, food &amp; beverage</li>
+          <li>Key cultural influencers; early adopters of digital banking and mobile payment services</li>
+          <li>Peak evening concert attendance and primary consumers of festival retail &amp; F&amp;B</li>
+        </ul>
+      </div>
+
+      <!-- Segment 2: Youth & Teens (35%) -->
+      <div class="cf-aud-col">
+        <div class="cf-aud-header">
+          <div class="cf-aud-num" style="color:var(--gold);">35%</div>
+          <span class="cf-aud-tag" style="border-color:rgba(212,175,55,0.4); color:var(--gold);">DIGITAL NATIVES</span>
+        </div>
+        <h3 class="cf-aud-title">Youth &amp; Teens (13–18)</h3>
+        <p class="cf-aud-sub">High school students, emerging dancers, gamers &amp; creators</p>
+        <ul class="cf-aud-list">
+          <li>Extremely high digital fluency and social media viral sharing behavior on TikTok &amp; IG</li>
+          <li>Long-term brand loyalty potential through authentic early lifestyle engagement</li>
+          <li>Direct participants in grassroots workshops, open cyphers &amp; youth dance battles</li>
+        </ul>
+      </div>
+
+      <!-- Segment 3: Industry & Adults (15%) -->
+      <div class="cf-aud-col">
+        <div class="cf-aud-header">
+          <div class="cf-aud-num" style="color:#ffffff;">15%</div>
+          <span class="cf-aud-tag" style="border-color:rgba(255,255,255,0.25); color:rgba(255,255,255,0.7);">PREMIUM &amp; VIP</span>
+        </div>
+        <h3 class="cf-aud-title">Industry &amp; Adults (36–45+)</h3>
+        <p class="cf-aud-sub">Creative agency directors, business owners, parents &amp; media guests</p>
+        <ul class="cf-aud-list">
+          <li>Premium purchasing power for VIP hospitality, luxury goods and corporate networking</li>
+          <li>Appreciators of cultural diplomacy, national arts development &amp; corporate CSR</li>
+          <li>Key decision-makers for media endorsements, brand sponsorships &amp; talent bookings</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sleek Card-Free Core Sponsor Fit Bar -->
+    <div class="cf-sponsor-fit-bar ru">
+      <span class="cf-fit-badge">CORE SPONSOR FIT</span>
+      <div class="cf-fit-categories">
+        <span>FMCG &amp; Beverage</span>
+        <span class="cf-fit-sep">•</span>
+        <span>Telecom &amp; 5G</span>
+        <span class="cf-fit-sep">•</span>
+        <span>Fintech &amp; Banking</span>
+        <span class="cf-fit-sep">•</span>
+        <span>Streetwear &amp; Fashion</span>
+        <span class="cf-fit-sep">•</span>
+        <span>Automotive &amp; Mobility</span>
+        <span class="cf-fit-sep">•</span>
+        <span>Consumer Tech</span>
+        <span class="cf-fit-sep">•</span>
+        <span>Tourism &amp; Hospitality</span>
+      </div>
+    </div>
+
 </section>
 </div><!-- /acc-body about -->
 </div><!-- /acc-section about -->
 
-<div class="section-divider"></div>
-
-<!-- UNIFIED SECTION 02: REGIONAL CONTEXT, OPPORTUNITY & SCALE (Combined Slides 4, 5, 6) -->
-<div class="acc-section" data-acc="regional">
-  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-    <div class="acc-num">02</div>
-    <div class="acc-title-wrap">
-      <div class="acc-label">REGIONAL SCALE &amp; SPONSOR OPPORTUNITY</div>
-      <div class="acc-h2">REGIONAL <span class="hl">OPPORTUNITY</span> &amp; SCALE</div>
-    </div>
-    <div class="acc-arrow">▼</div>
-  </div>
-  <div class="acc-body">
-    <section id="regional" class="acc-inner">
-      <!-- Anchors for deep-link compatibility -->
-      <div id="market" style="position:relative; top:-70px; visibility:hidden;"></div>
-      <div id="kpi" style="position:relative; top:-70px; visibility:hidden;"></div>
-      <div class="noise-overlay"></div>
-      <div class="container cardfree-layout">
-        
-        <!-- SECTION TITLE & EDITORIAL INTRO -->
-        <div style="text-align:center; max-width:920px; margin:0 auto 2.5rem;">
-          <div class="section-label ru" style="justify-content:center;">Scale, Opportunity &amp; Regional Movement • ຂະໜາດ, ໂອກາດ ແລະ ບໍລິບົດພາກພື້ນ</div>
-          <h2 class="section-title ru" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.2; text-transform:uppercase;">
-            MEET YOUTH <span class="hl">INSIDE CULTURE</span><br>AT REGIONAL SCALE
-          </h2>
-          <div class="red-line ru" style="margin:1.3rem auto;"></div>
-          <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.7;">
-            LIHF 2026 bridges Lao youth culture with Southeast Asia's thriving hip-hop ecosystem. For sponsors, this is not static logo placement — it is active, authentic participation inside dance, music, street art, fashion, and digital creators.
-          </p>
-        </div>
-
-        <!-- 1. GUARANTEED SCALE & MEASURABLE REACH (Card-free Metric HUD Strip) -->
-        <div class="metric-hud-strip ru">
-          <div class="mhs-item">
-            <span class="mhs-num gold"><span class="kn" data-n="10000" data-s="+">10,000+</span></span>
-            <span class="mhs-label">Expected Attendees</span>
-            <p class="mhs-desc">Gen Z youth, urban dancers, creators &amp; inbound regional tourists</p>
-          </div>
-          <div class="mhs-item">
-            <span class="mhs-num red"><span class="kn" data-n="10" data-s="M+">10M+</span></span>
-            <span class="mhs-label">Media &amp; Online Reach</span>
-            <p class="mhs-desc">Cross-platform digital reach: TikTok, Reels, FB, YouTube &amp; OOH</p>
-          </div>
-          <div class="mhs-item">
-            <span class="mhs-num"><span class="kn" data-n="500" data-s="+">500+</span></span>
-            <span class="mhs-label">Athletes &amp; Artists</span>
-            <p class="mhs-desc">Elite competitors, dancers, MCs &amp; judges from 10+ ASEAN nations</p>
-          </div>
-          <div class="mhs-item">
-            <span class="mhs-num gold"><span class="kn" data-n="159" data-s="M">159M</span></span>
-            <span class="mhs-label">LAK Prize Pool</span>
-            <p class="mhs-desc">Rewarding excellence across 7 official festival culture pillars</p>
-          </div>
-          <div class="mhs-item">
-            <span class="mhs-num"><span class="kn">50–70</span></span>
-            <span class="mhs-label">Lifestyle &amp; Food Booths</span>
-            <p class="mhs-desc">Curated streetwear market, urban lifestyle &amp; culinary village</p>
-          </div>
-          <div class="mhs-item">
-            <span class="mhs-num"><span class="kn" data-n="100" data-s="+">100+</span></span>
-            <span class="mhs-label">Operations Crew</span>
-            <p class="mhs-desc">Dedicated youth crew and volunteers ensuring flawless execution</p>
-          </div>
-        </div>
-
-        <!-- 2. THE SPONSOR OPPORTUNITY (Card-free Typographic Architecture) -->
-        <div style="margin-top:1rem; margin-bottom:1.5rem;">
-          <div class="section-label ru">The Sponsor Value • 4 ໂອກາດຫຼັກສຳລັບຜູ້ສະໜັບສະໜູນ</div>
-          <h3 style="font-family:var(--ff-d); font-size:clamp(1.8rem, 3.2vw, 2.5rem); text-transform:uppercase; color:#fff; line-height:1.1;">
-            WHY BRANDS SUCCEED <span class="hl">INSIDE LIHF</span>
-          </h3>
-        </div>
-
-        <div class="cf-opp-grid ru">
-          <div class="cf-opp-item">
-            <div class="cf-opp-index">01</div>
-            <div class="cf-opp-title">Emotional Cultural Resonance</div>
-            <p class="cf-opp-desc">Connect where Gen Z identity is forged — inside live dance battles, music cyphers, and street fashion, creating authentic emotional memory.</p>
-          </div>
-          <div class="cf-opp-item">
-            <div class="cf-opp-index">02</div>
-            <div class="cf-opp-title">Direct Trial &amp; Sampling</div>
-            <p class="cf-opp-desc">High-energy interactive booths, product giveaways, and QR challenges turn crowd enthusiasm into immediate product trials and sales.</p>
-          </div>
-          <div class="cf-opp-item">
-            <div class="cf-opp-index">03</div>
-            <div class="cf-opp-title">Viral Short-Form Content</div>
-            <p class="cf-opp-desc">Every explosive battle round, DJ scratch, and live mural generates organic, user-shared TikTok, Reels, and Shorts content with sponsor branding.</p>
-          </div>
-          <div class="cf-opp-item">
-            <div class="cf-opp-index">04</div>
-            <div class="cf-opp-title">Long-Term Youth Loyalty</div>
-            <p class="cf-opp-desc">Youth consumers remember brands that build the culture they love. Convert festival presence into enduring community respect and brand equity.</p>
-          </div>
-        </div>
-
-        <!-- ACTIVATION JOURNEY FLOW (Minimalist Strip) -->
-        <div class="cf-journey-bar ru">
-          <div class="cf-journey-label">SPONSOR ACTIVATION JOURNEY • ເສັ້ນທາງການມີສ່ວນຮ່ວມ</div>
-          <div class="cf-journey-steps">
-            <span class="cf-journey-step" style="color:var(--red);">TRY</span>
-            <span class="cf-journey-arrow">➔</span>
-            <span class="cf-journey-step">CREATE</span>
-            <span class="cf-journey-arrow">➔</span>
-            <span class="cf-journey-step accent">SHARE</span>
-            <span class="cf-journey-arrow">➔</span>
-            <span class="cf-journey-step">REMEMBER</span>
-          </div>
-          <div class="cf-journey-sub">Inviting active consumer participation rather than passive logo exposure.</div>
-        </div>
-
-        <!-- 3. REGIONAL HIP-HOP BENCHMARKS & LAOS POSITIONING (Card-free comparative rows) -->
-        <div style="margin-top:1rem; margin-bottom:1.2rem;">
-          <div class="section-label ru">Regional Benchmarks • ເວທີມາດຕະຖານລະດັບພາກພື້ນອາຊຽນ</div>
-          <h3 style="font-family:var(--ff-d); font-size:clamp(1.8rem, 3.2vw, 2.5rem); text-transform:uppercase; color:#fff; line-height:1.1;">
-            POSITIONING LAOS ON THE <span class="hl">SOUTHEAST ASIAN</span> MAP
-          </h3>
-        </div>
-
-        <div class="cf-benchmarks-wrap ru">
-          <div class="cf-benchmark-row">
-            <div class="cf-bm-country">🇻🇳 VIETNAM</div>
-            <div class="cf-bm-name">HIPFEST</div>
-            <div class="cf-bm-stat">40+ Countries</div>
-            <div class="cf-bm-role">Southeast Asia's massive urban culture gathering uniting thousands of international dancers, MCs, and graffiti writers across multi-day exchange.</div>
-          </div>
-          <div class="cf-benchmark-row">
-            <div class="cf-bm-country">🇸🇬 SINGAPORE</div>
-            <div class="cf-bm-name">SUPER 24</div>
-            <div class="cf-bm-stat">100 Teams • 15K+ Fans</div>
-            <div class="cf-bm-role">The ultimate 4-sided 24-dancer team choreography championship setting the gold standard for creative team excellence and stadium spectacles.</div>
-          </div>
-          <div class="cf-benchmark-row">
-            <div class="cf-bm-country">🇹🇭 THAILAND</div>
-            <div class="cf-bm-name">BC ONE SEA</div>
-            <div class="cf-bm-stat">10 SEA Nations</div>
-            <div class="cf-bm-role">The premier Olympic-standard 1v1 Breaking battle pathway sending Southeast Asia's top b-boys and b-girls directly to the Red Bull BC One World Finals.</div>
-          </div>
-          <div class="cf-benchmark-row">
-            <div class="cf-bm-country">🌍 GLOBAL</div>
-            <div class="cf-bm-name">HHI WORLDS</div>
-            <div class="cf-bm-stat">PH • JP • TH Champions</div>
-            <div class="cf-bm-role">The world championship stage proving Southeast Asian urban dancers can triumph over the world's best, inspiring Lao youth to compete globally.</div>
-          </div>
-          <div class="cf-benchmark-row laos-row">
-            <div class="cf-bm-country" style="color:var(--gold);">🇱🇦 LAOS (LIHF 2026)</div>
-            <div class="cf-bm-name" style="color:var(--gold);">LIHF VIENTIANE</div>
-            <div class="cf-bm-stat" style="color:var(--red-b);">Lao-ITECC Platform</div>
-            <div class="cf-bm-role" style="color:#ffffff;">The premier international urban culture platform establishing Laos as an emerging regional epicenter, connecting Lao youth with Vietnam, Thailand, Singapore, and beyond.</div>
-          </div>
-        </div>
-
-        <!-- STRATEGIC POSITIONING STRIP (Card-free banner) -->
-        <div class="cf-positioning-bar ru">
-          <div class="cf-pos-left">
-            <span class="cf-pos-tag">LAOS STRATEGIC POSITIONING • ບົດບາດຍຸດທະສາດຂອງລາວ</span>
-            <h4 class="cf-pos-title">LIHF Positions Laos as an Emerging Regional Hub for Authentic Hip-Hop Culture</h4>
-            <p class="cf-pos-desc">By creating an international-standard stage at Lao-ITECC, LIHF brings top talent, regional tourism, and corporate sponsors into an authentic youth movement connecting Laos with the greater Southeast Asian creative economy.</p>
-          </div>
-          <div class="cf-pos-right">
-            <a href="#packages" class="btn-p" style="white-space:nowrap;">Become A Regional Partner →</a>
-            <span class="cf-pos-sources">Sources: HIPFEST official, Super 24 official, Red Bull BC One SEA, Hip Hop International.</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </div><!-- /acc-body regional -->
-</div><!-- /acc-section regional -->
-<div class="section-divider"></div>
-
-<!-- AUDIENCE -->
-<div class="acc-section" data-acc="audience">
-  <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-    <div class="acc-num">03</div>
-    <div class="acc-title-wrap">
-      <div class="acc-label">TARGET AUDIENCE • ຜູ້ຊົມເປົ້າໝາຍ</div>
-      <div class="acc-h2">TARGET <span class="hl">AUDIENCE</span> &amp; SEGMENTS</div>
-    </div>
-    <div class="acc-arrow">▼</div>
-  </div>
-  <div class="acc-body">
-    <section id="audience" class="acc-inner">
-      <div class="noise-overlay"></div>
-      <div class="container cardfree-layout">
-        <div style="text-align:center; max-width:850px; margin:0 auto 2rem;">
-          <div class="section-label ru" style="justify-content:center;">Target Audience • A valuable youth-driven market</div>
-          <h2 class="section-title ru" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.2; text-transform:uppercase;">
-            HIGH-VALUE, <span class="hl">PASSION-LED</span><br>CONSUMER SEGMENTS
-          </h2>
-          <div class="red-line ru" style="margin:1.2rem auto;"></div>
-          <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.65;">
-            LIHF 2026 connects brands directly with the most active, trend-setting demographics in Laos and Southeast Asia—driven by urban culture, passion, and high digital engagement.
-          </p>
-        </div>
-
-        <!-- Card-Free Architectural Audience Grid -->
-        <div class="cf-audience-grid ru">
-          <!-- Segment 1: Young Adults (50%) -->
-          <div class="cf-aud-col">
-            <div class="cf-aud-header">
-              <div class="cf-aud-num">50%</div>
-              <span class="cf-aud-tag">CORE AUDIENCE</span>
-            </div>
-            <h3 class="cf-aud-title">Young Adults (19–35)</h3>
-            <p class="cf-aud-sub">Working professionals, university students &amp; urban trendsetters</p>
-            <ul class="cf-aud-list">
-              <li>High disposable income for lifestyle, tech, fashion, streetwear, food &amp; beverage</li>
-              <li>Key cultural influencers; early adopters of digital banking and mobile payment services</li>
-              <li>Peak evening concert attendance and primary consumers of festival retail &amp; F&amp;B</li>
-            </ul>
-          </div>
-
-          <!-- Segment 2: Youth & Teens (35%) -->
-          <div class="cf-aud-col">
-            <div class="cf-aud-header">
-              <div class="cf-aud-num" style="color:var(--gold);">35%</div>
-              <span class="cf-aud-tag" style="border-color:rgba(212,175,55,0.4); color:var(--gold);">DIGITAL NATIVES</span>
-            </div>
-            <h3 class="cf-aud-title">Youth &amp; Teens (13–18)</h3>
-            <p class="cf-aud-sub">High school students, emerging dancers, gamers &amp; creators</p>
-            <ul class="cf-aud-list">
-              <li>Extremely high digital fluency and social media viral sharing behavior on TikTok &amp; IG</li>
-              <li>Long-term brand loyalty potential through authentic early lifestyle engagement</li>
-              <li>Direct participants in grassroots workshops, open cyphers &amp; youth dance battles</li>
-            </ul>
-          </div>
-
-          <!-- Segment 3: Industry & Adults (15%) -->
-          <div class="cf-aud-col">
-            <div class="cf-aud-header">
-              <div class="cf-aud-num" style="color:#ffffff;">15%</div>
-              <span class="cf-aud-tag" style="border-color:rgba(255,255,255,0.25); color:rgba(255,255,255,0.7);">PREMIUM &amp; VIP</span>
-            </div>
-            <h3 class="cf-aud-title">Industry &amp; Adults (36–45+)</h3>
-            <p class="cf-aud-sub">Creative agency directors, business owners, parents &amp; media guests</p>
-            <ul class="cf-aud-list">
-              <li>Premium purchasing power for VIP hospitality, luxury goods and corporate networking</li>
-              <li>Appreciators of cultural diplomacy, national arts development &amp; corporate CSR</li>
-              <li>Key decision-makers for media endorsements, brand sponsorships &amp; talent bookings</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Sleek Card-Free Core Sponsor Fit Bar -->
-        <div class="cf-sponsor-fit-bar ru">
-          <span class="cf-fit-badge">CORE SPONSOR FIT</span>
-          <div class="cf-fit-categories">
-            <span>FMCG &amp; Beverage</span>
-            <span class="cf-fit-sep">•</span>
-            <span>Telecom &amp; 5G</span>
-            <span class="cf-fit-sep">•</span>
-            <span>Fintech &amp; Banking</span>
-            <span class="cf-fit-sep">•</span>
-            <span>Streetwear &amp; Fashion</span>
-            <span class="cf-fit-sep">•</span>
-            <span>Automotive &amp; Mobility</span>
-            <span class="cf-fit-sep">•</span>
-            <span>Consumer Tech</span>
-            <span class="cf-fit-sep">•</span>
-            <span>Tourism &amp; Hospitality</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div><!-- /acc-body audience -->
-</div><!-- /acc-section audience -->
-
-<!-- BATTLES (Event Pillars — Immersive 3D Tilt Cards & Expandable Modal) -->
-<!-- ACTIVITIES & BATTLES — INTERACTIVE 7 CULTURE PILLARS -->
+<!-- BATTLES (Event Pillars — Notched Project Cards & Expandable Modal) -->
+<!-- ACTIVITIES & BATTLES — INTERACTIVE 8 CULTURE PILLARS -->
 <div class="acc-section" data-acc="battles">
   <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-    <div class="acc-num">04</div>
+    <div class="acc-num">02</div>
     <div class="acc-title-wrap">
       <div class="acc-label">8 CULTURE PILLARS • 8 ເສົາຫຼັກວັດທະນະທຳ</div>
       <div class="acc-h2">8 CULTURE <span class="hl">PILLARS</span> &amp; ACTIVITIES</div>
@@ -13596,242 +13921,242 @@ body.gsap-ready .acc-section .rr {
           </h2>
           <div class="red-line ru" style="margin:1.2rem auto;"></div>
           <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.65;">
-            Each activity creates a distinct activation angle for audiences and sponsors: performance, competition, community, commerce, content, and high-impact media moments. <strong style="color:var(--gold);">Click on any activity row below to inspect full rules, schedule, prizes &amp; sponsor integration options.</strong>
+            Each activity creates a distinct activation angle for audiences and sponsors: performance, competition, community, commerce, content, and high-impact media moments. <strong style="color:var(--gold);">Click on any activity card below to inspect full rules, schedule, prizes &amp; sponsor integration options.</strong>
           </p>
         </div>
 
-        <!-- Card-Free Architectural Culture Pillars Lineup -->
-        <div class="cf-pillars-lineup ru">
-          
-          <!-- ACTIVITY 01: Breaking 2 vs 2 -->
-          <div class="act-card cf-pillar-row" data-act-id="0" role="button" tabindex="0">
-            <div class="cf-prow-left">
-              <span class="cf-prow-num">// 01</span>
-              <div class="cf-prow-thumb">
-                <img src="assets/battle_breaking.jpg" alt="Breaking 2 vs 2 Battle" loading="lazy">
+        <!-- Notched Project Cards Lineup (card new.js style with transparent 3D layers) -->
+        <div class="notched-activities-grid ru">
+
+          <!-- ACTIVITY 01: Breaking 2 vs 2 Battle -->
+          <div class="act-card notched-card" data-act-id="0" role="button" tabindex="0">
+            <div class="notched-cover-wrap">
+              <div class="notched-cover">
+                <img src="assets/battle_breaking.jpg" alt="Breaking 2 vs 2 Battle" class="notched-cover-bg" loading="lazy" />
+                <div class="notched-cover-dim"></div>
+                <img src="assets/activities/act_breaking.png" alt="Breaking 3D Element" class="notched-cover-screen" loading="lazy" />
+                <div class="notched-badge-wrap">
+                  <span class="notched-badge">Olympic Pillar</span>
+                </div>
               </div>
+              <div aria-hidden="true" class="notched-notch-block"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-v"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-h"></div>
+              <span aria-hidden="true" class="notched-arrow-disc">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </span>
             </div>
-            <div class="cf-prow-center">
-              <div class="cf-prow-eyebrow">
-                <span>Olympic Pillar</span>
-                <span class="cf-prow-dot"></span>
-                <span>64 Dancers • 32 Crews</span>
-              </div>
-              <h3 class="cf-prow-title">Breaking 2 vs 2 Battle</h3>
-              <p class="cf-prow-desc">Olympic-caliber B-Boy &amp; B-Girl 2v2 knockout championship uniting top dancers from ASEAN, Japan &amp; Europe.</p>
-            </div>
-            <div class="cf-prow-right">
-              <div class="cf-prow-pills">
-                <span class="cf-pill-prize">🏆 32,000,000 LAK Pool</span>
-                <span class="cf-pill-sched">Day 1 &amp; Day 2 Knockout</span>
-              </div>
-              <div class="cf-prow-btn">
-                <span>Inspect Specs</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
+            <div class="notched-card-info">
+              <h3 class="notched-card-title">Breaking 2 vs 2 Battle</h3>
+              <p class="notched-card-desc">Olympic-caliber B-Boy &amp; B-Girl 2v2 knockout championship uniting top dancers from ASEAN, Japan &amp; Europe.</p>
+              <ul class="notched-card-tags">
+                <li class="notched-card-tag">🏆 32M LAK Pool</li>
+                <li class="notched-card-tag">Day 1 &amp; Day 2</li>
+                <li class="notched-card-tag">64 Dancers</li>
+              </ul>
             </div>
           </div>
 
-          <!-- ACTIVITY 02: Open Style 2 vs 2 -->
-          <div class="act-card cf-pillar-row" data-act-id="1" role="button" tabindex="0">
-            <div class="cf-prow-left">
-              <span class="cf-prow-num">// 02</span>
-              <div class="cf-prow-thumb">
-                <img src="assets/battle_openstyle.jpg" alt="Open Style 2 vs 2 Battle" loading="lazy">
+          <!-- ACTIVITY 02: Open Style 2 vs 2 Battle -->
+          <div class="act-card notched-card" data-act-id="1" role="button" tabindex="0">
+            <div class="notched-cover-wrap">
+              <div class="notched-cover">
+                <img src="assets/battle_openstyle.jpg" alt="Open Style 2 vs 2 Battle" class="notched-cover-bg" loading="lazy" />
+                <div class="notched-cover-dim"></div>
+                <img src="assets/activities/act_openstyle.png" alt="Open Style 3D Element" class="notched-cover-screen" loading="lazy" />
+                <div class="notched-badge-wrap">
+                  <span class="notched-badge">Freestyle Pillar</span>
+                </div>
               </div>
+              <div aria-hidden="true" class="notched-notch-block"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-v"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-h"></div>
+              <span aria-hidden="true" class="notched-arrow-disc">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </span>
             </div>
-            <div class="cf-prow-center">
-              <div class="cf-prow-eyebrow">
-                <span>Freestyle Pillar</span>
-                <span class="cf-prow-dot"></span>
-                <span>48 Duos • All Street Styles</span>
-              </div>
-              <h3 class="cf-prow-title">Open Style 2 vs 2 Battle</h3>
-              <p class="cf-prow-desc">HipHop, Popping, Locking, Krump, Waacking and freestyle street dance showdown celebrating raw musicality.</p>
-            </div>
-            <div class="cf-prow-right">
-              <div class="cf-prow-pills">
-                <span class="cf-pill-prize">🏆 27,000,000 LAK Pool</span>
-                <span class="cf-pill-sched">Day 1 &amp; Day 2 Arena</span>
-              </div>
-              <div class="cf-prow-btn">
-                <span>Inspect Specs</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- ACTIVITY 03: Crew Competition -->
-          <div class="act-card cf-pillar-row" data-act-id="2" role="button" tabindex="0">
-            <div class="cf-prow-left">
-              <span class="cf-prow-num">// 03</span>
-              <div class="cf-prow-thumb">
-                <img src="assets/battle_crew.jpg" alt="Crew Choreography Showdown" loading="lazy">
-              </div>
-            </div>
-            <div class="cf-prow-center">
-              <div class="cf-prow-eyebrow">
-                <span>Mega Showcase</span>
-                <span class="cf-prow-dot"></span>
-                <span>16 Elite Crews (5–12 Members)</span>
-              </div>
-              <h3 class="cf-prow-title">Crew Choreography Showdown</h3>
-              <p class="cf-prow-desc">Spectacular synchronized choreography showcase on the main festival stage with theatrical lighting and broadcast coverage.</p>
-            </div>
-            <div class="cf-prow-right">
-              <div class="cf-prow-pills">
-                <span class="cf-pill-prize">🏆 35,000,000 LAK Pool</span>
-                <span class="cf-pill-sched">Day 2 Grand Finals</span>
-              </div>
-              <div class="cf-prow-btn">
-                <span>Inspect Specs</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
+            <div class="notched-card-info">
+              <h3 class="notched-card-title">Open Style 2 vs 2 Battle</h3>
+              <p class="notched-card-desc">HipHop, Popping, Locking, Krump, Waacking and freestyle street dance showdown celebrating raw musicality.</p>
+              <ul class="notched-card-tags">
+                <li class="notched-card-tag">🏆 27M LAK Pool</li>
+                <li class="notched-card-tag">Day 1 &amp; Day 2</li>
+                <li class="notched-card-tag">48 Duos</li>
+              </ul>
             </div>
           </div>
 
-          <!-- ACTIVITY 04: DJ Open Format Showdown -->
-          <div class="act-card cf-pillar-row" data-act-id="3" role="button" tabindex="0">
-            <div class="cf-prow-left">
-              <span class="cf-prow-num">// 04</span>
-              <div class="cf-prow-thumb">
-                <img src="assets/battle_dj.jpg" alt="DJ Turntablism Showdown" loading="lazy">
+          <!-- ACTIVITY 03: Crew Choreography Showdown -->
+          <div class="act-card notched-card" data-act-id="2" role="button" tabindex="0">
+            <div class="notched-cover-wrap">
+              <div class="notched-cover">
+                <img src="assets/battle_crew.jpg" alt="Crew Choreography Showdown" class="notched-cover-bg" loading="lazy" />
+                <div class="notched-cover-dim"></div>
+                <img src="assets/activities/act_choreo.png" alt="Crew Choreography 3D Element" class="notched-cover-screen" loading="lazy" />
+                <div class="notched-badge-wrap">
+                  <span class="notched-badge">Mega Showcase</span>
+                </div>
               </div>
+              <div aria-hidden="true" class="notched-notch-block"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-v"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-h"></div>
+              <span aria-hidden="true" class="notched-arrow-disc">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </span>
             </div>
-            <div class="cf-prow-center">
-              <div class="cf-prow-eyebrow">
-                <span>Music Pillar</span>
-                <span class="cf-prow-dot"></span>
-                <span>12 Elite Turntablists</span>
-              </div>
-              <h3 class="cf-prow-title">DJ Turntablism Showdown</h3>
-              <p class="cf-prow-desc">Vinyl scratching, speed mixing, beat juggling and party rocking battles judged on technique, track selection &amp; stage presence.</p>
-            </div>
-            <div class="cf-prow-right">
-              <div class="cf-prow-pills">
-                <span class="cf-pill-prize">🏆 20,000,000 LAK Pool</span>
-                <span class="cf-pill-sched">Day 1 Evening Battle</span>
-              </div>
-              <div class="cf-prow-btn">
-                <span>Inspect Specs</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
+            <div class="notched-card-info">
+              <h3 class="notched-card-title">Crew Choreography Showdown</h3>
+              <p class="notched-card-desc">Spectacular synchronized choreography showcase on the main festival stage with theatrical lighting and broadcast.</p>
+              <ul class="notched-card-tags">
+                <li class="notched-card-tag">🏆 35M LAK Pool</li>
+                <li class="notched-card-tag">Day 2 Finals</li>
+                <li class="notched-card-tag">16 Elite Crews</li>
+              </ul>
             </div>
           </div>
 
-          <!-- ACTIVITY 05: Graffiti Art Exhibition -->
-          <div class="act-card cf-pillar-row" data-act-id="4" role="button" tabindex="0">
-            <div class="cf-prow-left">
-              <span class="cf-prow-num">// 05</span>
-              <div class="cf-prow-thumb">
-                <img src="assets/battle_graffiti.jpg" alt="Graffiti Art Live Exhibition" loading="lazy">
+          <!-- ACTIVITY 04: DJ Turntablism Showdown -->
+          <div class="act-card notched-card" data-act-id="3" role="button" tabindex="0">
+            <div class="notched-cover-wrap">
+              <div class="notched-cover">
+                <img src="assets/battle_dj.jpg" alt="DJ Turntablism Showdown" class="notched-cover-bg" loading="lazy" />
+                <div class="notched-cover-dim"></div>
+                <img src="assets/activities/act_dj.png" alt="DJ Turntablism 3D Element" class="notched-cover-screen" loading="lazy" />
+                <div class="notched-badge-wrap">
+                  <span class="notched-badge">Music Pillar</span>
+                </div>
               </div>
+              <div aria-hidden="true" class="notched-notch-block"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-v"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-h"></div>
+              <span aria-hidden="true" class="notched-arrow-disc">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </span>
             </div>
-            <div class="cf-prow-center">
-              <div class="cf-prow-eyebrow">
-                <span>Visual Pillar</span>
-                <span class="cf-prow-dot"></span>
-                <span>8 Master Aerosol Artists</span>
-              </div>
-              <h3 class="cf-prow-title">Graffiti Art Live Exhibition</h3>
-              <p class="cf-prow-desc">Live large-scale aerosol mural creation across 50m festival walls, converting urban spaces into vibrant interactive public art.</p>
+            <div class="notched-card-info">
+              <h3 class="notched-card-title">DJ Turntablism Showdown</h3>
+              <p class="notched-card-desc">Vinyl scratching, speed mixing, beat juggling and party rocking battles judged on technique &amp; stage presence.</p>
+              <ul class="notched-card-tags">
+                <li class="notched-card-tag">🏆 20M LAK Pool</li>
+                <li class="notched-card-tag">Day 1 Evening</li>
+                <li class="notched-card-tag">12 Masters</li>
+              </ul>
             </div>
-            <div class="cf-prow-right">
-              <div class="cf-prow-pills">
-                <span class="cf-pill-prize">🏆 15,000,000 LAK Value</span>
-                <span class="cf-pill-sched">Day 1 to Day 3 Canvas</span>
+          </div>
+
+          <!-- ACTIVITY 05: Graffiti Art Live Exhibition -->
+          <div class="act-card notched-card" data-act-id="4" role="button" tabindex="0">
+            <div class="notched-cover-wrap">
+              <div class="notched-cover">
+                <img src="assets/battle_graffiti.jpg" alt="Graffiti Art Live Exhibition" class="notched-cover-bg" loading="lazy" />
+                <div class="notched-cover-dim"></div>
+                <img src="assets/activities/act_graffiti.png" alt="Graffiti 3D Element" class="notched-cover-screen" loading="lazy" />
+                <div class="notched-badge-wrap">
+                  <span class="notched-badge">Visual Pillar</span>
+                </div>
               </div>
-              <div class="cf-prow-btn">
-                <span>Inspect Specs</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
+              <div aria-hidden="true" class="notched-notch-block"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-v"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-h"></div>
+              <span aria-hidden="true" class="notched-arrow-disc">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </span>
+            </div>
+            <div class="notched-card-info">
+              <h3 class="notched-card-title">Graffiti Art Live Exhibition</h3>
+              <p class="notched-card-desc">Live large-scale aerosol mural creation across 50m festival walls, converting urban spaces into vibrant public art.</p>
+              <ul class="notched-card-tags">
+                <li class="notched-card-tag">🏆 15M LAK Value</li>
+                <li class="notched-card-tag">Days 1 to 3</li>
+                <li class="notched-card-tag">8 Artists</li>
+              </ul>
             </div>
           </div>
 
           <!-- ACTIVITY 06: Rap 7 to Smoke Cypher -->
-          <div class="act-card cf-pillar-row" data-act-id="5" role="button" tabindex="0">
-            <div class="cf-prow-left">
-              <span class="cf-prow-num">// 06</span>
-              <div class="cf-prow-thumb">
-                <img src="assets/battle_mc.jpg" alt="Rap 7-to-Smoke Cypher" loading="lazy">
+          <div class="act-card notched-card" data-act-id="5" role="button" tabindex="0">
+            <div class="notched-cover-wrap">
+              <div class="notched-cover">
+                <img src="assets/battle_mc.jpg" alt="Rap 7 to Smoke Cypher" class="notched-cover-bg" loading="lazy" />
+                <div class="notched-cover-dim"></div>
+                <img src="assets/activities/act_rap.png" alt="Rap Cypher 3D Element" class="notched-cover-screen" loading="lazy" />
+                <div class="notched-badge-wrap">
+                  <span class="notched-badge">Vocal Pillar</span>
+                </div>
               </div>
+              <div aria-hidden="true" class="notched-notch-block"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-v"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-h"></div>
+              <span aria-hidden="true" class="notched-arrow-disc">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </span>
             </div>
-            <div class="cf-prow-center">
-              <div class="cf-prow-eyebrow">
-                <span>Vocal Pillar</span>
-                <span class="cf-prow-dot"></span>
-                <span>8 Selected MCs • 20 Mins</span>
-              </div>
-              <h3 class="cf-prow-title">Rap 7 to Smoke Cypher</h3>
-              <p class="cf-prow-desc">High-pressure rapid-fire rap cypher knockout where the reigning MC must defend against 7 contenders consecutively to claim glory.</p>
-            </div>
-            <div class="cf-prow-right">
-              <div class="cf-prow-pills">
-                <span class="cf-pill-prize">🏆 15,000,000 LAK Pool</span>
-                <span class="cf-pill-sched">Day 2 Main Stage</span>
-              </div>
-              <div class="cf-prow-btn">
-                <span>Inspect Specs</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
+            <div class="notched-card-info">
+              <h3 class="notched-card-title">Rap 7 to Smoke Cypher</h3>
+              <p class="notched-card-desc">High-pressure rapid-fire rap cypher knockout where the reigning MC must defend against 7 contenders consecutively.</p>
+              <ul class="notched-card-tags">
+                <li class="notched-card-tag">🏆 15M LAK Pool</li>
+                <li class="notched-card-tag">Day 2 Main Stage</li>
+                <li class="notched-card-tag">8 MCs</li>
+              </ul>
             </div>
           </div>
 
           <!-- ACTIVITY 07: Headline Hip-Hop Concert -->
-          <div class="act-card cf-pillar-row" data-act-id="6" role="button" tabindex="0">
-            <div class="cf-prow-left">
-              <span class="cf-prow-num">// 07</span>
-              <div class="cf-prow-thumb">
-                <img src="assets/battle_concert.jpg" alt="Headline Hip-Hop Concert" loading="lazy">
+          <div class="act-card notched-card" data-act-id="6" role="button" tabindex="0">
+            <div class="notched-cover-wrap">
+              <div class="notched-cover">
+                <img src="assets/battle_concert.jpg" alt="Headline Hip-Hop Concert" class="notched-cover-bg" loading="lazy" />
+                <div class="notched-cover-dim"></div>
+                <img src="assets/mascot/mascot_web_05.png" alt="Headline Concert Mascot Element" class="notched-cover-screen" loading="lazy" />
+                <div class="notched-badge-wrap">
+                  <span class="notched-badge">Festival Finale</span>
+                </div>
               </div>
+              <div aria-hidden="true" class="notched-notch-block"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-v"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-h"></div>
+              <span aria-hidden="true" class="notched-arrow-disc">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </span>
             </div>
-            <div class="cf-prow-center">
-              <div class="cf-prow-eyebrow">
-                <span>Festival Finale</span>
-                <span class="cf-prow-dot"></span>
-                <span>Regional Headliners &amp; Guest Stars</span>
-              </div>
-              <h3 class="cf-prow-title">Headline Hip-Hop Concert</h3>
-              <p class="cf-prow-desc">Explosive festival closing concert featuring top-tier Lao, Thai, and regional hip-hop artists with arena lighting &amp; VIP hospitality.</p>
-            </div>
-            <div class="cf-prow-right">
-              <div class="cf-prow-pills">
-                <span class="cf-pill-prize" style="color:#ffffff; background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.2);">⭐ 5,000+ Crowd Peak</span>
-                <span class="cf-pill-sched">Day 3 Evening Prime</span>
-              </div>
-              <div class="cf-prow-btn">
-                <span>Inspect Specs</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
+            <div class="notched-card-info">
+              <h3 class="notched-card-title">Headline Hip-Hop Concert</h3>
+              <p class="notched-card-desc">Explosive festival closing concert featuring top-tier Lao, Thai, and regional hip-hop artists with arena lighting.</p>
+              <ul class="notched-card-tags">
+                <li class="notched-card-tag">⭐ 5,000+ Crowd</li>
+                <li class="notched-card-tag">Day 3 Evening</li>
+                <li class="notched-card-tag">Regional Stars</li>
+              </ul>
             </div>
           </div>
 
-          <!-- ACTIVITY 08: Dance Workshops & Masterclasses -->
-          <div class="act-card cf-pillar-row" data-act-id="7" role="button" tabindex="0">
-            <div class="cf-prow-left">
-              <span class="cf-prow-num">// 08</span>
-              <div class="cf-prow-thumb">
-                <img src="assets/battle_workshop.jpg" alt="Dance Workshops & Classes" loading="lazy">
+          <!-- ACTIVITY 08: Dance Workshops & Classes -->
+          <div class="act-card notched-card" data-act-id="7" role="button" tabindex="0">
+            <div class="notched-cover-wrap">
+              <div class="notched-cover">
+                <img src="assets/battle_workshop.jpg" alt="Dance Workshops & Classes" class="notched-cover-bg" loading="lazy" />
+                <div class="notched-cover-dim"></div>
+                <img src="assets/activities/act_workshop.png" alt="Workshop 3D Element" class="notched-cover-screen" loading="lazy" />
+                <div class="notched-badge-wrap">
+                  <span class="notched-badge">Education Pillar</span>
+                </div>
               </div>
+              <div aria-hidden="true" class="notched-notch-block"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-v"></div>
+              <div aria-hidden="true" class="notched-fillet notched-fillet-h"></div>
+              <span aria-hidden="true" class="notched-arrow-disc">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </span>
             </div>
-            <div class="cf-prow-center">
-              <div class="cf-prow-eyebrow">
-                <span>Education Pillar</span>
-                <span class="cf-prow-dot"></span>
-                <span>6 Intensive Masterclasses</span>
-              </div>
-              <h3 class="cf-prow-title">Dance Workshops &amp; Classes</h3>
-              <p class="cf-prow-desc">6 intensive masterclasses taught by international judges across Breaking, Popping, Locking &amp; Choreography for youth development.</p>
-            </div>
-            <div class="cf-prow-right">
-              <div class="cf-prow-pills">
-                <span class="cf-pill-prize">🎓 15,000,000 LAK Value</span>
-                <span class="cf-pill-sched">Days 1, 2 &amp; 3 Halls</span>
-              </div>
-              <div class="cf-prow-btn">
-                <span>Inspect Specs</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
+            <div class="notched-card-info">
+              <h3 class="notched-card-title">Dance Workshops &amp; Classes</h3>
+              <p class="notched-card-desc">6 intensive masterclasses taught by international judges across Breaking, Popping, Locking &amp; Choreography.</p>
+              <ul class="notched-card-tags">
+                <li class="notched-card-tag">🎓 15M LAK Value</li>
+                <li class="notched-card-tag">Days 1, 2 &amp; 3</li>
+                <li class="notched-card-tag">6 Classes</li>
+              </ul>
             </div>
           </div>
 
@@ -13968,7 +14293,7 @@ body.gsap-ready .acc-section .rr {
 <!-- MARKETING & COMMUNICATION PLAN (Slide 14 - Streamlined) -->
 <div class="acc-section" data-acc="marketing">
   <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-    <div class="acc-num">05</div>
+    <div class="acc-num">03</div>
     <div class="acc-title-wrap">
       <div class="acc-label">MARKETING &amp; COMMS</div>
       <div class="acc-h2">MARKETING &amp; <span class="hl">COMMS</span> PLAN</div>
@@ -14576,7 +14901,7 @@ body.gsap-ready .acc-section .rr {
 <!-- VENUE — KOLLEKTIVA MULTI-ZONE SPATIAL LAYOUT -->
 <div class="acc-section" data-acc="venue">
   <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-    <div class="acc-num">06</div>
+    <div class="acc-num">04</div>
     <div class="acc-title-wrap">
       <div class="acc-label">VENUE &amp; ACTIVATION</div>
       <div class="acc-h2">VENUE &amp; <span class="hl">ACTIVATION</span> ZONES</div>
@@ -14670,7 +14995,7 @@ body.gsap-ready .acc-section .rr {
 <!-- PACKAGES -->
 <div class="acc-section" data-acc="packages">
   <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-    <div class="acc-num">07</div>
+    <div class="acc-num">05</div>
     <div class="acc-title-wrap">
       <div class="acc-label">SPONSORSHIP PACKAGES • ແພັກເກດຜູ້ສະໜັບສະໜູນ</div>
       <div class="acc-h2">SPONSORSHIP <span class="hl">PACKAGES</span> &amp; TIERS</div>
@@ -14831,7 +15156,7 @@ body.gsap-ready .acc-section .rr {
 <!-- MATRIX -->
 <div class="acc-section" data-acc="matrix">
   <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
-    <div class="acc-num">08</div>
+    <div class="acc-num">06</div>
     <div class="acc-title-wrap">
       <div class="acc-label">DELIVERABLES MATRIX</div>
       <div class="acc-h2">DELIVERABLES <span class="hl">MATRIX</span></div>
