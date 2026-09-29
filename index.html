@@ -6461,57 +6461,104 @@ nav { height: 60px !important; padding: 0 !important; }
   }
 }
 
-/* Strategic Positioning Strip (Card-free banner) */
+/* Strategic Positioning Strip (Compact Streamlined) */
 .cf-positioning-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 2rem;
-  padding: 1.8rem 2.2rem;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-left: 4px solid var(--gold);
-  background: rgba(10,10,10,0.6);
-  margin-top: 2rem;
+  gap: 1.5rem;
+  padding: 1.1rem 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid var(--gold);
+  border-radius: 14px;
+  background: rgba(14, 16, 22, 0.65);
+  backdrop-filter: blur(12px);
+  margin-top: 2.2rem;
+  box-sizing: border-box;
 }
 .cf-pos-left {
-  max-width: 720px;
+  max-width: 780px;
+  flex: 1 1 500px;
+}
+.cf-pos-tag-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 .cf-pos-tag {
   font-family: var(--ff-a);
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   color: var(--gold);
   text-transform: uppercase;
-  margin-bottom: 0.4rem;
-  display: block;
+}
+.cf-pos-bullet {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.65rem;
+}
+.cf-pos-lead {
+  font-family: var(--ff-a);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
 }
 .cf-pos-title {
-  font-family: var(--ff-d);
-  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  font-family: var(--ff-a);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  font-weight: 800;
   color: #ffffff;
-  line-height: 1.25;
-  margin-bottom: 0.5rem;
+  line-height: 1.35;
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.02em;
 }
 .cf-pos-desc {
   font-family: var(--ff-b);
-  font-size: 0.92rem;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.55;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+  margin: 0;
 }
 .cf-pos-right {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  align-items: flex-start;
+  gap: 0.4rem;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.cf-pos-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+  padding: 0.55rem 1.15rem !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  border-radius: 999px !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 4px 15px rgba(204, 0, 0, 0.35) !important;
 }
 .cf-pos-sources {
   font-family: var(--ff-a);
-  font-size: 0.66rem;
-  color: rgba(255,255,255,0.4);
-  letter-spacing: 0.05em;
-  max-width: 260px;
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.04em;
+  text-align: right;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .cf-pos-right {
+    align-items: flex-start;
+    width: 100%;
+  }
+  .cf-pos-sources {
+    text-align: left;
+  }
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -15684,19 +15731,6 @@ body.gsap-ready .contact-standalone-section * {
       </div>
     </div>
 
-    <!-- STRATEGIC POSITIONING STRIP -->
-    <div class="cf-positioning-bar">
-      <div class="cf-pos-left">
-        <span class="cf-pos-tag">LAOS STRATEGIC POSITIONING</span>
-        <h4 class="cf-pos-title">LIHF Positions Laos as an Emerging Regional Hub for Authentic Hip-Hop Culture</h4>
-        <p class="cf-pos-desc">By creating an international-standard stage at Lao-ITECC, LIHF brings top talent, regional tourism, and corporate sponsors into an authentic youth movement connecting Laos with the greater Southeast Asian creative economy.</p>
-      </div>
-      <div class="cf-pos-right">
-        <a href="#packages" class="btn-p" style="white-space:nowrap;">Become A Regional Partner →</a>
-        <span class="cf-pos-sources">Sources: HIPFEST official, Super 24 official, Red Bull BC One SEA, Hip Hop International.</span>
-      </div>
-    </div>
-
     <div class="section-divider" style="margin: 3.5rem 0 3rem;"></div>
 
     <!-- ── 3. AUDIENCE & DEMOGRAPHICS (Combined into Section 01) ── -->
@@ -15777,6 +15811,26 @@ body.gsap-ready .contact-standalone-section * {
         <span>Consumer Tech</span>
         <span class="cf-fit-sep">•</span>
         <span>Tourism &amp; Hospitality</span>
+      </div>
+    </div>
+
+    <!-- STRATEGIC POSITIONING STRIP (COMPACT STREAMLINED BRIEFING) -->
+    <div class="cf-positioning-bar">
+      <div class="cf-pos-left">
+        <div class="cf-pos-tag-line">
+          <span class="cf-pos-tag">LAOS STRATEGIC POSITIONING</span>
+          <span class="cf-pos-bullet">•</span>
+          <span class="cf-pos-lead">REGIONAL CREATIVE HUB</span>
+        </div>
+        <h4 class="cf-pos-title">LIHF Positions Laos as an Emerging Regional Epicenter for Authentic Hip-Hop Culture</h4>
+        <p class="cf-pos-desc">By creating an international-standard stage at Lao-ITECC, LIHF brings top talent, regional tourism, and corporate sponsors into an authentic youth movement connecting Laos with Southeast Asia.</p>
+      </div>
+      <div class="cf-pos-right">
+        <a href="#packages" class="btn-p cf-pos-btn">
+          <span>Become A Regional Partner</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </a>
+        <span class="cf-pos-sources">Sources: HIPFEST, Super 24, Red Bull BC One, HHI.</span>
       </div>
     </div>
   </div><!-- /meet-youth-inner -->
@@ -17384,7 +17438,7 @@ body.gsap-ready .contact-standalone-section * {
         <div class="lihf-bento-tall-media" id="bento-flagship-media" title="Click to view next random festival feature">
           <div class="lihf-bento-slides-wrap" id="bento-slides-wrap">
             <div class="bento-slide active" style="background-image: url('assets/activities/act_concert.webp');" data-label="Headline Concert"></div>
-            <div class="bento-slide" style="background-image: url('assets/main_kv.jpg');" data-label="Official Master KV"></div>
+            <div class="bento-slide" style="background-image: url('assets/hero/hero_bg_1.jpg');" data-label="Hero Festival Atmosphere"></div>
             <div class="bento-slide" style="background-image: url('assets/activities/act_breaking.webp');" data-label="Breaking 2v2 Battle"></div>
             <div class="bento-slide" style="background-image: url('assets/activities/act_openstyle.webp');" data-label="Open Style Freestyle"></div>
             <div class="bento-slide" style="background-image: url('assets/activities/act_choreo.webp');" data-label="Crew Choreography"></div>
