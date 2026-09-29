@@ -12614,15 +12614,17 @@ th.bmm-col-active {
   opacity: 0.22;
 }
 .lihf-bento-container {
-  max-width: 1240px;
+  max-width: 100% !important;
+  width: 100% !important;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 clamp(1.2rem, 3.5vw, 4rem) !important;
   position: relative;
   z-index: 2;
+  box-sizing: border-box;
 }
 .lihf-bento-header {
   text-align: center;
-  max-width: 860px;
+  max-width: 1100px;
   margin: 0 auto 3rem;
 }
 .lihf-bento-header .section-label {
@@ -12642,8 +12644,10 @@ th.bmm-col-active {
 /* Bento Grid: 3 columns, auto rows on desktop */
 .lihf-bento-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(350px, 1.15fr) 1fr 1fr;
   gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Base Bento Card */
@@ -12678,32 +12682,50 @@ th.bmm-col-active {
 }
 .lihf-bento-tall-media {
   position: relative;
-  height: 290px;
+  height: clamp(280px, 32vw, 340px);
   overflow: hidden;
+  cursor: pointer;
+  user-select: none;
 }
-.lihf-bento-tall-img {
+.lihf-bento-slides-wrap {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.lihf-bento-card-tall:hover .lihf-bento-tall-img {
-  transform: scale(1.05);
+.bento-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 0.85s ease, transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.bento-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
 }
 .lihf-bento-tall-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(8, 9, 13, 0.05) 0%, rgba(8, 9, 13, 0.75) 70%, #0f1118 100%);
+  background: linear-gradient(180deg, rgba(8, 9, 13, 0.15) 0%, rgba(8, 9, 13, 0.7) 70%, #0f1118 100%);
+  pointer-events: none;
+  z-index: 2;
 }
 .lihf-bento-tall-badge {
   position: absolute;
   top: 1.25rem;
   left: 1.25rem;
-  z-index: 2;
+  z-index: 3;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(4, 5, 8, 0.8);
+  background: rgba(4, 5, 8, 0.85);
   border: 1px solid rgba(255, 215, 0, 0.5);
   border-radius: 999px;
   padding: 0.35rem 0.8rem;
@@ -12713,6 +12735,68 @@ th.bmm-col-active {
   letter-spacing: 0.1em;
   color: var(--gold);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+.bento-slide-pill {
+  position: absolute;
+  bottom: 1.1rem;
+  right: 1.2rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(14, 15, 20, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 0.28rem 0.75rem;
+  font-family: var(--ff-a);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  pointer-events: none;
+  max-width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.3s ease;
+}
+.bento-slide-pill::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 6px var(--red);
+  flex-shrink: 0;
+}
+.bento-slide-dots {
+  position: absolute;
+  bottom: 1.1rem;
+  left: 1.25rem;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.bento-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.bento-dot.active {
+  width: 18px;
+  border-radius: 999px;
+  background: var(--gold);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
 }
 .lihf-bento-tall-body {
   padding: 1.8rem;
@@ -16973,13 +17057,25 @@ body.gsap-ready .contact-standalone-section * {
       
       <!-- SLOT 1: TALL HERO SHOWCASE (Left Column, Spans 3 Rows) -->
       <div class="lihf-bento-card lihf-bento-card-tall">
-        <div class="lihf-bento-tall-media">
-          <img src="assets/activities/act_concert.webp" alt="LIHF 2026 Mascot Headline Concert" class="lihf-bento-tall-img" loading="lazy" />
+        <div class="lihf-bento-tall-media" id="bento-flagship-media" title="Click to view next random festival feature">
+          <div class="lihf-bento-slides-wrap" id="bento-slides-wrap">
+            <div class="bento-slide active" style="background-image: url('assets/activities/act_concert.webp');" data-label="Headline Concert"></div>
+            <div class="bento-slide" style="background-image: url('assets/main_kv.jpg');" data-label="Official Master KV"></div>
+            <div class="bento-slide" style="background-image: url('assets/activities/act_breaking.webp');" data-label="Breaking 2v2 Battle"></div>
+            <div class="bento-slide" style="background-image: url('assets/activities/act_openstyle.webp');" data-label="Open Style Freestyle"></div>
+            <div class="bento-slide" style="background-image: url('assets/activities/act_choreo.webp');" data-label="Crew Choreography"></div>
+            <div class="bento-slide" style="background-image: url('assets/activities/act_dj.webp');" data-label="DJ Turntablism"></div>
+            <div class="bento-slide" style="background-image: url('assets/activities/act_graffiti.webp');" data-label="Graffiti Live Art"></div>
+            <div class="bento-slide" style="background-image: url('assets/activities/act_rap.webp');" data-label="Rap 7-To-Smoke"></div>
+            <div class="bento-slide" style="background-image: url('assets/activities/act_workshop.webp');" data-label="Dance Workshops"></div>
+          </div>
           <div class="lihf-bento-tall-overlay"></div>
           <div class="lihf-bento-tall-badge">
             <span>🔥</span>
             <span>ANNUAL FLAGSHIP SUMMIT</span>
           </div>
+          <div class="bento-slide-pill" id="bento-slide-label">Headline Concert</div>
+          <div class="bento-slide-dots" id="bento-slide-dots"></div>
         </div>
         <div class="lihf-bento-tall-body">
           <div>
@@ -19676,6 +19772,99 @@ function replayLogoIntro(){
 
   console.log('✅ LIHF Accordion system successfully active on ' + sections.length + ' sections');
 })();</script>
+
+<script>
+/* ═════════════════════════════════════════════════════════════════════
+   LIHF 2026 Bento Flagship Summit 9-Image Random Crossfade Slideshow
+   Rotates through 8 activity covers + Master Hero KV seamlessly
+   ═════════════════════════════════════════════════════════════════════ */
+(function initBentoFlagshipSlideshow() {
+  const mediaContainer = document.getElementById('bento-flagship-media');
+  const slides = document.querySelectorAll('#bento-slides-wrap .bento-slide');
+  const labelEl = document.getElementById('bento-slide-label');
+  const dotsContainer = document.getElementById('bento-slide-dots');
+  if (!mediaContainer || !slides.length) return;
+
+  // Clear existing dots if any
+  dotsContainer.innerHTML = '';
+
+  // Generate interactive dot indicators
+  slides.forEach((slide, idx) => {
+    const dot = document.createElement('span');
+    dot.className = 'bento-dot' + (idx === 0 ? ' active' : '');
+    dot.setAttribute('title', slide.getAttribute('data-label') || ('Feature ' + (idx + 1)));
+    dot.setAttribute('aria-label', slide.getAttribute('data-label') || ('Feature ' + (idx + 1)));
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      goToSlide(idx);
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  let currentIndex = 0;
+  let autoTimer = null;
+
+  function updateSlide(newIndex) {
+    if (newIndex < 0 || newIndex >= slides.length) return;
+    
+    // Remove active from old slide & dot
+    slides[currentIndex].classList.remove('active');
+    const dots = dotsContainer.querySelectorAll('.bento-dot');
+    if (dots[currentIndex]) dots[currentIndex].classList.remove('active');
+
+    // Update index
+    currentIndex = newIndex;
+
+    // Add active to new slide & dot
+    slides[currentIndex].classList.add('active');
+    if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+
+    // Smoothly transition label
+    const label = slides[currentIndex].getAttribute('data-label');
+    if (labelEl && label) {
+      labelEl.style.opacity = '0';
+      setTimeout(() => {
+        labelEl.textContent = label;
+        labelEl.style.opacity = '1';
+      }, 180);
+    }
+  }
+
+  function pickRandomIndex() {
+    if (slides.length <= 1) return 0;
+    let nextIndex;
+    do {
+      nextIndex = Math.floor(Math.random() * slides.length);
+    } while (nextIndex === currentIndex);
+    return nextIndex;
+  }
+
+  function nextRandomSlide() {
+    updateSlide(pickRandomIndex());
+  }
+
+  function goToSlide(idx) {
+    updateSlide(idx);
+    resetTimer();
+  }
+
+  function resetTimer() {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = setInterval(nextRandomSlide, 3800);
+  }
+
+  // Click anywhere on the media card advances to another random feature immediately
+  mediaContainer.addEventListener('click', () => {
+    nextRandomSlide();
+    resetTimer();
+  });
+
+  // Pick an initial random slide on load for dynamic freshness
+  const initialRandom = Math.floor(Math.random() * slides.length);
+  updateSlide(initialRandom);
+  resetTimer();
+})();
+</script>
 
 </body>
 </html>
