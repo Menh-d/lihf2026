@@ -11715,6 +11715,433 @@ body.gsap-ready .acc-inner .ru {
   line-height: 1.4;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   SPONSORSHIP 3D BOOMBOX CARDS SYSTEM (SLEEK & FLOATING ICONS)
+   ══════════════════════════════════════════════════════════════ */
+@keyframes spSpeakerBob {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(-1.5deg);
+  }
+}
+
+@keyframes spGlowPulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.1);
+  }
+}
+
+.sp-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.8rem;
+  margin-bottom: 3.5rem;
+  align-items: stretch;
+}
+
+.sp-card {
+  position: relative;
+  border-radius: 26px;
+  background: linear-gradient(180deg, rgba(22, 23, 29, 0.9) 0%, rgba(10, 11, 15, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 2.2rem 1.45rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  overflow: visible;
+}
+
+.sp-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Floating Boombox Showcase Stage */
+.sp-stage {
+  position: relative;
+  width: 100%;
+  height: 155px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  overflow: visible;
+}
+
+.sp-stage-glow {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  filter: blur(32px);
+  pointer-events: none;
+  animation: spGlowPulse 4.5s ease-in-out infinite;
+  z-index: 1;
+}
+
+.sp-speaker-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spSpeakerBob 4.2s ease-in-out infinite;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sp-card:hover .sp-speaker-wrap {
+  transform: translateY(-12px) scale(1.1) rotate(-2deg);
+}
+
+/* Stagger animation timing */
+.sp-card:nth-child(1) .sp-speaker-wrap { animation-delay: 0s; }
+.sp-card:nth-child(2) .sp-speaker-wrap { animation-delay: 0.8s; }
+.sp-card:nth-child(3) .sp-speaker-wrap { animation-delay: 1.6s; }
+.sp-card:nth-child(4) .sp-speaker-wrap { animation-delay: 2.4s; }
+.sp-card:nth-child(5) .sp-speaker-wrap { animation-delay: 3.2s; }
+
+.sp-speaker-img {
+  max-width: 155px;
+  max-height: 138px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.85));
+  transition: filter 0.4s ease;
+}
+
+.sp-card:hover .sp-speaker-img {
+  filter: drop-shadow(0 20px 32px rgba(0, 0, 0, 0.95));
+}
+
+/* EQ / Audio micro-badge */
+.sp-eq-badge {
+  position: absolute;
+  top: -6px;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.25rem 0.6rem;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-family: var(--ff-a);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+  z-index: 3;
+}
+.sp-eq-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 9px;
+}
+.sp-eq-bar {
+  width: 2px;
+  border-radius: 1px;
+  animation: spEqJump 1.2s ease-in-out infinite alternate;
+}
+.sp-eq-bar:nth-child(1) { height: 4px; animation-delay: 0.1s; }
+.sp-eq-bar:nth-child(2) { height: 8px; animation-delay: 0.3s; }
+.sp-eq-bar:nth-child(3) { height: 6px; animation-delay: 0.2s; }
+@keyframes spEqJump {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1); }
+}
+
+/* 1. Title Tier */
+.sp-card-title-tier {
+  border-color: rgba(255, 215, 0, 0.45);
+  background: linear-gradient(180deg, rgba(32, 22, 24, 0.92) 0%, rgba(14, 10, 12, 0.98) 100%);
+  box-shadow: 0 16px 45px rgba(204, 0, 0, 0.25), 0 0 35px rgba(255, 215, 0, 0.12), inset 0 1px 0 rgba(255, 215, 0, 0.35);
+}
+.sp-card-title-tier:hover {
+  border-color: rgba(255, 215, 0, 0.85);
+  box-shadow: 0 22px 55px rgba(204, 0, 0, 0.4), 0 0 50px rgba(255, 215, 0, 0.25);
+}
+.sp-card-title-tier .sp-stage-glow {
+  background: radial-gradient(circle, rgba(204, 0, 0, 0.65) 0%, rgba(255, 215, 0, 0.35) 55%, transparent 75%);
+}
+
+/* 2. Platinum Tier */
+.sp-card-plat-tier {
+  border-color: rgba(229, 228, 226, 0.35);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 30px rgba(220, 230, 250, 0.1);
+}
+.sp-card-plat-tier:hover {
+  border-color: rgba(229, 228, 226, 0.75);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(220, 230, 250, 0.25);
+}
+.sp-card-plat-tier .sp-stage-glow {
+  background: radial-gradient(circle, rgba(229, 228, 226, 0.55) 0%, rgba(160, 200, 240, 0.25) 55%, transparent 75%);
+}
+
+/* 3. Gold Tier */
+.sp-card-gold-tier {
+  border-color: rgba(255, 199, 0, 0.35);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 30px rgba(255, 199, 0, 0.12);
+}
+.sp-card-gold-tier:hover {
+  border-color: rgba(255, 199, 0, 0.8);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 45px rgba(255, 199, 0, 0.28);
+}
+.sp-card-gold-tier .sp-stage-glow {
+  background: radial-gradient(circle, rgba(255, 199, 0, 0.6) 0%, rgba(255, 130, 0, 0.25) 55%, transparent 75%);
+}
+
+/* 4. Silver Tier */
+.sp-card-silver-tier {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+}
+.sp-card-silver-tier:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 255, 255, 0.15);
+}
+.sp-card-silver-tier .sp-stage-glow {
+  background: radial-gradient(circle, rgba(190, 195, 205, 0.45) 0%, rgba(130, 140, 155, 0.2) 55%, transparent 75%);
+}
+
+/* 5. Bronze Tier */
+.sp-card-bronze-tier {
+  border-color: rgba(205, 127, 50, 0.35);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 30px rgba(205, 127, 50, 0.1);
+}
+.sp-card-bronze-tier:hover {
+  border-color: rgba(205, 127, 50, 0.75);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(205, 127, 50, 0.25);
+}
+.sp-card-bronze-tier .sp-stage-glow {
+  background: radial-gradient(circle, rgba(205, 127, 50, 0.55) 0%, rgba(150, 75, 20, 0.25) 55%, transparent 75%);
+}
+
+/* Card Header Meta */
+.sp-header {
+  margin-bottom: 1.25rem;
+}
+.sp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.sp-badge-title {
+  background: rgba(255, 215, 0, 0.12);
+  color: var(--gold);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+}
+.sp-badge-plat {
+  background: rgba(229, 228, 226, 0.12);
+  color: #f0f0f5;
+  border: 1px solid rgba(229, 228, 226, 0.35);
+}
+.sp-badge-gold {
+  background: rgba(255, 199, 0, 0.12);
+  color: var(--gold-l);
+  border: 1px solid rgba(255, 199, 0, 0.35);
+}
+.sp-badge-silver {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.sp-badge-bronze {
+  background: rgba(205, 127, 50, 0.12);
+  color: #e59866;
+  border: 1px solid rgba(205, 127, 50, 0.35);
+}
+
+.sp-tier-name {
+  font-family: 'Akira Expanded', 'Akira', sans-serif !important;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.4rem;
+}
+
+.sp-price-box {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+.sp-price-val {
+  font-family: var(--ff-d);
+  font-size: 2.2rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.sp-price-curr {
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+}
+.sp-tier-role {
+  font-family: var(--ff-b);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.35;
+}
+
+/* Card Perks List */
+.sp-perks {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex-grow: 1;
+}
+.sp-perks li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-family: var(--ff-b);
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.45;
+}
+.sp-perks li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+.sp-card-title-tier .sp-perks li::before { color: var(--gold); }
+.sp-card-plat-tier .sp-perks li::before { color: #e5e4e2; }
+.sp-card-gold-tier .sp-perks li::before { color: var(--gold-l); }
+.sp-card-silver-tier .sp-perks li::before { color: rgba(255, 255, 255, 0.6); }
+.sp-card-bronze-tier .sp-perks li::before { color: #cd7f32; }
+
+.sp-perks strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Button CTA */
+.sp-action {
+  margin-top: auto;
+}
+.sp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 999px;
+  font-family: var(--ff-a);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+.sp-btn-title {
+  background: linear-gradient(135deg, var(--red) 0%, #b30000 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(204, 0, 0, 0.45);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+}
+.sp-btn-title:hover {
+  background: linear-gradient(135deg, #ff1a1a 0%, #cc0000 100%);
+  box-shadow: 0 12px 30px rgba(204, 0, 0, 0.65), 0 0 20px rgba(255, 215, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.sp-btn-plat {
+  background: rgba(229, 228, 226, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(229, 228, 226, 0.45);
+}
+.sp-btn-plat:hover {
+  background: rgba(229, 228, 226, 0.25);
+  box-shadow: 0 8px 24px rgba(220, 230, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.sp-btn-gold {
+  background: rgba(255, 199, 0, 0.12);
+  color: var(--gold-l);
+  border: 1px solid rgba(255, 199, 0, 0.45);
+}
+.sp-btn-gold:hover {
+  background: rgba(255, 199, 0, 0.25);
+  box-shadow: 0 8px 24px rgba(255, 199, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+.sp-btn-silver {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.sp-btn-silver:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.sp-btn-bronze {
+  background: rgba(205, 127, 50, 0.12);
+  color: #f0a36e;
+  border: 1px solid rgba(205, 127, 50, 0.45);
+}
+.sp-btn-bronze:hover {
+  background: rgba(205, 127, 50, 0.25);
+  box-shadow: 0 8px 24px rgba(205, 127, 50, 0.3);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1350px) {
+  .sp-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
+}
+@media (max-width: 880px) {
+  .sp-cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .cf-packages-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -15084,105 +15511,229 @@ body.gsap-ready .acc-inner .ru {
         </div>
 
         <!-- Card-Free 5-Tier Columns Grid -->
-        <div class="cf-packages-grid">
+        <!-- New 3D Boombox Tier Cards Lineup -->
+        <div class="sp-cards-grid">
           
           <!-- TIER 1: TITLE PARTNER -->
-          <div class="cf-pkg-col feat">
-            <div class="cf-pkg-top-bar">
-              <span class="cf-pkg-crown">🏆</span>
-              <h3 class="cf-pkg-name" style="color:var(--gold);">Title Partner</h3>
-              <div class="cf-pkg-price" style="color:var(--gold);">500M <span>LAK</span></div>
-              <div class="cf-pkg-slots" style="color:var(--gold); font-weight:700;">Exclusive — 1 Slot Only</div>
+          <div class="sp-card sp-card-title-tier">
+            <!-- Floating Boombox Showcase -->
+            <div class="sp-stage">
+              <div class="sp-stage-glow"></div>
+              <div class="sp-speaker-wrap">
+                <img src="assets/speakers/speaker_title.png" alt="Title Partner 3D Boombox" class="sp-speaker-img" loading="lazy" />
+              </div>
+              <div class="sp-eq-badge">
+                <div class="sp-eq-bars">
+                  <span class="sp-eq-bar" style="background:var(--gold);"></span>
+                  <span class="sp-eq-bar" style="background:var(--red);"></span>
+                  <span class="sp-eq-bar" style="background:var(--gold);"></span>
+                </div>
+                <span>TITANIUM</span>
+              </div>
             </div>
-            <ul class="cf-pkg-perks">
-              <li><strong>Naming Rights:</strong> 'LIHF 2026 Presented by [Brand]'</li>
-              <li><strong>Main Stage Lead Branding:</strong> Prime visual dominance &amp; top-tier billing</li>
-              <li><strong>Category Exclusivity:</strong> Full exclusivity across industry domain</li>
-              <li><strong>100 sq.m Mega Experiential Booth</strong> at prime entrance location</li>
-              <li><strong>Opening &amp; Closing Ceremony</strong> Keynote &amp; Grand Trophy Presenter</li>
-              <li><strong>Full Digital &amp; OOH Integration:</strong> 10M+ reach campaign priority</li>
-              <li><strong>20 VIP All-Access Passes</strong> with VIP Concert Lounge hospitality</li>
+
+            <!-- Header Info -->
+            <div class="sp-header">
+              <span class="sp-badge sp-badge-title">✦ MOST EXCLUSIVE • 1 SLOT</span>
+              <h3 class="sp-tier-name" style="color:var(--gold);">TITLE PARTNER</h3>
+              <div class="sp-price-box">
+                <span class="sp-price-val" style="color:var(--gold);">500M</span>
+                <span class="sp-price-curr">LAK</span>
+              </div>
+              <div class="sp-tier-role">Naming Rights &amp; Total Festival Dominance</div>
+            </div>
+
+            <!-- Perks Checklist -->
+            <ul class="sp-perks">
+              <li><strong>Naming Rights:</strong> 'LIHF 2026 Presented by [Brand]' across all media</li>
+              <li><strong>Main Stage Dominance:</strong> Prime top-tier LED billing &amp; perimeter banners</li>
+              <li><strong>Category Exclusivity:</strong> 100% full industry category lockdown</li>
+              <li><strong>100 sq.m Mega Booth:</strong> Prime main entrance circulation spot</li>
+              <li><strong>Ceremony Presenter:</strong> Grand Trophy &amp; Opening Keynote</li>
+              <li><strong>10M+ Reach Priority:</strong> Livestream title bugs, OOH &amp; TikTok ads</li>
+              <li><strong>20 VIP Passes:</strong> VIP Concert Lounge &amp; Stage-Side hospitality</li>
             </ul>
-            <div class="cf-pkg-action">
-              <a href="#contact" class="btn-p" style="display:block; text-align:center; width:100%;">Claim Title Rights</a>
+
+            <!-- Action -->
+            <div class="sp-action">
+              <a href="#contact" class="sp-btn sp-btn-title">Claim Title Rights →</a>
             </div>
           </div>
 
           <!-- TIER 2: PLATINUM PARTNER -->
-          <div class="cf-pkg-col">
-            <div class="cf-pkg-top-bar">
-              <span class="cf-pkg-crown">💎</span>
-              <h3 class="cf-pkg-name" style="color:#E5E4E2;">Platinum</h3>
-              <div class="cf-pkg-price" style="color:#E5E4E2;">250M <span>LAK</span></div>
-              <div class="cf-pkg-slots">Maximum 2 Slots</div>
+          <div class="sp-card sp-card-plat-tier">
+            <!-- Floating Boombox Showcase -->
+            <div class="sp-stage">
+              <div class="sp-stage-glow"></div>
+              <div class="sp-speaker-wrap">
+                <img src="assets/speakers/speaker_platinum.png" alt="Platinum Partner 3D Boombox" class="sp-speaker-img" loading="lazy" />
+              </div>
+              <div class="sp-eq-badge">
+                <div class="sp-eq-bars">
+                  <span class="sp-eq-bar" style="background:#e5e4e2;"></span>
+                  <span class="sp-eq-bar" style="background:#80d4ff;"></span>
+                  <span class="sp-eq-bar" style="background:#e5e4e2;"></span>
+                </div>
+                <span>PLATINUM</span>
+              </div>
             </div>
-            <ul class="cf-pkg-perks">
+
+            <!-- Header Info -->
+            <div class="sp-header">
+              <span class="sp-badge sp-badge-plat">✦ HIGH IMPACT • 2 SLOTS</span>
+              <h3 class="sp-tier-name" style="color:#ffffff;">PLATINUM</h3>
+              <div class="sp-price-box">
+                <span class="sp-price-val" style="color:#e5e4e2;">250M</span>
+                <span class="sp-price-curr">LAK</span>
+              </div>
+              <div class="sp-tier-role">Major Stage Co-Branding &amp; Category Pillar</div>
+            </div>
+
+            <!-- Perks Checklist -->
+            <ul class="sp-perks">
               <li><strong>Major Stage Branding:</strong> Second billing on main stage LED &amp; backdrops</li>
-              <li><strong>Prime 50 sq.m Booth Space:</strong> Central audience circulation area</li>
-              <li><strong>Strong Digital &amp; Media Campaign:</strong> Dedicated reels, TikTok feature &amp; PR</li>
-              <li><strong>Major Battle Category Naming:</strong> Own 1 flagship competition pillar</li>
-              <li><strong>10 VIP All-Access Passes</strong> with stage-side viewing access</li>
+              <li><strong>Battle Category Naming:</strong> Own 1 flagship competition pillar</li>
+              <li><strong>50 sq.m Prime Booth:</strong> Central high-traffic audience location</li>
+              <li><strong>Dedicated Social Campaign:</strong> 5 targeted Reels, TikTok challenge &amp; PR</li>
+              <li><strong>Livestream Placement:</strong> Prominent bugs throughout broadcast</li>
+              <li><strong>10 VIP Passes:</strong> Stage-side viewing &amp; hospitality access</li>
             </ul>
-            <div class="cf-pkg-action">
-              <a href="#contact" class="btn-s" style="display:block; text-align:center; width:100%;">Partner as Platinum</a>
+
+            <!-- Action -->
+            <div class="sp-action">
+              <a href="#contact" class="sp-btn sp-btn-plat">Partner as Platinum →</a>
             </div>
           </div>
 
           <!-- TIER 3: GOLD PARTNER -->
-          <div class="cf-pkg-col">
-            <div class="cf-pkg-top-bar">
-              <span class="cf-pkg-crown">🥇</span>
-              <h3 class="cf-pkg-name" style="color:var(--gold);">Gold Partner</h3>
-              <div class="cf-pkg-price" style="color:var(--gold-l);">100M <span>LAK</span></div>
-              <div class="cf-pkg-slots">Maximum 4 Slots</div>
+          <div class="sp-card sp-card-gold-tier">
+            <!-- Floating Boombox Showcase -->
+            <div class="sp-stage">
+              <div class="sp-stage-glow"></div>
+              <div class="sp-speaker-wrap">
+                <img src="assets/speakers/speaker_gold.png" alt="Gold Partner 3D Boombox" class="sp-speaker-img" loading="lazy" />
+              </div>
+              <div class="sp-eq-badge">
+                <div class="sp-eq-bars">
+                  <span class="sp-eq-bar" style="background:var(--gold-l);"></span>
+                  <span class="sp-eq-bar" style="background:var(--gold);"></span>
+                  <span class="sp-eq-bar" style="background:var(--gold-l);"></span>
+                </div>
+                <span>24K GOLD</span>
+              </div>
             </div>
-            <ul class="cf-pkg-perks">
-              <li><strong>Shared Stage Branding:</strong> Prominent logo in main stage rotation loop</li>
-              <li><strong>25 sq.m Activation Booth:</strong> Product trial, sales &amp; consumer engagement</li>
-              <li><strong>Social Media Inclusion:</strong> 3 dedicated campaign posts &amp; stories</li>
-              <li><strong>Media Recap Inclusion:</strong> Logo in official 4K aftermovie &amp; photos</li>
-              <li><strong>5 VIP Passes</strong> with all-area exhibition access</li>
+
+            <!-- Header Info -->
+            <div class="sp-header">
+              <span class="sp-badge sp-badge-gold">✦ BRAND LEADER • 4 SLOTS</span>
+              <h3 class="sp-tier-name" style="color:var(--gold);">GOLD PARTNER</h3>
+              <div class="sp-price-box">
+                <span class="sp-price-val" style="color:var(--gold-l);">100M</span>
+                <span class="sp-price-curr">LAK</span>
+              </div>
+              <div class="sp-tier-role">Experiential Sampling &amp; Stage Rotation</div>
+            </div>
+
+            <!-- Perks Checklist -->
+            <ul class="sp-perks">
+              <li><strong>Shared Stage Rotation:</strong> High-frequency logo in main stage loop</li>
+              <li><strong>25 sq.m Activation Booth:</strong> Direct product sampling &amp; sales</li>
+              <li><strong>Social Media Feature:</strong> 3 dedicated campaign posts &amp; stories</li>
+              <li><strong>Official 4K Aftermovie:</strong> Brand inclusion in global recap video</li>
+              <li><strong>5 VIP Passes:</strong> Access to all competition and concert zones</li>
             </ul>
-            <div class="cf-pkg-action">
-              <a href="#contact" class="btn-s" style="display:block; text-align:center; width:100%;">Partner as Gold</a>
+
+            <!-- Action -->
+            <div class="sp-action">
+              <a href="#contact" class="sp-btn sp-btn-gold">Select Gold Tier →</a>
             </div>
           </div>
 
-          <!-- TIER 4: SUPPORTING PARTNER -->
-          <div class="cf-pkg-col">
-            <div class="cf-pkg-top-bar">
-              <span class="cf-pkg-crown">🥈</span>
-              <h3 class="cf-pkg-name" style="color:var(--gr-l);">Supporting</h3>
-              <div class="cf-pkg-price" style="color:var(--gr-l);">50M <span>LAK</span></div>
-              <div class="cf-pkg-slots">Open Category</div>
+          <!-- TIER 4: SILVER PARTNER -->
+          <div class="sp-card sp-card-silver-tier">
+            <!-- Floating Boombox Showcase -->
+            <div class="sp-stage">
+              <div class="sp-stage-glow"></div>
+              <div class="sp-speaker-wrap">
+                <img src="assets/speakers/speaker_silver.png" alt="Silver Partner 3D Boombox" class="sp-speaker-img" loading="lazy" />
+              </div>
+              <div class="sp-eq-badge">
+                <div class="sp-eq-bars">
+                  <span class="sp-eq-bar" style="background:#bbb;"></span>
+                  <span class="sp-eq-bar" style="background:#fff;"></span>
+                  <span class="sp-eq-bar" style="background:#bbb;"></span>
+                </div>
+                <span>SILVER</span>
+              </div>
             </div>
-            <ul class="cf-pkg-perks">
-              <li><strong>Logo Placement:</strong> Included on official festival banners &amp; website</li>
-              <li><strong>12 sq.m Booth Space or Sampling Rights:</strong> Direct consumer contact</li>
-              <li><strong>Selected Digital Exposure:</strong> Group sponsor announcement feature</li>
-              <li><strong>2 VIP Passes</strong> with full festival access</li>
+
+            <!-- Header Info -->
+            <div class="sp-header">
+              <span class="sp-badge sp-badge-silver">✦ ACTIVATION • OPEN</span>
+              <h3 class="sp-tier-name" style="color:#e0e0e0;">SILVER PARTNER</h3>
+              <div class="sp-price-box">
+                <span class="sp-price-val" style="color:#d8d8d8;">50M</span>
+                <span class="sp-price-curr">LAK</span>
+              </div>
+              <div class="sp-tier-role">Youth Engagement &amp; Direct Sampling</div>
+            </div>
+
+            <!-- Perks Checklist -->
+            <ul class="sp-perks">
+              <li><strong>Festival Banners:</strong> Logo on official event signage &amp; website</li>
+              <li><strong>12 sq.m Booth Space:</strong> Direct consumer contact &amp; retail</li>
+              <li><strong>Group Digital Announcement:</strong> Featured across festival channels</li>
+              <li><strong>Official Photo Pack:</strong> High-res branded event photography</li>
+              <li><strong>2 VIP Passes:</strong> All-access festival entry</li>
             </ul>
-            <div class="cf-pkg-action">
-              <a href="#contact" class="btn-s" style="display:block; text-align:center; width:100%;">Join As Supporting</a>
+
+            <!-- Action -->
+            <div class="sp-action">
+              <a href="#contact" class="sp-btn sp-btn-silver">Join As Silver →</a>
             </div>
           </div>
 
-          <!-- TIER 5: IN-KIND PARTNER -->
-          <div class="cf-pkg-col">
-            <div class="cf-pkg-top-bar">
-              <span class="cf-pkg-crown">🎁</span>
-              <h3 class="cf-pkg-name" style="color:#FFB800;">Product / In-Kind</h3>
-              <div class="cf-pkg-price" style="color:#FFB800;">20M+ <span>LAK Value</span></div>
-              <div class="cf-pkg-slots">Custom Goods &amp; Services</div>
+          <!-- TIER 5: BRONZE / IN-KIND -->
+          <div class="sp-card sp-card-bronze-tier">
+            <!-- Floating Boombox Showcase -->
+            <div class="sp-stage">
+              <div class="sp-stage-glow"></div>
+              <div class="sp-speaker-wrap">
+                <img src="assets/speakers/speaker_bronze.png" alt="Bronze In-Kind 3D Boombox" class="sp-speaker-img" loading="lazy" />
+              </div>
+              <div class="sp-eq-badge">
+                <div class="sp-eq-bars">
+                  <span class="sp-eq-bar" style="background:#cd7f32;"></span>
+                  <span class="sp-eq-bar" style="background:#e59866;"></span>
+                  <span class="sp-eq-bar" style="background:#cd7f32;"></span>
+                </div>
+                <span>BRONZE</span>
+              </div>
             </div>
-            <ul class="cf-pkg-perks">
-              <li><strong>Product Integration:</strong> Official supplier status (beverage, apparel, gear)</li>
-              <li><strong>Direct Sampling Rights:</strong> Distribution to competitors, VIPs &amp; crew</li>
-              <li><strong>Community Support Credit:</strong> Logo recognition as cultural supporter</li>
-              <li><strong>2 Festival Passes:</strong> Staff and guest entry</li>
+
+            <!-- Header Info -->
+            <div class="sp-header">
+              <span class="sp-badge sp-badge-bronze">✦ PRODUCT &amp; SERVICES</span>
+              <h3 class="sp-tier-name" style="color:#e59866;">BRONZE / IN-KIND</h3>
+              <div class="sp-price-box">
+                <span class="sp-price-val" style="color:#cd7f32;">20M+</span>
+                <span class="sp-price-curr">LAK EQUIV</span>
+              </div>
+              <div class="sp-tier-role">Official Supplier &amp; Operations Support</div>
+            </div>
+
+            <!-- Perks Checklist -->
+            <ul class="sp-perks">
+              <li><strong>Official Supplier Credit:</strong> Beverage, sound, apparel, or gear</li>
+              <li><strong>Sampling Privileges:</strong> Distribution to competitors &amp; judges</li>
+              <li><strong>Cultural Supporter Recognition:</strong> Digital program inclusion</li>
+              <li><strong>Website Logo Listing:</strong> Permanent sponsor wall placement</li>
+              <li><strong>2 Festival Passes:</strong> Staff and attendee admission</li>
             </ul>
-            <div class="cf-pkg-action">
-              <a href="#contact" class="btn-s" style="display:block; text-align:center; width:100%;">Inquire In-Kind</a>
+
+            <!-- Action -->
+            <div class="sp-action">
+              <a href="#contact" class="sp-btn sp-btn-bronze">Inquire In-Kind →</a>
             </div>
           </div>
 
