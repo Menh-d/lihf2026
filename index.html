@@ -12598,6 +12598,559 @@ th.bmm-col-active {
   }
 }
 
+/* ═════════════════════════════════════════════════════════════════════
+   LIHF 2026 BENTO OVERVIEW SECTION (EXECUTIVE 360° SYNTHESIS)
+   Inspired by BentoGridShowcase architecture (responsive 3x3 layout)
+   ═════════════════════════════════════════════════════════════════════ */
+.lihf-bento-section {
+  position: relative;
+  padding: 5.5rem 0 6rem;
+  background: #08090d;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+.lihf-bento-section .noise-overlay {
+  opacity: 0.22;
+}
+.lihf-bento-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+.lihf-bento-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 3rem;
+}
+.lihf-bento-header .section-label {
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+.lihf-bento-header .section-title {
+  margin-bottom: 0.85rem;
+}
+.lihf-bento-header-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+/* Bento Grid: 3 columns, auto rows on desktop */
+.lihf-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Base Bento Card */
+.lihf-bento-card {
+  position: relative;
+  background: rgba(15, 17, 24, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+}
+.lihf-bento-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 215, 0, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.12);
+}
+
+/* Slot 1: Tall Card (Left column, spans 3 rows) */
+.lihf-bento-card-tall {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 640px;
+}
+.lihf-bento-tall-media {
+  position: relative;
+  height: 290px;
+  overflow: hidden;
+}
+.lihf-bento-tall-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.lihf-bento-card-tall:hover .lihf-bento-tall-img {
+  transform: scale(1.05);
+}
+.lihf-bento-tall-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 9, 13, 0.05) 0%, rgba(8, 9, 13, 0.75) 70%, #0f1118 100%);
+}
+.lihf-bento-tall-badge {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(4, 5, 8, 0.8);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  backdrop-filter: blur(10px);
+}
+.lihf-bento-tall-body {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+.lihf-bento-tall-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.9rem;
+}
+.lihf-bento-tall-date {
+  font-family: var(--ff-a);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--red);
+  text-transform: uppercase;
+}
+.lihf-bento-tall-loc {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.lihf-bento-tall-title {
+  font-family: 'Akira Expanded', 'Akira', sans-serif !important;
+  font-size: 1.22rem !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+.lihf-bento-tall-desc {
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+.lihf-bento-pill-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+.lihf-bento-pill-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 0.6rem 0.8rem;
+  text-align: center;
+}
+.lihf-bento-pill-val {
+  display: block;
+  font-family: var(--ff-d);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.1;
+}
+.lihf-bento-pill-lbl {
+  display: block;
+  font-family: var(--ff-a);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+}
+.lihf-bento-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, var(--red) 0%, #990000 100%);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  border-radius: 999px;
+  color: #ffffff;
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(204, 0, 0, 0.35);
+}
+.lihf-bento-cta-btn:hover {
+  background: linear-gradient(135deg, #ff1a1a 0%, var(--red) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(204, 0, 0, 0.55);
+}
+
+/* Card 2: Community / Audience */
+.lihf-bento-card-comm {
+  grid-column: 2;
+  grid-row: 1;
+  justify-content: space-between;
+}
+.lihf-bento-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.lihf-bento-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-family: var(--ff-a);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.lihf-bento-avatars {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.lihf-bento-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #0f1118;
+  margin-left: -10px;
+  object-fit: cover;
+  background: #222;
+}
+.lihf-bento-avatar:first-child {
+  margin-left: 0;
+}
+.lihf-bento-avatar-more {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #0f1118;
+  margin-left: -10px;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--ff-a);
+  font-size: 0.62rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lihf-bento-card-title {
+  font-family: var(--ff-a);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+.lihf-bento-highlight-num {
+  font-family: var(--ff-d);
+  font-size: 1.35rem;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+.lihf-bento-card-desc {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Card 3: 10M+ Stat Card (Dotted background from bento.js) */
+.lihf-bento-card-stat {
+  grid-column: 3;
+  grid-row: 1;
+  background: radial-gradient(rgba(212, 175, 55, 0.28) 1.2px, transparent 1.2px), rgba(15, 17, 24, 0.85);
+  background-size: 16px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.lihf-bento-stat-hero-wrap {
+  text-align: center;
+  padding: 0.8rem 0;
+}
+.lihf-bento-stat-hero {
+  font-family: 'Akira Expanded', 'Akira', sans-serif !important;
+  font-size: clamp(2.4rem, 4vw, 3.6rem) !important;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffffff 30%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.35));
+}
+.lihf-bento-stat-sub {
+  font-family: var(--ff-a);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 0.4rem;
+}
+
+/* Card 4: 8 Culture Pillars */
+.lihf-bento-card-pillars {
+  grid-column: 2;
+  grid-row: 2;
+}
+.lihf-bento-tag-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.8rem 0 0.9rem;
+}
+.lihf-bento-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.28rem 0.55rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--ff-a);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.04em;
+}
+
+/* Card 5: ASEAN Nations */
+.lihf-bento-card-asean {
+  grid-column: 3;
+  grid-row: 2;
+}
+.lihf-bento-flags-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.45rem;
+  margin: 0.8rem 0 0.9rem;
+}
+.lihf-bento-flag-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.4rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+}
+
+/* Card 6: Wide Bottom Card (Spans 2 columns) */
+.lihf-bento-card-wide {
+  grid-column: 2 / span 2;
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(22, 24, 34, 0.95) 0%, rgba(14, 15, 20, 0.9) 100%);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+.lihf-bento-tiers-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+}
+.lihf-bento-tier-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.lihf-bento-tier-title {
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  color: var(--gold);
+}
+.lihf-bento-tier-plat {
+  background: rgba(229, 228, 226, 0.12);
+  border: 1px solid rgba(229, 228, 226, 0.4);
+  color: #e5e4e2;
+}
+.lihf-bento-tier-gold {
+  background: rgba(255, 223, 115, 0.12);
+  border: 1px solid rgba(255, 223, 115, 0.4);
+  color: var(--gold-l);
+}
+.lihf-bento-tier-silver {
+  background: rgba(180, 180, 180, 0.1);
+  border: 1px solid rgba(180, 180, 180, 0.3);
+  color: #d0d0d0;
+}
+.lihf-bento-tier-bronze {
+  background: rgba(205, 127, 50, 0.12);
+  border: 1px solid rgba(205, 127, 50, 0.4);
+  color: #ffb800;
+}
+.lihf-bento-deliverables-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.lihf-bento-deliverables-list span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.lihf-bento-deliverables-list span strong {
+  color: var(--gold);
+}
+.lihf-bento-wide-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.lihf-bento-btn-matrix {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.45);
+  border-radius: 999px;
+  color: #ffffff;
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.lihf-bento-btn-matrix:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+.lihf-bento-btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.35rem;
+  background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  color: #0b0c10;
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+}
+.lihf-bento-btn-cta:hover {
+  background: linear-gradient(135deg, #ffe066 0%, var(--gold) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(212, 175, 55, 0.5);
+}
+
+/* Contact Section Absolute Visibility Guarantee */
+#contact,
+.contact-standalone-section,
+.contact-standalone-section * {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+body.gsap-ready #contact,
+body.gsap-ready .contact-standalone-section,
+body.gsap-ready .contact-standalone-section * {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Responsive Bento Breakpoints */
+@media (max-width: 991px) {
+  .lihf-bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .lihf-bento-card-tall {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: auto;
+  }
+  .lihf-bento-card-comm {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .lihf-bento-card-stat {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .lihf-bento-card-pillars {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .lihf-bento-card-asean {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .lihf-bento-card-wide {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
 @media (max-width: 1350px) {
   .sp-cards-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -13641,12 +14194,16 @@ th.bmm-col-active {
         <span>Packages</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </a>
+      <a href="#overview" class="link">
+        <span>Overview</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
       <a href="#organizer" class="link">
         <span>Organizer</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </a>
       <a href="#contact" class="link nav__cta-link">
-        <span>Partner</span>
+        <span>Contact</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </a>
       <a href="javascript:void(0)" onclick="replayFestivalIntro()" class="link nav__replay-link" title="Replay Mascot Intro &amp; Hero Entrance">
@@ -16391,8 +16948,207 @@ th.bmm-col-active {
   </div><!-- /benefits-matrix-modal-container -->
 </div><!-- /benefits-matrix-modal-overlay -->
 
+<!-- STANDALONE SECTION: 360° FESTIVAL ECOSYSTEM (BENTO GRID OVERVIEW) -->
+<section id="overview" class="lihf-bento-section">
+  <div class="noise-overlay"></div>
+  <div class="ambient-glow glow-red" style="top: 10%; left: -100px; width: 550px; height: 550px; opacity: 0.15;"></div>
+  <div class="ambient-glow glow-gold" style="bottom: 10%; right: -100px; width: 500px; height: 500px; opacity: 0.12;"></div>
+  
+  <div class="lihf-bento-container">
+    
+    <!-- Section Header -->
+    <div class="lihf-bento-header">
+      <div class="section-label">FESTIVAL 360° SYNTHESIS • EXECUTIVE BRIEFING</div>
+      <h2 class="section-title">
+        LIHF 2026 AT A GLANCE <span class="hl">BENTO OVERVIEW</span>
+      </h2>
+      <div class="red-line" style="margin: 0.8rem auto 1.2rem;"></div>
+      <p class="lihf-bento-header-desc">
+        A single-canvas synthesized briefing covering festival scale, youth culture resonance, 8 flagship battle pillars, regional ASEAN draw, and high-ROI sponsorship architecture.
+      </p>
+    </div>
+
+    <!-- Bento Grid Showcase (Responsive 3-Column / 3-Row Grid) -->
+    <div class="lihf-bento-grid">
+      
+      <!-- SLOT 1: TALL HERO SHOWCASE (Left Column, Spans 3 Rows) -->
+      <div class="lihf-bento-card lihf-bento-card-tall">
+        <div class="lihf-bento-tall-media">
+          <img src="assets/activities/act_concert.webp" alt="LIHF 2026 Mascot Headline Concert" class="lihf-bento-tall-img" loading="lazy" />
+          <div class="lihf-bento-tall-overlay"></div>
+          <div class="lihf-bento-tall-badge">
+            <span>🔥</span>
+            <span>ANNUAL FLAGSHIP SUMMIT</span>
+          </div>
+        </div>
+        <div class="lihf-bento-tall-body">
+          <div>
+            <div class="lihf-bento-tall-meta">
+              <span class="lihf-bento-tall-date">13–15 NOVEMBER 2026</span>
+              <span class="lihf-bento-tall-loc">📍 Lao-ITECC Exhibition Hall • Vientiane</span>
+            </div>
+            <h3 class="lihf-bento-tall-title">LAO INTERNATIONAL HIPHOP FESTIVAL 2026</h3>
+            <p class="lihf-bento-tall-desc">
+              The premier urban arts and youth culture festival of Laos. Uniting 10,000+ passionate attendees, Olympic-tier breakers from 10+ nations, live concert headliners, graffiti aerosol artists, and high-impact brand experiential activations.
+            </p>
+            <div class="lihf-bento-pill-grid">
+              <div class="lihf-bento-pill-item">
+                <span class="lihf-bento-pill-val">3 DAYS</span>
+                <span class="lihf-bento-pill-lbl">2 Epic Nights</span>
+              </div>
+              <div class="lihf-bento-pill-item">
+                <span class="lihf-bento-pill-val">10,000+</span>
+                <span class="lihf-bento-pill-lbl">Expected Fans</span>
+              </div>
+              <div class="lihf-bento-pill-item">
+                <span class="lihf-bento-pill-val">10+</span>
+                <span class="lihf-bento-pill-lbl">ASEAN Nations</span>
+              </div>
+              <div class="lihf-bento-pill-item">
+                <span class="lihf-bento-pill-val" style="color:var(--red);">159M</span>
+                <span class="lihf-bento-pill-lbl">LAK Prize Pool</span>
+              </div>
+            </div>
+          </div>
+          <a href="#packages" class="lihf-bento-cta-btn">
+            <span>Explore Sponsorship Packages</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- SLOT 2: COMMUNITY & AUDIENCE SCALE (Top Middle) -->
+      <div class="lihf-bento-card lihf-bento-card-comm">
+        <div>
+          <div class="lihf-bento-card-head">
+            <span class="lihf-bento-badge">👥 COMMUNITY POWER</span>
+            <span style="font-size:0.72rem; color:rgba(255,255,255,0.4); font-family:var(--ff-m);">AUDIENCE 01</span>
+          </div>
+          <div class="lihf-bento-avatars">
+            <img src="assets/event/meetyouth/my_1.webp" alt="Dancer" class="lihf-bento-avatar" />
+            <img src="assets/event/meetyouth/my_2.webp" alt="Crowd" class="lihf-bento-avatar" />
+            <img src="assets/event/meetyouth/my_3.webp" alt="Artist" class="lihf-bento-avatar" />
+            <img src="assets/event/meetyouth/my_4.webp" alt="B-Boy" class="lihf-bento-avatar" />
+            <div class="lihf-bento-avatar-more">+500</div>
+          </div>
+          <h4 class="lihf-bento-card-title">10,000+ On-Ground Fans</h4>
+          <div class="lihf-bento-highlight-num">78% Gen-Z &amp; Young Urbanites</div>
+        </div>
+        <p class="lihf-bento-card-desc">
+          Concentrated high-energy youth demographic (ages 16–28) spanning students, creative professionals, creators, and trendsetters across 18 Lao provinces.
+        </p>
+      </div>
+
+      <!-- SLOT 3: 10M+ STATISTIC CARD (Top Right, Dotted Matrix from bento.js) -->
+      <div class="lihf-bento-card lihf-bento-card-stat">
+        <div class="lihf-bento-card-head">
+          <span class="lihf-bento-badge">📡 MEDIA MULTIPLIER</span>
+          <span style="font-size:0.72rem; color:var(--gold); font-family:var(--ff-m);">IMPRESSIONS</span>
+        </div>
+        <div class="lihf-bento-stat-hero-wrap">
+          <div class="lihf-bento-stat-hero">10M+</div>
+          <div class="lihf-bento-stat-sub">Projected Multi-Channel Reach</div>
+        </div>
+        <p class="lihf-bento-card-desc">
+          High-velocity social virality across official livestreams, TikTok challenges, viral Reels, national television coverage, and regional Southeast Asian PR syndication.
+        </p>
+      </div>
+
+      <!-- SLOT 4: 8 CULTURE PILLARS (Middle Column 2) -->
+      <div class="lihf-bento-card lihf-bento-card-pillars">
+        <div>
+          <div class="lihf-bento-card-head">
+            <span class="lihf-bento-badge">🏆 159,000,000 LAK POOL</span>
+            <span style="font-size:0.72rem; color:rgba(255,255,255,0.4); font-family:var(--ff-m);">PILLARS 02</span>
+          </div>
+          <h4 class="lihf-bento-card-title">8 Main Culture Pillars</h4>
+          <div class="lihf-bento-tag-wrap">
+            <span class="lihf-bento-tag">⚡ Breaking 2v2</span>
+            <span class="lihf-bento-tag">🔥 Open Style</span>
+            <span class="lihf-bento-tag">💃 Choreo</span>
+            <span class="lihf-bento-tag">🎤 Rap Cypher</span>
+            <span class="lihf-bento-tag">🎧 DJ Scratch</span>
+            <span class="lihf-bento-tag">🎨 Live Graffiti</span>
+            <span class="lihf-bento-tag">🎪 Concert</span>
+            <span class="lihf-bento-tag">📚 Workshops</span>
+          </div>
+        </div>
+        <p class="lihf-bento-card-desc">
+          Official Olympic-format dance categories and creative battles judged by WDSF certified adjudicators, Red Bull Thr33style champions, and regional legends.
+        </p>
+      </div>
+
+      <!-- SLOT 5: REGIONAL ASEAN NETWORK (Middle Column 3) -->
+      <div class="lihf-bento-card lihf-bento-card-asean">
+        <div>
+          <div class="lihf-bento-card-head">
+            <span class="lihf-bento-badge">🌏 REGIONAL DRAW</span>
+            <span style="font-size:0.72rem; color:rgba(255,255,255,0.4); font-family:var(--ff-m);">NETWORK 03</span>
+          </div>
+          <h4 class="lihf-bento-card-title">10+ Competing Nations</h4>
+          <div class="lihf-bento-flags-grid">
+            <div class="lihf-bento-flag-item">🇱🇦 Laos</div>
+            <div class="lihf-bento-flag-item">🇹🇭 Thailand</div>
+            <div class="lihf-bento-flag-item">🇻🇳 Vietnam</div>
+            <div class="lihf-bento-flag-item">🇰🇭 Cambodia</div>
+            <div class="lihf-bento-flag-item">🇸🇬 Singapore</div>
+            <div class="lihf-bento-flag-item">🇲🇾 Malaysia</div>
+            <div class="lihf-bento-flag-item">🇯🇵 Japan</div>
+            <div class="lihf-bento-flag-item">🇰🇷 Korea</div>
+          </div>
+        </div>
+        <p class="lihf-bento-card-desc">
+          Endorsed by cultural ministries and diplomatic institutes, driving cross-border youth tourism and positioning Vientiane as Southeast Asia's rising creative capital.
+        </p>
+      </div>
+
+      <!-- SLOT 6: WIDE BOTTOM CARD (Spans 2 Columns on Desktop) -->
+      <div class="lihf-bento-card lihf-bento-card-wide">
+        <div>
+          <div class="lihf-bento-card-head">
+            <span class="lihf-bento-badge">💼 COMMERCIAL PLATFORM</span>
+            <span style="font-size:0.72rem; color:var(--gold); font-family:var(--ff-m);">TIERS &amp; DELIVERABLES</span>
+          </div>
+          <h4 class="lihf-bento-card-title">5 Custom Tier Structures &amp; Turnkey Activations</h4>
+          
+          <div class="lihf-bento-tiers-row">
+            <span class="lihf-bento-tier-pill lihf-bento-tier-title">🏆 Title Partner (500M)</span>
+            <span class="lihf-bento-tier-pill lihf-bento-tier-plat">💎 Platinum (250M)</span>
+            <span class="lihf-bento-tier-pill lihf-bento-tier-gold">🥇 Gold (100M)</span>
+            <span class="lihf-bento-tier-pill lihf-bento-tier-silver">🥈 Silver (50M)</span>
+            <span class="lihf-bento-tier-pill lihf-bento-tier-bronze">🎁 In-Kind (20M+)</span>
+          </div>
+
+          <div class="lihf-bento-deliverables-list">
+            <span><strong>✓</strong> 100% Category Lockdown</span>
+            <span><strong>✓</strong> 100 sq.m Mega Booth Footprint</span>
+            <span><strong>✓</strong> Main Stage LED Frequency</span>
+            <span><strong>✓</strong> 20 VIP Passes &amp; Lounge Access</span>
+            <span><strong>✓</strong> Live Stream Watermark Bug</span>
+            <span><strong>✓</strong> Trophy Presentation Keynote</span>
+          </div>
+        </div>
+
+        <div class="lihf-bento-wide-actions">
+          <button type="button" class="lihf-bento-btn-matrix" onclick="openBenefitsModal('all')">
+            <span class="sp-compare-pulse"></span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <span>Compare All Benefits Matrix</span>
+          </button>
+          <a href="#contact" class="lihf-bento-btn-cta">
+            <span>Lock In Sponsorship</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /lihf-bento-grid -->
+
+  </div><!-- /lihf-bento-container -->
+</section>
+
 <!-- STANDALONE SECTION: OFFICIAL ORGANIZER — FANGLAO DANCE STUDIO -->
-<section id="organizer" class="fanglao-standalone-section ru">
+<section id="organizer" class="fanglao-standalone-section">
   <div class="noise-overlay"></div>
   <div class="container" style="max-width:1200px; margin:0 auto; padding:0 1.5rem;">
     
@@ -16465,12 +17221,12 @@ th.bmm-col-active {
 </section>
 
 <!-- STANDALONE SECTION: LET'S BUILD TOGETHER (CONTACT & NEXT STEPS) -->
-<section id="contact" class="contact-standalone-section ru">
+<section id="contact" class="contact-standalone-section">
   <div class="cta-bg"></div>
   <div class="noise-overlay"></div>
   <div class="container">
     <div class="ct-lay">
-      <div class="rl">
+      <div class="ct-col-left">
         <div class="section-label">Let's Build Together • Recommended Next Steps</div>
         <h2 class="ct-hl">LET'S BUILD<br>THE NEXT<br><span class="big-r">REGIONAL<br>HIP-HOP<br>DESTINATION</span></h2>
         <div class="red-line"></div>
@@ -16486,7 +17242,7 @@ th.bmm-col-active {
           <a href="https://www.fanglaostudio.com" target="_blank" class="btn-s">Visit Website</a>
         </div>
       </div>
-      <div class="rr">
+      <div class="ct-col-right">
         <div class="section-label">Partnership Roadmap</div>
         <div class="roadmap">
           <div class="rs"><div class="rs-n">01</div><div class="rs-c"><h4>Select Sponsorship Level</h4><p>Choose your preferred tier or request a custom activation package tailored to your brand goals.</p></div></div>
