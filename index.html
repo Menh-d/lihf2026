@@ -4309,6 +4309,110 @@ nav { height: 60px !important; padding: 0 !important; }
   }
 }
 
+/* ── DYNAMIC INTERACTIVE HOVER BACKGROUND (#battles) ── */
+#battles {
+  position: relative !important;
+  overflow: hidden !important;
+  background: #050505 !important;
+}
+
+#battles .container {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.battles-dynamic-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.battles-bg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.06);
+  filter: brightness(0.48) contrast(1.18) saturate(1.22);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.battles-bg-layer.active {
+  opacity: 0.55;
+  transform: scale(1);
+}
+
+.battles-bg-layer.battles-bg-default {
+  filter: none;
+  background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(204, 0, 0, 0.16) 0%, rgba(5, 6, 8, 0) 70%);
+  opacity: 0.85;
+  transform: none;
+}
+
+.battles-bg-layer.battles-bg-default.active {
+  opacity: 0.85;
+}
+
+.battles-bg-layer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.65;
+}
+.battles-bg-layer[data-bg-id="0"]::before { background: radial-gradient(circle at 25% 35%, rgba(204, 0, 0, 0.45) 0%, transparent 65%); }
+.battles-bg-layer[data-bg-id="1"]::before { background: radial-gradient(circle at 40% 35%, rgba(235, 87, 87, 0.4) 0%, transparent 65%); }
+.battles-bg-layer[data-bg-id="2"]::before { background: radial-gradient(circle at 60% 35%, rgba(212, 175, 55, 0.42) 0%, transparent 65%); }
+.battles-bg-layer[data-bg-id="3"]::before { background: radial-gradient(circle at 75% 35%, rgba(46, 204, 113, 0.38) 0%, transparent 65%); }
+.battles-bg-layer[data-bg-id="4"]::before { background: radial-gradient(circle at 25% 65%, rgba(224, 86, 168, 0.42) 0%, transparent 65%); }
+.battles-bg-layer[data-bg-id="5"]::before { background: radial-gradient(circle at 40% 65%, rgba(41, 128, 185, 0.42) 0%, transparent 65%); }
+.battles-bg-layer[data-bg-id="6"]::before { background: radial-gradient(circle at 60% 65%, rgba(142, 68, 173, 0.48) 0%, transparent 65%); }
+.battles-bg-layer[data-bg-id="7"]::before { background: radial-gradient(circle at 75% 65%, rgba(243, 156, 18, 0.38) 0%, transparent 65%); }
+
+.battles-bg-scrim {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse 95% 80% at 50% 50%, rgba(5, 6, 8, 0.22) 0%, rgba(5, 6, 8, 0.68) 68%, #050608 100%),
+    linear-gradient(to bottom, #050608 0%, rgba(5, 6, 8, 0.15) 15%, rgba(5, 6, 8, 0.15) 85%, #050608 100%);
+  z-index: 2;
+}
+
+@media (hover: hover) and (min-width: 992px) {
+  .notched-activities-grid:hover .notched-card:not(:hover) {
+    opacity: 0.6;
+    filter: brightness(0.85);
+    transform: scale(0.985);
+    transition: opacity 0.35s ease, filter 0.35s ease, transform 0.35s ease;
+  }
+  .notched-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, filter 0.35s ease, box-shadow 0.4s ease;
+  }
+  .notched-card:hover {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: translateY(-8px) scale(1.025) !important;
+    z-index: 4;
+  }
+  .notched-card:hover .notched-cover {
+    border-color: rgba(204, 0, 0, 0.7);
+    box-shadow: 0 16px 42px rgba(204, 0, 0, 0.32), 0 0 25px rgba(204, 0, 0, 0.22);
+  }
+}
+
 /* --- FUI BENTO GRID DARK (THE 8 MAIN ACTIVITIES) --- */
 .activities-interactive-grid {
   display: grid !important;
@@ -15854,6 +15958,19 @@ body.gsap-ready .contact-standalone-section * {
   </div>
   <div class="acc-body">
     <section id="battles" class="acc-inner">
+      <!-- Dynamic Interactive Hover Background Backdrop -->
+      <div class="battles-dynamic-bg" id="battles-dynamic-bg" aria-hidden="true">
+        <div class="battles-bg-layer battles-bg-default active"></div>
+        <div class="battles-bg-layer" data-bg-id="0" style="background-image: url('assets/activities/act_breaking.webp');"></div>
+        <div class="battles-bg-layer" data-bg-id="1" style="background-image: url('assets/activities/act_openstyle.webp');"></div>
+        <div class="battles-bg-layer" data-bg-id="2" style="background-image: url('assets/activities/act_choreo.webp');"></div>
+        <div class="battles-bg-layer" data-bg-id="3" style="background-image: url('assets/activities/act_dj.webp');"></div>
+        <div class="battles-bg-layer" data-bg-id="4" style="background-image: url('assets/activities/act_graffiti.webp');"></div>
+        <div class="battles-bg-layer" data-bg-id="5" style="background-image: url('assets/activities/act_rap.webp');"></div>
+        <div class="battles-bg-layer" data-bg-id="6" style="background-image: url('assets/activities/act_concert.webp');"></div>
+        <div class="battles-bg-layer" data-bg-id="7" style="background-image: url('assets/activities/act_workshop.webp');"></div>
+        <div class="battles-bg-scrim"></div>
+      </div>
       <div class="noise-overlay"></div>
       <div class="container cardfree-layout">
         <div style="text-align:center; max-width:850px; margin:0 auto 2.5rem;">
@@ -20197,6 +20314,46 @@ function replayLogoIntro(){
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
   });
+
+  // ── DYNAMIC INTERACTIVE HOVER BACKGROUND SWITCHER (#battles) ──
+  (function initBattlesDynamicHoverBg() {
+    const grid = document.querySelector('.notched-activities-grid');
+    const layers = document.querySelectorAll('.battles-bg-layer');
+    const defaultLayer = document.querySelector('.battles-bg-default');
+    if (!grid || !layers.length) return;
+
+    let resetTimer = null;
+
+    function switchBg(actId) {
+      if (resetTimer) {
+        clearTimeout(resetTimer);
+        resetTimer = null;
+      }
+      layers.forEach(layer => {
+        if (actId !== null && layer.getAttribute('data-bg-id') === String(actId)) {
+          layer.classList.add('active');
+        } else {
+          layer.classList.remove('active');
+        }
+      });
+    }
+
+    function resetBg() {
+      layers.forEach(layer => layer.classList.remove('active'));
+      if (defaultLayer) defaultLayer.classList.add('active');
+    }
+
+    const cards = grid.querySelectorAll('.notched-card');
+    cards.forEach(card => {
+      const actId = card.getAttribute('data-act-id');
+      card.addEventListener('mouseenter', () => switchBg(actId));
+      card.addEventListener('focus', () => switchBg(actId));
+    });
+
+    grid.addEventListener('mouseleave', () => {
+      resetTimer = setTimeout(resetBg, 280);
+    });
+  })();
 
 })();
 </script>
