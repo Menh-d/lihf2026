@@ -6175,49 +6175,315 @@ nav { height: 60px !important; padding: 0 !important; }
   }
 }
 
-/* Activation Journey Bar (Minimalist line flow) */
-.cf-journey-bar {
+/* ═════════════════════════════════════════════════════════════════════
+   ACTIVATION JOURNEY: MASSIVE KINETIC 4-STAGE DISPLAY (TRY ➔ CREATE ➔ SHARE ➔ REMEMBER)
+   ═════════════════════════════════════════════════════════════════════ */
+.cf-journey-showcase {
+  position: relative;
+  background: radial-gradient(120% 120% at 50% 50%, rgba(220, 20, 20, 0.12) 0%, rgba(15, 17, 24, 0.96) 55%, #08090d 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 60, 60, 0.6);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 28px;
+  padding: clamp(2rem, 3.5vw, 3.2rem) clamp(1.5rem, 3vw, 3rem);
+  margin: 3.5rem 0 4.5rem;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 50px rgba(220, 20, 20, 0.15);
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Background Ambient Glows */
+.cf-journey-showcase::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: 10%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(220, 20, 20, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(50px);
+}
+.cf-journey-showcase::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  right: 15%;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(50px);
+}
+
+.cf-journey-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 1.4rem 2rem;
-  border-left: 3px solid var(--red);
-  background: rgba(255,255,255,0.02);
-  margin-bottom: 4rem;
-  gap: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
 }
-.cf-journey-label {
+.cf-journey-sublabel {
+  color: #ff4d4d !important;
+  font-family: var(--ff-a) !important;
+  font-size: 0.76rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.16em !important;
+  margin-bottom: 0 !important;
+}
+.cf-journey-pulse-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff1a1a;
+  box-shadow: 0 0 10px #ff1a1a;
+  animation: cfJourneyPulse 2s infinite ease-in-out;
+}
+@keyframes cfJourneyPulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; box-shadow: 0 0 8px #ff1a1a; }
+  50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 18px #ff4d4d; }
+}
+.cf-journey-tag {
   font-family: var(--ff-a);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
   text-transform: uppercase;
-  color: var(--red);
 }
-.cf-journey-steps {
+
+/* Massive Track: 4 Words + Arrows in Full View */
+.cf-journey-massive-track {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  justify-content: space-between;
+  gap: clamp(0.5rem, 1.8vw, 2rem);
   flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem 0;
 }
-.cf-journey-step {
-  font-family: var(--ff-d);
-  font-size: 1.35rem;
-  letter-spacing: 0.06em;
-  color: #ffffff;
+
+/* Individual Stage Word Block */
+.cf-journey-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.75rem 1.25rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+  user-select: none;
+  flex: 1 1 auto;
+  min-width: 140px;
 }
-.cf-journey-step.accent {
-  color: var(--gold);
+.cf-journey-block:hover {
+  transform: translateY(-6px) scale(1.04);
+  background: rgba(255, 255, 255, 0.05);
 }
-.cf-journey-arrow {
-  color: rgba(255,255,255,0.3);
-  font-size: 1rem;
+
+.cf-jb-phase {
+  font-family: var(--ff-a);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
 }
-.cf-journey-sub {
+
+/* Giant Typography in Akira */
+.cf-jb-word {
+  font-family: 'Akira Expanded', 'Akira', sans-serif !important;
+  font-size: clamp(2rem, 4.2vw, 4.5rem) !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  display: inline-block;
+  transition: all 0.4s ease;
+}
+
+/* Specific Stage Colors & Glowing Gradients */
+
+/* 1. TRY: Electric Red */
+.cf-jb-try .cf-jb-phase {
+  color: #ff6b6b;
+}
+.cf-jb-try .cf-jb-word {
+  background: linear-gradient(135deg, #ffffff 10%, #ff2a2a 75%, #cc0000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 25px rgba(255, 42, 42, 0.75));
+  animation: glowPulseTry 3s infinite alternate ease-in-out;
+}
+.cf-jb-try:hover {
+  border-color: rgba(255, 42, 42, 0.6);
+  box-shadow: 0 15px 40px rgba(255, 42, 42, 0.25), inset 0 0 20px rgba(255, 42, 42, 0.1);
+}
+
+/* 2. CREATE: Holographic Ice White */
+.cf-jb-create .cf-jb-phase {
+  color: #b0c4de;
+}
+.cf-jb-create .cf-jb-word {
+  background: linear-gradient(135deg, #ffffff 40%, #c4d7ed 80%, #8eaecf 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 25px rgba(196, 215, 237, 0.7));
+  animation: glowPulseCreate 3s infinite alternate ease-in-out 0.75s;
+}
+.cf-jb-create:hover {
+  border-color: rgba(196, 215, 237, 0.6);
+  box-shadow: 0 15px 40px rgba(196, 215, 237, 0.25), inset 0 0 20px rgba(196, 215, 237, 0.1);
+}
+
+/* 3. SHARE: Radiant Gold */
+.cf-jb-share .cf-jb-phase {
+  color: var(--gold-l);
+}
+.cf-jb-share .cf-jb-word {
+  background: linear-gradient(135deg, #ffffff 15%, #ffd700 65%, #b8860b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 28px rgba(255, 215, 0, 0.75));
+  animation: glowPulseShare 3s infinite alternate ease-in-out 1.5s;
+}
+.cf-jb-share:hover {
+  border-color: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.25), inset 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+/* 4. REMEMBER: Cosmic Fire / Crimson-Gold */
+.cf-jb-remember .cf-jb-phase {
+  color: #ff9980;
+}
+.cf-jb-remember .cf-jb-word {
+  background: linear-gradient(135deg, #ffffff 20%, #ff4d4d 60%, #ff8c00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(255, 77, 77, 0.8));
+  animation: glowPulseRemember 3s infinite alternate ease-in-out 2.25s;
+}
+.cf-jb-remember:hover {
+  border-color: rgba(255, 77, 77, 0.6);
+  box-shadow: 0 15px 40px rgba(255, 77, 77, 0.3), inset 0 0 20px rgba(255, 77, 77, 0.1);
+}
+
+/* Arrow Separator with Light Flow Animation */
+.cf-journey-arrow-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.35);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+.cf-journey-arrow-svg {
+  width: clamp(24px, 3.5vw, 42px);
+  height: clamp(24px, 3.5vw, 42px);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: arrowPulse 2s infinite ease-in-out;
+}
+@keyframes arrowPulse {
+  0%, 100% {
+    transform: translateX(0);
+    color: rgba(255, 255, 255, 0.35);
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    transform: translateX(6px);
+    color: #ff3b3b;
+    filter: drop-shadow(0 0 12px rgba(255, 59, 59, 0.8));
+  }
+}
+
+/* Subtle Wave Glow Animations for the 4 Words */
+@keyframes glowPulseTry {
+  0% { filter: drop-shadow(0 0 15px rgba(255, 42, 42, 0.5)); }
+  100% { filter: drop-shadow(0 0 35px rgba(255, 42, 42, 0.95)) drop-shadow(0 0 60px rgba(204, 0, 0, 0.4)); }
+}
+@keyframes glowPulseCreate {
+  0% { filter: drop-shadow(0 0 15px rgba(196, 215, 237, 0.45)); }
+  100% { filter: drop-shadow(0 0 35px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 60px rgba(196, 215, 237, 0.4)); }
+}
+@keyframes glowPulseShare {
+  0% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5)); }
+  100% { filter: drop-shadow(0 0 38px rgba(255, 215, 0, 0.95)) drop-shadow(0 0 65px rgba(212, 175, 55, 0.4)); }
+}
+@keyframes glowPulseRemember {
+  0% { filter: drop-shadow(0 0 15px rgba(255, 77, 77, 0.5)); }
+  100% { filter: drop-shadow(0 0 40px rgba(255, 77, 77, 0.95)) drop-shadow(0 0 70px rgba(255, 140, 0, 0.45)); }
+}
+
+/* Footer Explanation in Showcase */
+.cf-journey-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 2;
+}
+.cf-journey-footer .cf-journey-sub {
   font-family: var(--ff-b);
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.55);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  max-width: 680px;
+  line-height: 1.6;
+}
+.cf-journey-badge {
+  font-family: var(--ff-a);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  text-transform: uppercase;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 860px) {
+  .cf-journey-massive-track {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .cf-journey-arrow-wrap {
+    transform: rotate(90deg);
+    margin: -0.2rem auto;
+  }
+  .cf-journey-block {
+    width: 100%;
+    padding: 1rem;
+  }
+  .cf-jb-word {
+    font-size: clamp(2.2rem, 8vw, 3.2rem) !important;
+  }
 }
 
 /* Regional Benchmark Comparison Grid with Real Event Photos */
@@ -15490,19 +15756,72 @@ body.gsap-ready .contact-standalone-section * {
       </div>
     </div>
 
-    <!-- ACTIVATION JOURNEY FLOW -->
-    <div class="cf-journey-bar">
-      <div class="cf-journey-label">SPONSOR ACTIVATION JOURNEY • 4 PHASES</div>
-      <div class="cf-journey-steps">
-        <span class="cf-journey-step" style="color:var(--red);">TRY</span>
-        <span class="cf-journey-arrow">➔</span>
-        <span class="cf-journey-step">CREATE</span>
-        <span class="cf-journey-arrow">➔</span>
-        <span class="cf-journey-step accent">SHARE</span>
-        <span class="cf-journey-arrow">➔</span>
-        <span class="cf-journey-step">REMEMBER</span>
+    <!-- ACTIVATION JOURNEY FLOW (MASSIVE KINETIC 4-STAGE DISPLAY) -->
+    <div class="cf-journey-showcase">
+      <div class="cf-journey-header">
+        <div class="section-label cf-journey-sublabel">
+          <span class="cf-journey-pulse-dot"></span>
+          SPONSOR ACTIVATION FORMULA • 4-STAGE PARTICIPATORY FUNNEL
+        </div>
+        <div class="cf-journey-tag">ACTIVE UGC LOOP</div>
       </div>
-      <div class="cf-journey-sub">Inviting active consumer participation rather than passive logo exposure.</div>
+
+      <div class="cf-journey-massive-track">
+        <!-- PHASE 1: TRY -->
+        <div class="cf-journey-block cf-jb-try">
+          <span class="cf-jb-phase">01 • IMMERSE</span>
+          <span class="cf-jb-word">TRY</span>
+        </div>
+
+        <!-- ARROW 1 -->
+        <div class="cf-journey-arrow-wrap">
+          <svg class="cf-journey-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <polyline points="14 6 20 12 14 18"></polyline>
+          </svg>
+        </div>
+
+        <!-- PHASE 2: CREATE -->
+        <div class="cf-journey-block cf-jb-create">
+          <span class="cf-jb-phase">02 • PARTICIPATE</span>
+          <span class="cf-jb-word">CREATE</span>
+        </div>
+
+        <!-- ARROW 2 -->
+        <div class="cf-journey-arrow-wrap">
+          <svg class="cf-journey-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <polyline points="14 6 20 12 14 18"></polyline>
+          </svg>
+        </div>
+
+        <!-- PHASE 3: SHARE -->
+        <div class="cf-journey-block cf-jb-share">
+          <span class="cf-jb-phase">03 • AMPLIFY</span>
+          <span class="cf-jb-word">SHARE</span>
+        </div>
+
+        <!-- ARROW 3 -->
+        <div class="cf-journey-arrow-wrap">
+          <svg class="cf-journey-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <polyline points="14 6 20 12 14 18"></polyline>
+          </svg>
+        </div>
+
+        <!-- PHASE 4: REMEMBER -->
+        <div class="cf-journey-block cf-jb-remember">
+          <span class="cf-jb-phase">04 • SUSTAIN</span>
+          <span class="cf-jb-word">REMEMBER</span>
+        </div>
+      </div>
+
+      <div class="cf-journey-footer">
+        <p class="cf-journey-sub">
+          Inviting active consumer participation and experiential memory rather than passive, forgotten logo placement.
+        </p>
+        <span class="cf-journey-badge">HIGH EMOTIONAL RETENTION</span>
+      </div>
     </div>
 
     <!-- 3. REGIONAL HIP-HOP BENCHMARKS WITH REAL EVENT PHOTOS -->
