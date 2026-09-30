@@ -1934,6 +1934,281 @@ nav { height: 60px !important; padding: 0 !important; }
   color: var(--red-b);
 }
 
+.kv-picker-tag {
+  font-family: var(--ff-a, ui-monospace, monospace);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.kv-picker-btn.active .kv-picker-tag {
+  transform: scale(1.08);
+}
+.kv-meta-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 500px;
+}
+.kv-meta-chip {
+  font-family: var(--ff-b, sans-serif);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ── EVENT FLOORPLAN 4-ZONE BENTO MATRIX ── */
+.floorplan-cards-container {
+  max-width: 1200px;
+  margin: 3.5rem auto 1.5rem;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+.floorplan-cards-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 2.5rem;
+}
+.floorplan-sub-tag {
+  font-family: var(--ff-a, ui-monospace, monospace);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--gold, #d4af37);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0.6rem;
+}
+.floorplan-section-title {
+  font-family: 'Akira Expanded', 'Akira', sans-serif !important;
+  font-size: clamp(1.35rem, 2.6vw, 2.1rem) !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0 0 0.85rem;
+  line-height: 1.25;
+}
+.floorplan-section-desc {
+  font-family: var(--ff-b, sans-serif);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+}
+.floorplan-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 880px) {
+  .floorplan-bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.floorplan-zone-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.2rem;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+}
+.floorplan-zone-card:hover {
+  transform: translateY(-5px);
+}
+
+.fp-card-red {
+  background: linear-gradient(145deg, rgba(30, 4, 4, 0.94) 0%, rgba(14, 2, 2, 0.98) 100%);
+  border: 1.5px solid rgba(239, 68, 68, 0.45);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(239, 68, 68, 0.15);
+}
+.fp-card-red:hover {
+  border-color: rgba(239, 68, 68, 0.9);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(239, 68, 68, 0.4);
+}
+
+.fp-card-green {
+  background: linear-gradient(145deg, rgba(4, 28, 14, 0.94) 0%, rgba(2, 14, 7, 0.98) 100%);
+  border: 1.5px solid rgba(34, 197, 94, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(34, 197, 94, 0.18);
+}
+.fp-card-green:hover {
+  border-color: rgba(34, 197, 94, 0.95);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(34, 197, 94, 0.4);
+}
+
+.fp-card-blue {
+  background: linear-gradient(145deg, rgba(4, 20, 44, 0.94) 0%, rgba(2, 10, 24, 0.98) 100%);
+  border: 1.5px solid rgba(56, 189, 248, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.18);
+}
+.fp-card-blue:hover {
+  border-color: rgba(56, 189, 248, 0.95);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.45);
+}
+
+.fp-card-gold {
+  background: linear-gradient(145deg, rgba(36, 24, 4, 0.94) 0%, rgba(18, 12, 2, 0.98) 100%);
+  border: 1.5px solid rgba(255, 215, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.18);
+}
+.fp-card-gold:hover {
+  border-color: rgba(255, 215, 0, 0.95);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 215, 0, 0.45);
+}
+
+.fp-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.fp-card-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.fp-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.fp-badge {
+  font-family: var(--ff-a, ui-monospace, monospace);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+.fp-badge-red { color: #ef4444; background: rgba(239, 68, 68, 0.18); border: 1px solid rgba(239, 68, 68, 0.4); }
+.fp-badge-green { color: #22c55e; background: rgba(34, 197, 94, 0.18); border: 1px solid rgba(34, 197, 94, 0.4); }
+.fp-badge-blue { color: #38bdf8; background: rgba(56, 189, 248, 0.18); border: 1px solid rgba(56, 189, 248, 0.4); }
+.fp-badge-gold { color: #ffd700; background: rgba(255, 215, 0, 0.18); border: 1px solid rgba(255, 215, 0, 0.4); }
+
+.fp-capacity-pill {
+  font-family: var(--ff-a, ui-monospace, monospace);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.fp-card-title {
+  font-family: 'Akira Expanded', 'Akira', sans-serif !important;
+  font-size: 1.18rem !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin: 0.4rem 0 0.2rem;
+  text-transform: uppercase;
+}
+.fp-card-subtitle {
+  font-family: var(--ff-a, ui-monospace, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.fp-card-desc {
+  font-family: var(--ff-b, sans-serif);
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
+
+.fp-photo-preview {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0.6rem 0 1rem;
+}
+.fp-photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.floorplan-zone-card:hover .fp-photo-preview img {
+  transform: scale(1.06);
+}
+.fp-photo-overlay {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+}
+.fp-overlay-red { background: linear-gradient(135deg, #ef4444, #000); }
+.fp-overlay-green { background: linear-gradient(135deg, #22c55e, #000); }
+.fp-overlay-blue { background: linear-gradient(135deg, #38bdf8, #000); }
+.fp-overlay-gold { background: linear-gradient(135deg, #ffd700, #000); }
+
+.fp-features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+}
+.fp-feature-pill {
+  font-family: var(--ff-b, sans-serif);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 5px 10px;
+  border-radius: 6px;
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+}
+.fp-card-red .fp-feature-pill { border-left-color: #ef4444; }
+.fp-card-green .fp-feature-pill { border-left-color: #22c55e; }
+.fp-card-blue .fp-feature-pill { border-left-color: #38bdf8; }
+.fp-card-gold .fp-feature-pill { border-left-color: #ffd700; }
+
+.fp-card-footer {
+  margin-top: 0.6rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  justify-content: flex-end;
+}
+.fp-view-btn {
+  font-family: var(--ff-a, ui-monospace, monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--gold, #d4af37);
+  text-transform: uppercase;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.floorplan-zone-card:hover .fp-view-btn {
+  transform: translateX(4px);
+  color: #ffffff;
+}
+
 /* ── CURTAINS.JS WEBGL EXECUTIVE SUMMARY STYLING ── */
 #curtains-canvas {
   position: fixed;
@@ -15266,7 +15541,7 @@ body.presentation-active .floating-present-badge {
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </a>
       <a href="#venue" class="link">
-        <span>Venue</span>
+        <span>Floorplan</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </a>
       <a href="#packages" class="link">
@@ -17479,93 +17754,245 @@ body.presentation-active .floating-present-badge {
 </div><!-- /acc-section marketing -->
 
 <div class="section-divider"></div>
-<!-- VENUE — KOLLEKTIVA MULTI-ZONE SPATIAL LAYOUT -->
+<!-- VENUE — EVENT FLOORPLAN & 3+1 ACTIVATION ZONES -->
 <div class="acc-section" data-acc="venue">
   <div class="acc-banner" role="button" tabindex="0" aria-expanded="false">
     <div class="acc-num">04</div>
     <div class="acc-title-wrap">
-      <div class="acc-label">VENUE &amp; ACTIVATION</div>
-      <div class="acc-h2">VENUE &amp; <span class="hl">ACTIVATION</span> ZONES</div>
+      <div class="acc-label">EVENT FLOORPLAN • LAO-ITECC SPATIAL MASTERPLAN</div>
+      <div class="acc-h2">EVENT <span class="hl">FLOORPLAN</span></div>
     </div>
     <div class="acc-arrow">▼</div>
   </div>
   <div class="acc-body">
     <section id="venue" class="acc-inner">
-  <!-- Stacked Full-Bleed Background Visuals -->
+  <!-- Stacked Full-Bleed Background Visuals (4 Branded Zones) -->
   <div class="kv-bg-layer active" id="kv-bg-0" style="background-image:url('assets/battle_openstyle.jpg');">
-  <div style="width:100%;height:100%;background:linear-gradient(135deg,#2d0000,#550000,#0d0000);mix-blend-mode:multiply;opacity:0.4;"></div>
-</div><div class="kv-bg-layer " id="kv-bg-1" style="background-image:url('assets/battle_concert.jpg');">
-  <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0000,#440000,#000000);mix-blend-mode:multiply;opacity:0.4;"></div>
-</div><div class="kv-bg-layer " id="kv-bg-2" style="background-image:url('assets/battle_concert.jpg');">
-  <div style="width:100%;height:100%;background:linear-gradient(135deg,#3d0000,#660000,#111111);mix-blend-mode:multiply;opacity:0.4;"></div>
-</div><div class="kv-bg-layer " id="kv-bg-3" style="background-image:url('assets/battle_openstyle.jpg');">
-  <div style="width:100%;height:100%;background:linear-gradient(135deg,#110000,#330000,#050505);mix-blend-mode:multiply;opacity:0.4;"></div>
-</div><div class="kv-bg-layer " id="kv-bg-4" style="background-image:url('assets/battle_graffiti.jpg');">
-  <div style="width:100%;height:100%;background:linear-gradient(135deg,#220000,#550000,#0a0000);mix-blend-mode:multiply;opacity:0.4;"></div>
-</div><div class="kv-bg-layer " id="kv-bg-5" style="background-image:url('assets/battle_mc.jpg');">
-  <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a,#3d0000,#0d0000);mix-blend-mode:multiply;opacity:0.4;"></div>
-</div>
+    <div style="width:100%;height:100%;background:linear-gradient(135deg,#2d0000,#550000,#0d0000);mix-blend-mode:multiply;opacity:0.4;"></div>
+  </div>
+  <div class="kv-bg-layer" id="kv-bg-1" style="background-image:url('assets/battle_dj.jpg');">
+    <div style="width:100%;height:100%;background:linear-gradient(135deg,#052e16,#14532d,#02190c);mix-blend-mode:multiply;opacity:0.45;"></div>
+  </div>
+  <div class="kv-bg-layer" id="kv-bg-2" style="background-image:url('assets/battle_mc.jpg');">
+    <div style="width:100%;height:100%;background:linear-gradient(135deg,#082f49,#0369a1,#021a2c);mix-blend-mode:multiply;opacity:0.45;"></div>
+  </div>
+  <div class="kv-bg-layer" id="kv-bg-3" style="background-image:url('assets/battle_crew.jpg');">
+    <div style="width:100%;height:100%;background:linear-gradient(135deg,#352204,#784c08,#1a1002);mix-blend-mode:multiply;opacity:0.45;"></div>
+  </div>
   <div class="kv-gradient-overlay"></div>
 
   <div class="kv-content-container">
     <!-- TOP ZONE: Headline + Dynamic Description -->
     <div class="kv-top-zone">
       <div class="kv-headline-box">
-        <div class="kv-section-tag">Festival Experience</div>
-        <h2 class="kv-headline">LAO-ITECC <span class="hl">MULTI-ZONE</span><br>SPATIAL LAYOUT</h2>
+        <div class="kv-section-tag">Spatial Masterplan • Lao-ITECC</div>
+        <h2 class="kv-headline">EVENT <span class="hl">FLOORPLAN</span><br>&amp; ACTIVATION ZONES</h2>
       </div>
 
       <div class="kv-desc-box">
-        <p class="kv-desc-text animate-fade-in" id="kv-desc">The central epicenter of LIHF: giant high-definition LED backdrops, Olympic-grade audio, and battle floors delivering maximum brand visibility during all battle finals and headline concerts.</p>
+        <p class="kv-desc-text animate-fade-in" id="kv-desc">The core festival universe covering all 10,000+ sqm of Lao-ITECC. Featuring the Streetwear &amp; Sneaker Bazaar (50–70 curated lifestyle booths), 8-hour live aerosol graffiti mural canvas, outdoor street dance cyphers, and red-carpet arrival landmark.</p>
       </div>
     </div>
 
     <!-- BOTTOM ZONE: Avatar Picker + Meta Footer -->
     <div class="kv-bottom-zone">
       <div class="kv-picker-row">
-        <button class="kv-picker-btn active" data-zone="0" aria-label="Show 01. Main Stage & Battle Arena" title="01. Main Stage & Battle Arena">
-          <div class="kv-dot"></div>
-          <div class="kv-thumb">
-            <img src="assets/battle_crew.jpg" alt="Main Stage & Battle Arena" loading="lazy" />
+        <button class="kv-picker-btn active" data-zone="0" aria-label="Show 01. LIHF RED ZONE (Master Grounds)" title="01. LIHF RED ZONE (Master Grounds)">
+          <div class="kv-dot" style="background:#ef4444;box-shadow:0 0 10px #ef4444;"></div>
+          <div class="kv-thumb" style="border-color:rgba(239,68,68,0.5);">
+            <img src="assets/battle_openstyle.jpg" alt="LIHF Red Zone" loading="lazy" />
           </div>
+          <span class="kv-picker-tag" style="color:#ef4444;">RED ZONE</span>
         </button>
-        <button class="kv-picker-btn" data-zone="1" aria-label="Show 02. Sponsor Activation Zone" title="02. Sponsor Activation Zone">
-          <div class="kv-dot"></div>
-          <div class="kv-thumb">
-            <img src="assets/battle_openstyle.jpg" alt="Sponsor Activation Zone" loading="lazy" />
+        <button class="kv-picker-btn" data-zone="1" aria-label="Show 02. BEERLAO GREEN ZONE (Beerlao Experience)" title="02. BEERLAO GREEN ZONE (Beerlao Experience)">
+          <div class="kv-dot" style="background:#22c55e;box-shadow:0 0 10px #22c55e;"></div>
+          <div class="kv-thumb" style="border-color:rgba(34,197,94,0.5);">
+            <img src="assets/battle_dj.jpg" alt="Beerlao Green Zone" loading="lazy" />
           </div>
+          <span class="kv-picker-tag" style="color:#22c55e;">GREEN ZONE</span>
         </button>
-        <button class="kv-picker-btn" data-zone="2" aria-label="Show 03. Audience & Central Circulation Flow" title="03. Audience & Central Circulation Flow">
-          <div class="kv-dot"></div>
-          <div class="kv-thumb">
-            <img src="assets/battle_concert.jpg" alt="Audience Circulation Flow" loading="lazy" />
+        <button class="kv-picker-btn" data-zone="2" aria-label="Show 03. PEPSI BLUE ZONE (Pepsi Experience)" title="03. PEPSI BLUE ZONE (Pepsi Experience)">
+          <div class="kv-dot" style="background:#38bdf8;box-shadow:0 0 10px #38bdf8;"></div>
+          <div class="kv-thumb" style="border-color:rgba(56,189,248,0.5);">
+            <img src="assets/battle_mc.jpg" alt="Pepsi Blue Zone" loading="lazy" />
           </div>
+          <span class="kv-picker-tag" style="color:#38bdf8;">BLUE ZONE</span>
         </button>
-        <button class="kv-picker-btn" data-zone="3" aria-label="Show 04. Market & Lifestyle Vendor Zone" title="04. Market & Lifestyle Vendor Zone">
-          <div class="kv-dot"></div>
-          <div class="kv-thumb">
-            <img src="assets/battle_openstyle.jpg" alt="Market & Lifestyle Vendor Zone" loading="lazy" />
+        <button class="kv-picker-btn" data-zone="3" aria-label="Show 04. THE MAIN STAGE (Central Apex Arena)" title="04. THE MAIN STAGE (Central Apex Arena)">
+          <div class="kv-dot" style="background:#ffd700;box-shadow:0 0 10px #ffd700;"></div>
+          <div class="kv-thumb" style="border-color:rgba(255,215,0,0.5);">
+            <img src="assets/battle_crew.jpg" alt="The Main Stage" loading="lazy" />
           </div>
-        </button>
-        <button class="kv-picker-btn" data-zone="4" aria-label="Show 05. Graffiti & Creative Art Zone" title="05. Graffiti & Creative Art Zone">
-          <div class="kv-dot"></div>
-          <div class="kv-thumb">
-            <img src="assets/battle_graffiti.jpg" alt="Graffiti & Creative Art Zone" loading="lazy" />
-          </div>
-        </button>
-        <button class="kv-picker-btn" data-zone="5" aria-label="Show 06. Entrance & Arrival Landmark" title="06. Entrance & Arrival Landmark">
-          <div class="kv-dot"></div>
-          <div class="kv-thumb">
-            <img src="assets/battle_mc.jpg" alt="Entrance & Arrival Landmark" loading="lazy" />
-          </div>
+          <span class="kv-picker-tag" style="color:#ffd700;">MAIN STAGE</span>
         </button>
       </div>
 
       <div class="kv-meta-footer">
-        <div class="kv-meta-name animate-fade-in" id="kv-meta-name">01. Main Stage &amp; Battle Arena</div>
-        <div class="kv-meta-role" id="kv-meta-role">Central Indoor Hall • 10,000+ Attendance</div>
-        <div class="kv-meta-tenure" id="kv-meta-tenure">LED, Stage Integration &amp; Naming Rights</div>
-        <a href="#contact" class="kv-meta-action">Explore Floorplan →</a>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div class="kv-meta-name animate-fade-in" id="kv-meta-name">01. LIHF RED ZONE (Master Grounds)</div>
+          <div class="kv-meta-role" id="kv-meta-role">10,000+ sqm Lao-ITECC Total Footprint • 100% Circulation</div>
+          <div class="kv-meta-tenure" id="kv-meta-tenure">Streetwear Market (50-70 Booths) • 8H Live Graffiti Mural • Street Cyphers</div>
+        </div>
+        <div class="kv-meta-chips" id="kv-meta-chips">
+          <span class="kv-meta-chip">10,000+ sqm Footprint</span>
+          <span class="kv-meta-chip">50-70 Streetwear Booths</span>
+          <span class="kv-meta-chip">8-Hour Live Graffiti</span>
+          <span class="kv-meta-chip">Street Cyphers</span>
+        </div>
+        <a href="#packages" class="kv-meta-action">Explore Packages →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4-Card Bento Matrix Below Viewer -->
+  <div class="floorplan-cards-container">
+    <div class="floorplan-cards-header">
+      <span class="floorplan-sub-tag">Lao-ITECC Spatial Masterplan</span>
+      <h3 class="floorplan-section-title">THE 3+1 <span class="hl">ACTIVATION ZONES</span></h3>
+      <p class="floorplan-section-desc">
+        A seamless 10,000+ sqm interactive journey uniting Lao-ITECC Exhibition Hall: the overarching festival red universe, high-energy branded partner worlds, and the central championship arena.
+      </p>
+    </div>
+
+    <div class="floorplan-bento-grid">
+      <!-- Card 1: LIHF Red Zone -->
+      <div class="floorplan-zone-card fp-card-red" onclick="window.switchFloorplanZone(0)" role="button" tabindex="0">
+        <div>
+          <div class="fp-card-top">
+            <div class="fp-card-badge-row">
+              <span class="fp-pulse-dot" style="background:#ef4444;box-shadow:0 0 10px #ef4444;"></span>
+              <span class="fp-badge fp-badge-red">RED ZONE</span>
+            </div>
+            <span class="fp-capacity-pill">10,000+ SQM • 100% FOOTFALL</span>
+          </div>
+
+          <h4 class="fp-card-title">LIHF RED ZONE</h4>
+          <div class="fp-card-subtitle">MASTER FESTIVAL UNIVERSE &amp; GROUNDS</div>
+          <p class="fp-card-desc">
+            The overarching festival ground spanning the entire Lao-ITECC venue. Houses the massive lifestyle bazaar, live aerosol mural creation, outdoor warmup cyphers, and official red-carpet arrival landmark.
+          </p>
+
+          <div class="fp-photo-preview">
+            <img src="assets/battle_openstyle.jpg" alt="LIHF Red Zone" loading="lazy" />
+            <div class="fp-photo-overlay fp-overlay-red"></div>
+          </div>
+
+          <div class="fp-features-grid">
+            <div class="fp-feature-pill">🛍️ <strong>Streetwear &amp; Sneaker Bazaar:</strong> 50–70 curated lifestyle, apparel &amp; F&amp;B booths</div>
+            <div class="fp-feature-pill">🎨 <strong>Live Aerosol Mural:</strong> 8-hour live graffiti canvas by master urban artists</div>
+            <div class="fp-feature-pill">🔥 <strong>Urban Street Cyphers:</strong> Open floor street dance circles, warmup &amp; jam areas</div>
+            <div class="fp-feature-pill">📸 <strong>Arrival Landmark:</strong> Grand branded entrance archway &amp; red-carpet media photo wall</div>
+          </div>
+        </div>
+
+        <div class="fp-card-footer">
+          <span class="fp-view-btn">VIEW RED ZONE MASTERPLAN ↗</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Beerlao Green Zone -->
+      <div class="floorplan-zone-card fp-card-green" onclick="window.switchFloorplanZone(1)" role="button" tabindex="0">
+        <div>
+          <div class="fp-card-top">
+            <div class="fp-card-badge-row">
+              <span class="fp-pulse-dot" style="background:#22c55e;box-shadow:0 0 10px #22c55e;"></span>
+              <span class="fp-badge fp-badge-green">GREEN ZONE</span>
+            </div>
+            <span class="fp-capacity-pill">EMERALD NIGHTLIFE HUB</span>
+          </div>
+
+          <h4 class="fp-card-title">BEERLAO GREEN ZONE</h4>
+          <div class="fp-card-subtitle">EXCLUSIVE BEERLAO EXPERIENTIAL LOUNGE</div>
+          <p class="fp-card-desc">
+            Vibrant urban sanctuary with glowing emerald-and-gold ambiance, featuring scratch DJ performances, cold draft beer service, and festival relaxation lounges.
+          </p>
+
+          <div class="fp-photo-preview">
+            <img src="assets/battle_dj.jpg" alt="Beerlao Green Zone" loading="lazy" />
+            <div class="fp-photo-overlay fp-overlay-green"></div>
+          </div>
+
+          <div class="fp-features-grid">
+            <div class="fp-feature-pill">🎧 <strong>Live DJ Scratch Stage:</strong> Turntablism battles, party beats &amp; guest DJ sets</div>
+            <div class="fp-feature-pill">🍻 <strong>Cold Draft Experience:</strong> Fresh draft pours &amp; interactive draft pouring challenge</div>
+            <div class="fp-feature-pill">🌴 <strong>Urban Beer Garden:</strong> Premium high-table &amp; turf seating for festival attendees</div>
+            <div class="fp-feature-pill">✨ <strong>Glow Photo Installations:</strong> Signature Beerlao neon &amp; golden photo opportunities</div>
+          </div>
+        </div>
+
+        <div class="fp-card-footer">
+          <span class="fp-view-btn">VIEW BEERLAO ZONE MASTERPLAN ↗</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Pepsi Blue Zone -->
+      <div class="floorplan-zone-card fp-card-blue" onclick="window.switchFloorplanZone(2)" role="button" tabindex="0">
+        <div>
+          <div class="fp-card-top">
+            <div class="fp-card-badge-row">
+              <span class="fp-pulse-dot" style="background:#38bdf8;box-shadow:0 0 10px #38bdf8;"></span>
+              <span class="fp-badge fp-badge-blue">BLUE ZONE</span>
+            </div>
+            <span class="fp-capacity-pill">HIGH-ENERGY YOUTH ARENA</span>
+          </div>
+
+          <h4 class="fp-card-title">PEPSI BLUE ZONE</h4>
+          <div class="fp-card-subtitle">ELECTRIC MUSIC, GAMING &amp; REFRESHMENT</div>
+          <p class="fp-card-desc">
+            Dynamic electric-blue youth epicenter buzzing with musical cyphers, interactive video game battles, ice-cold drink stations, and viral content creators.
+          </p>
+
+          <div class="fp-photo-preview">
+            <img src="assets/battle_mc.jpg" alt="Pepsi Blue Zone" loading="lazy" />
+            <div class="fp-photo-overlay fp-overlay-blue"></div>
+          </div>
+
+          <div class="fp-features-grid">
+            <div class="fp-feature-pill">🎤 <strong>Pepsi Cypher Stage:</strong> Live rap battles, open mics &amp; vocal showcases</div>
+            <div class="fp-feature-pill">🎮 <strong>Interactive Gaming Hub:</strong> Dance-mat rhythm battles &amp; arcade showdowns</div>
+            <div class="fp-feature-pill">🧊 <strong>Ice-Cold Refreshment Bar:</strong> Exclusive Pepsi flavor mocktails &amp; cold sampling</div>
+            <div class="fp-feature-pill">📱 <strong>UGC Creator Studio:</strong> Branded 360 photo booth &amp; viral TikTok/Reels studio</div>
+          </div>
+        </div>
+
+        <div class="fp-card-footer">
+          <span class="fp-view-btn">VIEW PEPSI ZONE MASTERPLAN ↗</span>
+        </div>
+      </div>
+
+      <!-- Card 4: The Main Stage -->
+      <div class="floorplan-zone-card fp-card-gold" onclick="window.switchFloorplanZone(3)" role="button" tabindex="0">
+        <div>
+          <div class="fp-card-top">
+            <div class="fp-card-badge-row">
+              <span class="fp-pulse-dot" style="background:#ffd700;box-shadow:0 0 10px #ffd700;"></span>
+              <span class="fp-badge fp-badge-gold">MAIN STAGE</span>
+            </div>
+            <span class="fp-capacity-pill">10,000+ SEATS • CENTRAL EPICENTER</span>
+          </div>
+
+          <h4 class="fp-card-title">THE MAIN STAGE</h4>
+          <div class="fp-card-subtitle">CENTRAL APEX BATTLE &amp; CONCERT ARENA</div>
+          <p class="fp-card-desc">
+            The monumental arena connecting all zones. High-definition stadium LED backdrops and concert-grade line arrays delivering maximum brand visibility during all championship finals.
+          </p>
+
+          <div class="fp-photo-preview">
+            <img src="assets/battle_crew.jpg" alt="The Main Stage" loading="lazy" />
+            <div class="fp-photo-overlay fp-overlay-gold"></div>
+          </div>
+
+          <div class="fp-features-grid">
+            <div class="fp-feature-pill">⚡ <strong>Championship Finals:</strong> Breaking 2v2, Open Style 2v2, Rap 7-to-Smoke</div>
+            <div class="fp-feature-pill">🌟 <strong>Headline Concerts:</strong> Major Lao &amp; ASEAN hip-hop headliners</div>
+            <div class="fp-feature-pill">🏆 <strong>Grand Award Ceremony:</strong> 159,000,000 LAK trophy presentations</div>
+            <div class="fp-feature-pill">💥 <strong>High-Tech Production:</strong> 4K stadium LED walls, laser show &amp; confetti cannons</div>
+          </div>
+        </div>
+
+        <div class="fp-card-footer">
+          <span class="fp-view-btn">VIEW MAIN STAGE MASTERPLAN ↗</span>
+        </div>
       </div>
     </div>
   </div>
@@ -18829,97 +19256,103 @@ if(showreelModal){
   });
 }
 
-// ── Kollektiva Multi-Zone Interactive Switcher Logic ──
+// ── Event Floorplan & 3+1 Activation Zones Switcher Logic ──
 const zoneData = [
   {
-    name: '01. Main Stage & Battle Arena',
-    role: 'Central Indoor Hall • 10,000+ Attendance',
-    tenure: 'LED, Stage Integration & Naming Rights',
-    desc: 'The central epicenter of LIHF: giant high-definition LED backdrops, Olympic-grade audio, and battle floors delivering maximum brand visibility during all battle finals and headline concerts.',
-    bg: 'assets/battle_crew.jpg',
+    name: '01. LIHF RED ZONE (Master Grounds)',
+    role: '10,000+ sqm Lao-ITECC Total Footprint • 100% Circulation',
+    tenure: 'Streetwear Market (50-70 Booths) • 8H Live Graffiti Mural • Street Cyphers',
+    desc: 'The core festival universe covering all 10,000+ sqm of Lao-ITECC. Featuring the Streetwear & Sneaker Bazaar (50–70 curated lifestyle booths), 8-hour live aerosol graffiti mural canvas, outdoor street dance cyphers, and red-carpet arrival landmark.',
+    chips: ['10,000+ sqm Footprint', '50-70 Streetwear Booths', '8-Hour Live Graffiti', 'Street Cyphers'],
+    bg: 'assets/battle_openstyle.jpg',
     grad: 'linear-gradient(135deg,#2d0000,#550000,#0d0000)'
   },
   {
-    name: '02. Sponsor Activation Zone & Village',
-    role: 'Prime Exhibition Plaza • 100% Footfall',
-    tenure: 'Product Trial, Games & Lead Capture',
-    desc: 'Dedicated experiential village for Title and Platinum partners: product sampling, interactive gamified challenges, app downloads, and direct Gen Z consumer engagement.',
-    bg: 'assets/battle_openstyle.jpg',
-    grad: 'linear-gradient(135deg,#1a0000,#440000,#000000)'
+    name: '02. BEERLAO GREEN ZONE (Beerlao Experience)',
+    role: 'Nightlife Lounge • Live DJ Stage • Beer Garden',
+    tenure: 'Exclusive Turntablism Scratch Sets • Draft Beer Sampling • Chill Lounge',
+    desc: 'Dedicated Beerlao lifestyle oasis featuring a high-octane Live DJ Booth & turntablism scratch battles, an urban Beer Garden with picnic lounges, interactive cold-draft pouring challenges, and exclusive brand photo installations.',
+    chips: ['Live DJ Stage', 'Beerlao Draft Challenge', 'Urban Beer Garden', 'Nightlife Chill Lounge'],
+    bg: 'assets/battle_dj.jpg',
+    grad: 'linear-gradient(135deg,#052e16,#14532d,#02190c)'
   },
   {
-    name: '03. Audience & Central Circulation Flow',
-    role: 'Continuous Viewing & Promenade Route',
-    tenure: 'Repeated Impression Exposure',
-    desc: 'Sponsor visibility is seamlessly engineered into the natural audience journey: hanging banners, wayfinding totems, and branded rest lounges along the main circulation path.',
-    bg: 'assets/battle_concert.jpg',
-    grad: 'linear-gradient(135deg,#3d0000,#660000,#111111)'
-  },
-  {
-    name: '04. Market & Lifestyle Vendor Zone',
-    role: '50–70 Curated Food & Streetwear Booths',
-    tenure: 'Sales, F&B, Commerce & Digital Pay',
-    desc: 'Bustling lifestyle bazaar featuring 50–70 food, beverage, streetwear, and craft vendors. Prime partnership opportunity for cashless digital wallet and banking app integrations.',
-    bg: 'assets/battle_openstyle.jpg',
-    grad: 'linear-gradient(135deg,#110000,#330000,#050505)'
-  },
-  {
-    name: '05. Graffiti & Creative Art Zone',
-    role: 'Live 8-Hour Canvas Murals & Photo Wall',
-    tenure: 'Creator Content & Viral Photo Spots',
-    desc: 'Large-scale live aerosol canvas installations where master street artists paint across the festival, creating the primary photo-op destination for thousands of attendee social posts.',
-    bg: 'assets/battle_graffiti.jpg',
-    grad: 'linear-gradient(135deg,#220000,#550000,#0a0000)'
-  },
-  {
-    name: '06. Entrance & Arrival Landmark',
-    role: 'First Impression Arch & Red Carpet',
-    tenure: 'Sponsor Arch & Arrival Media Moments',
-    desc: 'The grand entrance of Lao-ITECC Exhibition Hall featuring a monumental branded archway, ticket accreditation points, and the official red-carpet media photo wall.',
+    name: '03. PEPSI BLUE ZONE (Pepsi Experience)',
+    role: 'Youth Music Stage • Gaming Hub • Refreshment Oasis',
+    tenure: 'Rap & Vocal Cypher Stage • Rhythm Game Challenge • UGC Studio',
+    desc: 'Electric high-energy playground anchored by the Pepsi Music & Rap Cypher Stage, interactive rhythm dance-mat gaming challenges, ice-cold Pepsi refreshment stations, and dynamic UGC video content creator studios.',
+    chips: ['Rap Cypher Stage', 'Dance Mat Gaming', 'Ice-Cold Bar', 'UGC Video Studio'],
     bg: 'assets/battle_mc.jpg',
-    grad: 'linear-gradient(135deg,#1a1a1a,#3d0000,#0d0000)'
+    grad: 'linear-gradient(135deg,#082f49,#0369a1,#021a2c)'
+  },
+  {
+    name: '04. THE MAIN STAGE (Central Apex Arena)',
+    role: 'Epic Indoor Stadium • 10,000+ Audience Capacity',
+    tenure: 'Championship Finals • Headline Concerts • 159M LAK Grand Awards',
+    desc: 'The beating heart uniting all zones: massive stadium LED screens, Olympic-grade concert line arrays, hosting all championship battle finals (Breaking 2v2, Open Style 2v2, Rap 7-to-Smoke), headline concert performances, and the 159,000,000 LAK trophy ceremonies.',
+    chips: ['Championship Finals', 'Headline Concerts', '159M LAK Ceremony', '4K Stadium LED & Lasers'],
+    bg: 'assets/battle_crew.jpg',
+    grad: 'linear-gradient(135deg,#352204,#784c08,#1a1002)'
   }
 ];
+
+function activateZone(idx) {
+  const data = zoneData[idx];
+  if(!data) return;
+
+  // Toggle active picker button
+  document.querySelectorAll('.kv-picker-btn').forEach((b, i) => {
+    b.classList.toggle('active', i === idx);
+  });
+
+  // Toggle active background crossfade (700ms opacity transition)
+  document.querySelectorAll('.kv-bg-layer').forEach((layer, i) => {
+    layer.classList.toggle('active', i === idx);
+  });
+
+  // Update dynamic text with remount / fadeIn animation
+  const descEl = document.getElementById('kv-desc');
+  const nameEl = document.getElementById('kv-meta-name');
+  const roleEl = document.getElementById('kv-meta-role');
+  const tenureEl = document.getElementById('kv-meta-tenure');
+  const chipsEl = document.getElementById('kv-meta-chips');
+
+  if(descEl){
+    descEl.classList.remove('animate-fade-in');
+    void descEl.offsetWidth; // trigger reflow
+    descEl.textContent = data.desc;
+    descEl.classList.add('animate-fade-in');
+  }
+
+  if(nameEl){
+    nameEl.classList.remove('animate-fade-in');
+    void nameEl.offsetWidth;
+    nameEl.textContent = data.name;
+    nameEl.classList.add('animate-fade-in');
+  }
+
+  if(roleEl) roleEl.textContent = data.role;
+  if(tenureEl) tenureEl.textContent = data.tenure;
+
+  if(chipsEl && data.chips){
+    chipsEl.innerHTML = data.chips.map(chip => `<span class="kv-meta-chip">${chip}</span>`).join('');
+  }
+}
 
 document.querySelectorAll('.kv-picker-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const idx = parseInt(btn.dataset.zone);
-    const data = zoneData[idx];
-    if(!data) return;
-
-    // Toggle active picker button
-    document.querySelectorAll('.kv-picker-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    // Toggle active background crossfade (700ms opacity transition)
-    document.querySelectorAll('.kv-bg-layer').forEach(layer => layer.classList.remove('active'));
-    const targetBg = document.getElementById(`kv-bg-${idx}`);
-    if(targetBg) targetBg.classList.add('active');
-
-    // Update dynamic text with remount / fadeIn animation
-    const descEl = document.getElementById('kv-desc');
-    const nameEl = document.getElementById('kv-meta-name');
-    const roleEl = document.getElementById('kv-meta-role');
-    const tenureEl = document.getElementById('kv-meta-tenure');
-
-    if(descEl){
-      descEl.classList.remove('animate-fade-in');
-      void descEl.offsetWidth; // trigger reflow
-      descEl.textContent = data.desc;
-      descEl.classList.add('animate-fade-in');
-    }
-
-    if(nameEl){
-      nameEl.classList.remove('animate-fade-in');
-      void nameEl.offsetWidth;
-      nameEl.textContent = data.name;
-      nameEl.classList.add('animate-fade-in');
-    }
-
-    if(roleEl) roleEl.textContent = data.role;
-    if(tenureEl) tenureEl.textContent = data.tenure;
+    activateZone(idx);
   });
 });
+
+window.switchFloorplanZone = function(idx) {
+  activateZone(idx);
+  const target = document.getElementById('venue');
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
 
 // ── Curtains.js WebGL Plane Shader Setup for Executive Summary (#about) ──
 window.addEventListener('load', () => {
@@ -21315,7 +21748,7 @@ function replayLogoIntro(){
     { id: 'about', target: '#about', num: '02', title: 'Co-Founder & Youth Market' },
     { id: 'battles', target: '#battles', num: '03', title: '8 Culture Pillars & Battles' },
     { id: 'marketing', target: '#marketing', num: '04', title: '360° Marketing Architecture' },
-    { id: 'venue', target: '#venue', num: '05', title: 'Lao-ITECC Venue Layout' },
+    { id: 'venue', target: '#venue', num: '05', title: 'Event Floorplan & Activation Zones' },
     { id: 'packages', target: '#packages', num: '06', title: 'Sponsorship ROI Packages' },
     { id: 'overview', target: '#overview', num: '07', title: '360° Bento Executive Brief' },
     { id: 'organizer', target: '#organizer', num: '08', title: 'Fanglao Track Record' },
