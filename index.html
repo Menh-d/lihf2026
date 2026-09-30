@@ -8953,6 +8953,40 @@ section.acc-inner {
 .ctv-header-right {
   display: flex;
   align-items: center;
+  gap: 8px;
+}
+.ctv-channel-switcher {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 2px 3px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.ctv-ch-btn {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.ctv-ch-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+.ctv-ch-btn.active {
+  color: #000;
+  background: #ffd700;
+  font-weight: 800;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
 }
 .ctv-quality-pill {
   font-family: var(--font-sans);
@@ -8984,7 +9018,7 @@ section.acc-inner {
 .cinema-tv-video {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   background: #000;
   transition: filter 0.25s ease;
@@ -15567,12 +15601,12 @@ body.presentation-active .floating-present-badge {
                 <div class="television-crt">
                   <div class="television-screen">
                     <video id="mini-floating-video" autoplay muted loop playsinline class="television-video"
-                      src="assets/lihf_tv_video.mp4"></video>
+                      src="assets/lihf_fb_reel.mp4"></video>
                     <div class="noise"></div>
                     <div class="off"></div>
                     <div class="tv-screen-badge">
                       <span class="tv-rec-dot"></span>
-                      <span>CH-09 &bull; LIVE</span>
+                      <span>CH-01 &bull; LAO HIPHOP FESTIVAL</span>
                     </div>
                     <button class="mini-tv-sound-btn" id="mini-tv-sound-btn" onclick="toggleMiniTvSound(event)" title="Toggle Sound" aria-label="Toggle Sound">
                       <svg class="tv-snd-icon tv-snd-muted" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
@@ -15587,7 +15621,7 @@ body.presentation-active .floating-present-badge {
               <div class="television-lateral">
                 <div class="dial-container">
                   <!-- Channel Rotary Dial -->
-                  <div class="dial channel-button" id="mini-tv-channel-dial" title="Rotate Channel">
+                  <div class="dial channel-button" id="mini-tv-channel-dial" title="Click to Switch Channel (CH-01 / CH-02)">
                     <div class="data-container">
                       <span class="data">1</span><span class="data">2</span><span class="data">3</span>
                       <span class="data">4</span><span class="data">5</span><span class="data">6</span>
@@ -15682,9 +15716,13 @@ body.presentation-active .floating-present-badge {
           </div>
           <span class="ctv-live-dot"></span>
           <span class="ctv-title">LIHF 2026 BROADCAST THEATER</span>
-          <span class="ctv-feed-badge">CH-09 // ON AIR</span>
+          <span class="ctv-feed-badge">CH-01 // ON AIR</span>
         </div>
         <div class="ctv-header-right">
+          <div class="ctv-channel-switcher">
+            <button type="button" class="ctv-ch-btn active" id="ctv-btn-ch1" onclick="setTvChannel(0)">CH-01 LIVE REEL</button>
+            <button type="button" class="ctv-ch-btn" id="ctv-btn-ch2" onclick="setTvChannel(1)">CH-02 3D TEASER</button>
+          </div>
           <span class="ctv-quality-pill">4K CRT ULTRA-WIDE</span>
         </div>
       </div>
@@ -15693,7 +15731,7 @@ body.presentation-active .floating-present-badge {
       <div class="cinema-tv-screen-wrap">
         <div class="cinema-tv-crt-frame">
           <video id="modal-tv-video" autoplay muted loop playsinline class="cinema-tv-video"
-            src="assets/lihf_tv_video.mp4"></video>
+            src="assets/lihf_fb_reel.mp4"></video>
           <div class="cinema-tv-scanlines"></div>
           <div class="cinema-tv-vignette"></div>
           <div class="cinema-tv-off-overlay"></div>
@@ -15701,7 +15739,7 @@ body.presentation-active .floating-present-badge {
           <!-- Screen Info Badge -->
           <div class="cinema-tv-osd">
             <span class="tv-rec-dot"></span>
-            <span>LIHF '26 SHOWREEL &bull; VINTAGE MASTER</span>
+            <span>LAO HIPHOP FESTIVAL &bull; LIVE REEL</span>
           </div>
 
           <!-- Large Audio Toggle Center Pill -->
@@ -15722,6 +15760,10 @@ body.presentation-active .floating-present-badge {
           <button class="ctv-ctrl-btn ctv-mute-btn" onclick="toggleTvMute(event)" title="Toggle Mute">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
             <span id="ctv-footer-mute-text">AUDIO</span>
+          </button>
+          <button class="ctv-ctrl-btn ctv-ch-switch-btn" onclick="setTvChannel((currentTvChannelIndex + 1) % tvChannels.length)" title="Switch Channel (CH-01 / CH-02)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 11V4h7M20 13v7h-7"/><path d="M4 4l16 16"/></svg>
+            <span id="ctv-footer-ch-text">CH-01</span>
           </button>
         </div>
         
@@ -19379,15 +19421,106 @@ updateLihfCountdown();
 let tvChannelAngle = 90;
 let tvVolumeAngle = 240;
 
-function setupTvInteractiveControls() {
-  // Mini Retro TV Channel Dial
+const tvChannels = [
+  {
+    id: 1,
+    tag: 'CH-01',
+    name: 'CH-01 // LAO HIPHOP FESTIVAL 2024 LIVE',
+    badge: 'CH-01 • LAO HIPHOP FESTIVAL',
+    osd: "LAO HIPHOP FESTIVAL • LIVE REEL",
+    src: 'assets/lihf_fb_reel.mp4'
+  },
+  {
+    id: 2,
+    tag: 'CH-02',
+    name: "CH-02 // LIHF '26 3D TEASER",
+    badge: 'CH-02 • 3D TEASER',
+    osd: "LIHF '26 3D MASCOTS • VINTAGE MASTER",
+    src: 'assets/lihf_tv_video.mp4'
+  }
+];
+let currentTvChannelIndex = 0;
+
+function setTvChannel(channelIndex) {
+  currentTvChannelIndex = channelIndex % tvChannels.length;
+  const ch = tvChannels[currentTvChannelIndex];
+
+  // Rotate dial knob
+  tvChannelAngle = (tvChannelAngle + 30) % 360;
   const channelDial = document.getElementById('mini-tv-channel-dial') || document.getElementById('tv-channel-dial');
   if (channelDial) {
     const sel = channelDial.querySelector('.selector');
+    if (sel) sel.style.setProperty('--value', tvChannelAngle + 'deg');
+  }
+
+  // CRT channel glitch transition burst
+  const miniNoise = document.querySelector('#mini-retro-tv .noise');
+  if (miniNoise) {
+    miniNoise.style.opacity = '1';
+    miniNoise.style.filter = 'brightness(3)';
+    setTimeout(() => {
+      miniNoise.style.opacity = '';
+      miniNoise.style.filter = '';
+    }, 180);
+  }
+  const cinemaNoise = document.querySelector('.cinema-tv-scanlines');
+  if (cinemaNoise) {
+    cinemaNoise.style.background = 'repeating-linear-gradient(0deg, rgba(255,255,255,0.4) 0px, rgba(0,0,0,0.8) 3px)';
+    setTimeout(() => {
+      cinemaNoise.style.background = '';
+    }, 150);
+  }
+
+  // Update Mini TV Video
+  const miniVid = document.getElementById('mini-floating-video');
+  if (miniVid && miniVid.getAttribute('src') !== ch.src) {
+    const wasMuted = miniVid.muted;
+    const wasPlaying = !miniVid.paused;
+    miniVid.src = ch.src;
+    miniVid.muted = wasMuted;
+    miniVid.currentTime = 0;
+    if (wasPlaying || !document.getElementById('mini-retro-tv')?.classList.contains('is-off')) {
+      miniVid.play().catch(e => console.log('Mini play caught:', e));
+    }
+  }
+
+  // Update Modal TV Video
+  const modalVid = document.getElementById('modal-tv-video');
+  if (modalVid && modalVid.getAttribute('src') !== ch.src) {
+    const wasMuted = modalVid.muted;
+    modalVid.src = ch.src;
+    modalVid.muted = wasMuted;
+    modalVid.currentTime = 0;
+    if (document.getElementById('retro-tv-modal')?.classList.contains('open')) {
+      modalVid.play().catch(e => console.log('Modal play caught:', e));
+    }
+  }
+
+  // Update UI labels and badges
+  const miniBadge = document.querySelector('#mini-retro-tv .tv-screen-badge span:last-child');
+  if (miniBadge) miniBadge.textContent = ch.badge;
+
+  const ctvFeedBadge = document.querySelector('.ctv-feed-badge');
+  if (ctvFeedBadge) ctvFeedBadge.textContent = ch.name;
+
+  const ctvOsd = document.querySelector('.cinema-tv-osd span:last-child');
+  if (ctvOsd) ctvOsd.textContent = ch.osd;
+
+  const footerChText = document.getElementById('ctv-footer-ch-text');
+  if (footerChText) footerChText.textContent = ch.tag;
+
+  document.querySelectorAll('.ctv-ch-btn').forEach((btn, idx) => {
+    btn.classList.toggle('active', idx === currentTvChannelIndex);
+  });
+}
+
+function setupTvInteractiveControls() {
+  // Mini Retro TV Channel Dial click -> switch channel
+  const channelDial = document.getElementById('mini-tv-channel-dial') || document.getElementById('tv-channel-dial');
+  if (channelDial) {
     channelDial.addEventListener('click', (e) => {
       e.stopPropagation();
-      tvChannelAngle = (tvChannelAngle + 30) % 360;
-      if (sel) sel.style.setProperty('--value', tvChannelAngle + 'deg');
+      setTvChannel((currentTvChannelIndex + 1) % tvChannels.length);
     });
   }
 
@@ -19470,7 +19603,11 @@ function openTvPopup() {
     if (cinemaTv) cinemaTv.classList.remove('is-off');
     const modalVid = document.getElementById('modal-tv-video');
     const miniVid = document.getElementById('mini-floating-video');
+    const ch = tvChannels[currentTvChannelIndex];
     if (modalVid) {
+      if (modalVid.getAttribute('src') !== ch.src) {
+        modalVid.src = ch.src;
+      }
       if (miniVid && !isNaN(miniVid.currentTime) && miniVid.currentTime > 0) {
         try { modalVid.currentTime = miniVid.currentTime; } catch(e){}
       }
