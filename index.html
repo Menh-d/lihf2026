@@ -10068,10 +10068,11 @@ nav {
   padding: 0 1rem;
   margin: 0 auto;
   height: 100%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
   gap: 0.5rem;
   position: relative;
-  justify-content: space-between;
-  align-items: center;
   background: var(--nav);
   overflow: visible;
   box-sizing: border-box;
@@ -10151,27 +10152,29 @@ input:focus-visible + label {
 
 .nav__options a {
   position: relative;
-  padding: 0.75rem 0.45rem;
+  padding: 0 0.35rem;
   height: 60px;
   display: flex;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
   text-decoration: none;
-  justify-content: space-between;
   color: var(--color);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: clamp(11px, 0.88vw, 12.5px);
+  font-size: clamp(10px, 0.72vw, 11.5px);
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   white-space: nowrap;
   transition: color var(--speed);
+  box-sizing: border-box;
 }
 
 .nav__options svg {
-  height: 14px;
-  width: 14px;
-  stroke-width: 2.5px;
+  height: 12px;
+  width: 12px;
+  stroke-width: 2.2px;
   stroke: currentColor;
-  margin-left: 4px;
+  margin-left: 2px;
   flex-shrink: 0;
 }
 
@@ -10315,11 +10318,13 @@ nav a:is(:hover, :focus-visible) {
   }
   .nav__options {
     flex: 1;
+    min-width: 0;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 1fr;
+    grid-auto-columns: minmax(0, 1fr);
     position: static;
     width: auto;
+    height: 60px;
     translate: 0 0;
     z-index: 1;
     overflow: visible;
@@ -10335,20 +10340,25 @@ nav a:is(:hover, :focus-visible) {
   .link::before {
     content: "";
     position: absolute;
-    height: 300%;
-    border-right: 2px solid var(--bg);
-    border-bottom: 2px solid var(--bg);
+    height: 100%;
+    top: 0;
     bottom: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
     background: var(--nav);
     z-index: -1;
     left: 0;
     right: 0;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: none;
     transition: background var(--speed);
   }
 
   .link:first-of-type::before {
-    border-left: 2px solid var(--bg);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .link:hover::before,
+  .link:focus-visible::before {
+    background: rgba(255, 255, 255, 0.08);
   }
 
   .link.nav__cta-link:is(:hover, :focus-visible)::before {
@@ -10362,8 +10372,8 @@ nav a:is(:hover, :focus-visible) {
   }
 
   .link {
-    translate: 0 calc(var(--lerp, 0) * 80%);
-    transition: translate var(--speed);
+    translate: 0 0;
+    transition: color var(--speed), background var(--speed);
   }
 
   :is(.link:hover, .link:focus-visible) {
@@ -10394,15 +10404,22 @@ nav a:is(:hover, :focus-visible) {
 
 @media(min-width: 1024px) {
   .nav__options a {
-    padding: 0.75rem 0.85rem;
-    font-size: 13px;
+    padding: 0 0.45rem;
+    font-size: clamp(10.5px, 0.75vw, 12px);
   }
 }
 
 @media(min-width: 1280px) {
   .nav__options a {
-    padding: 0.75rem 1.25rem;
-    font-size: 13.5px;
+    padding: 0 0.65rem;
+    font-size: clamp(11px, 0.8vw, 12.5px);
+  }
+}
+
+@media(min-width: 1440px) {
+  .nav__options a {
+    padding: 0 0.85rem;
+    font-size: 13px;
   }
 }
 
