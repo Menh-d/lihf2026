@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" width="420" height="120">
+  <defs>
+    <linearGradient id="indeeGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe27a"/>
+      <stop offset="50%" stop-color="#ffd700"/>
+      <stop offset="100%" stop-color="#c89d14"/>
+    </linearGradient>
+    <linearGradient id="indeeGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffd700" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Vinyl Record Icon -->
+  <g transform="translate(15, 12)">
+    <!-- Outer Vinyl -->
+    <circle cx="48" cy="48" r="46" fill="#0d140e" stroke="url(#indeeGold)" stroke-width="2.5"/>
+    <circle cx="48" cy="48" r="38" fill="none" stroke="#22c55e" stroke-width="1" stroke-opacity="0.4"/>
+    <circle cx="48" cy="48" r="28" fill="none" stroke="#22c55e" stroke-width="1" stroke-opacity="0.3"/>
+    <circle cx="48" cy="48" r="18" fill="#ffd700" stroke="#000" stroke-width="2"/>
+    <circle cx="48" cy="48" r="5" fill="#0d140e"/>
+    <!-- Stylized Sound Waves -->
+    <path d="M 85 24 A 48 48 0 0 1 95 48" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 92 14 A 58 58 0 0 1 104 48" fill="none" stroke="#ffd700" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  </g>
+
+  <!-- INDEE Text -->
+  <text x="135" y="66" font-family="'Akira Expanded', 'Impact', sans-serif" font-weight="900" font-size="44" fill="#ffffff" letter-spacing="3">
+    INDEE
+  </text>
+  
+  <!-- RECORDS / EVENTS Text -->
+  <text x="138" y="96" font-family="'Montserrat', 'Helvetica Neue', sans-serif" font-weight="800" font-size="14" fill="url(#indeeGold)" letter-spacing="8">
+    RECORDS &amp; EVENTS
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="138" y="112" font-family="'Montserrat', sans-serif" font-weight="600" font-size="10" fill="#22c55e" letter-spacing="2">
+    LAO ENTERTAINMENT HERITAGE
+  </text>
+</svg>

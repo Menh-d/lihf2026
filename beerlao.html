@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="lo" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>BEERLAO GREEN ZONE • LIHF 2026 | Music &amp; DJ Festival Proposal</title>
+  <meta name="description" content="Official Event &amp; Sponsorship Proposal for Beerlao Green Zone at Lao International HipHop Festival 2026 (LIHF 2026). Co-organized by Fanglao Studio &amp; Indee Records.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Noto+Sans+Lao:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ══════════════════════════════════════════════════════════════
+       BEERLAO GREEN THEME TOKENS
+       ══════════════════════════════════════════════════════════════ */
+    :root {
+      --bg: #031208;
+      --bg-darker: #020b05;
+      --bg-card: rgba(6, 24, 13, 0.88);
+      --bg-card-hover: rgba(9, 36, 19, 0.95);
+      --border-color: rgba(34, 197, 94, 0.28);
+      --border-color-hover: rgba(34, 197, 94, 0.65);
+      
+      --green-primary: #22c55e;
+      --green-glow: #10b981;
+      --green-deep: #052e16;
+      --green-emerald: #008751;
+      
+      --gold: #ffd700;
+      --gold-light: #fef08a;
+      --gold-dark: #b45309;
+      
+      --text: #f0fdf4;
+      --text-muted: rgba(240, 253, 244, 0.72);
+      --text-dim: rgba(240, 253, 244, 0.45);
+      
+      --ff-a: 'Space Grotesk', 'Montserrat', sans-serif;
+      --ff-b: 'Plus Jakarta Sans', 'Noto Sans Lao', sans-serif;
+      --ff-h: 'Akira Expanded', 'Syne', 'Montserrat', sans-serif;
+    }
+
+    @font-face {
+      font-family: 'Akira Expanded';
+      src: url('assets/fonts/AkiraExpanded-SuperBold.woff2') format('woff2'),
+           url('assets/fonts/AkiraExpanded-SuperBold.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-b);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(34, 197, 94, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 45%),
+        linear-gradient(180deg, #031208 0%, #020b05 100%);
+      background-attachment: fixed;
+    }
+
+    /* Selection */
+    ::selection {
+      background: var(--green-primary);
+      color: #020b05;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Headings & Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--ff-h);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .hl-green {
+      color: var(--green-primary);
+      text-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+    }
+    .hl-gold {
+      color: var(--gold);
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+
+    /* Top Global Header */
+    header.bl-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 68px;
+      background: rgba(3, 18, 8, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+    }
+    .bl-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .bl-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      font-family: var(--ff-a);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: all 0.25s ease;
+    }
+    .back-btn:hover {
+      background: rgba(34, 197, 94, 0.2);
+      border-color: var(--green-primary);
+      color: var(--green-primary);
+      transform: translateX(-3px);
+    }
+
+    .bl-co-org-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--ff-a);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .bl-co-org-badge img {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .bl-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    @media (max-width: 960px) {
+      .bl-nav-links { display: none; }
+    }
+    .bl-nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-family: var(--ff-a);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .bl-nav-link:hover {
+      color: var(--green-primary);
+    }
+
+    .bl-nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #020b05;
+      font-family: var(--ff-a);
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+      transition: all 0.25s ease;
+    }
+    .bl-nav-cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(34, 197, 94, 0.7);
+    }
+
+    /* Hero Section */
+    .bl-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      overflow: hidden;
+    }
+    .bl-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-image: url('assets/battle_dj.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.22) contrast(1.2);
+    }
+    .bl-hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: radial-gradient(circle at center, rgba(34, 197, 94, 0.15) 0%, rgba(3, 18, 8, 0.95) 75%),
+                  linear-gradient(180deg, rgba(3, 18, 8, 0.4) 0%, #031208 100%);
+    }
+
+    .bl-hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 980px) {
+      .bl-hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+      }
+    }
+
+    .bl-tag-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      margin-bottom: 1.2rem;
+    }
+    .bl-pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green-primary);
+      box-shadow: 0 0 12px var(--green-primary);
+      animation: pulseGreen 1.8s infinite;
+    }
+    @keyframes pulseGreen {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+    .bl-tag-text {
+      font-family: var(--ff-a);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #86efac;
+    }
+
+    .bl-hero-title {
+      font-size: clamp(2rem, 4.2vw, 3.8rem);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      color: #ffffff;
+    }
+    .bl-hero-lao-sub {
+      font-family: 'Noto Sans Lao', sans-serif;
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      line-height: 1.5;
+    }
+    .bl-hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 620px;
+    }
+    @media (max-width: 980px) {
+      .bl-hero-desc { margin: 0 auto 2rem; }
+    }
+
+    .bl-hero-btn-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 980px) {
+      .bl-hero-btn-row { justify-content: center; }
+    }
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #ffd700, #b45309);
+      color: #000000;
+      font-family: var(--ff-a);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.35);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-gold:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(255, 215, 0, 0.55);
+    }
+    .btn-outline-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 8px;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1.5px solid var(--green-primary);
+      color: #ffffff;
+      font-family: var(--ff-a);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-outline-green:hover {
+      background: rgba(34, 197, 94, 0.25);
+      box-shadow: 0 0 25px rgba(34, 197, 94, 0.4);
+      transform: translateY(-3px);
+    }
+
+    /* Mascot Showcase Card */
+    .bl-mascot-showcase {
+      position: relative;
+      border-radius: 20px;
+      padding: 1.5rem;
+      background: linear-gradient(145deg, rgba(8, 36, 18, 0.92) 0%, rgba(3, 15, 7, 0.98) 100%);
+      border: 2px solid rgba(34, 197, 94, 0.45);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(34, 197, 94, 0.25);
+      text-align: center;
+    }
+    .bl-mascot-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 440px;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 1.2rem;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      background: #020d06;
+    }
+    .bl-mascot-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .bl-mascot-showcase:hover .bl-mascot-img-wrap img {
+      transform: scale(1.05);
+    }
+    .bl-mascot-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid var(--green-primary);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-family: var(--ff-a);
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #86efac;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+    .bl-mascot-title {
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 0.3rem;
+    }
+    .bl-mascot-sub {
+      font-family: var(--ff-a);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* Key Metrics Strip */
+    .bl-metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+    @media (max-width: 820px) {
+      .bl-metrics-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.4rem;
+      transition: all 0.3s ease;
+    }
+    .metric-card:hover {
+      border-color: var(--green-primary);
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.25);
+      transform: translateY(-4px);
+    }
+    .metric-num {
+      font-family: var(--ff-h);
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      font-weight: 900;
+      color: var(--green-primary);
+      line-height: 1.1;
+      margin-bottom: 0.3rem;
+    }
+    .metric-label {
+      font-family: var(--ff-a);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+    .metric-sub {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    /* Section Header */
+    .section-wrap {
+      padding: 6.5rem 0;
+      position: relative;
+    }
+    .section-header {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 3.5rem;
+    }
+    .sec-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--ff-a);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .sec-title {
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      line-height: 1.25;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+    .sec-desc {
+      font-size: 1.02rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* Triple Co-Organizer Trinity */
+    .trinity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+    @media (max-width: 880px) {
+      .trinity-grid { grid-template-columns: 1fr; }
+    }
+    .trinity-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.4rem;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .trinity-card:hover {
+      border-color: var(--green-primary);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(34, 197, 94, 0.25);
+      transform: translateY(-6px);
+    }
+    .trinity-logo-box {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 0.8rem;
+    }
+    .trinity-logo-box img {
+      max-height: 60px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    .trinity-role {
+      font-family: var(--ff-a);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .trinity-name {
+      font-size: 1.25rem;
+      color: #ffffff;
+      margin-bottom: 0.8rem;
+    }
+    .trinity-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .trinity-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 0.8rem;
+    }
+    .t-pill {
+      font-family: var(--ff-a);
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #86efac;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    /* Activities Bento Grid */
+    .act-bento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.8rem;
+    }
+    @media (max-width: 880px) {
+      .act-bento-grid { grid-template-columns: 1fr; }
+    }
+    .act-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.35s ease;
+    }
+    .act-card:hover {
+      border-color: var(--green-primary);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(34, 197, 94, 0.25);
+      transform: translateY(-5px);
+    }
+    .act-card-media {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+    }
+    .act-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .act-card:hover .act-card-media img {
+      transform: scale(1.08);
+    }
+    .act-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(3, 18, 8, 0.95) 100%);
+    }
+    .act-badge-float {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      font-family: var(--ff-a);
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(3, 18, 8, 0.85);
+      border: 1px solid var(--green-primary);
+      color: #86efac;
+      backdrop-filter: blur(8px);
+    }
+    .act-card-body {
+      padding: 1.8rem;
+    }
+    .act-card-title {
+      font-size: 1.25rem;
+      color: #ffffff;
+      margin-bottom: 0.6rem;
+    }
+    .act-card-desc {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+    .act-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .act-bullet-item {
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.88);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .act-bullet-item::before {
+      content: '✦';
+      color: var(--green-primary);
+      font-size: 0.9rem;
+      line-height: 1.3;
+    }
+
+    /* 360 Marketing Strategy Timeline */
+    .mkt-phase-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+    }
+    @media (max-width: 1024px) {
+      .mkt-phase-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .mkt-phase-grid { grid-template-columns: 1fr; }
+    }
+    .phase-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.6rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .phase-card:hover {
+      border-color: var(--green-primary);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(34, 197, 94, 0.2);
+      transform: translateY(-4px);
+    }
+    .phase-num {
+      font-family: var(--ff-h);
+      font-size: 1.8rem;
+      color: rgba(34, 197, 94, 0.35);
+      margin-bottom: 0.5rem;
+    }
+    .phase-title {
+      font-size: 1.05rem;
+      color: #ffffff;
+      margin-bottom: 0.3rem;
+    }
+    .phase-time {
+      font-family: var(--ff-a);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+    .phase-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Two-Day Festival Timeline Schedule */
+    .timeline-schedule-wrap {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    @media (max-width: 880px) {
+      .timeline-schedule-wrap { grid-template-columns: 1fr; }
+    }
+    .day-column {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .day-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .day-title {
+      font-size: 1.4rem;
+      color: #ffffff;
+    }
+    .day-badge {
+      font-family: var(--ff-a);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid var(--green-primary);
+      color: #86efac;
+    }
+    .sched-item {
+      display: flex;
+      gap: 1.2rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .sched-item:last-child {
+      border-bottom: none;
+    }
+    .sched-time {
+      font-family: var(--ff-a);
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--gold);
+      min-width: 95px;
+      flex-shrink: 0;
+    }
+    .sched-content-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.2rem;
+    }
+    .sched-content-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Sponsorship Packages & Co-Sponsors */
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+    @media (max-width: 980px) {
+      .pkg-grid { grid-template-columns: 1fr; }
+    }
+    .pkg-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.35s ease;
+    }
+    .pkg-card.pkg-featured {
+      background: linear-gradient(145deg, rgba(8, 38, 19, 0.95) 0%, rgba(3, 18, 8, 0.98) 100%);
+      border: 2px solid var(--gold);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 215, 0, 0.25);
+      transform: scale(1.03);
+    }
+    @media (max-width: 980px) {
+      .pkg-card.pkg-featured { transform: none; }
+    }
+    .pkg-top-tag {
+      font-family: var(--ff-a);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .pkg-name {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 0.8rem;
+    }
+    .pkg-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.55;
+    }
+    .pkg-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-bottom: 2rem;
+    }
+    .pkg-feat-item {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .pkg-feat-item svg {
+      color: var(--green-primary);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Footer */
+    footer.bl-footer {
+      background: #010703;
+      border-top: 1px solid var(--border-color);
+      padding: 4rem 0 2.5rem;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 820px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .footer-title {
+      font-family: var(--ff-a);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 1.2rem;
+    }
+    .footer-desc {
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Floating Presentation HUD */
+    .present-deck-hud {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(3, 18, 8, 0.9);
+      border: 1.5px solid var(--green-primary);
+      padding: 8px 16px;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(34, 197, 94, 0.35);
+      backdrop-filter: blur(12px);
+    }
+    .present-hud-btn {
+      background: none;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--ff-a);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .present-hud-btn:hover {
+      color: var(--green-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── TOP GLOBAL NAV ── -->
+  <header class="bl-nav">
+    <div class="container bl-nav-inner">
+      <div class="bl-nav-left">
+        <a href="index.html" class="back-btn" title="Return to LIHF 2026 Main Website">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>LIHF 2026 Hub</span>
+        </a>
+        <div class="bl-co-org-badge">
+          <span>Organized by:</span>
+          <img src="assets/fanglao_logo_transparent.png" alt="Fanglao Dance Studio" />
+          <span>×</span>
+          <img src="assets/indee_records_logo.svg" alt="Indee Records" />
+        </div>
+      </div>
+
+      <nav class="bl-nav-links">
+        <a href="#about" class="bl-nav-link">Partnership</a>
+        <a href="#activities" class="bl-nav-link">Activities &amp; DJ</a>
+        <a href="#marketing" class="bl-nav-link">360° Marketing</a>
+        <a href="#floorplan" class="bl-nav-link">Floorplan</a>
+        <a href="#timeline" class="bl-nav-link">Timeline</a>
+        <a href="#packages" class="bl-nav-link">Packages</a>
+      </nav>
+
+      <div>
+        <a href="#contact" class="bl-nav-cta">
+          <span>Lock Partnership</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── HERO SECTION ── -->
+  <section class="bl-hero" id="hero">
+    <div class="bl-hero-bg"></div>
+    <div class="bl-hero-overlay"></div>
+
+    <div class="container bl-hero-content">
+      <div>
+        <div class="bl-tag-strip">
+          <span class="bl-pulse-dot"></span>
+          <span class="bl-tag-text">EXCLUSIVE EVENT &amp; SPONSORSHIP PROPOSAL • LIHF 2026</span>
+        </div>
+
+        <h1 class="bl-hero-title">
+          BEERLAO <span class="hl-green">GREEN ZONE</span><br>
+          &amp; LIHF DJ FESTIVAL
+        </h1>
+
+        <div class="bl-hero-lao-sub">
+          ງານເທສະການດົນຕີ DJ &amp; TURNTABLISM ລະດັບສາກົນ • ຮ່ວມກັນລະຫວ່າງ FANGLAO STUDIO × INDEE RECORDS
+        </div>
+
+        <p class="bl-hero-desc">
+          An epic 2,000+ sqm youth music, DJ scratch, and cold-draft experiential sanctuary at Lao-ITECC Exhibition Hall. Uniting international turntablism battles, urban beer gardens, Single-Origin Mekong Hom Xebangfai rice brewing, and 10,000+ Gen Z festival attendees under the Beerlao Green banner.
+        </p>
+
+        <div class="bl-hero-btn-row">
+          <a href="#packages" class="btn-gold">
+            <span>Explore Sponsor Tiers</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#activities" class="btn-outline-green">
+            <span>DJ &amp; Brand Activations ↓</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mascot Showcase Card -->
+      <div class="bl-mascot-showcase">
+        <div class="bl-mascot-img-wrap">
+          <span class="bl-mascot-badge">Official Mascot • Green Edition</span>
+          <img src="assets/mascot/mascot_green_beerlao.jpg" alt="Beerlao Green Mascot" loading="eager" />
+        </div>
+        <h4 class="bl-mascot-title">BOOMBOX GREEN MASTER</h4>
+        <div class="bl-mascot-sub">Lao HipHop Mascot in Beerlao Green Puffer Jacket</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── KEY METRICS STRIP ── -->
+  <div class="container">
+    <div class="bl-metrics-strip">
+      <div class="metric-card">
+        <div class="metric-num">10,000+</div>
+        <div class="metric-label">Passionate Attendees</div>
+        <div class="metric-sub">Lao &amp; ASEAN Gen Z / Millennial crowd</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">2,000+ <span style="font-size:1.4rem;">SQM</span></div>
+        <div class="metric-label">Zone Footprint</div>
+        <div class="metric-sub">Dedicated indoor &amp; open-air beer garden</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">16+</div>
+        <div class="metric-label">Elite Turntablists</div>
+        <div class="metric-sub">Lao, Thai, VN, SG guest scratch masters</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">1,000,000+</div>
+        <div class="metric-label">Digital Reach</div>
+        <div class="metric-sub">Beerlao &amp; Indee Records social ecosystem</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 01. THE STRATEGIC TRINITY (ORGANIZERS & BEERLAO) ── -->
+  <section class="section-wrap" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="sec-pill">✦ STRATEGIC ALLIANCE • CO-ORGANIZERS ✦</div>
+        <h2 class="sec-title">THE TRIFECTA: <span class="hl-green">DANCE, MUSIC</span> &amp; <span class="hl-gold">BEERLAO</span></h2>
+        <p class="sec-desc">
+          A powerhouse collaboration bringing together the grassroots urban culture pioneer of Laos, the nation's premier record production label, and the most iconic beverage empire of the Mekong.
+        </p>
+      </div>
+
+      <div class="trinity-grid">
+        <!-- Trinity 1: Fanglao Studio -->
+        <div class="trinity-card">
+          <div>
+            <div class="trinity-logo-box">
+              <img src="assets/fanglao_logo_transparent.png" alt="Fanglao Dance Studio" />
+            </div>
+            <div class="trinity-role">Cultural Pioneer &amp; Festival Founder</div>
+            <h3 class="trinity-name">Fanglao Dance Studio</h3>
+            <p class="trinity-desc">
+              Founded by Ounla Phaoudom, Fanglao is the heartbeat of contemporary and street dance in Laos. Host of international dance battles, creative residency programs, and official organizer of LIHF 2026.
+            </p>
+          </div>
+          <div class="trinity-pills">
+            <span class="t-pill">HipHop Credibility</span>
+            <span class="t-pill">Olympic Breaking Network</span>
+            <span class="t-pill">Youth Loyalty</span>
+          </div>
+        </div>
+
+        <!-- Trinity 2: Indee Records & Events -->
+        <div class="trinity-card">
+          <div>
+            <div class="trinity-logo-box">
+              <img src="assets/indee_records_logo.svg" alt="Indee Records" />
+            </div>
+            <div class="trinity-role">Music Titan &amp; Sound Engineering</div>
+            <h3 class="trinity-name">Indee Records &amp; Events</h3>
+            <p class="trinity-desc">
+              Led by Anulak Prathammavong ("Aai Ped"), Indee Records has shaped modern Lao pop and rock for over two decades (producing Cells, Sam Intharaphithak, Taiy Akard). Masterminds of major national music festivals and audio experiences.
+            </p>
+          </div>
+          <div class="trinity-pills">
+            <span class="t-pill">Lao Music Industry Lead</span>
+            <span class="t-pill">Celebrity &amp; DJ Roster</span>
+            <span class="t-pill">Concert Sound Scale</span>
+          </div>
+        </div>
+
+        <!-- Trinity 3: Beerlao Green -->
+        <div class="trinity-card" style="border-color:var(--gold);">
+          <div>
+            <div class="trinity-logo-box">
+              <img src="assets/beerlao_green_badge.svg" alt="Beerlao Green" />
+            </div>
+            <div class="trinity-role" style="color:var(--green-primary);">Title Sponsor &amp; National Icon</div>
+            <h3 class="trinity-name">Beerlao Green (LBC)</h3>
+            <p class="trinity-desc">
+              Launched for Lao Brewery Company's 50th Anniversary, Beerlao Green is brewed with climate-resilient single-origin Hom Xebangfai rice. Crisp, refreshing (4.6% ABV), sustainable, and designed directly for dynamic youth lifestyle and celebrations.
+            </p>
+          </div>
+          <div class="trinity-pills">
+            <span class="t-pill" style="border-color:var(--gold);color:var(--gold);">Hom Xebangfai Rice</span>
+            <span class="t-pill">4.6% Ultra-Crisp</span>
+            <span class="t-pill">National Pride</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 02. CORE ACTIVITIES & DJ CHAMPIONSHIP ── -->
+  <section class="section-wrap" id="activities" style="background:rgba(2, 11, 5, 0.7);">
+    <div class="container">
+      <div class="section-header">
+        <div class="sec-pill">✦ CURATED FESTIVAL EXPERIENCE ✦</div>
+        <h2 class="sec-title">DJ CHAMPIONSHIPS &amp; <span class="hl-green">BEERLAO ACTIVATIONS</span></h2>
+        <p class="sec-desc">
+          Four distinct high-octane zones engineered to maximize attendee dwell time, social media sharing, draft beer consumption, and brand affinity.
+        </p>
+      </div>
+
+      <div class="act-bento-grid">
+        <!-- Activity 1: DJ Battle -->
+        <div class="act-card">
+          <div class="act-card-media">
+            <span class="act-badge-float">LIHF Culture Pillar #05</span>
+            <img src="assets/battle_dj.jpg" alt="LIHF DJ Turntablism Battle" />
+            <div class="act-card-overlay"></div>
+          </div>
+          <div class="act-card-body">
+            <h3 class="act-card-title">LIHF ASEAN DJ &amp; Turntablism Championship</h3>
+            <p class="act-card-desc">
+              The premier scratch showdown of Laos. 16 top turntablists from Laos, Thailand, Vietnam, and Singapore compete on dual vinyl decks in high-stakes 2-minute sudden-death scratch battles.
+            </p>
+            <ul class="act-bullets">
+              <li class="act-bullet-item">Official Beerlao DJ Trophy + 25,000,000 LAK Prize Pool</li>
+              <li class="act-bullet-item">Judged by Indee Records producers &amp; ASEAN DMC World Champions</li>
+              <li class="act-bullet-item">Free daytime Turntable Scratch Clinic for aspiring Lao youth</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Activity 2: Draft Master Experience -->
+        <div class="act-card">
+          <div class="act-card-media">
+            <span class="act-badge-float">Beerlao Exclusive Activation</span>
+            <img src="assets/festival/dj.webp" alt="Beerlao Cold Draft Experience" />
+            <div class="act-card-overlay"></div>
+          </div>
+          <div class="act-card-body">
+            <h3 class="act-card-title">Beerlao Green Draft Master Challenge</h3>
+            <p class="act-card-desc">
+              An interactive audience challenge where festival attendees compete in rapid, foam-perfect draft pouring under the guidance of master brewmasters, winning exclusive co-branded merchandise.
+            </p>
+            <ul class="act-bullets">
+              <li class="act-bullet-item">4 Ice-Cold Rapid Pour Draft Stations serving sub-zero Beerlao Green</li>
+              <li class="act-bullet-item">Sensory tasting flight highlighting single-origin Hom Xebangfai rice</li>
+              <li class="act-bullet-item">Collector's Edition Beerlao Green × LIHF 2026 frosted acrylic steins</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Activity 3: Urban Beer Garden -->
+        <div class="act-card">
+          <div class="act-card-media">
+            <span class="act-badge-float">Nightlife Social Hub</span>
+            <img src="assets/event/about/youth_1.webp" alt="Urban Beer Garden & Social Lounge" />
+            <div class="act-card-overlay"></div>
+          </div>
+          <div class="act-card-body">
+            <h3 class="act-card-title">Urban Beer Garden &amp; Emerald Lounge</h3>
+            <p class="act-card-desc">
+              A 2,000+ sqm social sanctuary seamlessly blending wooden high-top tables, illuminated artificial turf lawns, lush greenery, and ambient bistro string lights with direct DJ stage sightlines.
+            </p>
+            <ul class="act-bullets">
+              <li class="act-bullet-item">Capacity for 1,200+ seated festival guests with tableside mobile ordering</li>
+              <li class="act-bullet-item">Curated Lao street food pairings designed to complement Beerlao Green</li>
+              <li class="act-bullet-item">VIP Cabana Section reserved for Beerlao executives and artist guests</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Activity 4: Mascot & Viral Studio -->
+        <div class="act-card">
+          <div class="act-card-media">
+            <span class="act-badge-float">Viral Content Engine</span>
+            <img src="assets/event/meetyouth/my_6.webp" alt="Viral UGC Photo Studio" />
+            <div class="act-card-overlay"></div>
+          </div>
+          <div class="act-card-body">
+            <h3 class="act-card-title">Green Mascot Meet &amp; 360 UGC Video Studio</h3>
+            <p class="act-card-desc">
+              The official life-size Boombox Green Mascot takes center stage for dance-offs and meet-and-greets, flanked by a 360-degree rotating slow-motion camera studio wrapped in emerald laser tunnels.
+            </p>
+            <ul class="act-bullets">
+              <li class="act-bullet-item">#BeerlaoGreenLIHF viral TikTok &amp; Instagram Reels photo installation</li>
+              <li class="act-bullet-item">Eco-Can Crusher challenge (crush 5 empty cans to earn free tokens)</li>
+              <li class="act-bullet-item">Augmented Reality (AR) Instagram face filters with the Boombox head</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 03. 360 MARKETING STRATEGY ── -->
+  <section class="section-wrap" id="marketing">
+    <div class="container">
+      <div class="section-header">
+        <div class="sec-pill">✦ BRAND VISIBILITY &amp; REACH ✦</div>
+        <h2 class="sec-title">360° INTEGRATED <span class="hl-green">MARKETING CAMPAIGN</span></h2>
+        <p class="sec-desc">
+          Structured over 4 distinct rollout phases to dominate digital feeds, urban billboards, campus cyphers, and live event broadcasts across Laos.
+        </p>
+      </div>
+
+      <div class="mkt-phase-grid">
+        <!-- Phase 1 -->
+        <div class="phase-card">
+          <div class="phase-num">01</div>
+          <h3 class="phase-title">Teaser &amp; Buzz</h3>
+          <div class="phase-time">T-60 TO T-30 DAYS</div>
+          <p class="phase-desc">
+            Co-branded teaser video dropping across Beerlao Facebook (1M+ followers) and Indee Records YouTube. Announcement of the ASEAN DJ Championship with national audition call.
+          </p>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="phase-card">
+          <div class="phase-num">02</div>
+          <h3 class="phase-title">City &amp; Campus Blitz</h3>
+          <div class="phase-time">T-30 TO T-7 DAYS</div>
+          <p class="phase-desc">
+            Vientiane 3D LED billboard takeover at Patuxay and Lao-ITECC. Pop-up mini DJ scratch booths at National University of Laos (Dongdok) with Beerlao Green sampling and ticket giveaways.
+          </p>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="phase-card" style="border-color:var(--green-primary);">
+          <div class="phase-num" style="color:var(--green-primary);">03</div>
+          <h3 class="phase-title">Festival Dominance</h3>
+          <div class="phase-time">LIVE EVENT WEEKEND</div>
+          <p class="phase-desc">
+            10,000+ physical footfall through the Beerlao Green Zone. Multi-camera 4K Facebook livestream co-streamed on Beerlao channels with real-time MVP DJ mobile audience voting.
+          </p>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="phase-card">
+          <div class="phase-num">04</div>
+          <h3 class="phase-title">Aftermovie &amp; ROI</h3>
+          <div class="phase-time">T+1 TO T+14 DAYS</div>
+          <p class="phase-desc">
+            High-energy festival Aftermovie release, artist DJ set soundcloud uploads, and executive ROI report detailing total media impressions, sampling liters, and verified Gen Z engagement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04. 2-DAY FESTIVAL TIMELINE SCHEDULE ── -->
+  <section class="section-wrap" id="timeline" style="background:rgba(2, 11, 5, 0.7);">
+    <div class="container">
+      <div class="section-header">
+        <div class="sec-pill">✦ PROGRAM TIMELINE ✦</div>
+        <h2 class="sec-title">2-DAY BEERLAO ZONE <span class="hl-gold">SCHEDULE</span></h2>
+        <p class="sec-desc">
+          Precision-timed programming delivering continuous entertainment, workshops, audience competitions, and headline concert performances.
+        </p>
+      </div>
+
+      <div class="timeline-schedule-wrap">
+        <!-- Day 1 Schedule -->
+        <div class="day-column">
+          <div class="day-header">
+            <h3 class="day-title">DAY 01 • FRIDAY</h3>
+            <span class="day-badge">The Launch &amp; Prelims</span>
+          </div>
+
+          <div class="sched-item">
+            <div class="sched-time">10:00 - 13:00</div>
+            <div>
+              <h4 class="sched-content-title">Beer Garden Opening &amp; Lo-Fi Beats</h4>
+              <p class="sched-content-desc">Chill ambient beats, soft acoustic hip-hop, cold draft stations open, festival registration.</p>
+            </div>
+          </div>
+
+          <div class="sched-item">
+            <div class="sched-time">13:00 - 15:30</div>
+            <div>
+              <h4 class="sched-content-title">Youth DJ Scratch Masterclass</h4>
+              <p class="sched-content-desc">Free public turntable workshop led by Indee Records audio engineers and guest ASEAN DJs.</p>
+            </div>
+          </div>
+
+          <div class="sched-item">
+            <div class="sched-time">15:30 - 17:30</div>
+            <div>
+              <h4 class="sched-content-title">Beerlao Green Draft Master Challenge #1</h4>
+              <p class="sched-content-desc">Interactive audience draft pour showdown, prize giveaways, and Mascot photo sessions.</p>
+            </div>
+          </div>
+
+          <div class="sched-item">
+            <div class="sched-time">17:30 - 21:00</div>
+            <div>
+              <h4 class="sched-content-title">LIHF DJ Championship: Round of 16 &amp; Quarterfinals</h4>
+              <p class="sched-content-desc">High-speed vinyl scratch battles, 2-minute sets, judge commentary, and crowd cheering.</p>
+            </div>
+          </div>
+
+          <div class="sched-item">
+            <div class="sched-time">21:00 - 00:00</div>
+            <div>
+              <h4 class="sched-content-title">Indee Records × Fanglao Headline Party Session</h4>
+              <p class="sched-content-desc">Live performance with Indee Records artists, guest Thai &amp; VN DJs, laser light show, and draft beer celebration.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day 2 Schedule -->
+        <div class="day-column">
+          <div class="day-header">
+            <h3 class="day-title">DAY 02 • SATURDAY</h3>
+            <span class="day-badge" style="border-color:var(--gold);color:var(--gold);">Championship Finals</span>
+          </div>
+
+          <div class="sched-item">
+            <div class="sched-time">10:00 - 13:30</div>
+            <div>
+              <h4 class="sched-content-title">Afrobeat &amp; Funk Brunch Session</h4>
+              <p class="sched-content-desc">Relaxed beer garden vibe, Hom Xebangfai tasting flights, Eco-can art installations.</p>
+            </div>
+          </div>
+
+          <div class="sched-item">
+            <div class="sched-time">13:30 - 16:30</div>
+            <div>
+              <h4 class="sched-content-title">ASEAN DJ Exhibition Showcase</h4>
+              <p class="sched-content-desc">Non-competitive turntable showcase featuring international guest legends and beatmakers.</p>
+            </div>
+          </div>
+
+          <div class="sched-item">
+            <div class="sched-time">16:30 - 18:00</div>
+            <div>
+              <h4 class="sched-content-title">Draft Master Grand Finals</h4>
+              <p class="sched-content-desc">The top 8 draft pourers from Day 1 &amp; Day 2 compete for the Beerlao Master Beer Stein.</p>
+            </div>
+          </div>
+
+          <div class="sched-item">
+            <div class="sched-time">18:00 - 21:00</div>
+            <div>
+              <h4 class="sched-content-title">LIHF DJ Championship Semifinals &amp; Grand Final</h4>
+              <p class="sched-content-desc">The 4 remaining finalists battle in a 7-minute multi-genre set. Official trophy presentation ceremony.</p>
+            </div>
+          </div>
+
+          <div class="sched-item">
+            <div class="sched-time">21:00 - 00:00</div>
+            <div>
+              <h4 class="sched-content-title">The Emerald Glow Concert Finale</h4>
+              <p class="sched-content-desc">Joint festival mega-celebration bridging the Beerlao Green Zone into the Main Arena with 10,000 attendees.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05. SPONSORSHIP PACKAGES & CO-SPONSORS ── -->
+  <section class="section-wrap" id="packages">
+    <div class="container">
+      <div class="section-header">
+        <div class="sec-pill">✦ PARTNERSHIP TIERS ✦</div>
+        <h2 class="sec-title">INVESTMENT TIERS &amp; <span class="hl-gold">CO-SPONSORSHIP</span></h2>
+        <p class="sec-desc">
+          While Beerlao Green holds Title Rights, structured co-sponsorship slots are available for complementary non-competing brand categories.
+        </p>
+      </div>
+
+      <div class="pkg-grid">
+        <!-- Title Partner (Beerlao Green) -->
+        <div class="pkg-card pkg-featured">
+          <div>
+            <div class="pkg-top-tag">TITLE SPONSOR (PRINCIPAL)</div>
+            <h3 class="pkg-name">Beerlao Green Title Partner</h3>
+            <p class="pkg-desc">
+              Exclusive zone naming rights, total malt beverage exclusivity, central stage integration, and dominant 360° festival branding.
+            </p>
+            <ul class="pkg-features-list">
+              <li class="pkg-feat-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Exclusive Zone Naming:</strong> "Beerlao Green Zone at LIHF 2026"</span>
+              </li>
+              <li class="pkg-feat-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Category Exclusivity:</strong> 100% exclusive beer rights across Lao-ITECC</span>
+              </li>
+              <li class="pkg-feat-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>4 Sub-Zero Draft Bars:</strong> Exclusive pouring rights across 2,000+ sqm</span>
+              </li>
+              <li class="pkg-feat-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Mascot Licensing:</strong> Rights to official Boombox Green Mascot for marketing</span>
+              </li>
+              <li class="pkg-feat-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>VIP Hospitality:</strong> 50 VIP Full-Access Wristbands &amp; Private Cabana</span>
+              </li>
+            </ul>
+          </div>
+          <a href="#contact" class="btn-gold" style="width:100%;justify-content:center;">Confirmed Principal</a>
+        </div>
+
+        <!-- Co-Sponsor Gold: Audio & Gear -->
+        <div class="pkg-card">
+          <div>
+            <div class="pkg-top-tag">CO-SPONSOR • AUDIO &amp; TECH</div>
+            <h3 class="pkg-name">Official DJ Gear Partner</h3>
+            <p class="pkg-desc">
+              Ideal for DJ equipment, headphone, audio tech, or mobile electronic brands seeking direct connection to creative youth.
+            </p>
+            <ul class="pkg-features-list">
+              <li class="pkg-feat-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Official Stage Tech:</strong> Equipment naming on the DJ Turntable Stage</span>
+              </li>
+              <li class="pkg-feat-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Interactive Demo Booth:</strong> Hands-on listening &amp; DJ gear testing station</span>
+              </li>
+              <li class="pkg-feat-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Prize Integration:</strong> Award your gear directly to the DJ Champion</span>
+              </li>
+              <li class="pkg-feat-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Digital Presence:</strong> Logo on all Indee Records YouTube &amp; live broadcasts</span>
+              </li>
+            </ul>
+          </div>
+          <a href="#contact" class="btn-outline-green" style="width:100%;justify-content:center;">Apply for Co-Sponsor</a>
+        </div>
+
+        <!-- Co-Sponsor Silver: Mobility / Lifestyle -->
+        <div class="pkg-card">
+          <div>
+            <div class="pkg-top-tag">CO-SPONSOR • MOBILITY &amp; LIFESTYLE</div>
+            <h3 class="pkg-name">Urban Mobility Partner</h3>
+            <p class="pkg-desc">
+              Ideal for rideshare, electric taxi (Loca / EV), telecom, or digital banking apps facilitating safe festival transit and cashless pay.
+            </p>
+            <ul class="pkg-features-list">
+              <li class="pkg-feat-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Safe Ride Home Partner:</strong> Official rideshare discount code integration</span>
+              </li>
+              <li class="pkg-feat-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Cashless Beer Bar Pay:</strong> Designated digital wallet integration at all bars</span>
+              </li>
+              <li class="pkg-feat-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Pick-up Zone Branding:</strong> High-impact signage at Lao-ITECC transit gates</span>
+              </li>
+              <li class="pkg-feat-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>VIP Passes:</strong> 15 VIP Wristbands for corporate team &amp; partners</span>
+              </li>
+            </ul>
+          </div>
+          <a href="#contact" class="btn-outline-green" style="width:100%;justify-content:center;">Apply for Co-Sponsor</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 06. CONTACT & PARTNERSHIP SUBMISSION ── -->
+  <section class="section-wrap" id="contact" style="background:rgba(2, 11, 5, 0.9);">
+    <div class="container" style="max-width:900px;">
+      <div class="section-header">
+        <div class="sec-pill">✦ JOIN THE EMERALD MOVEMENT ✦</div>
+        <h2 class="sec-title">CONNECT WITH <span class="hl-green">FANGLAO × INDEE</span></h2>
+        <p class="sec-desc">
+          Ready to partner with the most anticipated youth culture event of 2026? Contact the co-organizing committee directly to secure category exclusivity and finalize activation blueprints.
+        </p>
+      </div>
+
+      <div style="background:var(--bg-card); border:1.5px solid var(--border-color); border-radius:18px; padding:2.5rem; box-shadow:0 20px 50px rgba(0,0,0,0.7);">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:2rem;">
+          <div>
+            <div style="font-family:var(--ff-a); font-size:0.7rem; font-weight:800; color:var(--green-primary); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.3rem;">Fanglao Dance Studio</div>
+            <div style="font-size:1.1rem; font-weight:700; color:#ffffff; margin-bottom:0.4rem;">Ounla Phaoudom (Founder)</div>
+            <div style="font-size:0.88rem; color:var(--text-muted); line-height:1.5;">Vientiane, Lao PDR • Fanglao Creative Space<br>Phone: +856 20 5226 2444<br>Email: info@fanglaodance.com</div>
+          </div>
+          <div>
+            <div style="font-family:var(--ff-a); font-size:0.7rem; font-weight:800; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.3rem;">Indee Records &amp; Events</div>
+            <div style="font-size:1.1rem; font-weight:700; color:#ffffff; margin-bottom:0.4rem;">Anulak Prathammavong (Aai Ped)</div>
+            <div style="font-size:0.88rem; color:var(--text-muted); line-height:1.5;">Vientiane, Lao PDR • Indee Studios<br>Phone: +856 20 5551 1212<br>Email: indeerecords.laos@gmail.com</div>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; padding-top:1.5rem; border-top:1px solid var(--border-color);">
+          <a href="mailto:info@fanglaodance.com?subject=Beerlao%20Green%20Zone%20Sponsorship%20Inquiry%20-%20LIHF2026" class="btn-gold">
+            <span>Send Partnership Proposal</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </a>
+          <a href="index.html#venue" class="btn-outline-green">
+            <span>View Full Lao-ITECC Floorplan →</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="bl-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:1rem;">
+            <img src="assets/beerlao_green_badge.svg" alt="Beerlao Green" style="height:36px;" />
+            <span style="font-family:var(--ff-h); font-size:1.1rem; color:#fff;">LIHF 2026</span>
+          </div>
+          <p class="footer-desc">
+            The official Beerlao Green Zone &amp; ASEAN DJ Championship at Lao International HipHop Festival 2026. A cultural production uniting Lao urban dance, contemporary music, and Mekong brewing heritage.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Organizer Accreditation</h4>
+          <p class="footer-desc">
+            Jointly presented and organized by <strong>Fanglao Dance Studio</strong> and <strong>Indee Records &amp; Events</strong> under official sanction of LIHF 2026 Committee.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation Quick Links</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+            <li><a href="index.html" style="color:var(--green-primary); text-decoration:none;">← Return to LIHF 2026 Main Hub</a></li>
+            <li><a href="index.html#venue" style="color:var(--text-muted); text-decoration:none;">Event Floorplan Masterplan</a></li>
+            <li><a href="index.html#battles" style="color:var(--text-muted); text-decoration:none;">8 Culture Pillars &amp; Battles</a></li>
+            <li><a href="index.html#packages" style="color:var(--text-muted); text-decoration:none;">LIHF 2026 Master Packages</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.08); font-size:0.8rem; color:var(--text-dim);">
+        &copy; 2026 Lao International HipHop Festival (LIHF). All Rights Reserved. Beerlao&reg; is a registered trademark of Lao Brewery Co., Ltd.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── FLOATING PRESENTATION DECK HUD ── -->
+  <div class="present-deck-hud" id="deck-hud">
+    <button type="button" class="present-hud-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Top">
+      ▲ TOP
+    </button>
+    <span style="color:rgba(255,255,255,0.25);">|</span>
+    <button type="button" class="present-hud-btn" onclick="toggleFullscreen()" title="Fullscreen Deck Mode">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      <span>FULLSCREEN DECK</span>
+    </button>
+    <span style="color:rgba(255,255,255,0.25);">|</span>
+    <a href="index.html" class="present-hud-btn" style="color:var(--gold); text-decoration:none;">
+      MAIN FESTIVAL ↗
+    </a>
+  </div>
+
+  <script>
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => console.log(err));
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(err => console.log(err));
+        }
+      }
+    }
+  </script>
+</body>
+</html>
