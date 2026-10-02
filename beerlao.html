@@ -722,6 +722,138 @@
       line-height: 1.55;
     }
 
+    /* Floorplan Blueprint & Strategic Location Section */
+    .bl-floorplan-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 2.2rem;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 980px) {
+      .bl-floorplan-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+      }
+    }
+    .bl-blueprint-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      border-radius: 18px;
+      overflow: hidden;
+      padding: 1.5rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+      transition: all 0.35s ease;
+    }
+    .bl-blueprint-card:hover {
+      border-color: var(--green-primary);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(34, 197, 94, 0.25);
+    }
+    .bl-blueprint-img-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #08080a;
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+    }
+    .bl-blueprint-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .bl-blueprint-img-wrap:hover .bl-blueprint-img {
+      transform: scale(1.025);
+    }
+    .bl-blueprint-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(10, 10, 15, 0.85);
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-family: var(--ff-a);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: #86efac;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .bl-pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green-primary);
+      box-shadow: 0 0 8px var(--green-primary);
+    }
+    .bl-bp-caption {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-family: var(--ff-a);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .bl-bp-link {
+      color: var(--green-primary);
+      text-decoration: none;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s ease;
+    }
+    .bl-bp-link:hover {
+      color: #ffffff;
+    }
+    .bl-spatial-specs {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .bl-spatial-item {
+      display: flex;
+      gap: 1.2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.2rem 1.4rem;
+      transition: all 0.3s ease;
+    }
+    .bl-spatial-item:hover {
+      border-color: var(--green-primary);
+      transform: translateX(4px);
+    }
+    .bl-sp-num {
+      font-family: var(--ff-h);
+      font-size: 1.6rem;
+      color: var(--green-primary);
+      line-height: 1;
+      opacity: 0.8;
+      flex-shrink: 0;
+    }
+    .bl-sp-head {
+      font-size: 1.02rem;
+      color: #ffffff;
+      margin-bottom: 0.3rem;
+    }
+    .bl-sp-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
     /* Two-Day Festival Timeline Schedule */
     .timeline-schedule-wrap {
       display: grid;
@@ -1258,7 +1390,82 @@
     </div>
   </section>
 
-  <!-- ── 04. 2-DAY FESTIVAL TIMELINE SCHEDULE ── -->
+  <!-- ── 04. EVENT FLOORPLAN & BEERLAO GREEN ZONE LOCATION ── -->
+  <section class="section-wrap" id="floorplan">
+    <div class="container">
+      <div class="section-header">
+        <div class="sec-pill">✦ SPATIAL MASTERPLAN • LAO-ITECC ✦</div>
+        <h2 class="sec-title">EVENT FLOORPLAN &amp; <span class="hl-green">BEERLAO ZONE</span></h2>
+        <p class="sec-desc">
+          Positioned at the epicentre of festival circulation: the Beerlao Green Zone commands high-density footfall directly adjacent to the central Main Aisle and Main Stage, capturing 100% of 10,000+ daily attendees.
+        </p>
+      </div>
+
+      <!-- Blueprint + Location Breakdown Grid -->
+      <div class="bl-floorplan-grid">
+        <!-- Blueprint Visual Card -->
+        <div class="bl-blueprint-card">
+          <div class="bl-blueprint-img-wrap" onclick="window.open('assets/event_map_layout.jpg', '_blank')" title="Click to view high-resolution blueprint">
+            <img src="assets/event_map_layout.jpg" alt="Official LIHF 2026 Event Map Layout" class="bl-blueprint-img" loading="lazy" />
+            <div class="bl-blueprint-tag">
+              <span class="bl-pulse-dot"></span>
+              <span>OFFICIAL EVENT MAP</span>
+            </div>
+          </div>
+          <div class="bl-bp-caption">
+            <span>Official Lao-ITECC Blueprint (1024×768)</span>
+            <a href="assets/event_map_layout.jpg" target="_blank" class="bl-bp-link">
+              <span>View Full Size</span>
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Strategic Spatial Advantages for Beerlao -->
+        <div class="bl-spatial-specs">
+          <div class="bl-spatial-item">
+            <div class="bl-sp-num">01</div>
+            <div>
+              <h4 class="bl-sp-head">Prime Main Aisle Arterial Exposure</h4>
+              <p class="bl-sp-desc">Positioned directly along the central orange Main Aisle runway linking the Main Entrance to the 12m × 7.3m Main Stage. Guarantees continuous attendee walk-by visibility throughout both days.</p>
+            </div>
+          </div>
+
+          <div class="bl-spatial-item">
+            <div class="bl-sp-num">02</div>
+            <div>
+              <h4 class="bl-sp-head">Open Exhibition Zone Footprint</h4>
+              <p class="bl-sp-desc">Spacious footprint within the yellow Open Area featuring 3m wide perimeter aisles, allowing high-throughput draft pouring bars, social picnic lounge seating, and an acoustic live DJ booth.</p>
+            </div>
+          </div>
+
+          <div class="bl-spatial-item">
+            <div class="bl-sp-num">03</div>
+            <div>
+              <h4 class="bl-sp-head">Main Stage &amp; Seating Synergy</h4>
+              <p class="bl-sp-desc">Immediate proximity to the 14+ tiered seating rows and concert crowd, making Beerlao Green Zone the primary refreshment hub during tournament battle heats and evening concerts.</p>
+            </div>
+          </div>
+
+          <div class="bl-spatial-item">
+            <div class="bl-sp-num">04</div>
+            <div>
+              <h4 class="bl-sp-head">VIP Room &amp; Logistics Access</h4>
+              <p class="bl-sp-desc">Direct access to backstage cold-chain storage and proximity to the VIP Hospitality room, enabling seamless premium guest hosting and rapid bar restock throughout the weekend.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:0.6rem; display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="index.html#venue" class="btn-outline-green" style="padding:10px 18px; font-size:0.75rem;">
+              <span>Explore Interactive 3+1 Zones on Main Hub →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05. 2-DAY FESTIVAL TIMELINE SCHEDULE ── -->
   <section class="section-wrap" id="timeline" style="background:rgba(2, 11, 5, 0.7);">
     <div class="container">
       <div class="section-header">
