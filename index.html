@@ -2626,6 +2626,47 @@ nav { height: 60px !important; padding: 0 !important; }
   box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
 }
 
+/* Thumnail Fail styling */
+.fp-mini-thumb.thumb-fail,
+.kv-gallery-thumb-item.thumb-fail,
+.fp-filmstrip-thumb.thumb-fail {
+  background: #050507;
+  border-color: rgba(239, 68, 68, 0.35);
+  position: relative;
+}
+.fp-fail-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 6, 9, 0.88);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  text-align: center;
+  z-index: 2;
+  border: 1px dashed rgba(239, 68, 68, 0.45);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.fp-fail-text {
+  font-family: var(--ff-a, ui-monospace, monospace);
+  font-size: 0.55rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #ef4444;
+  text-transform: uppercase;
+  line-height: 1.1;
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.7);
+}
+.fp-fail-sub {
+  font-family: var(--ff-a, ui-monospace, monospace);
+  font-size: 0.42rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.04em;
+  margin-top: 1px;
+}
+
 /* Modal styling */
 .fp-modal-overlay {
   position: fixed;
@@ -18530,17 +18571,17 @@ body.presentation-active .floating-present-badge {
   <div class="acc-body">
     <section id="venue" class="acc-inner">
   <!-- Stacked Full-Bleed Background Visuals (4 Branded Zones) -->
-  <div class="kv-bg-layer active" id="kv-bg-0" style="background-image:url('assets/battle_openstyle.jpg');">
-    <div style="width:100%;height:100%;background:linear-gradient(135deg,#2d0000,#550000,#0d0000);mix-blend-mode:multiply;opacity:0.4;"></div>
+  <div class="kv-bg-layer active" id="kv-bg-0" style="background-image:url('assets/floorplan_render_aerial.jpg');">
+    <div style="width:100%;height:100%;background:linear-gradient(135deg,#2d0000,#550000,#0d0000);mix-blend-mode:multiply;opacity:0.35;"></div>
   </div>
-  <div class="kv-bg-layer" id="kv-bg-1" style="background-image:url('assets/battle_dj.jpg');">
-    <div style="width:100%;height:100%;background:linear-gradient(135deg,#052e16,#14532d,#02190c);mix-blend-mode:multiply;opacity:0.45;"></div>
+  <div class="kv-bg-layer" id="kv-bg-1" style="background-image:url('assets/thumbnail_fail.svg');background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#050507;">
+    <div style="width:100%;height:100%;background:rgba(0,0,0,0.4);"></div>
   </div>
-  <div class="kv-bg-layer" id="kv-bg-2" style="background-image:url('assets/battle_mc.jpg');">
-    <div style="width:100%;height:100%;background:linear-gradient(135deg,#082f49,#0369a1,#021a2c);mix-blend-mode:multiply;opacity:0.45;"></div>
+  <div class="kv-bg-layer" id="kv-bg-2" style="background-image:url('assets/thumbnail_fail.svg');background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#050507;">
+    <div style="width:100%;height:100%;background:rgba(0,0,0,0.4);"></div>
   </div>
-  <div class="kv-bg-layer" id="kv-bg-3" style="background-image:url('assets/battle_crew.jpg');">
-    <div style="width:100%;height:100%;background:linear-gradient(135deg,#352204,#784c08,#1a1002);mix-blend-mode:multiply;opacity:0.45;"></div>
+  <div class="kv-bg-layer" id="kv-bg-3" style="background-image:url('assets/floorplan_render_stage.jpg');">
+    <div style="width:100%;height:100%;background:linear-gradient(135deg,#352204,#784c08,#1a1002);mix-blend-mode:multiply;opacity:0.35;"></div>
   </div>
   <div class="kv-gradient-overlay"></div>
 
@@ -18569,28 +18610,28 @@ body.presentation-active .floating-present-badge {
         <button class="kv-picker-btn active" data-zone="0" aria-label="Show 01. LIHF RED ZONE (Master Grounds)" title="01. LIHF RED ZONE (Master Grounds)">
           <div class="kv-dot" style="background:#ef4444;box-shadow:0 0 10px #ef4444;"></div>
           <div class="kv-thumb" style="border-color:rgba(239,68,68,0.5);">
-            <img src="assets/battle_openstyle.jpg" alt="LIHF Red Zone" loading="lazy" />
+            <img src="assets/floorplan_render_aerial.jpg" alt="LIHF Red Zone 3D Render" loading="lazy" />
           </div>
           <span class="kv-picker-tag" style="color:#ef4444;">RED ZONE</span>
         </button>
-        <button class="kv-picker-btn" data-zone="1" aria-label="Show 02. BEERLAO GREEN ZONE (Beerlao Experience)" title="02. BEERLAO GREEN ZONE (Beerlao Experience)">
+        <button class="kv-picker-btn" data-zone="1" aria-label="Show 02. BEERLAO GREEN ZONE (Beerlao Experience)" title="02. BEERLAO GREEN ZONE (Pending 3D Render)">
           <div class="kv-dot" style="background:#22c55e;box-shadow:0 0 10px #22c55e;"></div>
           <div class="kv-thumb" style="border-color:rgba(34,197,94,0.5);">
-            <img src="assets/battle_dj.jpg" alt="Beerlao Green Zone" loading="lazy" />
+            <img src="assets/thumbnail_fail.svg" alt="Beerlao Green Zone Thumnail Fail" loading="lazy" />
           </div>
           <span class="kv-picker-tag" style="color:#22c55e;">GREEN ZONE</span>
         </button>
-        <button class="kv-picker-btn" data-zone="2" aria-label="Show 03. PEPSI BLUE ZONE (Pepsi Experience)" title="03. PEPSI BLUE ZONE (Pepsi Experience)">
+        <button class="kv-picker-btn" data-zone="2" aria-label="Show 03. PEPSI BLUE ZONE (Pepsi Experience)" title="03. PEPSI BLUE ZONE (Pending 3D Render)">
           <div class="kv-dot" style="background:#38bdf8;box-shadow:0 0 10px #38bdf8;"></div>
           <div class="kv-thumb" style="border-color:rgba(56,189,248,0.5);">
-            <img src="assets/battle_mc.jpg" alt="Pepsi Blue Zone" loading="lazy" />
+            <img src="assets/thumbnail_fail.svg" alt="Pepsi Blue Zone Thumnail Fail" loading="lazy" />
           </div>
           <span class="kv-picker-tag" style="color:#38bdf8;">BLUE ZONE</span>
         </button>
         <button class="kv-picker-btn" data-zone="3" aria-label="Show 04. THE MAIN STAGE (Central Apex Arena)" title="04. THE MAIN STAGE (Central Apex Arena)">
           <div class="kv-dot" style="background:#ffd700;box-shadow:0 0 10px #ffd700;"></div>
           <div class="kv-thumb" style="border-color:rgba(255,215,0,0.5);">
-            <img src="assets/battle_crew.jpg" alt="The Main Stage" loading="lazy" />
+            <img src="assets/floorplan_render_stage.jpg" alt="The Main Stage 3D Render" loading="lazy" />
           </div>
           <span class="kv-picker-tag" style="color:#ffd700;">MAIN STAGE</span>
         </button>
@@ -18774,25 +18815,25 @@ body.presentation-active .floating-present-badge {
           <!-- Interactive Multi-Photo Preview Strip -->
           <div class="fp-multi-photo-wrap">
             <div class="fp-photo-preview" onclick="event.stopPropagation(); window.openFloorplanModal(0, 0);">
-              <img id="fp-card-img-0" src="assets/battle_openstyle.jpg" alt="LIHF Red Zone" loading="lazy" />
+              <img id="fp-card-img-0" src="assets/floorplan_render_aerial.jpg" alt="LIHF Red Zone 3D Render" loading="lazy" />
               <div class="fp-photo-overlay fp-overlay-red"></div>
               <div class="fp-photo-expand-badge">
                 <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                <span>5 PHOTOS • FULLSCREEN</span>
+                <span>4 RENDERS • FULLSCREEN</span>
               </div>
             </div>
             <div class="fp-thumbs-row">
-              <div class="fp-mini-thumb active" onclick="event.stopPropagation(); window.previewCardThumb(0, 0, this);" title="Master Festival Universe">
-                <img src="assets/battle_openstyle.jpg" alt="Master Festival Universe" loading="lazy" />
+              <div class="fp-mini-thumb active" onclick="event.stopPropagation(); window.previewCardThumb(0, 0, this);" title="Aerial 3D Masterplan">
+                <img src="assets/floorplan_render_aerial.jpg" alt="Aerial 3D Masterplan" loading="lazy" />
               </div>
-              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(0, 1, this);" title="Streetwear & Sneaker Bazaar">
-                <img src="assets/festival/concert-market.webp" alt="Streetwear & Sneaker Bazaar" loading="lazy" />
+              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(0, 1, this);" title="Monumental Entrance Archway">
+                <img src="assets/floorplan_render_entrance.jpg" alt="Entrance Archway" loading="lazy" />
               </div>
-              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(0, 2, this);" title="Live Aerosol Graffiti Mural">
-                <img src="assets/battle_graffiti.jpg" alt="Live Aerosol Mural" loading="lazy" />
+              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(0, 2, this);" title="Spectator Seating &amp; Production Area">
+                <img src="assets/floorplan_render_seating.jpg" alt="Spectator Seating Area" loading="lazy" />
               </div>
-              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(0, 3, this);" title="Open Dance Cyphers & Warmup">
-                <img src="assets/festival/open-style-2on2.webp" alt="Open Dance Cyphers" loading="lazy" />
+              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(0, 3, this);" title="12m Main Stage Arena">
+                <img src="assets/floorplan_render_stage.jpg" alt="12m Main Stage Arena" loading="lazy" />
               </div>
             </div>
           </div>
@@ -18806,7 +18847,7 @@ body.presentation-active .floating-present-badge {
         </div>
 
         <div class="fp-card-footer" style="display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-family:var(--ff-a); font-size:0.68rem; color:rgba(255,255,255,0.55); letter-spacing:0.06em;">5 Zone Photos</span>
+          <span style="font-family:var(--ff-a); font-size:0.68rem; color:rgba(255,255,255,0.55); letter-spacing:0.06em;">4 3D Renders</span>
           <button type="button" class="fp-view-btn" style="background:none; border:none; padding:0; cursor:pointer;" onclick="event.stopPropagation(); window.openFloorplanModal(0, 0);">
             EXPAND FULLSCREEN ⛶
           </button>
@@ -18818,10 +18859,10 @@ body.presentation-active .floating-present-badge {
         <div>
           <div class="fp-card-top">
             <div class="fp-card-badge-row">
-              <span class="fp-pulse-dot" style="background:#22c55e;box-shadow:0 0 10px #22c55e;"></span>
-              <span class="fp-badge fp-badge-green">GREEN ZONE</span>
+              <span class="fp-pulse-dot" style="background:#ef4444;box-shadow:0 0 10px #ef4444;"></span>
+              <span class="fp-badge fp-badge-red" style="border-color:#ef4444;color:#fca5a5;">THUMNAIL FAIL</span>
             </div>
-            <span class="fp-capacity-pill">EMERALD NIGHTLIFE HUB</span>
+            <span class="fp-capacity-pill">PENDING 3D ASSETS</span>
           </div>
 
           <h4 class="fp-card-title">BEERLAO GREEN ZONE</h4>
@@ -18833,25 +18874,29 @@ body.presentation-active .floating-present-badge {
           <!-- Interactive Multi-Photo Preview Strip -->
           <div class="fp-multi-photo-wrap">
             <div class="fp-photo-preview" onclick="event.stopPropagation(); window.openFloorplanModal(1, 0);">
-              <img id="fp-card-img-1" src="assets/battle_dj.jpg" alt="Beerlao Green Zone" loading="lazy" />
+              <img id="fp-card-img-1" src="assets/thumbnail_fail.svg" alt="Beerlao Green Zone Thumnail Fail" loading="lazy" />
               <div class="fp-photo-overlay fp-overlay-green"></div>
-              <div class="fp-photo-expand-badge">
-                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                <span>4 PHOTOS • FULLSCREEN</span>
+              <div class="fp-photo-expand-badge" style="border-color:rgba(239,68,68,0.6);color:#fca5a5;">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                <span>THUMNAIL FAIL</span>
               </div>
             </div>
             <div class="fp-thumbs-row">
-              <div class="fp-mini-thumb active" onclick="event.stopPropagation(); window.previewCardThumb(1, 0, this);" title="Live DJ Turntablism Stage">
-                <img src="assets/battle_dj.jpg" alt="DJ Turntablism Stage" loading="lazy" />
+              <div class="fp-mini-thumb thumb-fail active" onclick="event.stopPropagation(); window.previewCardThumb(1, 0, this);" title="Thumnail Fail (3D Render Pending)">
+                <img src="assets/thumbnail_fail.svg" alt="Thumnail Fail" loading="lazy" />
+                <div class="fp-fail-overlay"><span class="fp-fail-text">Thumnail Fail</span></div>
               </div>
-              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(1, 1, this);" title="Party Beats & DJ Sets">
-                <img src="assets/activities/act_dj.webp" alt="Party Beats & DJ Sets" loading="lazy" />
+              <div class="fp-mini-thumb thumb-fail" onclick="event.stopPropagation(); window.previewCardThumb(1, 1, this);" title="Thumnail Fail (3D Render Pending)">
+                <img src="assets/thumbnail_fail.svg" alt="Thumnail Fail" loading="lazy" />
+                <div class="fp-fail-overlay"><span class="fp-fail-text">Thumnail Fail</span></div>
               </div>
-              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(1, 2, this);" title="Cold Draft Beer Experience">
-                <img src="assets/festival/dj.webp" alt="Cold Draft Beer Experience" loading="lazy" />
+              <div class="fp-mini-thumb thumb-fail" onclick="event.stopPropagation(); window.previewCardThumb(1, 2, this);" title="Thumnail Fail (3D Render Pending)">
+                <img src="assets/thumbnail_fail.svg" alt="Thumnail Fail" loading="lazy" />
+                <div class="fp-fail-overlay"><span class="fp-fail-text">Thumnail Fail</span></div>
               </div>
-              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(1, 3, this);" title="Urban Beer Garden Lounge">
-                <img src="assets/event/about/youth_1.webp" alt="Urban Beer Garden Lounge" loading="lazy" />
+              <div class="fp-mini-thumb thumb-fail" onclick="event.stopPropagation(); window.previewCardThumb(1, 3, this);" title="Thumnail Fail (3D Render Pending)">
+                <img src="assets/thumbnail_fail.svg" alt="Thumnail Fail" loading="lazy" />
+                <div class="fp-fail-overlay"><span class="fp-fail-text">Thumnail Fail</span></div>
               </div>
             </div>
           </div>
@@ -18879,10 +18924,10 @@ body.presentation-active .floating-present-badge {
         <div>
           <div class="fp-card-top">
             <div class="fp-card-badge-row">
-              <span class="fp-pulse-dot" style="background:#38bdf8;box-shadow:0 0 10px #38bdf8;"></span>
-              <span class="fp-badge fp-badge-blue">BLUE ZONE</span>
+              <span class="fp-pulse-dot" style="background:#ef4444;box-shadow:0 0 10px #ef4444;"></span>
+              <span class="fp-badge fp-badge-red" style="border-color:#ef4444;color:#fca5a5;">THUMNAIL FAIL</span>
             </div>
-            <span class="fp-capacity-pill">HIGH-ENERGY YOUTH ARENA</span>
+            <span class="fp-capacity-pill">PENDING 3D ASSETS</span>
           </div>
 
           <h4 class="fp-card-title">PEPSI BLUE ZONE</h4>
@@ -18894,25 +18939,29 @@ body.presentation-active .floating-present-badge {
           <!-- Interactive Multi-Photo Preview Strip -->
           <div class="fp-multi-photo-wrap">
             <div class="fp-photo-preview" onclick="event.stopPropagation(); window.openFloorplanModal(2, 0);">
-              <img id="fp-card-img-2" src="assets/battle_mc.jpg" alt="Pepsi Blue Zone" loading="lazy" />
+              <img id="fp-card-img-2" src="assets/thumbnail_fail.svg" alt="Pepsi Blue Zone Thumnail Fail" loading="lazy" />
               <div class="fp-photo-overlay fp-overlay-blue"></div>
-              <div class="fp-photo-expand-badge">
-                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                <span>4 PHOTOS • FULLSCREEN</span>
+              <div class="fp-photo-expand-badge" style="border-color:rgba(239,68,68,0.6);color:#fca5a5;">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                <span>THUMNAIL FAIL</span>
               </div>
             </div>
             <div class="fp-thumbs-row">
-              <div class="fp-mini-thumb active" onclick="event.stopPropagation(); window.previewCardThumb(2, 0, this);" title="Pepsi Cypher Stage">
-                <img src="assets/battle_mc.jpg" alt="Pepsi Cypher Stage" loading="lazy" />
+              <div class="fp-mini-thumb thumb-fail active" onclick="event.stopPropagation(); window.previewCardThumb(2, 0, this);" title="Thumnail Fail (3D Render Pending)">
+                <img src="assets/thumbnail_fail.svg" alt="Thumnail Fail" loading="lazy" />
+                <div class="fp-fail-overlay"><span class="fp-fail-text">Thumnail Fail</span></div>
               </div>
-              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(2, 1, this);" title="Rap Battles & Open Mic">
-                <img src="assets/activities/act_rap.webp" alt="Rap Battles" loading="lazy" />
+              <div class="fp-mini-thumb thumb-fail" onclick="event.stopPropagation(); window.previewCardThumb(2, 1, this);" title="Thumnail Fail (3D Render Pending)">
+                <img src="assets/thumbnail_fail.svg" alt="Thumnail Fail" loading="lazy" />
+                <div class="fp-fail-overlay"><span class="fp-fail-text">Thumnail Fail</span></div>
               </div>
-              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(2, 2, this);" title="Interactive Gaming Hub">
-                <img src="assets/event/meetyouth/my_2.webp" alt="Interactive Gaming" loading="lazy" />
+              <div class="fp-mini-thumb thumb-fail" onclick="event.stopPropagation(); window.previewCardThumb(2, 2, this);" title="Thumnail Fail (3D Render Pending)">
+                <img src="assets/thumbnail_fail.svg" alt="Thumnail Fail" loading="lazy" />
+                <div class="fp-fail-overlay"><span class="fp-fail-text">Thumnail Fail</span></div>
               </div>
-              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(2, 3, this);" title="Ice Bar & UGC Video Studio">
-                <img src="assets/event/meetyouth/my_6.webp" alt="UGC Studio" loading="lazy" />
+              <div class="fp-mini-thumb thumb-fail" onclick="event.stopPropagation(); window.previewCardThumb(2, 3, this);" title="Thumnail Fail (3D Render Pending)">
+                <img src="assets/thumbnail_fail.svg" alt="Thumnail Fail" loading="lazy" />
+                <div class="fp-fail-overlay"><span class="fp-fail-text">Thumnail Fail</span></div>
               </div>
             </div>
           </div>
@@ -18926,7 +18975,7 @@ body.presentation-active .floating-present-badge {
         </div>
 
         <div class="fp-card-footer" style="display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-family:var(--ff-a); font-size:0.68rem; color:rgba(255,255,255,0.55); letter-spacing:0.06em;">4 Zone Photos</span>
+          <span style="font-family:var(--ff-a); font-size:0.68rem; color:rgba(255,255,255,0.55); letter-spacing:0.06em;">Pending 3D</span>
           <button type="button" class="fp-view-btn" style="background:none; border:none; padding:0; cursor:pointer;" onclick="event.stopPropagation(); window.openFloorplanModal(2, 0);">
             EXPAND FULLSCREEN ⛶
           </button>
@@ -18953,25 +19002,27 @@ body.presentation-active .floating-present-badge {
           <!-- Interactive Multi-Photo Preview Strip -->
           <div class="fp-multi-photo-wrap">
             <div class="fp-photo-preview" onclick="event.stopPropagation(); window.openFloorplanModal(3, 0);">
-              <img id="fp-card-img-3" src="assets/battle_crew.jpg" alt="The Main Stage" loading="lazy" />
+              <img id="fp-card-img-3" src="assets/floorplan_render_stage.jpg" alt="The Main Stage 3D Render" loading="lazy" />
               <div class="fp-photo-overlay fp-overlay-gold"></div>
               <div class="fp-photo-expand-badge">
                 <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                <span>4 PHOTOS • FULLSCREEN</span>
+                <span>2 RENDERS • FULLSCREEN</span>
               </div>
             </div>
             <div class="fp-thumbs-row">
-              <div class="fp-mini-thumb active" onclick="event.stopPropagation(); window.previewCardThumb(3, 0, this);" title="Central Battle Ring">
-                <img src="assets/battle_crew.jpg" alt="Central Battle Ring" loading="lazy" />
+              <div class="fp-mini-thumb active" onclick="event.stopPropagation(); window.previewCardThumb(3, 0, this);" title="12m Main Stage Arena Close-Up">
+                <img src="assets/floorplan_render_stage.jpg" alt="12m Main Stage Arena" loading="lazy" />
               </div>
-              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(3, 1, this);" title="Olympic Breaking Finals">
-                <img src="assets/battle_breaking.jpg" alt="Breaking Finals" loading="lazy" />
+              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(3, 1, this);" title="Spectator Seating &amp; Production View">
+                <img src="assets/floorplan_render_seating.jpg" alt="Spectator Seating Area" loading="lazy" />
               </div>
-              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(3, 2, this);" title="Headline HipHop Concert">
-                <img src="assets/battle_concert.jpg" alt="Headline Concert" loading="lazy" />
+              <div class="fp-mini-thumb thumb-fail" onclick="event.stopPropagation(); window.previewCardThumb(3, 2, this);" title="Thumnail Fail (3D Render Pending)">
+                <img src="assets/thumbnail_fail.svg" alt="Thumnail Fail" loading="lazy" />
+                <div class="fp-fail-overlay"><span class="fp-fail-text">Thumnail Fail</span></div>
               </div>
-              <div class="fp-mini-thumb" onclick="event.stopPropagation(); window.previewCardThumb(3, 3, this);" title="Grand Trophy Presentation">
-                <img src="assets/festival/breaking-2on2.webp" alt="Grand Trophy Presentation" loading="lazy" />
+              <div class="fp-mini-thumb thumb-fail" onclick="event.stopPropagation(); window.previewCardThumb(3, 3, this);" title="Thumnail Fail (3D Render Pending)">
+                <img src="assets/thumbnail_fail.svg" alt="Thumnail Fail" loading="lazy" />
+                <div class="fp-fail-overlay"><span class="fp-fail-text">Thumnail Fail</span></div>
               </div>
             </div>
           </div>
@@ -20340,41 +20391,35 @@ const floorplanData = [
     badge: 'RED ZONE',
     color: '#ef4444',
     role: '10,000+ sqm Lao-ITECC Total Footprint • 100% Circulation',
-    tenure: 'Streetwear Market (50-70 Booths) • 8H Live Graffiti Mural • Street Cyphers',
+    tenure: 'Aerial 3D Masterplan • Monumental Entrance • Seating & Arena • 12m Main Stage',
     desc: 'The core festival universe covering all 10,000+ sqm of Lao-ITECC. Featuring the Streetwear & Sneaker Bazaar (50–70 curated lifestyle booths), 8-hour live aerosol graffiti mural canvas, outdoor street dance cyphers, and red-carpet arrival landmark.',
-    chips: ['10,000+ sqm Footprint', '50-70 Streetwear Booths', '8-Hour Live Graffiti', 'Street Cyphers'],
-    bg: 'assets/battle_openstyle.jpg',
+    chips: ['10,000+ sqm Footprint', 'Aerial 3D Masterplan', 'Monumental Entrance', '12m Main Stage Arena'],
+    bg: 'assets/floorplan_render_aerial.jpg',
     grad: 'linear-gradient(135deg,#2d0000,#550000,#0d0000)',
     images: [
       {
-        src: 'assets/battle_openstyle.jpg',
-        title: 'Master Festival Red Universe & Core Grounds',
-        desc: 'Overarching crimson festival visual identity spanning all 10,000+ sqm of Lao-ITECC Exhibition Hall.',
-        tag: 'Spatial Masterplan'
+        src: 'assets/floorplan_render_aerial.jpg',
+        title: "Aerial Spatial Masterplan (Bird's Eye View)",
+        desc: "Comprehensive 3D render of Lao-ITECC Exhibition Hall: 12m Main Stage, 14+ spectator seating rows, central sound console, streetwear markets, graffiti wall, and sponsor activation grounds.",
+        tag: '3D Spatial Masterplan'
       },
       {
-        src: 'assets/festival/concert-market.webp',
-        title: 'Streetwear & Sneaker Bazaar (50–70 Curated Booths)',
-        desc: 'Bustling lifestyle market featuring 50–70 curated apparel, vintage sneakers, accessories, and street food booths.',
-        tag: 'Market & Lifestyle'
-      },
-      {
-        src: 'assets/battle_graffiti.jpg',
-        title: '8-Hour Live Aerosol Graffiti Mural Canvas',
-        desc: 'Master Southeast Asian aerosol artists painting colossal live graffiti murals across both festival days.',
-        tag: 'Live Aerosol Art'
-      },
-      {
-        src: 'assets/festival/open-style-2on2.webp',
-        title: 'Urban Street Cyphers & Warmup Arena',
-        desc: 'Open floor street dance jams, cypher circles, and warmup exchange spots for 1,000+ dancers and fans.',
-        tag: 'Dance Cypher Circles'
-      },
-      {
-        src: 'assets/event/about/destination_1.webp',
-        title: 'Grand Entrance & Arrival Landmark',
-        desc: 'Monumental branded arrival archway, ticket accreditation, and VIP red-carpet media photo wall.',
+        src: 'assets/floorplan_render_entrance.jpg',
+        title: 'Monumental Entrance & Arrival Archway',
+        desc: 'Grand industrial red truss archway with LIHF 2026 branding, life-size Boombox Mascots, teardrop banners, and main attendee portal into Lao-ITECC.',
         tag: 'Arrival Landmark'
+      },
+      {
+        src: 'assets/floorplan_render_seating.jpg',
+        title: 'Spectator Seating & Production Arena',
+        desc: 'Hundreds of tiered spectator seats directly facing the battle arena, with central audio-visual console and direct stage line-of-sight.',
+        tag: 'Seating & Arena'
+      },
+      {
+        src: 'assets/floorplan_render_stage.jpg',
+        title: '12m Main Stage & Battle Arena',
+        desc: 'Championship battle platform with central LIHF 2026 circle, elevated DJ turntablism console, mascot banners, and Olympic-grade sprung wood dance floor.',
+        tag: 'Main Stage Arena'
       }
     ]
   },
@@ -20382,38 +20427,38 @@ const floorplanData = [
     id: 'green',
     name: '02. BEERLAO GREEN ZONE (Beerlao Experience)',
     shortName: '02. Beerlao Zone',
-    badge: 'GREEN ZONE',
-    color: '#22c55e',
-    role: 'Nightlife Lounge • Live DJ Stage • Beer Garden',
+    badge: 'THUMNAIL FAIL',
+    color: '#ef4444',
+    role: '3D Render In Production • Assets Pending',
     tenure: 'Exclusive Turntablism Scratch Sets • Draft Beer Sampling • Chill Lounge',
     desc: 'Dedicated Beerlao lifestyle oasis featuring a high-octane Live DJ Booth & turntablism scratch battles, an urban Beer Garden with picnic lounges, interactive cold-draft pouring challenges, and exclusive brand photo installations.',
-    chips: ['Live DJ Stage', 'Beerlao Draft Challenge', 'Urban Beer Garden', 'Nightlife Chill Lounge'],
-    bg: 'assets/battle_dj.jpg',
-    grad: 'linear-gradient(135deg,#052e16,#14532d,#02190c)',
+    chips: ['3D Render Pending', 'Draft Beer Challenge', 'Urban Beer Garden', 'Nightlife Chill Lounge'],
+    bg: 'assets/thumbnail_fail.svg',
+    grad: 'linear-gradient(135deg,#1c0505,#300808,#0c0202)',
     images: [
       {
-        src: 'assets/battle_dj.jpg',
-        title: 'Live DJ Turntablism Scratch Stage',
-        desc: 'Headliner DJ booth featuring vinyl scratch battles, live beat juggling, and non-stop party rhythm sessions.',
-        tag: 'DJ Scratch Arena'
+        src: 'assets/thumbnail_fail.svg',
+        title: 'Thumnail Fail',
+        desc: '3D Render in production. Dedicated Beerlao Zone visualization pending sponsor assets.',
+        tag: 'Thumnail Fail'
       },
       {
-        src: 'assets/activities/act_dj.webp',
-        title: 'Nightlife Party Beats & Guest Sets',
-        desc: 'High-energy electronic beats, guest DJ sets, and festival nightlife atmosphere designed for Gen Z crowds.',
-        tag: 'Live DJ Performance'
+        src: 'assets/thumbnail_fail.svg',
+        title: 'Thumnail Fail',
+        desc: '3D Render in production. Dedicated Beerlao Zone visualization pending sponsor assets.',
+        tag: 'Thumnail Fail'
       },
       {
-        src: 'assets/festival/dj.webp',
-        title: 'Fresh Cold Draft Beerlao Experience',
-        desc: 'Interactive cold-draft pouring challenges, rapid pour stations, and exclusive Beerlao brand tasting flights.',
-        tag: 'Draft Beer Experience'
+        src: 'assets/thumbnail_fail.svg',
+        title: 'Thumnail Fail',
+        desc: '3D Render in production. Dedicated Beerlao Zone visualization pending sponsor assets.',
+        tag: 'Thumnail Fail'
       },
       {
-        src: 'assets/event/about/youth_1.webp',
-        title: 'Urban Beer Garden & Social Lounge',
-        desc: 'Emerald and gold illuminated open-air seating with high-top tables, turf grass, and social hangouts.',
-        tag: 'Beer Garden & Lounge'
+        src: 'assets/thumbnail_fail.svg',
+        title: 'Thumnail Fail',
+        desc: '3D Render in production. Dedicated Beerlao Zone visualization pending sponsor assets.',
+        tag: 'Thumnail Fail'
       }
     ]
   },
@@ -20421,38 +20466,38 @@ const floorplanData = [
     id: 'blue',
     name: '03. PEPSI BLUE ZONE (Pepsi Experience)',
     shortName: '03. Pepsi Zone',
-    badge: 'BLUE ZONE',
-    color: '#38bdf8',
-    role: 'Youth Music Stage • Gaming Hub • Refreshment Oasis',
+    badge: 'THUMNAIL FAIL',
+    color: '#ef4444',
+    role: '3D Render In Production • Assets Pending',
     tenure: 'Rap & Vocal Cypher Stage • Rhythm Game Challenge • UGC Studio',
     desc: 'Electric high-energy playground anchored by the Pepsi Music & Rap Cypher Stage, interactive rhythm dance-mat gaming challenges, ice-cold Pepsi refreshment stations, and dynamic UGC video content creator studios.',
-    chips: ['Rap Cypher Stage', 'Dance Mat Gaming', 'Ice-Cold Bar', 'UGC Video Studio'],
-    bg: 'assets/battle_mc.jpg',
-    grad: 'linear-gradient(135deg,#082f49,#0369a1,#021a2c)',
+    chips: ['3D Render Pending', 'Dance Mat Gaming', 'Ice-Cold Bar', 'UGC Video Studio'],
+    bg: 'assets/thumbnail_fail.svg',
+    grad: 'linear-gradient(135deg,#1c0505,#300808,#0c0202)',
     images: [
       {
-        src: 'assets/battle_mc.jpg',
-        title: 'Pepsi Live Cypher Stage & Rap Showdown',
-        desc: 'Dynamic stage with high-power microphones, hosting rap cyphers, open mic challenges, and youth vocal showcases.',
-        tag: 'Pepsi Cypher Stage'
+        src: 'assets/thumbnail_fail.svg',
+        title: 'Thumnail Fail',
+        desc: '3D Render in production. Dedicated Pepsi Zone visualization pending sponsor assets.',
+        tag: 'Thumnail Fail'
       },
       {
-        src: 'assets/activities/act_rap.webp',
-        title: 'High-Energy Rap Battles & Beat Drops',
-        desc: 'Intense freestyle rap face-offs and lyrical battles under electric blue spotlights and pounding basslines.',
-        tag: 'Freestyle Rap Battles'
+        src: 'assets/thumbnail_fail.svg',
+        title: 'Thumnail Fail',
+        desc: '3D Render in production. Dedicated Pepsi Zone visualization pending sponsor assets.',
+        tag: 'Thumnail Fail'
       },
       {
-        src: 'assets/event/meetyouth/my_2.webp',
-        title: 'Interactive Gaming & Dance-Mat Challenge',
-        desc: 'Arcade rhythm dance-mat showdowns where festival attendees compete for limited-edition Pepsi prizes.',
-        tag: 'Interactive Gaming Hub'
+        src: 'assets/thumbnail_fail.svg',
+        title: 'Thumnail Fail',
+        desc: '3D Render in production. Dedicated Pepsi Zone visualization pending sponsor assets.',
+        tag: 'Thumnail Fail'
       },
       {
-        src: 'assets/event/meetyouth/my_6.webp',
-        title: 'Ice-Cold Pepsi Bar & UGC Video Studio',
-        desc: 'Signature ice-cold mocktail sampling stations, 360-degree rotating photo booths, and viral content studios.',
-        tag: 'UGC Content Studio'
+        src: 'assets/thumbnail_fail.svg',
+        title: 'Thumnail Fail',
+        desc: '3D Render in production. Dedicated Pepsi Zone visualization pending sponsor assets.',
+        tag: 'Thumnail Fail'
       }
     ]
   },
@@ -20466,32 +20511,32 @@ const floorplanData = [
     tenure: 'Championship Finals • Headline Concerts • 159M LAK Grand Awards',
     desc: 'The beating heart uniting all zones: massive stadium LED screens, Olympic-grade concert line arrays, hosting all championship battle finals (Breaking 2v2, Open Style 2v2, Rap 7-to-Smoke), headline concert performances, and the 159,000,000 LAK trophy ceremonies.',
     chips: ['Championship Finals', 'Headline Concerts', '159M LAK Ceremony', '4K Stadium LED & Lasers'],
-    bg: 'assets/battle_crew.jpg',
+    bg: 'assets/floorplan_render_stage.jpg',
     grad: 'linear-gradient(135deg,#352204,#784c08,#1a1002)',
     images: [
       {
-        src: 'assets/battle_crew.jpg',
-        title: 'Central Apex Arena & Choreography Finals',
-        desc: 'Monumental central battle ground with Olympic-grade sprung flooring and 360-degree stadium viewing.',
-        tag: 'Central Battle Ring'
+        src: 'assets/floorplan_render_stage.jpg',
+        title: '12m Main Stage Arena Close-Up',
+        desc: 'Championship battle platform with central LIHF 2026 circle, elevated DJ turntablism console, mascot banners, and Olympic-grade sprung wood dance floor.',
+        tag: 'Main Stage Arena'
       },
       {
-        src: 'assets/battle_breaking.jpg',
-        title: 'Olympic Breaking 2v2 International Finals',
-        desc: 'Elite b-boys and b-girls from 10+ countries battling for international prestige and official Olympic points.',
-        tag: 'Breaking Championship'
+        src: 'assets/floorplan_render_seating.jpg',
+        title: 'Spectator Seating & Production View',
+        desc: 'Auditorium view from the central audio-visual console overlooking all spectator rows towards the illuminated battle stage.',
+        tag: 'Seating & Arena'
       },
       {
-        src: 'assets/battle_concert.jpg',
-        title: '10,000+ Headline Hip-Hop Concerts',
-        desc: 'Two nights of epic festival concerts featuring Laos top hip-hop stars, ASEAN icons, laser shows, and pyro effects.',
-        tag: 'Headline Concerts'
+        src: 'assets/thumbnail_fail.svg',
+        title: 'Thumnail Fail',
+        desc: '3D Render in production. Angle visualization pending render export.',
+        tag: 'Thumnail Fail'
       },
       {
-        src: 'assets/festival/breaking-2on2.webp',
-        title: '159,000,000 LAK Grand Trophy Ceremonies',
-        desc: 'Spectacular championship presentation on the 4K LED main stage celebrating winning crews and national champions.',
-        tag: 'Grand Awards Arena'
+        src: 'assets/thumbnail_fail.svg',
+        title: 'Thumnail Fail',
+        desc: '3D Render in production. Angle visualization pending render export.',
+        tag: 'Thumnail Fail'
       }
     ]
   }
@@ -20509,8 +20554,9 @@ function renderZoneGalleryStrip(zoneIdx) {
   if (!zone || !zone.images) return;
 
   container.innerHTML = zone.images.map((img, i) => `
-    <div class="kv-gallery-thumb-item ${i === 0 ? 'active' : ''}" onclick="window.onKvGalleryThumbClick(${zoneIdx}, ${i})" title="${img.title}">
+    <div class="kv-gallery-thumb-item ${img.src.includes('thumbnail_fail') ? 'thumb-fail' : ''} ${i === 0 ? 'active' : ''}" onclick="window.onKvGalleryThumbClick(${zoneIdx}, ${i})" title="${img.title}">
       <img src="${img.src}" alt="${img.title}" loading="lazy" />
+      ${img.src.includes('thumbnail_fail') ? '<div class="fp-fail-overlay"><span class="fp-fail-text">Thumnail Fail</span></div>' : ''}
     </div>
   `).join('');
 }
@@ -20695,24 +20741,28 @@ window.setModalBlueprint = function() {
     }, 120);
   }
 
-  // Filmstrip for Blueprint Mode shows the Blueprint Map + thumbnails of all 4 zones
+  // Filmstrip for Blueprint Mode shows the Blueprint Map + the 4 authentic 3D renders + Thumnail Fail
   const filmstrip = document.getElementById('fp-modal-filmstrip');
   if (filmstrip) {
     filmstrip.innerHTML = `
       <div class="fp-filmstrip-thumb active" onclick="window.setModalBlueprint()" title="Official Event Map Blueprint">
         <img src="assets/event_map_layout.jpg" alt="Official Event Map" loading="lazy" />
       </div>
-      <div class="fp-filmstrip-thumb" onclick="window.setModalZone(0)" title="01. Red Zone Gallery">
-        <img src="assets/battle_openstyle.jpg" alt="Red Zone" loading="lazy" />
+      <div class="fp-filmstrip-thumb" onclick="window.setModalZone(0); window.setModalImage(0);" title="01. Aerial 3D Masterplan">
+        <img src="assets/floorplan_render_aerial.jpg" alt="Aerial Masterplan" loading="lazy" />
       </div>
-      <div class="fp-filmstrip-thumb" onclick="window.setModalZone(1)" title="02. Beerlao Zone Gallery">
-        <img src="assets/battle_dj.jpg" alt="Beerlao Zone" loading="lazy" />
+      <div class="fp-filmstrip-thumb" onclick="window.setModalZone(0); window.setModalImage(1);" title="02. Monumental Entrance Archway">
+        <img src="assets/floorplan_render_entrance.jpg" alt="Entrance Landmark" loading="lazy" />
       </div>
-      <div class="fp-filmstrip-thumb" onclick="window.setModalZone(2)" title="03. Pepsi Zone Gallery">
-        <img src="assets/battle_mc.jpg" alt="Pepsi Zone" loading="lazy" />
+      <div class="fp-filmstrip-thumb" onclick="window.setModalZone(0); window.setModalImage(2);" title="03. Spectator Seating & Production Area">
+        <img src="assets/floorplan_render_seating.jpg" alt="Spectator Seating" loading="lazy" />
       </div>
-      <div class="fp-filmstrip-thumb" onclick="window.setModalZone(3)" title="04. Main Stage Gallery">
-        <img src="assets/battle_crew.jpg" alt="Main Stage" loading="lazy" />
+      <div class="fp-filmstrip-thumb" onclick="window.setModalZone(0); window.setModalImage(3);" title="04. 12m Main Stage Battle Arena">
+        <img src="assets/floorplan_render_stage.jpg" alt="Main Stage Arena" loading="lazy" />
+      </div>
+      <div class="fp-filmstrip-thumb thumb-fail" onclick="window.setModalZone(1)" title="Thumnail Fail (3D Render Pending)">
+        <img src="assets/thumbnail_fail.svg" alt="Thumnail Fail" loading="lazy" />
+        <div class="fp-fail-overlay"><span class="fp-fail-text">Thumnail Fail</span></div>
       </div>
     `;
   }
@@ -20837,8 +20887,9 @@ function renderModalState() {
   const filmstrip = document.getElementById('fp-modal-filmstrip');
   if (filmstrip) {
     filmstrip.innerHTML = zone.images.map((img, i) => `
-      <div class="fp-filmstrip-thumb ${i === currentModalImgIdx ? 'active' : ''}" onclick="window.setModalImage(${i})" title="${img.title}">
+      <div class="fp-filmstrip-thumb ${img.src.includes('thumbnail_fail') ? 'thumb-fail' : ''} ${i === currentModalImgIdx ? 'active' : ''}" onclick="window.setModalImage(${i})" title="${img.title}">
         <img src="${img.src}" alt="${img.title}" loading="lazy" />
+        ${img.src.includes('thumbnail_fail') ? '<div class="fp-fail-overlay"><span class="fp-fail-text">Thumnail Fail</span></div>' : ''}
       </div>
     `).join('');
   }
