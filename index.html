@@ -13551,31 +13551,85 @@ body.gsap-ready .acc-inner .ru {
   margin: 0 auto;
 }
 
-/* 3 Horizontal Demographic Rows (Image 2 as Horizontal Rows) */
-.aud-horiz-list {
+/* 3 Horizontal Demographic Rows - 3D Stacked Deck Hover Interaction */
+.aud-horiz-list, ul.aud-horiz-list {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 500px;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  gap: 0;
+  transition: 500ms;
+  margin: 1.5rem 0 2.5rem;
+  padding: 0;
+  list-style: none;
 }
 
-.aud-horiz-row {
+.aud-horiz-list:hover,
+ul.aud-horiz-list:hover {
+  gap: 20px;
+}
+
+.aud-horiz-row, ul.aud-horiz-list li {
+  position: relative;
+  list-style: none;
   background: #08080a;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 0;
+  border-radius: 10px;
   padding: 2.2rem 2.4rem;
   display: grid;
   grid-template-columns: 340px 1fr;
   align-items: center;
   gap: 2.8rem;
-  position: relative;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
-  cursor: default;
+  box-shadow: 0 0 12px rgba(0, 0, 0, .24), 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: 500ms;
+  transition-delay: calc(var(--i) * 50ms);
+  cursor: pointer;
+  box-sizing: border-box;
 }
-.aud-horiz-row:hover {
-  transform: translateY(-4px) scale(1.008);
-  z-index: 10;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.9);
+
+.aud-horiz-row:nth-child(1),
+ul.aud-horiz-list li:nth-child(1) {
+  transform: translateZ(-75px) translateY(20px);
+  opacity: .6;
+  filter: blur(4px);
+  z-index: 1;
+}
+
+.aud-horiz-row:nth-child(2),
+ul.aud-horiz-list li:nth-child(2) {
+  opacity: .8;
+  filter: blur(2px);
+  z-index: 2;
+}
+
+.aud-horiz-row:nth-child(3),
+ul.aud-horiz-list li:nth-child(3) {
+  transform: translateZ(65px) translateY(-30px);
+  z-index: 3;
+}
+
+.aud-horiz-row:nth-child(4),
+ul.aud-horiz-list li:nth-child(4) {
+  transform: translateZ(125px) translateY(-68px);
+  filter: blur(1px);
+  z-index: 4;
+}
+
+.aud-horiz-list:hover .aud-horiz-row,
+.aud-horiz-list:hover li,
+.aud-horiz-list.is-expanded .aud-horiz-row,
+.aud-horiz-list.is-expanded li {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateZ(0) translateY(0);
+}
+
+.aud-horiz-list:hover .aud-horiz-row:hover,
+.aud-horiz-list:hover li:hover {
+  transform: translateZ(25px) translateY(-4px);
+  z-index: 20;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.95);
 }
 
 /* Theme Accents (White, Grey, Flat Red) */
@@ -13771,6 +13825,22 @@ body.gsap-ready .acc-inner .ru {
 
 /* Responsive Media Queries */
 @media (max-width: 980px) {
+  .aud-horiz-list, ul.aud-horiz-list {
+    transform-style: flat;
+    perspective: none;
+    gap: 1.5rem !important;
+  }
+  .aud-horiz-row,
+  ul.aud-horiz-list li,
+  .aud-horiz-row:nth-child(1),
+  .aud-horiz-row:nth-child(2),
+  .aud-horiz-row:nth-child(3),
+  .aud-horiz-row:nth-child(4) {
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    transition-delay: 0s !important;
+  }
   .aud-horiz-row {
     grid-template-columns: 1fr;
     gap: 1.8rem;
@@ -18248,10 +18318,10 @@ body.presentation-active .floating-present-badge {
         <p class="aud-poster-lao-sub">🇱🇦 ໂຄງສ້າງປະຊາກອນ ແລະ ພະລັງກຳລັງຊື້ຂອງກຸ່ມຄົນຮຸ່ນໃໝ່ທີ່ຂັບເຄື່ອນວັດທະນະທຳຕົວຈິງ</p>
       </div>
 
-      <!-- 3 Horizontal Demographic Rows (Image 2 Made Horizontal) -->
-      <div class="aud-horiz-list">
+      <!-- 3 Horizontal Demographic Rows - 3D Stacked Deck Hover Interaction -->
+      <ul class="aud-horiz-list">
         <!-- Row 1: Young Adults (50%) -->
-        <div class="aud-horiz-row theme-white">
+        <li class="aud-horiz-row theme-white" style="--i: 1;">
           <div class="aud-horiz-left">
             <div class="aud-horiz-header">
               <div class="aud-horiz-num">50%</div>
@@ -18286,10 +18356,10 @@ body.presentation-active .floating-present-badge {
               <div class="aud-horiz-desc">ກຸ່ມຫຼັກທີ່ເຂົ້າຮ່ວມ Concert ຕອນແລງ &amp; ສ້າງຍອດຂາຍຮ້ານຄ້າ</div>
             </div>
           </div>
-        </div>
+        </li>
 
         <!-- Row 2: Youth & Teens (35%) -->
-        <div class="aud-horiz-row theme-grey">
+        <li class="aud-horiz-row theme-grey" style="--i: 2;">
           <div class="aud-horiz-left">
             <div class="aud-horiz-header">
               <div class="aud-horiz-num">35%</div>
@@ -18324,10 +18394,10 @@ body.presentation-active .floating-present-badge {
               <div class="aud-horiz-desc">ເຂົ້າຮ່ວມກິດຈະກຳ Battle, Dance Cyphers &amp; Workshops</div>
             </div>
           </div>
-        </div>
+        </li>
 
         <!-- Row 3: Industry & VIP (15%) -->
-        <div class="aud-horiz-row theme-red">
+        <li class="aud-horiz-row theme-red" style="--i: 3;">
           <div class="aud-horiz-left">
             <div class="aud-horiz-header">
               <div class="aud-horiz-num">15%</div>
@@ -18362,8 +18432,8 @@ body.presentation-active .floating-present-badge {
               <div class="aud-horiz-desc">ເຫັນຄຸນຄ່າໃນການຍົກລະດັບວັດທະນະທຳລາວສູ່ສາກົນ &amp; CSR</div>
             </div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div><!-- /aud-poster-section -->
   </div><!-- /meet-youth-inner -->
 </div><!-- /meet-youth-backdrop-section -->
@@ -24497,6 +24567,15 @@ function replayLogoIntro(){
       petal.addEventListener('mouseenter', handleEnter);
       petal.addEventListener('mouseleave', handleLeave);
       petal.addEventListener('click', handleEnter);
+    });
+  })();
+
+  // ── 3D AUDIENCE STACK TAP TOGGLE (for touch or click) ──
+  (function initAudience3dStack() {
+    const list = document.querySelector('.aud-horiz-list');
+    if (!list) return;
+    list.addEventListener('click', () => {
+      list.classList.toggle('is-expanded');
     });
   })();
 
