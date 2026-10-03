@@ -7547,24 +7547,102 @@ nav { height: 60px !important; padding: 0 !important; }
 /* Petals Wheel & Interactive States */
 .hud-petal-item {
   cursor: pointer;
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease;
+  transition: transform 0.38s cubic-bezier(0.18, 0.9, 0.25, 1.15), opacity 0.3s ease, filter 0.3s ease;
   transform-origin: 300px 260px;
 }
 
 .hud-petal-fill {
-  transition: filter 0.35s ease, opacity 0.3s ease;
+  transition: filter 0.35s ease, opacity 0.3s ease, stroke-width 0.3s ease, stroke 0.3s ease;
 }
 
+.hud-petal-track {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.hud-petal-item text {
+  transition: transform 0.38s cubic-bezier(0.18, 0.9, 0.25, 1.15), filter 0.3s ease;
+}
+
+.hud-petal-item .petal-num {
+  transition: font-size 0.3s ease, fill 0.3s ease, filter 0.3s ease;
+}
+
+.hud-petal-item .petal-lbl {
+  transition: font-size 0.3s ease, fill 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.hud-petal-item .petal-lao {
+  transition: font-size 0.3s ease, fill 0.3s ease;
+}
+
+/* DRAMATIC HOVER ENLARGEMENT (Significantly larger scale 1.15, crisp bold typography & fiery pop-out) */
 .hud-petal-item:hover {
-  transform: scale(1.045);
+  transform: scale(1.15);
 }
 
 .hud-petal-item:hover .hud-petal-fill {
-  filter: drop-shadow(0 0 18px rgba(255, 26, 53, 0.85)) drop-shadow(0 6px 16px rgba(0, 0, 0, 0.95));
+  stroke: #ffffff !important;
+  stroke-width: 2.2px !important;
+  filter: drop-shadow(0 0 24px rgba(255, 26, 53, 0.95)) drop-shadow(0 0 45px rgba(255, 0, 40, 0.6)) drop-shadow(0 10px 24px rgba(0, 0, 0, 0.95));
 }
 
+.hud-petal-item:hover .hud-petal-track {
+  stroke: rgba(255, 60, 80, 0.6) !important;
+  fill: rgba(32, 14, 20, 0.95) !important;
+}
+
+.hud-petal-item:hover .petal-num {
+  font-size: 21px !important;
+  fill: #ffffff !important;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
+}
+
+.hud-petal-item:hover .petal-lbl {
+  font-size: 10px !important;
+  fill: #ffffff !important;
+  letter-spacing: 1.2px !important;
+}
+
+.hud-petal-item:hover .petal-lao {
+  font-size: 9.5px !important;
+  fill: #ffd700 !important;
+  filter: drop-shadow(0 0 6px rgba(245, 208, 106, 0.6));
+}
+
+/* Dim & shrink non-hovered petals for intense contrast */
 .hud-petals-wheel:has(.hud-petal-item:hover) .hud-petal-item:not(:hover) {
-  opacity: 0.45;
+  opacity: 0.32;
+  transform: scale(0.96);
+  filter: blur(0.2px);
+}
+
+/* Center Core Highlight on Hover */
+.hud-center-core.is-hovered .hud-core-kpi {
+  font-size: 22px;
+  fill: #ff263b;
+  filter: drop-shadow(0 0 12px rgba(255, 38, 59, 0.9));
+}
+
+.hud-center-core.is-hovered .hud-core-sub {
+  fill: #ffffff;
+  letter-spacing: 1.5px;
+}
+
+.hud-center-core.is-hovered .hud-core-desc {
+  font-size: 9px;
+  fill: #ffd700;
+}
+
+/* Live Telemetry Highlight on Hover */
+.hud-live-telemetry.is-highlighted {
+  border-color: rgba(255, 40, 60, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 0, 40, 0.25);
+  background: rgba(28, 14, 20, 0.96);
+}
+
+.hud-live-telemetry.is-highlighted .hud-telem-text {
+  color: #ffffff;
+  font-weight: 600;
 }
 
 /* Center Core Blinking Status Dot */
@@ -24426,6 +24504,8 @@ function replayLogoIntro(){
     const kpiEl = document.getElementById('hudCoreKpi');
     const descEl = document.getElementById('hudCoreDesc');
     const subEl = document.querySelector('.hud-core-sub');
+    const centerCore = document.getElementById('hudCenterCore');
+    const telemEl = document.getElementById('hudLiveTelemetry');
     const telemTag = document.getElementById('hudTelemTag');
     const telemText = document.getElementById('hudTelemText');
     const telemBadge = document.getElementById('hudTelemBadge');
@@ -24450,9 +24530,17 @@ function replayLogoIntro(){
 
       const handleEnter = () => {
         if (resetTimer) clearTimeout(resetTimer);
+
+        // Bring hovered petal to the front of its SVG layer stack
+        if (petal.parentElement) {
+          petal.parentElement.appendChild(petal);
+        }
+
         kpiEl.textContent = num;
         if (subEl) subEl.textContent = en;
         if (descEl) descEl.textContent = lao;
+        if (centerCore) centerCore.classList.add('is-hovered');
+        if (telemEl) telemEl.classList.add('is-highlighted');
         if (telemTag) telemTag.textContent = `${en} // ${num}`;
         if (telemText) telemText.textContent = `🇱🇦 ${detail}`;
         if (telemBadge) telemBadge.textContent = 'ACTIVE SECTOR';
@@ -24463,6 +24551,8 @@ function replayLogoIntro(){
           kpiEl.textContent = defaultData.num;
           if (subEl) subEl.textContent = defaultData.sub;
           if (descEl) descEl.textContent = defaultData.desc;
+          if (centerCore) centerCore.classList.remove('is-hovered');
+          if (telemEl) telemEl.classList.remove('is-highlighted');
           if (telemTag) telemTag.textContent = defaultData.tag;
           if (telemText) telemText.textContent = defaultData.text;
           if (telemBadge) telemBadge.textContent = defaultData.badge;
