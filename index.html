@@ -13507,87 +13507,410 @@ body.gsap-ready .acc-inner .ru {
    CARD-FREE ARCHITECTURAL STYLES FOR ALL DROPDOWNS & STANDALONE SECTIONS
    ========================================================================== */
 
-/* ── 1. CARD-FREE AUDIENCE (SECTION 03) ── */
-.cf-audience-grid {
+/* ── 1. TARGET AUDIENCE POSTER / DASHBOARD (MATCHING REFERENCE STYLE) ── */
+.aud-poster-section {
+  background: #000000;
+  color: #ffffff;
+  padding: 3rem 1.5rem 2rem;
+  max-width: 1040px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Header matching reference */
+.aud-poster-header {
+  text-align: center;
+  margin-bottom: 2.2rem;
+}
+.aud-poster-kicker {
+  display: inline-block;
+  font-family: var(--ff-a);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #e60026;
+  margin-bottom: 0.85rem;
+}
+.aud-poster-title {
+  font-family: var(--ff-d);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 0.85rem;
+}
+.aud-poster-lao-sub {
+  font-family: var(--ff-b);
+  font-size: 1.02rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Legend matching reference: ⚪ Strategy  🔘 Identity  🔴 Application */
+.aud-poster-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.8rem;
+  margin: 2.5rem 0 3.2rem;
+}
+.aud-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.aud-legend-item:hover {
+  transform: translateY(-2px);
+}
+.aud-legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.aud-dot-white {
+  background: #ffffff;
+}
+.aud-dot-grey {
+  background: #8e8e93;
+}
+.aud-dot-red {
+  background: #e60026;
+}
+.aud-legend-text {
+  font-family: var(--ff-a);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+.aud-legend-lao {
+  font-family: var(--ff-b);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 0.35rem;
+}
+
+/* Stacked Horizontal Chart */
+.aud-chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.85rem;
+  margin-bottom: 0.6rem;
+}
+.aud-chart-row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+.aud-row-label-wrap {
+  text-align: right;
+}
+.aud-row-label {
+  font-family: var(--ff-a);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  line-height: 1.2;
+}
+.aud-row-lao {
+  font-family: var(--ff-b);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 0.2rem;
+}
+
+/* The Bar Track & Segments */
+.aud-bar-track {
+  display: flex;
+  width: 100%;
+  height: 52px;
+  background: transparent;
+  position: relative;
+  box-sizing: border-box;
+}
+.aud-seg {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s ease, z-index 0.2s ease;
+}
+.aud-seg-val {
+  font-family: var(--ff-a);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  transition: font-size 0.2s ease;
+  pointer-events: none;
+}
+.aud-seg:hover {
+  transform: scaleY(1.14);
+  z-index: 20;
+  filter: brightness(1.15);
+}
+.aud-seg:hover .aud-seg-val {
+  font-size: 1.35rem;
+}
+.aud-seg-white {
+  background: #ffffff;
+  color: #000000;
+}
+.aud-seg-grey {
+  background: #8e8e93;
+  color: #ffffff;
+}
+.aud-seg-red {
+  background: #e60026;
+  color: #ffffff;
+}
+
+/* Crisp Hover Tooltip */
+.aud-seg-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #0f0f11;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  padding: 0.6rem 0.95rem;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 50;
+  white-space: nowrap;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.95);
+  text-align: center;
+}
+.aud-seg-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #0f0f11 transparent transparent transparent;
+}
+.aud-seg:hover .aud-seg-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.aud-tt-head {
+  display: block;
+  font-family: var(--ff-a);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.15rem;
+}
+.aud-tt-lao {
+  display: block;
+  font-family: var(--ff-b);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Axis Scale directly below last bar */
+.aud-scale-row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 3.5rem;
+}
+.aud-scale-ticks {
+  position: relative;
+  width: 100%;
+  height: 28px;
+}
+.aud-scale-num {
+  position: absolute;
+  top: 0;
+  font-family: var(--ff-a);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  transform: translateX(-50%);
+}
+.aud-scale-num:first-child {
+  left: 0 !important;
+  transform: translateX(0);
+}
+.aud-scale-num:last-child {
+  left: 100% !important;
+  transform: translateX(-100%);
+}
+
+/* Brand signature / Monogram footer like reference */
+.aud-poster-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-bottom: 2.8rem;
+  opacity: 0.85;
+}
+.aud-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.aud-brand-box {
+  font-family: var(--ff-d);
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+}
+.aud-brand-tag {
+  font-family: var(--ff-a);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  padding: 0.15rem 0.45rem;
+  background: #e60026;
+  color: #ffffff;
+  border-radius: 2px;
+}
+.aud-brand-handle {
+  font-family: var(--ff-a);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Demographic Cards Row (3 Cards: White, Grey, Red) */
+.aud-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2.2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  background: transparent;
-  margin-top: 2rem;
+  padding-top: 2.5rem;
 }
-.cf-aud-col {
-  padding: 2.4rem 2rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-  position: relative;
-  transition: background 0.3s ease;
-}
-.cf-aud-col:last-child {
-  border-right: none;
-}
-.cf-aud-col:hover {
+.aud-card {
   background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.8rem 1.6rem;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background 0.25s ease;
 }
-.cf-aud-header {
+.aud-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.04);
+}
+.aud-card.card-white {
+  border-top: 4px solid #ffffff;
+}
+.aud-card.card-grey {
+  border-top: 4px solid #8e8e93;
+}
+.aud-card.card-red {
+  border-top: 4px solid #e60026;
+}
+.aud-card-header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   margin-bottom: 0.8rem;
 }
-.cf-aud-num {
+.aud-card-pct {
   font-family: var(--ff-d);
-  font-size: clamp(3.2rem, 5.5vw, 4.8rem);
+  font-size: clamp(2.8rem, 4vw, 3.6rem);
   line-height: 0.9;
-  letter-spacing: -0.02em;
-  color: var(--red);
+  letter-spacing: -0.01em;
 }
-.cf-aud-tag {
+.aud-card.card-white .aud-card-pct { color: #ffffff; }
+.aud-card.card-grey .aud-card-pct { color: #8e8e93; }
+.aud-card.card-red .aud-card-pct { color: #e60026; }
+
+.aud-card-tag {
   font-family: var(--ff-a);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 0.25rem 0.65rem;
-  border: 1px solid rgba(204, 0, 0, 0.4);
-  color: #ff4d4d;
   border-radius: 2px;
 }
-.cf-aud-title {
-  font-family: var(--ff-d);
-  font-size: 1.45rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+.aud-card.card-white .aud-card-tag {
+  border: 1px solid rgba(255, 255, 255, 0.35);
   color: #ffffff;
-  margin-bottom: 0.4rem;
 }
-.cf-aud-sub {
+.aud-card.card-grey .aud-card-tag {
+  border: 1px solid rgba(142, 142, 147, 0.45);
+  color: #8e8e93;
+}
+.aud-card.card-red .aud-card-tag {
+  border: 1px solid rgba(230, 0, 38, 0.45);
+  color: #e60026;
+}
+.aud-card-title {
+  font-family: var(--ff-a);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+.aud-card-lao {
   font-family: var(--ff-b);
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.55);
-  margin-bottom: 1.2rem;
-  line-height: 1.4;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.3rem;
+  line-height: 1.45;
 }
-.cf-aud-list {
+.aud-card-bullets {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.cf-aud-list li {
+.aud-card-bullets li {
   position: relative;
-  padding-left: 1.2rem;
+  padding-left: 1.25rem;
   font-family: var(--ff-b);
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
 }
-.cf-aud-list li::before {
-  content: '—';
+.aud-card-bullets li::before {
+  content: '▪';
   position: absolute;
   left: 0;
-  color: var(--red);
-  font-weight: 700;
+  font-size: 0.85rem;
 }
+.aud-card.card-white .aud-card-bullets li::before { color: #ffffff; }
+.aud-card.card-grey .aud-card-bullets li::before { color: #8e8e93; }
+.aud-card.card-red .aud-card-bullets li::before { color: #e60026; }
 
 /* Card-free Sponsor Fit Bar */
 .cf-sponsor-fit-bar {
@@ -13621,17 +13944,28 @@ body.gsap-ready .acc-inner .ru {
   color: rgba(212, 175, 55, 0.45);
 }
 
-@media (max-width: 900px) {
-  .cf-audience-grid {
+/* Responsive Media Queries */
+@media (max-width: 860px) {
+  .aud-chart-row {
     grid-template-columns: 1fr;
+    gap: 0.65rem;
   }
-  .cf-aud-col {
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 1.8rem 1rem;
+  .aud-row-label-wrap {
+    text-align: left;
   }
-  .cf-aud-col:last-child {
-    border-bottom: none;
+  .aud-scale-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .aud-scale-left-spacer {
+    display: none;
+  }
+  .aud-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .aud-poster-legend {
+    gap: 1.2rem 1.8rem;
   }
   .cf-sponsor-fit-bar {
     flex-direction: column;
@@ -18082,108 +18416,275 @@ body.presentation-active .floating-present-badge {
       </div>
     </div>
 
-    <div class="section-divider" style="margin: 3.5rem 0 3rem;"></div>
+    <div class="section-divider" style="margin: 2.2rem 0;"></div>
 
     <!-- ── 3. AUDIENCE & DEMOGRAPHICS (Combined into Section 01) ── -->
     <div id="audience" style="position:relative; top:-70px; visibility:hidden;"></div>
 
-    <div style="text-align:center; max-width:850px; margin:0 auto 2.5rem;">
-      <div class="section-label" style="justify-content:center; margin-bottom:0.85rem;">TARGET AUDIENCE • A VALUABLE YOUTH-DRIVEN MARKET</div>
-      <h2 class="section-title" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.35; text-transform:uppercase; margin-bottom:1.35rem;">
-        HIGH-VALUE, <span class="hl">PASSION-LED</span><br>CONSUMER SEGMENTS
-      </h2>
-      <p style="font-family:var(--ff-b); font-size:1.02rem; color:rgba(255,255,255,0.85); line-height:1.75; margin-top:0.5rem;">
-        LIHF 2026 connects brands directly with the most active, trend-setting demographics in Laos and Southeast Asia—driven by urban culture, passion, and high digital engagement.
-      </p>
-    </div>
+    <div class="aud-poster-section">
+      <!-- Header matching reference image: centered, heavy condensed all-caps -->
+      <div class="aud-poster-header">
+        <span class="aud-poster-kicker">TARGET AUDIENCE • A VALUABLE YOUTH-DRIVEN MARKET</span>
+        <h2 class="aud-poster-title">WHO POWERS THE<br>LIHF 2026 AUDIENCE</h2>
+        <p class="aud-poster-lao-sub">🇱🇦 ໂຄງສ້າງປະຊາກອນ ແລະ ພະລັງກຳລັງຊື້ຂອງກຸ່ມຄົນຮຸ່ນໃໝ່ທີ່ຂັບເຄື່ອນວັດທະນະທຳຕົວຈິງ</p>
+      </div>
 
-    <!-- Card-Free Architectural Audience Grid -->
-    <div class="cf-audience-grid">
-      <!-- Segment 1: Young Adults (50%) -->
-      <div class="cf-aud-col">
-        <div class="cf-aud-header">
-          <div class="cf-aud-num">50%</div>
-          <span class="cf-aud-tag">CORE AUDIENCE</span>
+      <!-- Legend: ⚪ Young Adults  🔘 Youth & Teens  🔴 Industry & VIP -->
+      <div class="aud-poster-legend">
+        <div class="aud-legend-item">
+          <span class="aud-legend-dot aud-dot-white"></span>
+          <span class="aud-legend-text">Young Adults (19–35)</span>
+          <span class="aud-legend-lao">ໄວເຮັດວຽກ &amp; ນັກສຶກສາ (50%)</span>
         </div>
-        <h3 class="cf-aud-title">Young Adults (19–35)</h3>
-        <p class="cf-aud-sub">Working professionals, university students &amp; urban trendsetters</p>
-        <ul class="cf-aud-list">
-          <li>High disposable income for lifestyle, tech, fashion, streetwear, food &amp; beverage</li>
-          <li>Key cultural influencers; early adopters of digital banking and mobile payment services</li>
-          <li>Peak evening concert attendance and primary consumers of festival retail &amp; F&amp;B</li>
-        </ul>
-      </div>
-
-      <!-- Segment 2: Youth & Teens (35%) -->
-      <div class="cf-aud-col">
-        <div class="cf-aud-header">
-          <div class="cf-aud-num" style="color:var(--gold);">35%</div>
-          <span class="cf-aud-tag" style="border-color:rgba(212,175,55,0.4); color:var(--gold);">DIGITAL NATIVES</span>
+        <div class="aud-legend-item">
+          <span class="aud-legend-dot aud-dot-grey"></span>
+          <span class="aud-legend-text">Youth &amp; Teens (13–18)</span>
+          <span class="aud-legend-lao">Gen Z &amp; ຄົນຮຸ່ນໃໝ່ (35%)</span>
         </div>
-        <h3 class="cf-aud-title">Youth &amp; Teens (13–18)</h3>
-        <p class="cf-aud-sub">High school students, emerging dancers, gamers &amp; creators</p>
-        <ul class="cf-aud-list">
-          <li>Extremely high digital fluency and social media viral sharing behavior on TikTok &amp; IG</li>
-          <li>Long-term brand loyalty potential through authentic early lifestyle engagement</li>
-          <li>Direct participants in grassroots workshops, open cyphers &amp; youth dance battles</li>
-        </ul>
-      </div>
-
-      <!-- Segment 3: Industry & Adults (15%) -->
-      <div class="cf-aud-col">
-        <div class="cf-aud-header">
-          <div class="cf-aud-num" style="color:#ffffff;">15%</div>
-          <span class="cf-aud-tag" style="border-color:rgba(255,255,255,0.25); color:rgba(255,255,255,0.7);">PREMIUM &amp; VIP</span>
+        <div class="aud-legend-item">
+          <span class="aud-legend-dot aud-dot-red"></span>
+          <span class="aud-legend-text">Industry &amp; VIP (36–45+)</span>
+          <span class="aud-legend-lao">VIP &amp; ທຸລະກິດ (15%)</span>
         </div>
-        <h3 class="cf-aud-title">Industry &amp; Adults (36–45+)</h3>
-        <p class="cf-aud-sub">Creative agency directors, business owners, parents &amp; media guests</p>
-        <ul class="cf-aud-list">
-          <li>Premium purchasing power for VIP hospitality, luxury goods and corporate networking</li>
-          <li>Appreciators of cultural diplomacy, national arts development &amp; corporate CSR</li>
-          <li>Key decision-makers for media endorsements, brand sponsorships &amp; talent bookings</li>
-        </ul>
       </div>
-    </div>
 
-    <!-- Sleek Card-Free Core Sponsor Fit Bar -->
-    <div class="cf-sponsor-fit-bar">
-      <span class="cf-fit-badge">CORE SPONSOR FIT</span>
-      <div class="cf-fit-categories">
-        <span>FMCG &amp; Beverage</span>
-        <span class="cf-fit-sep">•</span>
-        <span>Telecom &amp; 5G</span>
-        <span class="cf-fit-sep">•</span>
-        <span>Fintech &amp; Banking</span>
-        <span class="cf-fit-sep">•</span>
-        <span>Streetwear &amp; Fashion</span>
-        <span class="cf-fit-sep">•</span>
-        <span>Automotive &amp; Mobility</span>
-        <span class="cf-fit-sep">•</span>
-        <span>Consumer Tech</span>
-        <span class="cf-fit-sep">•</span>
-        <span>Tourism &amp; Hospitality</span>
-      </div>
-    </div>
-
-    <!-- STRATEGIC POSITIONING STRIP (COMPACT STREAMLINED BRIEFING) -->
-    <div class="cf-positioning-bar">
-      <div class="cf-pos-left">
-        <div class="cf-pos-tag-line">
-          <span class="cf-pos-tag">LAOS STRATEGIC POSITIONING</span>
-          <span class="cf-pos-bullet">•</span>
-          <span class="cf-pos-lead">REGIONAL CREATIVE HUB</span>
+      <!-- Stacked Horizontal Bar Chart matching reference image -->
+      <div class="aud-chart-container">
+        <!-- Row 1: Core Demographic Share -->
+        <div class="aud-chart-row">
+          <div class="aud-row-label-wrap">
+            <div class="aud-row-label">Demographic Share</div>
+            <div class="aud-row-lao">ສັດສ່ວນປະຊາກອນຜູ້ຊົມ</div>
+          </div>
+          <div class="aud-bar-track">
+            <div class="aud-seg aud-seg-white" style="width: 50%;">
+              <span class="aud-seg-val">50%</span>
+              <div class="aud-seg-tooltip">
+                <span class="aud-tt-head">50% • Young Adults (19–35)</span>
+                <span class="aud-tt-lao">ກຸ່ມຫຼັກ: ໄວເຮັດວຽກ &amp; ນັກສຶກສາມະຫາວິທະຍາໄລ</span>
+              </div>
+            </div>
+            <div class="aud-seg aud-seg-grey" style="width: 35%;">
+              <span class="aud-seg-val">35%</span>
+              <div class="aud-seg-tooltip">
+                <span class="aud-tt-head">35% • Youth &amp; Teens (13–18)</span>
+                <span class="aud-tt-lao">ກຸ່ມ Gen Z: ນັກຮຽນ, ນັກເຕັ້ນ &amp; Creators</span>
+              </div>
+            </div>
+            <div class="aud-seg aud-seg-red" style="width: 15%;">
+              <span class="aud-seg-val">15%</span>
+              <div class="aud-seg-tooltip">
+                <span class="aud-tt-head">15% • Industry &amp; VIP (36–45+)</span>
+                <span class="aud-tt-lao">ກຸ່ມ VIP: ຜູ້ບໍລິຫານ, ທຸລະກິດ &amp; ຄູ່ຮ່ວມງານ</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <h4 class="cf-pos-title">LIHF Positions Laos as an Emerging Regional Epicenter for Authentic Hip-Hop Culture</h4>
-        <p class="cf-pos-desc">By creating an international-standard stage at Lao-ITECC, LIHF brings top talent, regional tourism, and corporate sponsors into an authentic youth movement connecting Laos with Southeast Asia.</p>
+
+        <!-- Row 2: Purchasing & Spend -->
+        <div class="aud-chart-row">
+          <div class="aud-row-label-wrap">
+            <div class="aud-row-label">Purchasing &amp; Spend</div>
+            <div class="aud-row-lao">ກຳລັງຊື້ ແລະ ການໃຊ້ຈ່າຍ</div>
+          </div>
+          <div class="aud-bar-track">
+            <div class="aud-seg aud-seg-white" style="width: 60%;">
+              <span class="aud-seg-val">60%</span>
+              <div class="aud-seg-tooltip">
+                <span class="aud-tt-head">60% • Prime Disposable Income</span>
+                <span class="aud-tt-lao">ການໃຊ້ຈ່າຍດ້ານ Fashion, Tech, F&amp;B ແລະ Lifestyle</span>
+              </div>
+            </div>
+            <div class="aud-seg aud-seg-grey" style="width: 15%;">
+              <span class="aud-seg-val">15%</span>
+              <div class="aud-seg-tooltip">
+                <span class="aud-tt-head">15% • Youth Retail &amp; Merch</span>
+                <span class="aud-tt-lao">ຊື້ສິນຄ້າ Merchandise, ເຄື່ອງດື່ມ ແລະ ອຸປະກອນສະຕຣີດ</span>
+              </div>
+            </div>
+            <div class="aud-seg aud-seg-red" style="width: 25%;">
+              <span class="aud-seg-val">25%</span>
+              <div class="aud-seg-tooltip">
+                <span class="aud-tt-head">25% • VIP Hospitality &amp; Tables</span>
+                <span class="aud-tt-lao">ການໃຊ້ຈ່າຍຊຸດ VIP, ໂຮງແຮມ ແລະ ການຮັບຮອງລະດັບສູງ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Social UGC & Virality -->
+        <div class="aud-chart-row">
+          <div class="aud-row-label-wrap">
+            <div class="aud-row-label">Social UGC &amp; Virality</div>
+            <div class="aud-row-lao">ການສ້າງຄອນເທັນ ແລະ ໄວຣັລ</div>
+          </div>
+          <div class="aud-bar-track">
+            <div class="aud-seg aud-seg-white" style="width: 40%;">
+              <span class="aud-seg-val">40%</span>
+              <div class="aud-seg-tooltip">
+                <span class="aud-tt-head">40% • Lifestyle &amp; IG Stories</span>
+                <span class="aud-tt-lao">ແບ່ງປັນບັນຍາກາດງານ, ຄອນເສີດ ແລະ Check-in ແບຣນ</span>
+              </div>
+            </div>
+            <div class="aud-seg aud-seg-grey" style="width: 50%;">
+              <span class="aud-seg-val">50%</span>
+              <div class="aud-seg-tooltip">
+                <span class="aud-tt-head">50% • TikTok Viral Phenomenon</span>
+                <span class="aud-tt-lao">ສ້າງ Dance Challenge ແລະ ຄລິບໄວຣັລລົງສື່ສັງຄົມ</span>
+              </div>
+            </div>
+            <div class="aud-seg aud-seg-red" style="width: 10%;">
+              <span class="aud-seg-val">10%</span>
+              <div class="aud-seg-tooltip">
+                <span class="aud-tt-head">10% • Executive &amp; Media Reach</span>
+                <span class="aud-tt-lao">ຂ່າວປະຊາສຳພັນ, LinkedIn ແລະ ເຄືອຂ່າຍທຸລະກິດ B2B</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4: Brand Affinity & Loyalty -->
+        <div class="aud-chart-row">
+          <div class="aud-row-label-wrap">
+            <div class="aud-row-label">Brand Affinity &amp; Loyalty</div>
+            <div class="aud-row-lao">ຄວາມຜູກພັນຕໍ່ແບຣນໄລຍະຍາວ</div>
+          </div>
+          <div class="aud-bar-track">
+            <div class="aud-seg aud-seg-white" style="width: 45%;">
+              <span class="aud-seg-val">45%</span>
+              <div class="aud-seg-tooltip">
+                <span class="aud-tt-head">45% • High Brand Conversion</span>
+                <span class="aud-tt-lao">ປ່ຽນເປັນລູກຄ້າຕົວຈິງຂອງ Telecom, Fintech &amp; Lifestyle</span>
+              </div>
+            </div>
+            <div class="aud-seg aud-seg-grey" style="width: 40%;">
+              <span class="aud-seg-val">40%</span>
+              <div class="aud-seg-tooltip">
+                <span class="aud-tt-head">40% • Lifelong Loyalty Formation</span>
+                <span class="aud-tt-lao">ສ້າງຄວາມຈົງຮັກພັກດີຕໍ່ແບຣນທີ່ສະໜັບສະໜູນຕັ້ງແຕ່ໄວໜຸ່ມ</span>
+              </div>
+            </div>
+            <div class="aud-seg aud-seg-red" style="width: 15%;">
+              <span class="aud-seg-val">15%</span>
+              <div class="aud-seg-tooltip">
+                <span class="aud-tt-head">15% • Strategic Partnership Value</span>
+                <span class="aud-tt-lao">ຄຸນຄ່າການເປັນພັນທະມິດທາງທຸລະກິດ ແລະ ການພັດທະນາ CSR</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="cf-pos-right">
-        <a href="#packages" class="btn-p cf-pos-btn">
-          <span>Become A Regional Partner</span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </a>
-        <span class="cf-pos-sources">Sources: HIPFEST, Super 24, Red Bull BC One, HHI.</span>
+
+      <!-- Axis Scale directly aligned with the bars -->
+      <div class="aud-scale-row">
+        <div class="aud-scale-left-spacer"></div>
+        <div class="aud-scale-ticks">
+          <span class="aud-scale-num" style="left: 0%;">0%</span>
+          <span class="aud-scale-num" style="left: 20%;">20%</span>
+          <span class="aud-scale-num" style="left: 40%;">40%</span>
+          <span class="aud-scale-num" style="left: 60%;">60%</span>
+          <span class="aud-scale-num" style="left: 80%;">80%</span>
+          <span class="aud-scale-num" style="left: 100%;">100%</span>
+        </div>
       </div>
-    </div>
+
+      <!-- Poster Footer Mark matching reference -->
+      <div class="aud-poster-brand">
+        <div class="aud-brand-mark">
+          <span class="aud-brand-box">LIHF</span>
+          <span class="aud-brand-tag">2026</span>
+        </div>
+        <div class="aud-brand-handle">LAO INTERNATIONAL HIPHOP FESTIVAL • VIENTIANE</div>
+      </div>
+
+      <!-- 3 Key Demographic Intelligence Cards -->
+      <div class="aud-cards-grid">
+        <!-- White: Young Adults -->
+        <div class="aud-card card-white">
+          <div class="aud-card-header">
+            <div class="aud-card-pct">50%</div>
+            <span class="aud-card-tag">CORE AUDIENCE</span>
+          </div>
+          <h3 class="aud-card-title">Young Adults (19–35)</h3>
+          <div class="aud-card-lao">ກຸ່ມຫຼັກ: ໄວເຮັດວຽກ &amp; ນັກສຶກສາມະຫາວິທະຍາໄລ</div>
+          <ul class="aud-card-bullets">
+            <li>ກຳລັງຊື້ສູງໃນກຸ່ມສິນຄ້າ Streetwear, ເທັກໂນໂລຢີ, ອາຫານ-ເຄື່ອງດື່ມ ແລະ ໄລຟ໌ສະໄຕລ໌</li>
+            <li>ກຸ່ມທຳອິດທີ່ຮັບເອົາ ແລະ ນຳໃຊ້ Digital Banking, e-Wallet ແລະ ນະວັດຕະກຳໃໝ່ໆ</li>
+            <li>ກຸ່ມຫຼັກທີ່ເຂົ້າຮ່ວມ Concert ຕອນແລງ ແລະ ສ້າງຍອດຂາຍຫຼັກໃຫ້ແກ່ຮ້ານຄ້າໃນງານ</li>
+          </ul>
+        </div>
+
+        <!-- Grey: Youth & Teens -->
+        <div class="aud-card card-grey">
+          <div class="aud-card-header">
+            <div class="aud-card-pct">35%</div>
+            <span class="aud-card-tag">DIGITAL NATIVES</span>
+          </div>
+          <h3 class="aud-card-title">Youth &amp; Teens (13–18)</h3>
+          <div class="aud-card-lao">ກຸ່ມ Gen Z: ນັກຮຽນ, ນັກເຕັ້ນລຸ້ນໃໝ່ &amp; Creators</div>
+          <ul class="aud-card-bullets">
+            <li>ພະລັງແບ່ງປັນໃນ TikTok &amp; IG ສູງທີ່ສຸດ, ຊ່ວຍດັນໃຫ້ແບຣນກາຍເປັນໄວຣັລ (Viral)</li>
+            <li>ສ້າງຄວາມຜູກພັນ ແລະ ຄວາມຈົງຮັກພັກດີຕໍ່ແບຣນໃນໄລຍະຍາວຕັ້ງແຕ່ໄວເລີ່ມຕົ້ນ</li>
+            <li>ເຂົ້າຮ່ວມກິດຈະກຳ Battle, Dance Workshop ແລະ ເປີດຮັບສິ່ງໃໝ່ຢ່າງວ່ອງໄວ</li>
+          </ul>
+        </div>
+
+        <!-- Red: Industry & VIP -->
+        <div class="aud-card card-red">
+          <div class="aud-card-header">
+            <div class="aud-card-pct">15%</div>
+            <span class="aud-card-tag">PREMIUM &amp; VIP</span>
+          </div>
+          <h3 class="aud-card-title">Industry &amp; VIP (36–45+)</h3>
+          <div class="aud-card-lao">ກຸ່ມ VIP: ຜູ້ບໍລິຫານ, ທຸລະກິດ &amp; ຄູ່ຮ່ວມງານຍຸດທະສາດ</div>
+          <ul class="aud-card-bullets">
+            <li>ກຳລັງຊື້ລະດັບ Premium ສຳລັບ VIP Hospitality, ໂຮງແຮມ ແລະ ການພັກຜ່ອນ</li>
+            <li>ຜູ້ມີອຳນາດຕັດສິນໃຈໃນການລົງທຶນ, ການສະໜັບສະໜູນແບຣນ ແລະ ຂໍ້ຕົກລົງ B2B</li>
+            <li>ເຫັນຄຸນຄ່າໃນການຍົກລະດັບວັດທະນະທຳລາວສູ່ສາກົນ ແລະ ໂຄງການ CSR</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sleek Card-Free Core Sponsor Fit Bar -->
+      <div class="cf-sponsor-fit-bar">
+        <span class="cf-fit-badge">CORE SPONSOR FIT • ກຸ່ມອຸດສາຫະກຳທີ່ເໝາະສົມ</span>
+        <div class="cf-fit-categories">
+          <span>FMCG &amp; ເຄື່ອງດື່ມ</span>
+          <span class="cf-fit-sep">•</span>
+          <span>ໂທລະຄົມ &amp; 5G</span>
+          <span class="cf-fit-sep">•</span>
+          <span>ການເງິນ &amp; Fintech</span>
+          <span class="cf-fit-sep">•</span>
+          <span>Streetwear &amp; ແຟຊັ່ນ</span>
+          <span class="cf-fit-sep">•</span>
+          <span>ຍານຍົນ &amp; Mobility</span>
+          <span class="cf-fit-sep">•</span>
+          <span>Consumer Tech</span>
+          <span class="cf-fit-sep">•</span>
+          <span>ທ່ອງທ່ຽວ &amp; ໂຮງແຮມ</span>
+        </div>
+      </div>
+
+      <!-- STRATEGIC POSITIONING STRIP (COMPACT STREAMLINED BRIEFING) -->
+      <div class="cf-positioning-bar">
+        <div class="cf-pos-left">
+          <div class="cf-pos-tag-line">
+            <span class="cf-pos-tag">LAOS STRATEGIC POSITIONING</span>
+            <span class="cf-pos-bullet">•</span>
+            <span class="cf-pos-lead">REGIONAL CREATIVE HUB</span>
+          </div>
+          <h4 class="cf-pos-title">LIHF Positions Laos as an Emerging Regional Epicenter for Authentic Hip-Hop Culture</h4>
+          <p class="cf-pos-desc">ຍົກລະດັບປະເທດລາວໃຫ້ກາຍເປັນສູນກາງວັດທະນະທຳ Urban ຂອງອາຊຽນ ດ້ວຍເວທີມາດຕະຖານສາກົນທີ່ Lao-ITECC, ເຊື່ອມໂຍງນັກທ່ອງທ່ຽວ ແລະ ສ້າງໂອກາດໃໝ່ໃຫ້ແກ່ແບຣນລະດັບພາກພື້ນ.</p>
+        </div>
+        <div class="cf-pos-right">
+          <a href="#packages" class="btn-p cf-pos-btn">
+            <span>Become A Regional Partner</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <span class="cf-pos-sources">Sources: HIPFEST, Super 24, Red Bull BC One, HHI.</span>
+        </div>
+      </div>
+    </div><!-- /aud-poster-section -->
   </div><!-- /meet-youth-inner -->
 </div><!-- /meet-youth-backdrop-section -->
 </div><!-- /about-4grid-container -->
