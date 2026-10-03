@@ -13551,8 +13551,20 @@ body.gsap-ready .acc-inner .ru {
   margin: 0 auto;
 }
 
-/* 3 Horizontal Demographic Rows - 3D Stacked Deck Hover Interaction */
-.aud-horiz-list, ul.aud-horiz-list {
+/* ── 3D STACKED AUDIENCE CARDS (EXACT MATCH TO REFERENCE) ── */
+.aud-stack-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem 4.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 420px;
+}
+
+.aud-3d-stack {
   position: relative;
   transform-style: preserve-3d;
   perspective: 500px;
@@ -13560,305 +13572,149 @@ body.gsap-ready .acc-inner .ru {
   flex-direction: column;
   gap: 0;
   transition: 500ms;
-  margin: 1.5rem 0 2.5rem;
-  padding: 0;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.aud-horiz-list:hover,
-ul.aud-horiz-list:hover {
+.aud-3d-stack:hover,
+.aud-3d-stack.is-expanded {
   gap: 20px;
 }
 
-.aud-horiz-row, ul.aud-horiz-list li {
+.aud-3d-stack li {
   position: relative;
   list-style: none;
-  background: #08080a;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  width: 450px;
+  max-width: calc(100vw - 32px);
+  height: 96px;
+  padding: 16px;
+  background: #ffffff;
   border-radius: 10px;
-  padding: 2.2rem 2.4rem;
-  display: grid;
-  grid-template-columns: 340px 1fr;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
   align-items: center;
-  gap: 2.8rem;
-  box-shadow: 0 0 12px rgba(0, 0, 0, .24), 0 10px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 12px rgba(0, 0, 0, .24), 0 14px 35px rgba(0, 0, 0, 0.5);
   transition: 500ms;
   transition-delay: calc(var(--i) * 50ms);
   cursor: pointer;
   box-sizing: border-box;
 }
 
-.aud-horiz-row:nth-child(1),
-ul.aud-horiz-list li:nth-child(1) {
+.aud-3d-stack li:nth-child(1) {
   transform: translateZ(-75px) translateY(20px);
   opacity: .6;
   filter: blur(4px);
   z-index: 1;
 }
 
-.aud-horiz-row:nth-child(2),
-ul.aud-horiz-list li:nth-child(2) {
+.aud-3d-stack li:nth-child(2) {
   opacity: .8;
   filter: blur(2px);
   z-index: 2;
 }
 
-.aud-horiz-row:nth-child(3),
-ul.aud-horiz-list li:nth-child(3) {
+.aud-3d-stack li:nth-child(3) {
   transform: translateZ(65px) translateY(-30px);
   z-index: 3;
 }
 
-.aud-horiz-row:nth-child(4),
-ul.aud-horiz-list li:nth-child(4) {
+.aud-3d-stack li:nth-child(4) {
   transform: translateZ(125px) translateY(-68px);
   filter: blur(1px);
   z-index: 4;
 }
 
-.aud-horiz-list:hover .aud-horiz-row,
-.aud-horiz-list:hover li,
-.aud-horiz-list.is-expanded .aud-horiz-row,
-.aud-horiz-list.is-expanded li {
+.aud-3d-stack:hover li,
+.aud-3d-stack.is-expanded li {
   opacity: 1;
   filter: blur(0);
   transform: translateZ(0) translateY(0);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
-.aud-horiz-list:hover .aud-horiz-row:hover,
-.aud-horiz-list:hover li:hover {
-  transform: translateZ(25px) translateY(-4px);
-  z-index: 20;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.95);
+.aud-3d-stack:hover li:hover,
+.aud-3d-stack.is-expanded li:hover {
+  transform: translateZ(25px) translateY(-4px) scale(1.02);
+  z-index: 10;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
 }
 
-/* Theme Accents (White, Grey, Flat Red) */
-.aud-horiz-row.theme-white {
-  border-left: 6px solid #ffffff;
-}
-.aud-horiz-row.theme-grey {
-  border-left: 6px solid #8e8e93;
-}
-.aud-horiz-row.theme-red {
-  border-left: 6px solid #e60026;
+.aud-3d-stack li img {
+  width: 64px;
+  height: 64px;
+  max-width: 64px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
-.aud-horiz-row:hover.theme-white {
-  border-color: rgba(255, 255, 255, 0.45);
-  border-left-color: #ffffff;
-}
-.aud-horiz-row:hover.theme-grey {
-  border-color: rgba(142, 142, 147, 0.45);
-  border-left-color: #8e8e93;
-}
-.aud-horiz-row:hover.theme-red {
-  border-color: rgba(230, 0, 38, 0.5);
-  border-left-color: #e60026;
-}
-
-/* Left Column: Big Percentage, Tag & Bar */
-.aud-horiz-left {
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  padding-right: 2.5rem;
-}
-.aud-horiz-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 0.6rem;
-}
-.aud-horiz-num {
-  font-family: var(--ff-d);
-  font-size: clamp(3.4rem, 5.5vw, 4.6rem);
-  line-height: 0.9;
-  letter-spacing: -0.02em;
-}
-.theme-white .aud-horiz-num { color: #ffffff; }
-.theme-grey .aud-horiz-num { color: #8e8e93; }
-.theme-red .aud-horiz-num { color: #e60026; }
-
-.aud-horiz-tag {
-  font-family: var(--ff-a);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 0.28rem 0.7rem;
-  border-radius: 0;
-}
-.theme-white .aud-horiz-tag {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: #ffffff;
-}
-.theme-grey .aud-horiz-tag {
-  background: rgba(142, 142, 147, 0.12);
-  border: 1px solid rgba(142, 142, 147, 0.5);
-  color: #8e8e93;
-}
-.theme-red .aud-horiz-tag {
-  background: rgba(230, 0, 38, 0.12);
-  border: 1px solid rgba(230, 0, 38, 0.5);
-  color: #e60026;
-}
-
-.aud-horiz-title {
-  font-family: var(--ff-a);
-  font-size: 1.45rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  color: #ffffff;
-  margin-bottom: 0.25rem;
-  line-height: 1.2;
-}
-.aud-horiz-lao {
-  font-family: var(--ff-b);
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 1.15rem;
-  line-height: 1.4;
-}
-
-/* Horizontal Progress Bar inside the Left Column */
-.aud-horiz-bar-track {
+.aud-3d-stack li .content {
   width: 100%;
-  height: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 0;
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-  display: flex;
+  min-width: 0;
+  text-align: left;
 }
-.aud-horiz-bar-fill {
-  height: 100%;
-  transition: width 0.3s ease;
-}
-.theme-white .aud-horiz-bar-fill { background: #ffffff; }
-.theme-grey .aud-horiz-bar-fill { background: #8e8e93; }
-.theme-red .aud-horiz-bar-fill { background: #e60026; }
 
-.aud-horiz-bar-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: var(--ff-a);
-  font-size: 0.78rem;
+.aud-3d-stack li .content h3 {
+  font-family: var(--ff-a), Inter, sans-serif;
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.5);
-}
-.aud-horiz-bar-meta span:first-child {
-  color: #ffffff;
+  color: #111111;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Right Column: 3 Strategic Pillars Side by Side */
-.aud-horiz-right {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.8rem;
+.aud-3d-stack li .content p {
+  font-family: var(--ff-b), Inter, sans-serif;
+  font-size: 0.82rem;
+  color: #555555;
+  opacity: .8;
+  line-height: 1.3;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.aud-horiz-stat-col {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-.aud-horiz-kicker {
+
+.aud-stack-hint {
+  margin-top: 2rem;
   font-family: var(--ff-a);
   font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-.theme-white .aud-horiz-kicker { color: rgba(255, 255, 255, 0.85); }
-.theme-grey .aud-horiz-kicker { color: #8e8e93; }
-.theme-red .aud-horiz-kicker { color: #e60026; }
-
-.aud-horiz-headline {
-  font-family: var(--ff-a);
-  font-size: 1.15rem;
   font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.02em;
-  line-height: 1.25;
-}
-.aud-horiz-desc {
-  font-family: var(--ff-b);
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.65);
-  line-height: 1.5;
-}
-
-/* Card-free Sponsor Fit Bar */
-.cf-sponsor-fit-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-  padding: 1.4rem 0;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-  margin-top: 1rem;
-}
-.cf-fit-badge {
-  font-family: var(--ff-a);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.45);
   text-transform: uppercase;
-  color: var(--gold);
-}
-.cf-fit-categories {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 0.6rem 0.8rem;
-  font-family: var(--ff-b);
-  font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.8);
-}
-.cf-fit-sep {
-  color: rgba(212, 175, 55, 0.45);
+  gap: 0.5rem;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-/* Responsive Media Queries */
-@media (max-width: 980px) {
-  .aud-horiz-list, ul.aud-horiz-list {
-    transform-style: flat;
-    perspective: none;
-    gap: 1.5rem !important;
+.aud-3d-stack:hover ~ .aud-stack-hint {
+  opacity: 0.25;
+}
+
+@media (max-width: 480px) {
+  .aud-3d-stack li {
+    gap: 14px;
+    padding: 12px;
+    height: 88px;
   }
-  .aud-horiz-row,
-  ul.aud-horiz-list li,
-  .aud-horiz-row:nth-child(1),
-  .aud-horiz-row:nth-child(2),
-  .aud-horiz-row:nth-child(3),
-  .aud-horiz-row:nth-child(4) {
-    transform: none !important;
-    opacity: 1 !important;
-    filter: none !important;
-    transition-delay: 0s !important;
+  .aud-3d-stack li img {
+    width: 54px;
+    height: 54px;
+    max-width: 54px;
   }
-  .aud-horiz-row {
-    grid-template-columns: 1fr;
-    gap: 1.8rem;
-    padding: 1.8rem;
+  .aud-3d-stack li .content h3 {
+    font-size: 0.95rem;
   }
-  .aud-horiz-left {
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-right: 0;
-    padding-bottom: 1.5rem;
-  }
-  .aud-horiz-right {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-  }
-  .cf-sponsor-fit-bar {
-    flex-direction: column;
-    align-items: flex-start;
+  .aud-3d-stack li .content p {
+    font-size: 0.76rem;
   }
 }
 
@@ -18318,122 +18174,42 @@ body.presentation-active .floating-present-badge {
         <p class="aud-poster-lao-sub">🇱🇦 ໂຄງສ້າງປະຊາກອນ ແລະ ພະລັງກຳລັງຊື້ຂອງກຸ່ມຄົນຮຸ່ນໃໝ່ທີ່ຂັບເຄື່ອນວັດທະນະທຳຕົວຈິງ</p>
       </div>
 
-      <!-- 3 Horizontal Demographic Rows - 3D Stacked Deck Hover Interaction -->
-      <ul class="aud-horiz-list">
-        <!-- Row 1: Young Adults (50%) -->
-        <li class="aud-horiz-row theme-white" style="--i: 1;">
-          <div class="aud-horiz-left">
-            <div class="aud-horiz-header">
-              <div class="aud-horiz-num">50%</div>
-              <span class="aud-horiz-tag">CORE AUDIENCE</span>
+      <!-- 3D STACKED AUDIENCE CARDS (EXACT MATCH TO REFERENCE) -->
+      <div class="aud-stack-wrap">
+        <ul class="aud-3d-stack">
+          <li class="aud-3d-card" style="--i: 1;">
+            <img src="assets/event/meetyouth/my_4.webp" alt="Regional & ASEAN Fans" loading="lazy" />
+            <div class="content">
+              <h3>Regional &amp; ASEAN Fans • 10%</h3>
+              <p>ນັກທ່ອງທ່ຽວສາກົນ &amp; ສາຍຮິບຮອບອາຊຽນ (TH, VN, SG)</p>
             </div>
-            <h3 class="aud-horiz-title">Young Adults (19–35)</h3>
-            <div class="aud-horiz-lao">ກຸ່ມຫຼັກ: ໄວເຮັດວຽກ &amp; ນັກສຶກສາມະຫາວິທະຍາໄລ</div>
-
-            <div class="aud-horiz-bar-track">
-              <div class="aud-horiz-bar-fill" style="width: 50%;"></div>
+          </li>
+          <li class="aud-3d-card" style="--i: 2;">
+            <img src="assets/event/meetyouth/my_3.webp" alt="Industry & VIP" loading="lazy" />
+            <div class="content">
+              <h3>Industry &amp; VIP (36–45+) • 15%</h3>
+              <p>ກຸ່ມ VIP, ຜູ້ບໍລິຫານ &amp; ຄູ່ຮ່ວມງານ B2B Sponsorship</p>
             </div>
-            <div class="aud-horiz-bar-meta">
-              <span>50% AUDIENCE SHARE</span>
-              <span>CORE GENERATION</span>
+          </li>
+          <li class="aud-3d-card" style="--i: 3;">
+            <img src="assets/event/meetyouth/my_2.webp" alt="Youth & Teens" loading="lazy" />
+            <div class="content">
+              <h3>Youth &amp; Teens (13–18) • 35%</h3>
+              <p>ນັກຮຽນ, ນັກເຕັ້ນລຸ້ນໃໝ່ &amp; Creators (Viral Reach)</p>
             </div>
-          </div>
-
-          <div class="aud-horiz-right">
-            <div class="aud-horiz-stat-col">
-              <span class="aud-horiz-kicker">SPENDING POWER</span>
-              <div class="aud-horiz-headline">High Disposable Spend</div>
-              <div class="aud-horiz-desc">ກຳລັງຊື້ສູງໃນກຸ່ມ Streetwear, Tech, F&amp;B ແລະ Lifestyle</div>
+          </li>
+          <li class="aud-3d-card" style="--i: 4;">
+            <img src="assets/event/meetyouth/my_1.webp" alt="Young Adults" loading="lazy" />
+            <div class="content">
+              <h3>Young Adults (19–35) • 50%</h3>
+              <p>ກຸ່ມຫຼັກ: ໄວເຮັດວຽກ &amp; High Disposable Spend</p>
             </div>
-            <div class="aud-horiz-stat-col">
-              <span class="aud-horiz-kicker">FINTECH &amp; MOBILE</span>
-              <div class="aud-horiz-headline">Early Cashless Adopter</div>
-              <div class="aud-horiz-desc">ກຸ່ມຕົ້ນໆ ທີ່ໃຊ້ຈ່າຍຜ່ານ Digital Banking &amp; e-Wallet</div>
-            </div>
-            <div class="aud-horiz-stat-col">
-              <span class="aud-horiz-kicker">FESTIVAL FOOTFALL</span>
-              <div class="aud-horiz-headline">Prime Concert Spenders</div>
-              <div class="aud-horiz-desc">ກຸ່ມຫຼັກທີ່ເຂົ້າຮ່ວມ Concert ຕອນແລງ &amp; ສ້າງຍອດຂາຍຮ້ານຄ້າ</div>
-            </div>
-          </div>
-        </li>
-
-        <!-- Row 2: Youth & Teens (35%) -->
-        <li class="aud-horiz-row theme-grey" style="--i: 2;">
-          <div class="aud-horiz-left">
-            <div class="aud-horiz-header">
-              <div class="aud-horiz-num">35%</div>
-              <span class="aud-horiz-tag">DIGITAL NATIVES</span>
-            </div>
-            <h3 class="aud-horiz-title">Youth &amp; Teens (13–18)</h3>
-            <div class="aud-horiz-lao">ກຸ່ມ Gen Z: ນັກຮຽນ, ນັກເຕັ້ນລຸ້ນໃໝ່ &amp; Creators</div>
-
-            <div class="aud-horiz-bar-track">
-              <div class="aud-horiz-bar-fill" style="width: 35%;"></div>
-            </div>
-            <div class="aud-horiz-bar-meta">
-              <span>35% AUDIENCE SHARE</span>
-              <span>DIGITAL NATIVES</span>
-            </div>
-          </div>
-
-          <div class="aud-horiz-right">
-            <div class="aud-horiz-stat-col">
-              <span class="aud-horiz-kicker">VIRAL REACH</span>
-              <div class="aud-horiz-headline">TikTok &amp; IG Virality</div>
-              <div class="aud-horiz-desc">ພະລັງແບ່ງປັນສູງທີ່ສຸດ, ຊ່ວຍດັນໃຫ້ແບຣນກາຍເປັນໄວຣັລ (Viral)</div>
-            </div>
-            <div class="aud-horiz-stat-col">
-              <span class="aud-horiz-kicker">BRAND AFFINITY</span>
-              <div class="aud-horiz-headline">Lifelong Brand Attachment</div>
-              <div class="aud-horiz-desc">ສ້າງຄວາມຜູກພັນ ແລະ ຄວາມຈົງຮັກພັກດີຕໍ່ແບຣນໃນໄລຍະຍາວ</div>
-            </div>
-            <div class="aud-horiz-stat-col">
-              <span class="aud-horiz-kicker">COMMUNITY CULTURE</span>
-              <div class="aud-horiz-headline">Grassroots Battles &amp; Workshops</div>
-              <div class="aud-horiz-desc">ເຂົ້າຮ່ວມກິດຈະກຳ Battle, Dance Cyphers &amp; Workshops</div>
-            </div>
-          </div>
-        </li>
-
-        <!-- Row 3: Industry & VIP (15%) -->
-        <li class="aud-horiz-row theme-red" style="--i: 3;">
-          <div class="aud-horiz-left">
-            <div class="aud-horiz-header">
-              <div class="aud-horiz-num">15%</div>
-              <span class="aud-horiz-tag">PREMIUM &amp; VIP</span>
-            </div>
-            <h3 class="aud-horiz-title">Industry &amp; VIP (36–45+)</h3>
-            <div class="aud-horiz-lao">ກຸ່ມ VIP: ຜູ້ບໍລິຫານ, ທຸລະກິດ &amp; ຄູ່ຮ່ວມງານ</div>
-
-            <div class="aud-horiz-bar-track">
-              <div class="aud-horiz-bar-fill" style="width: 15%;"></div>
-            </div>
-            <div class="aud-horiz-bar-meta">
-              <span>15% AUDIENCE SHARE</span>
-              <span>EXECUTIVE &amp; VIP</span>
-            </div>
-          </div>
-
-          <div class="aud-horiz-right">
-            <div class="aud-horiz-stat-col">
-              <span class="aud-horiz-kicker">PREMIUM PURCHASING</span>
-              <div class="aud-horiz-headline">VIP Hospitality &amp; Lounges</div>
-              <div class="aud-horiz-desc">ກຳລັງຊື້ລະດັບ Premium ສຳລັບ VIP Lounges, ໂຮງແຮມ &amp; ການພັກຜ່ອນ</div>
-            </div>
-            <div class="aud-horiz-stat-col">
-              <span class="aud-horiz-kicker">COMMERCIAL DECISION</span>
-              <div class="aud-horiz-headline">B2B &amp; Brand Sponsorship</div>
-              <div class="aud-horiz-desc">ຜູ້ມີອຳນາດຕັດສິນໃຈໃນການລົງທຶນ, ສະໜັບສະໜູນແບຣນ &amp; B2B</div>
-            </div>
-            <div class="aud-horiz-stat-col">
-              <span class="aud-horiz-kicker">STRATEGIC IMPACT</span>
-              <div class="aud-horiz-headline">National Culture &amp; CSR</div>
-              <div class="aud-horiz-desc">ເຫັນຄຸນຄ່າໃນການຍົກລະດັບວັດທະນະທຳລາວສູ່ສາກົນ &amp; CSR</div>
-            </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
+        <div class="aud-stack-hint">
+          <span>✦ ຊີ້ເມົ້າໃສ່ເພື່ອເບິ່ງທຸກກຸ່ມ • HOVER TO EXPAND ✦</span>
+        </div>
+      </div>
     </div><!-- /aud-poster-section -->
   </div><!-- /meet-youth-inner -->
 </div><!-- /meet-youth-backdrop-section -->
@@ -24572,7 +24348,7 @@ function replayLogoIntro(){
 
   // ── 3D AUDIENCE STACK TAP TOGGLE (for touch or click) ──
   (function initAudience3dStack() {
-    const list = document.querySelector('.aud-horiz-list');
+    const list = document.querySelector('.aud-3d-stack');
     if (!list) return;
     list.addEventListener('click', () => {
       list.classList.toggle('is-expanded');
