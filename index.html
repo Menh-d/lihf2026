@@ -7591,69 +7591,7 @@ nav { height: 60px !important; padding: 0 !important; }
   50% { opacity: 0.35; transform: scale(0.85); }
 }
 
-/* Live Telemetry Readout Strip (Flat Black & Red, Zero Glow) */
-.hud-live-telemetry {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: #141117;
-  border: 1px solid rgba(230, 0, 38, 0.35);
-  border-radius: 12px;
-  padding: 0.75rem 1.1rem;
-  margin-top: 0.8rem;
-  position: relative;
-  z-index: 2;
-  transition: all 0.3s ease;
-}
 
-.hud-telem-pulse {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #e60026;
-  animation: hudDotPulse 1.4s infinite;
-  flex-shrink: 0;
-}
-
-.hud-telem-info {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-width: 0;
-}
-
-.hud-telem-tag {
-  font-family: monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.08em;
-  color: #ff334b;
-  text-transform: uppercase;
-  font-weight: 800;
-}
-
-.hud-telem-text {
-  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-  font-size: 0.84rem;
-  font-weight: 600;
-  color: #ffffff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.4;
-}
-
-.hud-telem-badge {
-  font-family: monospace;
-  font-size: 0.65rem;
-  font-weight: 700;
-  color: #ff4d60;
-  background: rgba(230, 0, 38, 0.15);
-  border: 1px solid rgba(230, 0, 38, 0.4);
-  padding: 3px 8px;
-  border-radius: 4px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
 
 /* Clean Dashboard Footer Bar */
 .dash-clean-footer {
@@ -17950,25 +17888,6 @@ body.presentation-active .floating-present-badge {
   </g>
 </svg>
             </div>
-
-            <!-- Live Telemetry Readout Banner -->
-            <div class="hud-live-telemetry" id="hudLiveTelemetry">
-              <div class="hud-telem-pulse"></div>
-              <div class="hud-telem-info">
-                <span class="hud-telem-tag" id="hudTelemTag">REAL-TIME SPECTRUM MONITORING</span>
-                <span class="hud-telem-text" id="hudTelemText">🇱🇦 ກວດສອບສະຖິຕິ 8 ມິຕິ: ຊີ້ໃສ່ແຕ່ລະກີບເພື່ອເບິ່ງລາຍລະອຽດເຈາະເລິກ</span>
-              </div>
-              <div class="hud-telem-badge" id="hudTelemBadge">360° SPECTRUM</div>
-            </div>
-
-            <!-- Clean Footer -->
-            <div class="dash-clean-footer">
-              <span>VENUE: LAO-ITECC (12,000 SQM) • 10 ASEAN NATIONS</span>
-              <div class="dash-footer-ctrls">
-                <button class="dash-footer-btn" title="Expand Fullscreen" onclick="if(document.fullscreenElement){document.exitFullscreen()}else{this.closest('.hud-radar-card').requestFullscreen()}">⛶ FULLSCREEN</button>
-                <button class="dash-footer-btn" title="Refresh Live Data Radar" onclick="this.classList.add('rotating');setTimeout(()=>this.classList.remove('rotating'),800)">⟳ REFRESH</button>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -18061,12 +17980,6 @@ body.presentation-active .floating-present-badge {
                 </div>
               </div>
 
-            </div>
-
-            <!-- Clean Footer -->
-            <div class="dash-clean-footer">
-              <span>MULTI-TOUCHPOINT ENGAGEMENT</span>
-              <span style="color:var(--gold,#d4af37); font-weight:700;">TIER-1 SPONSOR READY</span>
             </div>
           </div>
         </div>
@@ -24367,14 +24280,12 @@ function replayLogoIntro(){
   });
 
   // ── ROSE AUDIENCE HUD INTERACTIVITY ──
+  // ── ROSE AUDIENCE HUD INTERACTIVITY (Clean Center Core Display) ──
   (function initRoseAudienceHud() {
     const petals = document.querySelectorAll('.hud-petal-item');
     const kpiEl = document.getElementById('hudCoreKpi');
     const descEl = document.getElementById('hudCoreDesc');
     const subEl = document.querySelector('.hud-core-sub');
-    const telemTag = document.getElementById('hudTelemTag');
-    const telemText = document.getElementById('hudTelemText');
-    const telemBadge = document.getElementById('hudTelemBadge');
 
     if (!petals.length || !kpiEl) return;
 
@@ -24382,17 +24293,13 @@ function replayLogoIntro(){
     const defaultData = {
       num: '10M+',
       sub: 'ACTIVE HUD',
-      desc: 'ເຂົ້າເຖິງ 8 ປະເທດ',
-      tag: 'REAL-TIME SPECTRUM MONITORING',
-      text: '🇱🇦 ກວດສອບສະຖິຕິ 8 ມິຕິ: ຊີ້ໃສ່ແຕ່ລະກີບເພື່ອເບິ່ງລາຍລະອຽດເຈາະເລິກ',
-      badge: '360° SPECTRUM'
+      desc: 'ເຂົ້າເຖິງ 8 ປະເທດ'
     };
 
     petals.forEach(petal => {
       const num = petal.getAttribute('data-num') || '';
       const en = petal.getAttribute('data-en') || '';
       const lao = petal.getAttribute('data-lao') || '';
-      const detail = petal.getAttribute('data-detail') || '';
 
       const handleEnter = () => {
         if (resetTimer) clearTimeout(resetTimer);
@@ -24403,9 +24310,6 @@ function replayLogoIntro(){
         kpiEl.textContent = num;
         if (subEl) subEl.textContent = en;
         if (descEl) descEl.textContent = lao;
-        if (telemTag) telemTag.textContent = `${en} // ${num}`;
-        if (telemText) telemText.textContent = `🇱🇦 ${detail}`;
-        if (telemBadge) telemBadge.textContent = 'ACTIVE SECTOR';
       };
 
       const handleLeave = () => {
@@ -24413,9 +24317,6 @@ function replayLogoIntro(){
           kpiEl.textContent = defaultData.num;
           if (subEl) subEl.textContent = defaultData.sub;
           if (descEl) descEl.textContent = defaultData.desc;
-          if (telemTag) telemTag.textContent = defaultData.tag;
-          if (telemText) telemText.textContent = defaultData.text;
-          if (telemBadge) telemBadge.textContent = defaultData.badge;
         }, 450);
       };
 
