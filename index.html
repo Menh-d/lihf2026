@@ -7389,110 +7389,45 @@ nav { height: 60px !important; padding: 0 !important; }
 }
 
 /* ══════════════════════════════════════════════════════════════
-   EXECUTIVE DASHBOARD EXTENSIONS (Command Center UI)
+   STREAMLINED EXECUTIVE DASHBOARD (Minimalist & Uncluttered)
    ══════════════════════════════════════════════════════════════ */
 
-/* Master Top Ribbon */
-.uss-dash-master-bar {
+.uss-left-col,
+.uss-right-col {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  background: rgba(14, 12, 20, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 0.75rem 1.4rem;
-  margin-bottom: 2rem;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  flex-direction: column;
 }
 
-.udm-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--ff-a);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+/* Minimal Column Sub-header */
+.uss-col-sub {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 0.35rem;
+  margin-bottom: 1.4rem;
+  line-height: 1.5;
 }
 
-.udm-tag {
-  color: var(--gold, #d4af37);
-}
-
-.udm-sep {
-  color: rgba(255, 255, 255, 0.25);
-}
-
-.udm-title {
-  color: #ffffff;
-}
-
-.udm-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-family: monospace;
-  font-size: 0.68rem;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.udm-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #27c93f;
-  font-weight: 700;
-}
-
-.udm-pulse {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #27c93f;
-  box-shadow: 0 0 8px #27c93f;
-  animation: udmPulse 1.8s infinite;
-}
-
-@keyframes udmPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
-}
-
-.udm-venue {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.udm-date {
-  color: var(--red, #cc0000);
-  font-weight: 700;
-}
-
-/* ── DASHBOARD CARD (Left Panel & Right Wrapper) ── */
+/* Master Dashboard Card Containers (Left & Right) */
 .hud-radar-card,
 .dash-matrix-card {
   position: relative;
-  background: #08080c;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 24px;
-  padding: 1.4rem 1.5rem;
+  background: #09080e;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 1.5rem 1.8rem;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
-  gap: 1.15rem;
 }
 
 @media (max-width: 600px) {
   .hud-radar-card,
   .dash-matrix-card {
-    padding: 1.1rem 0.8rem;
-    gap: 0.9rem;
+    padding: 1.1rem 0.9rem;
   }
 }
 
@@ -7503,193 +7438,61 @@ nav { height: 60px !important; padding: 0 !important; }
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 32px 32px;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.45;
   z-index: 1;
 }
 
-/* Dashboard Panel Header */
-.dash-panel-header {
+/* Clean Dashboard Header Bar */
+.dash-clean-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding-bottom: 0.85rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.85rem;
+  margin-bottom: 1rem;
   position: relative;
   z-index: 2;
 }
 
-.dash-ph-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.dash-window-dots {
-  display: flex;
-  gap: 5px;
-}
-
-.d-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-}
-.d-dot.red { background: #ff5f56; }
-.d-dot.yellow { background: #ffbd2e; }
-.d-dot.green { background: #27c93f; }
-
-.dash-ph-title {
-  font-family: monospace;
-  font-size: 0.72rem;
+.dash-badge-pill {
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.75);
   text-transform: uppercase;
-}
-
-.dash-live-badge {
+  color: var(--red, #cc0000);
+  background: rgba(204, 0, 0, 0.12);
+  border: 1px solid rgba(204, 0, 0, 0.28);
+  padding: 3px 8px;
+  border-radius: 4px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  background: rgba(39, 201, 63, 0.12);
-  border: 1px solid rgba(39, 201, 63, 0.35);
-  padding: 2px 7px;
-  border-radius: 4px;
-  font-size: 0.62rem;
-  font-weight: 700;
-  color: #27c93f;
-  letter-spacing: 0.06em;
+  gap: 6px;
 }
 
-.dash-live-badge.gold {
+.dash-badge-pill.gold {
+  color: var(--gold, #d4af37);
   background: rgba(212, 175, 55, 0.12);
-  border-color: rgba(212, 175, 55, 0.35);
-  color: var(--gold, #d4af37);
+  border-color: rgba(212, 175, 55, 0.28);
 }
 
-.dash-live-pulse {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: currentColor;
-  box-shadow: 0 0 6px currentColor;
-  animation: udmPulse 1.8s infinite;
-}
-
-.dash-ph-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.65rem;
+.dash-meta-text {
+  font-family: monospace;
+  font-size: 0.68rem;
   color: rgba(255, 255, 255, 0.5);
-  font-family: monospace;
+  letter-spacing: 0.04em;
 }
 
-.dash-ph-tag {
-  color: var(--gold, #d4af37);
-  font-weight: 600;
-}
-
-/* Dashboard Top KPI Ribbon */
-.dash-kpi-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  position: relative;
-  z-index: 2;
-}
-
-@media (max-width: 600px) {
-  .dash-kpi-strip {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.dash-kpi-chip {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 0.6rem 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  transition: all 0.25s ease;
-}
-
-.dash-kpi-chip:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
-}
-
-.dash-kpi-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 4px;
-}
-
-.dash-kpi-num {
-  font-family: var(--ff-d);
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #fff;
-  line-height: 1;
-}
-
-.dash-kpi-num.red { color: var(--red, #cc0000); }
-.dash-kpi-num.gold { color: var(--gold, #d4af37); }
-
-.dash-kpi-badge {
-  font-family: monospace;
-  font-size: 0.55rem;
-  padding: 1px 4px;
-  border-radius: 3px;
-  font-weight: 700;
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.dash-kpi-badge.up {
-  background: rgba(204, 0, 0, 0.15);
-  color: #ff5555;
-  border: 1px solid rgba(204, 0, 0, 0.3);
-}
-
-.dash-kpi-badge.gold {
-  background: rgba(212, 175, 55, 0.15);
-  color: var(--gold, #d4af37);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-.dash-kpi-lbl {
-  font-family: var(--ff-a);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.55);
-  text-transform: uppercase;
-}
-
-.dash-kpi-lao {
-  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-  font-size: 0.66rem;
-  color: rgba(255, 255, 255, 0.85);
-  margin-top: 1px;
-}
-
-/* Radar Graphic Wrapper */
+/* Radar Graphic Area */
 .hud-radar-svg-wrap {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 640px;
+  max-width: 600px;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -7698,99 +7501,27 @@ nav { height: 60px !important; padding: 0 !important; }
 
 .hud-radar-svg {
   width: 100%;
-  max-width: 640px;
+  max-width: 600px;
   height: auto;
   display: block;
 }
 
-/* Dashboard Cultural Share Meter */
-.dash-dist-meter {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 10px;
-  padding: 0.75rem 0.9rem;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  position: relative;
-  z-index: 2;
-}
-
-.dash-meter-head {
+/* Clean Dashboard Footer Bar */
+.dash-clean-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 4px;
-  font-family: var(--ff-a);
-  font-size: 0.66rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.65);
-  letter-spacing: 0.06em;
-}
-
-.dash-meter-lao {
-  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-  font-size: 0.68rem;
-  color: var(--gold, #d4af37);
-  font-weight: 500;
-}
-
-.dash-meter-bar {
-  display: flex;
-  height: 8px;
-  border-radius: 4px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.dash-mb-seg { height: 100%; transition: all 0.3s ease; }
-.dash-mb-seg.s1 { width: 45%; background: linear-gradient(90deg, #ff4d4d, #cc0000); }
-.dash-mb-seg.s2 { width: 25%; background: linear-gradient(90deg, #f5d06a, #d4af37); }
-.dash-mb-seg.s3 { width: 15%; background: linear-gradient(90deg, #a855f7, #7c3aed); }
-.dash-mb-seg.s4 { width: 10%; background: linear-gradient(90deg, #f97316, #ea580c); }
-.dash-mb-seg.s5 { width: 5%; background: linear-gradient(90deg, #06b6d4, #0284c7); }
-
-.dash-meter-legend {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 6px;
-  font-size: 0.62rem;
-  color: rgba(255, 255, 255, 0.75);
-  font-family: monospace;
-}
-
-.dash-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.dash-l-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-}
-
-/* Dashboard Panel Footer */
-.dash-panel-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding-top: 0.75rem;
+  gap: 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 0.65rem;
+  padding-top: 0.85rem;
+  margin-top: 1rem;
   font-family: monospace;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.55);
   position: relative;
   z-index: 2;
 }
-
-.dash-console-prompt { color: var(--red, #cc0000); font-weight: 700; margin-right: 4px; }
-.dash-console-val { color: #fff; font-weight: 600; }
 
 .dash-footer-ctrls {
   display: flex;
@@ -7798,11 +7529,11 @@ nav { height: 60px !important; padding: 0 !important; }
 }
 
 .dash-footer-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 6px;
-  color: rgba(255, 255, 255, 0.75);
-  padding: 4px 9px;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 3px 8px;
   font-size: 0.62rem;
   font-family: monospace;
   cursor: pointer;
@@ -7813,116 +7544,119 @@ nav { height: 60px !important; padding: 0 !important; }
 }
 
 .dash-footer-btn:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
   color: #fff;
 }
 
-/* ── RIGHT: 4 STRATEGIC PILLARS (SERVECES _ WEB DESIGN.jpeg) ── */
+/* ── RIGHT: 4 STRATEGIC PILLARS (Clean, scannable dashboard cards) ── */
 .srv-cards-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.35rem;
+  gap: 1.15rem;
+  position: relative;
+  z-index: 2;
+  flex: 1;
 }
 
 @media (max-width: 600px) {
   .srv-cards-grid {
     grid-template-columns: 1fr;
-    gap: 1.2rem;
+    gap: 1rem;
   }
 }
 
 .srv-card {
   position: relative;
-  background: #0b090e;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
-  padding: 1.4rem 1.25rem 1.35rem;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.3rem 1.2rem 1.2rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 380px;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s, box-shadow 0.35s;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
   cursor: pointer;
 }
 
 .srv-card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(235, 94, 40, 0.65);
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(235, 94, 40, 0.22);
+  transform: translateY(-4px);
+  border-color: rgba(235, 94, 40, 0.5);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 24px rgba(235, 94, 40, 0.18);
+  background: rgba(255, 255, 255, 0.04);
 }
 
-/* Intense Warm Ambient Radial Glow inside Card */
 .srv-card-glow {
   position: absolute;
-  top: 15%;
+  top: 10%;
   right: -10%;
-  width: 220px;
-  height: 220px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(235, 94, 40, 0.42) 0%, rgba(212, 175, 55, 0.18) 45%, transparent 70%);
-  filter: blur(28px);
+  background: radial-gradient(circle, rgba(235, 94, 40, 0.35) 0%, rgba(212, 175, 55, 0.12) 50%, transparent 70%);
+  filter: blur(24px);
   pointer-events: none;
   z-index: 1;
-  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.srv-card:hover .srv-card-glow {
-  opacity: 1;
-  transform: scale(1.15);
-}
-
-/* Card Top Index */
 .srv-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
   z-index: 2;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .srv-card-idx {
   font-family: var(--ff-a);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.5);
-  transition: color 0.3s ease;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .srv-card:hover .srv-card-idx {
   color: var(--gold, #d4af37);
 }
 
-/* Centered 3D Visual Centerpiece */
+.srv-card-tag {
+  font-family: var(--ff-a);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.srv-card-tag.gold { color: var(--gold, #d4af37); }
+.srv-card-tag.red { color: var(--red, #cc0000); }
+
+/* Centered 3D Visual */
 .srv-card-visual-wrap {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.4rem 0 0.8rem;
   position: relative;
   z-index: 2;
-  width: 100%;
-  height: 145px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0.4rem 0 1rem;
 }
 
 .srv-card-visual {
-  width: 130px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 18px;
-  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.85));
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 110px;
+  max-width: 110px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.75));
+  transition: transform 0.35s ease;
 }
 
 .srv-card:hover .srv-card-visual {
-  transform: translateY(-6px) scale(1.06);
+  transform: scale(1.08);
 }
 
-/* Card Bottom Content */
+/* Card Content: Headlines prominent, text minimal */
 .srv-card-bottom {
   position: relative;
   z-index: 2;
@@ -7930,37 +7664,29 @@ nav { height: 60px !important; padding: 0 !important; }
 
 .srv-card-title {
   font-family: var(--ff-a);
-  font-size: 1.12rem;
+  font-size: 0.95rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #ffffff;
+  margin: 0 0 0.25rem 0;
   line-height: 1.25;
-  margin-bottom: 0.45rem;
 }
 
-.srv-card-desc {
-  font-family: var(--ff-b);
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.75);
-  line-height: 1.5;
-  margin-bottom: 0.7rem;
-}
-
-.srv-lao-box {
-  padding: 0.6rem 0.8rem;
-  background: rgba(0, 0, 0, 0.5);
-  border-left: 2px solid var(--gold, #d4af37);
-  border-radius: 0 6px 6px 0;
-  backdrop-filter: blur(8px);
-}
-
-.srv-lao-text {
+.srv-lao-headline {
   font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-  font-size: 0.76rem;
-  font-weight: 500;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.94);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--gold, #d4af37);
+  margin: 0 0 0.35rem 0;
+  line-height: 1.4;
+}
+
+.srv-card-subline {
+  font-family: var(--ff-b);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.45;
   margin: 0;
 }
 
@@ -17888,98 +17614,36 @@ body.presentation-active .floating-present-badge {
          LEFT: 1. SCALE, OPPORTUNITY & REGIONAL MOVEMENT (Radar HUD Style)
          RIGHT: 2. THE SPONSOR VALUE • 4 STRATEGIC PILLARS (3D Services Cards Style)
          ══════════════════════════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════════════════════════
+         UNIFIED SPLIT SECTION: 
+         LEFT: 1. SCALE, OPPORTUNITY & REGIONAL MOVEMENT (Clean Radar HUD)
+         RIGHT: 2. THE SPONSOR VALUE • 4 STRATEGIC PILLARS (Clean Value Cards)
+         ══════════════════════════════════════════════════════════════ -->
     <div class="uss-master-wrap">
-      <!-- Master Executive Dashboard Top Ribbon -->
-      <div class="uss-dash-master-bar">
-        <div class="udm-left">
-          <span class="udm-tag">LIHF 2026 INTELLIGENCE</span>
-          <span class="udm-sep">/</span>
-          <span class="udm-title">EXECUTIVE SPONSOR &amp; REGIONAL IMPACT DASHBOARD</span>
-        </div>
-        <div class="udm-right">
-          <span class="udm-status"><span class="udm-pulse"></span> LIVE SYSTEM OPERATIONAL</span>
-          <span class="udm-venue">🏛️ LAO-ITECC • VIENTIANE</span>
-          <span class="udm-date">OCTOBER 2026</span>
-        </div>
-      </div>
-
       <div class="uss-split-grid">
 
         <!-- ── LEFT COLUMN: 1. SCALE, OPPORTUNITY & REGIONAL MOVEMENT ── -->
         <div class="uss-left-col">
           <div class="uss-col-header">
-            <div class="section-label"><span class="sl-dot"></span>SCALE, OPPORTUNITY &amp; REGIONAL MOVEMENT</div>
+            <div class="section-label"><span class="sl-dot"></span>01. SCALE &amp; REGIONAL MOVEMENT</div>
             <h2 class="uss-col-title">
-              MEET YOUTH <span class="hl">INSIDE CULTURE</span><br>AT REGIONAL SCALE
+              MEET YOUTH <span class="hl">INSIDE CULTURE</span>
             </h2>
-            <div class="uss-lao-header-box">
-              <span class="uss-lao-badge">🇱🇦 ຂະໜາດ, ໂອກາດ &amp; ການຂັບເຄື່ອນພາກພື້ນ</span>
-              <p class="uss-lao-intro">
-                LIHF 2026 ເຊື່ອມໂຍງວັດທະນະທຳຄົນຮຸ່ນໃໝ່ຂອງລາວ ເຂົ້າສູ່ລະບົບນິເວດຮິບຮອບອາຊຽນ — ເປີດໂອກາດໃຫ້ແບຣນເຂົ້າຮ່ວມເປັນສ່ວນໜຶ່ງຂອງການເຄື່ອນໄຫວຕົວຈິງໃນດົນຕີ, ການເຕັ້ນ, ແຟຊັນສະຕຣີດ ແລະ ຄຣີເອເຕີດິຈິຕອນ
-              </p>
-            </div>
+            <p class="uss-col-sub">🇱🇦 ເຊື່ອມຕໍ່ແບຣນສູ່ຄົນຮຸ່ນໃໝ່ ດ້ວຍການເຂົ້າເຖິງ 10M+ ໃນລະດັບພາກພື້ນອາຊຽນ</p>
           </div>
 
-          <!-- Technical Donut Radar HUD (Design: Screenshot 2026-10-03 at 20.00.58.png) -->
+          <!-- Clean Radar HUD Dashboard Card -->
           <div class="hud-radar-card">
-            <!-- Dashboard Panel Header -->
-            <div class="dash-panel-header">
-              <div class="dash-ph-left">
-                <div class="dash-window-dots">
-                  <span class="d-dot red"></span>
-                  <span class="d-dot yellow"></span>
-                  <span class="d-dot green"></span>
-                </div>
-                <span class="dash-ph-title">MODULE 01: REGIONAL SCALE HUD</span>
-                <span class="dash-live-badge"><span class="dash-live-pulse"></span> LIVE TELEMETRY</span>
-              </div>
-              <div class="dash-ph-right">
-                <span class="dash-ph-tag">📍 LAO-ITECC • VIENTIANE</span>
-                <span class="dash-ph-coord">17.9757°N, 102.6331°E</span>
-              </div>
+            <!-- Clean Header -->
+            <div class="dash-clean-header">
+              <span class="dash-badge-pill">● LIVE AUDIENCE HUD</span>
+              <span class="dash-meta-text">📍 LAO-ITECC • 12,000 SQM</span>
             </div>
 
-            <!-- 4-KPI Quick Summary Strip -->
-            <div class="dash-kpi-strip">
-              <div class="dash-kpi-chip">
-                <div class="dash-kpi-top">
-                  <span class="dash-kpi-num red">10M+</span>
-                  <span class="dash-kpi-badge up">45% SHARE</span>
-                </div>
-                <span class="dash-kpi-lbl">Digital Reach</span>
-                <span class="dash-kpi-lao">🇱🇦 ການເຂົ້າເຖິງສື່ TikTok &amp; Reels</span>
-              </div>
-              <div class="dash-kpi-chip">
-                <div class="dash-kpi-top">
-                  <span class="dash-kpi-num gold">10,000+</span>
-                  <span class="dash-kpi-badge gold">GEN Z</span>
-                </div>
-                <span class="dash-kpi-lbl">Attendees</span>
-                <span class="dash-kpi-lao">🇱🇦 ຜູ້ເຂົ້າຮ່ວມຕົວຈິງໃນງານ</span>
-              </div>
-              <div class="dash-kpi-chip">
-                <div class="dash-kpi-top">
-                  <span class="dash-kpi-num">500+</span>
-                  <span class="dash-kpi-badge">10+ NATIONS</span>
-                </div>
-                <span class="dash-kpi-lbl">Athletes &amp; Talents</span>
-                <span class="dash-kpi-lao">🇱🇦 ສິລະປິນ &amp; ນັກເຕັ້ນອາຊຽນ</span>
-              </div>
-              <div class="dash-kpi-chip">
-                <div class="dash-kpi-top">
-                  <span class="dash-kpi-num gold">159M</span>
-                  <span class="dash-kpi-badge up">7 BATTLES</span>
-                </div>
-                <span class="dash-kpi-lbl">Prize Pool (LAK)</span>
-                <span class="dash-kpi-lao">🇱🇦 ມູນຄ່າເງິນລາງວັນລວມ</span>
-              </div>
-            </div>
-
-            <!-- Technical Radar SVG with Corner Reticles -->
+            <!-- Technical Radar SVG (Uncluttered, hero visualization) -->
             <div class="hud-radar-svg-wrap">
               <svg class="hud-radar-svg" viewBox="0 0 640 520" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <!-- Soft Radial Glow Filter for Highlighted Sector -->
                   <filter id="hudGlow" x="-50%" y="-50%" width="200%" height="200%">
                     <feGaussianBlur stdDeviation="10" result="blur" />
                     <feComposite in="SourceGraphic" in2="blur" operator="over" />
@@ -18012,7 +17676,7 @@ body.presentation-active .floating-present-badge {
                 <text x="36" y="498" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.35)">RANGE // 10M+</text>
                 <text x="604" y="498" text-anchor="end" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.35)">LAT 17.9757°N</text>
 
-                <!-- Ambient Glow Behind Highlighted Sector (Like reference screenshot) -->
+                <!-- Ambient Glow Behind Highlighted Sector -->
                 <circle cx="260" cy="170" r="130" fill="url(#ambientGlowGrad)" pointer-events="none" />
 
                 <!-- Outer Concentric Guide Rings -->
@@ -18042,55 +17706,49 @@ body.presentation-active .floating-present-badge {
                 <!-- Sector 6: Mid-Left (Operations Crew) -->
                 <path d="M 194.4 332.5 A 145 145 0 0 1 194.4 187.5 L 250.7 220.0 A 80 80 0 0 0 250.7 300.0 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.22)" stroke-width="1" />
 
-                <!-- ── RADIAL SEPARATORS (Extended slightly like blueprint reference) ── -->
-                <!-- 12 o'clock -->
+                <!-- ── RADIAL SEPARATORS ── -->
                 <line x1="320.0" y1="180.0" x2="320.0" y2="102.0" stroke="rgba(255,255,255,0.85)" stroke-width="1.3" />
-                <!-- ~2 o'clock -->
                 <line x1="389.3" y1="220.0" x2="458.0" y2="180.0" stroke="rgba(255,255,255,0.45)" stroke-width="1" />
-                <!-- ~4 o'clock -->
                 <line x1="389.3" y1="300.0" x2="458.0" y2="340.0" stroke="rgba(255,255,255,0.45)" stroke-width="1" />
-                <!-- 6 o'clock -->
                 <line x1="320.0" y1="340.0" x2="320.0" y2="418.0" stroke="rgba(255,255,255,0.45)" stroke-width="1" />
-                <!-- ~8 o'clock -->
                 <line x1="250.7" y1="300.0" x2="182.0" y2="340.0" stroke="rgba(255,255,255,0.45)" stroke-width="1" />
-                <!-- ~10 o'clock -->
                 <line x1="250.7" y1="220.0" x2="182.0" y2="180.0" stroke="rgba(255,255,255,0.75)" stroke-width="1.2" />
 
                 <!-- ── CALLOUT 1: TOP-LEFT (DIGITAL REACH 45%) ── -->
                 <polyline points="247.5,134.4 165,75 20,75" fill="none" stroke="#ffffff" stroke-width="1.4" />
                 <circle cx="247.5" cy="134.4" r="5" fill="#ffffff" stroke="rgba(255,255,255,0.45)" stroke-width="4" />
-                <text x="20" y="52" font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="14" fill="#ffffff" letter-spacing="1">10M+ <tspan fill="rgba(255,255,255,0.75)" font-weight="600" font-size="12">DIGITAL REACH (45%)</tspan></text>
-                <text x="20" y="69" font-family="'Noto Sans Lao', sans-serif" font-weight="500" font-size="11" fill="rgba(255,255,255,0.88)">🇱🇦 ການເຂົ້າເຖິງສື່ TikTok &amp; Reels</text>
+                <text x="20" y="52" font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="15" fill="#ffffff" letter-spacing="1">10M+ <tspan fill="rgba(255,255,255,0.7)" font-weight="600" font-size="12">DIGITAL REACH (45%)</tspan></text>
+                <text x="20" y="69" font-family="'Noto Sans Lao', sans-serif" font-weight="600" font-size="11" fill="var(--gold, #d4af37)">🇱🇦 ເຂົ້າເຖິງສື່ TikTok &amp; Reels</text>
 
                 <!-- ── CALLOUT 2: TOP-RIGHT (ATTENDEES 25%) ── -->
                 <polyline points="392.5,134.4 475,75 620,75" fill="none" stroke="#ffffff" stroke-width="1.4" />
                 <circle cx="392.5" cy="134.4" r="4" fill="#ffffff" />
-                <text x="620" y="52" text-anchor="end" font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="14" fill="#ffffff" letter-spacing="1">10,000+ <tspan fill="rgba(255,255,255,0.75)" font-weight="600" font-size="12">ATTENDEES (25%)</tspan></text>
-                <text x="620" y="69" text-anchor="end" font-family="'Noto Sans Lao', sans-serif" font-weight="500" font-size="11" fill="rgba(255,255,255,0.88)">🇱🇦 ຜູ້ເຂົ້າຮ່ວມຕົວຈິງ Gen Z &amp; Tourists</text>
+                <text x="620" y="52" text-anchor="end" font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="15" fill="#ffffff" letter-spacing="1">10,000+ <tspan fill="rgba(255,255,255,0.7)" font-weight="600" font-size="12">ATTENDEES (25%)</tspan></text>
+                <text x="620" y="69" text-anchor="end" font-family="'Noto Sans Lao', sans-serif" font-weight="600" font-size="11" fill="var(--gold, #d4af37)">🇱🇦 ຜູ້ເຂົ້າຮ່ວມຕົວຈິງໃນງານ</text>
 
                 <!-- ── CALLOUT 3: MID-LEFT (OPERATIONS CREW) ── -->
                 <line x1="175" y1="260" x2="20" y2="260" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" />
                 <circle cx="175" cy="260" r="3.5" fill="rgba(255,255,255,0.9)" />
-                <text x="20" y="238" font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="14" fill="#ffffff" letter-spacing="1">100+ <tspan fill="rgba(255,255,255,0.75)" font-weight="600" font-size="12">OPERATIONS CREW</tspan></text>
-                <text x="20" y="254" font-family="'Noto Sans Lao', sans-serif" font-weight="500" font-size="11" fill="rgba(255,255,255,0.88)">🇱🇦 ທີມງານປະຕິບັດການ &amp; ອາສາສະໝັກ</text>
+                <text x="20" y="238" font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="15" fill="#ffffff" letter-spacing="1">100+ <tspan fill="rgba(255,255,255,0.7)" font-weight="600" font-size="12">OPERATIONS CREW</tspan></text>
+                <text x="20" y="254" font-family="'Noto Sans Lao', sans-serif" font-weight="600" font-size="11" fill="rgba(255,255,255,0.85)">🇱🇦 ທີມງານປະຕິບັດການ</text>
 
                 <!-- ── CALLOUT 4: MID-RIGHT (TALENTS 15%) ── -->
                 <line x1="465" y1="260" x2="620" y2="260" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" />
                 <circle cx="465" cy="260" r="3.5" fill="rgba(255,255,255,0.9)" />
-                <text x="620" y="238" text-anchor="end" font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="14" fill="#ffffff" letter-spacing="1">500+ <tspan fill="rgba(255,255,255,0.75)" font-weight="600" font-size="12">ATHLETES &amp; TALENTS (15%)</tspan></text>
-                <text x="620" y="254" text-anchor="end" font-family="'Noto Sans Lao', sans-serif" font-weight="500" font-size="11" fill="rgba(255,255,255,0.88)">🇱🇦 ນັກເຕັ້ນ &amp; ສິລະປິນ 10+ ຊາດ</text>
+                <text x="620" y="238" text-anchor="end" font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="15" fill="#ffffff" letter-spacing="1">500+ <tspan fill="rgba(255,255,255,0.7)" font-weight="600" font-size="12">ATHLETES &amp; TALENTS (15%)</tspan></text>
+                <text x="620" y="254" text-anchor="end" font-family="'Noto Sans Lao', sans-serif" font-weight="600" font-size="11" fill="rgba(255,255,255,0.85)">🇱🇦 ສິລະປິນ &amp; ນັກເຕັ້ນ 10+ ຊາດ</text>
 
                 <!-- ── CALLOUT 5: BOT-LEFT (LIFESTYLE BOOTHS 5%) ── -->
                 <polyline points="247.5,385.6 165,445 20,445" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" />
                 <circle cx="247.5" cy="385.6" r="3.5" fill="rgba(255,255,255,0.9)" />
-                <text x="20" y="424" font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="14" fill="#ffffff" letter-spacing="1">50–70 <tspan fill="rgba(255,255,255,0.75)" font-weight="600" font-size="12">LIFESTYLE BOOTHS (5%)</tspan></text>
-                <text x="20" y="440" font-family="'Noto Sans Lao', sans-serif" font-weight="500" font-size="11" fill="rgba(255,255,255,0.88)">🇱🇦 ບູດສິນຄ້າ &amp; ອາຫານ Urban Village</text>
+                <text x="20" y="424" font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="15" fill="#ffffff" letter-spacing="1">50–70 <tspan fill="rgba(255,255,255,0.7)" font-weight="600" font-size="12">LIFESTYLE BOOTHS (5%)</tspan></text>
+                <text x="20" y="440" font-family="'Noto Sans Lao', sans-serif" font-weight="600" font-size="11" fill="rgba(255,255,255,0.85)">🇱🇦 ບູດສິນຄ້າ &amp; ອາຫານ</text>
 
                 <!-- ── CALLOUT 6: BOT-RIGHT (PRIZE POOL 10%) ── -->
                 <polyline points="392.5,385.6 475,445 620,445" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" />
                 <circle cx="392.5" cy="385.6" r="3.5" fill="rgba(255,255,255,0.9)" />
-                <text x="620" y="424" text-anchor="end" font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="14" fill="var(--gold, #d4af37)" letter-spacing="1">159M LAK <tspan fill="rgba(255,255,255,0.75)" font-weight="600" font-size="12">PRIZE POOL (10%)</tspan></text>
-                <text x="620" y="440" text-anchor="end" font-family="'Noto Sans Lao', sans-serif" font-weight="500" font-size="11" fill="rgba(255,255,255,0.88)">🇱🇦 ມູນຄ່າເງິນລາງວັນ 7 ສາຍຫຼັກ</text>
+                <text x="620" y="424" text-anchor="end" font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="15" fill="var(--gold, #d4af37)" letter-spacing="1">159M LAK <tspan fill="rgba(255,255,255,0.7)" font-weight="600" font-size="12">PRIZE POOL (10%)</tspan></text>
+                <text x="620" y="440" text-anchor="end" font-family="'Noto Sans Lao', sans-serif" font-weight="600" font-size="11" fill="rgba(255,255,255,0.85)">🇱🇦 ມູນຄ່າເງິນລາງວັນ 7 ສາຍຫຼັກ</text>
 
                 <!-- ── DONUT CENTER CORE ── -->
                 <circle cx="320" cy="260" r="78" fill="url(#hudCoreGrad)" />
@@ -18103,36 +17761,9 @@ body.presentation-active .floating-present-badge {
               </svg>
             </div>
 
-            <!-- Cultural Value Distribution Meter -->
-            <div class="dash-dist-meter">
-              <div class="dash-meter-head">
-                <span>CULTURAL WEIGHT &amp; REACH ALLOCATION</span>
-                <span class="dash-meter-lao">🇱🇦 ອັດຕາສ່ວນການແບ່ງປັນຄຸນຄ່າວັດທະນະທຳ</span>
-              </div>
-              <div class="dash-meter-bar">
-                <div class="dash-mb-seg s1" title="45% Digital Reach (10M+)"></div>
-                <div class="dash-mb-seg s2" title="25% Attendees (10,000+)"></div>
-                <div class="dash-mb-seg s3" title="15% Talents (500+)"></div>
-                <div class="dash-mb-seg s4" title="10% Prize Pool (159M LAK)"></div>
-                <div class="dash-mb-seg s5" title="5% Booths (50-70)"></div>
-              </div>
-              <div class="dash-meter-legend">
-                <span class="dash-legend-item"><span class="dash-l-dot" style="background:#ff4d4d"></span> 45% Digital</span>
-                <span class="dash-legend-item"><span class="dash-l-dot" style="background:#f5d06a"></span> 25% Live Crowd</span>
-                <span class="dash-legend-item"><span class="dash-l-dot" style="background:#a855f7"></span> 15% Talents</span>
-                <span class="dash-legend-item"><span class="dash-l-dot" style="background:#f97316"></span> 10% Prize</span>
-                <span class="dash-legend-item"><span class="dash-l-dot" style="background:#06b6d4"></span> 5% Booths</span>
-              </div>
-            </div>
-
-            <!-- Dashboard Console Footer -->
-            <div class="dash-panel-footer">
-              <div>
-                <span class="dash-console-prompt">&gt;</span>
-                STATUS: <span class="dash-console-val">OPERATIONAL</span> • 
-                VENUE: <span class="dash-console-val">LAO-ITECC (12,000 SQM)</span> • 
-                AUDIENCE: <span class="dash-console-val">82% GEN-Z</span>
-              </div>
+            <!-- Clean Footer -->
+            <div class="dash-clean-footer">
+              <span>VENUE: LAO-ITECC (12,000 SQM) • 10 ASEAN NATIONS</span>
               <div class="dash-footer-ctrls">
                 <button class="dash-footer-btn" title="Expand Fullscreen" onclick="if(document.fullscreenElement){document.exitFullscreen()}else{this.closest('.hud-radar-card').requestFullscreen()}">⛶ FULLSCREEN</button>
                 <button class="dash-footer-btn" title="Refresh Live Data Radar" onclick="this.classList.add('rotating');setTimeout(()=>this.classList.remove('rotating'),800)">⟳ REFRESH</button>
@@ -18144,38 +17775,22 @@ body.presentation-active .floating-present-badge {
         <!-- ── RIGHT COLUMN: 2. THE SPONSOR VALUE • 4 STRATEGIC PILLARS ── -->
         <div class="uss-right-col">
           <div class="uss-col-header">
-            <div class="section-label"><span class="sl-dot"></span>THE SPONSOR VALUE • 4 STRATEGIC PILLARS</div>
+            <div class="section-label"><span class="sl-dot"></span>02. THE 4 STRATEGIC PILLARS</div>
             <h2 class="uss-col-title">
-              WHY BRANDS SUCCEED <span class="hl">INSIDE LIHF</span>
+              WHY BRANDS <span class="hl">SUCCEED</span>
             </h2>
-            <div class="uss-lao-header-box">
-              <span class="uss-lao-badge">🇱🇦 4 ເສົາຄ້ຳຍຸດທະສາດ • ຄຸນຄ່າທີ່ແບຣນຈະໄດ້ຮັບ</span>
-              <p class="uss-lao-intro">
-                ປ່ຽນຈາກການວາງໂລໂກ້ທຳມະດາ ສູ່ການສ້າງຄວາມຜູກພັນອັນເລິກເຊິ່ງ, ການທົດລອງສິນຄ້າຕົວຈິງ, ກະແສໄວຣັລ ແລະ ຄວາມພັກດີຕໍ່ແບຣນຂອງຄົນຮຸ່ນໃໝ່ໃນໄລຍະຍາວ
-              </p>
-            </div>
+            <p class="uss-col-sub">🇱🇦 4 ເສົາຄ້ຳຍຸດທະສາດ • ປ່ຽນການສະໜັບສະໜູນສູ່ຄວາມຜູກພັນ, ການທົດລອງສິນຄ້າ ແລະ ຍອດຂາຍ</p>
           </div>
 
-          <!-- Dashboard Matrix Wrapper Card -->
+          <!-- Clean Strategic Pillars Dashboard Card -->
           <div class="dash-matrix-card">
-            <!-- Dashboard Panel Header -->
-            <div class="dash-panel-header">
-              <div class="dash-ph-left">
-                <div class="dash-window-dots">
-                  <span class="d-dot red"></span>
-                  <span class="d-dot yellow"></span>
-                  <span class="d-dot green"></span>
-                </div>
-                <span class="dash-ph-title">MODULE 02: BRAND CONVERSION &amp; ROI MATRIX</span>
-                <span class="dash-live-badge gold"><span class="dash-live-pulse"></span> 4 PILLARS ACTIVE</span>
-              </div>
-              <div class="dash-ph-right">
-                <span class="dash-ph-tag">HIGH-CONVERSION MATRIX</span>
-                <span class="dash-ph-coord">TARGET: 100% YOUTH RETENTION</span>
-              </div>
+            <!-- Clean Header -->
+            <div class="dash-clean-header">
+              <span class="dash-badge-pill gold">● VALUE CREATION MATRIX</span>
+              <span class="dash-meta-text">HIGH ROI CONVERSION</span>
             </div>
 
-            <!-- 4 Services Cards Grid (Design: SERVECES _ WEB DESIGN.jpeg) -->
+            <!-- 4 Services Cards Grid (Clean, scannable, prominent headlines) -->
             <div class="srv-cards-grid">
               
               <!-- Card 01: Emotional Cultural Resonance -->
@@ -18183,17 +17798,15 @@ body.presentation-active .floating-present-badge {
                 <div class="srv-card-glow"></div>
                 <div class="srv-card-top">
                   <span class="srv-card-idx">01</span>
-                  <span style="font-family:var(--ff-a); font-size:0.68rem; color:var(--gold,#d4af37); letter-spacing:0.1em; font-weight:700;">// CULTURE</span>
+                  <span class="srv-card-tag gold">// CULTURE</span>
                 </div>
                 <div class="srv-card-visual-wrap">
                   <img src="assets/event/sponsor/pillar_3d_resonance.jpg" alt="Emotional Cultural Resonance 3D Icon" class="srv-card-visual" loading="lazy" />
                 </div>
                 <div class="srv-card-bottom">
-                  <h4 class="srv-card-title">Emotional Resonance</h4>
-                  <p class="srv-card-desc">Connect where Gen Z identity is forged — live dance battles, music cyphers, and street culture creating authentic emotional memory.</p>
-                  <div class="srv-lao-box">
-                    <p class="srv-lao-text">ເຊື່ອມຕໍ່ແບຣນເຂົ້າສູ່ຈິດວິນຍານ Gen Z ຜ່ານເວທີປະລອງສີມື ແລະ ດົນຕີ — ສ້າງຄວາມຊົງຈຳທີ່ເລິກເຊິ່ງກວ່າປ້າຍໂຄສະນາທົ່ວໄປ</p>
-                  </div>
+                  <h4 class="srv-card-title">EMOTIONAL RESONANCE</h4>
+                  <div class="srv-lao-headline">ສ້າງຄວາມຜູກພັນກັບ Gen Z ຜ່ານວັດທະນະທຳ</div>
+                  <p class="srv-card-subline">Live battles &amp; youth music create authentic, lasting emotional brand memories.</p>
                 </div>
               </div>
 
@@ -18202,17 +17815,15 @@ body.presentation-active .floating-present-badge {
                 <div class="srv-card-glow"></div>
                 <div class="srv-card-top">
                   <span class="srv-card-idx">02</span>
-                  <span style="font-family:var(--ff-a); font-size:0.68rem; color:var(--red,#cc0000); letter-spacing:0.1em; font-weight:700;">// SAMPLING</span>
+                  <span class="srv-card-tag red">// SAMPLING</span>
                 </div>
                 <div class="srv-card-visual-wrap">
                   <img src="assets/event/sponsor/pillar_3d_sampling.jpg" alt="Direct Trial & Sampling 3D Icon" class="srv-card-visual" loading="lazy" />
                 </div>
                 <div class="srv-card-bottom">
-                  <h4 class="srv-card-title">Direct Trial &amp; Sampling</h4>
-                  <p class="srv-card-desc">High-energy interactive booths, product giveaways, and QR challenges turn crowd enthusiasm into immediate product trials and sales.</p>
-                  <div class="srv-lao-box">
-                    <p class="srv-lao-text">ປ່ຽນພະລັງຄວາມມ່ວນຊື່ນສູ່ການທົດລອງສິນຄ້າຕົວຈິງ ຜ່ານບູດກິດຈະກຳ ແລະ QR Challenge ທີ່ກະຕຸ້ນການຕັດສິນໃຈຊື້ທັນທີ</p>
-                  </div>
+                  <h4 class="srv-card-title">DIRECT TRIAL &amp; SAMPLING</h4>
+                  <div class="srv-lao-headline">ກະຕຸ້ນການທົດລອງສິນຄ້າ &amp; ຊື້ຕົວຈິງ</div>
+                  <p class="srv-card-subline">Interactive booths and QR challenges turn crowd enthusiasm into immediate purchases.</p>
                 </div>
               </div>
 
@@ -18221,17 +17832,15 @@ body.presentation-active .floating-present-badge {
                 <div class="srv-card-glow"></div>
                 <div class="srv-card-top">
                   <span class="srv-card-idx">03</span>
-                  <span style="font-family:var(--ff-a); font-size:0.68rem; color:var(--gold,#d4af37); letter-spacing:0.1em; font-weight:700;">// VIRAL REACH</span>
+                  <span class="srv-card-tag gold">// VIRAL REACH</span>
                 </div>
                 <div class="srv-card-visual-wrap">
                   <img src="assets/event/sponsor/pillar_3d_viral.jpg" alt="Viral Short-Form Content 3D Icon" class="srv-card-visual" loading="lazy" />
                 </div>
                 <div class="srv-card-bottom">
-                  <h4 class="srv-card-title">Viral Short-Form</h4>
-                  <p class="srv-card-desc">Every explosive battle round, DJ scratch, and live mural generates organic, user-shared TikTok, Reels, and Shorts content.</p>
-                  <div class="srv-lao-box">
-                    <p class="srv-lao-text">ທຸກໄຮໄລ້ການເຕັ້ນຈະຖືກແບ່ງປັນເປັນຄລິບໄວຣັລເທິງ TikTok, Reels ແລະ Shorts — ສົ່ງຕໍ່ພາບລັກແບຣນສູ່ມະຫາຊົນຢ່າງຕໍ່ເນື່ອງ</p>
-                  </div>
+                  <h4 class="srv-card-title">VIRAL SHORT-FORM</h4>
+                  <div class="srv-lao-headline">ກະແສໄວຣັລຕໍ່ເນື່ອງເທິງ TikTok &amp; Reels</div>
+                  <p class="srv-card-subline">Battle highlights and youth UGC spread organic brand visibility across ASEAN.</p>
                 </div>
               </div>
 
@@ -18240,33 +17849,24 @@ body.presentation-active .floating-present-badge {
                 <div class="srv-card-glow"></div>
                 <div class="srv-card-top">
                   <span class="srv-card-idx">04</span>
-                  <span style="font-family:var(--ff-a); font-size:0.68rem; color:var(--red,#cc0000); letter-spacing:0.1em; font-weight:700;">// BRAND EQUITY</span>
+                  <span class="srv-card-tag red">// BRAND EQUITY</span>
                 </div>
                 <div class="srv-card-visual-wrap">
                   <img src="assets/event/sponsor/pillar_3d_loyalty.jpg" alt="Long-Term Youth Loyalty 3D Icon" class="srv-card-visual" loading="lazy" />
                 </div>
                 <div class="srv-card-bottom">
-                  <h4 class="srv-card-title">Long-Term Loyalty</h4>
-                  <p class="srv-card-desc">Youth consumers remember brands that build the culture they love. Convert festival presence into enduring community respect.</p>
-                  <div class="srv-lao-box">
-                    <p class="srv-lao-text">ຄົນຮຸ່ນໃໝ່ຈະຈົດຈຳ ແລະ ໄວ້ວາງໃຈແບຣນທີ່ຮ່ວມສ້າງວັດທະນະທຳທີ່ເຂົາເຈົ້າຮັກ — ປ່ຽນຜູ້ຊົມສູ່ລູກຄ້າທີ່ພັກດີຢ່າງຍືນຍົງ</p>
-                  </div>
+                  <h4 class="srv-card-title">LONG-TERM LOYALTY</h4>
+                  <div class="srv-lao-headline">ປ່ຽນຜູ້ຊົມສູ່ລູກຄ້າທີ່ພັກດີຢ່າງຍືນຍົງ</div>
+                  <p class="srv-card-subline">Gen Z remembers and respects brands that actively champion what they love.</p>
                 </div>
               </div>
 
             </div>
 
-            <!-- Dashboard Panel Footer -->
-            <div class="dash-panel-footer">
-              <div>
-                <span class="dash-console-prompt">&gt;</span>
-                PILLARS: <span class="dash-console-val">4 ACTIVE TIERS</span> • 
-                CONVERSION: <span class="dash-console-val">MULTI-TOUCHPOINT</span> • 
-                ROI: <span class="dash-console-val">4.8X PROJECTED</span>
-              </div>
-              <div class="dash-footer-ctrls">
-                <span class="dash-kpi-badge gold">TIER-1 SPONSOR READY</span>
-              </div>
+            <!-- Clean Footer -->
+            <div class="dash-clean-footer">
+              <span>MULTI-TOUCHPOINT ENGAGEMENT</span>
+              <span style="color:var(--gold,#d4af37); font-weight:700;">TIER-1 SPONSOR READY</span>
             </div>
           </div>
         </div>
