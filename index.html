@@ -13507,26 +13507,26 @@ body.gsap-ready .acc-inner .ru {
    CARD-FREE ARCHITECTURAL STYLES FOR ALL DROPDOWNS & STANDALONE SECTIONS
    ========================================================================== */
 
-/* ── 1. TARGET AUDIENCE POSTER / DASHBOARD (MATCHING REFERENCE STYLE) ── */
+/* ── 1. TARGET AUDIENCE: 3 HORIZONTAL ARCHITECTURAL ROWS ── */
 .aud-poster-section {
   background: #000000;
   color: #ffffff;
   padding: 3rem 1.5rem 2rem;
-  max-width: 1040px;
+  max-width: 1100px;
   margin: 0 auto;
   box-sizing: border-box;
   position: relative;
 }
 
-/* Header matching reference */
+/* Header */
 .aud-poster-header {
   text-align: center;
-  margin-bottom: 2.2rem;
+  margin-bottom: 2.8rem;
 }
 .aud-poster-kicker {
   display: inline-block;
   font-family: var(--ff-a);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -13551,327 +13551,81 @@ body.gsap-ready .acc-inner .ru {
   margin: 0 auto;
 }
 
-/* Legend matching reference: ⚪ Strategy  🔘 Identity  🔴 Application */
-.aud-poster-legend {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem 2.8rem;
-  margin: 2.5rem 0 3.2rem;
-}
-.aud-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  cursor: pointer;
-  user-select: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-.aud-legend-item:hover {
-  transform: translateY(-2px);
-}
-.aud-legend-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  display: inline-block;
-}
-.aud-dot-white {
-  background: #ffffff;
-}
-.aud-dot-grey {
-  background: #8e8e93;
-}
-.aud-dot-red {
-  background: #e60026;
-}
-.aud-legend-text {
-  font-family: var(--ff-a);
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-.aud-legend-lao {
-  font-family: var(--ff-b);
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-left: 0.35rem;
-}
-
-/* Stacked Horizontal Chart */
-.aud-chart-container {
+/* 3 Horizontal Demographic Rows (Image 2 as Horizontal Rows) */
+.aud-horiz-list {
   display: flex;
   flex-direction: column;
-  gap: 1.85rem;
-  margin-bottom: 0.6rem;
-}
-.aud-chart-row {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  align-items: center;
-  gap: 2rem;
-}
-.aud-row-label-wrap {
-  text-align: right;
-}
-.aud-row-label {
-  font-family: var(--ff-a);
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: #ffffff;
-  line-height: 1.2;
-}
-.aud-row-lao {
-  font-family: var(--ff-b);
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.45);
-  margin-top: 0.2rem;
-}
-
-/* The Bar Track & Segments */
-.aud-bar-track {
-  display: flex;
-  width: 100%;
-  height: 52px;
-  background: transparent;
-  position: relative;
-  box-sizing: border-box;
-}
-.aud-seg {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  user-select: none;
-  cursor: pointer;
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s ease, z-index 0.2s ease;
-}
-.aud-seg-val {
-  font-family: var(--ff-a);
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  transition: font-size 0.2s ease;
-  pointer-events: none;
-}
-.aud-seg:hover {
-  transform: scaleY(1.14);
-  z-index: 20;
-  filter: brightness(1.15);
-}
-.aud-seg:hover .aud-seg-val {
-  font-size: 1.35rem;
-}
-.aud-seg-white {
-  background: #ffffff;
-  color: #000000;
-}
-.aud-seg-grey {
-  background: #8e8e93;
-  color: #ffffff;
-}
-.aud-seg-red {
-  background: #e60026;
-  color: #ffffff;
-}
-
-/* Crisp Hover Tooltip */
-.aud-seg-tooltip {
-  position: absolute;
-  bottom: calc(100% + 10px);
-  left: 50%;
-  transform: translateX(-50%) translateY(4px);
-  background: #0f0f11;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #ffffff;
-  padding: 0.6rem 0.95rem;
-  border-radius: 4px;
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 50;
-  white-space: nowrap;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.95);
-  text-align: center;
-}
-.aud-seg-tooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 6px;
-  border-style: solid;
-  border-color: #0f0f11 transparent transparent transparent;
-}
-.aud-seg:hover .aud-seg-tooltip {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
-.aud-tt-head {
-  display: block;
-  font-family: var(--ff-a);
-  font-size: 0.92rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 0.15rem;
-}
-.aud-tt-lao {
-  display: block;
-  font-family: var(--ff-b);
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* Axis Scale directly below last bar */
-.aud-scale-row {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 2rem;
-  margin-top: 0.5rem;
-  margin-bottom: 3.5rem;
-}
-.aud-scale-ticks {
-  position: relative;
-  width: 100%;
-  height: 28px;
-}
-.aud-scale-num {
-  position: absolute;
-  top: 0;
-  font-family: var(--ff-a);
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-  transform: translateX(-50%);
-}
-.aud-scale-num:first-child {
-  left: 0 !important;
-  transform: translateX(0);
-}
-.aud-scale-num:last-child {
-  left: 100% !important;
-  transform: translateX(-100%);
-}
-
-/* Brand signature / Monogram footer like reference */
-.aud-poster-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  margin-bottom: 2.8rem;
-  opacity: 0.85;
-}
-.aud-brand-mark {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-.aud-brand-box {
-  font-family: var(--ff-d);
-  font-size: 1.6rem;
-  line-height: 1;
-  color: #ffffff;
-  letter-spacing: 0.08em;
-}
-.aud-brand-tag {
-  font-family: var(--ff-a);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  padding: 0.15rem 0.45rem;
-  background: #e60026;
-  color: #ffffff;
-  border-radius: 2px;
-}
-.aud-brand-handle {
-  font-family: var(--ff-a);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-/* Demographic Cards Row (Redesigned to Match the Red-White Bar Architecture) */
-.aud-bar-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  margin-top: 2rem;
-  margin-bottom: 2.2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  padding-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
-.aud-bar-card {
+
+.aud-horiz-row {
   background: #08080a;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0;
-  padding: 2rem 1.8rem;
+  padding: 2.2rem 2.4rem;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  align-items: center;
+  gap: 2.8rem;
   position: relative;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
   cursor: default;
 }
-.aud-bar-card:hover {
-  transform: translateY(-8px) scale(1.02);
+.aud-horiz-row:hover {
+  transform: translateY(-4px) scale(1.008);
   z-index: 10;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.9);
 }
 
-/* Card Accent Themes */
-.aud-bar-card.theme-white {
-  border-top: 6px solid #ffffff;
+/* Theme Accents (White, Grey, Flat Red) */
+.aud-horiz-row.theme-white {
+  border-left: 6px solid #ffffff;
 }
-.aud-bar-card.theme-grey {
-  border-top: 6px solid #8e8e93;
+.aud-horiz-row.theme-grey {
+  border-left: 6px solid #8e8e93;
 }
-.aud-bar-card.theme-red {
-  border-top: 6px solid #e60026;
+.aud-horiz-row.theme-red {
+  border-left: 6px solid #e60026;
 }
 
-.aud-bar-card:hover.theme-white {
-  border-color: rgba(255, 255, 255, 0.5);
-  border-top-color: #ffffff;
+.aud-horiz-row:hover.theme-white {
+  border-color: rgba(255, 255, 255, 0.45);
+  border-left-color: #ffffff;
 }
-.aud-bar-card:hover.theme-grey {
-  border-color: rgba(142, 142, 147, 0.5);
-  border-top-color: #8e8e93;
+.aud-horiz-row:hover.theme-grey {
+  border-color: rgba(142, 142, 147, 0.45);
+  border-left-color: #8e8e93;
 }
-.aud-bar-card:hover.theme-red {
+.aud-horiz-row:hover.theme-red {
   border-color: rgba(230, 0, 38, 0.5);
-  border-top-color: #e60026;
+  border-left-color: #e60026;
 }
 
-/* Header & Big Num */
-.aud-bar-card-header {
+/* Left Column: Big Percentage, Tag & Bar */
+.aud-horiz-left {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding-right: 2.5rem;
+}
+.aud-horiz-header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
-.aud-bar-card-num {
+.aud-horiz-num {
   font-family: var(--ff-d);
-  font-size: clamp(3.2rem, 5vw, 4.4rem);
+  font-size: clamp(3.4rem, 5.5vw, 4.6rem);
   line-height: 0.9;
   letter-spacing: -0.02em;
 }
-.theme-white .aud-bar-card-num { color: #ffffff; }
-.theme-grey .aud-bar-card-num { color: #8e8e93; }
-.theme-red .aud-bar-card-num { color: #e60026; }
+.theme-white .aud-horiz-num { color: #ffffff; }
+.theme-grey .aud-horiz-num { color: #8e8e93; }
+.theme-red .aud-horiz-num { color: #e60026; }
 
-.aud-bar-card-tag {
+.aud-horiz-tag {
   font-family: var(--ff-a);
   font-size: 0.72rem;
   font-weight: 800;
@@ -13880,24 +13634,23 @@ body.gsap-ready .acc-inner .ru {
   padding: 0.28rem 0.7rem;
   border-radius: 0;
 }
-.theme-white .aud-bar-card-tag {
+.theme-white .aud-horiz-tag {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.4);
   color: #ffffff;
 }
-.theme-grey .aud-bar-card-tag {
+.theme-grey .aud-horiz-tag {
   background: rgba(142, 142, 147, 0.12);
   border: 1px solid rgba(142, 142, 147, 0.5);
   color: #8e8e93;
 }
-.theme-red .aud-bar-card-tag {
+.theme-red .aud-horiz-tag {
   background: rgba(230, 0, 38, 0.12);
   border: 1px solid rgba(230, 0, 38, 0.5);
   color: #e60026;
 }
 
-/* Titles */
-.aud-bar-card-title {
+.aud-horiz-title {
   font-family: var(--ff-a);
   font-size: 1.45rem;
   font-weight: 800;
@@ -13907,39 +13660,33 @@ body.gsap-ready .acc-inner .ru {
   margin-bottom: 0.25rem;
   line-height: 1.2;
 }
-.aud-bar-card-lao {
+.aud-horiz-lao {
   font-family: var(--ff-b);
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
   line-height: 1.4;
 }
 
-/* Dedicated Mini Horizontal Progress Bar Inside Each Card */
-.aud-mini-bar-track {
+/* Horizontal Progress Bar inside the Left Column */
+.aud-horiz-bar-track {
   width: 100%;
   height: 12px;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 0;
   overflow: hidden;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
   display: flex;
 }
-.aud-mini-bar-fill {
+.aud-horiz-bar-fill {
   height: 100%;
   transition: width 0.3s ease;
 }
-.theme-white .aud-mini-bar-fill {
-  background: #ffffff;
-}
-.theme-grey .aud-mini-bar-fill {
-  background: #8e8e93;
-}
-.theme-red .aud-mini-bar-fill {
-  background: #e60026;
-}
+.theme-white .aud-horiz-bar-fill { background: #ffffff; }
+.theme-grey .aud-horiz-bar-fill { background: #8e8e93; }
+.theme-red .aud-horiz-bar-fill { background: #e60026; }
 
-.aud-mini-bar-meta {
+.aud-horiz-bar-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13948,48 +13695,46 @@ body.gsap-ready .acc-inner .ru {
   font-weight: 700;
   letter-spacing: 0.08em;
   color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 1.8rem;
-  padding-bottom: 1.2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.aud-mini-bar-meta span:first-child {
+.aud-horiz-bar-meta span:first-child {
   color: #ffffff;
 }
 
-/* Headline-First Key Highlights */
-.aud-bar-stat-list {
+/* Right Column: 3 Strategic Pillars Side by Side */
+.aud-horiz-right {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+.aud-horiz-stat-col {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: 0.35rem;
 }
-.aud-bar-stat-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-.aud-stat-kicker {
+.aud-horiz-kicker {
   font-family: var(--ff-a);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
-.theme-white .aud-stat-kicker { color: rgba(255, 255, 255, 0.85); }
-.theme-grey .aud-stat-kicker { color: #8e8e93; }
-.theme-red .aud-stat-kicker { color: #e60026; }
+.theme-white .aud-horiz-kicker { color: rgba(255, 255, 255, 0.85); }
+.theme-grey .aud-horiz-kicker { color: #8e8e93; }
+.theme-red .aud-horiz-kicker { color: #e60026; }
 
-.aud-stat-headline {
+.aud-horiz-headline {
   font-family: var(--ff-a);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #ffffff;
   letter-spacing: 0.02em;
+  line-height: 1.25;
 }
-.aud-stat-desc {
+.aud-horiz-desc {
   font-family: var(--ff-b);
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.62);
-  line-height: 1.45;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
 }
 
 /* Card-free Sponsor Fit Bar */
@@ -14025,27 +13770,21 @@ body.gsap-ready .acc-inner .ru {
 }
 
 /* Responsive Media Queries */
-@media (max-width: 860px) {
-  .aud-chart-row {
+@media (max-width: 980px) {
+  .aud-horiz-row {
     grid-template-columns: 1fr;
-    gap: 0.65rem;
+    gap: 1.8rem;
+    padding: 1.8rem;
   }
-  .aud-row-label-wrap {
-    text-align: left;
+  .aud-horiz-left {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-right: 0;
+    padding-bottom: 1.5rem;
   }
-  .aud-scale-row {
+  .aud-horiz-right {
     grid-template-columns: 1fr;
-    gap: 0;
-  }
-  .aud-scale-left-spacer {
-    display: none;
-  }
-  .aud-bar-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 1.4rem;
-  }
-  .aud-poster-legend {
-    gap: 1.2rem 1.8rem;
+    gap: 1.2rem;
   }
   .cf-sponsor-fit-bar {
     flex-direction: column;
@@ -18509,286 +18248,118 @@ body.presentation-active .floating-present-badge {
         <p class="aud-poster-lao-sub">🇱🇦 ໂຄງສ້າງປະຊາກອນ ແລະ ພະລັງກຳລັງຊື້ຂອງກຸ່ມຄົນຮຸ່ນໃໝ່ທີ່ຂັບເຄື່ອນວັດທະນະທຳຕົວຈິງ</p>
       </div>
 
-      <!-- Legend: ⚪ Young Adults  🔘 Youth & Teens  🔴 Industry & VIP -->
-      <div class="aud-poster-legend">
-        <div class="aud-legend-item">
-          <span class="aud-legend-dot aud-dot-white"></span>
-          <span class="aud-legend-text">Young Adults (19–35)</span>
-          <span class="aud-legend-lao">ໄວເຮັດວຽກ &amp; ນັກສຶກສາ (50%)</span>
-        </div>
-        <div class="aud-legend-item">
-          <span class="aud-legend-dot aud-dot-grey"></span>
-          <span class="aud-legend-text">Youth &amp; Teens (13–18)</span>
-          <span class="aud-legend-lao">Gen Z &amp; ຄົນຮຸ່ນໃໝ່ (35%)</span>
-        </div>
-        <div class="aud-legend-item">
-          <span class="aud-legend-dot aud-dot-red"></span>
-          <span class="aud-legend-text">Industry &amp; VIP (36–45+)</span>
-          <span class="aud-legend-lao">VIP &amp; ທຸລະກິດ (15%)</span>
-        </div>
-      </div>
+      <!-- 3 Horizontal Demographic Rows (Image 2 Made Horizontal) -->
+      <div class="aud-horiz-list">
+        <!-- Row 1: Young Adults (50%) -->
+        <div class="aud-horiz-row theme-white">
+          <div class="aud-horiz-left">
+            <div class="aud-horiz-header">
+              <div class="aud-horiz-num">50%</div>
+              <span class="aud-horiz-tag">CORE AUDIENCE</span>
+            </div>
+            <h3 class="aud-horiz-title">Young Adults (19–35)</h3>
+            <div class="aud-horiz-lao">ກຸ່ມຫຼັກ: ໄວເຮັດວຽກ &amp; ນັກສຶກສາມະຫາວິທະຍາໄລ</div>
 
-      <!-- Stacked Horizontal Bar Chart matching reference image -->
-      <div class="aud-chart-container">
-        <!-- Row 1: Core Demographic Share -->
-        <div class="aud-chart-row">
-          <div class="aud-row-label-wrap">
-            <div class="aud-row-label">Demographic Share</div>
-            <div class="aud-row-lao">ສັດສ່ວນປະຊາກອນຜູ້ຊົມ</div>
+            <div class="aud-horiz-bar-track">
+              <div class="aud-horiz-bar-fill" style="width: 50%;"></div>
+            </div>
+            <div class="aud-horiz-bar-meta">
+              <span>50% AUDIENCE SHARE</span>
+              <span>CORE GENERATION</span>
+            </div>
           </div>
-          <div class="aud-bar-track">
-            <div class="aud-seg aud-seg-white" style="width: 50%;">
-              <span class="aud-seg-val">50%</span>
-              <div class="aud-seg-tooltip">
-                <span class="aud-tt-head">50% • Young Adults (19–35)</span>
-                <span class="aud-tt-lao">ກຸ່ມຫຼັກ: ໄວເຮັດວຽກ &amp; ນັກສຶກສາມະຫາວິທະຍາໄລ</span>
-              </div>
+
+          <div class="aud-horiz-right">
+            <div class="aud-horiz-stat-col">
+              <span class="aud-horiz-kicker">SPENDING POWER</span>
+              <div class="aud-horiz-headline">High Disposable Spend</div>
+              <div class="aud-horiz-desc">ກຳລັງຊື້ສູງໃນກຸ່ມ Streetwear, Tech, F&amp;B ແລະ Lifestyle</div>
             </div>
-            <div class="aud-seg aud-seg-grey" style="width: 35%;">
-              <span class="aud-seg-val">35%</span>
-              <div class="aud-seg-tooltip">
-                <span class="aud-tt-head">35% • Youth &amp; Teens (13–18)</span>
-                <span class="aud-tt-lao">ກຸ່ມ Gen Z: ນັກຮຽນ, ນັກເຕັ້ນ &amp; Creators</span>
-              </div>
+            <div class="aud-horiz-stat-col">
+              <span class="aud-horiz-kicker">FINTECH &amp; MOBILE</span>
+              <div class="aud-horiz-headline">Early Cashless Adopter</div>
+              <div class="aud-horiz-desc">ກຸ່ມຕົ້ນໆ ທີ່ໃຊ້ຈ່າຍຜ່ານ Digital Banking &amp; e-Wallet</div>
             </div>
-            <div class="aud-seg aud-seg-red" style="width: 15%;">
-              <span class="aud-seg-val">15%</span>
-              <div class="aud-seg-tooltip">
-                <span class="aud-tt-head">15% • Industry &amp; VIP (36–45+)</span>
-                <span class="aud-tt-lao">ກຸ່ມ VIP: ຜູ້ບໍລິຫານ, ທຸລະກິດ &amp; ຄູ່ຮ່ວມງານ</span>
-              </div>
+            <div class="aud-horiz-stat-col">
+              <span class="aud-horiz-kicker">FESTIVAL FOOTFALL</span>
+              <div class="aud-horiz-headline">Prime Concert Spenders</div>
+              <div class="aud-horiz-desc">ກຸ່ມຫຼັກທີ່ເຂົ້າຮ່ວມ Concert ຕອນແລງ &amp; ສ້າງຍອດຂາຍຮ້ານຄ້າ</div>
             </div>
           </div>
         </div>
 
-        <!-- Row 2: Purchasing & Spend -->
-        <div class="aud-chart-row">
-          <div class="aud-row-label-wrap">
-            <div class="aud-row-label">Purchasing &amp; Spend</div>
-            <div class="aud-row-lao">ກຳລັງຊື້ ແລະ ການໃຊ້ຈ່າຍ</div>
+        <!-- Row 2: Youth & Teens (35%) -->
+        <div class="aud-horiz-row theme-grey">
+          <div class="aud-horiz-left">
+            <div class="aud-horiz-header">
+              <div class="aud-horiz-num">35%</div>
+              <span class="aud-horiz-tag">DIGITAL NATIVES</span>
+            </div>
+            <h3 class="aud-horiz-title">Youth &amp; Teens (13–18)</h3>
+            <div class="aud-horiz-lao">ກຸ່ມ Gen Z: ນັກຮຽນ, ນັກເຕັ້ນລຸ້ນໃໝ່ &amp; Creators</div>
+
+            <div class="aud-horiz-bar-track">
+              <div class="aud-horiz-bar-fill" style="width: 35%;"></div>
+            </div>
+            <div class="aud-horiz-bar-meta">
+              <span>35% AUDIENCE SHARE</span>
+              <span>DIGITAL NATIVES</span>
+            </div>
           </div>
-          <div class="aud-bar-track">
-            <div class="aud-seg aud-seg-white" style="width: 60%;">
-              <span class="aud-seg-val">60%</span>
-              <div class="aud-seg-tooltip">
-                <span class="aud-tt-head">60% • Prime Disposable Income</span>
-                <span class="aud-tt-lao">ການໃຊ້ຈ່າຍດ້ານ Fashion, Tech, F&amp;B ແລະ Lifestyle</span>
-              </div>
+
+          <div class="aud-horiz-right">
+            <div class="aud-horiz-stat-col">
+              <span class="aud-horiz-kicker">VIRAL REACH</span>
+              <div class="aud-horiz-headline">TikTok &amp; IG Virality</div>
+              <div class="aud-horiz-desc">ພະລັງແບ່ງປັນສູງທີ່ສຸດ, ຊ່ວຍດັນໃຫ້ແບຣນກາຍເປັນໄວຣັລ (Viral)</div>
             </div>
-            <div class="aud-seg aud-seg-grey" style="width: 15%;">
-              <span class="aud-seg-val">15%</span>
-              <div class="aud-seg-tooltip">
-                <span class="aud-tt-head">15% • Youth Retail &amp; Merch</span>
-                <span class="aud-tt-lao">ຊື້ສິນຄ້າ Merchandise, ເຄື່ອງດື່ມ ແລະ ອຸປະກອນສະຕຣີດ</span>
-              </div>
+            <div class="aud-horiz-stat-col">
+              <span class="aud-horiz-kicker">BRAND AFFINITY</span>
+              <div class="aud-horiz-headline">Lifelong Brand Attachment</div>
+              <div class="aud-horiz-desc">ສ້າງຄວາມຜູກພັນ ແລະ ຄວາມຈົງຮັກພັກດີຕໍ່ແບຣນໃນໄລຍະຍາວ</div>
             </div>
-            <div class="aud-seg aud-seg-red" style="width: 25%;">
-              <span class="aud-seg-val">25%</span>
-              <div class="aud-seg-tooltip">
-                <span class="aud-tt-head">25% • VIP Hospitality &amp; Tables</span>
-                <span class="aud-tt-lao">ການໃຊ້ຈ່າຍຊຸດ VIP, ໂຮງແຮມ ແລະ ການຮັບຮອງລະດັບສູງ</span>
-              </div>
+            <div class="aud-horiz-stat-col">
+              <span class="aud-horiz-kicker">COMMUNITY CULTURE</span>
+              <div class="aud-horiz-headline">Grassroots Battles &amp; Workshops</div>
+              <div class="aud-horiz-desc">ເຂົ້າຮ່ວມກິດຈະກຳ Battle, Dance Cyphers &amp; Workshops</div>
             </div>
           </div>
         </div>
 
-        <!-- Row 3: Social UGC & Virality -->
-        <div class="aud-chart-row">
-          <div class="aud-row-label-wrap">
-            <div class="aud-row-label">Social UGC &amp; Virality</div>
-            <div class="aud-row-lao">ການສ້າງຄອນເທັນ ແລະ ໄວຣັລ</div>
-          </div>
-          <div class="aud-bar-track">
-            <div class="aud-seg aud-seg-white" style="width: 40%;">
-              <span class="aud-seg-val">40%</span>
-              <div class="aud-seg-tooltip">
-                <span class="aud-tt-head">40% • Lifestyle &amp; IG Stories</span>
-                <span class="aud-tt-lao">ແບ່ງປັນບັນຍາກາດງານ, ຄອນເສີດ ແລະ Check-in ແບຣນ</span>
-              </div>
+        <!-- Row 3: Industry & VIP (15%) -->
+        <div class="aud-horiz-row theme-red">
+          <div class="aud-horiz-left">
+            <div class="aud-horiz-header">
+              <div class="aud-horiz-num">15%</div>
+              <span class="aud-horiz-tag">PREMIUM &amp; VIP</span>
             </div>
-            <div class="aud-seg aud-seg-grey" style="width: 50%;">
-              <span class="aud-seg-val">50%</span>
-              <div class="aud-seg-tooltip">
-                <span class="aud-tt-head">50% • TikTok Viral Phenomenon</span>
-                <span class="aud-tt-lao">ສ້າງ Dance Challenge ແລະ ຄລິບໄວຣັລລົງສື່ສັງຄົມ</span>
-              </div>
-            </div>
-            <div class="aud-seg aud-seg-red" style="width: 10%;">
-              <span class="aud-seg-val">10%</span>
-              <div class="aud-seg-tooltip">
-                <span class="aud-tt-head">10% • Executive &amp; Media Reach</span>
-                <span class="aud-tt-lao">ຂ່າວປະຊາສຳພັນ, LinkedIn ແລະ ເຄືອຂ່າຍທຸລະກິດ B2B</span>
-              </div>
-            </div>
-          </div>
-        </div>
+            <h3 class="aud-horiz-title">Industry &amp; VIP (36–45+)</h3>
+            <div class="aud-horiz-lao">ກຸ່ມ VIP: ຜູ້ບໍລິຫານ, ທຸລະກິດ &amp; ຄູ່ຮ່ວມງານ</div>
 
-        <!-- Row 4: Brand Affinity & Loyalty -->
-        <div class="aud-chart-row">
-          <div class="aud-row-label-wrap">
-            <div class="aud-row-label">Brand Affinity &amp; Loyalty</div>
-            <div class="aud-row-lao">ຄວາມຜູກພັນຕໍ່ແບຣນໄລຍະຍາວ</div>
-          </div>
-          <div class="aud-bar-track">
-            <div class="aud-seg aud-seg-white" style="width: 45%;">
-              <span class="aud-seg-val">45%</span>
-              <div class="aud-seg-tooltip">
-                <span class="aud-tt-head">45% • High Brand Conversion</span>
-                <span class="aud-tt-lao">ປ່ຽນເປັນລູກຄ້າຕົວຈິງຂອງ Telecom, Fintech &amp; Lifestyle</span>
-              </div>
+            <div class="aud-horiz-bar-track">
+              <div class="aud-horiz-bar-fill" style="width: 15%;"></div>
             </div>
-            <div class="aud-seg aud-seg-grey" style="width: 40%;">
-              <span class="aud-seg-val">40%</span>
-              <div class="aud-seg-tooltip">
-                <span class="aud-tt-head">40% • Lifelong Loyalty Formation</span>
-                <span class="aud-tt-lao">ສ້າງຄວາມຈົງຮັກພັກດີຕໍ່ແບຣນທີ່ສະໜັບສະໜູນຕັ້ງແຕ່ໄວໜຸ່ມ</span>
-              </div>
+            <div class="aud-horiz-bar-meta">
+              <span>15% AUDIENCE SHARE</span>
+              <span>EXECUTIVE &amp; VIP</span>
             </div>
-            <div class="aud-seg aud-seg-red" style="width: 15%;">
-              <span class="aud-seg-val">15%</span>
-              <div class="aud-seg-tooltip">
-                <span class="aud-tt-head">15% • Strategic Partnership Value</span>
-                <span class="aud-tt-lao">ຄຸນຄ່າການເປັນພັນທະມິດທາງທຸລະກິດ ແລະ ການພັດທະນາ CSR</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Axis Scale directly aligned with the bars -->
-      <div class="aud-scale-row">
-        <div class="aud-scale-left-spacer"></div>
-        <div class="aud-scale-ticks">
-          <span class="aud-scale-num" style="left: 0%;">0%</span>
-          <span class="aud-scale-num" style="left: 20%;">20%</span>
-          <span class="aud-scale-num" style="left: 40%;">40%</span>
-          <span class="aud-scale-num" style="left: 60%;">60%</span>
-          <span class="aud-scale-num" style="left: 80%;">80%</span>
-          <span class="aud-scale-num" style="left: 100%;">100%</span>
-        </div>
-      </div>
-
-      <!-- Poster Footer Mark matching reference -->
-      <div class="aud-poster-brand">
-        <div class="aud-brand-mark">
-          <span class="aud-brand-box">LIHF</span>
-          <span class="aud-brand-tag">2026</span>
-        </div>
-        <div class="aud-brand-handle">LAO INTERNATIONAL HIPHOP FESTIVAL • VIENTIANE</div>
-      </div>
-
-      <!-- 3 Key Demographic Intelligence Panels (Matching the Red-White Bar Architecture) -->
-      <div class="aud-bar-cards-grid">
-        <!-- White: Young Adults -->
-        <div class="aud-bar-card theme-white">
-          <div class="aud-bar-card-header">
-            <div class="aud-bar-card-num">50%</div>
-            <span class="aud-bar-card-tag">CORE AUDIENCE</span>
-          </div>
-          <h3 class="aud-bar-card-title">Young Adults (19–35)</h3>
-          <div class="aud-bar-card-lao">ກຸ່ມຫຼັກ: ໄວເຮັດວຽກ &amp; ນັກສຶກສາມະຫາວິທະຍາໄລ</div>
-
-          <!-- Dedicated Bar Graphic Motif -->
-          <div class="aud-mini-bar-track">
-            <div class="aud-mini-bar-fill" style="width: 50%;"></div>
-          </div>
-          <div class="aud-mini-bar-meta">
-            <span>50% AUDIENCE SHARE</span>
-            <span>CORE GENERATION</span>
           </div>
 
-          <!-- Headline-First Key Highlights -->
-          <div class="aud-bar-stat-list">
-            <div class="aud-bar-stat-row">
-              <span class="aud-stat-kicker">SPENDING POWER</span>
-              <div class="aud-stat-headline">High Disposable Spend</div>
-              <div class="aud-stat-desc">ກຳລັງຊື້ສູງໃນກຸ່ມ Streetwear, Tech, F&amp;B ແລະ Lifestyle</div>
+          <div class="aud-horiz-right">
+            <div class="aud-horiz-stat-col">
+              <span class="aud-horiz-kicker">PREMIUM PURCHASING</span>
+              <div class="aud-horiz-headline">VIP Hospitality &amp; Lounges</div>
+              <div class="aud-horiz-desc">ກຳລັງຊື້ລະດັບ Premium ສຳລັບ VIP Lounges, ໂຮງແຮມ &amp; ການພັກຜ່ອນ</div>
             </div>
-            <div class="aud-bar-stat-row">
-              <span class="aud-stat-kicker">FINTECH &amp; MOBILE</span>
-              <div class="aud-stat-headline">Early Cashless Adopter</div>
-              <div class="aud-stat-desc">ກຸ່ມຕົ້ນໆ ທີ່ໃຊ້ຈ່າຍຜ່ານ Digital Banking &amp; e-Wallet</div>
+            <div class="aud-horiz-stat-col">
+              <span class="aud-horiz-kicker">COMMERCIAL DECISION</span>
+              <div class="aud-horiz-headline">B2B &amp; Brand Sponsorship</div>
+              <div class="aud-horiz-desc">ຜູ້ມີອຳນາດຕັດສິນໃຈໃນການລົງທຶນ, ສະໜັບສະໜູນແບຣນ &amp; B2B</div>
             </div>
-            <div class="aud-bar-stat-row">
-              <span class="aud-stat-kicker">FESTIVAL FOOTFALL</span>
-              <div class="aud-stat-headline">Prime Concert Spenders</div>
-              <div class="aud-stat-desc">ກຸ່ມຫຼັກທີ່ເຂົ້າຮ່ວມ Concert ຕອນແລງ &amp; ສ້າງຍອດຂາຍຮ້ານຄ້າ</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Grey: Youth & Teens -->
-        <div class="aud-bar-card theme-grey">
-          <div class="aud-bar-card-header">
-            <div class="aud-bar-card-num">35%</div>
-            <span class="aud-bar-card-tag">DIGITAL NATIVES</span>
-          </div>
-          <h3 class="aud-bar-card-title">Youth &amp; Teens (13–18)</h3>
-          <div class="aud-bar-card-lao">ກຸ່ມ Gen Z: ນັກຮຽນ, ນັກເຕັ້ນລຸ້ນໃໝ່ &amp; Creators</div>
-
-          <!-- Dedicated Bar Graphic Motif -->
-          <div class="aud-mini-bar-track">
-            <div class="aud-mini-bar-fill" style="width: 35%;"></div>
-          </div>
-          <div class="aud-mini-bar-meta">
-            <span>35% AUDIENCE SHARE</span>
-            <span>DIGITAL NATIVES</span>
-          </div>
-
-          <!-- Headline-First Key Highlights -->
-          <div class="aud-bar-stat-list">
-            <div class="aud-bar-stat-row">
-              <span class="aud-stat-kicker">VIRAL REACH</span>
-              <div class="aud-stat-headline">TikTok &amp; IG Virality</div>
-              <div class="aud-stat-desc">ພະລັງແບ່ງປັນສູງທີ່ສຸດ, ຊ່ວຍດັນໃຫ້ແບຣນກາຍເປັນໄວຣັລ (Viral)</div>
-            </div>
-            <div class="aud-bar-stat-row">
-              <span class="aud-stat-kicker">BRAND AFFINITY</span>
-              <div class="aud-stat-headline">Lifelong Brand Attachment</div>
-              <div class="aud-stat-desc">ສ້າງຄວາມຜູກພັນ ແລະ ຄວາມຈົງຮັກພັກດີຕໍ່ແບຣນໃນໄລຍະຍາວ</div>
-            </div>
-            <div class="aud-bar-stat-row">
-              <span class="aud-stat-kicker">COMMUNITY CULTURE</span>
-              <div class="aud-stat-headline">Grassroots Battles &amp; Workshops</div>
-              <div class="aud-stat-desc">ເຂົ້າຮ່ວມກິດຈະກຳ Battle, Dance Cyphers &amp; Workshops</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Red: Industry & VIP -->
-        <div class="aud-bar-card theme-red">
-          <div class="aud-bar-card-header">
-            <div class="aud-bar-card-num">15%</div>
-            <span class="aud-bar-card-tag">PREMIUM &amp; VIP</span>
-          </div>
-          <h3 class="aud-bar-card-title">Industry &amp; VIP (36–45+)</h3>
-          <div class="aud-bar-card-lao">ກຸ່ມ VIP: ຜູ້ບໍລິຫານ, ທຸລະກິດ &amp; ຄູ່ຮ່ວມງານ</div>
-
-          <!-- Dedicated Bar Graphic Motif -->
-          <div class="aud-mini-bar-track">
-            <div class="aud-mini-bar-fill" style="width: 15%;"></div>
-          </div>
-          <div class="aud-mini-bar-meta">
-            <span>15% AUDIENCE SHARE</span>
-            <span>EXECUTIVE &amp; VIP</span>
-          </div>
-
-          <!-- Headline-First Key Highlights -->
-          <div class="aud-bar-stat-list">
-            <div class="aud-bar-stat-row">
-              <span class="aud-stat-kicker">PREMIUM PURCHASING</span>
-              <div class="aud-stat-headline">VIP Hospitality &amp; Lounges</div>
-              <div class="aud-stat-desc">ກຳລັງຊື້ລະດັບ Premium ສຳລັບ VIP Lounges, ໂຮງແຮມ &amp; ການພັກຜ່ອນ</div>
-            </div>
-            <div class="aud-bar-stat-row">
-              <span class="aud-stat-kicker">COMMERCIAL DECISION</span>
-              <div class="aud-stat-headline">B2B &amp; Brand Sponsorship</div>
-              <div class="aud-stat-desc">ຜູ້ມີອຳນາດຕັດສິນໃຈໃນການລົງທຶນ, ສະໜັບສະໜູນແບຣນ &amp; B2B</div>
-            </div>
-            <div class="aud-bar-stat-row">
-              <span class="aud-stat-kicker">STRATEGIC IMPACT</span>
-              <div class="aud-stat-headline">National Culture &amp; CSR</div>
-              <div class="aud-stat-desc">ເຫັນຄຸນຄ່າໃນການຍົກລະດັບວັດທະນະທຳລາວສູ່ສາກົນ &amp; CSR</div>
+            <div class="aud-horiz-stat-col">
+              <span class="aud-horiz-kicker">STRATEGIC IMPACT</span>
+              <div class="aud-horiz-headline">National Culture &amp; CSR</div>
+              <div class="aud-horiz-desc">ເຫັນຄຸນຄ່າໃນການຍົກລະດັບວັດທະນະທຳລາວສູ່ສາກົນ &amp; CSR</div>
             </div>
           </div>
         </div>
