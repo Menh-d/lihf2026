@@ -7506,6 +7506,140 @@ nav { height: 60px !important; padding: 0 !important; }
   display: block;
 }
 
+/* Rose / Coxcomb Petal HUD Styles & Animations */
+.rose-hud-svg {
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
+  overflow: visible;
+}
+
+/* Radar Sweep Beam (Infinite 360° Scan Animation) */
+.hud-radar-sweep-beam {
+  transform-origin: 300px 260px;
+  animation: hudSweepBeam 7.5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes hudSweepBeam {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Pulsing Sonar Ring */
+.hud-sonar-ring {
+  transform-origin: 300px 260px;
+  animation: hudSonarPing 2.8s cubic-bezier(0.15, 0.85, 0.35, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes hudSonarPing {
+  0% {
+    r: 48px;
+    opacity: 0.8;
+    stroke-width: 1.8px;
+  }
+  100% {
+    r: 95px;
+    opacity: 0;
+    stroke-width: 0.5px;
+  }
+}
+
+/* Petals Wheel & Interactive States */
+.hud-petal-item {
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease;
+  transform-origin: 300px 260px;
+}
+
+.hud-petal-fill {
+  transition: filter 0.35s ease, opacity 0.3s ease;
+}
+
+.hud-petal-item:hover {
+  transform: scale(1.045);
+}
+
+.hud-petal-item:hover .hud-petal-fill {
+  filter: drop-shadow(0 0 16px rgba(245, 208, 106, 0.65)) drop-shadow(0 6px 16px rgba(0, 0, 0, 0.85));
+}
+
+.hud-petals-wheel:has(.hud-petal-item:hover) .hud-petal-item:not(:hover) {
+  opacity: 0.52;
+}
+
+/* Center Core Blinking Status Dot */
+.hud-status-dot {
+  animation: hudDotPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes hudDotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+/* Live Telemetry Readout Strip */
+.hud-live-telemetry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 0.65rem 1rem;
+  margin-top: 0.8rem;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.hud-telem-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3ddc97;
+  box-shadow: 0 0 10px #3ddc97;
+  animation: hudDotPulse 1.5s infinite;
+  flex-shrink: 0;
+}
+
+.hud-telem-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.hud-telem-tag {
+  font-family: monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--gold, #d4af37);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.hud-telem-text {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+}
+
+.hud-telem-badge {
+  font-family: monospace;
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 /* Clean Dashboard Footer Bar */
 .dash-clean-footer {
   display: flex;
@@ -17640,125 +17774,234 @@ body.presentation-active .floating-present-badge {
               <span class="dash-meta-text">📍 LAO-ITECC • 12,000 SQM</span>
             </div>
 
-            <!-- Technical Radar SVG (Uncluttered, hero visualization) -->
+            <!-- Rose Petal Audience HUD (Animated Coxcomb Architecture with Live Telemetry) -->
             <div class="hud-radar-svg-wrap">
-              <svg class="hud-radar-svg" viewBox="0 0 640 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <filter id="hudGlow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="10" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-                  <radialGradient id="highlightGrad" cx="30%" cy="25%" r="75%">
-                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
-                    <stop offset="35%" stop-color="#f5d06a" stop-opacity="0.55" />
-                    <stop offset="80%" stop-color="#cc0000" stop-opacity="0.25" />
-                    <stop offset="100%" stop-color="#08080c" stop-opacity="0" />
-                  </radialGradient>
-                  <radialGradient id="ambientGlowGrad" cx="38%" cy="30%" r="50%">
-                    <stop offset="0%" stop-color="rgba(255,255,255,0.20)" />
-                    <stop offset="60%" stop-color="rgba(245,208,106,0.06)" />
-                    <stop offset="100%" stop-color="rgba(8,8,12,0)" />
-                  </radialGradient>
-                  <radialGradient id="hudCoreGrad" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#1c1822" />
-                    <stop offset="70%" stop-color="#0a0a0f" />
-                    <stop offset="100%" stop-color="#050508" />
-                  </radialGradient>
-                </defs>
+<svg class="hud-radar-svg rose-hud-svg" viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Drop Shadow for Petals -->
+    <filter id="hudDropShadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000000" flood-opacity="0.75" />
+    </filter>
 
-                <!-- Technical Corner Reticles -->
-                <path d="M 20 32 L 20 20 L 32 20" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none" />
-                <path d="M 608 20 L 620 20 L 620 32" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none" />
-                <path d="M 20 488 L 20 500 L 32 500" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none" />
-                <path d="M 608 500 L 620 500 L 620 488" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none" />
-                <text x="36" y="26" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.35)">RADAR_GRID // 01</text>
-                <text x="604" y="26" text-anchor="end" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.35)">AZIMUTH // 360°</text>
-                <text x="36" y="498" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.35)">RANGE // 10M+</text>
-                <text x="604" y="498" text-anchor="end" font-family="monospace" font-size="9" fill="rgba(255,255,255,0.35)">LAT 17.9757°N</text>
+    <!-- Gradients for Filled Petals (Soft, Pearlescent, Luxurious Festival Tones) -->
+    <radialGradient id="petalGradGold" cx="40%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="45%" stop-color="#faecc1" />
+      <stop offset="80%" stop-color="#f5d06a" />
+      <stop offset="100%" stop-color="#d4a838" />
+    </radialGradient>
 
-                <!-- Ambient Glow Behind Highlighted Sector -->
-                <circle cx="260" cy="170" r="130" fill="url(#ambientGlowGrad)" pointer-events="none" />
+    <radialGradient id="petalGradPearlRose" cx="40%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#fae1e1" />
+      <stop offset="85%" stop-color="#f2b4b4" />
+      <stop offset="100%" stop-color="#e07a7a" />
+    </radialGradient>
 
-                <!-- Outer Concentric Guide Rings -->
-                <circle cx="320" cy="260" r="230" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="3 4" />
-                <circle cx="320" cy="260" r="185" stroke="rgba(255,255,255,0.10)" stroke-width="1" />
-                <circle cx="320" cy="260" r="145" stroke="rgba(255,255,255,0.55)" stroke-width="1.4" />
-                <circle cx="320" cy="260" r="80" stroke="rgba(255,255,255,0.65)" stroke-width="1.4" />
-                <circle cx="320" cy="260" r="50" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="2 3" />
+    <radialGradient id="petalGradIceCyan" cx="40%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#e1f4fc" />
+      <stop offset="85%" stop-color="#b6e3f8" />
+      <stop offset="100%" stop-color="#76c2eb" />
+    </radialGradient>
 
-                <!-- ── 6 SECTORS (PERFECT MATHEMATICAL ROTATIONAL SYMMETRY) ── -->
-                <!-- Sector 1: Top-Left Highlight (Digital Reach 45%) -->
-                <path d="M 194.4 187.5 A 145 145 0 0 1 320.0 115.0 L 320.0 180.0 A 80 80 0 0 0 250.7 220.0 Z" fill="url(#highlightGrad)" filter="url(#hudGlow)" />
-                <path d="M 194.4 187.5 A 145 145 0 0 1 320.0 115.0 L 320.0 180.0 A 80 80 0 0 0 250.7 220.0 Z" stroke="rgba(255,255,255,0.95)" stroke-width="1.6" />
+    <radialGradient id="petalGradAmberGold" cx="40%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="45%" stop-color="#fcf0cb" />
+      <stop offset="80%" stop-color="#f5d26f" />
+      <stop offset="100%" stop-color="#d69f20" />
+    </radialGradient>
 
-                <!-- Sector 2: Top-Right (Attendees 25%) -->
-                <path d="M 320.0 115.0 A 145 145 0 0 1 445.6 187.5 L 389.3 220.0 A 80 80 0 0 0 320.0 180.0 Z" fill="rgba(212,175,55,0.06)" stroke="rgba(255,255,255,0.22)" stroke-width="1" />
+    <radialGradient id="petalGradLavender" cx="40%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="55%" stop-color="#eee8f8" />
+      <stop offset="100%" stop-color="#cdbef0" />
+    </radialGradient>
 
-                <!-- Sector 3: Mid-Right (Talents 15%) -->
-                <path d="M 445.6 187.5 A 145 145 0 0 1 445.6 332.5 L 389.3 300.0 A 80 80 0 0 0 389.3 220.0 Z" fill="rgba(204,0,0,0.06)" stroke="rgba(255,255,255,0.22)" stroke-width="1" />
+    <radialGradient id="petalGradMint" cx="40%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="55%" stop-color="#e2f7ee" />
+      <stop offset="100%" stop-color="#9ce0c0" />
+    </radialGradient>
 
-                <!-- Sector 4: Bot-Right (Prize Pool 10%) -->
-                <path d="M 445.6 332.5 A 145 145 0 0 1 320.0 405.0 L 320.0 340.0 A 80 80 0 0 0 389.3 300.0 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.22)" stroke-width="1" />
+    <radialGradient id="petalGradPlatinum" cx="40%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#e8eaf0" />
+      <stop offset="100%" stop-color="#bec4d2" />
+    </radialGradient>
 
-                <!-- Sector 5: Bot-Left (Lifestyle Booths 5%) -->
-                <path d="M 320.0 405.0 A 145 145 0 0 1 194.4 332.5 L 250.7 300.0 A 80 80 0 0 0 320.0 340.0 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.22)" stroke-width="1" />
+    <radialGradient id="petalGradWarmSilver" cx="40%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="55%" stop-color="#f7eee2" />
+      <stop offset="100%" stop-color="#e0c29f" />
+    </radialGradient>
 
-                <!-- Sector 6: Mid-Left (Operations Crew) -->
-                <path d="M 194.4 332.5 A 145 145 0 0 1 194.4 187.5 L 250.7 220.0 A 80 80 0 0 0 250.7 300.0 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.22)" stroke-width="1" />
+    <!-- Radar Conic Sweep Trailing Fan -->
+    <radialGradient id="radarSweepFan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(245,208,106,0.35)" />
+      <stop offset="60%" stop-color="rgba(245,208,106,0.10)" />
+      <stop offset="100%" stop-color="rgba(245,208,106,0)" />
+    </radialGradient>
+  </defs>
 
-                <!-- ── RADIAL SEPARATORS ── -->
-                <line x1="320.0" y1="180.0" x2="320.0" y2="102.0" stroke="rgba(255,255,255,0.85)" stroke-width="1.3" />
-                <line x1="389.3" y1="220.0" x2="458.0" y2="180.0" stroke="rgba(255,255,255,0.45)" stroke-width="1" />
-                <line x1="389.3" y1="300.0" x2="458.0" y2="340.0" stroke="rgba(255,255,255,0.45)" stroke-width="1" />
-                <line x1="320.0" y1="340.0" x2="320.0" y2="418.0" stroke="rgba(255,255,255,0.45)" stroke-width="1" />
-                <line x1="250.7" y1="300.0" x2="182.0" y2="340.0" stroke="rgba(255,255,255,0.45)" stroke-width="1" />
-                <line x1="250.7" y1="220.0" x2="182.0" y2="180.0" stroke="rgba(255,255,255,0.75)" stroke-width="1.2" />
+  <!-- Technical Reticles & Coordinate Marks -->
+  <g class="hud-tech-reticles" opacity="0.45" pointer-events="none">
+    <path d="M 20 32 L 20 20 L 32 20" stroke="#ffffff" stroke-width="1.2" fill="none" />
+    <path d="M 580 20 L 568 20 M 580 20 L 580 32" stroke="#ffffff" stroke-width="1.2" fill="none" />
+    <path d="M 20 488 L 20 500 L 32 500" stroke="#ffffff" stroke-width="1.2" fill="none" />
+    <path d="M 580 500 L 568 500 M 580 500 L 580 488" stroke="#ffffff" stroke-width="1.2" fill="none" />
+    <text x="38" y="26" font-family="monospace" font-size="9" fill="#ffffff" letter-spacing="1">SPECTRUM_HUD // 01</text>
+    <text x="562" y="26" text-anchor="end" font-family="monospace" font-size="9" fill="#ffffff" letter-spacing="1">AZIMUTH // 360° RADIAL</text>
+    <text x="38" y="496" font-family="monospace" font-size="9" fill="#ffffff" letter-spacing="1">RANGE // 10M+ REACH</text>
+    <text x="562" y="496" text-anchor="end" font-family="monospace" font-size="9" fill="#ffffff" letter-spacing="1">LAT 17.9757°N • ITECC</text>
+  </g>
 
-                <!-- ── CALLOUT 1: TOP-LEFT (DIGITAL REACH 45%) ── -->
-                <polyline points="247.5,134.4 165,75 20,75" fill="none" stroke="#ffffff" stroke-width="1.4" />
-                <circle cx="247.5" cy="134.4" r="5" fill="#ffffff" stroke="rgba(255,255,255,0.45)" stroke-width="4" />
-                <text x="20" y="52" font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="15" fill="#ffffff" letter-spacing="1">10M+ <tspan fill="rgba(255,255,255,0.7)" font-weight="600" font-size="12">DIGITAL REACH (45%)</tspan></text>
-                <text x="20" y="69" font-family="'Noto Sans Lao', sans-serif" font-weight="600" font-size="11" fill="var(--gold, #d4af37)">🇱🇦 ເຂົ້າເຖິງສື່ TikTok &amp; Reels</text>
+  <!-- Ambient Guide Rings -->
+  <circle cx="300" cy="260" r="225" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3 5" pointer-events="none" />
+  <circle cx="300" cy="260" r="170" stroke="rgba(255,255,255,0.05)" stroke-width="1" pointer-events="none" />
+  <circle cx="300" cy="260" r="110" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="2 4" pointer-events="none" />
 
-                <!-- ── CALLOUT 2: TOP-RIGHT (ATTENDEES 25%) ── -->
-                <polyline points="392.5,134.4 475,75 620,75" fill="none" stroke="#ffffff" stroke-width="1.4" />
-                <circle cx="392.5" cy="134.4" r="4" fill="#ffffff" />
-                <text x="620" y="52" text-anchor="end" font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="15" fill="#ffffff" letter-spacing="1">10,000+ <tspan fill="rgba(255,255,255,0.7)" font-weight="600" font-size="12">ATTENDEES (25%)</tspan></text>
-                <text x="620" y="69" text-anchor="end" font-family="'Noto Sans Lao', sans-serif" font-weight="600" font-size="11" fill="var(--gold, #d4af37)">🇱🇦 ຜູ້ເຂົ້າຮ່ວມຕົວຈິງໃນງານ</text>
+  <!-- Animated Radar Sweep Beam Group (Infinite 360 Scan) -->
+  <g class="hud-radar-sweep-beam">
+    <line x1="300" y1="260" x2="300" y2="35" stroke="rgba(245,208,106,0.6)" stroke-width="1.5" />
+    <polygon points="300,260 260,37 300,35" fill="url(#radarSweepFan)" />
+  </g>
 
-                <!-- ── CALLOUT 3: MID-LEFT (OPERATIONS CREW) ── -->
-                <line x1="175" y1="260" x2="20" y2="260" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" />
-                <circle cx="175" cy="260" r="3.5" fill="rgba(255,255,255,0.9)" />
-                <text x="20" y="238" font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="15" fill="#ffffff" letter-spacing="1">100+ <tspan fill="rgba(255,255,255,0.7)" font-weight="600" font-size="12">OPERATIONS CREW</tspan></text>
-                <text x="20" y="254" font-family="'Noto Sans Lao', sans-serif" font-weight="600" font-size="11" fill="rgba(255,255,255,0.85)">🇱🇦 ທີມງານປະຕິບັດການ</text>
+  <!-- ── 8 PETALS WHEEL (ROSE / COXCOMB ARCHITECTURE) ── -->
+  <g class="hud-petals-wheel">
+    <!-- Petal 0: 10M+ DIGITAL REACH -->
+    <g class="hud-petal-item" data-sector="reach" data-num="10M+" data-en="DIGITAL REACH" data-lao="ການເຂົ້າເຖິງອອນລາຍ" data-detail="10,000,000+ Impressions • 45% Share • 8 ປະເທດອາຊຽນ" style="--idx: 0;">
+      <!-- Dark Frosted Outer Track -->
+      <path class="hud-petal-track" d="M 302.36 206.05 Q 302.09 212.05 308.06 212.68 A 48.00 48.00 0 0 1 327.76 220.84 Q 332.43 224.61 336.48 220.19 L 442.55 104.43 Q 452.01 94.11 441.40 84.98 A 225.00 225.00 0 0 0 323.77 36.26 Q 309.81 35.21 309.20 49.20 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+      <!-- Luminous Value Petal with Bloom -->
+      <path class="hud-petal-fill" d="M 302.36 206.05 Q 302.09 212.05 308.06 212.68 A 48.00 48.00 0 0 1 327.76 220.84 Q 332.43 224.61 336.48 220.19 L 442.55 104.43 Q 452.01 94.11 441.40 84.98 A 225.00 225.00 0 0 0 323.77 36.26 Q 309.81 35.21 309.20 49.20 Z" fill="url(#petalGradGold)" filter="url(#hudDropShadow)" />
+      <!-- Horizontal Text Labels -->
+      <g class="hud-petal-text" pointer-events="none">
+        <text x="369.3" y="92.8" text-anchor="middle" dominant-baseline="central" class="petal-num" fill="#0e0d13" font-size="16" font-family="'Barlow Condensed', sans-serif" font-weight="900" letter-spacing="0.5">10M+</text>
+        <text x="376.2" y="76.1" text-anchor="middle" dominant-baseline="central" class="petal-lbl" fill="#2a2833" font-size="8.5" font-family="'Barlow Condensed', sans-serif" font-weight="700" letter-spacing="0.8">DIGITAL REACH</text>
+        <text x="381.9" y="62.3" text-anchor="middle" dominant-baseline="central" class="petal-lao" fill="#5c5568" font-size="8" font-family="'Noto Sans Lao', sans-serif" font-weight="600">ການເຂົ້າເຖິງອອນລາຍ</text>
+      </g>
+    </g>
+    <!-- Petal 1: 10K+ LIVE AUDIENCE -->
+    <g class="hud-petal-item" data-sector="fans" data-num="10K+" data-en="LIVE AUDIENCE" data-lao="ຜູ້ຮ່ວມງານຕົວຈິງ" data-detail="10,000+ ຄົນຮ່ວມງານຕົວຈິງທີ່ Lao-ITECC Vientiane" style="--idx: 1;">
+      <!-- Dark Frosted Outer Track -->
+      <path class="hud-petal-track" d="M 339.81 223.52 Q 335.39 227.57 339.16 232.24 A 48.00 48.00 0 0 1 347.32 251.94 Q 347.95 257.91 353.95 257.64 L 510.80 250.80 Q 524.79 250.19 523.74 236.23 A 225.00 225.00 0 0 0 475.02 118.60 Q 465.89 107.99 455.57 117.45 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+      <!-- Luminous Value Petal with Bloom -->
+      <path class="hud-petal-fill" d="M 339.81 223.52 Q 335.39 227.57 339.16 232.24 A 48.00 48.00 0 0 1 347.32 251.94 Q 347.95 257.91 353.95 257.64 L 480.83 252.10 Q 494.81 251.49 493.70 237.54 A 195.00 195.00 0 0 0 452.85 138.91 Q 443.77 128.26 433.45 137.72 Z" fill="url(#petalGradPearlRose)" filter="url(#hudDropShadow)" />
+      <!-- Horizontal Text Labels -->
+      <g class="hud-petal-text" pointer-events="none">
+        <text x="439.5" y="202.2" text-anchor="middle" dominant-baseline="central" class="petal-num" fill="#0e0d13" font-size="16" font-family="'Barlow Condensed', sans-serif" font-weight="900" letter-spacing="0.5">10K+</text>
+        <text x="456.1" y="195.3" text-anchor="middle" dominant-baseline="central" class="petal-lbl" fill="#2a2833" font-size="8.5" font-family="'Barlow Condensed', sans-serif" font-weight="700" letter-spacing="0.8">LIVE AUDIENCE</text>
+        <text x="470.0" y="189.6" text-anchor="middle" dominant-baseline="central" class="petal-lao" fill="#5c5568" font-size="8" font-family="'Noto Sans Lao', sans-serif" font-weight="600">ຜູ້ຮ່ວມງານຕົວຈິງ</text>
+      </g>
+    </g>
+    <!-- Petal 2: 500+ TALENTS -->
+    <g class="hud-petal-item" data-sector="talents" data-num="500+" data-en="TALENTS" data-lao="ສິລະປິນ & ນັກກິລາ" data-detail="500+ Regional Dancers, MCs & DJs ຈາກທົ່ວພາກພື້ນ" style="--idx: 2;">
+      <!-- Dark Frosted Outer Track -->
+      <path class="hud-petal-track" d="M 353.95 262.36 Q 347.95 262.09 347.32 268.06 A 48.00 48.00 0 0 1 339.16 287.76 Q 335.39 292.43 339.81 296.48 L 455.57 402.55 Q 465.89 412.01 475.02 401.40 A 225.00 225.00 0 0 0 523.74 283.77 Q 524.79 269.81 510.80 269.20 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+      <!-- Luminous Value Petal with Bloom -->
+      <path class="hud-petal-fill" d="M 353.95 262.36 Q 347.95 262.09 347.32 268.06 A 48.00 48.00 0 0 1 339.16 287.76 Q 335.39 292.43 339.81 296.48 L 411.33 362.01 Q 421.65 371.47 430.66 360.76 A 165.00 165.00 0 0 0 463.64 281.14 Q 464.84 267.20 450.86 266.59 Z" fill="url(#petalGradIceCyan)" filter="url(#hudDropShadow)" />
+      <!-- Horizontal Text Labels -->
+      <g class="hud-petal-text" pointer-events="none">
+        <text x="411.8" y="306.3" text-anchor="middle" dominant-baseline="central" class="petal-num" fill="#0e0d13" font-size="16" font-family="'Barlow Condensed', sans-serif" font-weight="900" letter-spacing="0.5">500+</text>
+        <text x="428.4" y="313.2" text-anchor="middle" dominant-baseline="central" class="petal-lbl" fill="#2a2833" font-size="8.5" font-family="'Barlow Condensed', sans-serif" font-weight="700" letter-spacing="0.8">TALENTS</text>
+        <text x="442.3" y="318.9" text-anchor="middle" dominant-baseline="central" class="petal-lao" fill="#5c5568" font-size="8" font-family="'Noto Sans Lao', sans-serif" font-weight="600">ສິລະປິນ & ນັກກິລາ</text>
+      </g>
+    </g>
+    <!-- Petal 3: 159M PRIZE POOL -->
+    <g class="hud-petal-item" data-sector="prize" data-num="159M" data-en="PRIZE POOL" data-lao="ເງິນລາງວັນລວມ" data-detail="159,000,000 LAK ລາງວັນການແຂ່ງຂັນ Battle 7 ສາຍຫຼັກ" style="--idx: 3;">
+      <!-- Dark Frosted Outer Track -->
+      <path class="hud-petal-track" d="M 336.48 299.81 Q 332.43 295.39 327.76 299.16 A 48.00 48.00 0 0 1 308.06 307.32 Q 302.09 307.95 302.36 313.95 L 309.20 470.80 Q 309.81 484.79 323.77 483.74 A 225.00 225.00 0 0 0 441.40 435.02 Q 452.01 425.89 442.55 415.57 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+      <!-- Luminous Value Petal with Bloom -->
+      <path class="hud-petal-fill" d="M 336.48 299.81 Q 332.43 295.39 327.76 299.16 A 48.00 48.00 0 0 1 308.06 307.32 Q 302.09 307.95 302.36 313.95 L 308.77 460.81 Q 309.38 474.80 323.34 473.73 A 215.00 215.00 0 0 0 434.63 427.63 Q 445.25 418.51 435.79 408.19 Z" fill="url(#petalGradAmberGold)" filter="url(#hudDropShadow)" />
+      <!-- Horizontal Text Labels -->
+      <g class="hud-petal-text" pointer-events="none">
+        <text x="365.4" y="418.0" text-anchor="middle" dominant-baseline="central" class="petal-num" fill="#0e0d13" font-size="16" font-family="'Barlow Condensed', sans-serif" font-weight="900" letter-spacing="0.5">159M</text>
+        <text x="372.3" y="434.6" text-anchor="middle" dominant-baseline="central" class="petal-lbl" fill="#2a2833" font-size="8.5" font-family="'Barlow Condensed', sans-serif" font-weight="700" letter-spacing="0.8">PRIZE POOL</text>
+        <text x="378.1" y="448.5" text-anchor="middle" dominant-baseline="central" class="petal-lao" fill="#5c5568" font-size="8" font-family="'Noto Sans Lao', sans-serif" font-weight="600">ເງິນລາງວັນລວມ</text>
+      </g>
+    </g>
+    <!-- Petal 4: 12K SQM ARENA -->
+    <g class="hud-petal-item" data-sector="venue" data-num="12K" data-en="SQM ARENA" data-lao="ເນື້ອທີ່ຈັດງານ" data-detail="12,000 ຕາແມັດ Indoor Arena ທີ່ Lao-ITECC" style="--idx: 4;">
+      <!-- Dark Frosted Outer Track -->
+      <path class="hud-petal-track" d="M 297.64 313.95 Q 297.91 307.95 291.94 307.32 A 48.00 48.00 0 0 1 272.24 299.16 Q 267.57 295.39 263.52 299.81 L 157.45 415.57 Q 147.99 425.89 158.60 435.02 A 225.00 225.00 0 0 0 276.23 483.74 Q 290.19 484.79 290.80 470.80 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+      <!-- Luminous Value Petal with Bloom -->
+      <path class="hud-petal-fill" d="M 297.64 313.95 Q 297.91 307.95 291.94 307.32 A 48.00 48.00 0 0 1 272.24 299.16 Q 267.57 295.39 263.52 299.81 L 211.50 356.58 Q 202.04 366.91 212.80 375.85 A 145.00 145.00 0 0 0 279.74 403.58 Q 293.68 404.86 294.29 390.88 Z" fill="url(#petalGradLavender)" filter="url(#hudDropShadow)" />
+      <!-- Horizontal Text Labels -->
+      <g class="hud-petal-text" pointer-events="none">
+        <text x="244.5" y="394.0" text-anchor="middle" dominant-baseline="central" class="petal-num" fill="#ffffff" font-size="16" font-family="'Barlow Condensed', sans-serif" font-weight="800" letter-spacing="0.5">12K</text>
+        <text x="236.5" y="413.4" text-anchor="middle" dominant-baseline="central" class="petal-lbl" fill="rgba(255,255,255,0.85)" font-size="8.5" font-family="'Barlow Condensed', sans-serif" font-weight="700" letter-spacing="0.8">SQM ARENA</text>
+        <text x="230.7" y="427.2" text-anchor="middle" dominant-baseline="central" class="petal-lao" fill="#f5d06a" font-size="8" font-family="'Noto Sans Lao', sans-serif" font-weight="600">ເນື້ອທີ່ຈັດງານ</text>
+      </g>
+    </g>
+    <!-- Petal 5: 50+ BRAND BOOTHS -->
+    <g class="hud-petal-item" data-sector="booths" data-num="50+" data-en="BRAND BOOTHS" data-lao="ບູດທົດລອງສິນຄ້າ" data-detail="50-70 ບູດ Lifestyle, Street Fashion & Food Popups" style="--idx: 5;">
+      <!-- Dark Frosted Outer Track -->
+      <path class="hud-petal-track" d="M 260.19 296.48 Q 264.61 292.43 260.84 287.76 A 48.00 48.00 0 0 1 252.68 268.06 Q 252.05 262.09 246.05 262.36 L 89.20 269.20 Q 75.21 269.81 76.26 283.77 A 225.00 225.00 0 0 0 124.98 401.40 Q 134.11 412.01 144.43 402.55 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+      <!-- Luminous Value Petal with Bloom -->
+      <path class="hud-petal-fill" d="M 260.19 296.48 Q 264.61 292.43 260.84 287.76 A 48.00 48.00 0 0 1 252.68 268.06 Q 252.05 262.09 246.05 262.36 L 199.10 264.41 Q 185.11 265.02 186.57 278.93 A 115.00 115.00 0 0 0 206.41 326.82 Q 215.21 337.69 225.53 328.23 Z" fill="url(#petalGradMint)" filter="url(#hudDropShadow)" />
+      <!-- Horizontal Text Labels -->
+      <g class="hud-petal-text" pointer-events="none">
+        <text x="166.0" y="315.5" text-anchor="middle" dominant-baseline="central" class="petal-num" fill="#ffffff" font-size="16" font-family="'Barlow Condensed', sans-serif" font-weight="800" letter-spacing="0.5">50+</text>
+        <text x="146.6" y="323.5" text-anchor="middle" dominant-baseline="central" class="petal-lbl" fill="rgba(255,255,255,0.85)" font-size="8.5" font-family="'Barlow Condensed', sans-serif" font-weight="700" letter-spacing="0.8">BRAND BOOTHS</text>
+        <text x="132.8" y="329.3" text-anchor="middle" dominant-baseline="central" class="petal-lao" fill="#f5d06a" font-size="8" font-family="'Noto Sans Lao', sans-serif" font-weight="600">ບູດທົດລອງສິນຄ້າ</text>
+      </g>
+    </g>
+    <!-- Petal 6: 100+ CREW & MEDIA -->
+    <g class="hud-petal-item" data-sector="crew" data-num="100+" data-en="CREW & MEDIA" data-lao="ສື່ & ທີມງານ" data-detail="100+ ທີມງານຖ່າຍທອດສົດ, ເວທີ ແລະ ຄວາມປອດໄພ" style="--idx: 6;">
+      <!-- Dark Frosted Outer Track -->
+      <path class="hud-petal-track" d="M 246.05 257.64 Q 252.05 257.91 252.68 251.94 A 48.00 48.00 0 0 1 260.84 232.24 Q 264.61 227.57 260.19 223.52 L 144.43 117.45 Q 134.11 107.99 124.98 118.60 A 225.00 225.00 0 0 0 76.26 236.23 Q 75.21 250.19 89.20 250.80 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+      <!-- Luminous Value Petal with Bloom -->
+      <path class="hud-petal-fill" d="M 246.05 257.64 Q 252.05 257.91 252.68 251.94 A 48.00 48.00 0 0 1 260.84 232.24 Q 264.61 227.57 260.19 223.52 L 243.97 208.66 Q 233.65 199.20 225.03 210.21 A 90.00 90.00 0 0 0 211.78 242.19 Q 210.09 256.07 224.07 256.68 Z" fill="url(#petalGradPlatinum)" filter="url(#hudDropShadow)" />
+      <!-- Horizontal Text Labels -->
+      <g class="hud-petal-text" pointer-events="none">
+        <text x="166.0" y="204.5" text-anchor="middle" dominant-baseline="central" class="petal-num" fill="#ffffff" font-size="16" font-family="'Barlow Condensed', sans-serif" font-weight="800" letter-spacing="0.5">100+</text>
+        <text x="146.6" y="196.5" text-anchor="middle" dominant-baseline="central" class="petal-lbl" fill="rgba(255,255,255,0.85)" font-size="8.5" font-family="'Barlow Condensed', sans-serif" font-weight="700" letter-spacing="0.8">CREW & MEDIA</text>
+        <text x="132.8" y="190.7" text-anchor="middle" dominant-baseline="central" class="petal-lao" fill="#f5d06a" font-size="8" font-family="'Noto Sans Lao', sans-serif" font-weight="600">ສື່ & ທີມງານ</text>
+      </g>
+    </g>
+    <!-- Petal 7: 8+ NATIONS -->
+    <g class="hud-petal-item" data-sector="nations" data-num="8+" data-en="NATIONS" data-lao="ປະເທດອາຊຽນ" data-detail="8 ປະເທດພາກພື້ນອາຊຽນ ແລະ ສາກົນ ເຂົ້າຮ່ວມແຂ່ງຂັນ" style="--idx: 7;">
+      <!-- Dark Frosted Outer Track -->
+      <path class="hud-petal-track" d="M 263.52 220.19 Q 267.57 224.61 272.24 220.84 A 48.00 48.00 0 0 1 291.94 212.68 Q 297.91 212.05 297.64 206.05 L 290.80 49.20 Q 290.19 35.21 276.23 36.26 A 225.00 225.00 0 0 0 158.60 84.98 Q 147.99 94.11 157.45 104.43 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+      <!-- Luminous Value Petal with Bloom -->
+      <path class="hud-petal-fill" d="M 263.52 220.19 Q 267.57 224.61 272.24 220.84 A 48.00 48.00 0 0 1 291.94 212.68 Q 297.91 212.05 297.64 206.05 L 294.72 139.12 Q 294.11 125.13 280.18 126.46 A 135.00 135.00 0 0 0 219.59 151.56 Q 208.80 160.47 218.25 170.79 Z" fill="url(#petalGradWarmSilver)" filter="url(#hudDropShadow)" />
+      <!-- Horizontal Text Labels -->
+      <g class="hud-petal-text" pointer-events="none">
+        <text x="244.5" y="126.0" text-anchor="middle" dominant-baseline="central" class="petal-num" fill="#ffffff" font-size="16" font-family="'Barlow Condensed', sans-serif" font-weight="800" letter-spacing="0.5">8+</text>
+        <text x="236.5" y="106.6" text-anchor="middle" dominant-baseline="central" class="petal-lbl" fill="rgba(255,255,255,0.85)" font-size="8.5" font-family="'Barlow Condensed', sans-serif" font-weight="700" letter-spacing="0.8">NATIONS</text>
+        <text x="230.7" y="92.8" text-anchor="middle" dominant-baseline="central" class="petal-lao" fill="#f5d06a" font-size="8" font-family="'Noto Sans Lao', sans-serif" font-weight="600">ປະເທດອາຊຽນ</text>
+      </g>
+    </g>
+  </g>
 
-                <!-- ── CALLOUT 4: MID-RIGHT (TALENTS 15%) ── -->
-                <line x1="465" y1="260" x2="620" y2="260" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" />
-                <circle cx="465" cy="260" r="3.5" fill="rgba(255,255,255,0.9)" />
-                <text x="620" y="238" text-anchor="end" font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="15" fill="#ffffff" letter-spacing="1">500+ <tspan fill="rgba(255,255,255,0.7)" font-weight="600" font-size="12">ATHLETES &amp; TALENTS (15%)</tspan></text>
-                <text x="620" y="254" text-anchor="end" font-family="'Noto Sans Lao', sans-serif" font-weight="600" font-size="11" fill="rgba(255,255,255,0.85)">🇱🇦 ສິລະປິນ &amp; ນັກເຕັ້ນ 10+ ຊາດ</text>
+  <!-- Pulsing Sonar Ring -->
+  <circle class="hud-sonar-ring" cx="300" cy="260" r="45" stroke="rgba(245,208,106,0.6)" stroke-width="1.5" fill="none" pointer-events="none" />
 
-                <!-- ── CALLOUT 5: BOT-LEFT (LIFESTYLE BOOTHS 5%) ── -->
-                <polyline points="247.5,385.6 165,445 20,445" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" />
-                <circle cx="247.5" cy="385.6" r="3.5" fill="rgba(255,255,255,0.9)" />
-                <text x="20" y="424" font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="15" fill="#ffffff" letter-spacing="1">50–70 <tspan fill="rgba(255,255,255,0.7)" font-weight="600" font-size="12">LIFESTYLE BOOTHS (5%)</tspan></text>
-                <text x="20" y="440" font-family="'Noto Sans Lao', sans-serif" font-weight="600" font-size="11" fill="rgba(255,255,255,0.85)">🇱🇦 ບູດສິນຄ້າ &amp; ອາຫານ</text>
+  <!-- Center Core HUD Disk -->
+  <g class="hud-center-core" id="hudCenterCore" pointer-events="none">
+    <circle cx="300" cy="260" r="48" fill="#0d0c12" stroke="rgba(245,208,106,0.4)" stroke-width="1.8" filter="url(#hudDropShadow)" />
+    <circle cx="300" cy="260" r="42" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="1" stroke-dasharray="2 3" />
+    
+    <!-- Central Dynamic Readout -->
+    <g class="hud-core-readout" text-anchor="middle">
+      <circle cx="300" cy="238" r="3" fill="#3ddc97" class="hud-status-dot" />
+      <text x="300" y="251" font-family="'Barlow Condensed', sans-serif" font-size="10" font-weight="700" fill="rgba(255,255,255,0.6)" letter-spacing="1" class="hud-core-sub">ACTIVE HUD</text>
+      <text x="300" y="271" font-family="'Barlow Condensed', sans-serif" font-size="18" font-weight="900" fill="#f5d06a" letter-spacing="0.5" class="hud-core-kpi" id="hudCoreKpi">10M+</text>
+      <text x="300" y="286" font-family="'Noto Sans Lao', sans-serif" font-size="8" font-weight="600" fill="rgba(255,255,255,0.7)" class="hud-core-desc" id="hudCoreDesc">ເຂົ້າເຖິງ 8 ປະເທດ</text>
+    </g>
+  </g>
+</svg>
+            </div>
 
-                <!-- ── CALLOUT 6: BOT-RIGHT (PRIZE POOL 10%) ── -->
-                <polyline points="392.5,385.6 475,445 620,445" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" />
-                <circle cx="392.5" cy="385.6" r="3.5" fill="rgba(255,255,255,0.9)" />
-                <text x="620" y="424" text-anchor="end" font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="15" fill="var(--gold, #d4af37)" letter-spacing="1">159M LAK <tspan fill="rgba(255,255,255,0.7)" font-weight="600" font-size="12">PRIZE POOL (10%)</tspan></text>
-                <text x="620" y="440" text-anchor="end" font-family="'Noto Sans Lao', sans-serif" font-weight="600" font-size="11" fill="rgba(255,255,255,0.85)">🇱🇦 ມູນຄ່າເງິນລາງວັນ 7 ສາຍຫຼັກ</text>
-
-                <!-- ── DONUT CENTER CORE ── -->
-                <circle cx="320" cy="260" r="78" fill="url(#hudCoreGrad)" />
-                <circle cx="320" cy="260" r="36" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
-                <circle cx="320" cy="260" r="4" fill="var(--red, #cc0000)" />
-                <text x="320" y="235" font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="11" fill="var(--gold, #d4af37)" letter-spacing="2" text-anchor="middle">LIHF 2026</text>
-                <text x="320" y="255" font-family="'Anton', sans-serif" font-size="20" fill="#ffffff" letter-spacing="1" text-anchor="middle">REGIONAL HUD</text>
-                <text x="320" y="274" font-family="'Barlow Condensed', sans-serif" font-weight="700" font-size="12" fill="var(--red, #cc0000)" letter-spacing="1.5" text-anchor="middle">10M+ REACH</text>
-                <text x="320" y="292" font-family="'Noto Sans Lao', sans-serif" font-weight="600" font-size="11" fill="rgba(255,255,255,0.85)" text-anchor="middle">ສູນກາງພາກພື້ນ</text>
-              </svg>
+            <!-- Live Telemetry Readout Banner -->
+            <div class="hud-live-telemetry" id="hudLiveTelemetry">
+              <div class="hud-telem-pulse"></div>
+              <div class="hud-telem-info">
+                <span class="hud-telem-tag" id="hudTelemTag">REAL-TIME SPECTRUM MONITORING</span>
+                <span class="hud-telem-text" id="hudTelemText">🇱🇦 ກວດສອບສະຖິຕິ 8 ມິຕິ: ຊີ້ໃສ່ແຕ່ລະກີບເພື່ອເບິ່ງລາຍລະອຽດເຈາະເລິກ</span>
+              </div>
+              <div class="hud-telem-badge" id="hudTelemBadge">360° SPECTRUM</div>
             </div>
 
             <!-- Clean Footer -->
@@ -24165,6 +24408,61 @@ function replayLogoIntro(){
       }
     }
   });
+
+  // ── ROSE AUDIENCE HUD INTERACTIVITY ──
+  (function initRoseAudienceHud() {
+    const petals = document.querySelectorAll('.hud-petal-item');
+    const kpiEl = document.getElementById('hudCoreKpi');
+    const descEl = document.getElementById('hudCoreDesc');
+    const subEl = document.querySelector('.hud-core-sub');
+    const telemTag = document.getElementById('hudTelemTag');
+    const telemText = document.getElementById('hudTelemText');
+    const telemBadge = document.getElementById('hudTelemBadge');
+
+    if (!petals.length || !kpiEl) return;
+
+    let resetTimer = null;
+    const defaultData = {
+      num: '10M+',
+      sub: 'ACTIVE HUD',
+      desc: 'ເຂົ້າເຖິງ 8 ປະເທດ',
+      tag: 'REAL-TIME SPECTRUM MONITORING',
+      text: '🇱🇦 ກວດສອບສະຖິຕິ 8 ມິຕິ: ຊີ້ໃສ່ແຕ່ລະກີບເພື່ອເບິ່ງລາຍລະອຽດເຈາະເລິກ',
+      badge: '360° SPECTRUM'
+    };
+
+    petals.forEach(petal => {
+      const num = petal.getAttribute('data-num') || '';
+      const en = petal.getAttribute('data-en') || '';
+      const lao = petal.getAttribute('data-lao') || '';
+      const detail = petal.getAttribute('data-detail') || '';
+
+      const handleEnter = () => {
+        if (resetTimer) clearTimeout(resetTimer);
+        kpiEl.textContent = num;
+        if (subEl) subEl.textContent = en;
+        if (descEl) descEl.textContent = lao;
+        if (telemTag) telemTag.textContent = `${en} // ${num}`;
+        if (telemText) telemText.textContent = `🇱🇦 ${detail}`;
+        if (telemBadge) telemBadge.textContent = 'ACTIVE SECTOR';
+      };
+
+      const handleLeave = () => {
+        resetTimer = setTimeout(() => {
+          kpiEl.textContent = defaultData.num;
+          if (subEl) subEl.textContent = defaultData.sub;
+          if (descEl) descEl.textContent = defaultData.desc;
+          if (telemTag) telemTag.textContent = defaultData.tag;
+          if (telemText) telemText.textContent = defaultData.text;
+          if (telemBadge) telemBadge.textContent = defaultData.badge;
+        }, 450);
+      };
+
+      petal.addEventListener('mouseenter', handleEnter);
+      petal.addEventListener('mouseleave', handleLeave);
+      petal.addEventListener('click', handleEnter);
+    });
+  })();
 
 })();
 </script>
