@@ -19240,6 +19240,384 @@ body.presentation-active .floating-present-badge {
   .guest-bio-body { padding: 1.4rem; }
 }
 
+
+/* ═══════════════════════════════════════════════════════════════════
+   5 FEATURED LAO HIP-HOP ARTISTS: 3D COVERFLOW CAROUSEL
+   Style derived directly from gallery 2.ts (3D Coverflow Carousel)
+   ═══════════════════════════════════════════════════════════════════ */
+.lao-artists-section {
+  position: relative;
+  z-index: 20 !important;
+  margin-top: 4.5rem;
+  padding-top: 3.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  --cf-card-w: clamp(230px, 25vw, 300px);
+}
+.lao-artists-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--red), transparent);
+}
+.lao-artists-header {
+  text-align: center;
+  max-width: 1080px;
+  margin: 0 auto 1.8rem;
+}
+.lao-artists-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.lao-artists-h2 {
+  font-family: var(--ff-d);
+  font-size: clamp(1.4rem, 2.5vw, 2.3rem);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  color: var(--wh);
+  margin: 0.2rem 0 0.4rem;
+}
+.lao-artists-sub-lao {
+  font-family: 'Noto Sans Lao', sans-serif;
+  font-size: clamp(0.85rem, 1.15vw, 1.05rem);
+  font-weight: 700;
+  color: var(--gold-l);
+  margin-bottom: 0.5rem;
+}
+.lao-artists-lead-p {
+  font-family: 'Noto Sans Lao', var(--ff-b);
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.6;
+  max-width: 920px;
+  margin: 0 auto 1.5rem;
+}
+
+/* 3D Coverflow Stage Viewport */
+.cf-stage-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.cf-carousel-frame {
+  position: relative;
+  width: 100%;
+  padding: 2.2rem 0 1.8rem;
+  perspective: calc(var(--cf-card-w) * 3);
+  overflow: hidden;
+  user-select: none;
+  cursor: grab;
+  touch-action: pan-y;
+  outline: none;
+}
+.cf-carousel-frame:active {
+  cursor: grabbing;
+}
+.cf-carousel-track {
+  position: relative;
+  height: var(--cf-card-w);
+  transform-style: preserve-3d;
+}
+
+/* Individual 3D Coverflow Slide Card */
+.cf-card {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: var(--cf-card-w);
+  height: var(--cf-card-w);
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  background: #141520;
+  border: 2px solid rgba(255, 215, 0, 0.45);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 215, 0, 0.18);
+  overflow: hidden;
+  will-change: transform, opacity;
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transform-origin: center center;
+}
+.cf-card.is-active-card {
+  border-color: #ffd700;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 32px rgba(255, 215, 0, 0.55);
+}
+.cf-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  pointer-events: none;
+  filter: brightness(1.08) contrast(1.05);
+}
+.cf-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 40%, rgba(0,0,0,0.85) 100%);
+  pointer-events: none;
+}
+.cf-card-top-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+.cf-card-badge {
+  background: #ffd700;
+  color: #000;
+  font-family: var(--ff-a);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+.cf-card-country {
+  color: #fff;
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+}
+.cf-card-title-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  right: 12px;
+  pointer-events: none;
+}
+.cf-card-name {
+  font-family: var(--ff-d);
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.95);
+  line-height: 1.1;
+}
+.cf-card-sub {
+  font-family: var(--ff-a);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #ffd700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+}
+
+/* Nav Buttons */
+.cf-nav-btn {
+  position: absolute;
+  top: calc(50% - 15px);
+  transform: translateY(-50%);
+  z-index: 120;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(14, 15, 23, 0.88);
+  border: 1.5px solid rgba(255, 215, 0, 0.5);
+  color: #ffd700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.cf-nav-btn:hover {
+  background: #ffd700;
+  color: #000;
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.6);
+  transform: translateY(-50%) scale(1.08);
+}
+.cf-prev-btn { left: 8px; }
+.cf-next-btn { right: 8px; }
+
+/* Pagination Dots */
+.cf-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+.cf-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+.cf-dot.active {
+  width: 28px;
+  border-radius: 999px;
+  background: #ffd700;
+  border-color: #ffd700;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+}
+
+/* Active Artist Showcase Card (matches gallery 2.ts showCaption) */
+.cf-artist-detail-card {
+  margin: 2.2rem auto 2.5rem;
+  max-width: 1200px;
+  background: linear-gradient(180deg, #171826 0%, #0e0f18 100%);
+  border: 1.5px solid rgba(255, 215, 0, 0.5);
+  border-top: 4px solid #ffd700;
+  border-radius: 18px;
+  padding: 1.8rem 2.2rem;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 215, 0, 0.18);
+  display: grid;
+  grid-template-columns: 1.2fr 1.3fr 1.5fr;
+  gap: 1.8rem;
+  align-items: start;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.cf-detail-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.cf-detail-name {
+  font-family: var(--ff-d);
+  font-size: 2.2rem;
+  line-height: 1.05;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+}
+.cf-detail-genre-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  background: rgba(255, 215, 0, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  color: #ffd700;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.cf-detail-block-title {
+  font-family: var(--ff-a);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffd700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cf-detail-text {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.92rem;
+  color: #ffffff !important;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+.cf-hits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.cf-hit-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.55rem 0.85rem;
+  transition: all 0.2s ease;
+}
+.cf-hit-item:hover {
+  border-color: rgba(255, 215, 0, 0.5);
+  background: rgba(255, 215, 0, 0.06);
+}
+.cf-hit-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffd700;
+  color: #000;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+.cf-hit-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+.cf-hit-title {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cf-hit-artist {
+  font-family: var(--ff-b);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 992px) {
+  .cf-artist-detail-card {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+    padding: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .lao-artists-section {
+    --cf-card-w: clamp(210px, 65vw, 270px);
+  }
+  .cf-nav-btn {
+    width: 38px;
+    height: 38px;
+  }
+}
+
 </style>
 
 <script src="https://rawcdn.githack.com/martinlaxenaire/curtainsjs/95957f855ad9fd51850e97312cd389af76e9704e/build/curtains.min.js"></script>
@@ -21352,6 +21730,124 @@ body.presentation-active .floating-present-badge {
             </div>
           </div>
         </div>
+      
+        <!-- ═══════════════════════════════════════════════════════════════════
+             5 FEATURED LAO HIP-HOP ARTISTS & HEADLINE CREWS (3D COVERFLOW CAROUSEL)
+             Derived from official '5 hiphop artists.pdf' & interactive Coverflow style (gallery 2.ts)
+             ═══════════════════════════════════════════════════════════════════ -->
+        <div id="lao-artists" class="lao-artists-section">
+          <div class="lao-artists-header">
+            <div class="lao-artists-eyebrow">
+              <span style="display:inline-block;width:24px;height:2px;background:var(--gold);"></span>
+              <span>LAO HIP-HOP ARTISTS • 5 HEADLINE ACTS &amp; CREWS</span>
+              <span style="display:inline-block;width:24px;height:2px;background:var(--gold);"></span>
+            </div>
+            <h2 class="lao-artists-h2">
+              5 TOP <span class="hl">LAO HIP-HOP</span> ARTISTS &amp; CREWS
+            </h2>
+            <div class="lao-artists-sub-lao">
+              3D Coverflow Carousel • ສາມາດລາກເລື່ອນຊ້າຍ-ຂວາ 3D ເພື່ອຊົມສິລະປິນ ແລະ ຜົນງານເພງ Hit
+            </div>
+            <p class="lao-artists-lead-p">
+              ຍົກທັບ 5 ສິລະປິນ ແລະ ກຸ່ມຮິບຮອບແຖວໜ້າຂອງລາວ ທີ່ຈະມາສ້າງສີສັນ ແລະ ຄວາມດຸເດືອດເທິງເວທີ LIHF 2026. ຈັດວາງໃນຮູບແບບ 3D Coverflow ສາມາດລາກໝຸນຊົມພາບ, ແນວດົນຕຣີ ແລະ ຜົນງານເພງ Top Hits ທີ່ກຳລັງມາແຮງ.
+            </p>
+          </div>
+
+          <!-- 3D Coverflow Carousel Stage (gallery 2.ts style) -->
+          <div class="cf-stage-wrapper">
+            <button type="button" class="cf-nav-btn cf-prev-btn" aria-label="Previous Artist" onclick="window.nudgeCoverflow(-1)">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" class="cf-nav-btn cf-next-btn" aria-label="Next Artist" onclick="window.nudgeCoverflow(1)">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+
+            <div class="cf-carousel-frame" id="cf-carousel-frame" tabindex="0" role="region" aria-roledescription="carousel" aria-label="5 Lao Hip-Hop Artists Coverflow Carousel">
+              <div class="cf-carousel-track" id="cf-carousel-track">
+                
+                <!-- CARD 0: HUEN CREW -->
+                <div class="cf-card" data-index="0" role="group" aria-roledescription="slide" aria-label="1 of 5: HUEN CREW">
+                  <img src="assets/artists/huen_crew.jpg" alt="HUEN CREW - Lao Hip-Hop RnB" class="cf-card-img" draggable="false" />
+                  <div class="cf-card-overlay"></div>
+                  <div class="cf-card-top-tag">
+                    <span class="cf-card-badge">HIPHOP / RnB</span>
+                    <span class="cf-card-country">🇱🇦 LAOS</span>
+                  </div>
+                  <div class="cf-card-title-bar">
+                    <div class="cf-card-name">HUEN CREW</div>
+                    <div class="cf-card-sub">RnB &amp; Social Viral Hits</div>
+                  </div>
+                </div>
+
+                <!-- CARD 1: SLY SAILOMYEN -->
+                <div class="cf-card" data-index="1" role="group" aria-roledescription="slide" aria-label="2 of 5: SLY SAILOMYEN">
+                  <img src="assets/artists/sly_sailomyen.jpg" alt="SLY SAILOMYEN - Underground Rap" class="cf-card-img" draggable="false" />
+                  <div class="cf-card-overlay"></div>
+                  <div class="cf-card-top-tag">
+                    <span class="cf-card-badge">UNDERGROUND</span>
+                    <span class="cf-card-country">🇱🇦 LAOS</span>
+                  </div>
+                  <div class="cf-card-title-bar">
+                    <div class="cf-card-name">SLY SAILOMYEN</div>
+                    <div class="cf-card-sub">Hardcore Rap &amp; Cypher</div>
+                  </div>
+                </div>
+
+                <!-- CARD 2: LAO100 -->
+                <div class="cf-card" data-index="2" role="group" aria-roledescription="slide" aria-label="3 of 5: LAO100">
+                  <img src="assets/artists/lao100.jpg" alt="LAO100 - Underground Hip-Hop" class="cf-card-img" draggable="false" />
+                  <div class="cf-card-overlay"></div>
+                  <div class="cf-card-top-tag">
+                    <span class="cf-card-badge">STREET RAP</span>
+                    <span class="cf-card-country">🇱🇦 LAOS</span>
+                  </div>
+                  <div class="cf-card-title-bar">
+                    <div class="cf-card-name">LAO100</div>
+                    <div class="cf-card-sub">Underground Collective</div>
+                  </div>
+                </div>
+
+                <!-- CARD 3: PHOENIX BOII -->
+                <div class="cf-card" data-index="3" role="group" aria-roledescription="slide" aria-label="4 of 5: PHOENIX BOII">
+                  <img src="assets/artists/phoenix_boii.jpg" alt="PHOENIX BOII - Trap &amp; Melodic Rap" class="cf-card-img" draggable="false" />
+                  <div class="cf-card-overlay"></div>
+                  <div class="cf-card-top-tag">
+                    <span class="cf-card-badge">RAP / TRAP</span>
+                    <span class="cf-card-country">🇱🇦 LAOS</span>
+                  </div>
+                  <div class="cf-card-title-bar">
+                    <div class="cf-card-name">PHOENIX BOII</div>
+                    <div class="cf-card-sub">Trap &amp; Youth Anthems</div>
+                  </div>
+                </div>
+
+                <!-- CARD 4: FAMILY TURNT -->
+                <div class="cf-card" data-index="4" role="group" aria-roledescription="slide" aria-label="5 of 5: FAMILY TURNT">
+                  <img src="assets/artists/family_turnt.jpg" alt="FAMILY TURNT - HipHop Rap RnB" class="cf-card-img" draggable="false" />
+                  <div class="cf-card-overlay"></div>
+                  <div class="cf-card-top-tag">
+                    <span class="cf-card-badge">RAP &amp; RnB</span>
+                    <span class="cf-card-country">🇱🇦 LAOS</span>
+                  </div>
+                  <div class="cf-card-title-bar">
+                    <div class="cf-card-name">FAMILY TURNT</div>
+                    <div class="cf-card-sub">Melodic Hits &amp; Turnt Crew</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="cf-pagination" id="cf-pagination-dots"></div>
+          </div>
+
+          <!-- Active Artist Detail Showcase Card (matches gallery 2.ts showCaption) -->
+          <div class="cf-artist-detail-card" id="cf-active-detail">
+            <!-- Rendered dynamically by JavaScript -->
+          </div>
+        </div>
+
       </div><!-- /container cardfree-layout -->
     </section>
   </div><!-- /acc-body battles -->
@@ -28482,6 +28978,341 @@ function replayLogoIntro(){
     renderSphere();
   });
 })();
+
+  // ═══════════════════════════════════════════════════════════════════
+  // 5 LAO HIP-HOP ARTISTS: 3D COVERFLOW CAROUSEL (gallery 2.ts style)
+  // ═══════════════════════════════════════════════════════════════════
+  (function initLaoArtistsCoverflow() {
+    const artistsData = [
+      {
+        id: "huen_crew",
+        name: "HUEN CREW",
+        genre: "HIPHOP / RnB",
+        badge: "HIPHOP / RnB",
+        style: "HIPHOP RnB ທັນສະໄໝ ແລະ ເຂົ້າເຖິງໄວລຸ້ນ ແລະ ກະແສຫຼັກ Social media ໃນປະເທດລາວ",
+        lyrics: "ສ່ວນຫຼາຍແມ່ນກ່ຽວກັບຄວາມຮັກບ່າວສາວ ເນັ້ນເນື້ອຫາທີ່ເຂົ້າເຖິງງ່າຍສຳລັບໄວລຸ້ນໃນຍຸກນີ້",
+        members: "Swagwazz, Uknowhatimean, Lilfishyyy, Snakef, Senjx, Tongflow11, Kengez",
+        img: "assets/artists/huen_crew.jpg",
+        hits: [
+          { title: 'IG STORY ຮັກເຈົ້າ 8 ນາທີ', artist: 'HUENCREW ft. Sounisa, Maylodx, Onichann (Prod. Mindog Beats)' },
+          { title: 'TIKTOK GIRLS REMIX (ສາວຕິກຕອກ)', artist: 'Lilfishyyy ft. Tongflow11, Uknowhatimean, Snakef' },
+          { title: 'MORE THAN FRIENDS', artist: 'feat. just", uknowwhatimean, Lilfishyyy' }
+        ]
+      },
+      {
+        id: "sly_sailomyen",
+        name: "SLY SAILOMYEN",
+        genre: "HIPHOP / RAP UNDERGROUND",
+        badge: "UNDERGROUND",
+        style: "HIPHOP RAP UNDERGROUND ດຸເດືອດ & ໜັກແໜ້ນ",
+        lyrics: "ຄວາມໜັກແໜ້ນ ດຸເດືອດ ສະທ້ອນເຖິງການໃຊ້ຊີວິດ, ໂຕຕົນ ແລະ ມິດຕະພາບ",
+        members: "Sly Sailomyen, M Flow, Paradise Lab",
+        img: "assets/artists/sly_sailomyen.jpg",
+        hits: [
+          { title: 'YA MA KUAN TXXN', artist: 'SLY [Official Music Video] Prod. M Flow' },
+          { title: 'Original Cypher 2020', artist: 'SLY [Official Audio] Prod. Paradise Lab' },
+          { title: 'Okay', artist: 'Alex $moke ft. Pete Zen x Anun' }
+        ]
+      },
+      {
+        id: "lao100",
+        name: "LAO100",
+        genre: "HIPHOP / RAP UNDERGROUND",
+        badge: "STREET RAP",
+        style: "HIPHOP RAP UNDERGROUND ຜະສົມຜະສານບີດທີ່ຟັງງ່າຍ",
+        lyrics: "ມີຄວາມຫຼາກຫຼາຍ, ເນື້ອຫາກ່ຽວກັບກຸ່ມໝູ່ ແລະ ຄວາມສຳພັນ ຜະສົມຜະສານກັບບີດເພງແນວ HIPHOP ທີ່ຟັງງ່າຍ",
+        members: "Roma, Ton100, Babymax, Non, DJ Chicken, DJ Young-T",
+        img: "assets/artists/lao100.jpg",
+        hits: [
+          { title: 'LOOT (ຫຼຸດ)', artist: 'Lao100 - Roma, Ton100, Babymax, Non, DJ Chicken, DJ Young-T' },
+          { title: '100G (ຂີດດຽວ)', artist: 'DJ Chicken ft. Roma x Alex Smoke x DJ Young T' },
+          { title: 'Lonely Night', artist: 'Roma feat. Babymax' }
+        ]
+      },
+      {
+        id: "phoenix_boii",
+        name: "PHOENIX BOII",
+        genre: "HIPHOP / RAP / TRAP",
+        badge: "TRAP & MELODIC",
+        style: "HIPHOP RAP TRAP ສະໄຕລ໌ໃໝ່",
+        lyrics: "ກ່ຽວກັບຄວາມຮັກ ຄວາມສຳພັນ ແລະ ຄວາມມ່ວນຂອງໄວລຸ້ນຍຸກໃໝ່",
+        members: "Phoenix Boii, Nemo Records",
+        img: "assets/artists/phoenix_boii.jpg",
+        hits: [
+          { title: 'ອາສູນຕິດປີກ (Rsoun tit peek)', artist: 'PHOENIX BOII ft. Dane Amar [Official MV 4K]' },
+          { title: 'WDYS', artist: 'PHOENIX BOII [Official MV]' },
+          { title: 'We Running', artist: 'PHOENIX BOII [Official Video]' }
+        ]
+      },
+      {
+        id: "family_turnt",
+        name: "FAMILY TURNT",
+        genre: "HIPHOP / RAP / RnB",
+        badge: "RAP & RnB",
+        style: "HIPHOP RAP RnB ຕິດຫູ & ຟັງງ່າຍ",
+        lyrics: "ເນື້ອຫາຟັງ ແລະ ເຂົ້າເຖິງງ່າຍ ພ້ອມກັບເມໂລດີ້ທີ່ຕິດຫູ",
+        members: "Badbomz, Pleasebobz, Lil Da Boi, Moriginal, Komad, Myxkiidd, Lil-Khanom",
+        img: "assets/artists/family_turnt.jpg",
+        hits: [
+          { title: 'How are you?', artist: 'Badbomz x Pleasebobz x Lil Da Boi [Official MV]' },
+          { title: 'ຫ່າງຊັ້ນ', artist: 'Moriginal x Komad ft. Badbomz, Myxkiidd, Lil-Khanom' },
+          { title: 'ເອົາຫຍັງມາສຳຄັນກ່ອນ', artist: 'Moriginal x Pleasebobz x Badbomz' }
+        ]
+      }
+    ];
+
+    const count = artistsData.length;
+    let rotate = 42;
+    let depth = 0.6;
+    let falloff = 0.56;
+    let fade = 0.12;
+    let gap = 0.12;
+    let loop = true;
+
+    let pos = 0;
+    let target = 0;
+    let width = 280;
+    let selected = 0;
+    let raf = null;
+    let drag = null;
+    let autoTimer = null;
+    let isAutoPlaying = true;
+
+    const frame = document.getElementById('cf-carousel-frame');
+    const track = document.getElementById('cf-carousel-track');
+    const detailCard = document.getElementById('cf-active-detail');
+    const dotsContainer = document.getElementById('cf-pagination-dots');
+    if (!frame || !track || !detailCard) return;
+
+    const cards = Array.from(track.querySelectorAll('.cf-card'));
+
+    function indexAt(p) {
+      return ((Math.round(p) % count) + count) % count;
+    }
+
+    function clampPos(p) {
+      return loop ? p : Math.max(0, Math.min(count - 1, p));
+    }
+
+    function paint() {
+      if (!width) return;
+      const pitch = width * (1 + gap);
+
+      cards.forEach((card, index) => {
+        let offset = index - pos;
+        if (loop) {
+          offset = ((offset % count) + count) % count;
+          if (offset > count / 2) offset -= count;
+        }
+
+        const distance = Math.abs(offset);
+        const ramp = Math.pow(distance, falloff);
+        const tilt = Math.min(rotate * ramp, 82) * Math.sign(offset);
+
+        card.style.transform =
+          'translateX(calc(-50% + ' + (offset * pitch) + 'px)) ' +
+          'translateZ(' + (-depth * width * ramp) + 'px) rotateY(' + (-tilt) + 'deg)';
+
+        const edge = loop ? Math.min(1, Math.max(0, count / 2 - distance)) : 1;
+        card.style.opacity = String(Math.max(0, 1 - fade * distance) * edge);
+        card.style.zIndex = String(Math.round(100 - distance * 10));
+
+        card.classList.toggle('is-active-card', Math.abs(offset) < 0.35);
+      });
+    }
+
+    function updateCaption(idx) {
+      if (idx === selected && detailCard.getAttribute('data-active-id') === artistsData[idx].id) return;
+      selected = idx;
+      const a = artistsData[idx];
+      detailCard.setAttribute('data-active-id', a.id);
+
+      detailCard.innerHTML = `
+        <div class="cf-detail-col">
+          <div class="cf-detail-genre-pill">🇱🇦 LAO HIP-HOP • ${a.badge}</div>
+          <h3 class="cf-detail-name">${a.name}</h3>
+          <p style="font-family:var(--ff-b); font-size:0.8rem; color:#ffd700; margin:0; line-height:1.4;">
+            👥 <strong>Lineup:</strong> ${a.members}
+          </p>
+        </div>
+
+        <div class="cf-detail-col">
+          <div class="cf-detail-block-title">
+            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#ffd700;"></span>
+            STYLE ດົນຕຣີ
+          </div>
+          <p class="cf-detail-text">${a.style}</p>
+          <div class="cf-detail-block-title" style="margin-top:0.4rem;">
+            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#ffd700;"></span>
+            ເນື້ອຫາເພງ
+          </div>
+          <p class="cf-detail-text">${a.lyrics}</p>
+        </div>
+
+        <div class="cf-detail-col">
+          <div class="cf-detail-block-title">
+            <span>🔥</span> TOP HITS &amp; SIGNATURE TRACKS
+          </div>
+          <ul class="cf-hits-list">
+            ${a.hits.map(h => `
+              <li class="cf-hit-item">
+                <div class="cf-hit-icon">▶</div>
+                <div class="cf-hit-info">
+                  <div class="cf-hit-title">${h.title}</div>
+                  <div class="cf-hit-artist">${h.artist}</div>
+                </div>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+      `;
+
+      if (dotsContainer) {
+        Array.from(dotsContainer.children).forEach((dot, i) => {
+          dot.classList.toggle('active', i === idx);
+        });
+      }
+    }
+
+    function settle(t) {
+      if (raf !== null) cancelAnimationFrame(raf);
+      target = t;
+      updateCaption(indexAt(target));
+
+      function step() {
+        const remaining = target - pos;
+        if (Math.abs(remaining) < 0.0004) {
+          pos = target;
+          paint();
+          raf = null;
+          return;
+        }
+        pos += remaining * 0.16;
+        paint();
+        raf = requestAnimationFrame(step);
+      }
+      raf = requestAnimationFrame(step);
+    }
+
+    window.goToCoverflow = function(idx) {
+      const t = loop
+        ? idx + Math.round((target - idx) / count) * count
+        : idx;
+      settle(clampPos(t));
+      resetAutoTimer();
+    };
+
+    window.nudgeCoverflow = function(by) {
+      settle(clampPos(Math.round(target) + by));
+      resetAutoTimer();
+    };
+
+    frame.addEventListener('pointerdown', (e) => {
+      if (raf !== null) {
+        cancelAnimationFrame(raf);
+        raf = null;
+      }
+      frame.setPointerCapture(e.pointerId);
+      target = pos;
+      drag = {
+        id: e.pointerId,
+        x: e.clientX,
+        pos: pos,
+        v: 0,
+        t: performance.now()
+      };
+      stopAutoTimer();
+    });
+
+    frame.addEventListener('pointermove', (e) => {
+      if (!drag || drag.id !== e.pointerId) return;
+      const pitch = width * (1 + gap);
+      if (!pitch) return;
+
+      const now = performance.now();
+      const prev = pos;
+      pos = clampPos(drag.pos - (e.clientX - drag.x) / pitch);
+      drag.v = ((pos - prev) / Math.max(now - drag.t, 1)) * 1000;
+      drag.t = now;
+
+      const currentIdx = indexAt(pos);
+      if (currentIdx !== selected) updateCaption(currentIdx);
+      paint();
+    });
+
+    function endDrag(e) {
+      if (!drag || drag.id !== e.pointerId) return;
+      drag = null;
+      const carried = Math.max(-2, Math.min(2, drag.v * 0.18));
+      settle(clampPos(Math.round(pos + carried)));
+      resetAutoTimer();
+    }
+
+    frame.addEventListener('pointerup', endDrag);
+    frame.addEventListener('pointercancel', endDrag);
+
+    frame.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        window.nudgeCoverflow(-1);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        window.nudgeCoverflow(1);
+      }
+    });
+
+    cards.forEach((card, idx) => {
+      card.addEventListener('click', () => {
+        window.goToCoverflow(idx);
+      });
+    });
+
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < count; i++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'cf-dot' + (i === 0 ? ' active' : '');
+        btn.setAttribute('aria-label', 'Go to artist ' + (i + 1));
+        btn.addEventListener('click', () => window.goToCoverflow(i));
+        dotsContainer.appendChild(btn);
+      }
+    }
+
+    function measure() {
+      const firstCard = cards[0];
+      if (!firstCard) return;
+      width = firstCard.offsetWidth || 280;
+      paint();
+    }
+
+    if (window.ResizeObserver) {
+      const ro = new ResizeObserver(measure);
+      ro.observe(frame);
+    } else {
+      window.addEventListener('resize', measure);
+    }
+
+    function resetAutoTimer() {
+      if (!isAutoPlaying) return;
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => {
+        window.nudgeCoverflow(1);
+      }, 6000);
+    }
+
+    function stopAutoTimer() {
+      clearInterval(autoTimer);
+    }
+
+    frame.addEventListener('mouseenter', stopAutoTimer);
+    frame.addEventListener('mouseleave', resetAutoTimer);
+
+    measure();
+    updateCaption(0);
+    resetAutoTimer();
+  })();
+
 </script>
 
 </body>
