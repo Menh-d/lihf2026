@@ -9398,13 +9398,14 @@ nav { height: 60px !important; padding: 0 !important; }
 }
 
 .timeline-event-box {
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(20, 21, 30, 0.85);
+  border: 1px solid rgba(255, 215, 0, 0.22);
+  border-top: 3px solid var(--gold);
   border-radius: 14px;
-  padding: 0.95rem 1.05rem;
+  padding: 1.05rem 1.15rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.3rem;
   position: relative;
   transition: all 0.3s ease;
   flex: 1;
@@ -9412,8 +9413,9 @@ nav { height: 60px !important; padding: 0 !important; }
 }
 
 .timeline-events li:hover .timeline-event-box {
-  background: rgba(255, 255, 255, 0.045);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+  background: rgba(28, 29, 40, 0.95);
+  border-color: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.85), 0 0 20px rgba(212, 175, 55, 0.25);
 }
 
 .timeline-event-header {
@@ -9426,10 +9428,11 @@ nav { height: 60px !important; padding: 0 !important; }
 
 .timeline-phase-tag {
   font-family: var(--ff-a);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: var(--gold);
 }
 
 .timeline-phase-date {
@@ -9437,40 +9440,25 @@ nav { height: 60px !important; padding: 0 !important; }
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.06em;
-  color: #ffffff;
+  color: #ffd700;
   text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 215, 0, 0.1);
   padding: 3px 8px;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 215, 0, 0.32);
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
 }
 
-.timeline-event-phase-1 .timeline-phase-date {
-  color: #ff8080;
-  border-color: rgba(238, 28, 36, 0.4);
-  background: rgba(238, 28, 36, 0.12);
-}
-
-.timeline-event-phase-2 .timeline-phase-date {
-  color: #ffb74d;
-  border-color: rgba(255, 119, 0, 0.4);
-  background: rgba(255, 119, 0, 0.12);
-}
-
-.timeline-event-phase-3 .timeline-phase-date {
-  color: #ffe066;
-  border-color: rgba(255, 199, 0, 0.5);
-  background: rgba(255, 199, 0, 0.16);
-  box-shadow: 0 0 10px rgba(255, 199, 0, 0.25);
-}
-
+.timeline-event-phase-1 .timeline-phase-date,
+.timeline-event-phase-2 .timeline-phase-date,
+.timeline-event-phase-3 .timeline-phase-date,
 .timeline-event-phase-4 .timeline-phase-date {
-  color: #b3e5fc;
-  border-color: rgba(79, 195, 247, 0.4);
-  background: rgba(79, 195, 247, 0.12);
+  color: #ffd700;
+  border-color: rgba(255, 215, 0, 0.32);
+  background: rgba(255, 215, 0, 0.1);
+  box-shadow: none;
 }
 
 .phase-title-en {
@@ -9595,53 +9583,51 @@ nav { height: 60px !important; padding: 0 !important; }
   transition: all 0.3s ease;
 }
 
-/* Phase 1: Red */
+/* Unified Harmonious Gold & White Aesthetic Across All 4 Phases */
 .timeline-event-phase-1 .timeline-phase-tag,
-.timeline-event-phase-1 .phase-title-en,
-.timeline-event-phase-1 .timeline-event-kpi { color: #EE1C24; }
-.timeline-event-phase-1 .timeline-event-bar {
-  background: linear-gradient(90deg, #CC0000 0%, #EE1C24 100%);
-  box-shadow: 0 0 10px rgba(238, 28, 36, 0.5);
-}
-.timeline-event-phase-1:hover .timeline-event-box { border-color: rgba(238, 28, 36, 0.6); }
-.timeline-event-phase-1:hover .timeline-event-stem { background: #EE1C24; }
-
-/* Phase 2: Orange */
 .timeline-event-phase-2 .timeline-phase-tag,
-.timeline-event-phase-2 .phase-title-en,
-.timeline-event-phase-2 .timeline-event-kpi { color: #FF7700; }
-.timeline-event-phase-2 .timeline-event-bar {
-  background: linear-gradient(90deg, #FF5500 0%, #FFAA00 100%);
-  box-shadow: 0 0 10px rgba(255, 119, 0, 0.5);
-}
-.timeline-event-phase-2:hover .timeline-event-box { border-color: rgba(255, 119, 0, 0.6); }
-.timeline-event-phase-2:hover .timeline-event-stem { background: #FF7700; }
-
-/* Phase 3: Gold (Live Festival Peak) */
 .timeline-event-phase-3 .timeline-phase-tag,
-.timeline-event-phase-3 .phase-title-en,
-.timeline-event-phase-3 .timeline-event-kpi { color: var(--gold); }
-.timeline-event-phase-3 .timeline-event-box {
-  border-color: rgba(212, 175, 55, 0.5);
-  background: rgba(212, 175, 55, 0.05);
+.timeline-event-phase-4 .timeline-phase-tag {
+  color: var(--gold);
 }
-.timeline-event-phase-3 .timeline-event-bar {
-  background: linear-gradient(90deg, #FFC700 0%, #FFE57F 100%);
-  box-shadow: 0 0 14px rgba(255, 199, 0, 0.7);
-}
-.timeline-event-phase-3:hover .timeline-event-box { border-color: var(--gold); box-shadow: 0 14px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.25); }
-.timeline-event-phase-3:hover .timeline-event-stem { background: var(--gold); }
 
-/* Phase 4: Stage White / Cyan */
-.timeline-event-phase-4 .timeline-phase-tag,
-.timeline-event-phase-4 .phase-title-en,
-.timeline-event-phase-4 .timeline-event-kpi { color: #FFFFFF; }
-.timeline-event-phase-4 .timeline-event-bar {
-  background: linear-gradient(90deg, #FFFFFF 0%, #4FC3F7 100%);
-  box-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+.timeline-event-phase-1 .phase-title-en,
+.timeline-event-phase-2 .phase-title-en,
+.timeline-event-phase-3 .phase-title-en,
+.timeline-event-phase-4 .phase-title-en {
+  color: #ffffff;
 }
-.timeline-event-phase-4:hover .timeline-event-box { border-color: rgba(255, 255, 255, 0.6); }
-.timeline-event-phase-4:hover .timeline-event-stem { background: #FFFFFF; }
+
+.timeline-event-phase-1 .timeline-event-kpi,
+.timeline-event-phase-2 .timeline-event-kpi,
+.timeline-event-phase-3 .timeline-event-kpi,
+.timeline-event-phase-4 .timeline-event-kpi {
+  color: var(--gold);
+}
+
+.timeline-event-bar,
+.timeline-event-phase-1 .timeline-event-bar,
+.timeline-event-phase-2 .timeline-event-bar,
+.timeline-event-phase-3 .timeline-event-bar,
+.timeline-event-phase-4 .timeline-event-bar {
+  background: linear-gradient(90deg, #d4af37 0%, #ffd700 100%);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.timeline-event-phase-1:hover .timeline-event-box,
+.timeline-event-phase-2:hover .timeline-event-box,
+.timeline-event-phase-3:hover .timeline-event-box,
+.timeline-event-phase-4:hover .timeline-event-box {
+  border-color: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.25);
+}
+
+.timeline-event-phase-1:hover .timeline-event-stem,
+.timeline-event-phase-2:hover .timeline-event-stem,
+.timeline-event-phase-3:hover .timeline-event-stem,
+.timeline-event-phase-4:hover .timeline-event-stem {
+  background: var(--gold);
+}
 
 /* Timeline - Years (4 Equal Nodes matching 4 Phases) */
 .timelines-years {
@@ -9708,42 +9694,21 @@ nav { height: 60px !important; padding: 0 !important; }
   line-height: 1.35;
 }
 
-/* Phase-specific colors on the Axis */
-.timelines-years li.timeline-axis-p1 .timeline-axis-date {
-  color: #ff6b6b;
+/* Unified Gold Tone Across All Axis Nodes */
+.timelines-years li .timeline-axis-date {
+  color: #ffffff;
 }
-.timelines-years li.timeline-axis-p1 .timeline-axis-dot {
-  background: #EE1C24;
-  box-shadow: 0 0 12px rgba(238, 28, 36, 0.85);
-}
-
-.timelines-years li.timeline-axis-p2 .timeline-axis-date {
-  color: #ffa726;
-}
-.timelines-years li.timeline-axis-p2 .timeline-axis-dot {
-  background: #FF7700;
-  box-shadow: 0 0 12px rgba(255, 119, 0, 0.85);
+.timelines-years li .timeline-axis-dot {
+  background: #FFD700;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.85);
 }
 
-.timelines-years li.timeline-axis-p3 .timeline-axis-date,
-.timelines-years li.timeline-axis-event .timeline-axis-date {
-  color: #ffe066;
-}
-.timelines-years li.timeline-axis-p3 .timeline-axis-dot,
 .timelines-years li.timeline-axis-event .timeline-axis-dot {
-  background: #FFC700;
-  box-shadow: 0 0 16px rgba(255, 199, 0, 0.95);
+  background: #FFD700;
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.95);
   width: 14px;
   height: 14px;
   top: -8px;
-}
-
-.timelines-years li.timeline-axis-p4 .timeline-axis-date {
-  color: #81d4fa;
-}
-.timelines-years li.timeline-axis-p4 .timeline-axis-dot {
-  background: #4FC3F7;
-  box-shadow: 0 0 12px rgba(79, 195, 247, 0.85);
 }
 
 .axis-pill-live {
@@ -9752,11 +9717,11 @@ nav { height: 60px !important; padding: 0 !important; }
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  background: rgba(255, 199, 0, 0.22);
-  color: #ffe066;
-  border: 1px solid rgba(255, 199, 0, 0.6);
+  background: rgba(255, 215, 0, 0.22);
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.6);
   border-radius: 4px;
-  box-shadow: 0 0 8px rgba(255, 199, 0, 0.3);
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
   vertical-align: middle;
 }
 
@@ -9766,10 +9731,11 @@ nav { height: 60px !important; padding: 0 !important; }
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  background: rgba(79, 195, 247, 0.2);
-  color: #81d4fa;
-  border: 1px solid rgba(79, 195, 247, 0.5);
+  background: rgba(255, 215, 0, 0.22);
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.6);
   border-radius: 4px;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
   vertical-align: middle;
 }
 
