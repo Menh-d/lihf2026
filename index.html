@@ -15999,94 +15999,205 @@ body.gsap-ready .contact-standalone-section * {
   flex-direction: column;
   gap: 1.8rem;
 }
-.mkt-kv-subcard {
-  padding: 1.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 4px;
+/* Pair Grid for Master Emblem and Texture Assets */
+.mkt-kv-assets-pair-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.mkt-kv-pic-card {
+  padding: 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 8px;
   position: relative;
   transition: all 0.3s ease;
-}
-.mkt-kv-subcard:hover {
-  border-color: rgba(212, 175, 55, 0.4);
-  background: rgba(255, 255, 255, 0.035);
-}
-.mkt-kv-subcard-top {
   display: flex;
-  align-items: center;
-  gap: 1.4rem;
-  margin-bottom: 1rem;
+  flex-direction: column;
 }
-.mkt-kv-thumb-box {
-  width: 110px;
-  height: 110px;
-  flex-shrink: 0;
-  background: #000;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 4px;
+
+.mkt-kv-pic-card:hover {
+  border-color: rgba(212, 175, 55, 0.45);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.mkt-kv-pic-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.85rem;
+}
+
+.mkt-kv-pic-tag {
+  font-family: var(--ff-a);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.mkt-kv-pic-title {
+  font-family: var(--ff-d);
+  font-size: 1.05rem;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.mkt-kv-pic-frame {
+  width: 100%;
+  height: 210px;
+  background: radial-gradient(circle at center, rgba(30, 15, 15, 0.85) 0%, rgba(8, 8, 10, 0.95) 75%, #050507 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   cursor: pointer;
   position: relative;
+  margin-bottom: 0.85rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.mkt-kv-thumb-box img {
-  max-width: 90%;
-  max-height: 90%;
+
+.mkt-kv-pic-frame:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+}
+
+.mkt-kv-pic-frame img {
+  max-width: 86%;
+  max-height: 86%;
   object-fit: contain;
-  transition: transform 0.4s ease;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.8));
 }
-.mkt-kv-thumb-box:hover img {
+
+.mkt-kv-pic-frame:hover img {
   transform: scale(1.08);
 }
-.mkt-kv-subcard-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-.mkt-kv-subcard-tag {
+
+.mkt-kv-pic-zoom-hint {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  padding: 0.22rem 0.55rem;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
   font-family: var(--ff-a);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gold);
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, background 0.2s ease;
 }
-.mkt-kv-subcard-title {
-  font-family: var(--ff-d);
-  font-size: 1.35rem;
+
+.mkt-kv-pic-frame:hover .mkt-kv-pic-zoom-hint {
+  opacity: 1;
+  background: var(--red);
   color: #fff;
-  line-height: 1.15;
-  margin: 0;
-  text-transform: uppercase;
+  border-color: var(--red);
 }
-.mkt-kv-subcard-desc {
-  font-family: var(--ff-b);
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.72);
-  line-height: 1.55;
-  margin: 0;
-}
-.mkt-kv-subcard-action {
-  margin-top: 0.8rem;
+
+.mkt-explain-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-family: var(--ff-a);
-  font-size: 0.74rem;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  color: #ffffff;
+  font-family: 'Noto Sans Lao', var(--ff-a), sans-serif;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--gold);
+  letter-spacing: 0.03em;
   cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  transition: color 0.2s ease;
+  transition: all 0.25s ease;
 }
-.mkt-kv-subcard-action:hover {
+
+.mkt-explain-btn:hover {
+  background: rgba(204, 0, 0, 0.25);
+  border-color: var(--red);
   color: #fff;
+}
+
+.mkt-explain-btn .explain-icon {
+  transition: transform 0.3s ease;
+  color: var(--gold);
+}
+
+.mkt-kv-pic-card .mkt-explain-drawer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.mkt-kv-pic-card.expanded .mkt-explain-drawer {
+  max-height: 400px;
+  opacity: 1;
+}
+
+.mkt-kv-pic-card.expanded .mkt-explain-btn {
+  background: rgba(204, 0, 0, 0.22);
+  border-color: rgba(204, 0, 0, 0.55);
+  color: #fff;
+}
+
+.mkt-kv-pic-card.expanded .mkt-explain-btn .explain-icon {
+  transform: rotate(180deg);
+}
+
+.mkt-explain-content {
+  padding-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+  margin-top: 0.75rem;
+}
+
+.mkt-explain-lao {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0;
+}
+
+.mkt-explain-en {
+  font-family: var(--ff-b);
+  font-size: 0.74rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0;
+}
+
+.mkt-explain-spec {
+  font-family: var(--ff-b);
+  font-size: 0.72rem;
+  color: var(--gold);
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 680px) {
+  .mkt-kv-assets-pair-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 /* ── OFFICIAL FESTIVAL MASCOT & 3D CHARACTER ANATOMY ── */
@@ -19225,50 +19336,60 @@ body.presentation-active .floating-present-badge {
             <!-- RIGHT: Brand Identity Elements Breakdown -->
             <div class="mkt-kv-identity-col">
               
-              <!-- ASSET 1: Official Emblem Logo -->
-              <div class="mkt-kv-subcard">
-                <div class="mkt-kv-subcard-top">
-                  <div class="mkt-kv-thumb-box" onclick="viewArtwork('assets/lihf_official_logo.png', 'LIHF 2026 Official Circular Emblem Logo')" title="Click to view Fullscreen Logo">
-                    <img src="assets/lihf_official_logo.png" alt="LIHF 2026 Official Logo" loading="lazy">
-                  </div>
-                  <div class="mkt-kv-subcard-meta">
-                    <span class="mkt-kv-subcard-tag">OFFICIAL MASTER EMBLEM</span>
-                    <h4 class="mkt-kv-subcard-title">360° Circular Crest Logo</h4>
-                    <span style="font-family:var(--ff-b); font-size:0.76rem; color:var(--gold);">2775 × 3198 PX • Master Vectorized Asset</span>
-                  </div>
-                </div>
-                <p class="mkt-kv-subcard-desc">
-                  A 360° circular crest uniting the 4 core hip-hop pillars (<strong>BREAKING • MC • DJ • GRAFFITI</strong>) along its outer ring, centered with bold metallic gold <strong>LIHF 2026</strong> graffiti lettering.
-                </p>
-                <button onclick="viewArtwork('assets/lihf_official_logo.png', 'LIHF 2026 Official Circular Emblem Logo')" class="mkt-kv-subcard-action">
-                  <span>Inspect High-Res Logo →</span>
-                </button>
-              </div>
+              <div class="mkt-kv-assets-pair-grid">
 
-              <!-- ASSET 2: Pattern Element & Motion Asset -->
-              <div class="mkt-kv-subcard">
-                <div class="mkt-kv-subcard-top">
-                  <div class="mkt-kv-thumb-box" onclick="viewArtwork('assets/pattern_element.png', 'LIHF 2026 Official Urban Pattern Element')" title="Click to view Fullscreen Pattern" style="width:130px;">
-                    <img src="assets/pattern_element.png" alt="LIHF 2026 Pattern Element" loading="lazy" style="max-width:95%;">
+                <!-- ASSET 1: Official Emblem Logo -->
+                <div class="mkt-kv-pic-card">
+                  <div class="mkt-kv-pic-badge">
+                    <span class="mkt-kv-pic-tag">OFFICIAL MASTER EMBLEM</span>
+                    <h4 class="mkt-kv-pic-title">360° Circular Crest Logo</h4>
                   </div>
-                  <div class="mkt-kv-subcard-meta">
-                    <span class="mkt-kv-subcard-tag">BRAND TEXTURE &amp; MOTION ASSET</span>
-                    <h4 class="mkt-kv-subcard-title">Urban Culture Pattern</h4>
-                    <span style="font-family:var(--ff-b); font-size:0.76rem; color:var(--gold);">4030 × 2268 PX • Seamless Motif Artwork</span>
+                  <div class="mkt-kv-pic-frame" onclick="viewArtwork('assets/lihf_official_logo.png', 'LIHF 2026 Official Circular Emblem Logo')" title="Click to view Fullscreen Logo">
+                    <img src="assets/lihf_official_logo.png" alt="LIHF 2026 Official Logo" loading="lazy">
+                    <div class="mkt-kv-pic-zoom-hint">Inspect 4K ↗</div>
+                  </div>
+                  <button type="button" class="mkt-explain-btn" onclick="toggleKvAssetExplain(this)" aria-expanded="false">
+                    <span class="explain-text">✦ ອະທິບາຍເພີ່ມ (Explain More)</span>
+                    <svg class="explain-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="mkt-explain-drawer">
+                    <div class="mkt-explain-content">
+                      <p class="mkt-explain-lao">🇱🇦 ໂລໂກ້ກາສັນຍະລັກວົງມົນ 360° ທີ່ຮວບຮວມ 4 ເສົາຫຼັກຮິບຮອບ (Breaking • MC • DJ • Graffiti) ໄວ້ເທິງຂອບວົງມົນ, ພ້ອມໂຕໜັງສືກຣາຟຟິຕີຄຳໂລຫະສີທອງ "LIHF 2026" ຢ່າງສະຫງ່າງາມ.</p>
+                      <p class="mkt-explain-en">🇬🇧 A 360° circular crest uniting the 4 core hip-hop pillars (Breaking • MC • DJ • Graffiti) along its outer ring, centered with bold metallic gold LIHF 2026 lettering.</p>
+                      <span class="mkt-explain-spec">📐 2775 × 3198 PX • Master Vectorized Asset</span>
+                    </div>
                   </div>
                 </div>
-                <p class="mkt-kv-subcard-desc">
-                  A proprietary graphic pattern intertwining B-Boy silhouettes, vinyl turntables, vocal mics, and spray cans with dynamic Lao flame motifs for stage scrims, apparel, and broadcast motion graphics.
-                </p>
-                <button onclick="viewArtwork('assets/pattern_element.png', 'LIHF 2026 Official Urban Pattern Element')" class="mkt-kv-subcard-action">
-                  <span>Inspect High-Res Pattern →</span>
-                </button>
+
+                <!-- ASSET 2: Pattern Element & Motion Asset -->
+                <div class="mkt-kv-pic-card">
+                  <div class="mkt-kv-pic-badge">
+                    <span class="mkt-kv-pic-tag">BRAND TEXTURE &amp; MOTION ASSET</span>
+                    <h4 class="mkt-kv-pic-title">Urban Culture Pattern</h4>
+                  </div>
+                  <div class="mkt-kv-pic-frame" onclick="viewArtwork('assets/pattern_element.png', 'LIHF 2026 Official Urban Pattern Element')" title="Click to view Fullscreen Pattern">
+                    <img src="assets/pattern_element.png" alt="LIHF 2026 Pattern Element" loading="lazy" style="max-width:92%;">
+                    <div class="mkt-kv-pic-zoom-hint">Inspect 4K ↗</div>
+                  </div>
+                  <button type="button" class="mkt-explain-btn" onclick="toggleKvAssetExplain(this)" aria-expanded="false">
+                    <span class="explain-text">✦ ອະທິບາຍເພີ່ມ (Explain More)</span>
+                    <svg class="explain-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="mkt-explain-drawer">
+                    <div class="mkt-explain-content">
+                      <p class="mkt-explain-lao">🇱🇦 ລວດລາຍກຣາຟິກເອກະລັກ (Pattern) ທີ່ປະສານເງົາ B-Boy, ແຜ່ນສຽງ Vinyl, ໄມໂຄຣໂຟນ ແລະ ກະປ໋ອງສີສະເປຣ ເຂົ້າກັບລວດລາຍແປວໄຟສິລະປະລາວຮ່ວມສະໄໝ ສຳລັບຜ້າສາກເວທີ, ເສື້ອຜ້າ ແລະ Motion Graphics.</p>
+                      <p class="mkt-explain-en">🇬🇧 A proprietary graphic pattern intertwining B-Boy silhouettes, vinyl turntables, vocal mics, and spray cans with dynamic Lao flame motifs for stage scrims, apparel, and broadcast motion graphics.</p>
+                      <span class="mkt-explain-spec">📐 4030 × 2268 PX • Seamless Motif Artwork</span>
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
               <!-- Composition Specs & Key Elements -->
-              <div style="padding:1.2rem 1.4rem; border-left:3px solid var(--red); background:rgba(255,255,255,0.02);">
-                <div style="font-family:var(--ff-a); font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--gold); margin-bottom:0.4rem; text-transform:uppercase;">KEY VISUAL COMPOSITION HIGHLIGHTS</div>
-                <ul style="list-style:none; padding:0; margin:0; font-family:var(--ff-b); font-size:0.86rem; color:rgba(255,255,255,0.78); line-height:1.6;">
+              <div style="padding:1.1rem 1.3rem; border-left:3px solid var(--red); background:rgba(255,255,255,0.02); border-radius:4px; margin-top:0.4rem;">
+                <div style="font-family:var(--ff-a); font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--gold); margin-bottom:0.35rem; text-transform:uppercase;">KEY VISUAL COMPOSITION HIGHLIGHTS</div>
+                <ul style="list-style:none; padding:0; margin:0; font-family:var(--ff-b); font-size:0.84rem; color:rgba(255,255,255,0.78); line-height:1.55;">
                   <li>✦ <strong>3D Mascot Integration:</strong> Original character in crimson puffer, bucket hat, and sneakers embodying Gen Z street style.</li>
                   <li>✦ <strong>Lead Title Sponsor Lockup:</strong> Dedicated premium branding space for primary presenting sponsors on hero banner flags.</li>
                   <li>✦ <strong>Lineup &amp; 8 Activities:</strong> Direct prominence for all 8 competition categories and ASEAN international guest artists.</li>
@@ -24706,6 +24827,18 @@ function replayLogoIntro(){
     const textSpan = btn.querySelector('.phase-btn-text');
     if (textSpan) {
       textSpan.textContent = isExpanded ? 'ຫຍໍ້ລາຍລະອຽດ (Collapse)' : 'ລາຍລະອຽດແຜນງານ (View Details)';
+    }
+  };
+
+  // ── KEY VISUAL ASSET EXPLAIN MORE TOGGLE ──
+  window.toggleKvAssetExplain = function(btn) {
+    const card = btn.closest('.mkt-kv-pic-card');
+    if (!card) return;
+    const isExpanded = card.classList.toggle('expanded');
+    btn.setAttribute('aria-expanded', isExpanded);
+    const textSpan = btn.querySelector('.explain-text');
+    if (textSpan) {
+      textSpan.textContent = isExpanded ? '▲ ຫຍໍ້ລົງ (Show Less)' : '✦ ອະທິບາຍເພີ່ມ (Explain More)';
     }
   };
 
