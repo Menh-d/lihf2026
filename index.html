@@ -18709,13 +18709,13 @@ body.presentation-active .floating-present-badge {
 
 
 /* ═══════════════════════════════════════════════════════════════════
-   GUEST INVITATION LINEUP: ALBUM GALLERY SYSTEM
-   Inspired by Vinyl LP Sleeves, collectible album jackets & high-contrast street art
+   GUEST INVITATION LINEUP: COMPACT HORIZONTAL ALBUM CAROUSEL GALLERY
+   Inspired by vinyl record shop crates & collectible hip-hop LP jackets
    ═══════════════════════════════════════════════════════════════════ */
 .guest-invitation-section {
   position: relative;
-  margin-top: 5rem;
-  padding-top: 4rem;
+  margin-top: 4.5rem;
+  padding-top: 3.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 .guest-invitation-section::before {
@@ -18724,77 +18724,84 @@ body.presentation-active .floating-present-badge {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
+  width: 75%;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--red), var(--gold), transparent);
 }
 .guest-header-wrap {
   text-align: center;
-  max-width: 920px;
-  margin: 0 auto 3rem;
+  max-width: 900px;
+  margin: 0 auto 2.2rem;
 }
 .guest-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   font-family: var(--ff-a);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
 }
 .guest-h2 {
   font-family: var(--ff-d);
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
   text-transform: uppercase;
   letter-spacing: 0.02em;
   line-height: 1.05;
   color: var(--wh);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 .guest-sub-lao {
   font-family: 'Noto Sans Lao', sans-serif;
-  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
   font-weight: 700;
   color: var(--gold-l);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 .guest-lead-p {
   font-family: 'Noto Sans Lao', var(--ff-b);
-  font-size: 0.96rem;
+  font-size: 0.92rem;
   color: var(--gr-l);
-  line-height: 1.7;
-  max-width: 780px;
-  margin: 0 auto 2.2rem;
+  line-height: 1.6;
+  max-width: 760px;
+  margin: 0 auto 1.8rem;
 }
 
-/* Category Filter Tabs (Vinyl Record style buttons) */
+/* Category Filter Tabs & Carousel Nav Bar */
+.guest-controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.6rem;
+  padding: 0 0.5rem;
+}
 .guest-filter-bar {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 2.8rem;
+  gap: 7px;
 }
 .guest-filter-btn {
   appearance: none;
-  background: rgba(20, 20, 20, 0.8);
+  background: rgba(20, 20, 20, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.14);
   color: var(--gr-l);
-  padding: 8px 18px;
+  padding: 6px 14px;
   border-radius: 999px;
   font-family: var(--ff-a);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   transition: all 0.25s ease;
 }
 .guest-filter-btn:hover {
@@ -18806,42 +18813,99 @@ body.presentation-active .floating-present-badge {
   background: var(--gold);
   color: #000;
   border-color: var(--gold);
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
 }
 .guest-filter-btn .btn-badge {
   background: rgba(0, 0, 0, 0.35);
   color: inherit;
-  font-size: 0.72rem;
-  padding: 2px 7px;
-  border-radius: 10px;
+  font-size: 0.7rem;
+  padding: 1px 6px;
+  border-radius: 8px;
 }
 .guest-filter-btn.active .btn-badge {
   background: #000;
   color: var(--gold);
 }
 
-/* Album Gallery Grid */
-.guest-album-grid {
+/* Carousel Navigation Arrows */
+.guest-nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.guest-nav-arrow-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--wh);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2.2rem 1.6rem;
-  perspective: 1200px;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
-@media (max-width: 1200px) {
-  .guest-album-grid { grid-template-columns: repeat(3, 1fr); }
+.guest-nav-arrow-btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #000;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.5);
+  transform: scale(1.05);
 }
-@media (max-width: 860px) {
-  .guest-album-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
-}
-@media (max-width: 520px) {
-  .guest-album-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+.guest-nav-hint {
+  font-family: 'Noto Sans Lao', var(--ff-a);
+  font-size: 0.74rem;
+  color: var(--gr);
+  letter-spacing: 0.04em;
+  margin-right: 4px;
 }
 
-/* Individual Album Card */
-.guest-album-card {
+/* Horizontal Scroll Container (Carousel Track) */
+.guest-carousel-wrapper {
   position: relative;
-  transition: transform 0.35s ease, opacity 0.35s ease;
+  width: 100%;
+  overflow: visible;
+}
+.guest-album-track {
+  display: flex;
+  gap: 1.1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 14px 4px 20px;
+  cursor: grab;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.4) rgba(255, 255, 255, 0.05);
+}
+.guest-album-track:active {
+  cursor: grabbing;
+}
+.guest-album-track::-webkit-scrollbar {
+  height: 6px;
+}
+.guest-album-track::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+.guest-album-track::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.4);
+  border-radius: 3px;
+}
+.guest-album-track::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Compact Individual Album Card (~200px width) */
+.guest-album-card {
+  flex: 0 0 200px;
+  width: 200px;
+  scroll-snap-align: start;
+  position: relative;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   cursor: pointer;
+  user-select: none;
 }
 .guest-album-card.is-hidden {
   display: none !important;
@@ -18850,25 +18914,26 @@ body.presentation-active .floating-present-badge {
 /* Outer wrapper holding sleeve + disc */
 .album-cover-unit {
   position: relative;
-  aspect-ratio: 1 / 1;
-  border-radius: 12px;
-  background: #0a0a0a;
+  width: 100%;
+  aspect-ratio: 1 / 1.08;
+  border-radius: 10px;
+  background: #080808;
 }
 
 /* Realistic Vinyl Disc peeking out behind sleeve */
 .album-vinyl-disc {
   position: absolute;
-  top: 4%;
+  top: 5%;
   right: 0;
-  width: 92%;
-  height: 92%;
+  width: 90%;
+  height: 90%;
   border-radius: 50%;
   background:
     radial-gradient(circle at center, #d4af37 0%, #b45309 18%, #111 19%, #111 20%, transparent 21%),
     repeating-radial-gradient(circle at center, #151515 0px, #151515 2px, #080808 3px, #080808 4px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), inset 0 0 8px rgba(255, 255, 255, 0.08);
   z-index: 1;
-  transition: transform 0.45s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.45s ease;
+  transition: transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.4s ease;
   pointer-events: none;
   display: flex;
   align-items: center;
@@ -18876,11 +18941,11 @@ body.presentation-active .floating-present-badge {
 }
 .album-vinyl-disc::after {
   content: '';
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #000;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
 .album-vinyl-label {
   position: absolute;
@@ -18894,9 +18959,9 @@ body.presentation-active .floating-present-badge {
   align-items: center;
   justify-content: center;
   font-family: var(--ff-a);
-  font-size: 0.52rem;
+  font-size: 0.46rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: #fff;
   text-align: center;
   line-height: 1.1;
@@ -18905,8 +18970,8 @@ body.presentation-active .floating-present-badge {
 
 /* Vinyl slide out on hover */
 .guest-album-card:hover .album-vinyl-disc {
-  transform: translateX(42px) rotate(45deg);
-  box-shadow: 10px 8px 30px rgba(0, 0, 0, 0.95);
+  transform: translateX(28px) rotate(35deg);
+  box-shadow: 8px 6px 24px rgba(0, 0, 0, 0.95);
 }
 
 /* Jacket Sleeve Container */
@@ -18915,27 +18980,27 @@ body.presentation-active .floating-present-badge {
   z-index: 2;
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   background: #111;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .guest-album-card:hover .album-jacket {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: var(--gold);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.25);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.8), 0 0 16px rgba(212, 175, 55, 0.25);
 }
 
-/* Main Artist Photo - Dominant and Clear */
+/* Main Artist Photo - Dominant and Sharp */
 .album-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
   display: block;
-  transition: transform 0.5s ease, filter 0.4s ease;
+  transition: transform 0.4s ease, filter 0.3s ease;
   filter: contrast(1.05) brightness(0.98);
 }
 .guest-album-card:hover .album-photo {
@@ -18949,49 +19014,49 @@ body.presentation-active .floating-present-badge {
   top: 0;
   bottom: 0;
   left: 0;
-  width: 6px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.4) 100%);
+  width: 5px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.4) 100%);
   z-index: 5;
   pointer-events: none;
 }
 .album-corner-tag {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 8px;
+  right: 8px;
   z-index: 6;
   font-family: var(--ff-a);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   background: rgba(0, 0, 0, 0.78);
   color: var(--gold-l);
   border: 1px solid rgba(212, 175, 55, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 3px 8px;
-  border-radius: 6px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 2px 6px;
+  border-radius: 5px;
 }
 .album-country-tag {
   position: absolute;
-  top: 10px;
-  left: 14px;
+  top: 8px;
+  left: 10px;
   z-index: 6;
   font-family: var(--ff-a);
-  font-size: 0.7rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   background: rgba(0, 0, 0, 0.82);
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 3px 9px;
-  border-radius: 6px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 2px 7px;
+  border-radius: 5px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
 }
 
 /* Sleeve Bottom Info Gradient - Text is Secondary */
@@ -18999,38 +19064,40 @@ body.presentation-active .floating-present-badge {
   position: absolute;
   inset: auto 0 0 0;
   z-index: 4;
-  padding: 42px 14px 12px;
-  background: linear-gradient(0deg, rgba(3, 3, 3, 0.95) 0%, rgba(3, 3, 3, 0.78) 55%, transparent 100%);
+  padding: 34px 10px 10px;
+  background: linear-gradient(0deg, rgba(2, 2, 2, 0.96) 0%, rgba(2, 2, 2, 0.8) 55%, transparent 100%);
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  transition: padding-bottom 0.3s ease;
-}
-.guest-album-card:hover .album-info-overlay {
-  padding-bottom: 14px;
+  gap: 2px;
 }
 .album-artist-name {
   font-family: var(--ff-d);
-  font-size: 1.45rem;
+  font-size: 1.25rem;
   line-height: 1.05;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #fff;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .album-role-title {
   font-family: var(--ff-a);
-  font-size: 0.76rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--gold);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .album-lao-desc {
   font-family: 'Noto Sans Lao', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: rgba(255, 255, 255, 0.78);
-  line-height: 1.4;
+  line-height: 1.35;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -19040,46 +19107,89 @@ body.presentation-active .floating-present-badge {
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding-top: 6px;
-  margin-top: 3px;
+  padding-top: 5px;
+  margin-top: 2px;
 }
 .album-sub-affiliation {
   font-family: var(--ff-b);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   color: rgba(255, 255, 255, 0.5);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 78%;
+  max-width: 75%;
 }
 .album-badge-icon {
   font-family: var(--ff-a);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
   color: var(--gold);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
+}
+
+/* Carousel Scroll Progress Bar */
+.guest-carousel-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+  padding: 0 0.5rem;
+}
+.guest-progress-track {
+  flex: 1;
+  max-width: 240px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.guest-progress-fill {
+  height: 100%;
+  width: 25%;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: width 0.2s ease;
+}
+.guest-carousel-count {
+  font-family: var(--ff-a);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--gr);
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 680px) {
+  .guest-controls-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .guest-album-card {
+    flex: 0 0 170px;
+    width: 170px;
+  }
 }
 
 /* Proposed Guest Contributions Banner (Slide 12) */
 .guest-values-banner {
-  margin-top: 3.5rem;
+  margin-top: 2.8rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.4rem;
-  border-radius: 16px;
+  gap: 1.2rem;
+  border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(15, 15, 15, 0.75);
-  padding: 1.6rem 2rem;
+  padding: 1.4rem 1.8rem;
 }
 .guest-val-col {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 0.25rem;
 }
 .guest-val-col b {
   font-family: var(--ff-a);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -19087,9 +19197,9 @@ body.presentation-active .floating-present-badge {
 }
 .guest-val-col p {
   font-family: 'Noto Sans Lao', var(--ff-b);
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   color: var(--gr-l);
-  line-height: 1.6;
+  line-height: 1.55;
 }
 @media (max-width: 860px) {
   .guest-values-banner { grid-template-columns: 1fr; }
@@ -20997,7 +21107,7 @@ body.presentation-active .floating-present-badge {
       </div>
     
         <!-- ═══════════════════════════════════════════════════════════════════
-             GUEST INVITATION: INTERNATIONAL GUESTS & JUDGES (ALBUM GALLERY)
+             GUEST INVITATION: INTERNATIONAL GUESTS & JUDGES (COMPACT ALBUM CAROUSEL)
              Derived from official LIHF 2026 Guest Proposal Deck (16 Proposed Artists)
              ═══════════════════════════════════════════════════════════════════ -->
         <div id="guests" class="guest-invitation-section">
@@ -21011,13 +21121,15 @@ body.presentation-active .floating-present-badge {
               WORLD-CLASS <span class="hl">HEADLINERS</span> &amp; MASTER JUDGES
             </h2>
             <div class="guest-sub-lao">
-              ລາຍຊື່ສິລະປິນ, ດີເຈ ແລະ ກຳມະການສາກົນ 16 ທ່ານ ໃນ 5 ໝວດໝູ່ການແຂ່ງຂັນ • ຮູບແບບ Album Gallery
+              ລາຍຊື່ສິລະປິນ, ດີເຈ ແລະ ກຳມະການສາກົນ 16 ທ່ານ • Album Gallery ແບບເລື່ອນເບິ່ງໄດ້
             </div>
             <p class="guest-lead-p">
-              ຍົກລະດັບມາດຕະຖານເທສະການ LIHF 2026 ສູ່ເວທີສາກົນ ດ້ວຍການເຊື້ອເຊີນກຳມະການລະດັບແຊ້ມໂລກ, ນັກເຕັ້ນໂອລິມປິກ, ດີເຈ ແລະ ສິລະປິນກຣາຟຟິຕີ້ຊັ້ນນຳຈາກ 8 ປະເທດ (ຍີ່ປຸ່ນ, ການາດາ, ຈີນ, ຫວຽດນາມ, ຟີລິບປິນ, ໄທ, ອາເມຣິກາ ແລະ ລາວ). ຮູບພາບສະແດງຊັດເຈນໃນຮູບແບບ Album Vinyl Cover.
+              ຍົກລະດັບມາດຕະຖານເທສະການ LIHF 2026 ສູ່ເວທີສາກົນ ດ້ວຍການເຊື້ອເຊີນກຳມະການລະດັບແຊ້ມໂລກ, ນັກເຕັ້ນໂອລິມປິກ, ດີເຈ ແລະ ສິລະປິນກຣາຟຟິຕີ້ຊັ້ນນຳຈາກ 8 ປະເທດ (ຍີ່ປຸ່ນ, ການາດາ, ຈີນ, ຫວຽດນາມ, ຟີລິບປິນ, ໄທ, ອາເມຣິກາ ແລະ ລາວ). ສາມາດເລື່ອນເບິ່ງແຜ່ນສຽງ Album Art ແຕ່ລະທ່ານໄດ້ຢ່າງສະດວກ.
             </p>
+          </div>
 
-            <!-- Category Filter Tabs -->
+          <!-- Controls Bar: Category Filter Tabs & Navigation Arrows -->
+          <div class="guest-controls-bar">
             <div class="guest-filter-bar" role="tablist">
               <button type="button" class="guest-filter-btn active" data-filter="all" onclick="window.filterGuests('all', this)">
                 <span>ALL GUESTS</span><span class="btn-badge">16</span>
@@ -21038,18 +21150,30 @@ body.presentation-active .floating-present-badge {
                 <span>GRAFFITI ART</span><span class="btn-badge">4</span>
               </button>
             </div>
+
+            <!-- Left / Right Carousel Scroll Arrows -->
+            <div class="guest-nav-arrows">
+              <span class="guest-nav-hint">ເລື່ອນຊ້າຍ-ຂວາ ‹ ›</span>
+              <button type="button" class="guest-nav-arrow-btn" onclick="window.slideGuestGallery(-1)" aria-label="Slide Left">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button type="button" class="guest-nav-arrow-btn" onclick="window.slideGuestGallery(1)" aria-label="Slide Right">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
           </div>
 
-          <!-- Album Cards Grid (16 Cards) -->
-          <div class="guest-album-grid" id="guest-album-grid">
-          <!-- ALBUM CARD: KAKU (Japan) -->
+          <!-- Horizontal Album Carousel Wrapper -->
+          <div class="guest-carousel-wrapper">
+            <div class="guest-album-track" id="guest-album-track">
+          <!-- COMPACT ALBUM CARD: KAKU (Japan) -->
           <div class="guest-album-card" data-cat="breaking" onclick="window.openGuestBioModal('kaku')" role="button" tabindex="0" aria-label="KAKU - Breaking 2v2 Judge">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21064,20 +21188,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ບີບອຍລະດັບຕຳນານ MORTAL COMBAT ຕົວແທນ Red Bull BC One 2 ສະໄໝ</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">MORTAL COMBAT • 2x Red Bull BC One Japan</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: DYZEE (Canada) -->
+          <!-- COMPACT ALBUM CARD: DYZEE (Canada) -->
           <div class="guest-album-card" data-cat="breaking" onclick="window.openGuestBioModal('dyzee')" role="button" tabindex="0" aria-label="DYZEE - Breaking 2v2 Judge & Educator">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21092,20 +21216,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ຜູ້ສ້າງລະບົບຕັດສິນມາດຕະຖານສາກົນ OUR Judging System</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">Supernaturalz & 7 Commandoz • OUR System Creator</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: KIN (China) -->
+          <!-- COMPACT ALBUM CARD: KIN (China) -->
           <div class="guest-album-card" data-cat="breaking" onclick="window.openGuestBioModal('kin')" role="button" tabindex="0" aria-label="KIN - Breaking 2v2 Judge">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21120,20 +21244,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ຕົວແທນກຳມະການ Breaking ສາຍແຂ່ງຂັນລະດັບປະເທດຈາກ ສປ ຈີນ</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">Chinese Breaking Champion & Master Judge</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: ZUKY (Vietnam) -->
+          <!-- COMPACT ALBUM CARD: ZUKY (Vietnam) -->
           <div class="guest-album-card" data-cat="allstyle" onclick="window.openGuestBioModal('zuky')" role="button" tabindex="0" aria-label="ZUKY - All Style 2v2 Judge">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21148,20 +21272,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ນັກເຕັ້ນ ແລະ ນັກອອກແບບທ່າເຕັ້ນ All Style ຊັ້ນນຳຈາກ ຫວຽດນາມ</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">Street Dance Icon & Choreographer Vietnam</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: RYAN LICUDAN (Philippines) -->
+          <!-- COMPACT ALBUM CARD: RYAN LICUDAN (Philippines) -->
           <div class="guest-album-card" data-cat="allstyle" onclick="window.openGuestBioModal('ryan')" role="button" tabindex="0" aria-label="RYAN LICUDAN - All Style 2v2 Judge">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21176,20 +21300,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ນັກເຕັ້ນສາຍແຂ່ງຂັນ All Style Battle ລະດັບແນວໜ້າຈາກ ຟີລິບປິນ</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">Premier All-Style Battle Specialist Philippines</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: STEFANOS KOUKAS (Thailand) -->
+          <!-- COMPACT ALBUM CARD: STEFANOS KOUKAS (Thailand) -->
           <div class="guest-album-card" data-cat="allstyle" onclick="window.openGuestBioModal('stefanos')" role="button" tabindex="0" aria-label="STEFANOS KOUKAS - All Style 2v2 Judge">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21204,20 +21328,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ແຊ້ມ Red Bull Dance Your Style ປະເທດໄທ ແລະ ອາຈານສອນ Popping</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">Red Bull Dance Your Style Thailand Champion</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: DJ ZLEX (Thailand) -->
+          <!-- COMPACT ALBUM CARD: DJ ZLEX (Thailand) -->
           <div class="guest-album-card" data-cat="djmc" onclick="window.openGuestBioModal('dj_zlex')" role="button" tabindex="0" aria-label="DJ ZLEX - DJ × MC Judge">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21232,20 +21356,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ອາຈານໃຫຍ່ ແລະ ດີເຈມືອາຊີບຈາກ DJ LAB SIAM ບາງກອກ</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">DJ LAB SIAM Head Instructor • Turntablism Pro</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: DJ ELILLGUL (USA) -->
+          <!-- COMPACT ALBUM CARD: DJ ELILLGUL (USA) -->
           <div class="guest-album-card" data-cat="djmc" onclick="window.openGuestBioModal('dj_elillgul')" role="button" tabindex="0" aria-label="DJ ELILLGUL - DJ × MC Judge">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21260,20 +21384,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ດີເຈ ແລະ ນັກ Scratch ລະດັບສາກົນ ຕົວແທນຈາກສະຫະລັດອາເມຣິກາ</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">International Battle DJ & Scratch Specialist USA</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: DJ KIKO (Philippines) -->
+          <!-- COMPACT ALBUM CARD: DJ KIKO (Philippines) -->
           <div class="guest-album-card" data-cat="djmc" onclick="window.openGuestBioModal('dj_kiko')" role="button" tabindex="0" aria-label="DJ KIKO - DJ × MC Judge">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21288,20 +21412,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ດີເຈສາຍ Battle ແລະ Turntablism ຜູ້ມີປະສົບການສູງຈາກ ຟີລິບປິນ</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">Veteran Battle DJ & Turntablist Philippines</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: MCBK (Laos) -->
+          <!-- COMPACT ALBUM CARD: MCBK (Laos) -->
           <div class="guest-album-card" data-cat="rap" onclick="window.openGuestBioModal('mcbk')" role="button" tabindex="0" aria-label="MCBK - Rap Battle Judge">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21316,20 +21440,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ຜູ້ບຸກເບີກວົງການຮິບຮອບລາວ ແລະ ນັກຂຽນເນື້ອຮ້ອງແຖວໜ້າ</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">Lao Hip-Hop Pioneer & Veteran Lyricist</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: ALEQS LOG (Laos) -->
+          <!-- COMPACT ALBUM CARD: ALEQS LOG (Laos) -->
           <div class="guest-album-card" data-cat="rap" onclick="window.openGuestBioModal('aleqs_log')" role="button" tabindex="0" aria-label="ALEQS LOG - Rap Battle Judge">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21344,20 +21468,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ສິລະປິນແຣັບເປີລາວ ແລະ ກຳມະການສາຍ Rhyme ທີ່ມີຊື່ສຽງ</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">Acclaimed Lao Rap Artist & Battle Judge</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: AP (Laos) -->
+          <!-- COMPACT ALBUM CARD: AP (Laos) -->
           <div class="guest-album-card" data-cat="rap" onclick="window.openGuestBioModal('ap')" role="button" tabindex="0" aria-label="AP - Rap Battle Judge">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21372,20 +21496,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ໄອດໍ້ແຣັບເປີສາຍ Underground ຂອງລາວ ຜູ້ຊ່ຽວຊານການດວນ Cypher</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">Lao Underground Rap Icon & Cypher Master</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: PAKORN (Thailand) -->
+          <!-- COMPACT ALBUM CARD: PAKORN (Thailand) -->
           <div class="guest-album-card" data-cat="graffiti" onclick="window.openGuestBioModal('pakorn')" role="button" tabindex="0" aria-label="PAKORN - Invited Graffiti Artist">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21400,20 +21524,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ສິລະປິນກຣາຟຟິຕີ້ລະດັບແນວໜ້າຂອງໄທ ຮ່ວມໂຄງການ Live Aerosol Art</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">LIHF Street-Art Programme • Renowned Aerosol Artist</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: HOOTIVE (Thailand) -->
+          <!-- COMPACT ALBUM CARD: HOOTIVE (Thailand) -->
           <div class="guest-album-card" data-cat="graffiti" onclick="window.openGuestBioModal('hootive')" role="button" tabindex="0" aria-label="HOOTIVE - Invited Graffiti Artist">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21428,20 +21552,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ສິລະປິນພົ່ນສີ ແລະ ສາຍ Street Art ທີ່ມີເອກະລັກສະເພາະຕົວ</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">Featured Thai Urban Visual & Mural Artist</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: BNK52 (Thailand) -->
+          <!-- COMPACT ALBUM CARD: BNK52 (Thailand) -->
           <div class="guest-album-card" data-cat="graffiti" onclick="window.openGuestBioModal('bnk52')" role="button" tabindex="0" aria-label="BNK52 - Invited Graffiti Artist">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21456,20 +21580,20 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ນັກຂຽນກຣາຟຟິຕີ້ໄທລາຍເສັ້ນດຸເດືອດ ຜູ້ສ້າງສັນຜົນງານຂະໜາດໃຫຍ່</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">Aerosol Graffiti Writer & Muralist</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- ALBUM CARD: AO (Thailand) -->
+          <!-- COMPACT ALBUM CARD: AO (Thailand) -->
           <div class="guest-album-card" data-cat="graffiti" onclick="window.openGuestBioModal('ao')" role="button" tabindex="0" aria-label="AO - Invited Graffiti Artist">
             <div class="album-cover-unit">
               <!-- Vinyl disc peeking out behind sleeve on hover -->
               <div class="album-vinyl-disc" aria-hidden="true">
                 <div class="album-vinyl-label">
                   <span>LIHF 2026</span>
-                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                  <span style="font-size:0.4rem;color:#facc15;">33 RPM</span>
                 </div>
               </div>
               <!-- Outer Album Jacket Sleeve -->
@@ -21484,12 +21608,23 @@ body.presentation-active .floating-present-badge {
                   <div class="album-lao-desc">ສິລະປິນສາຍ Street ຈາກ @phnom1of1 ຮ່ວມສະແດງການພົ່ນສີສົດ</div>
                   <div class="album-meta-footer">
                     <span class="album-sub-affiliation">@phnom1of1 • Raw Urban Street Culture</span>
-                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                    <span class="album-badge-icon">VIEW ↗</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+            </div>
+
+            <!-- Progress Bar & Indicator -->
+            <div class="guest-carousel-progress">
+              <div class="guest-progress-track">
+                <div class="guest-progress-fill" id="guest-progress-fill" style="width: 20%;"></div>
+              </div>
+              <div class="guest-carousel-count" id="guest-carousel-count">
+                16 GUESTS · SLIDE TO EXPLORE →
+              </div>
+            </div>
           </div>
 
           <!-- Proposed Activities & Value Banner (Slide 12) -->
@@ -21508,7 +21643,6 @@ body.presentation-active .floating-present-badge {
             </div>
           </div>
         </div>
-
     </section>
   </div><!-- /acc-body battles -->
 </div><!-- /acc-section battles -->
@@ -28365,19 +28499,76 @@ function replayLogoIntro(){
   const guestsMap = {};
   guestsData.forEach(g => { guestsMap[g.id] = g; });
 
+  const track = document.getElementById('guest-album-track');
+  const progressFill = document.getElementById('guest-progress-fill');
+  const countEl = document.getElementById('guest-carousel-count');
+
+  function updateProgress() {
+    if (!track || !progressFill) return;
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    if (maxScroll <= 0) {
+      progressFill.style.width = '100%';
+    } else {
+      const pct = Math.min(100, Math.max(15, (track.scrollLeft / maxScroll) * 100));
+      progressFill.style.width = pct + '%';
+    }
+  }
+
+  if (track) {
+    track.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    // Mouse drag-to-scroll support
+    let isDown = false;
+    let startX = 0;
+    let scrollStart = 0;
+
+    track.addEventListener('mousedown', function(e) {
+      isDown = true;
+      startX = e.pageX - track.offsetLeft;
+      scrollStart = track.scrollLeft;
+    });
+    track.addEventListener('mouseleave', function() { isDown = false; });
+    track.addEventListener('mouseup', function() { isDown = false; });
+    track.addEventListener('mousemove', function(e) {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      track.scrollLeft = scrollStart - walk;
+    });
+  }
+
+  window.slideGuestGallery = function(direction) {
+    if (!track) return;
+    const cardWidth = 220;
+    track.scrollBy({ left: direction * cardWidth * 2, behavior: 'smooth' });
+  };
+
   window.filterGuests = function(category, btn) {
     document.querySelectorAll('.guest-filter-btn').forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
 
     const cards = document.querySelectorAll('.guest-album-card');
+    let visibleCount = 0;
     cards.forEach(card => {
       const cat = card.getAttribute('data-cat');
       if (category === 'all' || cat === category) {
         card.classList.remove('is-hidden');
+        visibleCount++;
       } else {
         card.classList.add('is-hidden');
       }
     });
+
+    if (track) {
+      track.scrollTo({ left: 0, behavior: 'smooth' });
+      setTimeout(updateProgress, 350);
+    }
+
+    if (countEl) {
+      countEl.textContent = visibleCount + ' GUESTS · SLIDE TO EXPLORE →';
+    }
   };
 
   window.openGuestBioModal = function(id) {
