@@ -2386,6 +2386,584 @@ nav { height: 60px !important; padding: 0 !important; }
   scale: 1.05;
 }
 
+/* Embedded Blueprint Stage View Mode Overrides */
+.fp-gallery-viewer[data-stage-view="blueprint"] .fp-images-col .img-block:nth-of-type(6) {
+  z-index: 25 !important;
+  pointer-events: auto !important;
+}
+.fp-gallery-viewer[data-stage-view="blueprint"] .fp-images-col .img-block:nth-of-type(6) .img-wrapper {
+  opacity: 1 !important;
+  scale: 1 !important;
+  pointer-events: auto !important;
+}
+.fp-gallery-viewer[data-stage-view="blueprint"] .fp-images-col .fp-master-badge {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+.fp-gallery-viewer[data-stage-view="blueprint"] .fp-images-col .img-block:not(:nth-of-type(6)) .img-wrapper {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+.fp-gallery-viewer[data-stage-view="render"] .fp-images-col .img-block:nth-of-type(6) .img-wrapper {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Floating View Switcher at top of Stage */
+.fp-stage-view-switcher {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  background: rgba(10, 11, 18, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  padding: 4px;
+  gap: 4px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
+}
+.fp-view-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: var(--ff-a, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+}
+.fp-view-tab-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+.fp-view-tab-btn.active {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: rgba(239, 68, 68, 0.55);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.4);
+}
+.fp-view-tab-btn#fp-tab-blueprint.active {
+  background: rgba(212, 175, 55, 0.22);
+  border-color: rgba(212, 175, 55, 0.65);
+  color: var(--gold, #d4af37);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
+}
+
+/* Blueprint Stage Block & Wrapper */
+.fp-blueprint-block {
+  background: #07090f;
+}
+.fp-blueprint-stage-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at 50% 50%, #0d1222 0%, #05060a 100%);
+  overflow: hidden;
+}
+
+/* Topbar inside Blueprint Stage */
+.fp-bp-stage-topbar {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.5rem;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100% - 340px);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.fp-bp-stage-topbar::-webkit-scrollbar {
+  display: none;
+}
+.fp-bp-stage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  background: rgba(10, 12, 18, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: var(--gold, #d4af37);
+  font-family: var(--ff-a, monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.fp-bp-live-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d4af37;
+  box-shadow: 0 0 8px #d4af37;
+  animation: bp-live-dot 1.8s infinite;
+}
+@keyframes bp-live-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+.fp-bp-filter-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.fp-bp-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 11px;
+  border-radius: 9999px;
+  background: rgba(15, 17, 24, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--ff-a, monospace);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.fp-bp-filter-chip:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+}
+.fp-bp-filter-chip.active {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: rgba(212, 175, 55, 0.7);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+}
+
+/* Canvas container with blueprint grid */
+.fp-bp-canvas-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4.8rem 1.5rem 8.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.fp-bp-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: calc((100% * 1024) / 768);
+  max-height: 100%;
+  aspect-ratio: 1024 / 768;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+.fp-bp-base-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.75), 0 0 35px rgba(212, 175, 55, 0.12);
+  display: block;
+  pointer-events: none;
+}
+
+/* Interactive Marker Pins */
+.fp-bp-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.15s ease, opacity 0.25s ease;
+  outline: none;
+}
+.fp-bp-pin:hover,
+.fp-bp-pin:focus-visible,
+.fp-bp-pin.active {
+  transform: translate(-50%, -50%) scale(1.18);
+  z-index: 45;
+}
+.fp-bp-pin.dimmed {
+  opacity: 0.35;
+  transform: translate(-50%, -50%) scale(0.85);
+}
+.bp-pin-ping {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: bp-pin-ping-anim 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.bp-pin-pulse {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0.6;
+}
+.bp-pin-marker {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.85);
+  border: 2px solid #fff;
+  background: #111;
+  transition: all 0.2s ease;
+}
+.bp-pin-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+.bp-pin-number {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  background: #000;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 9999px;
+  font-family: var(--ff-a, monospace);
+  font-size: 0.58rem;
+  font-weight: 800;
+  padding: 1px 4px;
+  line-height: 1;
+}
+.bp-pin-label {
+  margin-top: 4px;
+  padding: 3px 8px;
+  background: rgba(10, 11, 16, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #fff;
+  font-family: var(--ff-a, monospace);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+/* Pin color themes */
+.pin-gold .bp-pin-marker { background: #d4af37; border-color: #ffe066; color: #000; }
+.pin-gold .bp-pin-ping { background: rgba(212, 175, 55, 0.5); }
+.pin-gold .bp-pin-pulse { background: rgba(212, 175, 55, 0.35); }
+.pin-gold.active .bp-pin-marker { box-shadow: 0 0 20px #ffd700; }
+
+.pin-red .bp-pin-marker { background: #ef4444; border-color: #fca5a5; color: #fff; }
+.pin-red .bp-pin-ping { background: rgba(239, 68, 68, 0.5); }
+.pin-red .bp-pin-pulse { background: rgba(239, 68, 68, 0.35); }
+.pin-red.active .bp-pin-marker { box-shadow: 0 0 20px #ef4444; }
+
+.pin-green .bp-pin-marker { background: #22c55e; border-color: #86efac; color: #000; }
+.pin-green .bp-pin-ping { background: rgba(34, 197, 94, 0.5); }
+.pin-green .bp-pin-pulse { background: rgba(34, 197, 94, 0.35); }
+.pin-green.active .bp-pin-marker { box-shadow: 0 0 20px #22c55e; }
+
+.pin-blue .bp-pin-marker { background: #38bdf8; border-color: #bae6fd; color: #000; }
+.pin-blue .bp-pin-ping { background: rgba(56, 189, 248, 0.5); }
+.pin-blue .bp-pin-pulse { background: rgba(56, 189, 248, 0.35); }
+.pin-blue.active .bp-pin-marker { box-shadow: 0 0 20px #38bdf8; }
+
+.pin-orange .bp-pin-marker { background: #f97316; border-color: #fdba74; color: #fff; }
+.pin-orange .bp-pin-ping { background: rgba(249, 115, 22, 0.5); }
+.pin-orange .bp-pin-pulse { background: rgba(249, 115, 22, 0.35); }
+.pin-orange.active .bp-pin-marker { box-shadow: 0 0 20px #f97316; }
+
+.pin-amber .bp-pin-marker { background: #f59e0b; border-color: #fde68a; color: #000; }
+.pin-amber .bp-pin-ping { background: rgba(245, 158, 11, 0.5); }
+.pin-amber .bp-pin-pulse { background: rgba(245, 158, 11, 0.35); }
+.pin-amber.active .bp-pin-marker { box-shadow: 0 0 20px #f59e0b; }
+
+.pin-purple .bp-pin-marker { background: #a855f7; border-color: #e9d5ff; color: #fff; }
+.pin-purple .bp-pin-ping { background: rgba(168, 85, 247, 0.5); }
+.pin-purple .bp-pin-pulse { background: rgba(168, 85, 247, 0.35); }
+.pin-purple.active .bp-pin-marker { box-shadow: 0 0 20px #a855f7; }
+
+.pin-crimson .bp-pin-marker { background: #dc2626; border-color: #fca5a5; color: #fff; }
+.pin-crimson .bp-pin-ping { background: rgba(220, 38, 38, 0.5); }
+.pin-crimson .bp-pin-pulse { background: rgba(220, 38, 38, 0.35); }
+.pin-crimson.active .bp-pin-marker { box-shadow: 0 0 20px #dc2626; }
+
+.pin-slate .bp-pin-marker { background: #64748b; border-color: #cbd5e1; color: #fff; }
+.pin-slate .bp-pin-ping { background: rgba(100, 116, 139, 0.5); }
+.pin-slate .bp-pin-pulse { background: rgba(100, 116, 139, 0.35); }
+.pin-slate.active .bp-pin-marker { box-shadow: 0 0 20px #94a3b8; }
+
+@keyframes bp-pin-ping-anim {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.9; }
+  75%, 100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+}
+
+/* Bottom Inspector HUD Bar */
+.fp-bp-hud {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  z-index: 40;
+  background: rgba(10, 11, 18, 0.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  padding: 0.9rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+}
+.fp-bp-hud-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.fp-bp-hud-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.fp-bp-hud-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--ff-a, monospace);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  border: 1px solid;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.fp-bp-hud-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.fp-bp-hud-coord {
+  font-family: var(--ff-a, monospace);
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.06em;
+}
+.fp-bp-hud-title {
+  font-family: var(--ff-h, 'Akira Expanded', sans-serif);
+  font-size: clamp(0.92rem, 1.2vw, 1.15rem);
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+.fp-bp-hud-lao {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: clamp(0.8rem, 0.95vw, 0.92rem);
+  color: var(--gold, #d4af37);
+  margin: 0;
+  line-height: 1.35;
+  font-weight: 600;
+}
+.fp-bp-hud-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.fp-bp-hud-specs .fp-chip {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.fp-bp-hud-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.fp-bp-btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-family: var(--ff-a, monospace);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.fp-bp-btn-action.primary {
+  background: var(--red, #ef4444);
+  color: #fff;
+  border: 1px solid rgba(239, 68, 68, 0.6);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+.fp-bp-btn-action.primary:hover {
+  background: #dc2626;
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.6);
+  transform: translateY(-1px);
+}
+.fp-bp-btn-action.outline {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.fp-bp-btn-action.outline:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Quick points grid inside Card 05 */
+.fp-points-quick-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fp-points-quick-label {
+  font-family: var(--ff-a, monospace);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold, #d4af37);
+  text-transform: uppercase;
+}
+.fp-points-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+.fp-point-quick-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 6px 8px;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.fp-point-quick-btn:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.4);
+  color: #fff;
+  transform: translateX(2px);
+}
+.fp-point-quick-btn.active {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: var(--gold, #d4af37);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+}
+
+@media (max-width: 960px) {
+  .fp-gallery-viewer .fp-images-col {
+    height: 540px;
+    min-height: 500px;
+    width: 100%;
+  }
+  .fp-bp-stage-topbar {
+    max-width: 100%;
+    left: 1rem;
+    right: 1rem;
+    top: 0.9rem;
+  }
+  .fp-stage-view-switcher {
+    top: 3.5rem;
+    right: 1rem;
+  }
+  .fp-bp-canvas-container {
+    padding: 6.2rem 0.5rem 8.5rem;
+  }
+  .fp-bp-hud {
+    flex-direction: column;
+    align-items: flex-start;
+    left: 0.8rem;
+    right: 0.8rem;
+    bottom: 0.8rem;
+    padding: 0.8rem 1rem;
+    gap: 0.8rem;
+  }
+  .fp-bp-hud-actions {
+    width: 100%;
+  }
+  .fp-bp-hud-actions .fp-bp-btn-action {
+    flex: 1;
+    justify-content: center;
+  }
+  .bp-pin-label {
+    display: none;
+  }
+  .fp-points-quick-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .fp-gallery-viewer .fp-images-col {
+    height: 480px;
+    min-height: 440px;
+  }
+}
+
 /* Watermark / Badge for Default Master Block */
 .fp-master-badge {
   position: absolute;
@@ -19226,7 +19804,7 @@ body.presentation-active .floating-present-badge {
             <h2 class="uss-col-title">
               WHY BRANDS <span class="hl">SUCCEED</span>
             </h2>
-            <p class="uss-col-sub">🇱🇦 4 ເສົາຄ້ຳຍຸດທະສາດ • ປ່ຽນການສະໜັບສະໜູນສູ່ຄວາມຜູກພັນ, ການທົດລອງສິນຄ້າ ແລະ ຍອດຂາຍ</p>
+            <p class="uss-col-sub">🇱🇦 4 ເສົາຄ້ຳຫຼັກ • ປ່ຽນການສະໜັບສະໜູນສູ່ຄວາມຜູກພັນ, ການທົດລອງສິນຄ້າ ແລະ ຍອດຂາຍ</p>
           </div>
 
           <!-- Clean Strategic Pillars Dashboard Card -->
@@ -19927,7 +20505,7 @@ body.presentation-active .floating-present-badge {
             A targeted 360° promotional campaign delivering <strong style="color:var(--gold); font-weight:600;">10M+ impressions</strong> across digital media, viral TikTok challenges, 3D LED city takeovers &amp; 30+ regional creators.
           </p>
           <p class="act-header-lao-single" style="font-family:'Noto Sans Lao', var(--ff-b), sans-serif; font-size:clamp(0.74rem, 0.8vw, 0.8rem); color:rgba(255,255,255,0.65); line-height:1.55; margin:0 auto; max-width:1320px;">
-            🇱🇦 ແຜນຍຸດທະສາດສື່ສານ 360° ເຂົ້າເຖິງກວ່າ <span style="color:rgba(255,230,0,0.85); font-weight:600;">10M+ Impressions</span> ຜ່ານສື່ດິຈິຕອນ, TikTok Challenge, ປ້າຍ 3D LED ແລະ 30+ ຄຣີເອເຕີ້ອາຊຽນ
+            🇱🇦 ແຜນງານສື່ສານ 360° ເຂົ້າເຖິງກວ່າ <span style="color:rgba(255,230,0,0.85); font-weight:600;">10M+ Impressions</span> ຜ່ານສື່ດິຈິຕອນ, TikTok Challenge, ປ້າຍ 3D LED ແລະ 30+ ຄຣີເອເຕີ້ອາຊຽນ
           </p>
         </div>
 
@@ -20569,7 +21147,7 @@ body.presentation-active .floating-present-badge {
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
         <span>FULLSCREEN 4K GALLERY ↗</span>
       </button>
-      <button type="button" class="kv-fullscreen-btn" onclick="window.openBlueprintModal()" style="border-color:rgba(212,175,55,0.6);color:var(--gold,#d4af37);" title="View Official Architectural Event Map">
+      <button type="button" class="kv-fullscreen-btn" onclick="window.showEmbeddedBlueprint(4, 'all')" style="border-color:rgba(212,175,55,0.6);color:var(--gold,#d4af37);" title="View Embedded Architectural Blueprint Map">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
         <span>BLUEPRINT MAP 🗺️</span>
       </button>
@@ -20577,7 +21155,7 @@ body.presentation-active .floating-present-badge {
   </div>
 
   <!-- INTERACTIVE GALLERY 1 ACCORDION STAGE -->
-  <div class="fp-gallery-viewer" id="fp-gallery-viewer" data-checking-details="false">
+  <div class="fp-gallery-viewer" id="fp-gallery-viewer" data-checking-details="false" data-stage-view="render">
     <!-- Floating Action Controls (from gallery1.css) -->
     <button type="button" data-action="previous" aria-label="Previous Zone" title="Previous Zone (Zone ກ່ອນໜ້າ)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m15 18-6-6 6-6"/></svg>
@@ -20628,7 +21206,7 @@ body.presentation-active .floating-present-badge {
             <button type="button" class="fp-btn-action fp-btn-primary" onclick="window.openFloorplanModal(0, 0)">
               <span>INSPECT 4K RENDERS ↗</span>
             </button>
-            <button type="button" class="fp-btn-action fp-btn-outline" onclick="window.openBlueprintModal()">
+            <button type="button" class="fp-btn-action fp-btn-outline" onclick="window.showEmbeddedBlueprint(0, 'entrance')">
               <span>BLUEPRINT MAP 🗺️</span>
             </button>
           </div>
@@ -20667,7 +21245,7 @@ body.presentation-active .floating-present-badge {
             <button type="button" class="fp-btn-action fp-btn-primary" onclick="window.openFloorplanModal(1, 0)">
               <span>INSPECT 4K RENDERS ↗</span>
             </button>
-            <button type="button" class="fp-btn-action fp-btn-outline" onclick="window.openBlueprintModal()">
+            <button type="button" class="fp-btn-action fp-btn-outline" onclick="window.showEmbeddedBlueprint(1, 'beerlao')">
               <span>BLUEPRINT MAP 🗺️</span>
             </button>
           </div>
@@ -20706,7 +21284,7 @@ body.presentation-active .floating-present-badge {
             <button type="button" class="fp-btn-action fp-btn-primary" onclick="window.openFloorplanModal(2, 0)">
               <span>INSPECT 4K RENDERS ↗</span>
             </button>
-            <button type="button" class="fp-btn-action fp-btn-outline" onclick="window.openBlueprintModal()">
+            <button type="button" class="fp-btn-action fp-btn-outline" onclick="window.showEmbeddedBlueprint(2, 'pepsi')">
               <span>BLUEPRINT MAP 🗺️</span>
             </button>
           </div>
@@ -20745,7 +21323,7 @@ body.presentation-active .floating-present-badge {
             <button type="button" class="fp-btn-action fp-btn-primary" onclick="window.openFloorplanModal(3, 0)">
               <span>INSPECT 4K RENDERS ↗</span>
             </button>
-            <button type="button" class="fp-btn-action fp-btn-outline" onclick="window.openBlueprintModal()">
+            <button type="button" class="fp-btn-action fp-btn-outline" onclick="window.showEmbeddedBlueprint(3, 'stage')">
               <span>BLUEPRINT MAP 🗺️</span>
             </button>
           </div>
@@ -20780,9 +21358,27 @@ body.presentation-active .floating-present-badge {
             <span class="fp-chip">Dual Backstage Lounges</span>
             <span class="fp-chip">4 Safety Egress</span>
           </div>
+
+          <!-- Quick Interactive Points Selector Inside Card 05 -->
+          <div class="fp-points-quick-list">
+            <span class="fp-points-quick-label">ກົດເລືອກຈຸດຕ່າງໆໃນແຜນຜັງ (SELECT MAP POINT):</span>
+            <div class="fp-points-quick-grid">
+              <button type="button" class="fp-point-quick-btn active" onclick="window.selectBlueprintPoint('stage')">🎯 ເວທີຫຼັກ (Stage 12×7.3m)</button>
+              <button type="button" class="fp-point-quick-btn" onclick="window.selectBlueprintPoint('entrance')">🚪 ທາງເຂົ້າຫຼັກ (Entrance)</button>
+              <button type="button" class="fp-point-quick-btn" onclick="window.selectBlueprintPoint('runway')">🚶 ທາງຍ່າງຫຼັກ (Main Aisle)</button>
+              <button type="button" class="fp-point-quick-btn" onclick="window.selectBlueprintPoint('bazaar')">🛍️ ຕະຫຼາດ (Streetwear Bazaar)</button>
+              <button type="button" class="fp-point-quick-btn" onclick="window.selectBlueprintPoint('seating')">🪑 ອັດສະຈັນ (Seating 14+ Rows)</button>
+              <button type="button" class="fp-point-quick-btn" onclick="window.selectBlueprintPoint('vip')">👑 ຫ້ອງ VIP (VIP Lounge &amp; Media)</button>
+              <button type="button" class="fp-point-quick-btn" onclick="window.selectBlueprintPoint('beerlao')">🍺 ເບຍລາວ (Beerlao Green)</button>
+              <button type="button" class="fp-point-quick-btn" onclick="window.selectBlueprintPoint('pepsi')">⚡ ເປັບຊີ (Pepsi Blue)</button>
+              <button type="button" class="fp-point-quick-btn" onclick="window.selectBlueprintPoint('backstage')">🎤 ຫຼັງເວທີ (Backstage Lounges)</button>
+              <button type="button" class="fp-point-quick-btn" onclick="window.selectBlueprintPoint('egress')">🚨 ທາງໜີໄຟ (Safety Egress)</button>
+            </div>
+          </div>
+
           <div class="fp-card-actions">
-            <button type="button" class="fp-btn-action fp-btn-primary" onclick="window.openBlueprintModal()">
-              <span>OPEN FULL BLUEPRINT 🗺️</span>
+            <button type="button" class="fp-btn-action fp-btn-primary" onclick="window.selectBlueprintPoint('all')">
+              <span>EXPLORE ALL POINTS 📍</span>
             </button>
             <button type="button" class="fp-btn-action fp-btn-outline" onclick="document.getElementById('floorplan-blueprint-showcase')?.scrollIntoView({behavior:'smooth'})">
               <span>READ SPECS ↓</span>
@@ -20792,10 +21388,22 @@ body.presentation-active .floating-present-badge {
       </details>
     </div>
 
-    <!-- RIGHT COLUMN: Layered 3D Visuals & Blueprint (from gallery1.css) -->
+    <!-- RIGHT COLUMN: Layered 3D Visuals & Interactive Blueprint Stage -->
     <div class="fp-images-col">
       <!-- Vignette Gradient -->
       <div class="fp-vignette"></div>
+
+      <!-- Stage View Mode Switcher: 3D Renders vs Blueprint Map -->
+      <div class="fp-stage-view-switcher">
+        <button type="button" class="fp-view-tab-btn active" id="fp-tab-renders" onclick="window.setStageViewMode('render')" title="View 3D Spatial Renders">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          <span>3D RENDERS</span>
+        </button>
+        <button type="button" class="fp-view-tab-btn" id="fp-tab-blueprint" onclick="window.setStageViewMode('blueprint')" title="View Architectural Blueprint Map with Interactive Points">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+          <span>BLUEPRINT MAP 🗺️</span>
+        </button>
+      </div>
 
       <!-- Block 1: Master Grounds 3D Aerial (Default State) -->
       <div class="img-block">
@@ -20853,12 +21461,202 @@ body.presentation-active .floating-present-badge {
         </div>
       </div>
 
-      <!-- Block 6: Architectural Event Map Blueprint -->
-      <div class="img-block">
-        <div class="img-wrapper">
-          <img src="assets/event_map_layout.jpg" alt="05. Official Architectural Event Map Blueprint" loading="lazy" />
-        </div>
-      </div>
+      <!-- Block 6: Interactive Architectural Event Map Blueprint with Direct Spatial Hotspots -->
+      <div class="img-block fp-blueprint-block" id="fp-blueprint-stage-block">
+        <div class="img-wrapper fp-blueprint-stage-wrapper">
+          
+          <!-- Top Floating Mode Bar: Filter Chips & Reset -->
+          <div class="fp-bp-stage-topbar">
+            <div class="fp-bp-stage-badge">
+              <span class="fp-bp-live-pulse"></span>
+              <span class="fp-bp-badge-text">MAP • 10,000+ SQM</span>
+            </div>
+            <!-- Quick Point Filter Pills -->
+            <div class="fp-bp-filter-scroll">
+              <button type="button" class="fp-bp-filter-chip active" data-point="all" onclick="window.selectBlueprintPoint('all')">
+                <span>📍 ALL POINTS</span>
+              </button>
+              <button type="button" class="fp-bp-filter-chip" data-point="stage" onclick="window.selectBlueprintPoint('stage')">
+                <span style="color:#ffd700;">🎯 01. STAGE</span>
+              </button>
+              <button type="button" class="fp-bp-filter-chip" data-point="entrance" onclick="window.selectBlueprintPoint('entrance')">
+                <span style="color:#ef4444;">🚪 02. ENTRANCE</span>
+              </button>
+              <button type="button" class="fp-bp-filter-chip" data-point="runway" onclick="window.selectBlueprintPoint('runway')">
+                <span style="color:#f97316;">🚶 03. RUNWAY</span>
+              </button>
+              <button type="button" class="fp-bp-filter-chip" data-point="bazaar" onclick="window.selectBlueprintPoint('bazaar')">
+                <span style="color:#f59e0b;">🛍️ 04. BAZAAR</span>
+              </button>
+              <button type="button" class="fp-bp-filter-chip" data-point="seating" onclick="window.selectBlueprintPoint('seating')">
+                <span style="color:#dc2626;">🪑 05. SEATING</span>
+              </button>
+              <button type="button" class="fp-bp-filter-chip" data-point="vip" onclick="window.selectBlueprintPoint('vip')">
+                <span style="color:#c084fc;">👑 06. VIP SUITE</span>
+              </button>
+              <button type="button" class="fp-bp-filter-chip" data-point="beerlao" onclick="window.selectBlueprintPoint('beerlao')">
+                <span style="color:#22c55e;">🍺 07. BEERLAO</span>
+              </button>
+              <button type="button" class="fp-bp-filter-chip" data-point="pepsi" onclick="window.selectBlueprintPoint('pepsi')">
+                <span style="color:#38bdf8;">⚡ 08. PEPSI</span>
+              </button>
+              <button type="button" class="fp-bp-filter-chip" data-point="backstage" onclick="window.selectBlueprintPoint('backstage')">
+                <span style="color:#94a3b8;">🎤 09. BACKSTAGE</span>
+              </button>
+              <button type="button" class="fp-bp-filter-chip" data-point="egress" onclick="window.selectBlueprintPoint('egress')">
+                <span style="color:#ef4444;">🚨 10. EGRESS</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Blueprint Canvas with Map Image & Spatial Marker Pins -->
+          <div class="fp-bp-canvas-container">
+            <div class="fp-bp-canvas" id="fp-bp-canvas">
+              <img src="assets/event_map_layout.jpg" alt="Official Architectural Event Map Blueprint" class="fp-bp-base-image" loading="lazy" />
+
+              <!-- PIN 01: The Main Stage (12m x 7.3m) -->
+              <div class="fp-bp-pin pin-gold active" style="left: 49.8%; top: 30%;" data-point-id="stage" onclick="window.selectBlueprintPoint('stage')" tabindex="0" role="button" aria-label="Point 01: Main Stage (12m x 7.3m)">
+                <span class="bp-pin-ping"></span>
+                <span class="bp-pin-pulse"></span>
+                <div class="bp-pin-marker">
+                  <span class="bp-pin-icon">🎯</span>
+                  <span class="bp-pin-number">01</span>
+                </div>
+                <div class="bp-pin-label">MAIN STAGE (12×7.3m)</div>
+              </div>
+
+              <!-- PIN 02: Main Entrance & Front Access -->
+              <div class="fp-bp-pin pin-red" style="left: 49.8%; top: 76.5%;" data-point-id="entrance" onclick="window.selectBlueprintPoint('entrance')" tabindex="0" role="button" aria-label="Point 02: Main Entrance &amp; Access">
+                <span class="bp-pin-ping"></span>
+                <span class="bp-pin-pulse"></span>
+                <div class="bp-pin-marker">
+                  <span class="bp-pin-icon">🚪</span>
+                  <span class="bp-pin-number">02</span>
+                </div>
+                <div class="bp-pin-label">MAIN ENTRANCE</div>
+              </div>
+
+              <!-- PIN 03: Central Arterial Runway -->
+              <div class="fp-bp-pin pin-orange" style="left: 49.8%; top: 58%;" data-point-id="runway" onclick="window.selectBlueprintPoint('runway')" tabindex="0" role="button" aria-label="Point 03: Central Runway Aisle">
+                <span class="bp-pin-ping"></span>
+                <span class="bp-pin-pulse"></span>
+                <div class="bp-pin-marker">
+                  <span class="bp-pin-icon">🚶</span>
+                  <span class="bp-pin-number">03</span>
+                </div>
+                <div class="bp-pin-label">MAIN AISLE (3m)</div>
+              </div>
+
+              <!-- PIN 04: Streetwear Bazaar & Live Graffiti -->
+              <div class="fp-bp-pin pin-amber" style="left: 36%; top: 46%;" data-point-id="bazaar" onclick="window.selectBlueprintPoint('bazaar')" tabindex="0" role="button" aria-label="Point 04: Streetwear Bazaar">
+                <span class="bp-pin-ping"></span>
+                <span class="bp-pin-pulse"></span>
+                <div class="bp-pin-marker">
+                  <span class="bp-pin-icon">🛍️</span>
+                  <span class="bp-pin-number">04</span>
+                </div>
+                <div class="bp-pin-label">BAZAAR &amp; GRAFFITI</div>
+              </div>
+
+              <!-- PIN 05: Spectator Seating -->
+              <div class="fp-bp-pin pin-crimson" style="left: 17%; top: 47%;" data-point-id="seating" onclick="window.selectBlueprintPoint('seating')" tabindex="0" role="button" aria-label="Point 05: Spectator Seating">
+                <span class="bp-pin-ping"></span>
+                <span class="bp-pin-pulse"></span>
+                <div class="bp-pin-marker">
+                  <span class="bp-pin-icon">🪑</span>
+                  <span class="bp-pin-number">05</span>
+                </div>
+                <div class="bp-pin-label">SEATING (14+ ROWS)</div>
+              </div>
+
+              <!-- PIN 06: VIP Suite & Media Hub -->
+              <div class="fp-bp-pin pin-purple" style="left: 33.5%; top: 70%;" data-point-id="vip" onclick="window.selectBlueprintPoint('vip')" tabindex="0" role="button" aria-label="Point 06: VIP Suite">
+                <span class="bp-pin-ping"></span>
+                <span class="bp-pin-pulse"></span>
+                <div class="bp-pin-marker">
+                  <span class="bp-pin-icon">👑</span>
+                  <span class="bp-pin-number">06</span>
+                </div>
+                <div class="bp-pin-label">VIP ROOM &amp; MEDIA</div>
+              </div>
+
+              <!-- PIN 07: Beerlao Green Zone -->
+              <div class="fp-bp-pin pin-green" style="left: 77%; top: 43%;" data-point-id="beerlao" onclick="window.selectBlueprintPoint('beerlao')" tabindex="0" role="button" aria-label="Point 07: Beerlao Green Zone">
+                <span class="bp-pin-ping"></span>
+                <span class="bp-pin-pulse"></span>
+                <div class="bp-pin-marker">
+                  <span class="bp-pin-icon">🍺</span>
+                  <span class="bp-pin-number">07</span>
+                </div>
+                <div class="bp-pin-label">BEERLAO GREEN ZONE</div>
+              </div>
+
+              <!-- PIN 08: Pepsi Blue Zone -->
+              <div class="fp-bp-pin pin-blue" style="left: 77%; top: 72%;" data-point-id="pepsi" onclick="window.selectBlueprintPoint('pepsi')" tabindex="0" role="button" aria-label="Point 08: Pepsi Blue Zone">
+                <span class="bp-pin-ping"></span>
+                <span class="bp-pin-pulse"></span>
+                <div class="bp-pin-marker">
+                  <span class="bp-pin-icon">⚡</span>
+                  <span class="bp-pin-number">08</span>
+                </div>
+                <div class="bp-pin-label">PEPSI BLUE ZONE</div>
+              </div>
+
+              <!-- PIN 09: Backstage Artist Lounges -->
+              <div class="fp-bp-pin pin-slate" style="left: 49.8%; top: 20%;" data-point-id="backstage" onclick="window.selectBlueprintPoint('backstage')" tabindex="0" role="button" aria-label="Point 09: Backstage Artist Lounges">
+                <span class="bp-pin-ping"></span>
+                <span class="bp-pin-pulse"></span>
+                <div class="bp-pin-marker">
+                  <span class="bp-pin-icon">🎤</span>
+                  <span class="bp-pin-number">09</span>
+                </div>
+                <div class="bp-pin-label">BACKSTAGE &amp; ARTISTS</div>
+              </div>
+
+              <!-- PIN 10: Emergency Safety Egress -->
+              <div class="fp-bp-pin pin-red" style="left: 9.5%; top: 49%;" data-point-id="egress" onclick="window.selectBlueprintPoint('egress')" tabindex="0" role="button" aria-label="Point 10: Emergency Egress">
+                <span class="bp-pin-ping"></span>
+                <span class="bp-pin-pulse"></span>
+                <div class="bp-pin-marker">
+                  <span class="bp-pin-icon">🚨</span>
+                  <span class="bp-pin-number">10</span>
+                </div>
+                <div class="bp-pin-label">EMERGENCY EGRESS</div>
+              </div>
+
+            </div><!-- /fp-bp-canvas -->
+          </div><!-- /fp-bp-canvas-container -->
+
+          <!-- Bottom HUD Inspector Bar: Interactive Selected Point Information -->
+          <div class="fp-bp-hud" id="fp-bp-hud">
+            <div class="fp-bp-hud-left">
+              <div class="fp-bp-hud-badge-row">
+                <span class="fp-bp-hud-tag" id="fp-bp-hud-tag" style="background:rgba(212,175,55,0.2); color:#ffd700; border-color:rgba(212,175,55,0.4);">
+                  <span class="fp-bp-hud-dot" id="fp-bp-hud-dot" style="background:#ffd700;"></span>
+                  <span id="fp-bp-hud-badgetext">CHAMPIONSHIP ARENA</span>
+                </span>
+                <span class="fp-bp-hud-coord" id="fp-bp-hud-coord">LAO-ITECC MAIN STAGE</span>
+              </div>
+              <h4 class="fp-bp-hud-title" id="fp-bp-hud-title">THE APEX MAIN STAGE (12m × 7.3m)</h4>
+              <p class="fp-bp-hud-lao" id="fp-bp-hud-lao">ເວທີຫຼັກອານາຈັກແອເປັກ • ສູນກາງການແຂ່ງຂັນ &amp; ຄອນເສີດໃຫຍ່</p>
+              <div class="fp-bp-hud-specs" id="fp-bp-hud-specs">
+                <span class="fp-chip">12m × 7.3m Battle Stage</span>
+                <span class="fp-chip">Extended T-Runway</span>
+                <span class="fp-chip">159M LAK Grand Awards</span>
+              </div>
+            </div>
+            <div class="fp-bp-hud-actions">
+              <button type="button" class="fp-bp-btn-action primary" id="fp-bp-view-3d-btn" onclick="window.viewPoint3DRender()" title="View 3D Spatial Render of this point">
+                <span>VIEW 3D RENDER ↗</span>
+              </button>
+              <button type="button" class="fp-bp-btn-action outline" id="fp-bp-view-zone-btn" onclick="window.openPointZoneDetails()" title="Open Zone details card on left">
+                <span>ZONE SPECS 📋</span>
+              </button>
+            </div>
+          </div><!-- /fp-bp-hud -->
+
+        </div><!-- /img-wrapper -->
+      </div><!-- /img-block Block 6 -->
     </div>
   </div>
 
@@ -20870,26 +21668,26 @@ body.presentation-active .floating-present-badge {
       <div class="blueprint-card-inner">
         <!-- Left Column: Interactive Blueprint Stage -->
         <div class="blueprint-preview-box">
-          <div class="blueprint-img-stage" onclick="window.openBlueprintModal()" title="Click to view Fullscreen Blueprint Map">
+          <div class="blueprint-img-stage" onclick="window.showEmbeddedBlueprint(4, 'all')" title="Click to explore interactive blueprint map above">
             <img src="assets/event_map_layout.jpg" alt="Official LIHF 2026 Event Map Layout" class="blueprint-main-img" id="fp-blueprint-preview" loading="lazy" />
             <div class="blueprint-badge-overlay">
               <span class="blueprint-pulse"></span>
               <span>OFFICIAL ARCHITECTURAL MAP</span>
             </div>
             <div class="blueprint-hover-prompt">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-              <span>CLICK TO EXPAND FULLSCREEN BLUEPRINT</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+              <span>EXPLORE INTERACTIVE POINTS ON BLUEPRINT MAP ↑</span>
             </div>
           </div>
           <!-- Action Buttons Bar -->
           <div class="blueprint-actions-bar">
-            <button type="button" class="bp-action-btn primary" onclick="window.openBlueprintModal()">
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-              <span>FULLSCREEN BLUEPRINT ⛶</span>
+            <button type="button" class="bp-action-btn primary" onclick="window.showEmbeddedBlueprint(4, 'all')">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+              <span>EXPLORE MAP POINTS 📍</span>
             </button>
             <a href="assets/event_map_layout.jpg" target="_blank" download="LIHF2026_Event_Map_Lao_ITECC.jpg" class="bp-action-btn secondary">
               <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-              <span>VIEW HIGH-RES (1024×768) ↗</span>
+              <span>DOWNLOAD HIGH-RES (1024×768) ↓</span>
             </a>
           </div>
         </div>
@@ -22759,6 +23557,11 @@ function activateZone(idx) {
         detailsList.forEach((other, oIdx) => {
           if (oIdx !== idx && other.open) other.open = false;
         });
+        if (idx === 4) {
+          window.setStageViewMode('blueprint');
+        } else {
+          window.setStageViewMode('render');
+        }
       }
     });
   });
@@ -22800,6 +23603,240 @@ function activateZone(idx) {
     }
   });
 })();
+
+// ── Spatial Blueprint Interactive Intelligence & Hotspots ──
+const blueprintPointsData = {
+  stage: {
+    number: '01',
+    icon: '🎯',
+    color: '#ffd700',
+    tag: 'CHAMPIONSHIP ARENA',
+    coord: 'LAO-ITECC MAIN STAGE',
+    title: 'THE APEX MAIN STAGE (12m × 7.3m)',
+    lao: 'ເວທີຫຼັກອານາຈັກແອເປັກ • ສູນກາງການແຂ່ງຂັນ & ຄອນເສີດໃຫຍ່',
+    specs: ['12m × 7.3m Battle Stage', 'Extended T-Runway', '159M LAK Grand Awards'],
+    zoneIdx: 3
+  },
+  entrance: {
+    number: '02',
+    icon: '🚪',
+    color: '#ef4444',
+    tag: 'MAIN ARRIVAL FOYER',
+    coord: 'LAO-ITECC FRONT APRON',
+    title: 'MAIN ENTRANCE & ARRIVAL FOYER',
+    lao: 'ຊຸມປະຕູທາງເຂົ້າຫຼັກ • ປະຕູໄຊ Lao-ITECC & ຈຸດລົງທະບຽນ',
+    specs: ['10m Front Apron', 'Dual Security Checkpoints', 'Red-Carpet Photo Landmark'],
+    zoneIdx: 0
+  },
+  runway: {
+    number: '03',
+    icon: '🚶',
+    color: '#f97316',
+    tag: 'CENTRAL ARTERY',
+    coord: 'CENTRAL 3M AISLE',
+    title: 'CENTRAL ARTERIAL RUNWAY (3m)',
+    lao: 'ທາງຍ່າງຫຼັກເຊື່ອມຕໍ່ສູນກາງ 3 ແມັດ • ເຊື່ອມທາງເຂົ້າຫາເວທີ',
+    specs: ['3m Direct Arterial Corridor', 'High-Footfall Circulation', 'Direct Access to All Zones'],
+    zoneIdx: 0
+  },
+  bazaar: {
+    number: '04',
+    icon: '🛍️',
+    color: '#f59e0b',
+    tag: 'EXHIBITION GROUNDS',
+    coord: 'OPEN LAYOUT HALL',
+    title: 'STREETWEAR BAZAAR & GRAFFITI WALL',
+    lao: 'ຕະຫຼາດສະຕຣີທແວ & ກຳແພງພົ່ນສີກຣາຟຟິຕີ້ສົດ 8 ຊົ່ວໂມງ',
+    specs: ['50–70 Streetwear Booths', '8H Live Graffiti Canvas', 'Outdoor Cyphers'],
+    zoneIdx: 0
+  },
+  seating: {
+    number: '05',
+    icon: '🪑',
+    color: '#dc2626',
+    tag: 'AUDITORIUM SEATING',
+    coord: 'WEST HALL TIERED ROWS',
+    title: 'SPECTATOR AUDITORIUM SEATING',
+    lao: 'ອັດສະຈັນບ່ອນນັ່ງຊົມ 14+ ແຖວ • ຕິດລະບົບແອ AHU',
+    specs: ['14+ Tiered Stadium Rows', 'Direct Sightline to Stage', 'Near Safety Egress'],
+    zoneIdx: 0
+  },
+  vip: {
+    number: '06',
+    icon: '👑',
+    color: '#c084fc',
+    tag: 'VIP & MEDIA SUITE',
+    coord: 'SOUTHWEST EXECUTIVE SUITE',
+    title: 'VIP EXECUTIVE SUITE & MEDIA HUB',
+    lao: 'ຫ້ອງຮັບຮອງ VIP & ສູນມີເດຍສື່ມວນຊົນ • ຫ້ອງພັກສິນລະປິນຮັບເຊີນ',
+    specs: ['Air-Conditioned VIP Suites', 'Press Conference Room', 'Artist Hospitality Center'],
+    zoneIdx: 4
+  },
+  beerlao: {
+    number: '07',
+    icon: '🍺',
+    color: '#22c55e',
+    tag: 'BEERLAO LIFESTYLE OASIS',
+    coord: 'EAST EXHIBITION HALL',
+    title: 'BEERLAO GREEN ZONE (EXPERIENCE OASIS)',
+    lao: 'ເຂດເບຍລາວສີຂຽວ • ໂຊນປະສົບການ, ເວທີດີເຈ & ເບຍກາດເດັນ',
+    specs: ['Live DJ Scratch Battles', 'Urban Beer Garden', 'Cold Draft Pouring Stations'],
+    zoneIdx: 1
+  },
+  pepsi: {
+    number: '08',
+    icon: '⚡',
+    color: '#38bdf8',
+    tag: 'PEPSI ACTIVATION PLAYGROUND',
+    coord: 'SOUTHEAST HALL',
+    title: 'PEPSI BLUE ZONE (ACTIVATION PLAYGROUND)',
+    lao: 'ເຂດເປັບຊີສີຟ້າ • ເວທີໄຊເຟີ, Dance-Mat & ສະຕູດິໂອ UGC',
+    specs: ['Rap Cypher Stage', 'Rhythm Dance-Mat Challenge', 'Ice-Cold Pepsi Bar'],
+    zoneIdx: 2
+  },
+  backstage: {
+    number: '09',
+    icon: '🎤',
+    color: '#94a3b8',
+    tag: 'PRODUCTION & LOGISTICS',
+    coord: 'NORTH BEHIND STAGE',
+    title: 'BACKSTAGE ARTIST SUITES & PRODUCTION',
+    lao: 'ພື້ນທີ່ຫຼັງເວທີ, ຫ້ອງແຕ່ງກາຍສິນລະປິນ & ຈຸດໂຫຼດອຸປະກອນ',
+    specs: ['3.5m Loading Clearance', '2 Private Dressing Lounges', 'Pro Audio/Lighting DMX'],
+    zoneIdx: 3
+  },
+  egress: {
+    number: '10',
+    icon: '🚨',
+    color: '#ef4444',
+    tag: 'SAFETY & EMERGENCY EGRESS',
+    coord: '4 DEDICATED FIRE CORRIDORS',
+    title: 'EMERGENCY SAFETY EGRESS CORRIDORS',
+    lao: 'ທາງໜີໄຟສຸກເສີນ 4 ຈຸດ • ລະບົບຄວາມປອດໄພ ແລະ ທີມແພດສຸກເສີນ',
+    specs: ['4 Fire Egress Doors', '3m Clear Perimeter Corridors', 'First-Aid Station'],
+    zoneIdx: 4
+  }
+};
+
+window.currentSelectedBlueprintPoint = 'stage';
+
+window.setStageViewMode = function(mode) {
+  const viewer = document.getElementById('fp-gallery-viewer');
+  if (!viewer) return;
+
+  viewer.setAttribute('data-stage-view', mode);
+  window.updateStageViewButtons(mode);
+
+  if (mode === 'blueprint') {
+    if (!window.currentSelectedBlueprintPoint) {
+      window.selectBlueprintPoint('all');
+    }
+  }
+};
+
+window.updateStageViewButtons = function(mode) {
+  const tabRenders = document.getElementById('fp-tab-renders');
+  const tabBlueprint = document.getElementById('fp-tab-blueprint');
+  if (tabRenders) tabRenders.classList.toggle('active', mode === 'render');
+  if (tabBlueprint) tabBlueprint.classList.toggle('active', mode === 'blueprint');
+};
+
+window.selectBlueprintPoint = function(pointId) {
+  const viewer = document.getElementById('fp-gallery-viewer');
+  if (viewer) {
+    viewer.setAttribute('data-stage-view', 'blueprint');
+  }
+  window.updateStageViewButtons('blueprint');
+
+  const pins = document.querySelectorAll('.fp-bp-pin');
+  const filterChips = document.querySelectorAll('.fp-bp-filter-chip');
+  const quickBtns = document.querySelectorAll('.fp-point-quick-btn');
+
+  // Update filter chips active state
+  filterChips.forEach(chip => {
+    chip.classList.toggle('active', chip.dataset.point === pointId);
+  });
+  quickBtns.forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('onclick')?.includes(`'${pointId}'`));
+  });
+
+  if (pointId === 'all') {
+    pins.forEach(pin => {
+      pin.classList.remove('dimmed');
+      pin.classList.toggle('active', pin.dataset.pointId === 'stage');
+    });
+    pointId = 'stage';
+  } else {
+    pins.forEach(pin => {
+      const match = pin.dataset.pointId === pointId;
+      pin.classList.toggle('active', match);
+      pin.classList.toggle('dimmed', !match);
+    });
+  }
+
+  window.currentSelectedBlueprintPoint = pointId;
+  const data = blueprintPointsData[pointId];
+  if (!data) return;
+
+  // Update HUD
+  const tagEl = document.getElementById('fp-bp-hud-tag');
+  const dotEl = document.getElementById('fp-bp-hud-dot');
+  const badgeTextEl = document.getElementById('fp-bp-hud-badgetext');
+  const coordEl = document.getElementById('fp-bp-hud-coord');
+  const titleEl = document.getElementById('fp-bp-hud-title');
+  const laoEl = document.getElementById('fp-bp-hud-lao');
+  const specsEl = document.getElementById('fp-bp-hud-specs');
+
+  if (tagEl) {
+    tagEl.style.color = data.color;
+    tagEl.style.borderColor = `${data.color}66`;
+    tagEl.style.background = `${data.color}22`;
+  }
+  if (dotEl) dotEl.style.background = data.color;
+  if (badgeTextEl) badgeTextEl.textContent = data.tag;
+  if (coordEl) coordEl.textContent = data.coord;
+  if (titleEl) titleEl.textContent = data.title;
+  if (laoEl) laoEl.textContent = data.lao;
+  if (specsEl) {
+    specsEl.innerHTML = data.specs.map(s => `<span class="fp-chip">${s}</span>`).join('');
+  }
+};
+
+window.showEmbeddedBlueprint = function(zoneIdx = 4, pointKey = null) {
+  window.setStageViewMode('blueprint');
+
+  const viewer = document.getElementById('fp-gallery-viewer');
+  if (viewer) {
+    const details = viewer.querySelectorAll('details[name="fp-zone"]');
+    if (details[zoneIdx]) {
+      details.forEach((d, i) => { d.open = (i === zoneIdx); });
+    }
+    viewer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  if (pointKey) {
+    window.selectBlueprintPoint(pointKey);
+  } else {
+    window.selectBlueprintPoint('all');
+  }
+};
+
+window.viewPoint3DRender = function() {
+  const currentKey = window.currentSelectedBlueprintPoint || 'stage';
+  const data = blueprintPointsData[currentKey];
+  if (!data) return;
+
+  window.switchFloorplanZone(data.zoneIdx);
+  window.setStageViewMode('render');
+};
+
+window.openPointZoneDetails = function() {
+  const currentKey = window.currentSelectedBlueprintPoint || 'stage';
+  const data = blueprintPointsData[currentKey];
+  if (!data) return;
+
+  window.switchFloorplanZone(data.zoneIdx);
+};
 
 window.switchFloorplanZone = function(idx) {
   const viewer = document.getElementById('fp-gallery-viewer');
@@ -22848,12 +23885,8 @@ window.openFloorplanModal = function(zoneIdx = 0, imgIdx = 0) {
 };
 
 window.openBlueprintModal = function() {
-  const modal = document.getElementById('floorplan-fullscreen-modal');
-  if (!modal) return;
-
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  window.setModalBlueprint();
+  // Graceful redirect to embedded blueprint without opening any popup modal
+  window.showEmbeddedBlueprint(4, 'all');
 };
 
 window.closeFloorplanModal = function() {
