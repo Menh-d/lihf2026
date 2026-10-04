@@ -16200,6 +16200,345 @@ body.gsap-ready .contact-standalone-section * {
   }
 }
 
+/* Red Glowing Expand Button below Master Poster */
+.mkt-poster-expand-btn {
+  position: relative;
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  background: linear-gradient(135deg, rgba(238, 28, 36, 0.28) 0%, rgba(18, 10, 14, 0.95) 55%, rgba(238, 28, 36, 0.2) 100%);
+  border: 2px solid #ee1c24;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(238, 28, 36, 0.55), 0 4px 16px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 1rem;
+}
+
+.mkt-poster-expand-btn:hover {
+  transform: translateY(-2px);
+  border-color: #ff3344;
+  box-shadow: 0 0 32px rgba(238, 28, 36, 0.85), 0 6px 24px rgba(238, 28, 36, 0.45);
+  background: linear-gradient(135deg, rgba(238, 28, 36, 0.4) 0%, rgba(28, 12, 16, 0.98) 55%, rgba(238, 28, 36, 0.3) 100%);
+}
+
+.mkt-poster-expand-glow-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: 8px;
+  background: radial-gradient(circle at center, rgba(238, 28, 36, 0.65) 0%, transparent 70%);
+  opacity: 0.5;
+  pointer-events: none;
+  animation: pulsePosterGlow 2.4s infinite ease-in-out;
+}
+
+@keyframes pulsePosterGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.99);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+.mkt-poster-btn-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  color: #ffffff;
+  font-family: 'Noto Sans Lao', var(--ff-a), sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.mkt-poster-btn-icon {
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+.mkt-poster-btn-arrow {
+  color: var(--gold);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.mkt-poster-wrap.expanded .mkt-poster-btn-arrow {
+  transform: rotate(180deg);
+}
+
+.mkt-poster-details-drawer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+}
+
+.mkt-poster-wrap.expanded .mkt-poster-details-drawer {
+  max-height: 1400px;
+  opacity: 1;
+}
+
+.mkt-poster-details-inner {
+  margin-top: 0.9rem;
+  padding: 1.3rem 1.35rem;
+  background: rgba(14, 14, 18, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+}
+
+.mkt-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.mkt-detail-icon {
+  font-size: 1.15rem;
+  color: var(--gold);
+}
+
+.mkt-detail-title {
+  font-family: var(--ff-a);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.mkt-detail-sub-la {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.mkt-highlight-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.mkt-highlight-list li {
+  font-family: var(--ff-b);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--red);
+}
+
+.mkt-highlight-list li strong {
+  color: #fff;
+  display: block;
+  margin-bottom: 0.15rem;
+  font-family: var(--ff-a);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+}
+
+.mkt-highlight-list .hl-la {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  color: #ffffff;
+  display: block;
+}
+
+.mkt-highlight-list .hl-en {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.6);
+  display: block;
+  margin-top: 0.1rem;
+}
+
+.mkt-colors-compact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .mkt-colors-compact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mkt-color-card {
+  padding: 0.85rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mkt-color-dot-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mkt-color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.mkt-color-hex {
+  font-family: var(--ff-a);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}
+
+.mkt-color-name {
+  font-family: var(--ff-a);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.mkt-color-la-role {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.73rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.4;
+}
+
+.mkt-color-desc-en {
+  font-family: var(--ff-b);
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.35;
+}
+
+/* Slider Frame and Controls */
+.mkt-kv-slider-frame {
+  position: relative;
+  width: 100%;
+  height: 210px;
+  background: radial-gradient(circle at center, rgba(30, 15, 15, 0.85) 0%, rgba(8, 8, 10, 0.95) 75%, #050507 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 0.65rem;
+  transition: border-color 0.3s ease;
+}
+
+.mkt-kv-slider-frame:hover {
+  border-color: var(--gold);
+}
+
+.mkt-slide-img-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.mkt-slide-img-wrap img {
+  max-width: 86%;
+  max-height: 86%;
+  object-fit: contain;
+  transition: opacity 0.25s ease, transform 0.4s ease;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.85));
+}
+
+.mkt-slide-img-wrap:hover img {
+  transform: scale(1.06);
+}
+
+.mkt-slide-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.2s ease;
+  line-height: 1;
+  padding: 0 0 2px 0;
+}
+
+.mkt-slide-nav-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.mkt-slide-nav-btn.prev {
+  left: 8px;
+}
+
+.mkt-slide-nav-btn.next {
+  right: 8px;
+}
+
+.mkt-slide-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+.mkt-slide-pill {
+  flex: 1;
+  padding: 0.32rem 0.15rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  font-family: var(--ff-a);
+  font-size: 0.63rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.mkt-slide-pill:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.mkt-slide-pill.active {
+  background: rgba(204, 0, 0, 0.28);
+  border-color: var(--red);
+  color: var(--gold);
+  box-shadow: 0 0 10px rgba(204, 0, 0, 0.4);
+}
+
 /* ── OFFICIAL FESTIVAL MASCOT & 3D CHARACTER ANATOMY ── */
 .mkt-mascot-master-wrap {
   margin-top: 3.5rem;
@@ -19331,6 +19670,108 @@ body.presentation-active .floating-present-badge {
                 </div>
                 <span style="font-family:var(--ff-b); font-size:0.78rem; color:rgba(255,255,255,0.45);">Primary Campaign Anchor</span>
               </div>
+
+              <!-- Red Glowing Expand Button for Poster Details & Colors -->
+              <button type="button" class="mkt-poster-expand-btn" onclick="togglePosterDetails(this)" aria-expanded="false">
+                <span class="mkt-poster-expand-glow-ring"></span>
+                <div class="mkt-poster-btn-content">
+                  <div style="display:flex; align-items:center; gap:0.65rem;">
+                    <span class="mkt-poster-btn-icon">✦</span>
+                    <div style="text-align:left;">
+                      <div style="font-size:0.86rem; font-weight:700; line-height:1.25; color:#fff;">ເບິ່ງລາຍລະອຽດອົງປະກອບ &amp; ໂທນສີ (View Details)</div>
+                      <div style="font-size:0.7rem; font-weight:400; opacity:0.8; font-family:var(--ff-b); color:rgba(255,255,255,0.75);">KEY VISUAL HIGHLIGHTS &amp; 4-CORE COLOR PALETTE</div>
+                    </div>
+                  </div>
+                  <svg class="mkt-poster-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+              </button>
+
+              <!-- Expandable Drawer below Poster -->
+              <div class="mkt-poster-details-drawer">
+                <div class="mkt-poster-details-inner">
+                  
+                  <!-- Part 1: Key Visual Composition Highlights -->
+                  <div class="mkt-detail-header">
+                    <span class="mkt-detail-icon">✦</span>
+                    <div>
+                      <div class="mkt-detail-title">KEY VISUAL COMPOSITION HIGHLIGHTS</div>
+                      <div class="mkt-detail-sub-la">ຈຸດເດັ່ນຂອງອົງປະກອບພາບຫຼັກ Master Key Visual</div>
+                    </div>
+                  </div>
+                  <ul class="mkt-highlight-list">
+                    <li>
+                      <strong>3D MASCOT INTEGRATION:</strong>
+                      <span class="hl-la">🇱🇦 ຕົວລະຄອນ 3D Mascot ຕົ້ນສະບັບ ໃສ່ເສື້ອ Puffer ສີແດງ, ໝວກ ແລະ ເກີບສະນີກເກີ ສະທ້ອນເຖິງສະໄຕລ໌ Street ຍຸກ Gen Z ຢ່າງຊັດເຈນ.</span>
+                      <span class="hl-en">🇬🇧 Original character in crimson puffer, bucket hat, and sneakers embodying Gen Z street style.</span>
+                    </li>
+                    <li>
+                      <strong>LEAD TITLE SPONSOR LOCKUP:</strong>
+                      <span class="hl-la">🇱🇦 ພື້ນທີ່ໂລໂກ້ສະປອນເຊີຫຼັກ (Lead Title Sponsor) ຖືກຈັດວາງໄວ້ຢ່າງໂດດເດັ່ນເທິງທຸງ Hero Banner ເຫັນໄດ້ຊັດເຈນທຸກໄລຍະ.</span>
+                      <span class="hl-en">🇬🇧 Dedicated premium branding space for primary presenting sponsors on hero banner flags.</span>
+                    </li>
+                    <li>
+                      <strong>LINEUP &amp; 8 ACTIVITIES:</strong>
+                      <span class="hl-la">🇱🇦 ສະແດງລາຍຊື່ທັງ 8 ປະເພດການແຂ່ງຂັນ ແລະ ສິນລະປິນຮັບເຊີນລະດັບອາຊຽນ ໃຫ້ຄວາມໂດດເດັ່ນສູງສຸດຕໍ່ສາທາລະນະ.</span>
+                      <span class="hl-en">🇬🇧 Direct prominence for all 8 competition categories and ASEAN international guest artists.</span>
+                    </li>
+                  </ul>
+
+                  <!-- Part 2: The 4-Core Colors Palette -->
+                  <div class="mkt-detail-header" style="margin-top:1.35rem; padding-top:1.1rem; border-top:1px solid rgba(255,255,255,0.1);">
+                    <span class="mkt-detail-icon">🎨</span>
+                    <div>
+                      <div class="mkt-detail-title">THE 4-CORE COLOR PALETTE &amp; BRAND HARMONY</div>
+                      <div class="mkt-detail-sub-la">ລະບົບ 4 ໂທນສີຫຼັກ ແລະ ຄວາມກົມກຽວຂອງແບຣນດ໌</div>
+                    </div>
+                  </div>
+                  <div class="mkt-colors-compact-grid">
+                    <!-- Color 1: Festival Crimson Red -->
+                    <div class="mkt-color-card">
+                      <div class="mkt-color-dot-row">
+                        <span class="mkt-color-dot" style="background:#ee1c24; box-shadow:0 0 10px rgba(238,28,36,0.6);"></span>
+                        <span class="mkt-color-hex" style="color:#ff4d4d;">#EE1C24</span>
+                      </div>
+                      <div class="mkt-color-name">Festival Crimson Red</div>
+                      <div class="mkt-color-la-role">🇱🇦 ພະລັງແຫ່ງເວທີ, ຄວາມກ້າຫານ ແລະ ສີແດງໃນທຸງຊາດລາວ</div>
+                      <div class="mkt-color-desc-en">Underground power, battle arena intensity, and bold red in the Lao flag.</div>
+                    </div>
+
+                    <!-- Color 2: Lao Heritage Gold -->
+                    <div class="mkt-color-card">
+                      <div class="mkt-color-dot-row">
+                        <span class="mkt-color-dot" style="background:#ffc700; box-shadow:0 0 10px rgba(255,199,0,0.5);"></span>
+                        <span class="mkt-color-hex" style="color:var(--gold);">#FFC700</span>
+                      </div>
+                      <div class="mkt-color-name" style="color:var(--gold);">Lao Heritage Gold</div>
+                      <div class="mkt-color-la-role">🇱🇦 ມໍລະດົກຄຳພະທາດຫຼວງ, ຊັບສິນ ແລະ ລາງວັນແຊ້ມ 159M LAK</div>
+                      <div class="mkt-color-desc-en">Pha That Luang cultural gold, champion victory, and 159M LAK prize pool.</div>
+                    </div>
+
+                    <!-- Color 3: Urban Charcoal Black -->
+                    <div class="mkt-color-card">
+                      <div class="mkt-color-dot-row">
+                        <span class="mkt-color-dot" style="background:#0a0a0c; border:1px solid rgba(255,255,255,0.3); box-shadow:0 0 10px rgba(0,0,0,0.8);"></span>
+                        <span class="mkt-color-hex">#0A0A0C</span>
+                      </div>
+                      <div class="mkt-color-name">Urban Charcoal Black</div>
+                      <div class="mkt-color-la-role">🇱🇦 ຖະໜົນ asphalt, ແຜ່ນສຽງ Vinyl ແລະ ພະລັງງານຍາມຄ່ຳຄືນ</div>
+                      <div class="mkt-color-desc-en">Raw street asphalt, vinyl turntables, cyphers, and subwoofer depth.</div>
+                    </div>
+
+                    <!-- Color 4: Crisp Stage White -->
+                    <div class="mkt-color-card">
+                      <div class="mkt-color-dot-row">
+                        <span class="mkt-color-dot" style="background:#ffffff; border:1px solid rgba(255,255,255,0.4); box-shadow:0 0 10px rgba(255,255,255,0.4);"></span>
+                        <span class="mkt-color-hex">#FFFFFF</span>
+                      </div>
+                      <div class="mkt-color-name">Crisp Stage White</div>
+                      <div class="mkt-color-la-role">🇱🇦 ຄວາມຊັດເຈນສູງສຸດ, ຄວາມທັນສະໄໝ ແລະ ຄວາມຄົມຊັດ</div>
+                      <div class="mkt-color-desc-en">Maximum typographical contrast, sleek chrome, and visual clarity.</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
             </div>
 
             <!-- RIGHT: Brand Identity Elements Breakdown -->
@@ -19386,297 +19827,101 @@ body.presentation-active .floating-present-badge {
 
               </div>
 
-              <!-- Composition Specs & Key Elements -->
-              <div style="padding:1.1rem 1.3rem; border-left:3px solid var(--red); background:rgba(255,255,255,0.02); border-radius:4px; margin-top:0.4rem;">
-                <div style="font-family:var(--ff-a); font-size:0.75rem; font-weight:700; letter-spacing:0.12em; color:var(--gold); margin-bottom:0.35rem; text-transform:uppercase;">KEY VISUAL COMPOSITION HIGHLIGHTS</div>
-                <ul style="list-style:none; padding:0; margin:0; font-family:var(--ff-b); font-size:0.84rem; color:rgba(255,255,255,0.78); line-height:1.55;">
-                  <li>✦ <strong>3D Mascot Integration:</strong> Original character in crimson puffer, bucket hat, and sneakers embodying Gen Z street style.</li>
-                  <li>✦ <strong>Lead Title Sponsor Lockup:</strong> Dedicated premium branding space for primary presenting sponsors on hero banner flags.</li>
-                  <li>✦ <strong>Lineup &amp; 8 Activities:</strong> Direct prominence for all 8 competition categories and ASEAN international guest artists.</li>
-                </ul>
-              </div>
+              <!-- ROW 2: The 2 Mascot Slideshow Cards -->
+              <div class="mkt-kv-assets-pair-grid" style="margin-top:1.15rem;">
 
-            </div>
-
-          </div>
-
-          <!-- 2. OFFICIAL FESTIVAL MASCOT: 4 ELEMENTS & 3D CHARACTER ANATOMY -->
-          <div class="mkt-mascot-master-wrap">
-            
-            <div class="mkt-mascot-header-row">
-              <div style="max-width:820px;">
-                <div class="section-label" style="margin-bottom:0.65rem;">OFFICIAL FESTIVAL MASCOT &amp; CHARACTER IP</div>
-                <h4 style="font-family:var(--ff-d); font-size:clamp(1.6rem, 2.8vw, 2.4rem); text-transform:uppercase; color:#fff; line-height:1.15; margin:0.4rem 0 0.8rem;">
-                  THE 4 ELEMENTS <span class="hl">MASCOT</span> &amp; 3D CHARACTER ANATOMY
-                </h4>
-                <p style="font-family:var(--ff-b); font-size:0.95rem; color:rgba(255,255,255,0.8); line-height:1.65; margin:0;">
-                  The Official LIHF 2026 Mascot is an original <strong>3D Street Character</strong> combining a vintage Boombox head, golden grillz, festival crimson puffer jacket trimmed with contemporary Lao motifs, and high-top sneakers. Representing all 4 culture pillars with complete 360° turnaround assets ready for licensing, collectibles, and AR activations.
-                </p>
-              </div>
-              <div style="display:flex; align-items:center; gap:0.6rem;">
-                <span class="mkt-mascot-pill" style="font-size:0.72rem; padding:0.4rem 0.8rem;">
-                  ✦ 100% ORIGINAL LIHF CHARACTER IP
-                </span>
-              </div>
-            </div>
-
-            <!-- 4-Column Architectural Grid: The 4 Elements Poses -->
-            <div class="mkt-mascot-grid">
-              
-              <!-- 01: MC (Layer 5) -->
-              <div class="mkt-mascot-col">
-                <div class="mkt-mascot-tag-row">
-                  <span class="mkt-mascot-num">01</span>
-                  <span class="mkt-mascot-pill">MC • EMCEEING</span>
-                </div>
-                <div class="mkt-mascot-stage" onclick="viewArtwork('assets/mascot/mascot_web_05.png', 'LIHF 2026 Mascot - MC Element Pose')" title="Click to inspect 4K MC Pose">
-                  <div class="mkt-mascot-stage-glow"></div>
-                  <img src="assets/mascot/mascot_web_05.png" alt="LIHF 2026 Mascot MC Pose" loading="lazy">
-                  <div class="mkt-mascot-zoom-hint">Inspect 4K ↗</div>
-                </div>
-                <div class="mkt-mascot-details">
-                  <h5 class="mkt-mascot-title">The Mic Controller</h5>
-                  <span class="mkt-mascot-lao-role">MC PILLAR • VOCAL POWER &amp; RHYME</span>
-                  <p class="mkt-mascot-desc">
-                    Crowd hype pose holding the microphone, expressing lyrical storytelling, live rap cyphers, and stage mastery.
-                  </p>
-                </div>
-              </div>
-
-              <!-- 02: DJ (Layer 3) -->
-              <div class="mkt-mascot-col">
-                <div class="mkt-mascot-tag-row">
-                  <span class="mkt-mascot-num">02</span>
-                  <span class="mkt-mascot-pill">DJ • TURNTABLISM</span>
-                </div>
-                <div class="mkt-mascot-stage" onclick="viewArtwork('assets/mascot/mascot_web_03.png', 'LIHF 2026 Mascot - DJ Turntables Pose')" title="Click to inspect 4K DJ Pose">
-                  <div class="mkt-mascot-stage-glow"></div>
-                  <img src="assets/mascot/mascot_web_03.png" alt="LIHF 2026 Mascot DJ Pose" loading="lazy">
-                  <div class="mkt-mascot-zoom-hint">Inspect 4K ↗</div>
-                </div>
-                <div class="mkt-mascot-details">
-                  <h5 class="mkt-mascot-title">The Beat Alchemist</h5>
-                  <span class="mkt-mascot-lao-role">DJ PILLAR • VINYL TURNTABLES &amp; SCRATCH</span>
-                  <p class="mkt-mascot-desc">
-                    Rocking dual turntables and headphones, crafting seamless scratches and driving the musical pulse of the festival.
-                  </p>
-                </div>
-              </div>
-
-              <!-- 03: BREAKING (Layer 4) -->
-              <div class="mkt-mascot-col">
-                <div class="mkt-mascot-tag-row">
-                  <span class="mkt-mascot-num">03</span>
-                  <span class="mkt-mascot-pill">BREAKING • B-BOY</span>
-                </div>
-                <div class="mkt-mascot-stage" onclick="viewArtwork('assets/mascot/mascot_web_04.png', 'LIHF 2026 Mascot - Breaking Freeze Pose')" title="Click to inspect 4K Breaking Pose">
-                  <div class="mkt-mascot-stage-glow"></div>
-                  <img src="assets/mascot/mascot_web_04.png" alt="LIHF 2026 Mascot Breaking Pose" loading="lazy">
-                  <div class="mkt-mascot-zoom-hint">Inspect 4K ↗</div>
-                </div>
-                <div class="mkt-mascot-details">
-                  <h5 class="mkt-mascot-title">The Power Freeze</h5>
-                  <span class="mkt-mascot-lao-role">BREAKING PILLAR • POWER MOVE &amp; FREEZE</span>
-                  <p class="mkt-mascot-desc">
-                    A one-hand ground freeze showcasing the athletic power, flexibility, and courage of international B-Boys and B-Girls.
-                  </p>
-                </div>
-              </div>
-
-              <!-- 04: GRAFFITI (Layer 2) -->
-              <div class="mkt-mascot-col">
-                <div class="mkt-mascot-tag-row">
-                  <span class="mkt-mascot-num">04</span>
-                  <span class="mkt-mascot-pill">GRAFFITI • STREET ART</span>
-                </div>
-                <div class="mkt-mascot-stage" onclick="viewArtwork('assets/mascot/mascot_web_02.png', 'LIHF 2026 Mascot - Graffiti Aerosol Pose')" title="Click to inspect 4K Graffiti Pose">
-                  <div class="mkt-mascot-stage-glow"></div>
-                  <img src="assets/mascot/mascot_web_02.png" alt="LIHF 2026 Mascot Graffiti Pose" loading="lazy">
-                  <div class="mkt-mascot-zoom-hint">Inspect 4K ↗</div>
-                </div>
-                <div class="mkt-mascot-details">
-                  <h5 class="mkt-mascot-title">The Visual Writer</h5>
-                  <span class="mkt-mascot-lao-role">GRAFFITI PILLAR • AEROSOL ART &amp; MURALS</span>
-                  <p class="mkt-mascot-desc">
-                    Brandishing aerosol cans, transforming blank urban walls into explosive murals of vibrant creative expression.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- 360° 3D Turnaround Gallery -->
-            <div class="mkt-360-turnaround-wrap">
-              <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
-                <div>
-                  <div class="section-label" style="margin-bottom:0.5rem;">3D MODEL ANATOMY &amp; TURNAROUND SHEET</div>
-                  <h5 style="font-family:var(--ff-d); font-size:1.45rem; text-transform:uppercase; color:#fff; margin:0;">
-                    360° CHARACTER ANATOMY <span class="hl">&amp; IP MODEL SHEETS</span>
-                  </h5>
-                </div>
-                <span style="font-family:var(--ff-b); font-size:0.8rem; color:rgba(255,255,255,0.5);">
-                  High-Resolution 1024 × 1536 Character Renders • Click image to inspect
-                </span>
-              </div>
-
-              <!-- 4 Turnaround Cards -->
-              <div class="mkt-360-grid">
-                
-                <div class="mkt-360-col" onclick="viewArtwork('assets/mascot/mascot_01.png', 'LIHF 2026 Mascot 3D Front View (0°)')" title="Click to view 4K Front View">
-                  <span class="mkt-360-badge">0° FRONT VIEW</span>
-                  <img src="assets/mascot/mascot_01.png" alt="LIHF 2026 Mascot Front View" loading="lazy">
-                  <h6 class="mkt-360-caption">Front Hero Stance</h6>
-                  <span class="mkt-360-sub">FRONT VIEW • Boombox Face &amp; Pockets</span>
-                </div>
-
-                <div class="mkt-360-col" onclick="viewArtwork('assets/mascot/mascot_02.png', 'LIHF 2026 Mascot 3D Right Profile (90°)')" title="Click to view 4K Right Profile">
-                  <span class="mkt-360-badge">90° RIGHT SIDE</span>
-                  <img src="assets/mascot/mascot_02.png" alt="LIHF 2026 Mascot Right Side Profile" loading="lazy">
-                  <h6 class="mkt-360-caption">Right Profile</h6>
-                  <span class="mkt-360-sub">RIGHT PROFILE • Speaker Depth &amp; High-Tops</span>
-                </div>
-
-                <div class="mkt-360-col" onclick="viewArtwork('assets/mascot/mascot_03.png', 'LIHF 2026 Mascot 3D Rear View (180°)')" title="Click to view 4K Rear View">
-                  <span class="mkt-360-badge">180° REAR VIEW</span>
-                  <img src="assets/mascot/mascot_03.png" alt="LIHF 2026 Mascot Rear View" loading="lazy">
-                  <h6 class="mkt-360-caption">Rear Silhouette</h6>
-                  <span class="mkt-360-sub">BACK VIEW • Hoodie Structure &amp; Port Tuning</span>
-                </div>
-
-                <div class="mkt-360-col" onclick="viewArtwork('assets/mascot/mascot_04.png', 'LIHF 2026 Mascot 3D Left Profile (270°)')" title="Click to view 4K Left Profile">
-                  <span class="mkt-360-badge">270° LEFT SIDE</span>
-                  <img src="assets/mascot/mascot_04.png" alt="LIHF 2026 Mascot Left Side Profile" loading="lazy">
-                  <h6 class="mkt-360-caption">Left Profile</h6>
-                  <span class="mkt-360-sub">LEFT PROFILE • Street Proportions &amp; Silhouette</span>
-                </div>
-
-              </div>
-
-              <!-- Character Anatomy & IP Specs (Card-Free 4-Column Bar) -->
-              <div class="mkt-anatomy-specs-grid">
-                
-                <div class="mkt-anatomy-item">
-                  <span class="mkt-anatomy-num">A • ACOUSTIC HEAD</span>
-                  <h6 class="mkt-anatomy-title">Boombox Head &amp; Grill</h6>
-                  <p class="mkt-anatomy-desc">Authentic 80s boombox head casing featuring twin red LED eyes and signature golden grillz teeth.</p>
-                </div>
-
-                <div class="mkt-anatomy-item">
-                  <span class="mkt-anatomy-num">B • HERITAGE APPAREL</span>
-                  <h6 class="mkt-anatomy-title">Crimson Puffer Jacket</h6>
-                  <p class="mkt-anatomy-desc">Festival Crimson puffer jacket trimmed with contemporary Lao art patterns along sleeves and back.</p>
-                </div>
-
-                <div class="mkt-anatomy-item">
-                  <span class="mkt-anatomy-num">C • URBAN GEAR</span>
-                  <h6 class="mkt-anatomy-title">Charcoal Cargo &amp; Kicks</h6>
-                  <p class="mkt-anatomy-desc">Matte black streetwear cargo pants paired with crimson, white, and black retro high-top sneakers.</p>
-                </div>
-
-                <div class="mkt-anatomy-item">
-                  <span class="mkt-anatomy-num">D • COMMERCIAL IP</span>
-                  <h6 class="mkt-anatomy-title">Licensing &amp; Merchandise</h6>
-                  <p class="mkt-anatomy-desc">Ready for production: vinyl art toys, plush collectibles, AR social filters, and 3D anamorphic billboards.</p>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <!-- 3. COMPREHENSIVE COLOR PALETTE & SYSTEM EXPLANATION -->
-          <div class="mkt-color-system-wrap">
-            <div style="margin-bottom:0.8rem;">
-              <div class="section-label" style="margin-bottom:0.65rem;">COLOR SYSTEM &amp; BRAND PHILOSOPHY</div>
-              <h4 style="font-family:var(--ff-d); font-size:clamp(1.5rem, 2.5vw, 2.1rem); text-transform:uppercase; color:#fff; line-height:1.15;">
-                THE 4-CORE COLOR PALETTE <span class="hl">&amp; BRAND HARMONY</span>
-              </h4>
-              <p style="font-family:var(--ff-b); font-size:0.92rem; color:rgba(255,255,255,0.7); line-height:1.6; margin-top:0.4rem;">
-                The LIHF 2026 color palette is precisely engineered to balance the raw energy of global hip-hop culture with the dignity of Lao cultural heritage:
-              </p>
-            </div>
-
-            <!-- 4-Color Architectural Grid (Card-Free) -->
-            <div class="mkt-palette-grid">
-              
-              <!-- COLOR 1: FESTIVAL CRIMSON RED -->
-              <div class="mkt-palette-col">
-                <div class="mkt-swatch-bar">
-                  <div class="mkt-swatch-circle" style="background:#ee1c24; box-shadow:0 0 16px rgba(238,28,36,0.6);"></div>
-                  <div>
-                    <div class="mkt-swatch-code">#EE1C24</div>
-                    <div class="mkt-swatch-rgb">RGB(238, 28, 36)</div>
+                <!-- ASSET 3: The 4 Elements Mascot Slideshow -->
+                <div class="mkt-kv-pic-card" id="mkt-mascot-elem-card">
+                  <div class="mkt-kv-pic-badge">
+                    <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem;">
+                      <span class="mkt-kv-pic-tag">THE 4 ELEMENTS MASCOT</span>
+                      <span id="mascot-elem-badge" style="font-family:var(--ff-a); font-size:0.62rem; color:var(--gold); font-weight:700; white-space:nowrap;">01 • MC • EMCEEING</span>
+                    </div>
+                    <h4 class="mkt-kv-pic-title" id="mascot-elem-title">The Mic Controller</h4>
+                  </div>
+                  <div class="mkt-kv-slider-frame">
+                    <button type="button" class="mkt-slide-nav-btn prev" onclick="slideMascotElem(-1)" aria-label="Previous Pose">‹</button>
+                    <div class="mkt-slide-img-wrap" onclick="viewCurrentMascotElem()" title="Click to view 4K Image">
+                      <img id="mascot-elem-img" src="assets/mascot/mascot_web_05.png" alt="LIHF 2026 Mascot MC Pose" loading="lazy">
+                      <div class="mkt-kv-pic-zoom-hint">Inspect 4K ↗</div>
+                    </div>
+                    <button type="button" class="mkt-slide-nav-btn next" onclick="slideMascotElem(1)" aria-label="Next Pose">›</button>
+                  </div>
+                  <!-- 4 Pills Row -->
+                  <div class="mkt-slide-pills-row" style="margin-bottom:0.75rem;">
+                    <button type="button" class="mkt-slide-pill active" onclick="setMascotElem(0)">01 MC</button>
+                    <button type="button" class="mkt-slide-pill" onclick="setMascotElem(1)">02 DJ</button>
+                    <button type="button" class="mkt-slide-pill" onclick="setMascotElem(2)">03 BREAK</button>
+                    <button type="button" class="mkt-slide-pill" onclick="setMascotElem(3)">04 GRAFFITI</button>
+                  </div>
+                  <button type="button" class="mkt-explain-btn" onclick="toggleKvAssetExplain(this)" aria-expanded="false">
+                    <span class="explain-text">✦ ອະທິບາຍເພີ່ມ (Explain More)</span>
+                    <svg class="explain-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="mkt-explain-drawer">
+                    <div class="mkt-explain-content">
+                      <div id="mascot-elem-role-la" style="font-family:'Noto Sans Lao', var(--ff-b), sans-serif; font-size:0.76rem; font-weight:700; color:var(--gold); margin-bottom:0.35rem;">
+                        🇱🇦 ພະລັງສຽງຮ້ອງ ແລະ ການຮ້ອງແຣັບ (Vocal Power &amp; Rhyme)
+                      </div>
+                      <p class="mkt-explain-lao" id="mascot-elem-desc-la">
+                        🇱🇦 ທ່າຈັບໄມໂຄຣໂຟນປຸກລະດົມຜູ້ຊົມ, ສະແດງອອກເຖິງການເລົ່າເລື່ອງ, ການ Rap Cypher ສົດໆ ແລະ ຄວາມເປັນເຈົ້າເວທີ.
+                      </p>
+                      <p class="mkt-explain-en" id="mascot-elem-desc-en">
+                        🇬🇧 Crowd hype pose holding the microphone, expressing lyrical storytelling, live rap cyphers, and stage mastery.
+                      </p>
+                      <span class="mkt-explain-spec">📐 1024 × 1536 PX • 3D Character Element Pose</span>
+                    </div>
                   </div>
                 </div>
-                <h5 class="mkt-palette-title" style="color:#ff4d4d;">Festival Crimson Red</h5>
-                <span class="mkt-palette-role">POWER &amp; BATTLE PASSION</span>
-                <p class="mkt-palette-lao-desc">
-                  <strong>Significance:</strong> Underground power, battle arena intensity, hip-hop rhythm, and the bold red in the Lao flag—representing courage and young vitality.
-                </p>
-                <div class="mkt-palette-usage">
-                  <strong>Applications:</strong> 3D "HIPHOP" typography, main stage illumination, Mascot puffer jacket, CTA badges, and hero flag framing.
-                </div>
-              </div>
 
-              <!-- COLOR 2: LAO HERITAGE GOLD -->
-              <div class="mkt-palette-col">
-                <div class="mkt-swatch-bar">
-                  <div class="mkt-swatch-circle" style="background:#ffc700; box-shadow:0 0 16px rgba(255,199,0,0.5);"></div>
-                  <div>
-                    <div class="mkt-swatch-code" style="color:var(--gold);">#FFC700</div>
-                    <div class="mkt-swatch-rgb">RGB(255, 199, 0)</div>
+                <!-- ASSET 4: 360° Character Anatomy Slideshow -->
+                <div class="mkt-kv-pic-card" id="mkt-mascot-360-card">
+                  <div class="mkt-kv-pic-badge">
+                    <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem;">
+                      <span class="mkt-kv-pic-tag">3D CHARACTER ANATOMY</span>
+                      <span id="mascot-360-badge" style="font-family:var(--ff-a); font-size:0.62rem; color:var(--gold); font-weight:700; white-space:nowrap;">0° • FRONT VIEW</span>
+                    </div>
+                    <h4 class="mkt-kv-pic-title" id="mascot-360-title">Front Hero Stance</h4>
+                  </div>
+                  <div class="mkt-kv-slider-frame">
+                    <button type="button" class="mkt-slide-nav-btn prev" onclick="slideMascot360(-1)" aria-label="Previous Angle">‹</button>
+                    <div class="mkt-slide-img-wrap" onclick="viewCurrentMascot360()" title="Click to view 4K Image">
+                      <img id="mascot-360-img" src="assets/mascot/mascot_01.png" alt="LIHF 2026 Mascot Front View" loading="lazy">
+                      <div class="mkt-kv-pic-zoom-hint">Inspect 4K ↗</div>
+                    </div>
+                    <button type="button" class="mkt-slide-nav-btn next" onclick="slideMascot360(1)" aria-label="Next Angle">›</button>
+                  </div>
+                  <!-- 4 Pills Row -->
+                  <div class="mkt-slide-pills-row" style="margin-bottom:0.75rem;">
+                    <button type="button" class="mkt-slide-pill active" onclick="setMascot360(0)">0° FRONT</button>
+                    <button type="button" class="mkt-slide-pill" onclick="setMascot360(1)">90° RIGHT</button>
+                    <button type="button" class="mkt-slide-pill" onclick="setMascot360(2)">180° REAR</button>
+                    <button type="button" class="mkt-slide-pill" onclick="setMascot360(3)">270° LEFT</button>
+                  </div>
+                  <button type="button" class="mkt-explain-btn" onclick="toggleKvAssetExplain(this)" aria-expanded="false">
+                    <span class="explain-text">✦ ອະທິບາຍເພີ່ມ (Explain More)</span>
+                    <svg class="explain-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+                  <div class="mkt-explain-drawer">
+                    <div class="mkt-explain-content">
+                      <div id="mascot-360-role-la" style="font-family:'Noto Sans Lao', var(--ff-b), sans-serif; font-size:0.76rem; font-weight:700; color:var(--gold); margin-bottom:0.35rem;">
+                        🇱🇦 ທ່າມຸມຊື່ດ້ານໜ້າ • ຫົວ Boombox &amp; ກະເປົ໋າເສື້ອ
+                      </div>
+                      <p class="mkt-explain-lao" id="mascot-360-desc-la">
+                        🇱🇦 ມຸມເບິ່ງຊື່ສະແດງໂຄງສ້າງຫົວ Boombox ຍຸກ 80s ພ້ອມໄຟຕາສີແດງ, ແຂ້ວທອງ Grillz, ແລະ ເສື້ອ Puffer ສີແດງສົດໃສ.
+                      </p>
+                      <p class="mkt-explain-en" id="mascot-360-desc-en">
+                        🇬🇧 Front hero stance featuring vintage boombox head, red LED eyes, signature golden grillz, and crimson festival puffer jacket.
+                      </p>
+                      <span class="mkt-explain-spec">📐 1024 × 1536 PX • 360° Turnaround Model Sheet</span>
+                    </div>
                   </div>
                 </div>
-                <h5 class="mkt-palette-title" style="color:var(--gold);">Lao Heritage Gold</h5>
-                <span class="mkt-palette-role" style="color:var(--gold-l);">HERITAGE &amp; CHAMPIONSHIP VICTORY</span>
-                <p class="mkt-palette-lao-desc">
-                  <strong>Significance:</strong> Honors precious Lao cultural heritage (golden Pha That Luang), champion victory, the 159M LAK prize pool, and international excellence.
-                </p>
-                <div class="mkt-palette-usage">
-                  <strong>Applications:</strong> Metallic graffiti logo, dates (13-15 NOV 2026), sponsor package crowns, and luxury metallic accents.
-                </div>
-              </div>
 
-              <!-- COLOR 3: URBAN CHARCOAL & DEEP BLACK -->
-              <div class="mkt-palette-col">
-                <div class="mkt-swatch-bar">
-                  <div class="mkt-swatch-circle" style="background:#0a0a0c; border-color:rgba(255,255,255,0.3); box-shadow:0 0 16px rgba(0,0,0,0.8);"></div>
-                  <div>
-                    <div class="mkt-swatch-code">#0A0A0C</div>
-                    <div class="mkt-swatch-rgb">RGB(10, 10, 12)</div>
-                  </div>
-                </div>
-                <h5 class="mkt-palette-title">Urban Charcoal Black</h5>
-                <span class="mkt-palette-role">RAW STREET CULTURE &amp; NIGHT ENERGY</span>
-                <p class="mkt-palette-lao-desc">
-                  <strong>Significance:</strong> Asphalt streets, underground cyphers, vinyl records, and subwoofer cabinets, providing deep contrast to ignite red and gold.
-                </p>
-                <div class="mkt-palette-usage">
-                  <strong>Applications:</strong> Poster base gradients, circular emblem rim, road case framing, and main arena backdrop.
-                </div>
-              </div>
-
-              <!-- COLOR 4: CRISP STAGE WHITE -->
-              <div class="mkt-palette-col">
-                <div class="mkt-swatch-bar">
-                  <div class="mkt-swatch-circle" style="background:#ffffff; border-color:rgba(255,255,255,0.5); box-shadow:0 0 16px rgba(255,255,255,0.4);"></div>
-                  <div>
-                    <div class="mkt-swatch-code">#FFFFFF</div>
-                    <div class="mkt-swatch-rgb">RGB(255, 255, 255)</div>
-                  </div>
-                </div>
-                <h5 class="mkt-palette-title" style="color:#ffffff;">Crisp Stage White</h5>
-                <span class="mkt-palette-role">PRECISION &amp; MODERN CLARITY</span>
-                <p class="mkt-palette-lao-desc">
-                  <strong>Significance:</strong> Clean white and chrome deliver maximum contrast, contemporary polish, and immediate typographic readability at all distances.
-                </p>
-                <div class="mkt-palette-usage">
-                  <strong>Applications:</strong> Header titles, artist schedules, competition category tables, and registration QR codes.
-                </div>
               </div>
 
             </div>
+
           </div>
 
         </div>
@@ -24839,6 +25084,186 @@ function replayLogoIntro(){
     const textSpan = btn.querySelector('.explain-text');
     if (textSpan) {
       textSpan.textContent = isExpanded ? '▲ ຫຍໍ້ລົງ (Show Less)' : '✦ ອະທິບາຍເພີ່ມ (Explain More)';
+    }
+  };
+
+  // ── MASTER POSTER DETAILS & COLOR PALETTE EXPAND TOGGLE ──
+  window.togglePosterDetails = function(btn) {
+    const wrap = btn.closest('.mkt-kv-poster-wrap');
+    if (!wrap) return;
+    const isExpanded = wrap.classList.toggle('expanded');
+    btn.setAttribute('aria-expanded', isExpanded);
+  };
+
+  // ── MASCOT 4 ELEMENTS SLIDER DATA & LOGIC ──
+  const mascotElemData = [
+    {
+      src: 'assets/mascot/mascot_web_05.png',
+      badge: '01 • MC • EMCEEING',
+      title: 'The Mic Controller',
+      roleLa: '🇱🇦 ພະລັງສຽງຮ້ອງ ແລະ ການຮ້ອງແຣັບ (Vocal Power & Rhyme)',
+      descLa: '🇱🇦 ທ່າຈັບໄມໂຄຣໂຟນປຸກລະດົມຜູ້ຊົມ, ສະແດງອອກເຖິງການເລົ່າເລື່ອງ, ການ Rap Cypher ສົດໆ ແລະ ຄວາມເປັນເຈົ້າເວທີ.',
+      descEn: '🇬🇧 Crowd hype pose holding the microphone, expressing lyrical storytelling, live rap cyphers, and stage mastery.'
+    },
+    {
+      src: 'assets/mascot/mascot_web_03.png',
+      badge: '02 • DJ • TURNTABLISM',
+      title: 'The Beat Alchemist',
+      roleLa: '🇱🇦 ແຜ່ນສຽງໄວນິນ ແລະ ການສະແຄຣຊ (Vinyl Turntables & Scratch)',
+      descLa: '🇱🇦 ຄວບຄຸມ 2 ເຄື່ອງຫຼິ້ນແຜ່ນສຽງພ້ອມຫູຟັງ, ສ້າງສຽງສະແຄຣຊ ແລະ ຂັບເຄື່ອນຈັງຫວະດົນຕີຂອງງານບຸນ.',
+      descEn: '🇬🇧 Rocking dual turntables and headphones, crafting seamless scratches and driving the musical pulse of the festival.'
+    },
+    {
+      src: 'assets/mascot/mascot_web_04.png',
+      badge: '03 • BREAKING • B-BOY',
+      title: 'The Power Freeze',
+      roleLa: '🇱🇦 ທ່າເຕັ້ນພາວເວີມູຟ ແລະ ຟຣີຊ (Power Move & Freeze)',
+      descLa: '🇱🇦 ທ່າຢຸດນິ້ງກາງອາກາດດ້ວຍມືດຽວ (Ground Freeze) ສະແດງເຖິງຄວາມແຂງແກ່ນ, ຄວາມຢືດຢຸ່ນ ແລະ ຄວາມກ້າຫານຂອງ B-Boy/B-Girl.',
+      descEn: '🇬🇧 A one-hand ground freeze showcasing athletic power, flexibility, and courage of international B-Boys and B-Girls.'
+    },
+    {
+      src: 'assets/mascot/mascot_web_02.png',
+      badge: '04 • GRAFFITI • STREET ART',
+      title: 'The Visual Writer',
+      roleLa: '🇱🇦 ສິລະປະພົ່ນສີ ແລະ ພາບຝາຜະໜັງ (Aerosol Art & Murals)',
+      descLa: '🇱🇦 ຖືຂວດສີສະເປຣສີດສັນ, ປ່ຽນຝາຜະໜັງເປົ່າຫວ່າງໃຫ້ກາຍເປັນພາບກຣາຟຟິຕີຂະໜາດໃຫຍ່ທີ່ເຕັມໄປດ້ວຍຊີວິດຊີວາ.',
+      descEn: '🇬🇧 Brandishing aerosol cans, transforming blank urban walls into explosive murals of vibrant creative expression.'
+    }
+  ];
+
+  let currentMascotElemIdx = 0;
+
+  window.setMascotElem = function(idx) {
+    if (idx < 0 || idx >= mascotElemData.length) return;
+    currentMascotElemIdx = idx;
+    const item = mascotElemData[idx];
+    const card = document.getElementById('mkt-mascot-elem-card');
+    if (!card) return;
+
+    const img = card.querySelector('#mascot-elem-img');
+    const badge = card.querySelector('#mascot-elem-badge');
+    const title = card.querySelector('#mascot-elem-title');
+    const roleLa = card.querySelector('#mascot-elem-role-la');
+    const descLa = card.querySelector('#mascot-elem-desc-la');
+    const descEn = card.querySelector('#mascot-elem-desc-en');
+
+    if (img) {
+      img.style.opacity = '0';
+      setTimeout(() => {
+        img.src = item.src;
+        img.alt = 'LIHF 2026 Mascot ' + item.title;
+        img.style.opacity = '1';
+      }, 150);
+    }
+    if (badge) badge.textContent = item.badge;
+    if (title) title.textContent = item.title;
+    if (roleLa) roleLa.textContent = item.roleLa;
+    if (descLa) descLa.textContent = item.descLa;
+    if (descEn) descEn.textContent = item.descEn;
+
+    const pills = card.querySelectorAll('.mkt-slide-pill');
+    pills.forEach((p, i) => {
+      p.classList.toggle('active', i === idx);
+    });
+  };
+
+  window.slideMascotElem = function(direction) {
+    let nextIdx = currentMascotElemIdx + direction;
+    if (nextIdx < 0) nextIdx = mascotElemData.length - 1;
+    if (nextIdx >= mascotElemData.length) nextIdx = 0;
+    window.setMascotElem(nextIdx);
+  };
+
+  window.viewCurrentMascotElem = function() {
+    const item = mascotElemData[currentMascotElemIdx];
+    if (item && typeof window.viewArtwork === 'function') {
+      window.viewArtwork(item.src, 'LIHF 2026 Mascot - ' + item.title);
+    }
+  };
+
+  // ── MASCOT 360° CHARACTER ANATOMY DATA & LOGIC ──
+  const mascot360Data = [
+    {
+      src: 'assets/mascot/mascot_01.png',
+      badge: '0° • FRONT VIEW',
+      title: 'Front Hero Stance',
+      roleLa: '🇱🇦 ທ່າມຸມຊື່ດ້ານໜ້າ • ຫົວ Boombox & ກະເປົ໋າເສື້ອ',
+      descLa: '🇱🇦 ມຸມເບິ່ງຊື່ສະແດງໂຄງສ້າງຫົວ Boombox ຍຸກ 80s ພ້ອມໄຟຕາສີແດງ, ແຂ້ວທອງ Grillz, ແລະ ເສື້ອ Puffer ສີແດງສົດໃສ.',
+      descEn: '🇬🇧 Front hero stance featuring vintage boombox head, red LED eyes, signature golden grillz, and crimson festival puffer jacket.'
+    },
+    {
+      src: 'assets/mascot/mascot_02.png',
+      badge: '90° • RIGHT SIDE',
+      title: 'Right Profile View',
+      roleLa: '🇱🇦 ມຸມໂປຣໄຟລ໌ດ້ານຂວາ • ມິຕິລຳໂພງ & ເກີບ High-Tops',
+      descLa: '🇱🇦 ມຸມຂ້າງ 90 ອົງສາ ສະແດງຄວາມໜາຂອງຕູ້ລຳໂພງ Boombox, ແຂນເສື້ອປັກລາຍລາວ ແລະ ເກີບ Sneaker ຂໍ້ສູງ.',
+      descEn: '🇬🇧 Right side profile revealing speaker cabinet depth, Lao art sleeve embroidery, and high-top sneaker silhouette.'
+    },
+    {
+      src: 'assets/mascot/mascot_03.png',
+      badge: '180° • REAR VIEW',
+      title: 'Rear Silhouette View',
+      roleLa: '🇱🇦 ມຸມດ້ານຫຼັງ • ໂຄງສ້າງໝວກ Hoodie & ຊ່ອງລະບາຍສຽງ',
+      descLa: '🇱🇦 ມຸມດ້ານຫຼັງ 180 ອົງສາ ສະແດງລາຍລະອຽດດ້ານຫຼັງຂອງຕູ້ Boombox, ໝວກ Hoodie, ແລະ ລວດລາຍກຣາຟິກດ້ານຫຼັງເສື້ອ.',
+      descEn: '🇬🇧 Rear view showcasing boombox back panel audio ports, hoodie silhouette, and festival back embroidery details.'
+    },
+    {
+      src: 'assets/mascot/mascot_04.png',
+      badge: '270° • LEFT SIDE',
+      title: 'Left Profile View',
+      roleLa: '🇱🇦 ມຸມໂປຣໄຟລ໌ດ້ານຊ້າຍ • ສັດສ່ວນ Streetwear & ຮູບຮ່າງ 3D',
+      descLa: '🇱🇦 ມຸມຂ້າງ 270 ອົງສາ ສະແດງສັດສ່ວນແບບສະຕຣີດແວຣ໌, ໂສ້ງຄາໂກ້ສີດຳ ແລະ ມຸມມອງ 3D ຮອບທິດທາງພ້ອມຜະລິດ.',
+      descEn: '🇬🇧 Left side profile highlighting street proportions, cargo pants drape, and complete 3D turn-table character readiness.'
+    }
+  ];
+
+  let currentMascot360Idx = 0;
+
+  window.setMascot360 = function(idx) {
+    if (idx < 0 || idx >= mascot360Data.length) return;
+    currentMascot360Idx = idx;
+    const item = mascot360Data[idx];
+    const card = document.getElementById('mkt-mascot-360-card');
+    if (!card) return;
+
+    const img = card.querySelector('#mascot-360-img');
+    const badge = card.querySelector('#mascot-360-badge');
+    const title = card.querySelector('#mascot-360-title');
+    const roleLa = card.querySelector('#mascot-360-role-la');
+    const descLa = card.querySelector('#mascot-360-desc-la');
+    const descEn = card.querySelector('#mascot-360-desc-en');
+
+    if (img) {
+      img.style.opacity = '0';
+      setTimeout(() => {
+        img.src = item.src;
+        img.alt = 'LIHF 2026 Mascot ' + item.title;
+        img.style.opacity = '1';
+      }, 150);
+    }
+    if (badge) badge.textContent = item.badge;
+    if (title) title.textContent = item.title;
+    if (roleLa) roleLa.textContent = item.roleLa;
+    if (descLa) descLa.textContent = item.descLa;
+    if (descEn) descEn.textContent = item.descEn;
+
+    const pills = card.querySelectorAll('.mkt-slide-pill');
+    pills.forEach((p, i) => {
+      p.classList.toggle('active', i === idx);
+    });
+  };
+
+  window.slideMascot360 = function(direction) {
+    let nextIdx = currentMascot360Idx + direction;
+    if (nextIdx < 0) nextIdx = mascot360Data.length - 1;
+    if (nextIdx >= mascot360Data.length) nextIdx = 0;
+    window.setMascot360(nextIdx);
+  };
+
+  window.viewCurrentMascot360 = function() {
+    const item = mascot360Data[currentMascot360Idx];
+    if (item && typeof window.viewArtwork === 'function') {
+      window.viewArtwork(item.src, 'LIHF 2026 Mascot - ' + item.title);
     }
   };
 
