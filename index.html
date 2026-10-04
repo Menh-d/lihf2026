@@ -18864,46 +18864,69 @@ body.presentation-active .floating-present-badge {
   box-shadow: 0 0 14px rgba(212, 175, 55, 0.4);
 }
 
-/* 3D Sphere Stage Container */
+/* 3D Sphere Stage Container: Full Width & Bright Stage Illumination */
 .guest-sphere-stage {
   position: relative;
   width: 100%;
-  max-width: 960px;
-  height: 660px;
+  max-width: 100%;
+  height: 720px;
   margin: 0 auto;
-  perspective: 1200px;
+  perspective: 1300px;
   overflow: hidden;
   user-select: none;
   cursor: grab;
-  border-radius: 24px;
-  background: radial-gradient(circle at center, rgba(30, 20, 10, 0.45) 0%, rgba(5, 5, 5, 0.95) 70%, #030303 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.9), 0 20px 50px rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse 75% 65% at 50% 50%, rgba(212, 175, 55, 0.2) 0%, rgba(204, 0, 0, 0.12) 42%, rgba(22, 22, 30, 0.75) 75%, rgba(9, 9, 13, 0.98) 100%),
+    linear-gradient(180deg, rgba(212, 175, 55, 0.12) 0%, transparent 30%, transparent 70%, rgba(204, 0, 0, 0.1) 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.38);
+  box-shadow:
+    0 0 50px rgba(212, 175, 55, 0.18),
+    inset 0 0 90px rgba(0, 0, 0, 0.75),
+    0 24px 60px rgba(0, 0, 0, 0.85);
 }
 .guest-sphere-stage:active {
   cursor: grabbing;
 }
 
-/* Background Holographic Sphere Grid */
+/* Ambient Stage Spotlight */
+.guest-sphere-light {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 65%;
+  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.26) 0%, rgba(204, 0, 0, 0.15) 45%, transparent 70%);
+  pointer-events: none;
+  filter: blur(45px);
+  z-index: 1;
+}
+
+/* Background Holographic Sphere Grid: Luminous Orbital Rings */
 .guest-sphere-bg-grid {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 520px;
-  height: 520px;
+  width: clamp(520px, 75vw, 1000px);
+  height: clamp(380px, 50vh, 540px);
   border-radius: 50%;
-  border: 1px dashed rgba(212, 175, 55, 0.15);
-  box-shadow: 0 0 80px rgba(204, 0, 0, 0.12), inset 0 0 80px rgba(212, 175, 55, 0.08);
+  border: 1.5px dashed rgba(212, 175, 55, 0.4);
+  box-shadow:
+    0 0 100px rgba(212, 175, 55, 0.25),
+    0 0 45px rgba(204, 0, 0, 0.2),
+    inset 0 0 90px rgba(212, 175, 55, 0.16);
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 .guest-sphere-bg-grid::after {
   content: '';
   position: absolute;
-  inset: 18%;
+  inset: 15%;
   border-radius: 50%;
-  border: 1px dotted rgba(255, 255, 255, 0.1);
+  border: 1px dotted rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 50px rgba(212, 175, 55, 0.2);
 }
 
 /* The Rotating 3D World Container */
@@ -18914,17 +18937,19 @@ body.presentation-active .floating-present-badge {
   z-index: 10;
 }
 
-/* Enlarged 3D Guest Node Card */
+/* Enlarged, Bright & High-Contrast 3D Guest Node Card */
 .guest-sphere-card {
   position: absolute;
-  width: 160px;
-  height: 195px;
+  width: 172px;
+  height: 208px;
   border-radius: 14px;
-  background: rgba(12, 12, 12, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: linear-gradient(180deg, rgba(34, 34, 44, 0.96) 0%, rgba(18, 18, 24, 0.98) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.75),
+    0 0 20px rgba(212, 175, 55, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   cursor: pointer;
   overflow: hidden;
   transition: box-shadow 0.25s ease, border-color 0.25s ease, filter 0.3s ease;
@@ -18933,17 +18958,20 @@ body.presentation-active .floating-present-badge {
   flex-direction: column;
 }
 .guest-sphere-card:hover {
-  border-color: var(--gold) !important;
-  box-shadow: 0 0 28px rgba(212, 175, 55, 0.8), 0 14px 34px rgba(0, 0, 0, 0.95) !important;
+  border-color: #ffd700 !important;
+  box-shadow:
+    0 0 35px rgba(255, 215, 0, 0.9),
+    0 16px 40px rgba(0, 0, 0, 0.95) !important;
 }
 .guest-sphere-card.is-dimmed {
-  opacity: 0.18 !important;
-  filter: grayscale(90%) blur(1px) !important;
+  opacity: 0.22 !important;
+  filter: grayscale(80%) blur(1px) brightness(0.6) !important;
   pointer-events: none;
 }
 .guest-sphere-card.is-highlighted {
-  border-color: var(--gold) !important;
-  box-shadow: 0 0 24px rgba(212, 175, 55, 0.7) !important;
+  border-color: #ffd700 !important;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.8) !important;
+  opacity: 1 !important;
 }
 
 /* Card Top: Country Flag & Tag */
@@ -18951,11 +18979,11 @@ body.presentation-active .floating-present-badge {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 8px;
-  background: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 9px;
+  background: rgba(16, 16, 22, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   font-family: var(--ff-a);
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -18964,23 +18992,28 @@ body.presentation-active .floating-present-badge {
   color: #fff;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
+  font-weight: 800;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
 .gsc-tag {
-  color: var(--gold);
-  background: rgba(212, 175, 55, 0.15);
-  padding: 1px 5px;
+  color: #000;
+  background: var(--gold);
+  font-weight: 800;
+  padding: 2px 6px;
   border-radius: 4px;
   font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
 }
 
-/* Card Middle: High-Res Portrait Photo */
+/* Card Middle: High-Res Portrait Photo with Brightness & Contrast Boost */
 .gsc-photo-wrap {
   position: relative;
   width: 100%;
-  height: 105px;
+  height: 112px;
   overflow: hidden;
-  background: #000;
+  background: #111;
 }
 .gsc-photo {
   width: 100%;
@@ -18988,48 +19021,53 @@ body.presentation-active .floating-present-badge {
   object-fit: cover;
   object-position: center top;
   display: block;
-  transition: transform 0.4s ease;
+  filter: brightness(1.15) contrast(1.08);
+  transition: transform 0.4s ease, filter 0.3s ease;
 }
 .guest-sphere-card:hover .gsc-photo {
   transform: scale(1.08);
+  filter: brightness(1.22) contrast(1.12);
 }
 
 /* Card Bottom: Name & Info */
 .gsc-info {
-  padding: 8px 10px 6px;
+  padding: 7px 10px 6px;
   display: flex;
   flex-direction: column;
-  gap: 1px;
-  background: linear-gradient(180deg, rgba(16, 16, 16, 0.95) 0%, rgba(8, 8, 8, 0.98) 100%);
+  gap: 2px;
+  background: linear-gradient(180deg, rgba(22, 22, 30, 0.98) 0%, rgba(14, 14, 20, 0.99) 100%);
   flex: 1;
   justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 .gsc-name {
   font-family: var(--ff-d);
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   line-height: 1.05;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: #fff;
+  color: #ffffff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 .gsc-role {
   font-family: var(--ff-a);
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: #ffd700;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 }
 .gsc-sub {
   font-family: 'Noto Sans Lao', sans-serif;
-  font-size: 0.64rem;
-  color: var(--gr-l);
+  font-size: 0.66rem;
+  color: #d8d8d8;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -21068,6 +21106,7 @@ body.presentation-active .floating-present-badge {
 
           <!-- 3D Interactive Sphere Stage -->
           <div class="guest-sphere-stage" id="guest-sphere-stage" aria-label="3D Interactive Image Sphere">
+            <div class="guest-sphere-light" aria-hidden="true"></div>
             <div class="guest-sphere-bg-grid" aria-hidden="true"></div>
             <div class="guest-sphere-world" id="guest-sphere-world">
             <!-- 3D SPHERE NODE: KAKU (Japan) -->
@@ -28230,17 +28269,19 @@ function replayLogoIntro(){
   const momentumDecay = 0.94;
   const maxRotationSpeed = 4.0;
 
-  function getSphereRadius() {
-    const w = stage.clientWidth || 900;
-    const h = stage.clientHeight || 650;
-    const minDim = Math.min(w, h);
-    return minDim * 0.42; // optimal radius for comfortable card spread
+  function getSphereDimensions() {
+    const w = stage.clientWidth || 1200;
+    const h = stage.clientHeight || 720;
+    // Allow wide horizontal expansion so cards spread across full width from left to right!
+    const radiusXZ = Math.min(w * 0.41, 520);
+    const radiusY = Math.min(h * 0.36, 250);
+    return { radiusXZ, radiusY, w, h };
   }
 
   function renderSphere() {
-    const radius = getSphereRadius();
-    const centerX = (stage.clientWidth || 900) / 2;
-    const centerY = (stage.clientHeight || 650) / 2;
+    const { radiusXZ, radiusY, w, h } = getSphereDimensions();
+    const centerX = w / 2;
+    const centerY = h / 2;
 
     const rotXRad = rotX * (Math.PI / 180);
     const rotYRad = rotY * (Math.PI / 180);
@@ -28250,24 +28291,24 @@ function replayLogoIntro(){
       const el = cardElements[i];
       if (!el) continue;
 
-      // 1. Convert Spherical to 3D Cartesian Coordinates
-      let x = radius * Math.sin(coord.phi) * Math.cos(coord.theta);
-      let y = radius * Math.cos(coord.phi);
-      let z = radius * Math.sin(coord.phi) * Math.sin(coord.theta);
+      // 1. Convert Spherical to 3D Cartesian Coordinates with wide spread
+      let x0 = radiusXZ * Math.sin(coord.phi) * Math.cos(coord.theta);
+      let y0 = radiusY * Math.cos(coord.phi);
+      let z0 = radiusXZ * Math.sin(coord.phi) * Math.sin(coord.theta);
 
       // 2. Rotate around Y-axis (Horizontal spin)
-      const x1 = x * Math.cos(rotYRad) + z * Math.sin(rotYRad);
-      const z1 = -x * Math.sin(rotYRad) + z * Math.cos(rotYRad);
+      const x1 = x0 * Math.cos(rotYRad) + z0 * Math.sin(rotYRad);
+      const z1 = -x0 * Math.sin(rotYRad) + z0 * Math.cos(rotYRad);
 
       // 3. Rotate around X-axis (Vertical tilt)
-      const y2 = y * Math.cos(rotXRad) - z1 * Math.sin(rotXRad);
-      const z2 = y * Math.sin(rotXRad) + z1 * Math.cos(rotXRad);
+      const y2 = y0 * Math.cos(rotXRad) - z1 * Math.sin(rotXRad);
+      const z2 = y0 * Math.sin(rotXRad) + z1 * Math.cos(rotXRad);
 
       // 4. Perspective Projection & Depth Scaling
-      // z2 ranges from -radius (far back) to +radius (closest front)
-      const zRatio = (z2 + radius) / (2 * radius); // 0 (back) to 1 (front)
-      const scale = 0.65 + zRatio * 0.45; // 0.65x at back, 1.1x at front
-      const opacity = 0.38 + zRatio * 0.62; // 0.38 at back, 1.0 at front
+      // z2 ranges from -radiusXZ (far back) to +radiusXZ (closest front)
+      const zRatio = (z2 + radiusXZ) / (2 * radiusXZ); // 0 (back) to 1 (front)
+      const scale = 0.76 + zRatio * 0.38; // 0.76x at back, 1.14x at front
+      const opacity = 0.72 + zRatio * 0.28; // 0.72 at back (bright & clearly visible!), 1.0 at front
       const zIndex = Math.round(1000 + z2);
 
       el.style.transform = 'translate3d(' + (centerX + x1) + 'px, ' + (centerY + y2) + 'px, 0) translate(-50%, -50%) scale(' + scale.toFixed(3) + ')';
