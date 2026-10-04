@@ -8216,7 +8216,8 @@ nav { height: 60px !important; padding: 0 !important; }
    STREAMLINED COMPACT MARKETING & COMMS PLAN
    ══════════════════════════════════════════════════════════════ */
 .mkt-compact-container {
-  max-width: 1140px;
+  max-width: 1720px;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -8258,13 +8259,16 @@ nav { height: 60px !important; padding: 0 !important; }
 /* ══════════════════════════════════════════════════════════
    TIMELINE HORIZON (Style inspired by Timeline Horizon.html)
    ══════════════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════
+   TIMELINE HORIZON (FULL WIDTH, SLENDER HEIGHT & EXPANDABLE DETAILS)
+   ══════════════════════════════════════════════════════════ */
 .timeline-horizon-scroll-container {
   position: relative;
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  margin: 0.8rem 0 2.5rem;
-  padding: 0.6rem 0 1rem;
+  margin: 0.5rem 0 2.2rem;
+  padding: 0.2rem 0 0.8rem;
   scrollbar-width: thin;
   scrollbar-color: var(--red) rgba(255, 255, 255, 0.06);
 }
@@ -8280,39 +8284,22 @@ nav { height: 60px !important; padding: 0 !important; }
   border-radius: 3px;
 }
 
-.timeline-horizon-hint {
-  display: none;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--ff-a);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.45);
-  margin-bottom: 0.8rem;
-  text-transform: uppercase;
-}
-
-@media (max-width: 900px) {
-  .timeline-horizon-hint {
-    display: inline-flex;
-  }
-}
-
 .timeline-horizon-canvas {
-  min-width: 860px;
+  width: 100%;
+  min-width: 0;
   position: relative;
-  padding: 1.2rem 0.5rem 0.5rem;
+  padding: 0.2rem 0;
 }
 
-/* Timeline - Events */
+/* Timeline - Events: Full width, flat alignment, compact height */
 .timeline-events {
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.4rem;
+  gap: clamp(0.75rem, 1.2vw, 1.25rem);
+  width: 100%;
   padding: 0;
-  margin: 0 0 1.2rem 0;
+  margin: 0 0 0.85rem 0;
   list-style: none;
 }
 
@@ -8320,42 +8307,38 @@ nav { height: 60px !important; padding: 0 !important; }
   position: relative;
   display: flex;
   flex-direction: column;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: none !important;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Cascading Staggered Horizon steps */
-.timeline-events li:nth-child(1) { transform: translateY(28px); }
-.timeline-events li:nth-child(2) { transform: translateY(14px); }
-.timeline-events li:nth-child(3) { transform: translateY(0px); }
-.timeline-events li:nth-child(4) { transform: translateY(18px); }
-
 .timeline-events li:hover {
-  transform: translateY(-8px) !important;
+  transform: translateY(-4px) !important;
 }
 
 .timeline-event-box {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  padding: 1.3rem 1.2rem;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 0.95rem 1.05rem;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.25rem;
   position: relative;
   transition: all 0.3s ease;
   flex: 1;
+  box-sizing: border-box;
 }
 
 .timeline-events li:hover .timeline-event-box {
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
 }
 
 .timeline-event-header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 0.6rem;
+  gap: 0.5rem;
   margin-bottom: 0.2rem;
 }
 
@@ -8367,62 +8350,132 @@ nav { height: 60px !important; padding: 0 !important; }
   text-transform: uppercase;
 }
 
-.timeline-events h2 {
+.timeline-phase-date {
   font-family: var(--ff-a);
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.65);
   text-transform: uppercase;
-  margin: 0;
 }
 
-.timeline-events h3 {
+.phase-title-en {
   font-family: var(--ff-d);
-  font-size: 1.25rem;
+  font-size: clamp(1.05rem, 1.25vw, 1.35rem);
   text-transform: uppercase;
   margin: 0;
   line-height: 1.15;
+  letter-spacing: 0.02em;
 }
 
-.timeline-events h4 {
-  font-family: var(--ff-b);
-  font-size: 0.84rem;
+.phase-title-la {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.88);
-  margin: 0;
+  color: #ffffff;
+  line-height: 1.45;
+  margin: 0 0 0.15rem;
 }
 
 .timeline-event-desc {
-  font-family: var(--ff-b);
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.68);
-  line-height: 1.55;
-  margin: 0.3rem 0 0.5rem;
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
+  margin: 0.15rem 0 0.4rem;
 }
 
 .timeline-event-kpi {
   font-family: var(--ff-a);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-top: auto;
+  padding-top: 0.45rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* Collapsible Action Items */
+.phase-collapse-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 0.42rem 0.65rem;
+  margin-top: 0.45rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Noto Sans Lao', var(--ff-a), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.phase-collapse-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+.phase-btn-icon {
+  transition: transform 0.3s ease;
+}
+.timeline-event-box.expanded .phase-btn-icon {
+  transform: rotate(180deg);
+}
+.phase-details-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+.timeline-event-box.expanded .phase-details-collapse {
+  grid-template-rows: 1fr;
+}
+.phase-details-inner {
+  min-height: 0;
+  overflow: hidden;
   padding-top: 0.5rem;
   border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  margin-top: 0.45rem;
+}
+.phase-action-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.phase-action-list li {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.45;
+  padding-left: 0.9rem;
+  position: relative;
+}
+.phase-action-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: bold;
 }
 
 .timeline-event-stem {
   width: 1px;
-  height: 18px;
+  height: 10px;
   background: rgba(255, 255, 255, 0.12);
   margin: 0 auto;
   transition: background 0.3s ease;
 }
 
 .timeline-event-bar {
-  height: 8px;
-  border-radius: 4px;
+  height: 6px;
+  border-radius: 3px;
   width: 100%;
   position: relative;
   transition: all 0.3s ease;
@@ -8430,7 +8483,7 @@ nav { height: 60px !important; padding: 0 !important; }
 
 /* Phase 1: Red */
 .timeline-event-phase-1 .timeline-phase-tag,
-.timeline-event-phase-1 h3,
+.timeline-event-phase-1 .phase-title-en,
 .timeline-event-phase-1 .timeline-event-kpi { color: #EE1C24; }
 .timeline-event-phase-1 .timeline-event-bar {
   background: linear-gradient(90deg, #CC0000 0%, #EE1C24 100%);
@@ -8441,7 +8494,7 @@ nav { height: 60px !important; padding: 0 !important; }
 
 /* Phase 2: Orange */
 .timeline-event-phase-2 .timeline-phase-tag,
-.timeline-event-phase-2 h3,
+.timeline-event-phase-2 .phase-title-en,
 .timeline-event-phase-2 .timeline-event-kpi { color: #FF7700; }
 .timeline-event-phase-2 .timeline-event-bar {
   background: linear-gradient(90deg, #FF5500 0%, #FFAA00 100%);
@@ -8450,51 +8503,51 @@ nav { height: 60px !important; padding: 0 !important; }
 .timeline-event-phase-2:hover .timeline-event-box { border-color: rgba(255, 119, 0, 0.6); }
 .timeline-event-phase-2:hover .timeline-event-stem { background: #FF7700; }
 
-/* Phase 3: Gold (Highlight) */
+/* Phase 3: Gold (Live Festival Peak) */
 .timeline-event-phase-3 .timeline-phase-tag,
-.timeline-event-phase-3 h3,
+.timeline-event-phase-3 .phase-title-en,
 .timeline-event-phase-3 .timeline-event-kpi { color: var(--gold); }
 .timeline-event-phase-3 .timeline-event-box {
-  border-color: rgba(212, 175, 55, 0.4);
-  background: rgba(212, 175, 55, 0.04);
+  border-color: rgba(212, 175, 55, 0.5);
+  background: rgba(212, 175, 55, 0.05);
 }
 .timeline-event-phase-3 .timeline-event-bar {
   background: linear-gradient(90deg, #FFC700 0%, #FFE57F 100%);
-  box-shadow: 0 0 16px rgba(255, 199, 0, 0.7);
+  box-shadow: 0 0 14px rgba(255, 199, 0, 0.7);
 }
 .timeline-event-phase-3:hover .timeline-event-box { border-color: var(--gold); box-shadow: 0 14px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.25); }
 .timeline-event-phase-3:hover .timeline-event-stem { background: var(--gold); }
 
-/* Phase 4: Stage White */
+/* Phase 4: Stage White / Cyan */
 .timeline-event-phase-4 .timeline-phase-tag,
-.timeline-event-phase-4 h3,
+.timeline-event-phase-4 .phase-title-en,
 .timeline-event-phase-4 .timeline-event-kpi { color: #FFFFFF; }
 .timeline-event-phase-4 .timeline-event-bar {
-  background: linear-gradient(90deg, #FFFFFF 0%, #CC0000 100%);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  background: linear-gradient(90deg, #FFFFFF 0%, #4FC3F7 100%);
+  box-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
 }
 .timeline-event-phase-4:hover .timeline-event-box { border-color: rgba(255, 255, 255, 0.6); }
 .timeline-event-phase-4:hover .timeline-event-stem { background: #FFFFFF; }
 
-/* Timeline - Years (Continuous Horizon Axis Track) */
+/* Timeline - Years (4 Equal Nodes matching 4 Phases) */
 .timelines-years {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   padding: 0;
-  margin: 1.2rem 0 0 0;
+  margin: 0.8rem 0 0 0;
   list-style: none;
   border-top: 2px solid rgba(255, 255, 255, 0.16);
 }
 
 .timelines-years li {
   position: relative;
-  padding-top: 12px;
-  color: rgba(255, 255, 255, 0.5);
+  padding-top: 10px;
+  color: rgba(255, 255, 255, 0.55);
   font-family: var(--ff-a);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -8516,11 +8569,33 @@ nav { height: 60px !important; padding: 0 !important; }
 
 .timelines-years li.timeline-axis-event {
   color: var(--gold);
+  font-weight: 800;
 }
 .timelines-years li.timeline-axis-event .timeline-axis-dot {
   background: var(--gold);
   box-shadow: 0 0 10px var(--gold);
   transform: scale(1.3);
+}
+
+@media (max-width: 1024px) {
+  .timeline-events {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .timelines-years {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .timeline-events {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .timelines-years {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Creative Advertising & Activations — Modern Dark Rounded Cards (User Reference Style #2) */
@@ -18776,40 +18851,50 @@ body.presentation-active .floating-present-badge {
 
         <!-- 1. THE 4-PHASE TIMELINE -->
         <div style="margin-top:0.6rem; margin-bottom:0.4rem;">
-          <div class="section-label" style="margin-bottom:0.25rem; font-size:0.75rem; letter-spacing:0.16em;">4-PHASE EXECUTION</div>
+          <div class="section-label" style="margin-bottom:0.25rem; font-size:0.75rem; letter-spacing:0.16em;">4-PHASE REALISTIC ROADMAP</div>
           <h3 style="font-family:var(--ff-d); font-size:clamp(1.4rem, 2.2vw, 1.9rem); text-transform:uppercase; color:#fff; line-height:1.15; margin:0 0 0.25rem;">
             THE 4-PHASE <span class="hl">TIMELINE</span>
           </h3>
           <p style="font-family:'Noto Sans Lao', var(--ff-b), sans-serif; font-size:0.82rem; color:rgba(255,255,255,0.7); margin:0; line-height:1.5;">
-            🇱🇦 4 ໄລຍະການຂັບເຄື່ອນແຄມເປນ (JUL – NOV 2026)
+            🇱🇦 ແຜນປະຕິບັດງານ 4 ໄລຍະເລັ່ງດ່ວນ (OCT – NOV 2026) • ຈາກການເປີດໂຕ ສູ່ເວທີສາກົນ 13–15 ພະຈິກ
           </p>
         </div>
 
-        <!-- 1. THE 4-PHASE HORIZON TIMELINE (Style: Timeline Horizon.html) -->
+        <!-- 1. THE 4-PHASE HORIZON TIMELINE (Full-Width, Slender, Expandable Details) -->
         <div class="timeline-horizon-scroll-container">
-          <div class="timeline-horizon-hint">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7M12 19l-7-7 7-7"/></svg>
-            <span>⇄ SCROLL HORIZONTALLY</span>
-          </div>
-          
           <div class="timeline-horizon-canvas">
             
-            <!-- Horizontal Events Stack -->
+            <!-- Horizontal Events Stack (4 Cards) -->
             <ul class="timeline-events">
               
               <!-- PHASE 01 -->
               <li class="timeline-event-phase-1">
                 <div class="timeline-event-box">
                   <div class="timeline-event-header">
-                    <span class="timeline-phase-tag">PHASE 01</span>
-                    <h2>JUL – AUG 2026</h2>
+                    <span class="timeline-phase-tag">PHASE 01 • KICKOFF</span>
+                    <span class="timeline-phase-date">01 – 15 OCT 2026</span>
                   </div>
-                  <h3>Launch &amp; Brand Reveal</h3>
-                  <h4>Key Visual Drop &amp; Sponsor Co-Branding</h4>
+                  <h3 class="phase-title-en">Launch &amp; Partner Lock-in</h3>
+                  <div class="phase-title-la">ເປີດໂຕໂຄງການ &amp; ລົງນາມຜູ້ສະໜັບສະໜູນ</div>
                   <p class="timeline-event-desc">
-                    Official Key Visual drop, website launch, national media press conference, and sponsor co-branding announcements.
+                    <strong>PR &amp; Sponsor Tiers:</strong> ປະກາດ Key Visual ທາງການ, ເລີ່ມແຖລງຂ່າວ PR ແລະ ປິດດີວສັນຍາຜູ້ສະໜັບສະໜູນຫຼັກ.
                   </p>
-                  <div class="timeline-event-kpi">✦ Target: 1.5M+ Digital Views</div>
+                  <div class="timeline-event-kpi">✦ Target: 1.5M+ Digital Reach • 8 Core Sponsors</div>
+                  
+                  <button type="button" class="phase-collapse-btn" onclick="togglePhaseCard(this)" aria-expanded="false">
+                    <span class="phase-btn-text">ລາຍລະອຽດແຜນງານ (View Details)</span>
+                    <svg class="phase-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+
+                  <div class="phase-details-collapse">
+                    <div class="phase-details-inner">
+                      <ul class="phase-action-list">
+                        <li><strong>01–05 Oct:</strong> ປ່ອຍ Official Key Visual &amp; Video Teaser ທົ່ວ Meta ແລະ TikTok</li>
+                        <li><strong>06–10 Oct:</strong> ງານຖະແຫຼງຂ່າວ PR ລະດັບຊາດ &amp; ສື່ມວນຊົນອາຊຽນ</li>
+                        <li><strong>11–15 Oct:</strong> ລົງນາມສັນຍາ B2B Sponsor Tiers ພ້ອມລັອກສິດຂາດ Brand Exclusivity</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
                 <div class="timeline-event-stem"></div>
                 <div class="timeline-event-bar"></div>
@@ -18819,15 +18904,30 @@ body.presentation-active .floating-present-badge {
               <li class="timeline-event-phase-2">
                 <div class="timeline-event-box">
                   <div class="timeline-event-header">
-                    <span class="timeline-phase-tag">PHASE 02</span>
-                    <h2>SEP – OCT 2026</h2>
+                    <span class="timeline-phase-tag">PHASE 02 • NATIONWIDE HYPE</span>
+                    <span class="timeline-phase-date">16 OCT – 08 NOV 2026</span>
                   </div>
-                  <h3>Build &amp; Community Hype</h3>
-                  <h4>Regional Lineup &amp; TikTok Challenge</h4>
+                  <h3 class="phase-title-en">Lineup &amp; Competitor Blitz</h3>
+                  <div class="phase-title-la">ເປີດຮັບສະໝັກ &amp; ສ້າງກະແສທົ່ວປະເທດ</div>
                   <p class="timeline-event-desc">
-                    Star lineup drops (international judges &amp; DJs), competitor registration drive across 10+ nations, and the viral #StreetToStage2026 challenge.
+                    <strong>Competitors &amp; 3D LED:</strong> ເປີດຮັບສະໝັກນັກເຕັ້ນ 10 ປະເທດ, ເປີດໂຕກຳມະການດັງ ແລະ ຍິງແຄມເປນ TikTok #LIHF2026.
                   </p>
-                  <div class="timeline-event-kpi">✦ Target: 3.5M+ Engagements</div>
+                  <div class="timeline-event-kpi">✦ Target: 3.5M+ Engagements • 120+ Teams</div>
+                  
+                  <button type="button" class="phase-collapse-btn" onclick="togglePhaseCard(this)" aria-expanded="false">
+                    <span class="phase-btn-text">ລາຍລະອຽດແຜນງານ (View Details)</span>
+                    <svg class="phase-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+
+                  <div class="phase-details-collapse">
+                    <div class="phase-details-inner">
+                      <ul class="phase-action-list">
+                        <li><strong>16–22 Oct:</strong> ເປີດຮັບສະໝັກນັກເຕັ້ນ 8 Culture Battles ທົ່ວ 10 ປະເທດອາຊຽນ</li>
+                        <li><strong>23–31 Oct:</strong> ເປີດໂຕ Celebrity Judges, International MCs ແລະ Headliner DJs</li>
+                        <li><strong>01–08 Nov:</strong> ຂຶ້ນປ້າຍ 3D LED Billboard ທີ່ປະຕູໄຊ &amp; ITECC, ເປີດຂາຍບັດ Early Bird</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
                 <div class="timeline-event-stem"></div>
                 <div class="timeline-event-bar"></div>
@@ -18837,15 +18937,30 @@ body.presentation-active .floating-present-badge {
               <li class="timeline-event-phase-3 timeline-event-highlight">
                 <div class="timeline-event-box">
                   <div class="timeline-event-header">
-                    <span class="timeline-phase-tag">PHASE 03 • PEAK HYPE</span>
-                    <h2>OCT – NOV 2026</h2>
+                    <span class="timeline-phase-tag">PHASE 03 • LIVE EVENT</span>
+                    <span class="timeline-phase-date">09 – 15 NOV 2026</span>
                   </div>
-                  <h3>Convert &amp; City Takeover</h3>
-                  <h4>3D LED Billboards &amp; Pop-Up Cyphers</h4>
+                  <h3 class="phase-title-en">Festival Week &amp; Live Battles</h3>
+                  <div class="phase-title-la">ສັບປະດາງານເທດສະການ &amp; ເວທີ BATTLE ສົດ</div>
                   <p class="timeline-event-desc">
-                    Vientiane 3D LED billboard takeover at Patuxay &amp; ITECC, campus pop-up cyphers at Dongdok, ticket blitz, and sponsor activation previews.
+                    <strong>Lao-ITECC Takeover:</strong> 3 ມື້ເຕັມທີ່ Lao-ITECC, ບູດກິດຈະກຳແບຣນ, 10,000+ ຄົນ ແລະ ຖ່າຍທອດສົດ 4K ທົ່ວອາຊຽນ.
                   </p>
-                  <div class="timeline-event-kpi">✦ Target: 10,000+ Attendees</div>
+                  <div class="timeline-event-kpi">✦ Target: 10,000+ Attendees • 4K Live ASEAN</div>
+                  
+                  <button type="button" class="phase-collapse-btn" onclick="togglePhaseCard(this)" aria-expanded="false">
+                    <span class="phase-btn-text">ລາຍລະອຽດແຜນງານ (View Details)</span>
+                    <svg class="phase-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+
+                  <div class="phase-details-collapse">
+                    <div class="phase-details-inner">
+                      <ul class="phase-action-list">
+                        <li><strong>09–12 Nov:</strong> ຕິດຕັ້ງເວທີໃຫຍ່ 2 Arenas, ຈັດຕັ້ງ Brand Experiential Booths</li>
+                        <li><strong>13–15 Nov:</strong> ແຂ່ງຂັນ 8 Culture Battles ຮອບຊິງຊະນະເລີດພ້ອມສິລະປິນ Concert</li>
+                        <li><strong>13–15 Nov:</strong> ຖ່າຍທອດສົດ 4K Multi-Cam Livestream ທົ່ວ YouTube, FB &amp; TikTok</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
                 <div class="timeline-event-stem"></div>
                 <div class="timeline-event-bar"></div>
@@ -18855,15 +18970,30 @@ body.presentation-active .floating-present-badge {
               <li class="timeline-event-phase-4">
                 <div class="timeline-event-box">
                   <div class="timeline-event-header">
-                    <span class="timeline-phase-tag">PHASE 04</span>
-                    <h2>13–15 NOV 2026 &amp; POST</h2>
+                    <span class="timeline-phase-tag">PHASE 04 • LEGACY &amp; ROI</span>
+                    <span class="timeline-phase-date">16 – 30 NOV 2026 &amp; POST</span>
                   </div>
-                  <h3>Amplify &amp; Sponsor ROI</h3>
-                  <h4>4K Live Broadcast &amp; Performance Dossier</h4>
+                  <h3 class="phase-title-en">Amplify &amp; Sponsor ROI Dossier</h3>
+                  <div class="phase-title-la">ຂະຫຍາຍຜົນສື່ &amp; ສະຫຼຸບລາຍງານ ROI</div>
                   <p class="timeline-event-desc">
-                    Studio-grade 4K livestreams, real-time battle knockout highlight reels, 4K festival aftermovie, and transparent sponsor ROI analytics dossier.
+                    <strong>Post-Event Aftermovie:</strong> ປ່ອຍວິດີໂອ Aftermovie 4K, ຄລິບ Battle ໄວຣັລ ແລະ ສົ່ງມອບບົດລາຍງານ ROI ໃຫ້ແບຣນ.
                   </p>
-                  <div class="timeline-event-kpi">✦ Target: 10M+ Media Impressions</div>
+                  <div class="timeline-event-kpi">✦ Target: 10M+ Total Impressions • Post ROI Dossier</div>
+                  
+                  <button type="button" class="phase-collapse-btn" onclick="togglePhaseCard(this)" aria-expanded="false">
+                    <span class="phase-btn-text">ລາຍລະອຽດແຜນງານ (View Details)</span>
+                    <svg class="phase-btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </button>
+
+                  <div class="phase-details-collapse">
+                    <div class="phase-details-inner">
+                      <ul class="phase-action-list">
+                        <li><strong>16–20 Nov:</strong> ປ່ອຍ 4K Festival Aftermovie &amp; Highlight Reels ເກັບກະແສ Viral</li>
+                        <li><strong>21–25 Nov:</strong> ສັງລວມຕົວເລກ Media Value &amp; Third-Party Analytics Dossier</li>
+                        <li><strong>26–30 Nov:</strong> ສົ່ງມອບ Official ROI Report ແລະ ເປີດຈອງສິດ Early-Bird ປີ 2027</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
                 <div class="timeline-event-stem"></div>
                 <div class="timeline-event-bar"></div>
@@ -18871,14 +19001,12 @@ body.presentation-active .floating-present-badge {
 
             </ul>
 
-            <!-- Horizontal Time Axis (Years/Months Scale matching Timeline Horizon.html) -->
+            <!-- Horizontal Time Axis (4 Equal Nodes matching 4 Phases) -->
             <ul class="timelines-years">
-              <li><div class="timeline-axis-dot"></div><span>JUL 2026</span></li>
-              <li><div class="timeline-axis-dot"></div><span>AUG 2026</span></li>
-              <li><div class="timeline-axis-dot"></div><span>SEP 2026</span></li>
-              <li><div class="timeline-axis-dot"></div><span>OCT 2026</span></li>
-              <li class="timeline-axis-event"><div class="timeline-axis-dot pulse"></div><span>13–15 NOV 2026 (EVENT)</span></li>
-              <li><div class="timeline-axis-dot"></div><span>POST-EVENT (ROI)</span></li>
+              <li><div class="timeline-axis-dot"></div><span>01 – 15 OCT 2026</span></li>
+              <li><div class="timeline-axis-dot"></div><span>16 OCT – 08 NOV 2026</span></li>
+              <li class="timeline-axis-event"><div class="timeline-axis-dot pulse"></div><span>13–15 NOV 2026 (LIVE EVENT)</span></li>
+              <li><div class="timeline-axis-dot"></div><span>16–30 NOV 2026 (ROI)</span></li>
             </ul>
 
           </div>
@@ -24479,6 +24607,18 @@ function replayLogoIntro(){
       petal.addEventListener('click', handleEnter);
     });
   })();
+
+  // ── TIMELINE PHASE CARD EXPAND / COLLAPSE TOGGLE ──
+  window.togglePhaseCard = function(btn) {
+    const box = btn.closest('.timeline-event-box');
+    if (!box) return;
+    const isExpanded = box.classList.toggle('expanded');
+    btn.setAttribute('aria-expanded', isExpanded);
+    const textSpan = btn.querySelector('.phase-btn-text');
+    if (textSpan) {
+      textSpan.textContent = isExpanded ? 'ຫຍໍ້ລາຍລະອຽດ (Collapse)' : 'ລາຍລະອຽດແຜນງານ (View Details)';
+    }
+  };
 
 })();
 </script>
