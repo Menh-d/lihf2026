@@ -8642,34 +8642,40 @@ nav { height: 60px !important; padding: 0 !important; }
   transform: scale(1.06);
 }
 
-.card.dark > section {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem 1.25rem 1.35rem;
+.card.dark > section,
+.card.dark > .card-overlay {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  padding: 1.25rem 1.15rem 0.9rem !important;
+  clear: none !important;
+  overflow: visible !important;
   background: linear-gradient(to top, 
     rgba(10, 11, 14, 0.98) 0%, 
-    rgba(10, 11, 14, 0.88) 45%, 
-    rgba(10, 11, 14, 0.45) 80%, 
-    transparent 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  z-index: 2;
-  transition: background 0.35s ease;
+    rgba(10, 11, 14, 0.92) 55%, 
+    rgba(10, 11, 14, 0.45) 88%, 
+    transparent 100%) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  z-index: 2 !important;
+  transition: background 0.35s ease !important;
 }
 
 .card.dark:hover > section,
-.card.dark.is-open > section {
+.card.dark:hover > .card-overlay,
+.card.dark.is-open > section,
+.card.dark.is-open > .card-overlay {
   background: linear-gradient(to top, 
     rgba(8, 9, 12, 0.99) 0%, 
-    rgba(8, 9, 12, 0.94) 60%, 
-    rgba(8, 9, 12, 0.65) 88%, 
-    transparent 100%);
+    rgba(8, 9, 12, 0.95) 65%, 
+    rgba(8, 9, 12, 0.65) 90%, 
+    transparent 100%) !important;
 }
 
-.card.dark section h2 {
+.card.dark section h2,
+.card.dark .card-overlay h2 {
   font-family: var(--ff-d);
   font-size: 1.15rem;
   color: #ffffff;
@@ -8693,9 +8699,9 @@ nav { height: 60px !important; padding: 0 !important; }
 
 .card-movie-crawl-viewport {
   position: relative;
-  height: 58px;
+  height: 60px;
   overflow: hidden;
-  margin: 0.35rem 0 0.45rem;
+  margin: 0.35rem 0 0.4rem;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
 }
@@ -8744,13 +8750,14 @@ nav { height: 60px !important; padding: 0 !important; }
   color: var(--gold);
 }
 
-.card.dark section > div.card-action-row {
+.card.dark section > div.card-action-row,
+.card.dark .card-overlay > div.card-action-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.6rem;
   margin-top: 0.15rem;
-  padding-top: 0.45rem;
+  padding-top: 0.4rem;
   border-top: 1px dashed rgba(255, 255, 255, 0.14);
   flex-shrink: 0;
 }
@@ -19045,7 +19052,7 @@ body.presentation-active .floating-present-badge {
           <!-- Activation 1: 3D Digital LED Takeover -->
           <div class="card dark" onclick="viewArtwork('assets/elements/act_3d_led.png', '3D Digital LED Takeover', 'Anamorphic 3D LED Billboard Takeover • Patuxay &amp; ITECC')">
             <img src="assets/elements/act_3d_led.png" alt="3D Digital LED Takeover" />
-            <section>
+            <div class="card-overlay">
               <h2>3D Digital LED Takeover</h2>
               <div class="card-movie-crawl-viewport">
                 <div class="card-movie-crawl-track">
@@ -19069,13 +19076,13 @@ body.presentation-active .floating-present-badge {
                 </div>
                 <button onclick="event.stopPropagation(); viewArtwork('assets/elements/act_3d_led.png', '3D Digital LED Takeover', 'Anamorphic 3D LED Billboard Takeover • Patuxay &amp; ITECC')">View 4K</button>
               </div>
-            </section>
+            </div>
           </div>
 
           <!-- Activation 2: #StreetToStage2026 -->
           <div class="card dark" onclick="viewArtwork('assets/elements/act_street_stage.png', '#StreetToStage2026', 'Viral TikTok &amp; Social Challenge • Youth Mobilization')">
             <img src="assets/elements/act_street_stage.png" alt="#StreetToStage2026" />
-            <section>
+            <div class="card-overlay">
               <h2>#StreetToStage2026</h2>
               <div class="card-movie-crawl-viewport">
                 <div class="card-movie-crawl-track">
@@ -19099,13 +19106,13 @@ body.presentation-active .floating-present-badge {
                 </div>
                 <button onclick="event.stopPropagation(); viewArtwork('assets/elements/act_street_stage.png', '#StreetToStage2026', 'Viral TikTok &amp; Social Challenge • Youth Mobilization')">View 4K</button>
               </div>
-            </section>
+            </div>
           </div>
 
           <!-- Activation 3: Battle Pass QR Rally -->
           <div class="card dark" onclick="viewArtwork('assets/elements/act_qr_rally.png', 'Battle Pass QR Rally', 'Gamification &amp; Sponsor Booth Footfall • Direct Leads')">
             <img src="assets/elements/act_qr_rally.png" alt="Battle Pass QR Rally" />
-            <section>
+            <div class="card-overlay">
               <h2>Battle Pass QR Rally</h2>
               <div class="card-movie-crawl-viewport">
                 <div class="card-movie-crawl-track">
@@ -19129,13 +19136,13 @@ body.presentation-active .floating-present-badge {
                 </div>
                 <button onclick="event.stopPropagation(); viewArtwork('assets/elements/act_qr_rally.png', 'Battle Pass QR Rally', 'Gamification &amp; Sponsor Booth Footfall • Direct Leads')">View 4K</button>
               </div>
-            </section>
+            </div>
           </div>
 
           <!-- Activation 4: 4K Live Stream & MVP Voting -->
           <div class="card dark" onclick="viewArtwork('assets/elements/act_4k_livestream.png', '4K Live Stream & MVP Voting', 'Regional Multi-Platform Live Stream • TikTok, FB, YouTube')">
             <img src="assets/elements/act_4k_livestream.png" alt="4K Live Stream &amp; MVP Voting" />
-            <section>
+            <div class="card-overlay">
               <h2>4K Live Stream &amp; MVP Voting</h2>
               <div class="card-movie-crawl-viewport">
                 <div class="card-movie-crawl-track">
@@ -19159,7 +19166,7 @@ body.presentation-active .floating-present-badge {
                 </div>
                 <button onclick="event.stopPropagation(); viewArtwork('assets/elements/act_4k_livestream.png', '4K Live Stream &amp; MVP Voting', 'Regional Multi-Platform Live Stream • TikTok, FB, YouTube')">View 4K</button>
               </div>
-            </section>
+            </div>
           </div>
 
         </div>
