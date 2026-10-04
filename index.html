@@ -15997,7 +15997,7 @@ body.gsap-ready .contact-standalone-section * {
 .mkt-kv-identity-col {
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: 1.25rem;
 }
 /* Pair Grid for Master Emblem and Texture Assets */
 .mkt-kv-assets-pair-grid {
@@ -16212,7 +16212,7 @@ body.gsap-ready .contact-standalone-section * {
   overflow: hidden;
   box-shadow: 0 0 20px rgba(238, 28, 36, 0.55), 0 4px 16px rgba(0, 0, 0, 0.8);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .mkt-poster-expand-btn:hover {
@@ -16268,6 +16268,11 @@ body.gsap-ready .contact-standalone-section * {
   flex-shrink: 0;
 }
 
+.mkt-expand-drawer-wrap {
+  width: 100%;
+}
+
+.mkt-expand-drawer-wrap.expanded .mkt-poster-btn-arrow,
 .mkt-poster-wrap.expanded .mkt-poster-btn-arrow {
   transform: rotate(180deg);
 }
@@ -16279,6 +16284,7 @@ body.gsap-ready .contact-standalone-section * {
   transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
 }
 
+.mkt-expand-drawer-wrap.expanded .mkt-poster-details-drawer,
 .mkt-poster-wrap.expanded .mkt-poster-details-drawer {
   max-height: 1400px;
   opacity: 1;
@@ -19670,108 +19676,6 @@ body.presentation-active .floating-present-badge {
                 </div>
                 <span style="font-family:var(--ff-b); font-size:0.78rem; color:rgba(255,255,255,0.45);">Primary Campaign Anchor</span>
               </div>
-
-              <!-- Red Glowing Expand Button for Poster Details & Colors -->
-              <button type="button" class="mkt-poster-expand-btn" onclick="togglePosterDetails(this)" aria-expanded="false">
-                <span class="mkt-poster-expand-glow-ring"></span>
-                <div class="mkt-poster-btn-content">
-                  <div style="display:flex; align-items:center; gap:0.65rem;">
-                    <span class="mkt-poster-btn-icon">✦</span>
-                    <div style="text-align:left;">
-                      <div style="font-size:0.86rem; font-weight:700; line-height:1.25; color:#fff;">ເບິ່ງລາຍລະອຽດອົງປະກອບ &amp; ໂທນສີ (View Details)</div>
-                      <div style="font-size:0.7rem; font-weight:400; opacity:0.8; font-family:var(--ff-b); color:rgba(255,255,255,0.75);">KEY VISUAL HIGHLIGHTS &amp; 4-CORE COLOR PALETTE</div>
-                    </div>
-                  </div>
-                  <svg class="mkt-poster-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </div>
-              </button>
-
-              <!-- Expandable Drawer below Poster -->
-              <div class="mkt-poster-details-drawer">
-                <div class="mkt-poster-details-inner">
-                  
-                  <!-- Part 1: Key Visual Composition Highlights -->
-                  <div class="mkt-detail-header">
-                    <span class="mkt-detail-icon">✦</span>
-                    <div>
-                      <div class="mkt-detail-title">KEY VISUAL COMPOSITION HIGHLIGHTS</div>
-                      <div class="mkt-detail-sub-la">ຈຸດເດັ່ນຂອງອົງປະກອບພາບຫຼັກ Master Key Visual</div>
-                    </div>
-                  </div>
-                  <ul class="mkt-highlight-list">
-                    <li>
-                      <strong>3D MASCOT INTEGRATION:</strong>
-                      <span class="hl-la">🇱🇦 ຕົວລະຄອນ 3D Mascot ຕົ້ນສະບັບ ໃສ່ເສື້ອ Puffer ສີແດງ, ໝວກ ແລະ ເກີບສະນີກເກີ ສະທ້ອນເຖິງສະໄຕລ໌ Street ຍຸກ Gen Z ຢ່າງຊັດເຈນ.</span>
-                      <span class="hl-en">🇬🇧 Original character in crimson puffer, bucket hat, and sneakers embodying Gen Z street style.</span>
-                    </li>
-                    <li>
-                      <strong>LEAD TITLE SPONSOR LOCKUP:</strong>
-                      <span class="hl-la">🇱🇦 ພື້ນທີ່ໂລໂກ້ສະປອນເຊີຫຼັກ (Lead Title Sponsor) ຖືກຈັດວາງໄວ້ຢ່າງໂດດເດັ່ນເທິງທຸງ Hero Banner ເຫັນໄດ້ຊັດເຈນທຸກໄລຍະ.</span>
-                      <span class="hl-en">🇬🇧 Dedicated premium branding space for primary presenting sponsors on hero banner flags.</span>
-                    </li>
-                    <li>
-                      <strong>LINEUP &amp; 8 ACTIVITIES:</strong>
-                      <span class="hl-la">🇱🇦 ສະແດງລາຍຊື່ທັງ 8 ປະເພດການແຂ່ງຂັນ ແລະ ສິນລະປິນຮັບເຊີນລະດັບອາຊຽນ ໃຫ້ຄວາມໂດດເດັ່ນສູງສຸດຕໍ່ສາທາລະນະ.</span>
-                      <span class="hl-en">🇬🇧 Direct prominence for all 8 competition categories and ASEAN international guest artists.</span>
-                    </li>
-                  </ul>
-
-                  <!-- Part 2: The 4-Core Colors Palette -->
-                  <div class="mkt-detail-header" style="margin-top:1.35rem; padding-top:1.1rem; border-top:1px solid rgba(255,255,255,0.1);">
-                    <span class="mkt-detail-icon">🎨</span>
-                    <div>
-                      <div class="mkt-detail-title">THE 4-CORE COLOR PALETTE &amp; BRAND HARMONY</div>
-                      <div class="mkt-detail-sub-la">ລະບົບ 4 ໂທນສີຫຼັກ ແລະ ຄວາມກົມກຽວຂອງແບຣນດ໌</div>
-                    </div>
-                  </div>
-                  <div class="mkt-colors-compact-grid">
-                    <!-- Color 1: Festival Crimson Red -->
-                    <div class="mkt-color-card">
-                      <div class="mkt-color-dot-row">
-                        <span class="mkt-color-dot" style="background:#ee1c24; box-shadow:0 0 10px rgba(238,28,36,0.6);"></span>
-                        <span class="mkt-color-hex" style="color:#ff4d4d;">#EE1C24</span>
-                      </div>
-                      <div class="mkt-color-name">Festival Crimson Red</div>
-                      <div class="mkt-color-la-role">🇱🇦 ພະລັງແຫ່ງເວທີ, ຄວາມກ້າຫານ ແລະ ສີແດງໃນທຸງຊາດລາວ</div>
-                      <div class="mkt-color-desc-en">Underground power, battle arena intensity, and bold red in the Lao flag.</div>
-                    </div>
-
-                    <!-- Color 2: Lao Heritage Gold -->
-                    <div class="mkt-color-card">
-                      <div class="mkt-color-dot-row">
-                        <span class="mkt-color-dot" style="background:#ffc700; box-shadow:0 0 10px rgba(255,199,0,0.5);"></span>
-                        <span class="mkt-color-hex" style="color:var(--gold);">#FFC700</span>
-                      </div>
-                      <div class="mkt-color-name" style="color:var(--gold);">Lao Heritage Gold</div>
-                      <div class="mkt-color-la-role">🇱🇦 ມໍລະດົກຄຳພະທາດຫຼວງ, ຊັບສິນ ແລະ ລາງວັນແຊ້ມ 159M LAK</div>
-                      <div class="mkt-color-desc-en">Pha That Luang cultural gold, champion victory, and 159M LAK prize pool.</div>
-                    </div>
-
-                    <!-- Color 3: Urban Charcoal Black -->
-                    <div class="mkt-color-card">
-                      <div class="mkt-color-dot-row">
-                        <span class="mkt-color-dot" style="background:#0a0a0c; border:1px solid rgba(255,255,255,0.3); box-shadow:0 0 10px rgba(0,0,0,0.8);"></span>
-                        <span class="mkt-color-hex">#0A0A0C</span>
-                      </div>
-                      <div class="mkt-color-name">Urban Charcoal Black</div>
-                      <div class="mkt-color-la-role">🇱🇦 ຖະໜົນ asphalt, ແຜ່ນສຽງ Vinyl ແລະ ພະລັງງານຍາມຄ່ຳຄືນ</div>
-                      <div class="mkt-color-desc-en">Raw street asphalt, vinyl turntables, cyphers, and subwoofer depth.</div>
-                    </div>
-
-                    <!-- Color 4: Crisp Stage White -->
-                    <div class="mkt-color-card">
-                      <div class="mkt-color-dot-row">
-                        <span class="mkt-color-dot" style="background:#ffffff; border:1px solid rgba(255,255,255,0.4); box-shadow:0 0 10px rgba(255,255,255,0.4);"></span>
-                        <span class="mkt-color-hex">#FFFFFF</span>
-                      </div>
-                      <div class="mkt-color-name">Crisp Stage White</div>
-                      <div class="mkt-color-la-role">🇱🇦 ຄວາມຊັດເຈນສູງສຸດ, ຄວາມທັນສະໄໝ ແລະ ຄວາມຄົມຊັດ</div>
-                      <div class="mkt-color-desc-en">Maximum typographical contrast, sleek chrome, and visual clarity.</div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
             </div>
 
             <!-- RIGHT: Brand Identity Elements Breakdown -->
@@ -19918,6 +19822,110 @@ body.presentation-active .floating-present-badge {
                   </div>
                 </div>
 
+              </div>
+
+              <!-- Red Glowing Expand Button & Drawer for Highlights & Colors (Under Mascot) -->
+              <div class="mkt-expand-drawer-wrap">
+                <button type="button" class="mkt-poster-expand-btn" onclick="togglePosterDetails(this)" aria-expanded="false">
+                  <span class="mkt-poster-expand-glow-ring"></span>
+                  <div class="mkt-poster-btn-content">
+                    <div style="display:flex; align-items:center; gap:0.65rem;">
+                      <span class="mkt-poster-btn-icon">✦</span>
+                      <div style="text-align:left;">
+                        <div style="font-size:0.86rem; font-weight:700; line-height:1.25; color:#fff;">ເບິ່ງລາຍລະອຽດອົງປະກອບ &amp; ໂທນສີ (View Details)</div>
+                        <div style="font-size:0.7rem; font-weight:400; opacity:0.8; font-family:var(--ff-b); color:rgba(255,255,255,0.75);">KEY VISUAL HIGHLIGHTS &amp; 4-CORE COLOR PALETTE</div>
+                      </div>
+                    </div>
+                    <svg class="mkt-poster-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </div>
+                </button>
+
+                <!-- Expandable Drawer below Mascot -->
+                <div class="mkt-poster-details-drawer">
+                  <div class="mkt-poster-details-inner">
+                    
+                    <!-- Part 1: Key Visual Composition Highlights -->
+                    <div class="mkt-detail-header">
+                      <span class="mkt-detail-icon">✦</span>
+                      <div>
+                        <div class="mkt-detail-title">KEY VISUAL COMPOSITION HIGHLIGHTS</div>
+                        <div class="mkt-detail-sub-la">ຈຸດເດັ່ນຂອງອົງປະກອບພາບຫຼັກ Master Key Visual</div>
+                      </div>
+                    </div>
+                    <ul class="mkt-highlight-list">
+                      <li>
+                        <strong>3D MASCOT INTEGRATION:</strong>
+                        <span class="hl-la">🇱🇦 ຕົວລະຄອນ 3D Mascot ຕົ້ນສະບັບ ໃສ່ເສື້ອ Puffer ສີແດງ, ໝວກ ແລະ ເກີບສະນີກເກີ ສະທ້ອນເຖິງສະໄຕລ໌ Street ຍຸກ Gen Z ຢ່າງຊັດເຈນ.</span>
+                        <span class="hl-en">🇬🇧 Original character in crimson puffer, bucket hat, and sneakers embodying Gen Z street style.</span>
+                      </li>
+                      <li>
+                        <strong>LEAD TITLE SPONSOR LOCKUP:</strong>
+                        <span class="hl-la">🇱🇦 ພື້ນທີ່ໂລໂກ້ສະປອນເຊີຫຼັກ (Lead Title Sponsor) ຖືກຈັດວາງໄວ້ຢ່າງໂດດເດັ່ນເທິງທຸງ Hero Banner ເຫັນໄດ້ຊັດເຈນທຸກໄລຍະ.</span>
+                        <span class="hl-en">🇬🇧 Dedicated premium branding space for primary presenting sponsors on hero banner flags.</span>
+                      </li>
+                      <li>
+                        <strong>LINEUP &amp; 8 ACTIVITIES:</strong>
+                        <span class="hl-la">🇱🇦 ສະແດງລາຍຊື່ທັງ 8 ປະເພດການແຂ່ງຂັນ ແລະ ສິນລະປິນຮັບເຊີນລະດັບອາຊຽນ ໃຫ້ຄວາມໂດດເດັ່ນສູງສຸດຕໍ່ສາທາລະນະ.</span>
+                        <span class="hl-en">🇬🇧 Direct prominence for all 8 competition categories and ASEAN international guest artists.</span>
+                      </li>
+                    </ul>
+
+                    <!-- Part 2: The 4-Core Colors Palette -->
+                    <div class="mkt-detail-header" style="margin-top:1.35rem; padding-top:1.1rem; border-top:1px solid rgba(255,255,255,0.1);">
+                      <span class="mkt-detail-icon">🎨</span>
+                      <div>
+                        <div class="mkt-detail-title">THE 4-CORE COLOR PALETTE &amp; BRAND HARMONY</div>
+                        <div class="mkt-detail-sub-la">ລະບົບ 4 ໂທນສີຫຼັກ ແລະ ຄວາມກົມກຽວຂອງແບຣນດ໌</div>
+                      </div>
+                    </div>
+                    <div class="mkt-colors-compact-grid">
+                      <!-- Color 1: Festival Crimson Red -->
+                      <div class="mkt-color-card">
+                        <div class="mkt-color-dot-row">
+                          <span class="mkt-color-dot" style="background:#ee1c24; box-shadow:0 0 10px rgba(238,28,36,0.6);"></span>
+                          <span class="mkt-color-hex" style="color:#ff4d4d;">#EE1C24</span>
+                        </div>
+                        <div class="mkt-color-name">Festival Crimson Red</div>
+                        <div class="mkt-color-la-role">🇱🇦 ພະລັງແຫ່ງເວທີ, ຄວາມກ້າຫານ ແລະ ສີແດງໃນທຸງຊາດລາວ</div>
+                        <div class="mkt-color-desc-en">Underground power, battle arena intensity, and bold red in the Lao flag.</div>
+                      </div>
+
+                      <!-- Color 2: Lao Heritage Gold -->
+                      <div class="mkt-color-card">
+                        <div class="mkt-color-dot-row">
+                          <span class="mkt-color-dot" style="background:#ffc700; box-shadow:0 0 10px rgba(255,199,0,0.5);"></span>
+                          <span class="mkt-color-hex" style="color:var(--gold);">#FFC700</span>
+                        </div>
+                        <div class="mkt-color-name" style="color:var(--gold);">Lao Heritage Gold</div>
+                        <div class="mkt-color-la-role">🇱🇦 ມໍລະດົກຄຳພະທາດຫຼວງ, ຊັບສິນ ແລະ ລາງວັນແຊ້ມ 159M LAK</div>
+                        <div class="mkt-color-desc-en">Pha That Luang cultural gold, champion victory, and 159M LAK prize pool.</div>
+                      </div>
+
+                      <!-- Color 3: Urban Charcoal Black -->
+                      <div class="mkt-color-card">
+                        <div class="mkt-color-dot-row">
+                          <span class="mkt-color-dot" style="background:#0a0a0c; border:1px solid rgba(255,255,255,0.3); box-shadow:0 0 10px rgba(0,0,0,0.8);"></span>
+                          <span class="mkt-color-hex">#0A0A0C</span>
+                        </div>
+                        <div class="mkt-color-name">Urban Charcoal Black</div>
+                        <div class="mkt-color-la-role">🇱🇦 ຖະໜົນ asphalt, ແຜ່ນສຽງ Vinyl ແລະ ພະລັງງານຍາມຄ່ຳຄືນ</div>
+                        <div class="mkt-color-desc-en">Raw street asphalt, vinyl turntables, cyphers, and subwoofer depth.</div>
+                      </div>
+
+                      <!-- Color 4: Crisp Stage White -->
+                      <div class="mkt-color-card">
+                        <div class="mkt-color-dot-row">
+                          <span class="mkt-color-dot" style="background:#ffffff; border:1px solid rgba(255,255,255,0.4); box-shadow:0 0 10px rgba(255,255,255,0.4);"></span>
+                          <span class="mkt-color-hex">#FFFFFF</span>
+                        </div>
+                        <div class="mkt-color-name">Crisp Stage White</div>
+                        <div class="mkt-color-la-role">🇱🇦 ຄວາມຊັດເຈນສູງສຸດ, ຄວາມທັນສະໄໝ ແລະ ຄວາມຄົມຊັດ</div>
+                        <div class="mkt-color-desc-en">Maximum typographical contrast, sleek chrome, and visual clarity.</div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
               </div>
 
             </div>
@@ -25087,9 +25095,9 @@ function replayLogoIntro(){
     }
   };
 
-  // ── MASTER POSTER DETAILS & COLOR PALETTE EXPAND TOGGLE ──
+  // ── MASTER POSTER & BRAND DETAILS EXPAND TOGGLE ──
   window.togglePosterDetails = function(btn) {
-    const wrap = btn.closest('.mkt-kv-poster-wrap');
+    const wrap = btn.closest('.mkt-expand-drawer-wrap') || btn.closest('.mkt-kv-poster-wrap') || btn.parentElement;
     if (!wrap) return;
     const isExpanded = wrap.classList.toggle('expanded');
     btn.setAttribute('aria-expanded', isExpanded);
