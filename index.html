@@ -1722,29 +1722,34 @@ nav { height: 60px !important; padding: 0 !important; }
 
 #venue {
   position: relative;
-  width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
   min-height: auto;
   height: auto;
   overflow: visible;
   background: #000000;
   color: #ffffff;
-  padding: 2.5rem 0 3.5rem !important;
+  padding: 2.5rem clamp(1rem, 2.5vw, 3rem) 3.5rem !important;
+  box-sizing: border-box;
 }
 
 /* Section Header for Floorplan */
 .fp-section-header {
-  max-width: 1380px;
-  margin: 0 auto 1.5rem;
-  padding: 0 1.5rem;
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 0 1.5rem 0 !important;
+  padding: 0 !important;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1.5rem;
+  box-sizing: border-box;
 }
 
 .fp-header-left {
-  max-width: 780px;
+  max-width: none;
+  flex: 1 1 auto;
 }
 
 .fp-header-sub-lao {
@@ -1783,16 +1788,24 @@ nav { height: 60px !important; padding: 0 !important; }
 }
 .kv-headline {
   font-family: var(--ff-d);
-  font-size: clamp(2.4rem, 5.5vw, 4.8rem);
-  line-height: 0.95;
+  font-size: clamp(1.8rem, 3.8vw, 3.8rem);
+  line-height: 1.05;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #ffffff;
   margin: 0;
+  white-space: nowrap;
 }
 .kv-headline .hl {
   color: var(--red);
   text-shadow: 0 0 35px rgba(204,0,0,0.6);
+}
+
+@media (max-width: 820px) {
+  .kv-headline {
+    white-space: normal;
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -1817,11 +1830,11 @@ nav { height: 60px !important; padding: 0 !important; }
   --fp-hover-bg: rgba(30, 32, 42, 0.96);
 
   position: relative;
-  width: calc(100% - 3rem);
-  max-width: 1440px;
-  margin: 0 auto 3rem;
-  min-height: 640px;
-  height: clamp(620px, 78vh, 820px);
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto 3rem !important;
+  min-height: 660px;
+  height: clamp(640px, 80vh, 920px);
   border-radius: 24px;
   overflow: hidden;
   background: #08080a;
@@ -20548,7 +20561,7 @@ body.presentation-active .floating-present-badge {
   <div class="fp-section-header">
     <div class="fp-header-left">
       <div class="kv-section-tag">Spatial Masterplan • Lao-ITECC Exhibition Hall</div>
-      <h2 class="kv-headline">EVENT <span class="hl">FLOORPLAN</span><br>&amp; ACTIVATION ZONES</h2>
+      <h2 class="kv-headline">EVENT <span class="hl">FLOORPLAN</span> &amp; ACTIVATION ZONES</h2>
       <p class="fp-header-sub-lao">ແຜນຜັງພື້ນທີ່ງານ ແລະ ໂຊນກິດຈະກຳຫຼັກ • ເນື້ອທີ່ກວ່າ 10,000+ ຕາແມັດ ທີ່ Lao-ITECC (ກົດເລືອກໂຊນເພື່ອສຳຫຼວດ)</p>
     </div>
     <div class="fp-header-actions">
