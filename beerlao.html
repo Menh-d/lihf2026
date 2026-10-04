@@ -3,499 +3,1844 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beerlao Green Nightlife × LIHF 2026 | Sponsorship &amp; Activation Proposal</title>
-  <meta name="description" content="A city-wide nightlife and hip-hop qualifier journey — from Vientiane bars to the LIHF 2026 Final Stage. 4 weeks, 4 venues, 16 finalists.">
+  <title>Beerlao Green Nightlife × LIHF 2026 | ເອກະສານສະເໜີໂຄງການ ແລະ ການຮ່ວມມື</title>
+  <meta name="description" content="ການເດີນທາງຄັດເລືອກສິລະປິນຮິບຮອບ ແລະ ໄນທ໌ໄລຟ໌ທົ່ວວຽງຈັນ — ຈາກ 4 ຮ້ານດັງ ສູ່ເວທີໃຫຍ່ LIHF 2026. 4 ສັບປະດາ, 4 ຮ້ານ, 16 ຕົວແທນສູ່ຮອບຊີງຊະນະເລີດ.">
   <link rel="icon" type="image/png" href="assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+Lao:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+Lao:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #050806;
-      --bg-2: #0a110c;
-      --card: rgba(14, 26, 17, 0.78);
-      --line: rgba(74, 222, 128, 0.18);
-      --line-strong: rgba(74, 222, 128, 0.55);
-      --green: #4ade80;
-      --green-2: #22c55e;
-      --green-deep: #0b3d1e;
+      --bg: #040805;
+      --bg-alt: #08110a;
+      --card-bg: rgba(10, 22, 13, 0.78);
+      --card-border: rgba(74, 222, 128, 0.16);
+      --card-border-hover: rgba(74, 222, 128, 0.5);
+      --green-neon: #4ade80;
+      --green-brand: #22c55e;
+      --green-dark: #0a3a19;
       --gold: #facc15;
-      --text: #f2f7f3;
-      --muted: rgba(242, 247, 243, 0.68);
-      --dim: rgba(242, 247, 243, 0.42);
-      --ff-d: 'Anton', 'Space Grotesk', sans-serif;
-      --ff-a: 'Space Grotesk', sans-serif;
-      --ff-b: 'Plus Jakarta Sans', 'Noto Sans Lao', sans-serif;
+      --gold-dark: #b45309;
+      --text: #f0fdf4;
+      --text-muted: rgba(240, 253, 244, 0.72);
+      --text-dim: rgba(240, 253, 244, 0.45);
+      --ff-display: 'Anton', 'Space Grotesk', sans-serif;
+      --ff-mono: 'Space Grotesk', monospace;
+      --ff-body: 'Plus Jakarta Sans', 'Noto Sans Lao', sans-serif;
       --ff-lao: 'Noto Sans Lao', 'Plus Jakarta Sans', sans-serif;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-    body { background: var(--bg); color: var(--text); font-family: var(--ff-b); line-height: 1.6; overflow-x: hidden; }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; }
-    ::selection { background: var(--green); color: #031008; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    .wrap { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--green-brand); color: #021206; }
+
+    .wrap { width: 100%; max-width: 1220px; margin: 0 auto; padding: 0 1.5rem; }
     .lao { font-family: var(--ff-lao); }
-    .hl { color: var(--green); }
-    .gold { color: var(--gold); }
+    .neon-text { color: var(--green-neon); text-shadow: 0 0 20px rgba(74, 222, 128, 0.4); }
+    .gold-text { color: var(--gold); }
 
-    /* ── Nav ── */
-    .nav { position: fixed; inset: 0 0 auto 0; z-index: 100; height: 64px; display: flex; align-items: center;
-      background: rgba(5, 8, 6, 0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
-    .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .nav-back { display: inline-flex; align-items: center; gap: 8px; font: 700 0.72rem var(--ff-a); letter-spacing: 0.08em; text-transform: uppercase;
-      text-decoration: none; padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); transition: .2s; }
-    .nav-back:hover { border-color: var(--green); color: var(--green); }
-    .nav-links { display: flex; gap: 1.3rem; }
-    .nav-links a { font: 700 0.72rem var(--ff-a); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--muted); transition: color .2s; }
-    .nav-links a:hover { color: var(--green); }
-    .nav-cta { font: 800 0.72rem var(--ff-a); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: #031008;
-      background: var(--green); padding: 8px 16px; border-radius: 999px; box-shadow: 0 0 18px rgba(74,222,128,0.4); }
-    @media (max-width: 1000px) { .nav-links { display: none; } }
+    /* ── Navigation ── */
+    .top-nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      background: rgba(4, 8, 5, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .top-nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font: 700 0.85rem var(--ff-mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .nav-brand .tag {
+      background: var(--green-brand);
+      color: #031407;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 0.72rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--ff-lao);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green-neon); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .btn-site-return {
+      font-family: var(--ff-lao);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      transition: all 0.2s;
+    }
+    .btn-site-return:hover {
+      border-color: var(--green-neon);
+      color: var(--green-neon);
+      background: rgba(74, 222, 128, 0.08);
+    }
+    .btn-contact-top {
+      font-family: var(--ff-lao);
+      font-size: 0.78rem;
+      font-weight: 800;
+      background: var(--green-brand);
+      color: #021206;
+      padding: 8px 18px;
+      border-radius: 999px;
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.4);
+      transition: all 0.2s;
+    }
+    .btn-contact-top:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 24px rgba(74, 222, 128, 0.6);
+    }
+    @media (max-width: 990px) {
+      .nav-links { display: none; }
+    }
 
-    /* ── Section scaffold ── */
-    section { position: relative; padding: 96px 0; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font: 700 0.72rem var(--ff-a); letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 1rem; }
-    .eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--green); }
-    .eyebrow .num { color: var(--dim); }
-    h1, h2, h3 { font-family: var(--ff-d); font-weight: 400; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.02; }
-    h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); margin-bottom: 0.8rem; }
-    .sub-lao { font-family: var(--ff-lao); font-weight: 700; color: var(--gold); font-size: clamp(0.95rem, 1.3vw, 1.1rem); margin-bottom: 0.9rem; }
-    .lead { color: var(--muted); font-size: 1rem; max-width: 640px; }
-    .sec-head { margin-bottom: 3rem; }
-    .alt { background: var(--bg-2); }
-    .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; transition: border-color .3s, transform .3s; }
-    .card:hover { border-color: var(--line-strong); }
-    .label { font: 700 0.68rem var(--ff-a); letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
+    /* ── Typography & Section Headers ── */
+    section { position: relative; padding: 100px 0; }
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font: 700 0.74rem var(--ff-mono);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green-neon);
+      margin-bottom: 0.8rem;
+    }
+    .section-tag::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--green-neon);
+    }
+    .section-tag .num { color: var(--text-dim); }
+    h1, h2, h3, h4 {
+      font-family: var(--ff-display);
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      font-weight: 400;
+      line-height: 1.05;
+    }
+    h2 { font-size: clamp(2.3rem, 4.8vw, 3.8rem); margin-bottom: 0.6rem; }
+    .section-subtitle-lao {
+      font-family: var(--ff-lao);
+      font-weight: 700;
+      font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+      color: var(--gold);
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
+    .section-desc-lead {
+      font-family: var(--ff-lao);
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 720px;
+      line-height: 1.7;
+    }
+    .head-center { text-align: center; margin-bottom: 3.5rem; }
+    .head-center .section-tag { justify-content: center; }
+    .head-center .section-desc-lead { margin: 0 auto; }
+    .alt-bg { background: var(--bg-alt); }
+    .ui-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .ui-card:hover {
+      border-color: var(--card-border-hover);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
 
-    /* ── Hero (Slides 01 + 02) ── */
-    .hero { min-height: 100vh; display: flex; align-items: flex-end; padding: 120px 0 72px; overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background: url('assets/beerlao/bg_crowd.jpg') center/cover no-repeat; transform: scale(1.04); }
-    .hero-bg::after { content: ''; position: absolute; inset: 0;
-      background: linear-gradient(90deg, rgba(5,8,6,0.94) 0%, rgba(5,8,6,0.55) 55%, rgba(5,8,6,0.3) 100%), linear-gradient(0deg, var(--bg) 0%, transparent 45%); }
-    .hero .wrap { position: relative; z-index: 2; }
-    .hero h1 { font-size: clamp(3.2rem, 9vw, 7.4rem); margin-bottom: 1.2rem; }
-    .hero h1 .x { color: var(--green); }
-    .hero-bar { width: 96px; height: 4px; background: var(--green); margin-bottom: 1.4rem; }
-    .hero-tag { font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: var(--text); max-width: 620px; margin-bottom: 0.5rem; }
-    .hero-tag-lao { font-family: var(--ff-lao); color: var(--muted); max-width: 620px; margin-bottom: 2.2rem; }
-    .journey { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 2.4rem; }
-    .journey span { font: 700 0.8rem var(--ff-a); letter-spacing: 0.14em; padding: 8px 16px; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(74,222,128,0.08); }
-    .journey i { font-style: normal; color: var(--green); }
-    .journey span:last-child { background: var(--green); color: #031008; border-color: var(--green); }
-    .hero-foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--line); padding-top: 1.2rem; }
-    .hero-foot div { font: 700 0.74rem var(--ff-a); letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); }
+    /* ── Hero Section (Slides 01 + 02) ── */
+    .hero-banner {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 130px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-photo-bg {
+      position: absolute;
+      inset: 0;
+      background: url('assets/beerlao/bg_crowd.jpg') center/cover no-repeat;
+      transform: scale(1.03);
+    }
+    .hero-photo-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(4,8,5,0.96) 0%, rgba(4,8,5,0.65) 55%, rgba(4,8,5,0.35) 100%),
+        linear-gradient(0deg, var(--bg) 0%, transparent 40%);
+    }
+    .hero-banner .wrap { position: relative; z-index: 2; }
+    .hero-eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(74, 222, 128, 0.12);
+      border: 1px solid var(--card-border-hover);
+      margin-bottom: 1.3rem;
+      font: 700 0.72rem var(--ff-mono);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-neon);
+    }
+    .hero-title {
+      font-size: clamp(3.2rem, 8.8vw, 7.2rem);
+      margin-bottom: 1rem;
+      line-height: 0.96;
+    }
+    .hero-title .glow-x { color: var(--green-neon); }
+    .hero-accent-line {
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green-neon), var(--gold));
+      margin-bottom: 1.5rem;
+      border-radius: 2px;
+    }
+    .hero-lao-main {
+      font-family: var(--ff-lao);
+      font-size: clamp(1.2rem, 1.9vw, 1.55rem);
+      font-weight: 700;
+      color: var(--text);
+      max-width: 760px;
+      margin-bottom: 0.6rem;
+      line-height: 1.5;
+    }
+    .hero-en-sub {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      max-width: 680px;
+      margin-bottom: 2.2rem;
+      line-height: 1.6;
+    }
+    .pathway-flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 2.6rem;
+    }
+    .path-step {
+      display: inline-flex;
+      flex-direction: column;
+      padding: 8px 18px;
+      border-radius: 12px;
+      background: rgba(74, 222, 128, 0.08);
+      border: 1px solid var(--card-border-hover);
+    }
+    .path-step b {
+      font: 700 0.8rem var(--ff-mono);
+      letter-spacing: 0.14em;
+      color: var(--text);
+    }
+    .path-step small {
+      font-family: var(--ff-lao);
+      font-size: 0.72rem;
+      color: var(--green-neon);
+      font-weight: 600;
+    }
+    .path-arrow {
+      color: var(--green-neon);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .path-step.final {
+      background: var(--green-brand);
+      border-color: var(--green-brand);
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+    }
+    .path-step.final b { color: #021206; }
+    .path-step.final small { color: #021206; font-weight: 700; }
 
-    /* ── Why (Slide 03) ── */
-    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
-    .why-card { padding: 2rem; }
-    .why-card .n { font: 400 3rem var(--ff-d); color: var(--green); line-height: 1; margin-bottom: 1rem; opacity: .9; }
-    .why-card h3 { font-size: 1.9rem; margin-bottom: 0.3rem; }
-    .why-card .lao-t { font-family: var(--ff-lao); font-weight: 700; color: var(--gold); font-size: 0.9rem; margin-bottom: 0.8rem; }
-    .why-card p { color: var(--muted); font-size: 0.92rem; }
-    .roles { margin-top: 1.4rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.6rem; padding: 1.1rem 1.6rem; border-radius: 14px; border: 1px dashed var(--line-strong); }
-    .roles .label { color: var(--gold); }
-    .roles b { font: 700 0.82rem var(--ff-a); letter-spacing: 0.1em; text-transform: uppercase; }
-    .roles b small { display: block; font: 600 0.74rem var(--ff-lao); letter-spacing: 0; text-transform: none; color: var(--muted); }
-    @media (max-width: 860px) { .why-grid { grid-template-columns: 1fr; } }
+    .hero-meta-bar {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      border-top: 1px solid var(--card-border);
+      padding-top: 1.4rem;
+    }
+    .meta-item { display: flex; align-items: center; gap: 10px; }
+    .meta-item .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green-neon);
+      box-shadow: 0 0 10px var(--green-neon);
+    }
+    .meta-item span {
+      font-family: var(--ff-lao);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .meta-item b {
+      font: 700 0.82rem var(--ff-mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green-neon);
+    }
 
-    /* ── Route (Slides 04 + 10 + 11) ── */
-    .route { overflow: hidden; }
-    .route-bg { position: absolute; inset: 0; background: url('assets/beerlao/vientiane_night.jpg') center/cover no-repeat; opacity: 0.22; }
-    .route-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--bg) 0%, transparent 25%, transparent 75%, var(--bg) 100%); }
-    .route .wrap { position: relative; z-index: 2; }
-    .stops { display: grid; grid-template-columns: repeat(4, 1fr) 1.15fr; gap: 1rem; align-items: stretch; position: relative; }
-    .stops::before { content: ''; position: absolute; top: 27px; left: 2%; right: 2%; height: 2px; background: linear-gradient(90deg, var(--green-2), var(--gold)); opacity: .6; }
-    .stop { position: relative; display: flex; flex-direction: column; }
-    .stop-dot { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font: 400 1.3rem var(--ff-d);
-      background: var(--bg); border: 2px solid var(--green); color: var(--green); margin-bottom: 1rem; position: relative; z-index: 1; box-shadow: 0 0 18px rgba(74,222,128,0.35); }
-    .stop-card { padding: 1.3rem; flex: 1; display: flex; flex-direction: column; gap: 0.7rem; }
-    .stop-date { font: 700 0.72rem var(--ff-a); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
-    .stop-venue { font: 400 1.5rem var(--ff-d); text-transform: uppercase; line-height: 1.05; }
-    .stop-row { display: flex; justify-content: space-between; gap: 0.5rem; border-top: 1px solid var(--line); padding-top: 0.6rem; font-size: 0.8rem; }
-    .stop-row span:first-child { color: var(--dim); font: 700 0.66rem var(--ff-a); letter-spacing: 0.12em; text-transform: uppercase; align-self: center; }
-    .stop-row span:last-child { font-weight: 700; text-align: right; }
-    .stop.final .stop-dot { border-color: var(--gold); color: #031008; background: var(--gold); box-shadow: 0 0 24px rgba(250,204,21,0.5); }
-    .stop.final .stop-card { background: linear-gradient(160deg, rgba(250,204,21,0.14), rgba(14,26,17,0.9)); border-color: rgba(250,204,21,0.45); justify-content: center; }
-    .stop.final .big { font: 400 4rem var(--ff-d); color: var(--gold); line-height: 0.9; }
-    .route-note { margin-top: 1.6rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; align-items: center; }
-    .loop { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; font: 700 0.74rem var(--ff-a); letter-spacing: 0.12em; }
-    .loop .label { margin-right: 0.6rem; }
-    .loop b { padding: 6px 12px; border-radius: 8px; background: rgba(74,222,128,0.1); border: 1px solid var(--line); }
-    .loop i { font-style: normal; color: var(--green); }
-    .confirm { font: 700 0.68rem var(--ff-a); letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
-    @media (max-width: 1080px) { .stops { grid-template-columns: repeat(2, 1fr); } .stops::before { display: none; } .stop.final { grid-column: 1 / -1; } }
-    @media (max-width: 560px) { .stops { grid-template-columns: 1fr; } }
+    /* ── Section 02: Why This Platform? (Slide 03) ── */
+    .why-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .why-box { padding: 2.2rem 1.8rem; display: flex; flex-direction: column; }
+    .why-box .badge-num {
+      font: 400 3.2rem var(--ff-display);
+      color: var(--green-neon);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+      opacity: 0.85;
+    }
+    .why-box h3 { font-size: 2rem; margin-bottom: 0.2rem; }
+    .why-box .lao-headline {
+      font-family: var(--ff-lao);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .why-box p {
+      font-family: var(--ff-lao);
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+    .brand-role-container {
+      padding: 1.5rem 2rem;
+      border-radius: 16px;
+      border: 1px dashed var(--card-border-hover);
+      background: rgba(74, 222, 128, 0.04);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .role-intro { display: flex; flex-direction: column; }
+    .role-intro .label {
+      font: 700 0.72rem var(--ff-mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .role-intro .title {
+      font-family: var(--ff-lao);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+    .role-pillars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+    .role-pillar-item {
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--card-border);
+    }
+    .role-pillar-item b {
+      display: block;
+      font: 700 0.82rem var(--ff-mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green-neon);
+    }
+    .role-pillar-item span {
+      font-family: var(--ff-lao);
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    @media (max-width: 900px) {
+      .why-cards-grid { grid-template-columns: 1fr; }
+      .brand-role-container { flex-direction: column; align-items: flex-start; }
+    }
 
-    /* ── Competition (Slide 05) ── */
-    .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-    .comp { overflow: hidden; display: flex; flex-direction: column; }
-    .comp-img { height: 240px; position: relative; overflow: hidden; }
-    .comp-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
-    .comp:hover .comp-img img { transform: scale(1.05); }
-    .comp-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(14,26,17,1) 0%, transparent 60%); }
-    .comp-body { padding: 0 1.8rem 1.8rem; margin-top: -48px; position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
-    .comp-body h3 { font-size: 2.4rem; }
-    .comp-format { display: inline-block; font: 700 0.72rem var(--ff-a); letter-spacing: 0.12em; text-transform: uppercase; color: #031008; background: var(--green); padding: 4px 10px; border-radius: 6px; align-self: flex-start; }
-    .crit { display: flex; flex-wrap: wrap; gap: 6px; }
-    .crit span { font: 600 0.78rem var(--ff-b); padding: 6px 12px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
-    .crit span small { font-family: var(--ff-lao); color: var(--muted); margin-left: 4px; }
-    .qual { margin-top: auto; font-size: 0.86rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 0.9rem; }
-    .qual b { color: var(--green); }
-    .comp-shared { margin-top: 1.4rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .comp-shared div { padding: 1.1rem 1.3rem; border-radius: 14px; border: 1px solid var(--line); background: rgba(74,222,128,0.05); }
-    .comp-shared b { display: block; font: 700 0.86rem var(--ff-a); letter-spacing: 0.08em; text-transform: uppercase; }
-    .comp-shared span { font-family: var(--ff-lao); font-size: 0.82rem; color: var(--muted); }
-    @media (max-width: 860px) { .comp-grid, .comp-shared { grid-template-columns: 1fr; } }
+    /* ── Section 03: The Route (Slides 04 + 10 + 11) ── */
+    .route-section { overflow: hidden; }
+    .route-bg-photo {
+      position: absolute;
+      inset: 0;
+      background: url('assets/beerlao/vientiane_night.jpg') center/cover no-repeat;
+      opacity: 0.2;
+    }
+    .route-bg-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, var(--bg-alt) 0%, transparent 20%, transparent 80%, var(--bg-alt) 100%);
+    }
+    .route-section .wrap { position: relative; z-index: 2; }
+    .route-stops-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr) 1.2fr;
+      gap: 1.2rem;
+      align-items: stretch;
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .route-stops-timeline::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 3%;
+      right: 3%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green-brand), var(--gold));
+      opacity: 0.5;
+    }
+    .stop-col { position: relative; display: flex; flex-direction: column; }
+    .stop-indicator {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font: 400 1.4rem var(--ff-display);
+      background: var(--bg);
+      border: 2px solid var(--green-neon);
+      color: var(--green-neon);
+      margin-bottom: 1.2rem;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 20px rgba(74, 222, 128, 0.4);
+    }
+    .stop-card-inner {
+      padding: 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .stop-date-pill {
+      font: 700 0.74rem var(--ff-mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .stop-venue-name {
+      font: 400 1.6rem var(--ff-display);
+      text-transform: uppercase;
+      line-height: 1.1;
+      color: var(--text);
+    }
+    .stop-venue-lao {
+      font-family: var(--ff-lao);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      font-weight: 500;
+      margin-top: -0.4rem;
+    }
+    .stop-detail-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      border-top: 1px solid var(--card-border);
+      padding-top: 0.6rem;
+      font-size: 0.82rem;
+    }
+    .stop-detail-row .k {
+      font-family: var(--ff-lao);
+      color: var(--text-dim);
+      font-size: 0.78rem;
+    }
+    .stop-detail-row .v {
+      font-family: var(--ff-lao);
+      font-weight: 700;
+      text-align: right;
+      color: var(--green-neon);
+    }
+    .stop-col.final-destination .stop-indicator {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: #031407;
+      box-shadow: 0 0 26px rgba(250, 204, 21, 0.6);
+    }
+    .stop-col.final-destination .stop-card-inner {
+      background: linear-gradient(160deg, rgba(250, 204, 21, 0.14), rgba(10, 22, 13, 0.92));
+      border-color: rgba(250, 204, 21, 0.45);
+      justify-content: center;
+    }
+    .stop-col.final-destination .big-stat {
+      font: 400 3.8rem var(--ff-display);
+      color: var(--gold);
+      line-height: 0.9;
+    }
+    .stop-col.final-destination .stat-desc {
+      font-family: var(--ff-lao);
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
 
-    /* ── Night (Slides 06 + 07) ── */
-    .night-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
-    .runsheet { list-style: none; display: flex; flex-direction: column; }
-    .runsheet li { display: grid; grid-template-columns: 56px 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--line); }
-    .runsheet li:first-child { border-top: 1px solid var(--line); }
-    .runsheet .n { font: 400 1.8rem var(--ff-d); color: var(--green); }
-    .runsheet b { display: block; font: 700 0.95rem var(--ff-a); letter-spacing: 0.08em; text-transform: uppercase; }
-    .runsheet span { font-family: var(--ff-lao); font-size: 0.84rem; color: var(--muted); }
-    .runsheet li.peak .n { color: var(--gold); }
-    .note { margin-top: 1rem; font: 700 0.68rem var(--ff-a); letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
-    .lineup { overflow: hidden; }
-    .lineup-img { aspect-ratio: 16/10; overflow: hidden; }
-    .lineup-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
-    .lineup-body { padding: 1.6rem; }
-    .lineup-body h3 { font-size: 1.8rem; margin-bottom: 0.3rem; }
-    .lineup-body > p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.2rem; }
-    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
-    .tier { padding: 1rem; border-radius: 12px; border: 1px solid var(--line); background: rgba(0,0,0,0.25); }
-    .tier b { display: block; font: 700 0.8rem var(--ff-a); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.3rem; }
-    .tier span { font-size: 0.8rem; color: var(--muted); }
-    .tier small { display: block; font-family: var(--ff-lao); font-size: 0.74rem; color: var(--gold); margin-top: 0.3rem; }
-    @media (max-width: 900px) { .night-grid { grid-template-columns: 1fr; } }
-    @media (max-width: 560px) { .tiers { grid-template-columns: 1fr; } }
+    .content-loop-bar {
+      padding: 1.4rem 2rem;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      background: rgba(4, 8, 5, 0.6);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+    }
+    .loop-title {
+      font-family: var(--ff-lao);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .loop-steps {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .loop-step-badge {
+      display: inline-flex;
+      flex-direction: column;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: rgba(74, 222, 128, 0.08);
+      border: 1px solid var(--card-border);
+      font: 700 0.74rem var(--ff-mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .loop-step-badge span {
+      font-family: var(--ff-lao);
+      font-size: 0.68rem;
+      color: var(--green-neon);
+      font-weight: 600;
+    }
+    @media (max-width: 1080px) {
+      .route-stops-timeline { grid-template-columns: repeat(2, 1fr); }
+      .route-stops-timeline::before { display: none; }
+      .stop-col.final-destination { grid-column: 1 / -1; }
+    }
+    @media (max-width: 580px) {
+      .route-stops-timeline { grid-template-columns: 1fr; }
+    }
 
-    /* ── Setup (Slide 08) ── */
-    .setup-hero { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 1.4rem; }
-    .setup-hero img { width: 100%; }
-    .zones { display: grid; grid-template-columns: repeat(3, 1fr) 0.9fr; gap: 1rem; }
-    .zone { padding: 1.5rem; }
-    .zone .label { color: var(--green); margin-bottom: 0.4rem; }
-    .zone h3 { font-size: 1.6rem; margin-bottom: 0.2rem; }
-    .zone .lao-t { font-family: var(--ff-lao); font-size: 0.84rem; color: var(--gold); font-weight: 700; margin-bottom: 0.8rem; }
-    .zone ul { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
-    .zone li { font-size: 0.84rem; color: var(--muted); padding-left: 1rem; position: relative; }
-    .zone li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
-    .topview { padding: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; }
-    .tv { flex: 1; min-height: 210px; border-radius: 12px; border: 1px dashed var(--line-strong); position: relative; background: repeating-linear-gradient(45deg, rgba(74,222,128,0.03) 0 8px, transparent 8px 16px); }
-    .tv .dj { position: absolute; top: 10px; width: 38%; padding: 8px 4px; text-align: center; font: 700 0.6rem var(--ff-a); letter-spacing: 0.08em; border-radius: 6px; background: var(--green-deep); border: 1px solid var(--green); }
-    .tv .dj.l { left: 8px; } .tv .dj.r { right: 8px; }
-    .tv .aud { position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%); display: grid; grid-template-columns: repeat(3, 14px); gap: 10px; }
-    .tv .aud i { width: 14px; height: 14px; border-radius: 50%; background: rgba(74,222,128,0.45); }
-    .tv .ent { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); padding: 6px 10px; font: 700 0.6rem var(--ff-a); letter-spacing: 0.08em; border-radius: 6px; border: 1px solid var(--gold); color: var(--gold); white-space: nowrap; }
-    @media (max-width: 1080px) { .zones { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 600px) { .zones { grid-template-columns: 1fr; } }
+    /* ── Section 04: Competition Categories (Slide 05) ── */
+    .comp-two-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    .comp-item-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .comp-photo-wrap {
+      height: 260px;
+      position: relative;
+      overflow: hidden;
+    }
+    .comp-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .comp-item-card:hover .comp-photo-wrap img { transform: scale(1.05); }
+    .comp-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(10, 22, 13, 1) 0%, transparent 65%);
+    }
+    .comp-content-area {
+      padding: 0 2rem 2rem;
+      margin-top: -50px;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .comp-badge-pill {
+      display: inline-block;
+      font: 700 0.74rem var(--ff-mono);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #021206;
+      background: var(--green-neon);
+      padding: 5px 12px;
+      border-radius: 8px;
+      align-self: flex-start;
+      font-weight: 800;
+    }
+    .comp-content-area h3 { font-size: 2.6rem; }
+    .comp-lao-sub {
+      font-family: var(--ff-lao);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-top: -0.4rem;
+    }
+    .comp-criteria-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .crit-pill {
+      font: 600 0.8rem var(--ff-body);
+      padding: 7px 14px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .crit-pill span {
+      font-family: var(--ff-lao);
+      color: var(--green-neon);
+      font-weight: 700;
+    }
+    .comp-qual-note {
+      margin-top: auto;
+      font-family: var(--ff-lao);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--card-border);
+      padding-top: 1rem;
+      line-height: 1.6;
+    }
+    .comp-qual-note b { color: var(--green-neon); }
 
-    /* ── Sales (Slide 09) ── */
-    .sales-top { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 2rem; align-items: center; margin-bottom: 1.4rem; }
-    .target { padding: 2rem; background: linear-gradient(150deg, rgba(74,222,128,0.14), rgba(14,26,17,0.85)); }
-    .target .big { font: 400 clamp(3rem, 6vw, 4.4rem) var(--ff-d); color: var(--green); line-height: 1; }
-    .target .big small { font-size: 0.4em; color: var(--text); margin-left: 0.3rem; }
-    .target p { color: var(--muted); font-size: 0.88rem; margin-top: 0.6rem; }
-    .target .total { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; }
-    .target .total b { font: 400 1.8rem var(--ff-d); }
-    .flywheel { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; position: relative; }
-    .fw { padding: 1.3rem; border-radius: 14px; border: 1px solid var(--line); background: var(--card); }
-    .fw .label { color: var(--gold); }
-    .fw b { display: block; font: 400 1.5rem var(--ff-d); text-transform: uppercase; margin: 0.2rem 0; }
-    .fw span { font-size: 0.82rem; color: var(--muted); }
-    .fw small { display: block; font-family: var(--ff-lao); font-size: 0.78rem; color: var(--muted); }
-    .fw-core { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; text-align: center;
-      background: var(--green); color: #031008; font: 800 0.66rem/1.15 var(--ff-a); letter-spacing: 0.08em; box-shadow: 0 0 0 8px var(--bg-2), 0 0 30px rgba(74,222,128,0.5); }
-    .sales-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
-    .list-card { padding: 1.6rem; }
-    .list-card h4 { font: 700 0.86rem var(--ff-a); letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 0.9rem; }
-    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-    .chips span { font-size: 0.82rem; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.03); }
-    @media (max-width: 900px) { .sales-top, .sales-bottom { grid-template-columns: 1fr; } }
-    @media (max-width: 520px) { .flywheel { grid-template-columns: 1fr; } .fw-core { display: none; } }
+    .comp-universal-rules {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+    .rule-box {
+      padding: 1.3rem 1.6rem;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      background: rgba(74, 222, 128, 0.04);
+    }
+    .rule-box b {
+      display: block;
+      font: 700 0.88rem var(--ff-mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .rule-box p {
+      font-family: var(--ff-lao);
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    @media (max-width: 860px) {
+      .comp-two-cards, .comp-universal-rules { grid-template-columns: 1fr; }
+    }
 
-    /* ── Budget (Slide 13) ── */
-    .budget { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2rem; align-items: start; }
-    .budget-sum { padding: 2rem; display: flex; flex-direction: column; gap: 1.6rem; }
-    .budget-sum .big { font: 400 clamp(2.4rem, 4.4vw, 3.4rem) var(--ff-d); color: var(--green); line-height: 1; }
-    .budget-sum .big small { font-size: 0.42em; color: var(--muted); margin-left: 0.3rem; }
-    .budget-sum .mid { font: 400 2rem var(--ff-d); color: var(--gold); line-height: 1; }
-    .budget-sum p { font-family: var(--ff-lao); font-size: 0.82rem; color: var(--muted); margin-top: 0.3rem; }
-    .budget-sum .disclaimer { font: 600 0.72rem var(--ff-b); color: var(--dim); border-top: 1px solid var(--line); padding-top: 1rem; }
-    .b-rows { display: flex; flex-direction: column; }
-    .b-row { display: grid; grid-template-columns: 1fr auto 56px; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--line); }
-    .b-row:first-child { border-top: 1px solid var(--line); }
-    .b-name b { font-size: 0.92rem; display: block; }
-    .b-name span { font-family: var(--ff-lao); font-size: 0.78rem; color: var(--muted); }
-    .b-bar { grid-column: 1 / -1; height: 4px; border-radius: 999px; background: rgba(255,255,255,0.06); overflow: hidden; margin-top: -0.4rem; }
-    .b-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--green-2), var(--green)); border-radius: inherit; }
-    .b-amt { font: 700 0.95rem var(--ff-a); text-align: right; }
-    .b-pct { font: 700 0.95rem var(--ff-a); color: var(--green); text-align: right; }
-    .b-total { display: flex; justify-content: space-between; align-items: baseline; padding: 1.2rem 0 0; }
-    .b-total b { font: 400 1.6rem var(--ff-d); }
-    @media (max-width: 900px) { .budget { grid-template-columns: 1fr; } }
+    /* ── Section 05: One Night Experience & Lineup (Slides 06 + 07) ── */
+    .night-split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .runsheet-wrapper h3 { font-size: 2rem; margin-bottom: 0.4rem; }
+    .runsheet-wrapper .lao-lead {
+      font-family: var(--ff-lao);
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+    }
+    .runsheet-timeline-list { list-style: none; display: flex; flex-direction: column; }
+    .runsheet-item {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 1.2rem;
+      align-items: center;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .runsheet-item:first-child { border-top: 1px solid var(--card-border); }
+    .runsheet-item .order-num {
+      font: 400 1.9rem var(--ff-display);
+      color: var(--green-neon);
+    }
+    .runsheet-item b {
+      display: block;
+      font: 700 0.98rem var(--ff-mono);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .runsheet-item span {
+      font-family: var(--ff-lao);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .runsheet-item.peak-moment .order-num { color: var(--gold); }
+    .runsheet-item.peak-moment b { color: var(--gold); }
+    .runsheet-custom-note {
+      margin-top: 1.2rem;
+      font-family: var(--ff-lao);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
 
-    /* ── CTA (Slide 12) ── */
-    .cta { overflow: hidden; padding: 130px 0; }
-    .cta-bg { position: absolute; inset: 0; background: url('assets/beerlao/final_stage.jpg') center/cover no-repeat; }
-    .cta-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,8,6,0.95) 0%, rgba(5,8,6,0.6) 60%, rgba(5,8,6,0.4) 100%); }
-    .cta .wrap { position: relative; z-index: 2; }
-    .cta h2 { font-size: clamp(2.6rem, 6.4vw, 5.2rem); line-height: 1; margin-bottom: 1.2rem; }
-    .cta h2 span { display: block; }
-    .cta .lead { margin-bottom: 1.6rem; }
-    .next { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 2.4rem; }
-    .next .label { color: var(--gold); margin-right: 0.4rem; }
-    .next b { font: 700 0.78rem var(--ff-a); letter-spacing: 0.12em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line-strong); background: rgba(5,8,6,0.6); }
-    .contacts { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); gap: 1rem; margin-bottom: 2rem; }
-    .contact { padding: 1.3rem 1.5rem; background: rgba(5,8,6,0.72); backdrop-filter: blur(8px); }
-    .contact .label { color: var(--green); margin-bottom: 0.3rem; }
-    .contact b { display: block; font-size: 1.02rem; }
-    .contact span { font-size: 0.82rem; color: var(--muted); }
-    .btns { display: flex; flex-wrap: wrap; gap: 0.8rem; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 999px; font: 800 0.8rem var(--ff-a); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: .25s; }
-    .btn-p { background: var(--green); color: #031008; box-shadow: 0 6px 24px rgba(74,222,128,0.35); }
-    .btn-p:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(74,222,128,0.5); }
-    .btn-o { border: 1.5px solid rgba(255,255,255,0.3); }
-    .btn-o:hover { border-color: var(--green); color: var(--green); }
-    @media (max-width: 640px) { .contacts { grid-template-columns: 1fr; } }
+    .lineup-feature-box { overflow: hidden; }
+    .lineup-banner-img { aspect-ratio: 16/10; overflow: hidden; }
+    .lineup-banner-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .lineup-content-body { padding: 1.8rem; }
+    .lineup-content-body h3 { font-size: 1.85rem; margin-bottom: 0.4rem; }
+    .lineup-content-body .lao-sub {
+      font-family: var(--ff-lao);
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .lineup-content-body p {
+      font-family: var(--ff-lao);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+      line-height: 1.6;
+    }
+    .lineup-three-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+    }
+    .pillar-card {
+      padding: 1.1rem;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      background: rgba(0, 0, 0, 0.35);
+    }
+    .pillar-card b {
+      display: block;
+      font: 700 0.82rem var(--ff-mono);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--green-neon);
+      margin-bottom: 0.3rem;
+    }
+    .pillar-card p {
+      font-family: var(--ff-lao);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    @media (max-width: 920px) {
+      .night-split-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .lineup-three-pillars { grid-template-columns: 1fr; }
+    }
 
-    footer { border-top: 1px solid var(--line); padding: 28px 0; font-size: 0.78rem; color: var(--dim); }
-    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    footer a { color: var(--green); text-decoration: none; }
+    /* ── Section 06: Venue Setup (Slide 08) ── */
+    .setup-full-visual {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      margin-bottom: 1.8rem;
+    }
+    .setup-full-visual img { width: 100%; display: block; }
+    .setup-three-zones {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr) 0.95fr;
+      gap: 1.2rem;
+    }
+    .zone-block { padding: 1.6rem; display: flex; flex-direction: column; }
+    .zone-block .zone-tag {
+      font: 700 0.72rem var(--ff-mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--green-neon);
+      margin-bottom: 0.4rem;
+    }
+    .zone-block h3 { font-size: 1.7rem; margin-bottom: 0.2rem; }
+    .zone-block .lao-title {
+      font-family: var(--ff-lao);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .zone-block ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .zone-block li {
+      font-family: var(--ff-lao);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 16px;
+      line-height: 1.5;
+    }
+    .zone-block li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--green-neon);
+      font-weight: bold;
+    }
+    .zone-block li small {
+      display: block;
+      font-family: var(--ff-body);
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+    .topview-diagram-card {
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: rgba(4, 8, 5, 0.9);
+      border: 1px solid var(--card-border-hover);
+    }
+    .topview-diagram-card .label {
+      font: 700 0.72rem var(--ff-mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .tv-scheme {
+      position: relative;
+      height: 220px;
+      background: #020603;
+      border: 1px solid rgba(74, 222, 128, 0.2);
+      border-radius: 12px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tv-dj-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .tv-dj-box {
+      font: 700 0.64rem var(--ff-mono);
+      letter-spacing: 0.08em;
+      padding: 8px 10px;
+      border-radius: 6px;
+      background: rgba(74, 222, 128, 0.2);
+      border: 1px solid var(--green-neon);
+      color: var(--green-neon);
+      text-align: center;
+      flex: 1;
+    }
+    .tv-aud-field {
+      text-align: center;
+      padding: 14px 6px;
+      border: 1px dashed rgba(74, 222, 128, 0.35);
+      border-radius: 8px;
+      margin: 8px 0;
+    }
+    .tv-aud-field b {
+      display: block;
+      font: 700 0.72rem var(--ff-mono);
+      color: var(--text);
+      letter-spacing: 0.08em;
+    }
+    .tv-aud-field span {
+      font-family: var(--ff-lao);
+      font-size: 0.74rem;
+      color: var(--text-dim);
+    }
+    .tv-entrance-marker {
+      text-align: center;
+      font: 700 0.66rem var(--ff-mono);
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      padding: 6px;
+      background: rgba(250, 204, 21, 0.1);
+      border-radius: 6px;
+      border: 1px solid rgba(250, 204, 21, 0.3);
+    }
+    @media (max-width: 1040px) {
+      .setup-three-zones { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .setup-three-zones { grid-template-columns: 1fr; }
+    }
 
-    /* Reveal */
-    .rv { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-    .rv.in { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+    /* ── Section 07: Audience & Sales Strategy (Slide 09) ── */
+    .sales-grid-top {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: 1.8rem;
+      margin-bottom: 2rem;
+    }
+    .target-box {
+      padding: 2.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .target-box .label {
+      font: 700 0.74rem var(--ff-mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.4rem;
+    }
+    .target-box .big-number {
+      font: 400 4.2rem var(--ff-display);
+      color: var(--green-neon);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .target-box .big-number small {
+      font-family: var(--ff-lao);
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-left: 8px;
+    }
+    .target-box .sum-line {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 1rem;
+      margin-top: 0.6rem;
+      margin-bottom: 0.8rem;
+    }
+    .target-box .sum-line .lbl {
+      font-family: var(--ff-lao);
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .target-box .sum-line .val {
+      font: 700 1.25rem var(--ff-mono);
+      color: var(--text);
+    }
+    .target-box .disclaimer-lao {
+      font-family: var(--ff-lao);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .flywheel-module {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      position: relative;
+    }
+    .fw-card {
+      padding: 1.4rem;
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      background: rgba(10, 22, 13, 0.7);
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .fw-card .step-index {
+      font: 700 0.72rem var(--ff-mono);
+      color: var(--green-neon);
+      letter-spacing: 0.12em;
+    }
+    .fw-card b {
+      font: 700 1.1rem var(--ff-mono);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .fw-card .lao-title {
+      font-family: var(--ff-lao);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .fw-card p {
+      font-family: var(--ff-lao);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-top: 0.2rem;
+    }
+
+    .sales-grid-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .action-chips-card {
+      padding: 1.8rem;
+    }
+    .action-chips-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.3rem;
+    }
+    .action-chips-card .lao-heading {
+      font-family: var(--ff-lao);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .chips-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip-item {
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: rgba(74, 222, 128, 0.07);
+      border: 1px solid var(--card-border);
+      display: inline-flex;
+      flex-direction: column;
+    }
+    .chip-item b {
+      font: 700 0.78rem var(--ff-mono);
+      color: var(--text);
+      letter-spacing: 0.06em;
+    }
+    .chip-item span {
+      font-family: var(--ff-lao);
+      font-size: 0.76rem;
+      color: var(--green-neon);
+      font-weight: 600;
+    }
+    @media (max-width: 900px) {
+      .sales-grid-top, .sales-grid-bottom { grid-template-columns: 1fr; }
+    }
+
+    /* ── Section 08: Budget Breakdown (Slide 13) ── */
+    .budget-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .budget-headline-card {
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+    .budget-headline-card .sub-block .lbl {
+      font: 700 0.74rem var(--ff-mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 0.2rem;
+    }
+    .budget-headline-card .sub-block .grand-total {
+      font: 400 3.6rem var(--ff-display);
+      color: var(--green-neon);
+      line-height: 1;
+    }
+    .budget-headline-card .sub-block .grand-total small {
+      font-family: var(--ff-mono);
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-left: 6px;
+    }
+    .budget-headline-card .sub-block .avg-total {
+      font: 700 1.9rem var(--ff-display);
+      color: var(--gold);
+    }
+    .budget-headline-card .sub-block .lao-explain {
+      font-family: var(--ff-lao);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.3rem;
+    }
+    .budget-disclaimer-box {
+      font-family: var(--ff-lao);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      border-top: 1px solid var(--card-border);
+      padding-top: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .budget-table-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .budget-row-card {
+      padding: 1.2rem 1.4rem;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      background: rgba(10, 22, 13, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .b-row-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .b-title-group b {
+      font: 700 0.92rem var(--ff-mono);
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+    .b-title-group span {
+      display: block;
+      font-family: var(--ff-lao);
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .b-val-group {
+      text-align: right;
+      white-space: nowrap;
+    }
+    .b-val-group .amt {
+      font: 700 1.05rem var(--ff-mono);
+      color: var(--green-neon);
+    }
+    .b-val-group .pct {
+      font: 700 0.78rem var(--ff-mono);
+      color: var(--gold);
+      margin-left: 6px;
+    }
+    .b-progress-rail {
+      width: 100%;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .b-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--green-brand), var(--green-neon));
+      border-radius: 3px;
+    }
+    .budget-total-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.6rem;
+      border-radius: 14px;
+      background: rgba(74, 222, 128, 0.12);
+      border: 1px solid var(--card-border-hover);
+      margin-top: 0.6rem;
+    }
+    .budget-total-bar span {
+      font-family: var(--ff-lao);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .budget-total-bar b {
+      font: 700 1.25rem var(--ff-mono);
+      color: var(--green-neon);
+    }
+    @media (max-width: 960px) {
+      .budget-two-col { grid-template-columns: 1fr; }
+    }
+
+    /* ── Section 09: Call to Action & Contact (Slide 12) ── */
+    .cta-final-section {
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0;
+      background: #020703;
+    }
+    .cta-photo-bg {
+      position: absolute;
+      inset: 0;
+      background: url('assets/beerlao/final_stage.jpg') center/cover no-repeat;
+      opacity: 0.22;
+      filter: saturate(1.2);
+    }
+    .cta-photo-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #020703 0%, rgba(2,7,3,0.7) 40%, #020703 100%);
+    }
+    .cta-final-section .wrap { position: relative; z-index: 2; text-align: center; }
+    .cta-slogans {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      margin-bottom: 1.4rem;
+    }
+    .cta-slogans h2 {
+      font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+      line-height: 1;
+    }
+    .cta-lao-slogan {
+      font-family: var(--ff-lao);
+      font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1.8rem;
+    }
+    .next-steps-container {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      padding: 1.2rem 2rem;
+      border-radius: 999px;
+      border: 1px solid var(--card-border-hover);
+      background: rgba(10, 22, 13, 0.8);
+      margin-bottom: 3.5rem;
+    }
+    .next-label {
+      font: 700 0.74rem var(--ff-mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--green-neon);
+      margin-right: 0.4rem;
+    }
+    .step-badge-round {
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-family: var(--ff-lao);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .step-badge-round small {
+      display: inline-block;
+      font: 700 0.72rem var(--ff-mono);
+      color: var(--green-neon);
+      margin-left: 6px;
+    }
+
+    .contacts-two-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 820px;
+      margin: 0 auto 3rem;
+      text-align: left;
+    }
+    .contact-card-box {
+      padding: 1.6rem 2rem;
+      border-radius: 18px;
+    }
+    .contact-card-box .entity-label {
+      font: 700 0.72rem var(--ff-mono);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-neon);
+      margin-bottom: 0.4rem;
+    }
+    .contact-card-box .person-name {
+      font-family: var(--ff-lao);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .contact-card-box .person-role {
+      font-family: var(--ff-lao);
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .cta-buttons-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .btn-main-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--ff-lao);
+      font-size: 0.95rem;
+      font-weight: 800;
+      padding: 14px 32px;
+      border-radius: 999px;
+      background: var(--green-brand);
+      color: #021206;
+      box-shadow: 0 0 28px rgba(34, 197, 94, 0.45);
+      transition: all 0.3s;
+    }
+    .btn-main-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 38px rgba(74, 222, 128, 0.7);
+      background: var(--green-neon);
+    }
+    .btn-sec-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--ff-lao);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text);
+      transition: all 0.3s;
+    }
+    .btn-sec-action:hover {
+      border-color: var(--green-neon);
+      color: var(--green-neon);
+      background: rgba(74, 222, 128, 0.08);
+    }
+    @media (max-width: 740px) {
+      .contacts-two-grid { grid-template-columns: 1fr; }
+      .next-steps-container { border-radius: 20px; }
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 2.2rem 0;
+      background: #020503;
+      font-size: 0.84rem;
+      color: var(--text-dim);
+    }
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    footer .copy-text {
+      font-family: var(--ff-lao);
+      max-width: 720px;
+      line-height: 1.6;
+    }
+    footer a {
+      font-family: var(--ff-lao);
+      font-weight: 700;
+      color: var(--green-neon);
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--gold); }
+
+    /* ── Scroll Animations (Reveal) ── */
+    .fade-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
-  <header class="nav">
+  <!-- Navigation Bar -->
+  <nav class="top-nav">
     <div class="wrap">
-      <a href="index.html" class="nav-back">← LIHF 2026</a>
-      <nav class="nav-links">
-        <a href="#why">Why</a>
-        <a href="#route">Route</a>
-        <a href="#competition">Competition</a>
-        <a href="#night">The Night</a>
-        <a href="#setup">Setup</a>
-        <a href="#sales">Sales</a>
-        <a href="#budget">Budget</a>
-      </nav>
-      <a href="#contact" class="nav-cta">Let's Build</a>
+      <a href="beerlao.html" class="nav-brand">
+        <span class="tag">BEERLAO GREEN</span>
+        <span>LIHF 2026</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#why">ຄຸນຄ່າແຄມເປນ</a>
+        <a href="#route">ເສັ້ນທາງ 4 ຮ້ານ</a>
+        <a href="#competition">ການແຂ່ງຂັນ</a>
+        <a href="#night">ປະສົບການງານ</a>
+        <a href="#setup">ຜັງພື້ນທີ່ 3D</a>
+        <a href="#sales">ແຜນການຂາຍ</a>
+        <a href="#budget">ງົບປະມານ</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="index.html" class="btn-site-return">← ກັບໜ້າຫຼັກ LIHF</a>
+        <a href="#contact" class="btn-contact-top">ຕິດຕໍ່ຮ່ວມມື</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 01 · Hero Header (Slides 01 + 02) -->
+  <header class="hero-banner" id="top">
+    <div class="hero-photo-bg"></div>
+    <div class="wrap">
+      <div class="hero-eyebrow-pill fade-reveal">
+        <span>SPONSORSHIP &amp; ACTIVATION PROPOSAL · LIHF 2026</span>
+      </div>
+
+      <h1 class="hero-title fade-reveal">
+        BEERLAO GREEN<br>
+        NIGHTLIFE <span class="glow-x">×</span> LIHF
+      </h1>
+
+      <div class="hero-accent-line fade-reveal"></div>
+
+      <p class="hero-lao-main fade-reveal">
+        ການເດີນທາງຄັດເລືອກສິລະປິນຮິບຮອບ ແລະ ໄນທ໌ໄລຟ໌ທົ່ວວຽງຈັນ — ຈາກຮ້ານບາສູ່ເວທີໃຫຍ່ສຸດຂອງເທສະການ.
+      </p>
+      <p class="hero-en-sub fade-reveal">
+        A city-wide nightlife and hip-hop qualifier journey — from Vientiane bars to the LIHF 2026 Final Stage at Lao-ITECC. Bringing LIHF into Vientiane nightlife before the main festival to discover talent, build community, and give Beerlao Green a leading role at every stop.
+      </p>
+
+      <div class="pathway-flow fade-reveal">
+        <div class="path-step">
+          <b>DISCOVER</b>
+          <small>ຄົ້ນຫາພອນສະຫວັນ</small>
+        </div>
+        <div class="path-arrow">→</div>
+        <div class="path-step">
+          <b>QUALIFY</b>
+          <small>ຄັດເລືອກ 4 ຮ້ານ</small>
+        </div>
+        <div class="path-arrow">→</div>
+        <div class="path-step">
+          <b>AMPLIFY</b>
+          <small>ຂະຫຍາຍກະແສສື່</small>
+        </div>
+        <div class="path-arrow">→</div>
+        <div class="path-step final">
+          <b>PERFORM</b>
+          <small>ຂຶ້ນເວທີໃຫຍ່ LIHF</small>
+        </div>
+      </div>
+
+      <div class="hero-meta-bar fade-reveal">
+        <div class="meta-item">
+          <span class="dot"></span>
+          <span>ຮູບແບບກິດຈະກຳ:</span>
+          <b>Proposed Activation</b>
+        </div>
+        <div class="meta-item">
+          <span class="dot"></span>
+          <span>ຂອບເຂດຈັດງານ:</span>
+          <b>Vientiane · 4 Stops · 1 Final</b>
+        </div>
+        <div class="meta-item">
+          <span class="dot"></span>
+          <span>ໄລຍະເວລາ:</span>
+          <b>4 ສັບປະດາ (ຕຸລາ – ພະຈິກ 2026)</b>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- 01 · HERO (Slides 01–02) -->
-  <section class="hero" id="top">
-    <div class="hero-bg"></div>
-    <div class="wrap">
-      <div class="eyebrow">Sponsorship &amp; Activation Proposal · LIHF 2026</div>
-      <h1>Beerlao Green<br>Nightlife <span class="x">×</span> LIHF</h1>
-      <div class="hero-bar"></div>
-      <p class="hero-tag">From the bar to the big stage — a city-wide nightlife and hip-hop qualifier journey that discovers talent, builds community and gives Beerlao Green a role at every stop.</p>
-      <p class="hero-tag-lao">ນຳ LIHF ເຂົ້າສູ່ໄນທ໌ໄລຟ໌ວຽງຈັນກ່ອນເທສະການຫຼັກ — ຄົ້ນຫາພອນສະຫວັນ, ສ້າງຊຸມຊົນ ແລະ ໃຫ້ເບຍລາວກຣີນມີບົດບາດໃນທຸກຈຸດ.</p>
-      <div class="journey">
-        <span>DISCOVER</span><i>→</i><span>QUALIFY</span><i>→</i><span>AMPLIFY</span><i>→</i><span>PERFORM</span>
-      </div>
-      <div class="hero-foot">
-        <div>Proposed Activation</div>
-        <div>Vientiane · 4 Stops · 1 Final</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 02 · WHY (Slide 03) -->
+  <!-- 02 · Why This Platform? (Slide 03) -->
   <section id="why">
     <div class="wrap">
-      <div class="sec-head rv">
-        <div class="eyebrow"><span class="num">02</span> Why this platform?</div>
-        <h2>A multi-week <span class="hl">cultural campaign</span>,<br>not a one-night sponsorship.</h2>
-        <div class="sub-lao">ແຄມເປນວັດທະນະທຳຕໍ່ເນື່ອງຫຼາຍອາທິດ — ບໍ່ແມ່ນການສະປອນເຊີພຽງຄືນດຽວ</div>
+      <div class="head-center fade-reveal">
+        <div class="section-tag"><span class="num">02</span> Why This Platform?</div>
+        <h2>A Multi-Week <span class="neon-text">Cultural Campaign</span></h2>
+        <div class="section-subtitle-lao">ແຄມເປນວັດທະນະທຳຕໍ່ເນື່ອງຫຼາຍອາທິດ — ບໍ່ແມ່ນການສະໜັບສະໜູນພຽງຄືນດຽວ</div>
+        <p class="section-desc-lead">
+          ສ້າງການມີຕົວຕົນຂອງ ເບຍລາວກຣີນ ຢ່າງເລິກເຊິ່ງໃນວິຖີຊີວິດກາງຄືນຂອງໄວລຸ້ນລາວ ໂດຍເຊື່ອມໂຍງ 3 ເສົາຫຼັກສຳຄັນ: ການຂະຫຍາຍກະແສ, ການສ້າງສາຍສຳພັນກັບຊຸມຊົນ, ແລະ ການປ່ຽນເປັນຍອດຂາຍຕົວຈິງ.
+        </p>
       </div>
-      <div class="why-grid">
-        <div class="card why-card rv">
-          <div class="n">01</div>
+
+      <div class="why-cards-grid">
+        <div class="ui-card why-box fade-reveal">
+          <div class="badge-num">01</div>
           <h3>Extend</h3>
-          <div class="lao-t">ຂະຫຍາຍການຮັບຮູ້</div>
-          <p>Own attention across multiple nightlife moments before LIHF.</p>
+          <div class="lao-headline">ຂະຫຍາຍການຮັບຮູ້ ແລະ ຄອບຄອງພື້ນທີ່ສື່</div>
+          <p>
+            ຄອບຄອງຄວາມສົນໃຈຂອງກຸ່ມເປົ້າໝາຍໃນຫຼາຍຊ່ວງເວລາໄນທ໌ໄລຟ໌ ຕະຫຼອດ 4 ອາທິດຕິດຕໍ່ກັນກ່ອນຮອດງານໃຫຍ່ LIHF 2026, ເຮັດໃຫ້ແບຣນຢູ່ໃນກະແສຢ່າງຕໍ່ເນື່ອງ.
+          </p>
         </div>
-        <div class="card why-card rv">
-          <div class="n">02</div>
+
+        <div class="ui-card why-box fade-reveal">
+          <div class="badge-num">02</div>
           <h3>Connect</h3>
-          <div class="lao-t">ເຊື່ອມຕໍ່ຊຸມຊົນ</div>
-          <p>Build credibility with artists, venues and urban communities.</p>
+          <div class="lao-headline">ເຊື່ອມໂຍງສິລະປິນ ແລະ ຊຸມຊົນຄົນຮຸ່ນໃໝ່</div>
+          <p>
+            ສ້າງຄວາມໜ້າເຊື່ອຖື ແລະ ຄວາມຜູກພັນຢ່າງແທ້ຈິງກັບກຸ່ມສິລະປິນ, ຜູ້ປະກອບການຮ້ານກາງຄືນ, ແລະ ຊຸມຊົນຄົນຮັກດົນຕີຮິບຮອບໃນຕົວເມືອງ.
+          </p>
         </div>
-        <div class="card why-card rv">
-          <div class="n">03</div>
+
+        <div class="ui-card why-box fade-reveal">
+          <div class="badge-num">03</div>
           <h3>Convert</h3>
-          <div class="lao-t">ປ່ຽນເປັນຍອດຂາຍ</div>
-          <p>Turn participation and footfall into responsible venue sales.</p>
+          <div class="lao-headline">ປ່ຽນການມີສ່ວນຮ່ວມ ເປັນຍອດຂາຍຕົວຈິງ</div>
+          <p>
+            ປ່ຽນຄວາມຕື່ນເຕັ້ນຂອງງານແຂ່ງຂັນ ແລະ ຈຳນວນຄົນມາທ່ຽວຮ້ານ ໃຫ້ກາຍເປັນຍອດຈຳໜ່າຍຜະລິດຕະພັນ ເບຍລາວກຣີນ ຢ່າງມີຄວາມຮັບຜິດຊອບ.
+          </p>
         </div>
       </div>
-      <div class="roles rv">
-        <span class="label">Beerlao Green's role</span>
-        <b>Culture Partner<small>ຄູ່ຮ່ວມວັດທະນະທຳ</small></b>
-        <b>Talent Platform<small>ເວທີຄົ້ນຫາພອນສະຫວັນ</small></b>
-        <b>Nightlife Convener<small>ຜູ້ລວມພະລັງໄນທ໌ໄລຟ໌</small></b>
+
+      <div class="brand-role-container fade-reveal">
+        <div class="role-intro">
+          <span class="label">Beerlao Green's Role</span>
+          <span class="title">3 ບົດບາດຫຼັກຂອງ ເບຍລາວກຣີນ ໃນແຄມເປນນີ້</span>
+        </div>
+        <div class="role-pillars">
+          <div class="role-pillar-item">
+            <b>Culture Partner</b>
+            <span>ຄູ່ຮ່ວມສ້າງວັດທະນະທຳຕົວເມືອງ</span>
+          </div>
+          <div class="role-pillar-item">
+            <b>Talent Platform</b>
+            <span>ເວທີຄົ້ນຫາ ແລະ ຍົກລະດັບພອນສະຫວັນ</span>
+          </div>
+          <div class="role-pillar-item">
+            <b>Nightlife Convener</b>
+            <span>ຜູ້ເຊື່ອມໂຍງ ແລະ ຂັບເຄື່ອນຊີວິດກາງຄືນ</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 03 · ROUTE (Slides 04 + 10 + 11 merged) -->
-  <section class="route alt" id="route">
-    <div class="route-bg"></div>
+  <!-- 03 · The Route & Schedule (Slides 04 + 10 + 11) -->
+  <section class="route-section alt-bg" id="route">
+    <div class="route-bg-photo"></div>
     <div class="wrap">
-      <div class="sec-head rv">
-        <div class="eyebrow"><span class="num">03</span> The Route</div>
-        <h2>4 Weeks. 4 Venues.<br><span class="hl">16 Finalists.</span></h2>
-        <div class="sub-lao">1 ຮ້ານຕໍ່ອາທິດ ທຸກວັນສຸກ ຫຼື ວັນເສົາ — ແຕ່ລະງານສ້າງກະແສໃຫ້ງານຕໍ່ໄປ</div>
-        <p class="lead">One event per week, one venue per week, on a Friday or Saturday before the LIHF Final Stage. Every stop qualifies talent and creates proof, people and anticipation for the next one.</p>
+      <div class="head-center fade-reveal">
+        <div class="section-tag"><span class="num">03</span> 4 Weeks · 4 Venues</div>
+        <h2>The Route to <span class="neon-text">Final Stage</span></h2>
+        <div class="section-subtitle-lao">ເສັ້ນທາງແຂ່ງຂັນ 4 ອາທິດ 4 ຮ້ານດັງ — ສູ່ 16 ຕົວແທນໃນຮອບຊີງຊະນະເລີດ</div>
+        <p class="section-desc-lead">
+          ຈັດງານ 1 ຮ້ານຕໍ່ອາທິດ ໃນທຸກຄືນວັນສຸກ ຫຼື ວັນເສົາ. ແຕ່ລະຮ້ານຄັດເລືອກຜູ້ຊະນະພ້ອມສ້າງຄອນເທັນສົ່ງຕໍ່ແຮງກະຕຸ້ນສູ່ຮ້ານຖັດໄປ ຈົນຮອດເວທີໃຫຍ່.
+        </p>
       </div>
 
-      <div class="stops">
-        <div class="stop rv">
-          <div class="stop-dot">01</div>
-          <div class="card stop-card">
-            <div class="stop-date">Week 1 · Oct 16 / 17</div>
-            <div class="stop-venue">The Block</div>
-            <div class="stop-row"><span>Content</span><span>Launch Content</span></div>
-            <div class="stop-row"><span>Qualify</span><span>2 Rap + 2 DJ×MC</span></div>
+      <div class="route-stops-timeline">
+        <!-- Stop 1 -->
+        <div class="stop-col fade-reveal">
+          <div class="stop-indicator">01</div>
+          <div class="ui-card stop-card-inner">
+            <div class="stop-date-pill">Week 1 · 16 / 17 ຕຸລາ 2026</div>
+            <div class="stop-venue-name">The Block</div>
+            <div class="stop-venue-lao">ຮ້ານ ເດິ ບລັອກ ວຽງຈັນ</div>
+            <div class="stop-detail-row">
+              <span class="k">ຄອນເທັນຫຼັກ:</span>
+              <span class="v">Launch Content (ເປີດໂຕແຄມເປນ)</span>
+            </div>
+            <div class="stop-detail-row">
+              <span class="k">ໂຄຕ້າຄັດເລືອກ:</span>
+              <span class="v">2 Rap + 2 DJ/MC</span>
+            </div>
           </div>
         </div>
-        <div class="stop rv">
-          <div class="stop-dot">02</div>
-          <div class="card stop-card">
-            <div class="stop-date">Week 2 · Oct 23 / 24</div>
-            <div class="stop-venue">Status / Go Dunk</div>
-            <div class="stop-row"><span>Content</span><span>Social Proof</span></div>
-            <div class="stop-row"><span>Qualify</span><span>2 Rap + 2 DJ×MC</span></div>
+
+        <!-- Stop 2 -->
+        <div class="stop-col fade-reveal">
+          <div class="stop-indicator">02</div>
+          <div class="ui-card stop-card-inner">
+            <div class="stop-date-pill">Week 2 · 23 / 24 ຕຸລາ 2026</div>
+            <div class="stop-venue-name">Status / Go Dunk</div>
+            <div class="stop-venue-lao">ຮ້ານ ສະເຕຕັດ / ໂກດັງ</div>
+            <div class="stop-detail-row">
+              <span class="k">ຄອນເທັນຫຼັກ:</span>
+              <span class="v">Social Proof (ພາບຄວາມມັນ)</span>
+            </div>
+            <div class="stop-detail-row">
+              <span class="k">ໂຄຕ້າຄັດເລືອກ:</span>
+              <span class="v">2 Rap + 2 DJ/MC</span>
+            </div>
           </div>
         </div>
-        <div class="stop rv">
-          <div class="stop-dot">03</div>
-          <div class="card stop-card">
-            <div class="stop-date">Week 3 · Oct 30 / 31</div>
-            <div class="stop-venue">Baron Vientiane</div>
-            <div class="stop-row"><span>Content</span><span>Talent Stories</span></div>
-            <div class="stop-row"><span>Qualify</span><span>2 Rap + 2 DJ×MC</span></div>
+
+        <!-- Stop 3 -->
+        <div class="stop-col fade-reveal">
+          <div class="stop-indicator">03</div>
+          <div class="ui-card stop-card-inner">
+            <div class="stop-date-pill">Week 3 · 30 / 31 ຕຸລາ 2026</div>
+            <div class="stop-venue-name">Baron Vientiane</div>
+            <div class="stop-venue-lao">ຮ້ານ ບາຣອນ ວຽງຈັນ</div>
+            <div class="stop-detail-row">
+              <span class="k">ຄອນເທັນຫຼັກ:</span>
+              <span class="v">Talent Stories (ເລື່ອງລາວສິລະປິນ)</span>
+            </div>
+            <div class="stop-detail-row">
+              <span class="k">ໂຄຕ້າຄັດເລືອກ:</span>
+              <span class="v">2 Rap + 2 DJ/MC</span>
+            </div>
           </div>
         </div>
-        <div class="stop rv">
-          <div class="stop-dot">04</div>
-          <div class="card stop-card">
-            <div class="stop-date">Week 4 · Nov 6 / 7</div>
-            <div class="stop-venue">Mahasan Music &amp; Bar</div>
-            <div class="stop-row"><span>Content</span><span>Final Push</span></div>
-            <div class="stop-row"><span>Qualify</span><span>2 Rap + 2 DJ×MC</span></div>
+
+        <!-- Stop 4 -->
+        <div class="stop-col fade-reveal">
+          <div class="stop-indicator">04</div>
+          <div class="ui-card stop-card-inner">
+            <div class="stop-date-pill">Week 4 · 6 / 7 ພະຈິກ 2026</div>
+            <div class="stop-venue-name">Mahasan Music</div>
+            <div class="stop-venue-lao">ຮ້ານ ມະຫາສານ ມິວສິກ ແອນ ບາ</div>
+            <div class="stop-detail-row">
+              <span class="k">ຄອນເທັນຫຼັກ:</span>
+              <span class="v">Final Push (ໂຄ້ງສຸດທ້າຍ)</span>
+            </div>
+            <div class="stop-detail-row">
+              <span class="k">ໂຄຕ້າຄັດເລືອກ:</span>
+              <span class="v">2 Rap + 2 DJ/MC</span>
+            </div>
           </div>
         </div>
-        <div class="stop final rv">
-          <div class="stop-dot">★</div>
-          <div class="card stop-card">
-            <div class="big">16</div>
-            <div class="stop-venue">Finalists → LIHF 2026 Final Stage</div>
-            <p class="lao" style="font-size:0.82rem;color:var(--muted);">ເສັ້ນທາງທີ່ເຫັນໄດ້ຊັດ ຈາກການຄົ້ນພົບສູ່ການຍອມຮັບ — ຂັບເຄື່ອນໂດຍເບຍລາວກຣີນ</p>
+
+        <!-- Final Destination -->
+        <div class="stop-col final-destination fade-reveal">
+          <div class="stop-indicator">★</div>
+          <div class="ui-card stop-card-inner">
+            <div class="stop-date-pill">13–15 ພະຈິກ 2026 · Lao-ITECC</div>
+            <div class="big-stat">16</div>
+            <div class="stop-venue-name">Finalists Stage</div>
+            <p class="stat-desc">
+              16 ຕົວແທນຊະນະເລີດຈາກ 4 ຮ້ານ ຜ່ານເຂົ້າສູ່ເວທີໃຫຍ່ສຸດຂອງເທສະການ LIHF 2026 ພ້ອມແບຣນດິ້ງ ເບຍລາວກຣີນ ເຕັມຮູບແບບ.
+            </p>
           </div>
         </div>
       </div>
 
-      <div class="route-note rv">
-        <div class="loop">
-          <span class="label">Content loop</span>
-          <b>CAPTURE</b><i>→</i><b>EDIT</b><i>→</i><b>PUBLISH</b><i>→</i><b>RETARGET</b><i>→</i><b>INVITE</b>
+      <!-- Content Loop Banner -->
+      <div class="content-loop-bar fade-reveal">
+        <div class="loop-title">
+          ວົງຈອນສື່ ແລະ ການຕະຫຼາດ (Content Loop Cycle):
         </div>
-        <div class="confirm">Venues &amp; exact day subject to confirmation</div>
+        <div class="loop-steps">
+          <div class="loop-step-badge">CAPTURE<span>ບັນທຶກພາບ</span></div>
+          <div class="path-arrow" style="font-size:0.9rem;">→</div>
+          <div class="loop-step-badge">EDIT<span>ຕັດຕໍ່ໄຮໄລ້</span></div>
+          <div class="path-arrow" style="font-size:0.9rem;">→</div>
+          <div class="loop-step-badge">PUBLISH<span>ເຜີຍແຜ່ໂຊຊຽວ</span></div>
+          <div class="path-arrow" style="font-size:0.9rem;">→</div>
+          <div class="loop-step-badge">RETARGET<span>ຍິງສື່ເຈາະກຸ່ມ</span></div>
+          <div class="path-arrow" style="font-size:0.9rem;">→</div>
+          <div class="loop-step-badge">INVITE<span>ເຊີນຊວນງານຕໍ່ໄປ</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 04 · COMPETITION (Slide 05) -->
+  <!-- 04 · Competition Categories (Slide 05) -->
   <section id="competition">
     <div class="wrap">
-      <div class="sec-head rv">
-        <div class="eyebrow"><span class="num">04</span> Competition</div>
-        <h2>Two open qualifiers.<br><span class="hl">One pathway</span> to the final stage.</h2>
-        <div class="sub-lao">2 ປະເພດການແຂ່ງຂັນ ເປີດກວ້າງໃຫ້ທຸກຄົນ</div>
+      <div class="head-center fade-reveal">
+        <div class="section-tag"><span class="num">04</span> Competition Info</div>
+        <h2>Two Open <span class="neon-text">Qualifiers</span></h2>
+        <div class="section-subtitle-lao">2 ໝວດໝູ່ການແຂ່ງຂັນເປີດກວ້າງ — ເສັ້ນທາງດຽວສູ່ເວທີໃຫຍ່ LIHF</div>
+        <p class="section-desc-lead">
+          ເປີດໂອກາດໃຫ້ນັກຮ້ອງ ແລະ ດີເຈທຸກສັງກັດໄດ້ປະລອງຝີມືຢ່າງເທົ່າທຽມ. ແຕ່ລະຮ້ານຈະຄັດເລືອກ Top 2 Rap + Top 2 DJ/MC ເພື່ອໄປຕໍ່ໃນຮອບຕັດສິນ.
+        </p>
       </div>
 
-      <div class="comp-grid">
-        <article class="card comp rv">
-          <div class="comp-img"><img src="assets/beerlao/lineup.jpg" alt="Rap battle on stage" loading="lazy"></div>
-          <div class="comp-body">
-            <span class="comp-format">1 VS 1</span>
+      <div class="comp-two-cards">
+        <!-- Category 1: Rap Battle -->
+        <article class="ui-card comp-item-card fade-reveal">
+          <div class="comp-photo-wrap">
+            <img src="assets/beerlao/lineup.jpg" alt="Rap Battle 1 vs 1 on stage" loading="lazy">
+          </div>
+          <div class="comp-content-area">
+            <span class="comp-badge-pill">1 VS 1 BATTLE</span>
             <h3>Rap Battle</h3>
-            <div class="crit">
-              <span>Lyrics<small>ເນື້ອຮ້ອງ</small></span>
-              <span>Flow<small>ຈັງຫວະ</small></span>
-              <span>Freestyle<small>ດົ້ນສົດ</small></span>
-              <span>Delivery<small>ການຖ່າຍທອດ</small></span>
+            <div class="comp-lao-sub">ການແຂ່ງຂັນດວນໄມຄ໌ 1 ຕໍ່ 1</div>
+            <div class="comp-criteria-list">
+              <div class="crit-pill">Lyrics <span>(ເນື້ອຮ້ອງຄົມຄາຍ)</span></div>
+              <div class="crit-pill">Flow <span>(ຈັງຫວະໄຫຼລື່ນ)</span></div>
+              <div class="crit-pill">Freestyle <span>(ປະຕິພານດົ້ນສົດ)</span></div>
+              <div class="crit-pill">Delivery <span>(ການຖ່າຍທອດອາລົມ)</span></div>
             </div>
-            <p class="qual">Each venue selects the <b>Top 2 Rap competitors</b>.</p>
+            <p class="comp-qual-note">
+              ແຕ່ລະຮ້ານຄັດເລືອກ <b>Top 2 Rapper ທີ່ໂດດເດັ່ນທີ່ສຸດ</b> ເຂົ້າສູ່ຮອບຊີງຊະນະເລີດ. ເນັ້ນການປະທະຄາລົມ ແລະ ການຄອບຄອງເວທີ.
+            </p>
           </div>
         </article>
-        <article class="card comp rv">
-          <div class="comp-img"><img src="assets/beerlao/dj_mc.jpg" alt="DJ and MC performing" loading="lazy" style="object-position:center 35%;"></div>
-          <div class="comp-body">
-            <span class="comp-format">10-min Club Performance</span>
-            <h3>DJ + MC</h3>
-            <div class="crit">
-              <span>Crowd Control<small>ຄຸມຝູງຊົນ</small></span>
-              <span>Creativity<small>ຄວາມຄິດສ້າງສັນ</small></span>
-              <span>Musicality<small>ຄວາມເປັນດົນຕີ</small></span>
-              <span>Technicality<small>ເຕັກນິກ</small></span>
-              <span>Performance<small>ການສະແດງ</small></span>
+
+        <!-- Category 2: DJ + MC Crowd Control -->
+        <article class="ui-card comp-item-card fade-reveal">
+          <div class="comp-photo-wrap">
+            <img src="assets/beerlao/dj_mc.jpg" alt="DJ and MC crowd control performance" loading="lazy" style="object-position: center 30%;">
+          </div>
+          <div class="comp-content-area">
+            <span class="comp-badge-pill">10-MIN CLUB PERFORMANCE</span>
+            <h3>DJ + MC Team</h3>
+            <div class="comp-lao-sub">ທີມດີເຈ ແລະ ເອັມຊີ ຄຸມຝູງຊົນ</div>
+            <div class="comp-criteria-list">
+              <div class="crit-pill">Crowd Control <span>(ຄຸມພະລັງຝູງຊົນ)</span></div>
+              <div class="crit-pill">Creativity <span>(ຄວາມຄິດສ້າງສັນ)</span></div>
+              <div class="crit-pill">Musicality <span>(ຄວາມເລິກທາງດົນຕີ)</span></div>
+              <div class="crit-pill">Technicality <span>(ເຕັກນິກການ scratch)</span></div>
+              <div class="crit-pill">Performance <span>(ການໂຊວ໌ຮ່ວມກັນ)</span></div>
             </div>
-            <p class="qual">Each venue selects the <b>Top 2 DJ / MC acts</b>.</p>
+            <p class="comp-qual-note">
+              ແຕ່ລະຮ້ານຄັດເລືອກ <b>Top 2 ທີມ DJ + MC</b>. ການສະແດງສົດ 10 ນາທີ ເພື່ອສ້າງຄວາມມັນ ແລະ ດຶງອາລົມຜູ້ຊົມທັງຮ້ານໃຫ້ມີສ່ວນຮ່ວມສູງສຸດ.
+            </p>
           </div>
         </article>
       </div>
 
-      <div class="comp-shared rv">
-        <div><b>Open to everyone</b><span>ເປີດຮັບທຸກຄົນ ບໍ່ຈຳກັດສັງກັດ</span></div>
-        <div><b>Stage presence + impact</b><span>ເກນຕັດສິນຮ່ວມທັງ 2 ປະເພດ</span></div>
-        <div><b>Theme: Crowd Control</b><span>ຫົວຂໍ້ຫຼັກຂອງທຸກງານ</span></div>
+      <div class="comp-universal-rules fade-reveal">
+        <div class="rule-box">
+          <b>Open to Everyone</b>
+          <p>ເປີດຮັບສະໝັກທຸກຄົນ ບໍ່ຈຳກັດສັງກັດ ຫຼື ຄ້າຍເພງ — ເປີດໂອກາດໃຫ້ພອນສະຫວັນໃໝ່ໆ ໄດ້ສະແດງຄວາມສາມາດຢ່າງເຕັມທີ່.</p>
+        </div>
+        <div class="rule-box">
+          <b>Stage Presence + Impact</b>
+          <p>ເກນຕັດສິນຫຼັກຮ່ວມກັນ: ຄວາມເປັນຕົວຂອງຕົວເອງເທິງເວທີ ແລະ ແຮງດຶງດູດທີ່ສົ່ງຜົນກະທົບຕໍ່ຜູ້ຊົມທັງຮ້ານ.</p>
+        </div>
+        <div class="rule-box">
+          <b>Theme: Crowd Control</b>
+          <p>ຫົວຂໍ້ຫຼັກຂອງທຸກຮ້ານ: ຄວາມສາມາດໃນການປຸກພະລັງ ແລະ ເຮັດໃຫ້ທຸກຄົນໃນງານເຕັ້ນ ແລະ ຮ້ອງໄປພ້ອມກັນ.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 05 · THE NIGHT (Slides 06 + 07) -->
-  <section class="alt" id="night">
+  <!-- 05 · One Night Experience & Lineup (Slides 06 + 07) -->
+  <section class="alt-bg" id="night">
     <div class="wrap">
-      <div class="sec-head rv">
-        <div class="eyebrow"><span class="num">05</span> One Night Experience</div>
-        <h2>A repeatable spine.<br><span class="hl">Each venue's personality.</span></h2>
-        <div class="sub-lao">ໂຄງສ້າງງານດຽວກັນທຸກຮ້ານ ແຕ່ຮັກສາເອກະລັກຂອງແຕ່ລະສະຖານທີ່</div>
+      <div class="head-center fade-reveal">
+        <div class="section-tag"><span class="num">05</span> One Night Spine</div>
+        <h2>Experience &amp; <span class="neon-text">Lineup Architecture</span></h2>
+        <div class="section-subtitle-lao">ປະສົບການ 1 ຄືນ ແລະ ໂຄງສ້າງສິລະປິນ — ຮັກສາເອກະລັກຂອງທຸກຮ້ານ</div>
+        <p class="section-desc-lead">
+          ລຳດັບເວລາທີ່ອອກແບບມາໃຫ້ຕື່ນເຕັ້ນຕໍ່ເນື່ອງຕັ້ງແຕ່ເປີດປະຕູ ຈົນຮອດຊ່ວງເວລາປະກາດລາງວັນ, ພ້ອມການຜະສົມຜະສານສິລະປິນທ້ອງຖິ່ນ ແລະ ແຂກຮັບເຊີນຊັ້ນນຳ.
+        </p>
       </div>
 
-      <div class="night-grid">
-        <div class="rv">
-          <ol class="runsheet">
-            <li><div class="n">01</div><div><b>Doors + DJ Warm-up</b><span>ເປີດປະຕູ ແລະ ດີເຈເປີດບັນຍາກາດ</span></div></li>
-            <li><div class="n">02</div><div><b>Host Welcome</b><span>ພິທີກອນກ່າວຕ້ອນຮັບ</span></div></li>
-            <li class="peak"><div class="n">03</div><div><b>Qualifier Rounds</b><span>ຮອບຄັດເລືອກ Rap Battle ແລະ DJ + MC</span></div></li>
-            <li><div class="n">04</div><div><b>Guest Set</b><span>ໂຊວ໌ຈາກສິລະປິນຮັບເຊີນ</span></div></li>
-            <li class="peak"><div class="n">05</div><div><b>Winner Reveal</b><span>ປະກາດຜູ້ຜ່ານເຂົ້າຮອບສຸດທ້າຍ</span></div></li>
+      <div class="night-split-layout">
+        <!-- Runsheet Column -->
+        <div class="runsheet-wrapper fade-reveal">
+          <h3>Event Runsheet</h3>
+          <div class="lao-lead">ລຳດັບເວລາການດຳເນີນງານໃນແຕ່ລະຄືນ (ປັບຕາມເວລາແຕ່ລະຮ້ານໄດ້)</div>
+
+          <ol class="runsheet-timeline-list">
+            <li class="runsheet-item">
+              <div class="order-num">01</div>
+              <div>
+                <b>Doors Open + DJ Warm-Up</b>
+                <span>21:00 – ເປີດປະຕູຮັບແຂກ, ດີເຈເປີດເພງສ້າງບັນຍາກາດ ແລະ ລົງທະບຽນ</span>
+              </div>
+            </li>
+            <li class="runsheet-item">
+              <div class="order-num">02</div>
+              <div>
+                <b>Host Welcome &amp; Brand Moment</b>
+                <span>22:00 – ພິທີກອນກ່າວຕ້ອນຮັບ, ແນະນຳກິດຈະກຳ ແລະ ເປີດໂຕ Beerlao Green</span>
+              </div>
+            </li>
+            <li class="runsheet-item peak-moment">
+              <div class="order-num">03</div>
+              <div>
+                <b>Qualifier Rounds (Battle Time)</b>
+                <span>22:30 – ຮອບຄັດເລືອກສຸດດຸເດືອດ: Rap Battle 1v1 ແລະ DJ + MC Showcase</span>
+              </div>
+            </li>
+            <li class="runsheet-item">
+              <div class="order-num">04</div>
+              <div>
+                <b>Guest Artist Feature Set</b>
+                <span>00:00 – ໂຊວ໌ພິເສດຈາກສິລະປິນຮັບເຊີນຊັ້ນນຳ ຍົກລະດັບຄວາມມັນ</span>
+              </div>
+            </li>
+            <li class="runsheet-item peak-moment">
+              <div class="order-num">05</div>
+              <div>
+                <b>Winner Reveal &amp; Celebration</b>
+                <span>00:45 – ປະກາດຜູ້ຊະນະຜ່ານເຂົ້າຮອບ ພ້ອມຍົກຈອກສະຫຼອງ Beerlao Green</span>
+              </div>
+            </li>
           </ol>
-          <div class="note">Timing can be customized by venue</div>
+          <div class="runsheet-custom-note">* ເວລາສາມາດປັບປ່ຽນໄດ້ຕາມຄວາມເໝາະສົມຂອງແຕ່ລະສະຖານທີ່.</div>
         </div>
 
-        <div class="card lineup rv">
-          <div class="lineup-img"><img src="assets/beerlao/bg_stage.jpg" alt="Club stage with green lights" loading="lazy"></div>
-          <div class="lineup-body">
-            <h3>Local energy × <span class="hl">international connection</span></h3>
-            <p>A lineup rooted in Vientiane and connected to the wider hip-hop world.</p>
-            <div class="tiers">
-              <div class="tier"><b>Local Qualifiers</b><span>The competitive heartbeat</span><small>ຫົວໃຈຂອງການແຂ່ງຂັນ</small></div>
-              <div class="tier"><b>Resident DJs + Hosts</b><span>Momentum &amp; venue identity</span><small>ພະລັງ ແລະ ເອກະລັກຮ້ານ</small></div>
-              <div class="tier"><b>Guest Artists</b><span>Credibility, mentorship &amp; reach</span><small>ຄວາມໜ້າເຊື່ອຖື ແລະ ການເຂົ້າເຖິງ</small></div>
+        <!-- Lineup Architecture Column -->
+        <div class="ui-card lineup-feature-box fade-reveal">
+          <div class="lineup-banner-img">
+            <img src="assets/beerlao/bg_stage.jpg" alt="Concert lasers and lights" loading="lazy">
+          </div>
+          <div class="lineup-content-body">
+            <h3>Local Energy × <span class="neon-text">Global Connection</span></h3>
+            <div class="lao-sub">ພະລັງທ້ອງຖິ່ນ ປະສານການເຊື່ອມໂຍງລະດັບສາກົນ</div>
+            <p>
+              ໂຄງສ້າງລາຍຊື່ສິລະປິນທີ່ຢຶດໝັ້ນໃນຮາກເຫງົ້າຂອງວຽງຈັນ ແຕ່ເຊື່ອມໂຍງສູ່ໂລກຮິບຮອບທີ່ກວ້າງໃຫຍ່ຂຶ້ນ ຜ່ານ 3 ລະດັບ:
+            </p>
+            <div class="lineup-three-pillars">
+              <div class="pillar-card">
+                <b>Local Qualifiers</b>
+                <p>ສິລະປິນທ້ອງຖິ່ນທີ່ເຂົ້າແຂ່ງຂັນ — ເປັນຫົວໃຈ ແລະ ແຮງຂັບເຄື່ອນຫຼັກຂອງງານ.</p>
+              </div>
+              <div class="pillar-card">
+                <b>Resident DJs/Hosts</b>
+                <p>ດີເຈ ແລະ ພິທີກອນປະຈຳຮ້ານ — ຮັກສາຈັງຫວະ ແລະ ເອກະລັກສະເພາະຂອງແຕ່ລະຮ້ານ.</p>
+              </div>
+              <div class="pillar-card">
+                <b>Guest Artists</b>
+                <p>ສິລະປິນຮັບເຊີນຊື່ດັງ — ສ້າງຄວາມໜ້າເຊື່ອຖື, ຖ່າຍທອດປະສົບການ ແລະ ຂະຫຍາຍຖານແຟນຄລັບ.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -503,221 +1848,456 @@
     </div>
   </section>
 
-  <!-- 06 · SETUP (Slide 08) -->
+  <!-- 06 · Venue Setup (Slide 08) -->
   <section id="setup">
     <div class="wrap">
-      <div class="sec-head rv">
-        <div class="eyebrow"><span class="num">06</span> Venue Setup</div>
-        <h2>Flexible design.<br><span class="hl">Any venue.</span></h2>
-        <div class="sub-lao">ຊຸດຕິດຕັ້ງແບບໂມດູລາ 3 ໂຊນ ປັບໃຊ້ໄດ້ກັບທຸກຂະໜາດຮ້ານ</div>
+      <div class="head-center fade-reveal">
+        <div class="section-tag"><span class="num">06</span> Modular Setup</div>
+        <h2>Flexible Design. <span class="neon-text">Any Venue.</span></h2>
+        <div class="section-subtitle-lao">ຊຸດຕິດຕັ້ງແບບໂມດູລາ 3 ໂຊນ — ປັບໃຊ້ໄດ້ກັບທຸກຂະໜາດຮ້ານ</div>
+        <p class="section-desc-lead">
+          ອອກແບບມາໃຫ້ຕິດຕັ້ງ ແລະ ເຄື່ອນຍ້າຍໄດ້ງ່າຍ ໂດຍຍັງຮັກສາພາບລັກພຣີມຽມຂອງ ເບຍລາວກຣີນ ພ້ອມຕອບໂຈດທັງດ້ານການແຂ່ງຂັນ ແລະ ການຂາຍ.
+        </p>
       </div>
 
-      <div class="setup-hero rv"><img src="assets/beerlao/venue_setup.jpg" alt="Beerlao Green Nightlife × LIHF event decoration concept" loading="lazy"></div>
+      <div class="setup-full-visual fade-reveal">
+        <img src="assets/beerlao/venue_setup.jpg" alt="Beerlao Green Nightlife Modular Venue 3D Render" loading="lazy">
+      </div>
 
-      <div class="zones">
-        <div class="card zone rv">
-          <div class="label">Zone 1</div>
+      <div class="setup-three-zones">
+        <!-- Zone 1 -->
+        <div class="ui-card zone-block fade-reveal">
+          <div class="zone-tag">Zone 01</div>
           <h3>Entrance</h3>
-          <div class="lao-t">ໂຊນທາງເຂົ້າ</div>
+          <div class="lao-title">ໂຊນທາງເຂົ້າ &amp; ຈຸດຕ້ອນຮັບ</div>
           <ul>
-            <li>Branded entrance arch</li>
-            <li>LED light &amp; graffiti design</li>
-            <li>Photo opportunity</li>
-            <li>Welcome staff / registration</li>
+            <li>
+              ຊຸ້ມປະຕູແບຣນດິ້ງ Beerlao Green
+              <small>Branded entrance archway</small>
+            </li>
+            <li>
+              ໄຟ LED ແລະ ລວດລາຍກຣາຟຟິຕີ້
+              <small>Neon lighting &amp; graffiti art</small>
+            </li>
+            <li>
+              ຈຸດຖ່າຍຮູບ Photo Op ເຊັກອິນ
+              <small>Brand photo moment</small>
+            </li>
+            <li>
+              ໂຕະຕ້ອນຮັບ ແລະ ລົງທະບຽນ
+              <small>Welcome staff &amp; guest registration</small>
+            </li>
           </ul>
         </div>
-        <div class="card zone rv">
-          <div class="label">Zone 2</div>
+
+        <!-- Zone 2 -->
+        <div class="ui-card zone-block fade-reveal">
+          <div class="zone-tag">Zone 02</div>
           <h3>Two DJ Tables</h3>
-          <div class="lao-t">ໂຕະດີເຈ 2 ຝັ່ງປະຈັນໜ້າ</div>
+          <div class="lao-title">ເວທີໂຕະດີເຈ 2 ຝັ່ງປະຈັນໜ້າ</div>
           <ul>
-            <li>Facing battle setup, compact footprint</li>
-            <li>LED screen / branded backdrop</li>
-            <li>Beerlao Green branding</li>
-            <li>Rap battle, DJ battle &amp; mini-concert</li>
+            <li>
+              ໂຕະ DJ ຄູ່ຫັນໜ້າໃສ່ກັນ (Facing Setup)
+              <small>Facing battle layout, compact footprint</small>
+            </li>
+            <li>
+              ຈໍ LED Backdrop ພ້ອມແບຣນດິ້ງເດັ່ນ
+              <small>Branded LED screen &amp; stage background</small>
+            </li>
+            <li>
+              ແສງສີສີຂຽວ Beerlao Green
+              <small>Signature green light bars &amp; lasers</small>
+            </li>
+            <li>
+              ຮອງຮັບ Rap Battle, DJ Battle &amp; Mini-Concert
+              <small>Multi-format performance capability</small>
+            </li>
           </ul>
         </div>
-        <div class="card zone rv">
-          <div class="label">Zone 3</div>
+
+        <!-- Zone 3 -->
+        <div class="ui-card zone-block fade-reveal">
+          <div class="zone-tag">Zone 03</div>
           <h3>Audience</h3>
-          <div class="lao-t">ໂຊນຜູ້ຊົມ</div>
+          <div class="lao-title">ໂຊນຜູ້ຊົມ &amp; ຈຸດບໍລິການດື່ມ</div>
           <ul>
-            <li>Open standing area</li>
-            <li>Branded barrel &amp; high tables</li>
-            <li>Good views to both DJ tables</li>
-            <li>Food &amp; beverage sales</li>
+            <li>
+              ພື້ນທີ່ຢືນເປີດກວ້າງ ມອງເຫັນທັງສອງເວທີ
+              <small>Open standing &amp; high-visibility area</small>
+            </li>
+            <li>
+              ໂຕະຖັງເບຍລາວກຣີນ Branded Barrels
+              <small>Branded high tables &amp; green barrels</small>
+            </li>
+            <li>
+              ໂຕະ Green Tables ສຳລັບແຂກຈອງພິເສດ
+              <small>Reserved VIP green table packages</small>
+            </li>
+            <li>
+              ຈຸດສັ່ງເຄື່ອງດື່ມສະດວກວ່ອງໄວ
+              <small>Fast-service beverage points</small>
+            </li>
           </ul>
         </div>
-        <div class="card topview rv" aria-label="Top view layout">
-          <div class="label">Top view</div>
-          <div class="tv">
-            <div class="dj l">DJ TABLE 1</div>
-            <div class="dj r">DJ TABLE 2</div>
-            <div class="aud"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="ent">↑ ENTRANCE</div>
+
+        <!-- Top View Diagram Card -->
+        <div class="ui-card topview-diagram-card fade-reveal">
+          <div>
+            <div class="label">Top-View Layout</div>
+            <div class="lao-title" style="font-size:0.92rem;margin-bottom:0.6rem;">ແຜນຜັງມຸມສູງ</div>
+          </div>
+          <div class="tv-scheme">
+            <div class="tv-dj-row">
+              <div class="tv-dj-box">DJ TABLE 1<br><span style="font-size:0.65rem;font-family:var(--ff-lao);">ເວທີ 1</span></div>
+              <div class="tv-dj-box">DJ TABLE 2<br><span style="font-size:0.65rem;font-family:var(--ff-lao);">ເວທີ 2</span></div>
+            </div>
+            <div class="tv-aud-field">
+              <b>AUDIENCE ZONE</b>
+              <span>ໂຊນຜູ້ຊົມ • ໂຕະສູງ • ຖັງເບຍ</span>
+            </div>
+            <div class="tv-entrance-marker">
+              ↑ ENTRANCE &amp; PHOTO OP (ທາງເຂົ້າ)
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 07 · SALES (Slide 09) -->
-  <section class="alt" id="sales">
+  <!-- 07 · Audience & Sales Strategy (Slide 09) -->
+  <section class="alt-bg" id="sales">
     <div class="wrap">
-      <div class="sec-head rv">
-        <div class="eyebrow"><span class="num">07</span> Audience × Sales</div>
-        <h2>Footfall that <span class="hl">converts.</span></h2>
-        <div class="sub-lao">ເປົ້າໝາຍຜູ້ຊົມ ແລະ ກົນໄກການຂາຍເບຍລາວກຣີນ</div>
+      <div class="head-center fade-reveal">
+        <div class="section-tag"><span class="num">07</span> Audience × Sales</div>
+        <h2>Footfall That <span class="neon-text">Converts</span></h2>
+        <div class="section-subtitle-lao">ເປົ້າໝາຍຜູ້ຊົມ ແລະ ວົງຈອນການສ້າງຍອດຂາຍເບຍລາວກຣີນ</div>
+        <p class="section-desc-lead">
+          ປ່ຽນຄວາມສົນໃຈຂອງງານແຂ່ງຂັນໃຫ້ກາຍເປັນຍອດຂາຍທີ່ວັດແທກໄດ້ຕົວຈິງ ຜ່ານແພັກເກດພິເສດ, ການຈອງໂຕະ ແລະ ກົນໄກການຕະຫຼາດໃນຮ້ານ.
+        </p>
       </div>
 
-      <div class="sales-top">
-        <div class="card target rv">
-          <div class="label">Planning target per venue</div>
-          <div class="big">200–300<small>people</small></div>
-          <div class="total"><span class="label">Across 4 weeks</span><b>800–1,200 visits</b></div>
-          <p>Targets are subject to confirmed venue capacity. <span class="lao">ຕົວເລກຂຶ້ນກັບຄວາມຈຸຂອງແຕ່ລະຮ້ານ.</span></p>
+      <div class="sales-grid-top">
+        <!-- Target Stats Card -->
+        <div class="ui-card target-box fade-reveal">
+          <div class="label">Planning Target Per Venue</div>
+          <div class="big-number">
+            200–300<small>ຄົນ / ຮ້ານ</small>
+          </div>
+          <div class="sum-line">
+            <span class="lbl">ຍອດລວມ 4 ສັບປະດາ:</span>
+            <span class="val">800–1,200 ຄົນ</span>
+          </div>
+          <p class="disclaimer-lao">
+            * ຕົວເລກເປົ້າໝາຍຂຶ້ນກັບຄວາມຈຸ ແລະ ຂໍ້ກຳນົດຕົວຈິງຂອງແຕ່ລະຮ້ານທີ່ໄດ້ຮັບການຢືນຢັນ.
+          </p>
         </div>
-        <div class="flywheel rv">
-          <div class="fw"><span class="label">01</span><b>Attract</b><span>Event demand</span><small>ສ້າງຄວາມຕ້ອງການເຂົ້າງານ</small></div>
-          <div class="fw"><span class="label">02</span><b>Reserve</b><span>Green Tables</span><small>ຈອງໂຕະ Green Table</small></div>
-          <div class="fw"><span class="label">04</span><b>Return</b><span>Next-stop incentive</span><small>ສິດພິເສດສຳລັບງານຕໍ່ໄປ</small></div>
-          <div class="fw"><span class="label">03</span><b>Order + Engage</b><span>Bundles · offers · callouts</span><small>ແພັກເກດ, ໂປຣໂມຊັນ, MC ເຊຍ</small></div>
-          <div class="fw-core">BEERLAO<br>GREEN<br>SALES</div>
-        </div>
-      </div>
 
-      <div class="sales-bottom">
-        <div class="card list-card rv">
-          <h4>Sales mechanics</h4>
-          <div class="chips">
-            <span>Green Table packages</span>
-            <span>Group beverage bundles</span>
-            <span>Premium viewing tables</span>
-            <span>Event-only offers</span>
-            <span>Visible ordering points</span>
-            <span>MC / artist callouts</span>
+        <!-- Sales Flywheel -->
+        <div class="flywheel-module fade-reveal">
+          <div class="fw-card">
+            <span class="step-index">STEP 01</span>
+            <b>Attract</b>
+            <div class="lao-title">ດຶງດູດຄົນເຂົ້າຮ້ານ</div>
+            <p>ສ້າງຄວາມຕ້ອງການເຂົ້າຮ່ວມງານ ຜ່ານກະແສການແຂ່ງຂັນ ແລະ ລາຍຊື່ສິລະປິນດັງ.</p>
+          </div>
+          <div class="fw-card">
+            <span class="step-index">STEP 02</span>
+            <b>Reserve</b>
+            <div class="lao-title">ຈອງໂຕະ Green Tables</div>
+            <p>ເປີດໃຫ້ຈອງໂຕະ VIP ພິເສດ ພ້ອມແພັກເກດເຄື່ອງດື່ມ ເບຍລາວກຣີນ ລ່ວງໜ້າ.</p>
+          </div>
+          <div class="fw-card">
+            <span class="step-index">STEP 03</span>
+            <b>Order &amp; Engage</b>
+            <div class="lao-title">ສັ່ງດື່ມ ແລະ ມີສ່ວນຮ່ວມ</div>
+            <p>ແພັກເກດເບຍຍົກກຸ່ມ, ໂປຣໂມຊັນພິເສດໃນງານ, ແລະ ພິທີກອນເຊຍຍົກຈອກຕະຫຼອດຄືນ.</p>
+          </div>
+          <div class="fw-card">
+            <span class="step-index">STEP 04</span>
+            <b>Return</b>
+            <div class="lao-title">ກັບມາທ່ຽວຊ້ຳໃນງານຕໍ່ໄປ</div>
+            <p>ມອບສິດພິເສດ ຫຼື ປີ້ເຂົ້າງານໃຫຍ່ LIHF 2026 ເພື່ອກະຕຸ້ນໃຫ້ໄປຕິດຕາມຮ້ານຖັດໄປ.</p>
           </div>
         </div>
-        <div class="card list-card rv">
-          <h4>KPIs</h4>
-          <div class="chips">
-            <span>Attendance</span>
-            <span>Tables reserved</span>
-            <span>Beerlao Green units sold</span>
-            <span>Sales per attendee</span>
-            <span>Package sales</span>
-            <span>Repeat attendance</span>
+      </div>
+
+      <div class="sales-grid-bottom">
+        <!-- Sales Mechanics -->
+        <div class="ui-card action-chips-card fade-reveal">
+          <h4>Sales Mechanics</h4>
+          <div class="lao-heading">ກົນໄກການກະຕຸ້ນຍອດຂາຍພາຍໃນງານ</div>
+          <div class="chips-flex">
+            <div class="chip-item"><b>Green Table Packages</b><span>ແພັກເກດໂຕະພ້ອມເບຍລາວກຣີນ</span></div>
+            <div class="chip-item"><b>Group Beverage Bundles</b><span>ເຊັດເຄື່ອງດື່ມລາຄາພິເສດສຳລັບກຸ່ມ</span></div>
+            <div class="chip-item"><b>Premium Viewing Tables</b><span>ໂຕະແຖວໜ້າຕິດຂອບເວທີ DJ</span></div>
+            <div class="chip-item"><b>Event-Only Offers</b><span>ໂປຣໂມຊັນສະເພາະໃນຄືນຈັດງານ</span></div>
+            <div class="chip-item"><b>Visible Ordering Points</b><span>ຈຸດສັ່ງເບຍລາວກຣີນເດັ່ນຊັດ</span></div>
+            <div class="chip-item"><b>MC &amp; Artist Callouts</b><span>ພິທີກອນ ແລະ ສິລະປິນເຊຍຍົກຈອກ</span></div>
+          </div>
+        </div>
+
+        <!-- KPIs -->
+        <div class="ui-card action-chips-card fade-reveal">
+          <h4>Key Performance Indicators</h4>
+          <div class="lao-heading">ຕົວຊີ້ວັດຜົນສຳເລັດ (KPIs) ທີ່ວັດແທກໄດ້</div>
+          <div class="chips-flex">
+            <div class="chip-item"><b>Attendance Footfall</b><span>ຈຳນວນຜູ້ເຂົ້າຮ່ວມງານທັງໝົດ</span></div>
+            <div class="chip-item"><b>Tables Reserved</b><span>ຈຳນວນໂຕະ Green Tables ທີ່ຈອງ</span></div>
+            <div class="chip-item"><b>Beerlao Units Sold</b><span>ຍອດຈຳນວນແກ້ວ/ກະປ໋ອງທີ່ຂາຍໄດ້</span></div>
+            <div class="chip-item"><b>Sales Per Attendee</b><span>ຍອດໃຊ້ຈ່າຍສະເລ່ຍຕໍ່ຫົວ</span></div>
+            <div class="chip-item"><b>Package Sales</b><span>ຍອດຂາຍແພັກເກດກຸ່ມພິເສດ</span></div>
+            <div class="chip-item"><b>Repeat Attendance</b><span>ອັດຕາການຕິດຕາມໄປຮ້ານອື່ນໆ</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 08 · BUDGET (Slide 13) -->
+  <!-- 08 · Budget Breakdown (Slide 13) -->
   <section id="budget">
     <div class="wrap">
-      <div class="sec-head rv">
-        <div class="eyebrow"><span class="num">08</span> Proposed Budget</div>
-        <h2>Budget <span class="hl">expense.</span></h2>
-        <div class="sub-lao">ງົບປະມານສະເໜີ ສຳລັບທັງ 4 ງານ</div>
+      <div class="head-center fade-reveal">
+        <div class="section-tag"><span class="num">08</span> Proposed Budget</div>
+        <h2>Investment &amp; <span class="neon-text">Budget Expense</span></h2>
+        <div class="section-subtitle-lao">ລາຍລະອຽດງົບປະມານສະເໜີ — ສຳລັບ 4 ງານທົ່ວວຽງຈັນ</div>
+        <p class="section-desc-lead">
+          ແຜນງົບປະມານລວມ 500,000,000 ກີບ (ສະເລ່ຍ 125,000,000 ກີບຕໍ່ຮ້ານ) ຄອບຄຸມທັງລະບົບເຕັກນິກ, ສິລະປິນ, ສື່ໂຄສະນາ, ແລະ ການບໍລິຫານງານ.
+        </p>
       </div>
 
-      <div class="budget">
-        <div class="card budget-sum rv">
-          <div>
-            <div class="label">Total project budget</div>
-            <div class="big">500,000,000<small>LAK</small></div>
-            <p>ງົບປະມານລວມທັງໂຄງການ</p>
+      <div class="budget-two-col">
+        <!-- Summary Left -->
+        <div class="ui-card budget-headline-card fade-reveal">
+          <div class="sub-block">
+            <div class="lbl">Total Project Budget</div>
+            <div class="grand-total">500,000,000<small>LAK</small></div>
+            <div class="lao-explain">ງົບປະມານລວມທັງໂຄງການ (100%)</div>
           </div>
-          <div>
-            <div class="label">Average per activation</div>
-            <div class="mid">125,000,000 LAK</div>
-            <p>ສະເລ່ຍຕໍ່ 1 ງານ (4 ງານ)</p>
+
+          <div class="sub-block">
+            <div class="lbl">Average Per Activation</div>
+            <div class="avg-total">125,000,000 LAK</div>
+            <div class="lao-explain">ສະເລ່ຍຕໍ່ 1 ຮ້ານ (ລວມ 4 ຮ້ານ)</div>
           </div>
-          <div class="disclaimer">Proposed planning budget; final allocation may be adjusted after venue and partner confirmation.</div>
+
+          <div class="budget-disclaimer-box">
+            * ງົບປະມານການວາງແຜນສະເໜີ; ການຈັດສັນຂັ້ນສຸດທ້າຍອາດມີການປັບປ່ຽນເລັກນ້ອຍພາຍຫຼັງການຢືນຢັນສະຖານທີ່ ແລະ ພາກສ່ວນຮ່ວມມື.
+          </div>
         </div>
 
-        <div class="rv">
-          <div class="b-rows">
-            <div class="b-row">
-              <div class="b-name"><b>Event Production &amp; Technical Setup</b><span>ການຜະລິດງານ ແລະ ລະບົບເຕັກນິກ</span></div>
-              <div class="b-amt">120,000,000</div><div class="b-pct">24%</div>
-              <div class="b-bar"><i style="width:24%"></i></div>
+        <!-- Breakdown Right -->
+        <div class="fade-reveal">
+          <div class="budget-table-rows">
+            <!-- Item 1 -->
+            <div class="budget-row-card">
+              <div class="b-row-top">
+                <div class="b-title-group">
+                  <b>Event Production &amp; Technical Setup</b>
+                  <span>ການຜະລິດງານ, ເວທີ, ແສງ, ສຽງ ແລະ ລະບົບເຕັກນິກ</span>
+                </div>
+                <div class="b-val-group">
+                  <span class="amt">120,000,000 LAK</span>
+                  <span class="pct">24%</span>
+                </div>
+              </div>
+              <div class="b-progress-rail">
+                <div class="b-progress-fill" style="width: 24%;"></div>
+              </div>
             </div>
-            <div class="b-row">
-              <div class="b-name"><b>Artists, International Guests &amp; Entertainment</b><span>ສິລະປິນ, ແຂກຕ່າງປະເທດ ແລະ ການສະແດງ</span></div>
-              <div class="b-amt">100,000,000</div><div class="b-pct">20%</div>
-              <div class="b-bar"><i style="width:20%"></i></div>
+
+            <!-- Item 2 -->
+            <div class="budget-row-card">
+              <div class="b-row-top">
+                <div class="b-title-group">
+                  <b>Artists, International Guests &amp; Entertainment</b>
+                  <span>ຄ່າຕົວສິລະປິນ, ແຂກຕ່າງປະເທດ ແລະ ການສະແດງໂຊວ໌</span>
+                </div>
+                <div class="b-val-group">
+                  <span class="amt">100,000,000 LAK</span>
+                  <span class="pct">20%</span>
+                </div>
+              </div>
+              <div class="b-progress-rail">
+                <div class="b-progress-fill" style="width: 20%;"></div>
+              </div>
             </div>
-            <div class="b-row">
-              <div class="b-name"><b>Marketing, Media &amp; Content Production</b><span>ການຕະຫຼາດ, ສື່ ແລະ ຜະລິດຄອນເທັນ</span></div>
-              <div class="b-amt">70,000,000</div><div class="b-pct">14%</div>
-              <div class="b-bar"><i style="width:14%"></i></div>
+
+            <!-- Item 3 -->
+            <div class="budget-row-card">
+              <div class="b-row-top">
+                <div class="b-title-group">
+                  <b>Marketing, Media &amp; Content Production</b>
+                  <span>ການຕະຫຼາດ, ຍິງສື່ໂຄສະນາ, ຖ່າຍທຳ ແລະ ຕັດຕໍ່ຄອນເທັນ</span>
+                </div>
+                <div class="b-val-group">
+                  <span class="amt">70,000,000 LAK</span>
+                  <span class="pct">14%</span>
+                </div>
+              </div>
+              <div class="b-progress-rail">
+                <div class="b-progress-fill" style="width: 14%;"></div>
+              </div>
             </div>
-            <div class="b-row">
-              <div class="b-name"><b>Portable Decoration &amp; Branding + Logistics</b><span>ຊຸດຕົກແຕ່ງເຄື່ອນທີ່, ແບຣນດິ້ງ ແລະ ຂົນສົ່ງ</span></div>
-              <div class="b-amt">65,000,000</div><div class="b-pct">13%</div>
-              <div class="b-bar"><i style="width:13%"></i></div>
+
+            <!-- Item 4 -->
+            <div class="budget-row-card">
+              <div class="b-row-top">
+                <div class="b-title-group">
+                  <b>Portable Decoration &amp; Branding + Logistics</b>
+                  <span>ຊຸດຕົກແຕ່ງໂມດູລາ, ປ້າຍແບຣນດິ້ງເຄື່ອນທີ່ ແລະ ຄ່າຂົນສົ່ງ</span>
+                </div>
+                <div class="b-val-group">
+                  <span class="amt">65,000,000 LAK</span>
+                  <span class="pct">13%</span>
+                </div>
+              </div>
+              <div class="b-progress-rail">
+                <div class="b-progress-fill" style="width: 13%;"></div>
+              </div>
             </div>
-            <div class="b-row">
-              <div class="b-name"><b>Competition, Judges &amp; Prizes</b><span>ການແຂ່ງຂັນ, ກຳມະການ ແລະ ລາງວັນ</span></div>
-              <div class="b-amt">60,000,000</div><div class="b-pct">12%</div>
-              <div class="b-bar"><i style="width:12%"></i></div>
+
+            <!-- Item 5 -->
+            <div class="budget-row-card">
+              <div class="b-row-top">
+                <div class="b-title-group">
+                  <b>Competition, Judges &amp; Prizes</b>
+                  <span>ເງິນລາງວັນການແຂ່ງຂັນ, ຄ່າຕອບແທນກຳມະການ ແລະ ຖ້ວຍລາງວັນ</span>
+                </div>
+                <div class="b-val-group">
+                  <span class="amt">60,000,000 LAK</span>
+                  <span class="pct">12%</span>
+                </div>
+              </div>
+              <div class="b-progress-rail">
+                <div class="b-progress-fill" style="width: 12%;"></div>
+              </div>
             </div>
-            <div class="b-row">
-              <div class="b-name"><b>Venue Operations, Crew &amp; Staffing</b><span>ການດຳເນີນງານສະຖານທີ່ ແລະ ທີມງານ</span></div>
-              <div class="b-amt">60,000,000</div><div class="b-pct">12%</div>
-              <div class="b-bar"><i style="width:12%"></i></div>
+
+            <!-- Item 6 -->
+            <div class="budget-row-card">
+              <div class="b-row-top">
+                <div class="b-title-group">
+                  <b>Venue Operations, Crew &amp; Staffing</b>
+                  <span>ການບໍລິຫານພື້ນທີ່ຮ້ານ, ທີມງານພາກສະໜາມ ແລະ ຄວາມປອດໄພ</span>
+                </div>
+                <div class="b-val-group">
+                  <span class="amt">60,000,000 LAK</span>
+                  <span class="pct">12%</span>
+                </div>
+              </div>
+              <div class="b-progress-rail">
+                <div class="b-progress-fill" style="width: 12%;"></div>
+              </div>
             </div>
-            <div class="b-row">
-              <div class="b-name"><b>Contingency / Reserve</b><span>ງົບສຳຮອງ</span></div>
-              <div class="b-amt">25,000,000</div><div class="b-pct">5%</div>
-              <div class="b-bar"><i style="width:5%"></i></div>
+
+            <!-- Item 7 -->
+            <div class="budget-row-card">
+              <div class="b-row-top">
+                <div class="b-title-group">
+                  <b>Contingency / Reserve Fund</b>
+                  <span>ງົບປະມານສຳຮອງສຸກເສີນ</span>
+                </div>
+                <div class="b-val-group">
+                  <span class="amt">25,000,000 LAK</span>
+                  <span class="pct">5%</span>
+                </div>
+              </div>
+              <div class="b-progress-rail">
+                <div class="b-progress-fill" style="width: 5%;"></div>
+              </div>
             </div>
           </div>
-          <div class="b-total"><span class="label">Total</span><b>500,000,000 LAK · <span class="hl">100%</span></b></div>
+
+          <div class="budget-total-bar">
+            <span>ຍອດລວມທັງໝົດ (Total 100%):</span>
+            <b>500,000,000 LAK</b>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 09 · CTA (Slide 12) -->
-  <section class="cta" id="contact">
-    <div class="cta-bg"></div>
+  <!-- 09 · Next Steps & Call to Action (Slide 12) -->
+  <section class="cta-final-section" id="contact">
+    <div class="cta-photo-bg"></div>
     <div class="wrap">
-      <div class="eyebrow">Let's build the activation together</div>
-      <h2 class="rv"><span>Own the road.</span><span>Own the night.</span><span class="hl">Own the moment.</span></h2>
-      <p class="lead lao rv">ມາຮ່ວມກັນສ້າງແຄມເປນນີ້ — ຈາກຖະໜົນ, ສູ່ຄ່ຳຄືນ, ສູ່ຊ່ວງເວລາທີ່ທຸກຄົນຈື່ຈຳ.</p>
-      <div class="next rv">
-        <span class="label">Next</span>
-        <b>Align venues</b><b>Format</b><b>Roles</b><b>Roadmap</b>
+      <div class="section-tag fade-reveal" style="justify-content:center;">
+        <span>Let's Build The Activation Together</span>
       </div>
-      <div class="contacts rv">
-        <div class="card contact"><div class="label">Fanglao Dance Studio</div><b>Ounla Phaoudom (Khen)</b><span>Founder · LIHF Organizer</span></div>
-        <div class="card contact"><div class="label">Indee Records &amp; Events</div><b>Anulak Prathammavong (Aai Ped)</b><span>Music &amp; Sound Production</span></div>
+
+      <div class="cta-slogans fade-reveal">
+        <h2>Own the Road.</h2>
+        <h2>Own the Night.</h2>
+        <h2 class="neon-text">Own the Moment.</h2>
       </div>
-      <div class="btns rv">
-        <a class="btn btn-p" href="mailto:contact@fanglaostudio.com?subject=Beerlao%20Green%20Nightlife%20x%20LIHF%202026">Send Inquiry →</a>
-        <a class="btn btn-o" href="index.html">LIHF 2026 Main Site</a>
+
+      <p class="cta-lao-slogan fade-reveal">
+        ຄອບຄອງເສັ້ນທາງ • ຄອບຄອງຄ່ຳຄືນ • ຄອບຄອງຊ່ວງເວລາແຫ່ງຄວາມຊົງຈຳ ໄປພ້ອມກັບ ເບຍລາວກຣີນ
+      </p>
+
+      <div class="next-steps-container fade-reveal">
+        <span class="next-label">Next Steps:</span>
+        <div class="step-badge-round">1. ຢືນຢັນຮ້ານ ແລະ ວັນເວລາ <small>Align Venues</small></div>
+        <div class="step-badge-round">2. ກຳນົດຮູບແບບເຕັກນິກ <small>Format</small></div>
+        <div class="step-badge-round">3. ແບ່ງໜ້າທີ່ຮັບຜິດຊອບ <small>Roles</small></div>
+        <div class="step-badge-round">4. ວາງແຜນປະຕິບັດງານ <small>Roadmap</small></div>
+      </div>
+
+      <div class="contacts-two-grid fade-reveal">
+        <div class="ui-card contact-card-box">
+          <div class="entity-label">Fanglao Dance Studio (ຜູ້ຈັດງານຫຼັກ)</div>
+          <div class="person-name">Ounla Phaoudom (Khen)</div>
+          <div class="person-role">ຜູ້ກໍ່ຕັ້ງ Fanglao &amp; ຜູ້ອຳນວຍການເທສະການ LIHF 2026</div>
+        </div>
+        <div class="ui-card contact-card-box">
+          <div class="entity-label">Indee Records &amp; Events (ຝ່າຍດົນຕີ &amp; ສຽງ)</div>
+          <div class="person-name">Anulak Prathammavong (Aai Ped)</div>
+          <div class="person-role">ຜູ້ອຳນວຍການຝ່າຍດົນຕີ, ສຽງ ແລະ ການຜະລິດ</div>
+        </div>
+      </div>
+
+      <div class="cta-buttons-row fade-reveal">
+        <a class="btn-main-action" href="mailto:contact@fanglaostudio.com?subject=Beerlao%20Green%20Nightlife%20x%20LIHF%202026%20Proposal">
+          <span>ສົ່ງອີເມວຕິດຕໍ່ຮ່ວມມື →</span>
+        </a>
+        <a class="btn-sec-action" href="index.html">
+          <span>ເບິ່ງເວັບໄຊຫຼັກ LIHF 2026 ↗</span>
+        </a>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="wrap">
-      <span>© 2026 Lao International HipHop Festival · Fanglao Dance Studio × Indee Records. Beerlao® is a registered trademark of Lao Brewery Co., Ltd.</span>
-      <a href="index.html">← Back to LIHF 2026</a>
+      <div class="copy-text">
+        © 2026 Lao International HipHop Festival (LIHF 2026). ສະຫງວນລິຂະສິດໂດຍ Fanglao Dance Studio × Indee Records.<br>
+        Beerlao® ເປັນເຄື່ອງໝາຍການຄ້າຈົດທະບຽນຂອງ ບໍລິສັດ ເບຍລາວ ຈຳກັດ (Lao Brewery Co., Ltd.).
+      </div>
+      <div>
+        <a href="index.html">← ກັບສູ່ໜ້າຫຼັກ LIHF 2026</a>
+      </div>
     </div>
   </footer>
 
+  <!-- Scroll Observer Script -->
   <script>
     (function () {
-      const els = document.querySelectorAll('.rv');
-      if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-      els.forEach(e => io.observe(e));
+      const revealElements = document.querySelectorAll('.fade-reveal');
+      if (!('IntersectionObserver' in window)) {
+        revealElements.forEach(el => el.classList.add('in-view'));
+        return;
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      revealElements.forEach(el => observer.observe(el));
     })();
   </script>
 </body>
