@@ -14612,13 +14612,114 @@ body.gsap-ready .acc-inner .ru {
   }
 }
 
+#packages .container,
+#packages .cardfree-layout {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding-left: clamp(1rem, 2.5vw, 3rem) !important;
+  padding-right: clamp(1rem, 2.5vw, 3rem) !important;
+}
+
 .sp-cards-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.5rem;
-  margin-top: 2.8rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(0.7rem, 1.1vw, 1.35rem);
+  width: 100%;
+  margin-top: 2.5rem;
   margin-bottom: 3.5rem;
   align-items: stretch;
+}
+
+/* Lao typography accents in cards */
+.sp-tier-name-lao {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  margin-top: 0.15rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+
+.sp-tier-role-lao {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 0.2rem;
+}
+
+.sp-perk-lao {
+  display: block;
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.73rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.62);
+  margin-top: 2px;
+}
+
+/* Expand Drawer */
+.sp-expand-drawer {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, margin 0.35s ease;
+  margin-top: 0;
+}
+
+.sp-card.is-expanded .sp-expand-drawer {
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Expand Button in each Card */
+.sp-card-expand-btn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 0.55rem 0.75rem;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin: 0.8rem 0 1rem;
+  transition: all 0.28s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.sp-card-expand-btn:hover {
+  background: rgba(204, 0, 0, 0.18);
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow: 0 4px 16px rgba(204, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.sp-card.is-expanded .sp-card-expand-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 215, 0, 0.45);
+}
+
+.sp-expand-btn-text {
+  font-family: var(--ff-a, monospace);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.sp-expand-btn-sub {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.66rem;
+  color: var(--gold, #d4af37);
+  font-weight: 500;
 }
 
 .sp-card {
@@ -20982,23 +21083,61 @@ body.presentation-active .floating-present-badge {
             <div class="sp-header">
               <span class="sp-badge sp-badge-title">✦ MOST EXCLUSIVE • 1 SLOT</span>
               <h3 class="sp-tier-name" style="color:var(--gold);">TITLE PARTNER</h3>
+              <div class="sp-tier-name-lao">ຜູ້ສະໜັບສະໜູນຫຼັກລະດັບສູງສຸດ</div>
               <div class="sp-price-box">
                 <span class="sp-price-val" style="color:var(--gold);">500M</span>
                 <span class="sp-price-curr">LAK</span>
               </div>
-              <div class="sp-tier-role">Naming Rights &amp; Total Festival Dominance</div>
+              <div class="sp-tier-role">
+                Naming Rights &amp; Total Festival Dominance
+                <div class="sp-tier-role-lao">ສິດທິຕັ້ງຊື່ງານ &amp; ການຄອງພື້ນທີ່ທັງໝົດຂອງງານເທສະການ</div>
+              </div>
             </div>
 
             <!-- Perks Checklist -->
-            <ul class="sp-perks">
-              <li><strong>Naming Rights:</strong> 'LIHF 2026 Presented by [Brand]' across all media</li>
-              <li><strong>Main Stage Dominance:</strong> Prime top-tier LED billing &amp; perimeter banners</li>
-              <li><strong>Category Exclusivity:</strong> 100% full industry category lockdown</li>
-              <li><strong>100 sq.m Mega Booth:</strong> Prime main entrance circulation spot</li>
-              <li><strong>Ceremony Presenter:</strong> Grand Trophy &amp; Opening Keynote</li>
-              <li><strong>10M+ Reach Priority:</strong> Livestream title bugs, OOH &amp; TikTok ads</li>
-              <li><strong>20 VIP Passes:</strong> VIP Concert Lounge &amp; Stage-Side hospitality</li>
-            </ul>
+            <div class="sp-perks-body" style="flex-grow:1; display:flex; flex-direction:column;">
+              <ul class="sp-perks" style="margin-bottom:0.4rem; flex-grow:0;">
+                <li>
+                  <strong>Naming Rights:</strong> 'LIHF 2026 Presented by [Brand]' across all media
+                  <span class="sp-perk-lao">ສິດທິນຳໜ້າຊື່ງານໃນທຸກສື່ປະຊາສຳພັນ</span>
+                </li>
+                <li>
+                  <strong>Main Stage Dominance:</strong> Prime top-tier LED billing &amp; perimeter banners
+                  <span class="sp-perk-lao">ໂລໂກ້ຂຶ້ນຈໍ LED ຫຼັກຕະຫຼອດງານ ແລະ ປ້າຍອ້ອມຮອບເວທີ</span>
+                </li>
+                <li>
+                  <strong>Category Exclusivity:</strong> 100% full industry category lockdown
+                  <span class="sp-perk-lao">ສິດຂາດພຽງໜຶ່ງດຽວໃນປະເພດທຸລະກິດ (Lockout)</span>
+                </li>
+              </ul>
+
+              <div class="sp-expand-drawer">
+                <ul class="sp-perks" style="margin:0; padding-top:0.4rem; border-top:1px dashed rgba(255,255,255,0.12);">
+                  <li>
+                    <strong>100 sq.m Mega Booth:</strong> Prime main entrance circulation spot
+                    <span class="sp-perk-lao">ບູດຂະໜາດໃຫຍ່ 100 ຕາແມັດ ບໍລິເວນທາງເຂົ້າຫຼັກ</span>
+                  </li>
+                  <li>
+                    <strong>Ceremony Presenter:</strong> Grand Trophy &amp; Opening Keynote
+                    <span class="sp-perk-lao">ກ່າວເປີດງານ ແລະ ຂຶ້ນມອບລາງວັນໃຫຍ່ເທິງເວທີ</span>
+                  </li>
+                  <li>
+                    <strong>10M+ Reach Priority:</strong> Livestream title bugs, OOH &amp; TikTok ads
+                    <span class="sp-perk-lao">ໂລໂກ້ຂຶ້ນຖ່າຍທອດສົດ ແລະ ແຄມເປນ TikTok</span>
+                  </li>
+                  <li>
+                    <strong>20 VIP Passes:</strong> VIP Concert Lounge &amp; Stage-Side hospitality
+                    <span class="sp-perk-lao">ບັດ VIP 20 ໃບ ເຂົ້າໂຊນພິເສດຕິດຂອບເວທີ</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Expand Button -->
+              <button type="button" class="sp-card-expand-btn" onclick="toggleCardExpand(this)" aria-expanded="false" aria-label="Toggle details for Title Partner">
+                <span class="sp-expand-btn-text">EXPAND DETAILS ▾</span>
+                <span class="sp-expand-btn-sub">ຂະຫຍາຍລາຍລະອຽດ</span>
+              </button>
+            </div>
 
             <!-- Action -->
             <div class="sp-action">
@@ -21038,22 +21177,57 @@ body.presentation-active .floating-present-badge {
             <div class="sp-header">
               <span class="sp-badge sp-badge-plat">✦ HIGH IMPACT • 2 SLOTS</span>
               <h3 class="sp-tier-name" style="color:#ffffff;">PLATINUM</h3>
+              <div class="sp-tier-name-lao">ຜູ້ສະໜັບສະໜູນລະດັບແພລັດຕິນຳ</div>
               <div class="sp-price-box">
                 <span class="sp-price-val" style="color:#e5e4e2;">250M</span>
                 <span class="sp-price-curr">LAK</span>
               </div>
-              <div class="sp-tier-role">Major Stage Co-Branding &amp; Category Pillar</div>
+              <div class="sp-tier-role">
+                Major Stage Co-Branding &amp; Category Pillar
+                <div class="sp-tier-role-lao">ຮ່ວມສ້າງແບຣນເທິງເວທີໃຫຍ່ &amp; ເສົາຫຼັກປະເພດສິນຄ້າ</div>
+              </div>
             </div>
 
             <!-- Perks Checklist -->
-            <ul class="sp-perks">
-              <li><strong>Major Stage Branding:</strong> Second billing on main stage LED &amp; backdrops</li>
-              <li><strong>Battle Category Naming:</strong> Own 1 flagship competition pillar</li>
-              <li><strong>50 sq.m Prime Booth:</strong> Central high-traffic audience location</li>
-              <li><strong>Dedicated Social Campaign:</strong> 5 targeted Reels, TikTok challenge &amp; PR</li>
-              <li><strong>Livestream Placement:</strong> Prominent bugs throughout broadcast</li>
-              <li><strong>10 VIP Passes:</strong> Stage-side viewing &amp; hospitality access</li>
-            </ul>
+            <div class="sp-perks-body" style="flex-grow:1; display:flex; flex-direction:column;">
+              <ul class="sp-perks" style="margin-bottom:0.4rem; flex-grow:0;">
+                <li>
+                  <strong>Major Stage Branding:</strong> Second billing on main stage LED &amp; backdrops
+                  <span class="sp-perk-lao">ໂລໂກ້ຂະໜາດໃຫຍ່ເທິງຈໍ LED ແລະ ສາກຫຼັງເວທີ</span>
+                </li>
+                <li>
+                  <strong>Battle Category Naming:</strong> Own 1 flagship competition pillar
+                  <span class="sp-perk-lao">ສິດເປັນເຈົ້າພາບລາຍການແຂ່ງຂັນຫຼັກ 1 ລາຍການ</span>
+                </li>
+                <li>
+                  <strong>50 sq.m Prime Booth:</strong> Central high-traffic audience location
+                  <span class="sp-perk-lao">ບູດພິເສດ 50 ຕາແມັດ ໃຈກາງພື້ນທີ່ຈັດງານ</span>
+                </li>
+              </ul>
+
+              <div class="sp-expand-drawer">
+                <ul class="sp-perks" style="margin:0; padding-top:0.4rem; border-top:1px dashed rgba(255,255,255,0.12);">
+                  <li>
+                    <strong>Dedicated Social Campaign:</strong> 5 targeted Reels, TikTok challenge &amp; PR
+                    <span class="sp-perk-lao">ແຄມເປນໂຄສະນາ 5 ຄລິບ, TikTok Challenge ແລະ PR</span>
+                  </li>
+                  <li>
+                    <strong>Livestream Placement:</strong> Prominent bugs throughout broadcast
+                    <span class="sp-perk-lao">ໂລໂກ້ຂຶ້ນລະຫວ່າງການຖ່າຍທອດສົດທົ່ວປະເທດ</span>
+                  </li>
+                  <li>
+                    <strong>10 VIP Passes:</strong> Stage-side viewing &amp; hospitality access
+                    <span class="sp-perk-lao">ບັດ VIP 10 ໃບ ພ້ອມບໍລິການຮັບຮອງພິເສດ</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Expand Button -->
+              <button type="button" class="sp-card-expand-btn" onclick="toggleCardExpand(this)" aria-expanded="false" aria-label="Toggle details for Platinum Partner">
+                <span class="sp-expand-btn-text">EXPAND DETAILS ▾</span>
+                <span class="sp-expand-btn-sub">ຂະຫຍາຍລາຍລະອຽດ</span>
+              </button>
+            </div>
 
             <!-- Action -->
             <div class="sp-action">
@@ -21093,21 +21267,53 @@ body.presentation-active .floating-present-badge {
             <div class="sp-header">
               <span class="sp-badge sp-badge-gold">✦ BRAND LEADER • 4 SLOTS</span>
               <h3 class="sp-tier-name" style="color:var(--gold);">GOLD PARTNER</h3>
+              <div class="sp-tier-name-lao">ຜູ້ສະໜັບສະໜູນລະດັບຄຳ</div>
               <div class="sp-price-box">
                 <span class="sp-price-val" style="color:var(--gold-l);">100M</span>
                 <span class="sp-price-curr">LAK</span>
               </div>
-              <div class="sp-tier-role">Experiential Sampling &amp; Stage Rotation</div>
+              <div class="sp-tier-role">
+                Experiential Sampling &amp; Stage Rotation
+                <div class="sp-tier-role-lao">ພື້ນທີ່ປະສົບການຊີມລົດຊາດ &amp; ໂລໂກ້ໝູນວຽນເທິງເວທີ</div>
+              </div>
             </div>
 
             <!-- Perks Checklist -->
-            <ul class="sp-perks">
-              <li><strong>Shared Stage Rotation:</strong> High-frequency logo in main stage loop</li>
-              <li><strong>25 sq.m Activation Booth:</strong> Direct product sampling &amp; sales</li>
-              <li><strong>Social Media Feature:</strong> 3 dedicated campaign posts &amp; stories</li>
-              <li><strong>Official 4K Aftermovie:</strong> Brand inclusion in global recap video</li>
-              <li><strong>5 VIP Passes:</strong> Access to all competition and concert zones</li>
-            </ul>
+            <div class="sp-perks-body" style="flex-grow:1; display:flex; flex-direction:column;">
+              <ul class="sp-perks" style="margin-bottom:0.4rem; flex-grow:0;">
+                <li>
+                  <strong>Shared Stage Rotation:</strong> High-frequency logo in main stage loop
+                  <span class="sp-perk-lao">ໂລໂກ້ໝູນວຽນເທິງຈໍເວທີຫຼັກຕະຫຼອດງານ</span>
+                </li>
+                <li>
+                  <strong>25 sq.m Activation Booth:</strong> Direct product sampling &amp; sales
+                  <span class="sp-perk-lao">ບູດກິດຈະກຳ 25 ຕາແມັດ ສຳລັບຂາຍ ແລະ ແຈກຕົວຢ່າງ</span>
+                </li>
+                <li>
+                  <strong>Social Media Feature:</strong> 3 dedicated campaign posts &amp; stories
+                  <span class="sp-perk-lao">ໂພສ ແລະ ສະຕໍຣີ່ໂປຣໂມດແບຣນ 3 ຄັ້ງ</span>
+                </li>
+              </ul>
+
+              <div class="sp-expand-drawer">
+                <ul class="sp-perks" style="margin:0; padding-top:0.4rem; border-top:1px dashed rgba(255,255,255,0.12);">
+                  <li>
+                    <strong>Official 4K Aftermovie:</strong> Brand inclusion in global recap video
+                    <span class="sp-perk-lao">ຮ່ວມໃນວິດີໂອສະຫຼຸບງານລະດັບ 4K ສາກົນ</span>
+                  </li>
+                  <li>
+                    <strong>5 VIP Passes:</strong> Access to all competition and concert zones
+                    <span class="sp-perk-lao">ບັດ VIP 5 ໃບ ສຳລັບທຸກໂຊນການແຂ່ງຂັນ ແລະ ຄອນເສີດ</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Expand Button -->
+              <button type="button" class="sp-card-expand-btn" onclick="toggleCardExpand(this)" aria-expanded="false" aria-label="Toggle details for Gold Partner">
+                <span class="sp-expand-btn-text">EXPAND DETAILS ▾</span>
+                <span class="sp-expand-btn-sub">ຂະຫຍາຍລາຍລະອຽດ</span>
+              </button>
+            </div>
 
             <!-- Action -->
             <div class="sp-action">
@@ -21147,21 +21353,53 @@ body.presentation-active .floating-present-badge {
             <div class="sp-header">
               <span class="sp-badge sp-badge-silver">✦ ACTIVATION • OPEN</span>
               <h3 class="sp-tier-name" style="color:#e0e0e0;">SILVER PARTNER</h3>
+              <div class="sp-tier-name-lao">ຜູ້ສະໜັບສະໜູນລະດັບເງິນ</div>
               <div class="sp-price-box">
                 <span class="sp-price-val" style="color:#d8d8d8;">50M</span>
                 <span class="sp-price-curr">LAK</span>
               </div>
-              <div class="sp-tier-role">Youth Engagement &amp; Direct Sampling</div>
+              <div class="sp-tier-role">
+                Youth Engagement &amp; Direct Sampling
+                <div class="sp-tier-role-lao">ການມີສ່ວນຮ່ວມກັບໄວໜຸ່ມ &amp; ແຈກສິນຄ້າຕົວຢ່າງ</div>
+              </div>
             </div>
 
             <!-- Perks Checklist -->
-            <ul class="sp-perks">
-              <li><strong>Festival Banners:</strong> Logo on official event signage &amp; website</li>
-              <li><strong>12 sq.m Booth Space:</strong> Direct consumer contact &amp; retail</li>
-              <li><strong>Group Digital Announcement:</strong> Featured across festival channels</li>
-              <li><strong>Official Photo Pack:</strong> High-res branded event photography</li>
-              <li><strong>2 VIP Passes:</strong> All-access festival entry</li>
-            </ul>
+            <div class="sp-perks-body" style="flex-grow:1; display:flex; flex-direction:column;">
+              <ul class="sp-perks" style="margin-bottom:0.4rem; flex-grow:0;">
+                <li>
+                  <strong>Festival Banners:</strong> Logo on official event signage &amp; website
+                  <span class="sp-perk-lao">ໂລໂກ້ເທິງປ້າຍງານ ແລະ ເວັບໄຊທາງການ</span>
+                </li>
+                <li>
+                  <strong>12 sq.m Booth Space:</strong> Direct consumer contact &amp; retail
+                  <span class="sp-perk-lao">ພື້ນທີ່ບູດ 12 ຕາແມັດ ເຂົ້າເຖິງກຸ່ມໄວໜຸ່ມໂດຍກົງ</span>
+                </li>
+                <li>
+                  <strong>Group Digital Announcement:</strong> Featured across festival channels
+                  <span class="sp-perk-lao">ປະກາດຊື່ຮ່ວມໃນຊ່ອງທາງສື່ສັງຄົມອອນລາຍ</span>
+                </li>
+              </ul>
+
+              <div class="sp-expand-drawer">
+                <ul class="sp-perks" style="margin:0; padding-top:0.4rem; border-top:1px dashed rgba(255,255,255,0.12);">
+                  <li>
+                    <strong>Official Photo Pack:</strong> High-res branded event photography
+                    <span class="sp-perk-lao">ຊຸດຮູບພາບຄຸນນະພາບສູງພ້ອມໂລໂກ້ແບຣນ</span>
+                  </li>
+                  <li>
+                    <strong>2 VIP Passes:</strong> All-access festival entry
+                    <span class="sp-perk-lao">ບັດ VIP 2 ໃບ ເຂົ້າຮ່ວມງານໄດ້ທຸກໂຊນ</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Expand Button -->
+              <button type="button" class="sp-card-expand-btn" onclick="toggleCardExpand(this)" aria-expanded="false" aria-label="Toggle details for Silver Partner">
+                <span class="sp-expand-btn-text">EXPAND DETAILS ▾</span>
+                <span class="sp-expand-btn-sub">ຂະຫຍາຍລາຍລະອຽດ</span>
+              </button>
+            </div>
 
             <!-- Action -->
             <div class="sp-action">
@@ -21201,21 +21439,53 @@ body.presentation-active .floating-present-badge {
             <div class="sp-header">
               <span class="sp-badge sp-badge-bronze">✦ PRODUCT &amp; SERVICES</span>
               <h3 class="sp-tier-name" style="color:#e59866;">BRONZE / IN-KIND</h3>
+              <div class="sp-tier-name-lao">ຜູ້ສະໜັບສະໜູນສິນຄ້າ ຫຼື ບໍລິການ</div>
               <div class="sp-price-box">
                 <span class="sp-price-val" style="color:#cd7f32;">20M+</span>
                 <span class="sp-price-curr">LAK EQUIV</span>
               </div>
-              <div class="sp-tier-role">Official Supplier &amp; Operations Support</div>
+              <div class="sp-tier-role">
+                Official Supplier &amp; Operations Support
+                <div class="sp-tier-role-lao">ສະໜັບສະໜູນການດຳເນີນງານ &amp; ຜະລິດຕະພັນທາງການ</div>
+              </div>
             </div>
 
             <!-- Perks Checklist -->
-            <ul class="sp-perks">
-              <li><strong>Official Supplier Credit:</strong> Beverage, sound, apparel, or gear</li>
-              <li><strong>Sampling Privileges:</strong> Distribution to competitors &amp; judges</li>
-              <li><strong>Cultural Supporter Recognition:</strong> Digital program inclusion</li>
-              <li><strong>Website Logo Listing:</strong> Permanent sponsor wall placement</li>
-              <li><strong>2 Festival Passes:</strong> Staff and attendee admission</li>
-            </ul>
+            <div class="sp-perks-body" style="flex-grow:1; display:flex; flex-direction:column;">
+              <ul class="sp-perks" style="margin-bottom:0.4rem; flex-grow:0;">
+                <li>
+                  <strong>Official Supplier Credit:</strong> Beverage, sound, apparel, or gear
+                  <span class="sp-perk-lao">ສິດເປັນຜູ້ສະໜອງທາງການ (ເຄື່ອງດື່ມ, ສຽງ, ເຄື່ອງນຸ່ງ, ອຸປະກອນ)</span>
+                </li>
+                <li>
+                  <strong>Sampling Privileges:</strong> Distribution to competitors &amp; judges
+                  <span class="sp-perk-lao">ແຈກສິນຄ້າຕົວຢ່າງໃຫ້ຜູ້ແຂ່ງຂັນ ແລະ ຄະນະກຳມະການ</span>
+                </li>
+                <li>
+                  <strong>Cultural Supporter Recognition:</strong> Digital program inclusion
+                  <span class="sp-perk-lao">ລົງລາຍຊື່ໃນໂຄງການສະໜັບສະໜູນວັດທະນະທຳ</span>
+                </li>
+              </ul>
+
+              <div class="sp-expand-drawer">
+                <ul class="sp-perks" style="margin:0; padding-top:0.4rem; border-top:1px dashed rgba(255,255,255,0.12);">
+                  <li>
+                    <strong>Website Logo Listing:</strong> Permanent sponsor wall placement
+                    <span class="sp-perk-lao">ໂລໂກ້ເທິງກຳແພງຜູ້ສະໜັບສະໜູນໃນເວັບໄຊ</span>
+                  </li>
+                  <li>
+                    <strong>2 Festival Passes:</strong> Staff and attendee admission
+                    <span class="sp-perk-lao">ບັດເຂົ້າຮ່ວມງານ 2 ໃບ ສຳລັບທີມງານ</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Expand Button -->
+              <button type="button" class="sp-card-expand-btn" onclick="toggleCardExpand(this)" aria-expanded="false" aria-label="Toggle details for Bronze / In-Kind Partner">
+                <span class="sp-expand-btn-text">EXPAND DETAILS ▾</span>
+                <span class="sp-expand-btn-sub">ຂະຫຍາຍລາຍລະອຽດ</span>
+              </button>
+            </div>
 
             <!-- Action -->
             <div class="sp-action">
@@ -24233,6 +24503,23 @@ function closeKvModal() {
     document.body.style.overflow = '';
   }
 }
+
+// ── SPONSORSHIP CARD DRAWER TOGGLE ──
+window.toggleCardExpand = function(btn) {
+  const card = btn.closest('.sp-card');
+  if (!card) return;
+  const isExpanded = card.classList.toggle('is-expanded');
+  btn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+  const textEl = btn.querySelector('.sp-expand-btn-text');
+  const subEl = btn.querySelector('.sp-expand-btn-sub');
+  if (isExpanded) {
+    if (textEl) textEl.textContent = 'COLLAPSE ▴';
+    if (subEl) subEl.textContent = 'ຫຍໍ້ລາຍລະອຽດ';
+  } else {
+    if (textEl) textEl.textContent = 'EXPAND DETAILS ▾';
+    if (subEl) subEl.textContent = 'ຂະຫຍາຍລາຍລະອຽດ';
+  }
+};
 
 // ── BENEFITS MATRIX MODAL POPUP & DYNAMIC TIER FILTERING ──
 function openBenefitsModal(tier) {
