@@ -19090,38 +19090,74 @@ body.presentation-active .floating-present-badge {
   color: var(--gold);
 }
 
-/* Proposed Guest Contributions Banner (Slide 12) */
+/* Proposed Guest Contributions Banner (Slide 12) - High Visibility Illuminated Cards */
 .guest-values-banner {
-  margin-top: 2.8rem;
+  margin: 3rem auto 5.5rem;
+  max-width: 1300px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(15, 15, 15, 0.75);
-  padding: 1.4rem 1.8rem;
+  padding: 0 0.5rem;
 }
 .guest-val-col {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.65rem;
+  background: linear-gradient(180deg, rgba(32, 32, 44, 0.94) 0%, rgba(18, 18, 26, 0.98) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  border-top: 3px solid var(--gold);
+  border-radius: 14px;
+  padding: 1.3rem 1.5rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65), 0 0 16px rgba(212, 175, 55, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+.guest-val-col:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.8), 0 0 24px rgba(212, 175, 55, 0.25);
+}
+.guest-val-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.guest-val-num {
+  font-family: var(--ff-d);
+  font-size: 1.1rem;
+  line-height: 1;
+  color: #000;
+  background: var(--gold);
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-weight: 800;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 }
 .guest-val-col b {
   font-family: var(--ff-a);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 .guest-val-col p {
-  font-family: 'Noto Sans Lao', var(--ff-b);
-  font-size: 0.82rem;
-  color: var(--gr-l);
-  line-height: 1.55;
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.92rem;
+  color: #f4f4f4 !important;
+  line-height: 1.65;
+  font-weight: 400;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 @media (max-width: 860px) {
-  .guest-values-banner { grid-template-columns: 1fr; }
+  .guest-values-banner {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 6rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -21360,15 +21396,24 @@ body.presentation-active .floating-present-badge {
           <!-- Proposed Activities & Value Banner (Slide 12) -->
           <div class="guest-values-banner">
             <div class="guest-val-col">
-              <b>01 · Competition Programme</b>
+              <div class="guest-val-header">
+                <span class="guest-val-num">01</span>
+                <b>Competition Programme</b>
+              </div>
               <p>ກຳມະການສາກົນຊ່ວຍຕັດສິນ 5 ໝວດໝູ່ຫຼັກ ຕາມມາດຕະຖານໂລກ, ນຳເອົາຄວາມຍຸຕິທຳ ແລະ ຄວາມໜ້າເຊື່ອຖືລະດັບສູງສຸດມາສູ່ການແຂ່ງຂັນ.</p>
             </div>
             <div class="guest-val-col">
-              <b>02 · Public Engagement</b>
+              <div class="guest-val-header">
+                <span class="guest-val-num">02</span>
+                <b>Public Engagement</b>
+              </div>
               <p>ການເປີດໂຕສິລະປິນຢ່າງເປັນທາງການ ຊ່ວຍໃຫ້ຜູ້ຊົມ, ສື່ມວນຊົນ ແລະ ແຟນຄລັບເຫັນພາບລວມຂອງ Lineup ທີ່ຍິ່ງໃຫຍ່ກ່ອນງານເລີ່ມ.</p>
             </div>
             <div class="guest-val-col">
-              <b>03 · Masterclasses &amp; Live Demos</b>
+              <div class="guest-val-header">
+                <span class="guest-val-num">03</span>
+                <b>Masterclasses &amp; Live Demos</b>
+              </div>
               <p>ກິດຈະກຳເສີມ: Masterclasses ສອນເຕັ້ນ, Turntablism Scratch Showcases, ແລະ ການພົ່ນສີສົດ (Live Aerosol Murals) ເພີ່ມມູນຄ່າໃຫ້ເທສະການ.</p>
             </div>
           </div>
