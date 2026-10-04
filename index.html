@@ -13551,170 +13551,256 @@ body.gsap-ready .acc-inner .ru {
   margin: 0 auto;
 }
 
-/* ── 3D STACKED AUDIENCE CARDS (EXACT MATCH TO REFERENCE) ── */
-.aud-stack-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 1rem 4.5rem;
-  width: 100%;
-  box-sizing: border-box;
-  position: relative;
-  min-height: 420px;
-}
-
-.aud-3d-stack {
-  position: relative;
-  transform-style: preserve-3d;
-  perspective: 500px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  transition: 500ms;
-  list-style: none;
+/* ── 4 GLOWING FROSTED MIST CARDS (EXACT MATCH TO REFERENCE) ── */
+.aud-glow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1140px;
+  margin: 2rem auto 2.5rem;
   padding: 0;
-  margin: 0;
-}
-
-.aud-3d-stack:hover,
-.aud-3d-stack.is-expanded {
-  gap: 20px;
-}
-
-.aud-3d-stack li {
-  position: relative;
-  list-style: none;
-  width: 450px;
-  max-width: calc(100vw - 32px);
-  height: 96px;
-  padding: 16px;
-  background: #ffffff;
-  border-radius: 10px;
-  display: flex;
-  gap: 20px;
-  justify-content: flex-start;
-  align-items: center;
-  box-shadow: 0 0 12px rgba(0, 0, 0, .24), 0 14px 35px rgba(0, 0, 0, 0.5);
-  transition: 500ms;
-  transition-delay: calc(var(--i) * 50ms);
-  cursor: pointer;
   box-sizing: border-box;
 }
 
-.aud-3d-stack li:nth-child(1) {
-  transform: translateZ(-75px) translateY(20px);
-  opacity: .6;
-  filter: blur(4px);
+.aud-glow-card {
+  position: relative;
+  height: 420px;
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.6rem 1.4rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.45),
+              0 20px 45px -10px rgba(0, 0, 0, 0.8);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+}
+
+.aud-glow-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Card 1: Teal / Emerald */
+.aud-glow-card.theme-teal {
+  background: radial-gradient(ellipse at 50% 15%, rgba(64, 224, 208, 0.45) 0%, transparent 65%),
+              linear-gradient(180deg, #1b8a7c 0%, #0f544a 45%, #052622 100%);
+}
+.aud-glow-card.theme-teal:hover {
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6),
+              0 28px 65px -10px rgba(27, 138, 124, 0.6),
+              0 0 25px rgba(64, 224, 208, 0.3);
+}
+
+/* Card 2: Gold / Lime-Yellow */
+.aud-glow-card.theme-gold {
+  background: radial-gradient(ellipse at 50% 15%, rgba(245, 220, 95, 0.45) 0%, transparent 65%),
+              linear-gradient(180deg, #bfa035 0%, #767d1d 45%, #232705 100%);
+}
+.aud-glow-card.theme-gold:hover {
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6),
+              0 28px 65px -10px rgba(191, 160, 53, 0.6),
+              0 0 25px rgba(245, 220, 95, 0.3);
+}
+
+/* Card 3: Metallic Chrome / Silver Steel */
+.aud-glow-card.theme-silver {
+  background: radial-gradient(ellipse at 50% 15%, rgba(220, 230, 245, 0.45) 0%, transparent 65%),
+              linear-gradient(180deg, #9aa7b3 0%, #4c5763 45%, #14191e 100%);
+}
+.aud-glow-card.theme-silver:hover {
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6),
+              0 28px 65px -10px rgba(154, 167, 179, 0.55),
+              0 0 25px rgba(220, 230, 245, 0.25);
+}
+
+/* Card 4: Sunset Flame / Deep Amber */
+.aud-glow-card.theme-sunset {
+  background: radial-gradient(ellipse at 50% 15%, rgba(255, 140, 40, 0.55) 0%, transparent 65%),
+              linear-gradient(180deg, #e65c00 0%, #9e3500 45%, #300f00 100%);
+}
+.aud-glow-card.theme-sunset:hover {
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6),
+              0 28px 65px -10px rgba(230, 92, 0, 0.65),
+              0 0 25px rgba(255, 140, 40, 0.35);
+}
+
+/* Visual Image & Fog Blend */
+.aud-card-visual {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72%;
+  overflow: hidden;
+  pointer-events: none;
   z-index: 1;
 }
 
-.aud-3d-stack li:nth-child(2) {
-  opacity: .8;
-  filter: blur(2px);
-  z-index: 2;
-}
-
-.aud-3d-stack li:nth-child(3) {
-  transform: translateZ(65px) translateY(-30px);
-  z-index: 3;
-}
-
-.aud-3d-stack li:nth-child(4) {
-  transform: translateZ(125px) translateY(-68px);
-  filter: blur(1px);
-  z-index: 4;
-}
-
-.aud-3d-stack:hover li,
-.aud-3d-stack.is-expanded li {
-  opacity: 1;
-  filter: blur(0);
-  transform: translateZ(0) translateY(0);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-}
-
-.aud-3d-stack:hover li:hover,
-.aud-3d-stack.is-expanded li:hover {
-  transform: translateZ(25px) translateY(-4px) scale(1.02);
-  z-index: 10;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
-}
-
-.aud-3d-stack li img {
-  width: 64px;
-  height: 64px;
-  max-width: 64px;
-  border-radius: 8px;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.aud-3d-stack li .content {
+.aud-card-visual img {
   width: 100%;
-  min-width: 0;
-  text-align: left;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-mask-image: linear-gradient(to bottom, black 35%, transparent 95%);
+  mask-image: linear-gradient(to bottom, black 35%, transparent 95%);
 }
 
-.aud-3d-stack li .content h3 {
-  font-family: var(--ff-a), Inter, sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #111111;
-  margin: 0 0 6px 0;
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.aud-glow-card:hover .aud-card-visual img {
+  transform: scale(1.06);
 }
 
-.aud-3d-stack li .content p {
-  font-family: var(--ff-b), Inter, sans-serif;
-  font-size: 0.82rem;
-  color: #555555;
-  opacity: .8;
-  line-height: 1.3;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.aud-stack-hint {
-  margin-top: 2rem;
-  font-family: var(--ff-a);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.45);
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+/* The Dreamy Fog Layer */
+.aud-card-fog {
+  position: absolute;
+  inset: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+}
+.theme-teal .aud-card-fog {
+  background: linear-gradient(to bottom, transparent 35%, rgba(15, 84, 74, 0.8) 65%, #052622 100%);
+}
+.theme-gold .aud-card-fog {
+  background: linear-gradient(to bottom, transparent 35%, rgba(118, 125, 29, 0.8) 65%, #232705 100%);
+}
+.theme-silver .aud-card-fog {
+  background: linear-gradient(to bottom, transparent 35%, rgba(76, 87, 99, 0.8) 65%, #14191e 100%);
+}
+.theme-sunset .aud-card-fog {
+  background: linear-gradient(to bottom, transparent 35%, rgba(158, 53, 0, 0.8) 65%, #300f00 100%);
 }
 
-.aud-3d-stack:hover ~ .aud-stack-hint {
-  opacity: 0.25;
+/* Card Content / Typography */
+.aud-card-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
 }
 
-@media (max-width: 480px) {
-  .aud-3d-stack li {
-    gap: 14px;
-    padding: 12px;
-    height: 88px;
+.aud-card-stat {
+  font-family: var(--ff-d);
+  font-size: 2.2rem;
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.15rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.aud-card-title {
+  font-family: var(--ff-a);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.2;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.aud-card-desc {
+  font-family: var(--ff-b);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.35;
+  margin: 0 0 0.75rem 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Pill Buttons */
+.aud-card-pill {
+  display: inline-block;
+  font-family: var(--ff-a);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  width: 100%;
+  max-width: 200px;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.theme-teal .aud-card-pill {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #052622;
+}
+.theme-teal:hover .aud-card-pill {
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(64, 224, 208, 0.4);
+}
+
+.theme-gold .aud-card-pill {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.theme-gold:hover .aud-card-pill {
+  background: rgba(0, 0, 0, 0.7);
+  border-color: rgba(245, 220, 95, 0.5);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.theme-silver .aud-card-pill {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.theme-silver:hover .aud-card-pill {
+  background: rgba(0, 0, 0, 0.7);
+  border-color: rgba(220, 230, 245, 0.5);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.theme-sunset .aud-card-pill {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.theme-sunset:hover .aud-card-pill {
+  background: rgba(255, 255, 255, 0.75);
+  color: #300f00;
+  box-shadow: 0 6px 20px rgba(255, 140, 40, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .aud-glow-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 620px;
+    gap: 1.35rem;
   }
-  .aud-3d-stack li img {
-    width: 54px;
-    height: 54px;
-    max-width: 54px;
+}
+
+@media (max-width: 580px) {
+  .aud-glow-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    gap: 1.25rem;
   }
-  .aud-3d-stack li .content h3 {
-    font-size: 0.95rem;
-  }
-  .aud-3d-stack li .content p {
-    font-size: 0.76rem;
+  .aud-glow-card {
+    height: 380px;
   }
 }
 
@@ -18174,40 +18260,62 @@ body.presentation-active .floating-present-badge {
         <p class="aud-poster-lao-sub">🇱🇦 ໂຄງສ້າງປະຊາກອນ ແລະ ພະລັງກຳລັງຊື້ຂອງກຸ່ມຄົນຮຸ່ນໃໝ່ທີ່ຂັບເຄື່ອນວັດທະນະທຳຕົວຈິງ</p>
       </div>
 
-      <!-- 3D STACKED AUDIENCE CARDS (EXACT MATCH TO REFERENCE) -->
-      <div class="aud-stack-wrap">
-        <ul class="aud-3d-stack">
-          <li class="aud-3d-card" style="--i: 1;">
-            <img src="assets/event/meetyouth/my_4.webp" alt="Regional & ASEAN Fans" loading="lazy" />
-            <div class="content">
-              <h3>Regional &amp; ASEAN Fans • 10%</h3>
-              <p>ນັກທ່ອງທ່ຽວສາກົນ &amp; ສາຍຮິບຮອບອາຊຽນ (TH, VN, SG)</p>
-            </div>
-          </li>
-          <li class="aud-3d-card" style="--i: 2;">
-            <img src="assets/event/meetyouth/my_3.webp" alt="Industry & VIP" loading="lazy" />
-            <div class="content">
-              <h3>Industry &amp; VIP (36–45+) • 15%</h3>
-              <p>ກຸ່ມ VIP, ຜູ້ບໍລິຫານ &amp; ຄູ່ຮ່ວມງານ B2B Sponsorship</p>
-            </div>
-          </li>
-          <li class="aud-3d-card" style="--i: 3;">
-            <img src="assets/event/meetyouth/my_2.webp" alt="Youth & Teens" loading="lazy" />
-            <div class="content">
-              <h3>Youth &amp; Teens (13–18) • 35%</h3>
-              <p>ນັກຮຽນ, ນັກເຕັ້ນລຸ້ນໃໝ່ &amp; Creators (Viral Reach)</p>
-            </div>
-          </li>
-          <li class="aud-3d-card" style="--i: 4;">
+      <!-- 4 Glowing Frosted Mist Cards (Exact Match to Reference Style) -->
+      <div class="aud-glow-grid">
+        <!-- Card 1: Young Adults (Teal / Emerald Aura) -->
+        <div class="aud-glow-card theme-teal">
+          <div class="aud-card-visual">
             <img src="assets/event/meetyouth/my_1.webp" alt="Young Adults" loading="lazy" />
-            <div class="content">
-              <h3>Young Adults (19–35) • 50%</h3>
-              <p>ກຸ່ມຫຼັກ: ໄວເຮັດວຽກ &amp; High Disposable Spend</p>
-            </div>
-          </li>
-        </ul>
-        <div class="aud-stack-hint">
-          <span>✦ ຊີ້ເມົ້າໃສ່ເພື່ອເບິ່ງທຸກກຸ່ມ • HOVER TO EXPAND ✦</span>
+            <div class="aud-card-fog"></div>
+          </div>
+          <div class="aud-card-content">
+            <div class="aud-card-stat">50%</div>
+            <h3 class="aud-card-title">Young Adults (19–35)</h3>
+            <p class="aud-card-desc">ໄວເຮັດວຽກ &amp; ນັກສຶກສາ • High Disposable Spend</p>
+            <div class="aud-card-pill">Core Demographic</div>
+          </div>
+        </div>
+
+        <!-- Card 2: Youth & Teens (Sunlit Gold / Lime Aura) -->
+        <div class="aud-glow-card theme-gold">
+          <div class="aud-card-visual">
+            <img src="assets/event/meetyouth/my_2.webp" alt="Youth & Teens" loading="lazy" />
+            <div class="aud-card-fog"></div>
+          </div>
+          <div class="aud-card-content">
+            <div class="aud-card-stat">35%</div>
+            <h3 class="aud-card-title">Youth &amp; Teens (13–18)</h3>
+            <p class="aud-card-desc">Gen Z, ນັກເຕັ້ນ &amp; Creators • Viral Social Reach</p>
+            <div class="aud-card-pill">Digital Natives</div>
+          </div>
+        </div>
+
+        <!-- Card 3: Industry & VIP (Metallic Chrome / Silver Aura) -->
+        <div class="aud-glow-card theme-silver">
+          <div class="aud-card-visual">
+            <img src="assets/event/meetyouth/my_3.webp" alt="Industry & VIP" loading="lazy" />
+            <div class="aud-card-fog"></div>
+          </div>
+          <div class="aud-card-content">
+            <div class="aud-card-stat">15%</div>
+            <h3 class="aud-card-title">Industry &amp; VIP (36–45+)</h3>
+            <p class="aud-card-desc">ຜູ້ບໍລິຫານ, ທຸລະກິດ &amp; B2B Sponsorship</p>
+            <div class="aud-card-pill">Executive &amp; VIP</div>
+          </div>
+        </div>
+
+        <!-- Card 4: Regional & ASEAN (Sunset Flame / Amber Aura) -->
+        <div class="aud-glow-card theme-sunset">
+          <div class="aud-card-visual">
+            <img src="assets/event/meetyouth/my_4.webp" alt="Regional & ASEAN Fans" loading="lazy" />
+            <div class="aud-card-fog"></div>
+          </div>
+          <div class="aud-card-content">
+            <div class="aud-card-stat">10%</div>
+            <h3 class="aud-card-title">Regional &amp; ASEAN Fans</h3>
+            <p class="aud-card-desc">ນັກທ່ອງທ່ຽວສາກົນ &amp; ສາຍຮິບຮອບ (TH, VN, SG)</p>
+            <div class="aud-card-pill">International Fans</div>
+          </div>
         </div>
       </div>
     </div><!-- /aud-poster-section -->
@@ -24343,15 +24451,6 @@ function replayLogoIntro(){
       petal.addEventListener('mouseenter', handleEnter);
       petal.addEventListener('mouseleave', handleLeave);
       petal.addEventListener('click', handleEnter);
-    });
-  })();
-
-  // ── 3D AUDIENCE STACK TAP TOGGLE (for touch or click) ──
-  (function initAudience3dStack() {
-    const list = document.querySelector('.aud-3d-stack');
-    if (!list) return;
-    list.addEventListener('click', () => {
-      list.classList.toggle('is-expanded');
     });
   })();
 
