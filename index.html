@@ -1723,66 +1723,45 @@ nav { height: 60px !important; padding: 0 !important; }
 #venue {
   position: relative;
   width: 100%;
-  min-height: 720px;
-  height: 85vh;
-  overflow: hidden;
+  min-height: auto;
+  height: auto;
+  overflow: visible;
   background: #000000;
   color: #ffffff;
-  padding: 0 !important;
+  padding: 2.5rem 0 3.5rem !important;
 }
 
-.kv-bg-layer {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transition: opacity 700ms ease-out;
-  opacity: 0;
-  z-index: 0;
-}
-.kv-bg-layer.active {
-  opacity: 1;
-}
-
-.kv-gradient-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.85) 100%),
-              radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.kv-content-container {
-  position: relative;
-  z-index: 10;
+/* Section Header for Floorplan */
+.fp-section-header {
+  max-width: 1380px;
+  margin: 0 auto 1.5rem;
+  padding: 0 1.5rem;
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
   justify-content: space-between;
-  height: 100%;
-  min-height: 720px;
-  padding: 2.5rem 1.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
-@media(min-width: 640px) { .kv-content-container { padding: 3rem 2.5rem; } }
-@media(min-width: 1024px) { .kv-content-container { padding: 4rem 4rem; } }
 
-.kv-top-zone {
+.fp-header-left {
+  max-width: 780px;
+}
+
+.fp-header-sub-lao {
+  font-family: 'Noto Sans Lao', var(--ff-b, sans-serif);
+  font-size: 0.98rem;
+  color: rgba(255, 255, 255, 0.78);
+  margin-top: 0.6rem;
+  line-height: 1.55;
+}
+
+.fp-header-actions {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-@media(min-width: 768px) {
-  .kv-top-zone {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 4rem;
-  }
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
-.kv-headline-box {
-  max-width: 650px;
-}
 .kv-section-tag {
   font-family: var(--ff-a);
   font-size: 0.82rem;
@@ -1804,164 +1783,637 @@ nav { height: 60px !important; padding: 0 !important; }
 }
 .kv-headline {
   font-family: var(--ff-d);
-  font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+  font-size: clamp(2.4rem, 5.5vw, 4.8rem);
   line-height: 0.95;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   color: #ffffff;
+  margin: 0;
 }
 .kv-headline .hl {
   color: var(--red);
   text-shadow: 0 0 35px rgba(204,0,0,0.6);
 }
 
-.kv-desc-box {
-  max-width: 380px;
-}
-.kv-desc-text {
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.85);
-}
+/* ─────────────────────────────────────────────────────────────
+   EVENT FLOORPLAN GALLERY 1 INTERACTIVE VIEWER (Adapted from gallery1.css)
+   ───────────────────────────────────────────────────────────── */
 
-.kv-bottom-zone {
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-  margin-top: auto;
-}
+.fp-gallery-viewer {
+  --bounce: linear(0 0%, 0.4214 6.61%, 0.5762 9.59%,
+          0.7047 12.55%, 0.8115 15.61%,
+          0.8964 18.78%, 0.9614 22.13%,
+          1.0078 25.74%, 1.0282 28.18%,
+          1.0422 30.82%, 1.0503 33.7%,
+          1.0527 36.95%, 1.0468 42.53%,
+          1.015 58.45%, 1.0045 67.2%,
+          0.9987 80.44%, 1 100%);
+  --ease: cubic-bezier(.42, 0, .58, 1);
+  --speed: 0.52s;
+  --width: clamp(340px, 34vw, 440px);
+  --sizing: 52px;
+  --distance: 12%;
+  --fp-bg: rgba(14, 14, 18, 0.78);
+  --fp-hover-bg: rgba(26, 26, 32, 0.92);
 
-/* Avatar / Thumbnail Picker Row */
-.kv-picker-row {
-  display: flex;
-  align-items: flex-end;
-  gap: 0.75rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-  scrollbar-width: none;
-}
-.kv-picker-row::-webkit-scrollbar { display: none; }
-@media(min-width: 640px) {
-  .kv-picker-row { gap: 1.1rem; overflow-visible: visible; padding-bottom: 0; }
-}
-
-.kv-picker-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: transform 0.3s;
-}
-.kv-picker-btn:hover {
-  transform: translateY(-4px);
-}
-
-.kv-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--red);
-  box-shadow: 0 0 10px var(--red);
-  opacity: 0;
-  transition: opacity 300ms ease;
-}
-.kv-picker-btn.active .kv-dot {
-  opacity: 1;
-}
-
-.kv-thumb {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  position: relative;
+  width: calc(100% - 3rem);
+  max-width: 1380px;
+  margin: 0 auto 3rem;
+  min-height: 580px;
+  height: clamp(580px, 72vh, 760px);
+  border-radius: 24px;
   overflow: hidden;
-  border: 2px solid rgba(255,255,255,0.3);
-  transition: border-color 0.3s, box-shadow 0.3s;
-  background: var(--d2);
+  background: #08080a;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 45px rgba(239, 68, 68, 0.12);
+  container-type: inline-size;
+  display: flex;
+  align-items: center;
 }
-@media(min-width: 640px) {
-  .kv-thumb { width: 58px; height: 58px; }
+
+@media (max-width: 768px) {
+  .fp-gallery-viewer {
+    width: calc(100% - 1.5rem);
+    height: auto;
+    min-height: 640px;
+    border-radius: 16px;
+    align-items: flex-start;
+  }
 }
-.kv-picker-btn.active .kv-thumb {
+
+/* Floating Controls from gallery1.css */
+.fp-gallery-viewer [data-action] {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(15, 15, 20, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  transition-property: opacity, background, translate, transform, border-color;
+  transition-duration: 0.28s;
+  transition-timing-function: var(--ease);
+  z-index: 40;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.fp-gallery-viewer [data-action]:hover {
+  background: var(--red, #ef4444);
+  border-color: var(--red, #ef4444);
+  transform: scale(1.08);
+}
+
+.fp-gallery-viewer [data-action] svg {
+  width: 18px;
+  height: 18px;
+  color: #fff;
+  stroke-width: 2.4;
+}
+
+.fp-gallery-viewer [data-action="previous"],
+.fp-gallery-viewer [data-action="next"] {
+  position: absolute;
+  top: 50%;
+  left: 1.25rem;
+}
+
+.fp-gallery-viewer [data-action="previous"] {
+  translate: 0 -130%;
+}
+
+.fp-gallery-viewer [data-action="next"] {
+  translate: 0 30%;
+}
+.fp-gallery-viewer [data-action="next"] svg {
+  rotate: 180deg;
+}
+
+.fp-gallery-viewer [data-action="exit"] {
+  position: absolute;
+  right: 1.25rem;
+  top: 1.25rem;
+}
+.fp-gallery-viewer [data-action="exit"] svg {
+  rotate: 45deg;
+}
+
+/* Auto-hide controls when no capsule is open */
+.fp-gallery-viewer:not(:has([open])) [data-action] {
+  opacity: 0;
+  transform: translateY(1rem);
+  pointer-events: none;
+}
+
+/* Left Column: Details Accordion Pills */
+.fp-gallery-viewer .fp-pills-col {
+  padding-left: clamp(1.2rem, 4.5vw, 4rem);
+  padding-right: 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+  z-index: 30;
+  width: var(--width);
+  max-width: 92%;
+}
+
+@media (max-width: 768px) {
+  .fp-gallery-viewer .fp-pills-col {
+    padding: 1.2rem 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Details Item */
+.fp-details-item {
+  display: inline-block;
+  border-radius: calc(var(--sizing) * 0.5);
+  overflow: hidden;
+  min-height: var(--sizing);
+  background: var(--fp-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  transition: background 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.fp-details-item:hover:not([open]) {
+  background: var(--fp-hover-bg);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateX(4px);
+}
+
+.fp-details-item[open] {
+  border-radius: 18px;
+  background: rgba(10, 10, 14, 0.94);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 25px rgba(239, 68, 68, 0.18);
+}
+
+.fp-summary {
+  display: inline-flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0 1.2rem;
+  border-radius: calc(var(--sizing) * 0.5);
+  height: var(--sizing);
+  min-height: var(--sizing);
+  cursor: pointer;
+  z-index: 20;
+  position: relative;
+  transition-property: opacity, width;
+  transition-duration: calc(var(--speed) * 0.45), calc(var(--speed) * 1.3);
+  transition-timing-function: var(--ease), var(--bounce);
+  white-space: nowrap;
+  font-family: var(--ff-a, 'Akira Expanded', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  user-select: none;
+  list-style: none;
+}
+
+.fp-summary::-webkit-details-marker {
+  display: none;
+}
+.fp-summary::marker {
+  opacity: 0;
+  display: none;
+}
+
+.fp-summary-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.fp-summary-num {
+  font-family: var(--ff-a, monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  opacity: 0.65;
+  letter-spacing: 0.08em;
+}
+
+.fp-summary-label {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.fp-summary-icon {
+  margin-left: 0.5rem;
+  opacity: 0.5;
+  transition: transform 0.25s, opacity 0.25s;
+  display: flex;
+  align-items: center;
+}
+.fp-details-item:hover .fp-summary-icon {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* When open, hide summary and let card bloom */
+.fp-details-item[open] .fp-summary {
+  opacity: 0;
+  pointer-events: none;
+  width: var(--width);
+  height: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Modern Details Content Transition */
+.fp-details-item::details-content {
+  opacity: 0;
+  transition-property: content-visibility, height, width, opacity;
+  transition-duration: var(--speed), calc(var(--speed) * 1.4), calc(var(--speed) * 1.4), calc(var(--speed) * 0.4);
+  transition-behavior: allow-discrete;
+  transition-timing-function: var(--ease), var(--bounce), var(--bounce), var(--ease);
+  overflow: visible;
+  height: var(--sizing);
+  margin-top: calc(var(--sizing) * -1);
+  width: 140px;
+  min-height: var(--sizing);
+}
+
+.fp-details-item[open]::details-content {
+  height: fit-content;
+  width: var(--width);
+  opacity: 1;
+  transition-delay: 0s, 0s, 0s, calc(var(--speed) * 0.85);
+}
+
+.fp-details-item,
+.fp-details-item::details-content {
+  interpolate-size: allow-keywords;
+}
+
+/* Expanded Card Content */
+.fp-card-inner {
+  width: var(--width);
+  padding: 1.5rem 1.6rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  animation: fpCardFadeIn 0.35s ease forwards;
+}
+
+@keyframes fpCardFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fp-card-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.fp-card-badge {
+  font-family: var(--ff-a, monospace);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fp-card-close-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s, color 0.2s;
+  padding: 0;
+}
+.fp-card-close-btn:hover {
+  background: var(--red);
+  color: #fff;
   border-color: var(--red);
-  box-shadow: 0 0 20px rgba(204,0,0,0.6);
 }
-.kv-thumb img {
+
+.fp-card-title-en {
+  font-family: var(--ff-a, 'Akira Expanded', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.fp-card-title-lao {
+  font-family: 'Noto Sans Lao', var(--ff-b, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--gold, #d4af37);
+  line-height: 1.4;
+  margin-top: -0.4rem;
+}
+
+.fp-card-desc-en {
+  font-family: var(--ff-b, sans-serif);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.fp-card-desc-lao {
+  font-family: 'Noto Sans Lao', var(--ff-b, sans-serif);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  padding-left: 0.7rem;
+  border-left: 2px solid rgba(239, 68, 68, 0.5);
+}
+
+.fp-card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.fp-chip {
+  font-family: var(--ff-b, sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.fp-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0.4rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fp-btn-action {
+  font-family: var(--ff-a, monospace);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 7px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  border: none;
+}
+
+.fp-btn-primary {
+  background: var(--red, #ef4444);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.35);
+}
+.fp-btn-primary:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+}
+
+.fp-btn-outline {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.fp-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Right Column: Layered Images & 3D Stage (from gallery1.css) */
+.fp-gallery-viewer .fp-images-col {
+  width: 100cqi;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.fp-images-col .img-block {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.fp-images-col .img-wrapper {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  transform: translateX(0);
+  transition-duration: calc(var(--speed) * 0), calc(var(--speed) * 0.35), calc(var(--speed) * 1.15);
+  transition-timing-function: var(--ease), var(--ease), var(--bounce);
+  transform-origin: 100% 150%;
+  transition-property: transform, opacity, scale;
+  position: relative;
+}
+
+.fp-images-col .img-wrapper img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
-/* Meta Footer */
-.kv-meta-footer {
-  border-top: 1px solid rgba(255,255,255,0.2);
-  padding-top: 1.2rem;
+/* Gradient vignette over images for readable pills */
+.fp-images-col .fp-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8,8,10,0.92) 0%, rgba(8,8,10,0.65) 38%, rgba(8,8,10,0.2) 70%, rgba(8,8,10,0.65) 100%),
+              radial-gradient(ellipse at 70% 50%, transparent 40%, rgba(0,0,0,0.7) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Block 1 (Default Master Aerial) */
+.fp-images-col .img-block:nth-of-type(1) {
+  z-index: 10;
+}
+.fp-images-col .img-block:nth-of-type(1) .img-wrapper {
+  transform-origin: 50% 50%;
+  transition-property: translate, opacity, scale;
+  transition-duration: calc(var(--speed) * .4), calc(var(--speed) * 0.35), calc(var(--speed) * 1.15);
+  transition-timing-function: ease-in, var(--ease), var(--bounce);
+}
+
+/* Default state when NO details is open: block 1 is active */
+.fp-gallery-viewer:not(:has([open])) .fp-images-col .img-block:first-of-type {
+  translate: 0 0;
+}
+.fp-gallery-viewer:not(:has([open])) .fp-images-col .img-block:first-of-type .img-wrapper {
+  transform: translateX(0%);
+  transition-delay: calc(var(--speed) * 0.2);
+  opacity: 1;
+  scale: 1;
+}
+
+/* When ANY details is open, block 1 scales out */
+.fp-gallery-viewer:has([open]) .fp-images-col .img-block:first-of-type .img-wrapper {
+  translate: 0 0;
+  scale: 1.15;
+  opacity: 0;
+}
+
+/* Active states for details 1..5 matching blocks 2..6 (from gallery1.css) */
+.fp-gallery-viewer:has(.fp-details-item:nth-of-type(1)[open]) .fp-images-col .img-block:nth-of-type(2),
+.fp-gallery-viewer:has(.fp-details-item:nth-of-type(2)[open]) .fp-images-col .img-block:nth-of-type(3),
+.fp-gallery-viewer:has(.fp-details-item:nth-of-type(3)[open]) .fp-images-col .img-block:nth-of-type(4),
+.fp-gallery-viewer:has(.fp-details-item:nth-of-type(4)[open]) .fp-images-col .img-block:nth-of-type(5),
+.fp-gallery-viewer:has(.fp-details-item:nth-of-type(5)[open]) .fp-images-col .img-block:nth-of-type(6) {
+  translate: var(--distance) 0;
+  z-index: 5;
+}
+
+.fp-gallery-viewer:has(.fp-details-item:nth-of-type(1)[open]) .fp-images-col .img-block:nth-of-type(2) .img-wrapper,
+.fp-gallery-viewer:has(.fp-details-item:nth-of-type(2)[open]) .fp-images-col .img-block:nth-of-type(3) .img-wrapper,
+.fp-gallery-viewer:has(.fp-details-item:nth-of-type(3)[open]) .fp-images-col .img-block:nth-of-type(4) .img-wrapper,
+.fp-gallery-viewer:has(.fp-details-item:nth-of-type(4)[open]) .fp-images-col .img-block:nth-of-type(5) .img-wrapper,
+.fp-gallery-viewer:has(.fp-details-item:nth-of-type(5)[open]) .fp-images-col .img-block:nth-of-type(6) .img-wrapper {
+  transform: translateX(calc(var(--distance) * -1));
+  transition-delay: calc(var(--speed) * 0.15);
+  opacity: 1;
+  scale: 1;
+}
+
+/* Non-active states for blocks 2..6 */
+.fp-gallery-viewer:not(:has(.fp-details-item:nth-of-type(1)[open])) .fp-images-col .img-block:nth-of-type(2) .img-wrapper,
+.fp-gallery-viewer:not(:has(.fp-details-item:nth-of-type(2)[open])) .fp-images-col .img-block:nth-of-type(3) .img-wrapper,
+.fp-gallery-viewer:not(:has(.fp-details-item:nth-of-type(3)[open])) .fp-images-col .img-block:nth-of-type(4) .img-wrapper,
+.fp-gallery-viewer:not(:has(.fp-details-item:nth-of-type(4)[open])) .fp-images-col .img-block:nth-of-type(5) .img-wrapper,
+.fp-gallery-viewer:not(:has(.fp-details-item:nth-of-type(5)[open])) .fp-images-col .img-block:nth-of-type(6) .img-wrapper {
+  transition-property: translate, opacity, scale;
+  transition-timing-function: ease-in, ease-out, ease-in;
+  translate: 0 0;
+  scale: 0.92;
+  opacity: 0;
+}
+
+/* Watermark / Badge for Default Master Block */
+.fp-master-badge {
+  position: absolute;
+  bottom: 2rem;
+  right: 2.5rem;
+  z-index: 15;
+  background: rgba(10, 10, 14, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  padding: 0.9rem 1.4rem;
+  max-width: 400px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  font-size: 0.9rem;
-  font-weight: 500;
+  flex-direction: column;
+  gap: 4px;
+  pointer-events: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  transition: opacity 0.3s ease;
 }
-.kv-meta-name {
-  color: #ffffff;
-  font-family: var(--ff-a);
-  font-size: 1.15rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+.fp-gallery-viewer:has([open]) .fp-master-badge {
+  opacity: 0;
+  pointer-events: none;
 }
-.kv-meta-role {
-  color: rgba(255,255,255,0.75);
-  font-size: 0.88rem;
-}
-.kv-meta-tenure {
-  color: rgba(255,255,255,0.6);
-  font-size: 0.85rem;
-}
-.kv-meta-action {
-  color: var(--red);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  transition: color 0.3s;
-}
-.kv-meta-action:hover {
-  color: var(--red-b);
-}
-
-.kv-picker-tag {
-  font-family: var(--ff-a, ui-monospace, monospace);
-  font-size: 0.65rem;
+.fp-master-tag {
+  font-family: var(--ff-a, monospace);
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  letter-spacing: 0.14em;
+  color: var(--red, #ef4444);
+  text-transform: uppercase;
 }
-.kv-picker-btn.active .kv-picker-tag {
-  transform: scale(1.08);
+.fp-master-title {
+  font-family: var(--ff-a, 'Akira Expanded', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
 }
-.kv-meta-chips {
+.fp-master-lao {
+  font-family: 'Noto Sans Lao', var(--ff-b, sans-serif);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Production Pending Overlay for Green & Blue Zones */
+.fp-pending-overlay {
+  position: absolute;
+  inset: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  max-width: 500px;
-}
-.kv-meta-chip {
-  font-family: var(--ff-b, sans-serif);
-  font-size: 0.76rem;
-  font-weight: 600;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  display: inline-flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(15, 15, 20, 0.6) 0%, rgba(6, 6, 8, 0.92) 100%);
+  z-index: 3;
+}
+.fp-pending-badge {
+  background: rgba(12, 12, 16, 0.88);
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+  padding: 1.4rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+}
+.fp-pending-tag {
+  font-family: var(--ff-a, monospace);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #f87171;
+  text-transform: uppercase;
+}
+.fp-pending-lao {
+  font-family: 'Noto Sans Lao', var(--ff-b, sans-serif);
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* ── EVENT FLOORPLAN 4-ZONE BENTO MATRIX ── */
@@ -19952,105 +20404,302 @@ body.presentation-active .floating-present-badge {
   </div>
   <div class="acc-body">
     <section id="venue" class="acc-inner">
-  <!-- Stacked Full-Bleed Background Visuals (4 Branded Zones) -->
-  <div class="kv-bg-layer active" id="kv-bg-0" style="background-image:url('assets/floorplan_render_aerial.jpg');">
-    <div style="width:100%;height:100%;background:linear-gradient(135deg,#2d0000,#550000,#0d0000);mix-blend-mode:multiply;opacity:0.35;"></div>
+  <!-- SECTION HEADER: Spatial Masterplan Title & Lao Context -->
+  <div class="fp-section-header">
+    <div class="fp-header-left">
+      <div class="kv-section-tag">Spatial Masterplan • Lao-ITECC Exhibition Hall</div>
+      <h2 class="kv-headline">EVENT <span class="hl">FLOORPLAN</span><br>&amp; ACTIVATION ZONES</h2>
+      <p class="fp-header-sub-lao">ແຜນຜັງພື້ນທີ່ງານ ແລະ ໂຊນກິດຈະກຳຫຼັກ • ເນື້ອທີ່ກວ່າ 10,000+ ຕາແມັດ ທີ່ Lao-ITECC (ກົດເລືອກໂຊນເພື່ອສຳຫຼວດ)</p>
+    </div>
+    <div class="fp-header-actions">
+      <button type="button" class="kv-fullscreen-btn" onclick="window.openFloorplanModal(window.currentFloorplanZoneIdx || 0, 0)" title="Open Fullscreen Floorplan Inspection">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+        <span>FULLSCREEN 4K GALLERY ↗</span>
+      </button>
+      <button type="button" class="kv-fullscreen-btn" onclick="window.openBlueprintModal()" style="border-color:rgba(212,175,55,0.6);color:var(--gold,#d4af37);" title="View Official Architectural Event Map">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+        <span>BLUEPRINT MAP 🗺️</span>
+      </button>
+    </div>
   </div>
-  <div class="kv-bg-layer" id="kv-bg-1" style="background-image:url('assets/thumbnail_fail.svg');background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#050507;">
-    <div style="width:100%;height:100%;background:rgba(0,0,0,0.4);"></div>
-  </div>
-  <div class="kv-bg-layer" id="kv-bg-2" style="background-image:url('assets/thumbnail_fail.svg');background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#050507;">
-    <div style="width:100%;height:100%;background:rgba(0,0,0,0.4);"></div>
-  </div>
-  <div class="kv-bg-layer" id="kv-bg-3" style="background-image:url('assets/floorplan_render_stage.jpg');">
-    <div style="width:100%;height:100%;background:linear-gradient(135deg,#352204,#784c08,#1a1002);mix-blend-mode:multiply;opacity:0.35;"></div>
-  </div>
-  <div class="kv-gradient-overlay"></div>
 
-  <div class="kv-content-container">
-    <!-- TOP ZONE: Headline + Dynamic Description + Fullscreen Trigger -->
-    <div class="kv-top-zone">
-      <div class="kv-headline-box">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:0.65rem;flex-wrap:wrap;">
-          <div class="kv-section-tag" style="margin-bottom:0;">Spatial Masterplan • Lao-ITECC</div>
-          <button type="button" class="kv-fullscreen-btn" onclick="window.openFloorplanModal(window.currentFloorplanZoneIdx || 0, 0)" title="Open Fullscreen Floorplan Inspection">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-            <span>FULLSCREEN FLOORPLAN &amp; GALLERY</span>
-          </button>
+  <!-- INTERACTIVE GALLERY 1 ACCORDION STAGE -->
+  <div class="fp-gallery-viewer" id="fp-gallery-viewer" data-checking-details="false">
+    <!-- Floating Action Controls (from gallery1.css) -->
+    <button type="button" data-action="previous" aria-label="Previous Zone" title="Previous Zone (Zone ກ່ອນໜ້າ)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <button type="button" data-action="next" aria-label="Next Zone" title="Next Zone (Zone ຖັດໄປ)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <button type="button" data-action="exit" aria-label="Close Zone Details" title="Close Details (ປິດລາຍລະອຽດ / ກັບສູ່ໜ້າຫຼັກ)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 5v14m-7-7h14"/></svg>
+    </button>
+
+    <!-- LEFT COLUMN: Exclusive Details Capsule Accordion Pills -->
+    <div class="fp-pills-col">
+      <!-- 01. LIHF RED ZONE -->
+      <details name="fp-zone" class="fp-details-item">
+        <summary class="fp-summary">
+          <span class="fp-summary-dot" style="background:#ef4444; color:#ef4444;"></span>
+          <span class="fp-summary-num">01</span>
+          <span class="fp-summary-label">LIHF RED ZONE (MASTER GROUNDS)</span>
+          <span class="fp-summary-icon">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </span>
+        </summary>
+        <div class="fp-card-inner">
+          <div class="fp-card-badge-row">
+            <span class="fp-card-badge" style="background:rgba(239,68,68,0.18); color:#ef4444; border:1px solid rgba(239,68,68,0.4);">
+              <span style="width:6px; height:6px; border-radius:50%; background:#ef4444;"></span>
+              01 • RED ZONE
+            </span>
+            <button type="button" class="fp-card-close-btn" onclick="window.closeAllFpDetails()" title="Close details">✕</button>
+          </div>
+          <div class="fp-card-title-en">LIHF RED ZONE (MASTER GROUNDS)</div>
+          <div class="fp-card-title-lao">ເຂດຫຼັກ LIHF RED ZONE • ພື້ນທີ່ງານທັງໝົດ 10,000+ ຕາແມັດ</div>
+          <p class="fp-card-desc-en">The core festival universe covering all 10,000+ sqm of Lao-ITECC. Featuring the Streetwear &amp; Sneaker Bazaar (50–70 curated lifestyle booths), 8-hour live aerosol graffiti mural canvas, outdoor street dance cyphers, and red-carpet arrival landmark.</p>
+          <p class="fp-card-desc-lao">ພື້ນທີ່ສູນກາງຂອງງານເທສະການ ຄອບຄຸມເນື້ອທີ່ກວ່າ 10,000+ ຕາແມັດ ທີ່ Lao-ITECC. ປະກອບມີຕະຫຼາດ Streetwear &amp; Sneaker (50–70 ຮ້ານຄ້າ), ກຳແພງພົ່ນສີກຣາຟຟິຕີ້ສົດ 8 ຊົ່ວໂມງ, ເດີ່ນເຕັ້ນສະຕຣີທໄຊເຟີ ແລະ ຊຸມປະຕູທາງເຂົ້າຫຼັກ.</p>
+          <div class="fp-card-chips">
+            <span class="fp-chip">10,000+ sqm Total</span>
+            <span class="fp-chip">50-70 Streetwear Booths</span>
+            <span class="fp-chip">8H Live Graffiti</span>
+            <span class="fp-chip">Street Cyphers</span>
+          </div>
+          <div class="fp-card-actions">
+            <button type="button" class="fp-btn-action fp-btn-primary" onclick="window.openFloorplanModal(0, 0)">
+              <span>INSPECT 4K RENDERS ↗</span>
+            </button>
+            <button type="button" class="fp-btn-action fp-btn-outline" onclick="window.openBlueprintModal()">
+              <span>BLUEPRINT MAP 🗺️</span>
+            </button>
+          </div>
         </div>
-        <h2 class="kv-headline">EVENT <span class="hl">FLOORPLAN</span><br>&amp; ACTIVATION ZONES</h2>
-      </div>
+      </details>
 
-      <div class="kv-desc-box">
-        <p class="kv-desc-text animate-fade-in" id="kv-desc">The core festival universe covering all 10,000+ sqm of Lao-ITECC. Featuring the Streetwear &amp; Sneaker Bazaar (50–70 curated lifestyle booths), 8-hour live aerosol graffiti mural canvas, outdoor street dance cyphers, and red-carpet arrival landmark.</p>
-      </div>
+      <!-- 02. BEERLAO GREEN ZONE -->
+      <details name="fp-zone" class="fp-details-item">
+        <summary class="fp-summary">
+          <span class="fp-summary-dot" style="background:#22c55e; color:#22c55e;"></span>
+          <span class="fp-summary-num">02</span>
+          <span class="fp-summary-label">BEERLAO GREEN ZONE (EXPERIENCE)</span>
+          <span class="fp-summary-icon">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </span>
+        </summary>
+        <div class="fp-card-inner">
+          <div class="fp-card-badge-row">
+            <span class="fp-card-badge" style="background:rgba(34,197,94,0.18); color:#22c55e; border:1px solid rgba(34,197,94,0.4);">
+              <span style="width:6px; height:6px; border-radius:50%; background:#22c55e;"></span>
+              02 • GREEN ZONE
+            </span>
+            <button type="button" class="fp-card-close-btn" onclick="window.closeAllFpDetails()" title="Close details">✕</button>
+          </div>
+          <div class="fp-card-title-en">BEERLAO GREEN ZONE (EXPERIENCE OASIS)</div>
+          <div class="fp-card-title-lao">ເຂດເບຍລາວສີຂຽວ • ໂຊນປະສົບການ &amp; ເບຍກາດເດັນ</div>
+          <p class="fp-card-desc-en">Dedicated Beerlao lifestyle oasis featuring a high-octane Live DJ Booth &amp; turntablism scratch battles, an urban Beer Garden with picnic lounges, interactive cold-draft pouring challenges, and exclusive brand photo installations.</p>
+          <p class="fp-card-desc-lao">ພື້ນທີ່ໄລຟ໌ສະໄຕລ໌ສະເພາະຂອງເບຍລາວ ພ້ອມເວທີ Live DJ &amp; ສະແຄຣັຊແຜ່ນ Turntablism ສຸດມັນ, Urban Beer Garden ບ່ອນພັກຜ່ອນ, ກິດຈະກຳກົດເບຍສົດ, ແລະ ຈຸດຖ່າຍຮູບອິນສະຕໍເລຊັນພິເສດ.</p>
+          <div class="fp-card-chips">
+            <span class="fp-chip">Urban Beer Garden</span>
+            <span class="fp-chip">Live DJ Turntablism</span>
+            <span class="fp-chip">Draft Beer Challenge</span>
+            <span class="fp-chip">Chill Lounge</span>
+          </div>
+          <div class="fp-card-actions">
+            <button type="button" class="fp-btn-action fp-btn-primary" onclick="window.openFloorplanModal(1, 0)">
+              <span>INSPECT 4K RENDERS ↗</span>
+            </button>
+            <button type="button" class="fp-btn-action fp-btn-outline" onclick="window.openBlueprintModal()">
+              <span>BLUEPRINT MAP 🗺️</span>
+            </button>
+          </div>
+        </div>
+      </details>
+
+      <!-- 03. PEPSI BLUE ZONE -->
+      <details name="fp-zone" class="fp-details-item">
+        <summary class="fp-summary">
+          <span class="fp-summary-dot" style="background:#38bdf8; color:#38bdf8;"></span>
+          <span class="fp-summary-num">03</span>
+          <span class="fp-summary-label">PEPSI BLUE ZONE (ACTIVATION)</span>
+          <span class="fp-summary-icon">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </span>
+        </summary>
+        <div class="fp-card-inner">
+          <div class="fp-card-badge-row">
+            <span class="fp-card-badge" style="background:rgba(56,189,248,0.18); color:#38bdf8; border:1px solid rgba(56,189,248,0.4);">
+              <span style="width:6px; height:6px; border-radius:50%; background:#38bdf8;"></span>
+              03 • BLUE ZONE
+            </span>
+            <button type="button" class="fp-card-close-btn" onclick="window.closeAllFpDetails()" title="Close details">✕</button>
+          </div>
+          <div class="fp-card-title-en">PEPSI BLUE ZONE (ACTIVATION PLAYGROUND)</div>
+          <div class="fp-card-title-lao">ເຂດເປັບຊີສີຟ້າ • ໂຊນກິດຈະກຳ &amp; ເວທີໄຊເຟີ</div>
+          <p class="fp-card-desc-en">Electric high-energy playground anchored by the Pepsi Music &amp; Rap Cypher Stage, interactive rhythm dance-mat gaming challenges, ice-cold Pepsi refreshment stations, and dynamic UGC video content creator studios.</p>
+          <p class="fp-card-desc-lao">ສະໜາມກິດຈະກຳພະລັງງານສູງ ນຳໂດຍເວທີ Pepsi Music &amp; Rap Cypher, ເກມເຕັ້ນ Dance-Mat ຈັງຫວະສຸດທ້າທາຍ, ຈຸດບໍລິການເຄື່ອງດື່ມເປັບຊີເຢັນໆ ແລະ ສະຕູດິໂອສ້າງຄອນເທັນຕ໌ UGC ສຸດຄຣີເອທີບ.</p>
+          <div class="fp-card-chips">
+            <span class="fp-chip">Rap &amp; Cypher Stage</span>
+            <span class="fp-chip">Dance-Mat Rhythm Game</span>
+            <span class="fp-chip">Ice-Cold Pepsi Bar</span>
+            <span class="fp-chip">UGC Content Studio</span>
+          </div>
+          <div class="fp-card-actions">
+            <button type="button" class="fp-btn-action fp-btn-primary" onclick="window.openFloorplanModal(2, 0)">
+              <span>INSPECT 4K RENDERS ↗</span>
+            </button>
+            <button type="button" class="fp-btn-action fp-btn-outline" onclick="window.openBlueprintModal()">
+              <span>BLUEPRINT MAP 🗺️</span>
+            </button>
+          </div>
+        </div>
+      </details>
+
+      <!-- 04. THE MAIN STAGE -->
+      <details name="fp-zone" class="fp-details-item">
+        <summary class="fp-summary">
+          <span class="fp-summary-dot" style="background:#ffd700; color:#ffd700;"></span>
+          <span class="fp-summary-num">04</span>
+          <span class="fp-summary-label">THE MAIN STAGE (APEX ARENA)</span>
+          <span class="fp-summary-icon">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </span>
+        </summary>
+        <div class="fp-card-inner">
+          <div class="fp-card-badge-row">
+            <span class="fp-card-badge" style="background:rgba(255,215,0,0.18); color:#ffd700; border:1px solid rgba(255,215,0,0.4);">
+              <span style="width:6px; height:6px; border-radius:50%; background:#ffd700;"></span>
+              04 • APEX ARENA
+            </span>
+            <button type="button" class="fp-card-close-btn" onclick="window.closeAllFpDetails()" title="Close details">✕</button>
+          </div>
+          <div class="fp-card-title-en">THE MAIN STAGE (CENTRAL APEX ARENA)</div>
+          <div class="fp-card-title-lao">ເວທີຫຼັກອານາຈັກແອເປັກ • ສູນກາງການແຂ່ງຂັນ &amp; ຄອນເສີດ</div>
+          <p class="fp-card-desc-en">The beating heart uniting all zones: massive stadium LED screens, Olympic-grade concert line arrays, hosting all championship battle finals (Breaking 2v2, Open Style 2v2, Rap 7-to-Smoke), headline concert performances, and the 159,000,000 LAK trophy ceremonies.</p>
+          <p class="fp-card-desc-lao">ຫົວໃຈສຳຄັນທີ່ເຊື່ອມຕໍ່ທຸກໂຊນ: ຈໍ LED ສະໜາມຍັກ, ລະບົບສຽງຄອນເສີດມາດຕະຖານໂອລິມປິກ, ຮອງຮັບການແຂ່ງຂັນຮອບຊີງຊະນະເລີດທຸກລາຍການ (Breaking, Open Style, Rap), ຄອນເສີດສິນລະປິນດັງ ແລະ ພິທີມອບລາງວັນ 159,000,000 ກີບ.</p>
+          <div class="fp-card-chips">
+            <span class="fp-chip">12m Championship Stage</span>
+            <span class="fp-chip">10,000+ Seating Capacity</span>
+            <span class="fp-chip">Headline Concerts</span>
+            <span class="fp-chip">159M LAK Grand Awards</span>
+          </div>
+          <div class="fp-card-actions">
+            <button type="button" class="fp-btn-action fp-btn-primary" onclick="window.openFloorplanModal(3, 0)">
+              <span>INSPECT 4K RENDERS ↗</span>
+            </button>
+            <button type="button" class="fp-btn-action fp-btn-outline" onclick="window.openBlueprintModal()">
+              <span>BLUEPRINT MAP 🗺️</span>
+            </button>
+          </div>
+        </div>
+      </details>
+
+      <!-- 05. ARCHITECTURAL MAP BLUEPRINT -->
+      <details name="fp-zone" class="fp-details-item">
+        <summary class="fp-summary">
+          <span class="fp-summary-dot" style="background:#f59e0b; color:#f59e0b;"></span>
+          <span class="fp-summary-num">05</span>
+          <span class="fp-summary-label">ARCHITECTURAL EVENT MAP</span>
+          <span class="fp-summary-icon">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </span>
+        </summary>
+        <div class="fp-card-inner">
+          <div class="fp-card-badge-row">
+            <span class="fp-card-badge" style="background:rgba(245,158,11,0.18); color:#f59e0b; border:1px solid rgba(245,158,11,0.4);">
+              <span style="width:6px; height:6px; border-radius:50%; background:#f59e0b;"></span>
+              05 • BLUEPRINT MAP
+            </span>
+            <button type="button" class="fp-card-close-btn" onclick="window.closeAllFpDetails()" title="Close details">✕</button>
+          </div>
+          <div class="fp-card-title-en">OFFICIAL ARCHITECTURAL MAP BLUEPRINT</div>
+          <div class="fp-card-title-lao">ແຜນຜັງສະຖາປັດຕະຍະກຳທາງການ • ໂຄງສ້າງ Lao-ITECC</div>
+          <p class="fp-card-desc-en">Complete engineering blueprint of Lao-ITECC: 10,000+ sqm scale, 12×7.3m main stage platform, dual backstage artist lounges, 4 emergency egress corridors, and sponsor activation zoning.</p>
+          <p class="fp-card-desc-lao">ແຜນຜັງວິສະວະກຳສະຖາປັດຕະຍະກຳ Lao-ITECC: ມາດຕາສ່ວນ 10,000+ ຕາແມັດ, ເວທີຫຼັກ 12×7.3 ແມັດ, ຫ້ອງພັກສິນລະປິນ 2 ຫ້ອງ, ທາງໜີໄຟສຸກເສີນ 4 ຈຸດ, ແລະ ການຈັດສັນໂຊນສະປອນເຊີ.</p>
+          <div class="fp-card-chips">
+            <span class="fp-chip">10,000+ sqm Scale</span>
+            <span class="fp-chip">12x7.3m Stage Grid</span>
+            <span class="fp-chip">Dual Backstage Lounges</span>
+            <span class="fp-chip">4 Safety Egress</span>
+          </div>
+          <div class="fp-card-actions">
+            <button type="button" class="fp-btn-action fp-btn-primary" onclick="window.openBlueprintModal()">
+              <span>OPEN FULL BLUEPRINT 🗺️</span>
+            </button>
+            <button type="button" class="fp-btn-action fp-btn-outline" onclick="document.getElementById('floorplan-blueprint-showcase')?.scrollIntoView({behavior:'smooth'})">
+              <span>READ SPECS ↓</span>
+            </button>
+          </div>
+        </div>
+      </details>
     </div>
 
-    <!-- BOTTOM ZONE: Avatar Picker + Meta Footer -->
-    <div class="kv-bottom-zone">
-      <div class="kv-picker-row">
-        <button class="kv-picker-btn active" data-zone="0" aria-label="Show 01. LIHF RED ZONE (Master Grounds)" title="01. LIHF RED ZONE (Master Grounds)">
-          <div class="kv-dot" style="background:#ef4444;box-shadow:0 0 10px #ef4444;"></div>
-          <div class="kv-thumb" style="border-color:rgba(239,68,68,0.5);">
-            <img src="assets/floorplan_render_aerial.jpg" alt="LIHF Red Zone 3D Render" loading="lazy" />
-          </div>
-          <span class="kv-picker-tag" style="color:#ef4444;">RED ZONE</span>
-        </button>
-        <button class="kv-picker-btn" data-zone="1" aria-label="Show 02. BEERLAO GREEN ZONE (Beerlao Experience)" title="02. BEERLAO GREEN ZONE (Pending 3D Render)">
-          <div class="kv-dot" style="background:#22c55e;box-shadow:0 0 10px #22c55e;"></div>
-          <div class="kv-thumb" style="border-color:rgba(34,197,94,0.5);">
-            <img src="assets/thumbnail_fail.svg" alt="Beerlao Green Zone Thumnail Fail" loading="lazy" />
-          </div>
-          <span class="kv-picker-tag" style="color:#22c55e;">GREEN ZONE</span>
-        </button>
-        <button class="kv-picker-btn" data-zone="2" aria-label="Show 03. PEPSI BLUE ZONE (Pepsi Experience)" title="03. PEPSI BLUE ZONE (Pending 3D Render)">
-          <div class="kv-dot" style="background:#38bdf8;box-shadow:0 0 10px #38bdf8;"></div>
-          <div class="kv-thumb" style="border-color:rgba(56,189,248,0.5);">
-            <img src="assets/thumbnail_fail.svg" alt="Pepsi Blue Zone Thumnail Fail" loading="lazy" />
-          </div>
-          <span class="kv-picker-tag" style="color:#38bdf8;">BLUE ZONE</span>
-        </button>
-        <button class="kv-picker-btn" data-zone="3" aria-label="Show 04. THE MAIN STAGE (Central Apex Arena)" title="04. THE MAIN STAGE (Central Apex Arena)">
-          <div class="kv-dot" style="background:#ffd700;box-shadow:0 0 10px #ffd700;"></div>
-          <div class="kv-thumb" style="border-color:rgba(255,215,0,0.5);">
-            <img src="assets/floorplan_render_stage.jpg" alt="The Main Stage 3D Render" loading="lazy" />
-          </div>
-          <span class="kv-picker-tag" style="color:#ffd700;">MAIN STAGE</span>
-        </button>
+    <!-- RIGHT COLUMN: Layered 3D Visuals & Blueprint (from gallery1.css) -->
+    <div class="fp-images-col">
+      <!-- Vignette Gradient -->
+      <div class="fp-vignette"></div>
+
+      <!-- Block 1: Master Grounds 3D Aerial (Default State) -->
+      <div class="img-block">
+        <div class="img-wrapper">
+          <img src="assets/floorplan_render_aerial.jpg" alt="LIHF 2026 Lao-ITECC Spatial Masterplan" loading="lazy" />
+        </div>
+        <div class="fp-master-badge">
+          <div class="fp-master-tag">LIHF 2026 SPATIAL MASTERPLAN</div>
+          <div class="fp-master-title">Lao-ITECC 10,000+ sqm Grounds</div>
+          <div class="fp-master-lao">ແຜນຜັງພື້ນທີ່ງານເທສະການ • ກົດເລືອກໂຊນເພື່ອສຳຫຼວດລາຍລະອຽດ</div>
+        </div>
       </div>
 
-      <div class="kv-meta-footer">
-        <div style="display:flex; flex-direction:column; gap:4px; max-width:440px;">
-          <div class="kv-meta-name animate-fade-in" id="kv-meta-name">01. LIHF RED ZONE (Master Grounds)</div>
-          <div class="kv-meta-role" id="kv-meta-role">10,000+ sqm Lao-ITECC Total Footprint • 100% Circulation</div>
-          <div class="kv-meta-tenure" id="kv-meta-tenure">Streetwear Market (50-70 Booths) • 8H Live Graffiti Mural • Street Cyphers</div>
+      <!-- Block 2: Red Zone (Monumental Entrance & Bazaar) -->
+      <div class="img-block">
+        <div class="img-wrapper">
+          <img src="assets/floorplan_render_entrance.jpg" alt="01. LIHF Red Zone Monumental Entrance" loading="lazy" />
         </div>
-        
-        <div style="display:flex; flex-direction:column; gap:6px;">
-          <div style="font-family:var(--ff-a); font-size:0.65rem; color:rgba(255,255,255,0.6); letter-spacing:0.08em; text-transform:uppercase;">Zone Highlights:</div>
-          <div class="kv-meta-chips" id="kv-meta-chips">
-            <span class="kv-meta-chip">10,000+ sqm Footprint</span>
-            <span class="kv-meta-chip">50-70 Streetwear Booths</span>
-            <span class="kv-meta-chip">8-Hour Live Graffiti</span>
-            <span class="kv-meta-chip">Street Cyphers</span>
+      </div>
+
+      <!-- Block 3: Beerlao Green Zone -->
+      <div class="img-block">
+        <div class="img-wrapper">
+          <img src="assets/thumbnail_fail.svg" alt="02. Beerlao Green Zone" loading="lazy" style="object-fit:contain; background:#08080c;" />
+          <div class="fp-pending-overlay">
+            <div class="fp-pending-badge" style="border-color:rgba(34,197,94,0.4);">
+              <span class="fp-pending-dot" style="background:#22c55e;"></span>
+              <span class="fp-pending-tag" style="color:#22c55e;">3D RENDER IN PRODUCTION</span>
+              <span style="font-weight:700; color:#fff; font-size:0.95rem;">02 • BEERLAO GREEN ZONE</span>
+              <span class="fp-pending-lao">ກຳລັງສ້າງແບບຈຳລອງ 3D • ລໍຖ້າຂໍ້ມູນສະປອນເຊີ</span>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div style="display:flex; flex-direction:column; gap:6px;">
-          <div style="font-family:var(--ff-a); font-size:0.65rem; color:rgba(255,255,255,0.6); letter-spacing:0.08em; text-transform:uppercase;">Zone Gallery (Click to View):</div>
-          <div class="kv-zone-gallery-strip" id="kv-zone-gallery-strip">
-            <!-- Dynamic thumbnails injected via JS -->
+      <!-- Block 4: Pepsi Blue Zone -->
+      <div class="img-block">
+        <div class="img-wrapper">
+          <img src="assets/thumbnail_fail.svg" alt="03. Pepsi Blue Zone" loading="lazy" style="object-fit:contain; background:#08080c;" />
+          <div class="fp-pending-overlay">
+            <div class="fp-pending-badge" style="border-color:rgba(56,189,248,0.4);">
+              <span class="fp-pending-dot" style="background:#38bdf8;"></span>
+              <span class="fp-pending-tag" style="color:#38bdf8;">3D RENDER IN PRODUCTION</span>
+              <span style="font-weight:700; color:#fff; font-size:0.95rem;">03 • PEPSI BLUE ZONE</span>
+              <span class="fp-pending-lao">ກຳລັງສ້າງແບບຈຳລອງ 3D • ລໍຖ້າຂໍ້ມູນສະປອນເຊີ</span>
+            </div>
           </div>
         </div>
+      </div>
 
-        <button type="button" class="kv-fullscreen-btn" onclick="window.openFloorplanModal(window.currentFloorplanZoneIdx || 0, 0)">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-          <span>Expand Gallery ↗</span>
-        </button>
-        <button type="button" class="kv-fullscreen-btn" onclick="window.openBlueprintModal()" style="border-color:rgba(212,175,55,0.6);color:var(--gold,#d4af37);" title="View Official Architectural Event Map">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
-          <span>EVENT MAP BLUEPRINT 🗺️</span>
-        </button>
+      <!-- Block 5: The Main Stage (Apex Arena) -->
+      <div class="img-block">
+        <div class="img-wrapper">
+          <img src="assets/floorplan_render_stage.jpg" alt="04. The Main Stage Apex Arena" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Block 6: Architectural Event Map Blueprint -->
+      <div class="img-block">
+        <div class="img-wrapper">
+          <img src="assets/event_map_layout.jpg" alt="05. Official Architectural Event Map Blueprint" loading="lazy" />
+        </div>
       </div>
     </div>
   </div>
@@ -22012,18 +22661,80 @@ function activateZone(idx) {
   renderZoneGalleryStrip(idx);
 }
 
-document.querySelectorAll('.kv-picker-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const idx = parseInt(btn.dataset.zone);
-    activateZone(idx);
+// ── Gallery 1 Exclusive Accordion Viewer Interaction ──
+(function initFpGalleryViewer() {
+  const fpViewer = document.getElementById('fp-gallery-viewer');
+  if (!fpViewer) return;
+
+  const detailsList = Array.from(fpViewer.querySelectorAll('details[name="fp-zone"]'));
+  const prevBtn = fpViewer.querySelector('[data-action="previous"]');
+  const nextBtn = fpViewer.querySelector('[data-action="next"]');
+  const exitBtn = fpViewer.querySelector('[data-action="exit"]');
+
+  window.closeAllFpDetails = function() {
+    detailsList.forEach(d => { d.open = false; });
+  };
+
+  detailsList.forEach((detail, idx) => {
+    detail.addEventListener('toggle', () => {
+      fpViewer.setAttribute('data-checking-details', 'true');
+      if (detail.open) {
+        window.currentFloorplanZoneIdx = idx;
+        // Mutual exclusion across all browsers
+        detailsList.forEach((other, oIdx) => {
+          if (oIdx !== idx && other.open) other.open = false;
+        });
+      }
+    });
   });
-});
+
+  if (exitBtn) {
+    exitBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      window.closeAllFpDetails();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      let openIdx = detailsList.findIndex(d => d.open);
+      if (openIdx === -1) openIdx = 0;
+      const targetIdx = (openIdx - 1 + detailsList.length) % detailsList.length;
+      detailsList.forEach((d, i) => { d.open = (i === targetIdx); });
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      let openIdx = detailsList.findIndex(d => d.open);
+      if (openIdx === -1) openIdx = 0;
+      const targetIdx = (openIdx + 1) % detailsList.length;
+      detailsList.forEach((d, i) => { d.open = (i === targetIdx); });
+    });
+  }
+
+  // Keyboard Escape to close details
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const anyOpen = detailsList.some(d => d.open);
+      if (anyOpen && !document.getElementById('floorplan-fullscreen-modal')?.classList.contains('active')) {
+        window.closeAllFpDetails();
+      }
+    }
+  });
+})();
 
 window.switchFloorplanZone = function(idx) {
-  activateZone(idx);
-  const target = document.getElementById('venue');
-  if (target) {
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const viewer = document.getElementById('fp-gallery-viewer');
+  if (viewer) {
+    const details = viewer.querySelectorAll('details[name="fp-zone"]');
+    if (details[idx]) {
+      details.forEach((d, i) => { d.open = (i === idx); });
+      viewer.setAttribute('data-checking-details', 'true');
+    }
+    viewer.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 };
 
@@ -22043,9 +22754,8 @@ window.previewCardThumb = function(zoneIdx, imgIdx, el) {
     el.classList.add('active');
   }
 
-  // Also sync top viewer
-  activateZone(zoneIdx);
-  window.onKvGalleryThumbClick(zoneIdx, imgIdx);
+  // Also sync top gallery viewer
+  window.switchFloorplanZone(zoneIdx);
 };
 
 // ── Fullscreen Floorplan Modal Functions ──
