@@ -8678,56 +8678,81 @@ nav { height: 60px !important; padding: 0 !important; }
   margin: 0;
   letter-spacing: 0.02em;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+  flex-shrink: 0;
 }
 
-.card.dark section p {
-  font-family: var(--ff-b);
-  font-size: 0.84rem;
-  color: rgba(255, 255, 255, 0.82);
-  line-height: 1.45;
-  margin: 0;
-  max-height: 0;
-  opacity: 0;
+/* Movie Title / Credits Auto-Crawl Effect */
+@keyframes movieCreditsCrawl {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.card-movie-crawl-viewport {
+  position: relative;
+  height: 58px;
   overflow: hidden;
-  transform: translateY(10px);
-  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.35s ease,
-              transform 0.35s ease,
-              margin 0.35s ease;
+  margin: 0.35rem 0 0.45rem;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%);
 }
 
-.card.dark:hover section p,
-.card.dark.is-open section p {
-  max-height: 140px;
-  opacity: 1;
-  transform: translateY(0);
-  margin-top: 0.55rem;
+.card-movie-crawl-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  animation: movieCreditsCrawl 13s linear infinite;
+  will-change: transform;
 }
 
-.card.dark section > div {
+.card.dark:hover .card-movie-crawl-track {
+  animation-play-state: paused;
+}
+
+.crawl-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+}
+
+.crawl-line {
+  margin: 0;
+  line-height: 1.42;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.crawl-line.crawl-lao {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.crawl-line.crawl-en {
+  font-family: var(--ff-b);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.crawl-line.crawl-stat {
+  font-family: 'Noto Sans Lao', var(--ff-a), sans-serif;
+  font-size: 0.71rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.card.dark section > div.card-action-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.6rem;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transform: translateY(10px);
-  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.35s ease,
-              transform 0.35s ease,
-              margin 0.35s ease;
-  margin-top: 0;
-}
-
-.card.dark:hover section > div,
-.card.dark.is-open section > div {
-  max-height: 60px;
-  opacity: 1;
-  transform: translateY(0);
-  margin-top: 0.85rem;
-  padding-top: 0.55rem;
-  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+  margin-top: 0.15rem;
+  padding-top: 0.45rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.14);
+  flex-shrink: 0;
 }
 
 .card.dark .tag {
@@ -8789,19 +8814,8 @@ nav { height: 60px !important; padding: 0 !important; }
   .card.dark {
     aspect-ratio: 3 / 4.2;
   }
-  .card.dark section p,
-  .card.dark section > div {
-    max-height: 150px;
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .card.dark section p {
-    margin-top: 0.5rem;
-  }
-  .card.dark section > div {
-    margin-top: 0.75rem;
-    padding-top: 0.5rem;
-    border-top: 1px dashed rgba(255, 255, 255, 0.12);
+  .card-movie-crawl-viewport {
+    height: 62px;
   }
 }
 
@@ -19013,11 +19027,17 @@ body.presentation-active .floating-present-badge {
         </div>
 
         <!-- 2. HIGH-IMPACT SPONSOR ACTIVATIONS (Compact 4-column) -->
-        <div style="margin-top:2rem; margin-bottom:1.2rem;">
-          <div class="section-label" style="margin-bottom:0.65rem;">KEY ACTIVATIONS &amp; BRAND EXPERIENCES</div>
-          <h3 style="font-family:var(--ff-d); font-size:clamp(1.7rem, 2.8vw, 2.3rem); text-transform:uppercase; color:#fff; line-height:1.1;">
-            CREATIVE ADVERTISING <span class="hl">&amp; ACTIVATIONS</span>
-          </h3>
+        <!-- 2. HIGH-IMPACT SPONSOR ACTIVATIONS (Compact 4-column) -->
+        <div style="margin-top:1.8rem; margin-bottom:1.15rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:0.6rem 1.5rem;">
+          <div style="display:flex; align-items:center; flex-wrap:wrap; gap:0.6rem 1rem;">
+            <div class="section-label" style="margin-bottom:0;">KEY ACTIVATIONS &amp; BRAND EXPERIENCES</div>
+            <p style="font-family:'Noto Sans Lao', var(--ff-b), sans-serif; font-size:clamp(0.88rem, 1.1vw, 1rem); color:rgba(255,255,255,0.85); margin:0; line-height:1.45; font-weight:500;">
+              4 ຮູບແບບການໂຄສະນາສ້າງສັນ ແລະ ກິດຈະກຳເປີດປະສົບການແບຣນໃນເທດສະການ
+            </p>
+          </div>
+          <span style="font-family:var(--ff-a); font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.48); display:inline-flex; align-items:center; gap:0.45rem;">
+            <span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--gold); box-shadow:0 0 8px var(--gold);"></span> Auto-Crawl Info
+          </span>
         </div>
 
         <div class="mkt-activations-grid">
@@ -19027,8 +19047,23 @@ body.presentation-active .floating-present-badge {
             <img src="assets/elements/act_3d_led.png" alt="3D Digital LED Takeover" />
             <section>
               <h2>3D Digital LED Takeover</h2>
-              <p>Anamorphic 3D LED billboards at Patuxay &amp; ITECC Junction with virtual 3D b-boys breaking out of the screen.</p>
-              <div>
+              <div class="card-movie-crawl-viewport">
+                <div class="card-movie-crawl-track">
+                  <!-- Set 1 -->
+                  <div class="crawl-group">
+                    <p class="crawl-line crawl-lao">ຈໍ LED 3D ຂະໜາດຍັກ ທີ່ປະຕູໄຊ &amp; ໄອເຕັກ ສ້າງຄວາມຕື່ນຕາຕື່ນໃຈດ້ວຍພາບ B-Boy ທະລຸຈໍ</p>
+                    <p class="crawl-line crawl-en">Anamorphic 3D LED billboards at Patuxay &amp; ITECC Junction with virtual 3D b-boys breaking out of the screen.</p>
+                    <p class="crawl-line crawl-stat">✨ 500,000+ ຄົນຜ່ານຕໍ່ມື້ • ສ້າງການຮັບຮູ້ແບຣນລະດັບ Talk of the Town</p>
+                  </div>
+                  <!-- Set 2 (seamless loop) -->
+                  <div class="crawl-group">
+                    <p class="crawl-line crawl-lao">ຈໍ LED 3D ຂະໜາດຍັກ ທີ່ປະຕູໄຊ &amp; ໄອເຕັກ ສ້າງຄວາມຕື່ນຕາຕື່ນໃຈດ້ວຍພາບ B-Boy ທະລຸຈໍ</p>
+                    <p class="crawl-line crawl-en">Anamorphic 3D LED billboards at Patuxay &amp; ITECC Junction with virtual 3D b-boys breaking out of the screen.</p>
+                    <p class="crawl-line crawl-stat">✨ 500,000+ ຄົນຜ່ານຕໍ່ມື້ • ສ້າງການຮັບຮູ້ແບຣນລະດັບ Talk of the Town</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-action-row">
                 <div class="tag" aria-label="500,000+ daily commuter impressions">
                   <i class="fa-solid fa-eye"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></i> 500K+
                 </div>
@@ -19042,8 +19077,23 @@ body.presentation-active .floating-present-badge {
             <img src="assets/elements/act_street_stage.png" alt="#StreetToStage2026" />
             <section>
               <h2>#StreetToStage2026</h2>
-              <p>Viral TikTok soundbite &amp; dance/rap challenge mobilizing youth across Laos and Thailand to submit videos for VIP passes.</p>
-              <div>
+              <div class="card-movie-crawl-viewport">
+                <div class="card-movie-crawl-track">
+                  <!-- Set 1 -->
+                  <div class="crawl-group">
+                    <p class="crawl-line crawl-lao">ແຄມເປນ TikTok &amp; ຄອນເທັນໄວຣັລ ຊວນໄວໜຸ່ມລາວ-ໄທ ເຕັ້ນ ແລະ ແຣັບ ຊິງບັດ VIP</p>
+                    <p class="crawl-line crawl-en">Viral TikTok soundbite &amp; dance/rap challenge mobilizing youth across Laos and Thailand to submit videos for VIP passes.</p>
+                    <p class="crawl-line crawl-stat">🔥 ຍອດວິວ UGC ອໍແກນິກ 3.5M+ • ເຂົ້າເຖິງກຸ່ມໄວໜຸ່ມ Gen Z ໂດຍກົງ</p>
+                  </div>
+                  <!-- Set 2 (seamless loop) -->
+                  <div class="crawl-group">
+                    <p class="crawl-line crawl-lao">ແຄມເປນ TikTok &amp; ຄອນເທັນໄວຣັລ ຊວນໄວໜຸ່ມລາວ-ໄທ ເຕັ້ນ ແລະ ແຣັບ ຊິງບັດ VIP</p>
+                    <p class="crawl-line crawl-en">Viral TikTok soundbite &amp; dance/rap challenge mobilizing youth across Laos and Thailand to submit videos for VIP passes.</p>
+                    <p class="crawl-line crawl-stat">🔥 ຍອດວິວ UGC ອໍແກນິກ 3.5M+ • ເຂົ້າເຖິງກຸ່ມໄວໜຸ່ມ Gen Z ໂດຍກົງ</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-action-row">
                 <div class="tag" aria-label="3.5 million organic UGC views">
                   <i class="fa-solid fa-users"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></i> 3.5M+
                 </div>
@@ -19057,8 +19107,23 @@ body.presentation-active .floating-present-badge {
             <img src="assets/elements/act_qr_rally.png" alt="Battle Pass QR Rally" />
             <section>
               <h2>Battle Pass QR Rally</h2>
-              <p>Mobile web mini-app: visitors scan QR codes at sponsor booths to collect digital stamps, unlock prizes, and join lucky draws.</p>
-              <div>
+              <div class="card-movie-crawl-viewport">
+                <div class="card-movie-crawl-track">
+                  <!-- Set 1 -->
+                  <div class="crawl-group">
+                    <p class="crawl-line crawl-lao">ມິນິແອັບສະແກນ QR ບູດສະປອນເຊີ ສະສົມສະແຕັມດິຈິຕອນ ເພື່ອປົດລັອກຂອງລາງວັນ &amp; ຊິງໂຊກ</p>
+                    <p class="crawl-line crawl-en">Mobile web mini-app: visitors scan QR codes at sponsor booths to collect digital stamps, unlock prizes, and join lucky draws.</p>
+                    <p class="crawl-line crawl-stat">🎯 ດຶງດູດຄົນເຂົ້າບູດ 100% ວັດຜົນໄດ້ຈິງ • ບັນທຶກ Lead ລູກຄ້າຄຸນນະພາບສູງ</p>
+                  </div>
+                  <!-- Set 2 (seamless loop) -->
+                  <div class="crawl-group">
+                    <p class="crawl-line crawl-lao">ມິນິແອັບສະແກນ QR ບູດສະປອນເຊີ ສະສົມສະແຕັມດິຈິຕອນ ເພື່ອປົດລັອກຂອງລາງວັນ &amp; ຊິງໂຊກ</p>
+                    <p class="crawl-line crawl-en">Mobile web mini-app: visitors scan QR codes at sponsor booths to collect digital stamps, unlock prizes, and join lucky draws.</p>
+                    <p class="crawl-line crawl-stat">🎯 ດຶງດູດຄົນເຂົ້າບູດ 100% ວັດຜົນໄດ້ຈິງ • ບັນທຶກ Lead ລູກຄ້າຄຸນນະພາບສູງ</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-action-row">
                 <div class="tag" aria-label="100% verified footfall and opt-in leads">
                   <i class="fa-solid fa-qrcode"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></i> 100%
                 </div>
@@ -19072,8 +19137,23 @@ body.presentation-active .floating-present-badge {
             <img src="assets/elements/act_4k_livestream.png" alt="4K Live Stream &amp; MVP Voting" />
             <section>
               <h2>4K Live Stream &amp; MVP Voting</h2>
-              <p>Multi-cam 4K broadcast streamed simultaneously on TikTok Live, Facebook, and YouTube with live audience voting.</p>
-              <div>
+              <div class="card-movie-crawl-viewport">
+                <div class="card-movie-crawl-track">
+                  <!-- Set 1 -->
+                  <div class="crawl-group">
+                    <p class="crawl-line crawl-lao">ຖ່າຍທອດສົດຄົມຊັດລະດັບ 4K ທົ່ວພາກພື້ນ ພ້ອມລະບົບໂຫວດ MVP ແບບສົດໆ ຜ່ານ TikTok, FB &amp; YT</p>
+                    <p class="crawl-line crawl-en">Multi-cam 4K broadcast streamed simultaneously on TikTok Live, Facebook, and YouTube with live audience voting.</p>
+                    <p class="crawl-line crawl-stat">🌐 ເປົ້າໝາຍການເຂົ້າເຖິງ 10M+ ທົ່ວອາຊຽນ • ພື້ນທີ່ໂຄສະນາຂະໜານໃຫຍ່ຕະຫຼອດງານ</p>
+                  </div>
+                  <!-- Set 2 (seamless loop) -->
+                  <div class="crawl-group">
+                    <p class="crawl-line crawl-lao">ຖ່າຍທອດສົດຄົມຊັດລະດັບ 4K ທົ່ວພາກພື້ນ ພ້ອມລະບົບໂຫວດ MVP ແບບສົດໆ ຜ່ານ TikTok, FB &amp; YT</p>
+                    <p class="crawl-line crawl-en">Multi-cam 4K broadcast streamed simultaneously on TikTok Live, Facebook, and YouTube with live audience voting.</p>
+                    <p class="crawl-line crawl-stat">🌐 ເປົ້າໝາຍການເຂົ້າເຖິງ 10M+ ທົ່ວອາຊຽນ • ພື້ນທີ່ໂຄສະນາຂະໜານໃຫຍ່ຕະຫຼອດງານ</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-action-row">
                 <div class="tag" aria-label="10 million online reach target">
                   <i class="fa-solid fa-tower-broadcast"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg></i> 10M+
                 </div>
