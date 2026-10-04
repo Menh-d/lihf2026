@@ -9434,11 +9434,43 @@ nav { height: 60px !important; padding: 0 !important; }
 
 .timeline-phase-date {
   font-family: var(--ff-a);
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.82rem;
+  font-weight: 800;
   letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.65);
+  color: #ffffff;
   text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.timeline-event-phase-1 .timeline-phase-date {
+  color: #ff8080;
+  border-color: rgba(238, 28, 36, 0.4);
+  background: rgba(238, 28, 36, 0.12);
+}
+
+.timeline-event-phase-2 .timeline-phase-date {
+  color: #ffb74d;
+  border-color: rgba(255, 119, 0, 0.4);
+  background: rgba(255, 119, 0, 0.12);
+}
+
+.timeline-event-phase-3 .timeline-phase-date {
+  color: #ffe066;
+  border-color: rgba(255, 199, 0, 0.5);
+  background: rgba(255, 199, 0, 0.16);
+  box-shadow: 0 0 10px rgba(255, 199, 0, 0.25);
+}
+
+.timeline-event-phase-4 .timeline-phase-date {
+  color: #b3e5fc;
+  border-color: rgba(79, 195, 247, 0.4);
+  background: rgba(79, 195, 247, 0.12);
 }
 
 .phase-title-en {
@@ -9616,47 +9648,144 @@ nav { height: 60px !important; padding: 0 !important; }
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.75rem, 1.2vw, 1.25rem);
   padding: 0;
-  margin: 0.8rem 0 0 0;
+  margin: 1.15rem 0 0 0;
   list-style: none;
-  border-top: 2px solid rgba(255, 255, 255, 0.16);
+  border-top: 2px solid rgba(255, 255, 255, 0.28);
 }
 
 .timelines-years li {
   position: relative;
-  padding-top: 10px;
-  color: rgba(255, 255, 255, 0.55);
-  font-family: var(--ff-a);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .timeline-axis-dot {
   position: absolute;
-  top: -5px;
+  top: -7px;
   left: 0;
-  width: 8px;
-  height: 8px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.65);
+  border: 2px solid #0a0a0a;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
   transition: all 0.3s ease;
 }
 
 .timelines-years li:hover .timeline-axis-dot {
-  background: #fff;
-  transform: scale(1.4);
+  transform: scale(1.35);
 }
 
-.timelines-years li.timeline-axis-event {
-  color: var(--gold);
-  font-weight: 800;
+.timeline-axis-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
+
+.timeline-axis-date {
+  font-family: var(--ff-a);
+  font-size: clamp(0.92rem, 1.15vw, 1.08rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  line-height: 1.25;
+}
+
+.timeline-axis-lao {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: clamp(0.78rem, 0.9vw, 0.88rem);
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* Phase-specific colors on the Axis */
+.timelines-years li.timeline-axis-p1 .timeline-axis-date {
+  color: #ff6b6b;
+}
+.timelines-years li.timeline-axis-p1 .timeline-axis-dot {
+  background: #EE1C24;
+  box-shadow: 0 0 12px rgba(238, 28, 36, 0.85);
+}
+
+.timelines-years li.timeline-axis-p2 .timeline-axis-date {
+  color: #ffa726;
+}
+.timelines-years li.timeline-axis-p2 .timeline-axis-dot {
+  background: #FF7700;
+  box-shadow: 0 0 12px rgba(255, 119, 0, 0.85);
+}
+
+.timelines-years li.timeline-axis-p3 .timeline-axis-date,
+.timelines-years li.timeline-axis-event .timeline-axis-date {
+  color: #ffe066;
+}
+.timelines-years li.timeline-axis-p3 .timeline-axis-dot,
 .timelines-years li.timeline-axis-event .timeline-axis-dot {
-  background: var(--gold);
-  box-shadow: 0 0 10px var(--gold);
-  transform: scale(1.3);
+  background: #FFC700;
+  box-shadow: 0 0 16px rgba(255, 199, 0, 0.95);
+  width: 14px;
+  height: 14px;
+  top: -8px;
+}
+
+.timelines-years li.timeline-axis-p4 .timeline-axis-date {
+  color: #81d4fa;
+}
+.timelines-years li.timeline-axis-p4 .timeline-axis-dot {
+  background: #4FC3F7;
+  box-shadow: 0 0 12px rgba(79, 195, 247, 0.85);
+}
+
+.axis-pill-live {
+  display: inline-block;
+  padding: 2px 7px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  background: rgba(255, 199, 0, 0.22);
+  color: #ffe066;
+  border: 1px solid rgba(255, 199, 0, 0.6);
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(255, 199, 0, 0.3);
+  vertical-align: middle;
+}
+
+.axis-pill-roi {
+  display: inline-block;
+  padding: 2px 7px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  background: rgba(79, 195, 247, 0.2);
+  color: #81d4fa;
+  border: 1px solid rgba(79, 195, 247, 0.5);
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+@keyframes axisDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.85);
+  }
+  50% {
+    transform: scale(1.4);
+    box-shadow: 0 0 22px rgba(255, 215, 0, 1), 0 0 35px rgba(255, 215, 0, 0.65);
+  }
+}
+
+.timeline-axis-dot.pulse {
+  animation: axisDotPulse 2s infinite ease-in-out;
 }
 
 @media (max-width: 1024px) {
@@ -9666,7 +9795,7 @@ nav { height: 60px !important; padding: 0 !important; }
   }
   .timelines-years {
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 0.8rem;
+    row-gap: 1.2rem;
   }
 }
 
@@ -9677,6 +9806,7 @@ nav { height: 60px !important; padding: 0 !important; }
   }
   .timelines-years {
     grid-template-columns: 1fr;
+    row-gap: 1.2rem;
   }
 }
 
@@ -13900,15 +14030,15 @@ body.gsap-ready .acc-inner .ru {
   display: inline-block;
   align-self: flex-start;
   margin-top: 0.85rem;
-  padding: 0.22rem 0.65rem;
+  padding: 0.32rem 0.8rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   font-family: var(--ff-a);
-  font-size: 0.62rem;
+  font-size: 0.76rem;
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 .ct-t-date-highlight {
@@ -20663,10 +20793,34 @@ body.presentation-active .floating-present-badge {
 
             <!-- Horizontal Time Axis (4 Equal Nodes matching 4 Phases) -->
             <ul class="timelines-years">
-              <li><div class="timeline-axis-dot"></div><span>01 – 15 OCT 2026</span></li>
-              <li><div class="timeline-axis-dot"></div><span>16 OCT – 08 NOV 2026</span></li>
-              <li class="timeline-axis-event"><div class="timeline-axis-dot pulse"></div><span>13–15 NOV 2026 (LIVE EVENT)</span></li>
-              <li><div class="timeline-axis-dot"></div><span>16–30 NOV 2026 (ROI)</span></li>
+              <li class="timeline-axis-p1">
+                <div class="timeline-axis-dot"></div>
+                <div class="timeline-axis-content">
+                  <span class="timeline-axis-date">01 – 15 OCT 2026</span>
+                  <span class="timeline-axis-lao">01 – 15 ຕຸລາ 2026</span>
+                </div>
+              </li>
+              <li class="timeline-axis-p2">
+                <div class="timeline-axis-dot"></div>
+                <div class="timeline-axis-content">
+                  <span class="timeline-axis-date">16 OCT – 08 NOV 2026</span>
+                  <span class="timeline-axis-lao">16 ຕຸລາ – 08 ພະຈິກ 2026</span>
+                </div>
+              </li>
+              <li class="timeline-axis-p3 timeline-axis-event">
+                <div class="timeline-axis-dot pulse"></div>
+                <div class="timeline-axis-content">
+                  <span class="timeline-axis-date">13–15 NOV 2026 <span class="axis-pill-live">LIVE EVENT</span></span>
+                  <span class="timeline-axis-lao">13 – 15 ພະຈິກ 2026 (ມື້ງານເທສະການຕົວຈິງ)</span>
+                </div>
+              </li>
+              <li class="timeline-axis-p4">
+                <div class="timeline-axis-dot"></div>
+                <div class="timeline-axis-content">
+                  <span class="timeline-axis-date">16–30 NOV 2026 <span class="axis-pill-roi">ROI</span></span>
+                  <span class="timeline-axis-lao">16 – 30 ພະຈິກ 2026 (ສະຫຼຸບຜົນງານ)</span>
+                </div>
+              </li>
             </ul>
 
           </div>
