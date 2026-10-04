@@ -1,2227 +1,724 @@
 <!DOCTYPE html>
-<html lang="lo" class="scroll-smooth">
+<html lang="lo">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>BEERLAO GREEN NIGHTLIFE × LIHF 2026 | Sponsorship &amp; Activation Proposal</title>
-  <meta name="description" content="Official Sponsorship &amp; Activation Proposal for Beerlao Green Nightlife × LIHF 2026. A 4-week nightlife qualifier journey across Vientiane bars leading to the LIHF Final Stage. Co-organized by Fanglao Dance Studio &amp; Indee Records.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beerlao Green Nightlife × LIHF 2026 | Sponsorship &amp; Activation Proposal</title>
+  <meta name="description" content="A city-wide nightlife and hip-hop qualifier journey — from Vientiane bars to the LIHF 2026 Final Stage. 4 weeks, 4 venues, 16 finalists.">
   <link rel="icon" type="image/png" href="assets/logo.png">
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Noto+Sans+Lao:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+Lao:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ══════════════════════════════════════════════════════════════
-       BEERLAO GREEN NIGHTLIFE THEME TOKENS
-       ══════════════════════════════════════════════════════════════ */
     :root {
-      --bg: #030f06;
-      --bg-darker: #010803;
-      --bg-card: rgba(6, 26, 12, 0.82);
-      --bg-card-hover: rgba(10, 38, 18, 0.95);
-      --border-color: rgba(34, 197, 94, 0.24);
-      --border-color-hover: rgba(34, 197, 94, 0.6);
-      
-      --green-primary: #22c55e;
-      --green-neon: #10b981;
-      --green-bright: #4ade80;
-      --green-glow: rgba(34, 197, 94, 0.45);
-      --green-deep: #052e16;
-      --green-emerald: #008751;
-      
-      --gold: #ffd700;
-      --gold-light: #fef08a;
-      
-      --text: #f0fdf4;
-      --text-muted: rgba(240, 253, 244, 0.75);
-      --text-dim: rgba(240, 253, 244, 0.48);
-      
-      --ff-a: 'Space Grotesk', 'Montserrat', sans-serif;
+      --bg: #050806;
+      --bg-2: #0a110c;
+      --card: rgba(14, 26, 17, 0.78);
+      --line: rgba(74, 222, 128, 0.18);
+      --line-strong: rgba(74, 222, 128, 0.55);
+      --green: #4ade80;
+      --green-2: #22c55e;
+      --green-deep: #0b3d1e;
+      --gold: #facc15;
+      --text: #f2f7f3;
+      --muted: rgba(242, 247, 243, 0.68);
+      --dim: rgba(242, 247, 243, 0.42);
+      --ff-d: 'Anton', 'Space Grotesk', sans-serif;
+      --ff-a: 'Space Grotesk', sans-serif;
       --ff-b: 'Plus Jakarta Sans', 'Noto Sans Lao', sans-serif;
-      --ff-h: 'Akira Expanded', 'Syne', 'Montserrat', sans-serif;
+      --ff-lao: 'Noto Sans Lao', 'Plus Jakarta Sans', sans-serif;
     }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    body { background: var(--bg); color: var(--text); font-family: var(--ff-b); line-height: 1.6; overflow-x: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    ::selection { background: var(--green); color: #031008; }
 
-    @font-face {
-      font-family: 'Akira Expanded';
-      src: url('assets/fonts/AkiraExpanded-SuperBold.woff2') format('woff2'),
-           url('assets/fonts/AkiraExpanded-SuperBold.ttf') format('truetype');
-      font-weight: 800;
-      font-style: normal;
-      font-display: swap;
-    }
+    .wrap { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 1.5rem; }
+    .lao { font-family: var(--ff-lao); }
+    .hl { color: var(--green); }
+    .gold { color: var(--gold); }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* ── Nav ── */
+    .nav { position: fixed; inset: 0 0 auto 0; z-index: 100; height: 64px; display: flex; align-items: center;
+      background: rgba(5, 8, 6, 0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .nav-back { display: inline-flex; align-items: center; gap: 8px; font: 700 0.72rem var(--ff-a); letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); transition: .2s; }
+    .nav-back:hover { border-color: var(--green); color: var(--green); }
+    .nav-links { display: flex; gap: 1.3rem; }
+    .nav-links a { font: 700 0.72rem var(--ff-a); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta { font: 800 0.72rem var(--ff-a); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: #031008;
+      background: var(--green); padding: 8px 16px; border-radius: 999px; box-shadow: 0 0 18px rgba(74,222,128,0.4); }
+    @media (max-width: 1000px) { .nav-links { display: none; } }
 
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: var(--ff-b);
-      line-height: 1.6;
-      overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 10% 10%, rgba(34, 197, 94, 0.15) 0%, transparent 45%),
-        radial-gradient(circle at 90% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 30% 85%, rgba(255, 215, 0, 0.06) 0%, transparent 45%),
-        linear-gradient(180deg, #030f06 0%, #010803 100%);
-      background-attachment: fixed;
-    }
+    /* ── Section scaffold ── */
+    section { position: relative; padding: 96px 0; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; font: 700 0.72rem var(--ff-a); letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 1rem; }
+    .eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--green); }
+    .eyebrow .num { color: var(--dim); }
+    h1, h2, h3 { font-family: var(--ff-d); font-weight: 400; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.02; }
+    h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); margin-bottom: 0.8rem; }
+    .sub-lao { font-family: var(--ff-lao); font-weight: 700; color: var(--gold); font-size: clamp(0.95rem, 1.3vw, 1.1rem); margin-bottom: 0.9rem; }
+    .lead { color: var(--muted); font-size: 1rem; max-width: 640px; }
+    .sec-head { margin-bottom: 3rem; }
+    .alt { background: var(--bg-2); }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; transition: border-color .3s, transform .3s; }
+    .card:hover { border-color: var(--line-strong); }
+    .label { font: 700 0.68rem var(--ff-a); letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
 
-    ::selection {
-      background: var(--green-primary);
-      color: #020b05;
-    }
+    /* ── Hero (Slides 01 + 02) ── */
+    .hero { min-height: 100vh; display: flex; align-items: flex-end; padding: 120px 0 72px; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: url('assets/beerlao/bg_crowd.jpg') center/cover no-repeat; transform: scale(1.04); }
+    .hero-bg::after { content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(5,8,6,0.94) 0%, rgba(5,8,6,0.55) 55%, rgba(5,8,6,0.3) 100%), linear-gradient(0deg, var(--bg) 0%, transparent 45%); }
+    .hero .wrap { position: relative; z-index: 2; }
+    .hero h1 { font-size: clamp(3.2rem, 9vw, 7.4rem); margin-bottom: 1.2rem; }
+    .hero h1 .x { color: var(--green); }
+    .hero-bar { width: 96px; height: 4px; background: var(--green); margin-bottom: 1.4rem; }
+    .hero-tag { font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: var(--text); max-width: 620px; margin-bottom: 0.5rem; }
+    .hero-tag-lao { font-family: var(--ff-lao); color: var(--muted); max-width: 620px; margin-bottom: 2.2rem; }
+    .journey { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 2.4rem; }
+    .journey span { font: 700 0.8rem var(--ff-a); letter-spacing: 0.14em; padding: 8px 16px; border: 1px solid var(--line-strong); border-radius: 999px; background: rgba(74,222,128,0.08); }
+    .journey i { font-style: normal; color: var(--green); }
+    .journey span:last-child { background: var(--green); color: #031008; border-color: var(--green); }
+    .hero-foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+    .hero-foot div { font: 700 0.74rem var(--ff-a); letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); }
 
-    .container {
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+    /* ── Why (Slide 03) ── */
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .why-card { padding: 2rem; }
+    .why-card .n { font: 400 3rem var(--ff-d); color: var(--green); line-height: 1; margin-bottom: 1rem; opacity: .9; }
+    .why-card h3 { font-size: 1.9rem; margin-bottom: 0.3rem; }
+    .why-card .lao-t { font-family: var(--ff-lao); font-weight: 700; color: var(--gold); font-size: 0.9rem; margin-bottom: 0.8rem; }
+    .why-card p { color: var(--muted); font-size: 0.92rem; }
+    .roles { margin-top: 1.4rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.6rem; padding: 1.1rem 1.6rem; border-radius: 14px; border: 1px dashed var(--line-strong); }
+    .roles .label { color: var(--gold); }
+    .roles b { font: 700 0.82rem var(--ff-a); letter-spacing: 0.1em; text-transform: uppercase; }
+    .roles b small { display: block; font: 600 0.74rem var(--ff-lao); letter-spacing: 0; text-transform: none; color: var(--muted); }
+    @media (max-width: 860px) { .why-grid { grid-template-columns: 1fr; } }
 
-    h1, h2, h3, h4 {
-      font-family: var(--ff-h);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
+    /* ── Route (Slides 04 + 10 + 11) ── */
+    .route { overflow: hidden; }
+    .route-bg { position: absolute; inset: 0; background: url('assets/beerlao/vientiane_night.jpg') center/cover no-repeat; opacity: 0.22; }
+    .route-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--bg) 0%, transparent 25%, transparent 75%, var(--bg) 100%); }
+    .route .wrap { position: relative; z-index: 2; }
+    .stops { display: grid; grid-template-columns: repeat(4, 1fr) 1.15fr; gap: 1rem; align-items: stretch; position: relative; }
+    .stops::before { content: ''; position: absolute; top: 27px; left: 2%; right: 2%; height: 2px; background: linear-gradient(90deg, var(--green-2), var(--gold)); opacity: .6; }
+    .stop { position: relative; display: flex; flex-direction: column; }
+    .stop-dot { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font: 400 1.3rem var(--ff-d);
+      background: var(--bg); border: 2px solid var(--green); color: var(--green); margin-bottom: 1rem; position: relative; z-index: 1; box-shadow: 0 0 18px rgba(74,222,128,0.35); }
+    .stop-card { padding: 1.3rem; flex: 1; display: flex; flex-direction: column; gap: 0.7rem; }
+    .stop-date { font: 700 0.72rem var(--ff-a); letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+    .stop-venue { font: 400 1.5rem var(--ff-d); text-transform: uppercase; line-height: 1.05; }
+    .stop-row { display: flex; justify-content: space-between; gap: 0.5rem; border-top: 1px solid var(--line); padding-top: 0.6rem; font-size: 0.8rem; }
+    .stop-row span:first-child { color: var(--dim); font: 700 0.66rem var(--ff-a); letter-spacing: 0.12em; text-transform: uppercase; align-self: center; }
+    .stop-row span:last-child { font-weight: 700; text-align: right; }
+    .stop.final .stop-dot { border-color: var(--gold); color: #031008; background: var(--gold); box-shadow: 0 0 24px rgba(250,204,21,0.5); }
+    .stop.final .stop-card { background: linear-gradient(160deg, rgba(250,204,21,0.14), rgba(14,26,17,0.9)); border-color: rgba(250,204,21,0.45); justify-content: center; }
+    .stop.final .big { font: 400 4rem var(--ff-d); color: var(--gold); line-height: 0.9; }
+    .route-note { margin-top: 1.6rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; align-items: center; }
+    .loop { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; font: 700 0.74rem var(--ff-a); letter-spacing: 0.12em; }
+    .loop .label { margin-right: 0.6rem; }
+    .loop b { padding: 6px 12px; border-radius: 8px; background: rgba(74,222,128,0.1); border: 1px solid var(--line); }
+    .loop i { font-style: normal; color: var(--green); }
+    .confirm { font: 700 0.68rem var(--ff-a); letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+    @media (max-width: 1080px) { .stops { grid-template-columns: repeat(2, 1fr); } .stops::before { display: none; } .stop.final { grid-column: 1 / -1; } }
+    @media (max-width: 560px) { .stops { grid-template-columns: 1fr; } }
 
-    .hl-green {
-      color: var(--green-primary);
-      text-shadow: 0 0 20px rgba(34, 197, 94, 0.55);
-    }
-    .hl-gold {
-      color: var(--gold);
-      text-shadow: 0 0 20px rgba(255, 215, 0, 0.45);
-    }
+    /* ── Competition (Slide 05) ── */
+    .comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+    .comp { overflow: hidden; display: flex; flex-direction: column; }
+    .comp-img { height: 240px; position: relative; overflow: hidden; }
+    .comp-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+    .comp:hover .comp-img img { transform: scale(1.05); }
+    .comp-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(14,26,17,1) 0%, transparent 60%); }
+    .comp-body { padding: 0 1.8rem 1.8rem; margin-top: -48px; position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+    .comp-body h3 { font-size: 2.4rem; }
+    .comp-format { display: inline-block; font: 700 0.72rem var(--ff-a); letter-spacing: 0.12em; text-transform: uppercase; color: #031008; background: var(--green); padding: 4px 10px; border-radius: 6px; align-self: flex-start; }
+    .crit { display: flex; flex-wrap: wrap; gap: 6px; }
+    .crit span { font: 600 0.78rem var(--ff-b); padding: 6px 12px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+    .crit span small { font-family: var(--ff-lao); color: var(--muted); margin-left: 4px; }
+    .qual { margin-top: auto; font-size: 0.86rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 0.9rem; }
+    .qual b { color: var(--green); }
+    .comp-shared { margin-top: 1.4rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .comp-shared div { padding: 1.1rem 1.3rem; border-radius: 14px; border: 1px solid var(--line); background: rgba(74,222,128,0.05); }
+    .comp-shared b { display: block; font: 700 0.86rem var(--ff-a); letter-spacing: 0.08em; text-transform: uppercase; }
+    .comp-shared span { font-family: var(--ff-lao); font-size: 0.82rem; color: var(--muted); }
+    @media (max-width: 860px) { .comp-grid, .comp-shared { grid-template-columns: 1fr; } }
 
-    /* Top Nav */
-    header.bl-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      height: 68px;
-      background: rgba(2, 13, 5, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-    }
-    .bl-nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-    }
-    .bl-nav-left {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-    }
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #ffffff;
-      font-family: var(--ff-a);
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      transition: all 0.25s ease;
-    }
-    .back-btn:hover {
-      background: rgba(34, 197, 94, 0.2);
-      border-color: var(--green-primary);
-      color: var(--green-primary);
-      transform: translateX(-3px);
-    }
+    /* ── Night (Slides 06 + 07) ── */
+    .night-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+    .runsheet { list-style: none; display: flex; flex-direction: column; }
+    .runsheet li { display: grid; grid-template-columns: 56px 1fr; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+    .runsheet li:first-child { border-top: 1px solid var(--line); }
+    .runsheet .n { font: 400 1.8rem var(--ff-d); color: var(--green); }
+    .runsheet b { display: block; font: 700 0.95rem var(--ff-a); letter-spacing: 0.08em; text-transform: uppercase; }
+    .runsheet span { font-family: var(--ff-lao); font-size: 0.84rem; color: var(--muted); }
+    .runsheet li.peak .n { color: var(--gold); }
+    .note { margin-top: 1rem; font: 700 0.68rem var(--ff-a); letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+    .lineup { overflow: hidden; }
+    .lineup-img { aspect-ratio: 16/10; overflow: hidden; }
+    .lineup-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+    .lineup-body { padding: 1.6rem; }
+    .lineup-body h3 { font-size: 1.8rem; margin-bottom: 0.3rem; }
+    .lineup-body > p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.2rem; }
+    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
+    .tier { padding: 1rem; border-radius: 12px; border: 1px solid var(--line); background: rgba(0,0,0,0.25); }
+    .tier b { display: block; font: 700 0.8rem var(--ff-a); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.3rem; }
+    .tier span { font-size: 0.8rem; color: var(--muted); }
+    .tier small { display: block; font-family: var(--ff-lao); font-size: 0.74rem; color: var(--gold); margin-top: 0.3rem; }
+    @media (max-width: 900px) { .night-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { .tiers { grid-template-columns: 1fr; } }
 
-    .bl-co-org-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--ff-a);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.8);
-    }
-    .bl-co-org-badge img {
-      height: 24px;
-      width: auto;
-      object-fit: contain;
-    }
+    /* ── Setup (Slide 08) ── */
+    .setup-hero { border-radius: 20px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 1.4rem; }
+    .setup-hero img { width: 100%; }
+    .zones { display: grid; grid-template-columns: repeat(3, 1fr) 0.9fr; gap: 1rem; }
+    .zone { padding: 1.5rem; }
+    .zone .label { color: var(--green); margin-bottom: 0.4rem; }
+    .zone h3 { font-size: 1.6rem; margin-bottom: 0.2rem; }
+    .zone .lao-t { font-family: var(--ff-lao); font-size: 0.84rem; color: var(--gold); font-weight: 700; margin-bottom: 0.8rem; }
+    .zone ul { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+    .zone li { font-size: 0.84rem; color: var(--muted); padding-left: 1rem; position: relative; }
+    .zone li::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
+    .topview { padding: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .tv { flex: 1; min-height: 210px; border-radius: 12px; border: 1px dashed var(--line-strong); position: relative; background: repeating-linear-gradient(45deg, rgba(74,222,128,0.03) 0 8px, transparent 8px 16px); }
+    .tv .dj { position: absolute; top: 10px; width: 38%; padding: 8px 4px; text-align: center; font: 700 0.6rem var(--ff-a); letter-spacing: 0.08em; border-radius: 6px; background: var(--green-deep); border: 1px solid var(--green); }
+    .tv .dj.l { left: 8px; } .tv .dj.r { right: 8px; }
+    .tv .aud { position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%); display: grid; grid-template-columns: repeat(3, 14px); gap: 10px; }
+    .tv .aud i { width: 14px; height: 14px; border-radius: 50%; background: rgba(74,222,128,0.45); }
+    .tv .ent { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); padding: 6px 10px; font: 700 0.6rem var(--ff-a); letter-spacing: 0.08em; border-radius: 6px; border: 1px solid var(--gold); color: var(--gold); white-space: nowrap; }
+    @media (max-width: 1080px) { .zones { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .zones { grid-template-columns: 1fr; } }
 
-    .bl-nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.1rem;
-    }
-    @media (max-width: 1040px) {
-      .bl-nav-links { display: none; }
-    }
-    .bl-nav-link {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-family: var(--ff-a);
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .bl-nav-link:hover {
-      color: var(--green-primary);
-    }
+    /* ── Sales (Slide 09) ── */
+    .sales-top { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 2rem; align-items: center; margin-bottom: 1.4rem; }
+    .target { padding: 2rem; background: linear-gradient(150deg, rgba(74,222,128,0.14), rgba(14,26,17,0.85)); }
+    .target .big { font: 400 clamp(3rem, 6vw, 4.4rem) var(--ff-d); color: var(--green); line-height: 1; }
+    .target .big small { font-size: 0.4em; color: var(--text); margin-left: 0.3rem; }
+    .target p { color: var(--muted); font-size: 0.88rem; margin-top: 0.6rem; }
+    .target .total { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; }
+    .target .total b { font: 400 1.8rem var(--ff-d); }
+    .flywheel { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; position: relative; }
+    .fw { padding: 1.3rem; border-radius: 14px; border: 1px solid var(--line); background: var(--card); }
+    .fw .label { color: var(--gold); }
+    .fw b { display: block; font: 400 1.5rem var(--ff-d); text-transform: uppercase; margin: 0.2rem 0; }
+    .fw span { font-size: 0.82rem; color: var(--muted); }
+    .fw small { display: block; font-family: var(--ff-lao); font-size: 0.78rem; color: var(--muted); }
+    .fw-core { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; text-align: center;
+      background: var(--green); color: #031008; font: 800 0.66rem/1.15 var(--ff-a); letter-spacing: 0.08em; box-shadow: 0 0 0 8px var(--bg-2), 0 0 30px rgba(74,222,128,0.5); }
+    .sales-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+    .list-card { padding: 1.6rem; }
+    .list-card h4 { font: 700 0.86rem var(--ff-a); letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 0.9rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chips span { font-size: 0.82rem; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,0.03); }
+    @media (max-width: 900px) { .sales-top, .sales-bottom { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) { .flywheel { grid-template-columns: 1fr; } .fw-core { display: none; } }
 
-    .bl-nav-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 16px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      color: #020b05;
-      font-family: var(--ff-a);
-      font-size: 0.74rem;
-      font-weight: 800;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      transition: all 0.25s ease;
-      box-shadow: 0 0 16px rgba(34, 197, 94, 0.4);
-    }
-    .bl-nav-cta:hover {
-      transform: scale(1.04);
-      box-shadow: 0 0 24px rgba(34, 197, 94, 0.65);
-    }
+    /* ── Budget (Slide 13) ── */
+    .budget { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2rem; align-items: start; }
+    .budget-sum { padding: 2rem; display: flex; flex-direction: column; gap: 1.6rem; }
+    .budget-sum .big { font: 400 clamp(2.4rem, 4.4vw, 3.4rem) var(--ff-d); color: var(--green); line-height: 1; }
+    .budget-sum .big small { font-size: 0.42em; color: var(--muted); margin-left: 0.3rem; }
+    .budget-sum .mid { font: 400 2rem var(--ff-d); color: var(--gold); line-height: 1; }
+    .budget-sum p { font-family: var(--ff-lao); font-size: 0.82rem; color: var(--muted); margin-top: 0.3rem; }
+    .budget-sum .disclaimer { font: 600 0.72rem var(--ff-b); color: var(--dim); border-top: 1px solid var(--line); padding-top: 1rem; }
+    .b-rows { display: flex; flex-direction: column; }
+    .b-row { display: grid; grid-template-columns: 1fr auto 56px; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+    .b-row:first-child { border-top: 1px solid var(--line); }
+    .b-name b { font-size: 0.92rem; display: block; }
+    .b-name span { font-family: var(--ff-lao); font-size: 0.78rem; color: var(--muted); }
+    .b-bar { grid-column: 1 / -1; height: 4px; border-radius: 999px; background: rgba(255,255,255,0.06); overflow: hidden; margin-top: -0.4rem; }
+    .b-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--green-2), var(--green)); border-radius: inherit; }
+    .b-amt { font: 700 0.95rem var(--ff-a); text-align: right; }
+    .b-pct { font: 700 0.95rem var(--ff-a); color: var(--green); text-align: right; }
+    .b-total { display: flex; justify-content: space-between; align-items: baseline; padding: 1.2rem 0 0; }
+    .b-total b { font: 400 1.6rem var(--ff-d); }
+    @media (max-width: 900px) { .budget { grid-template-columns: 1fr; } }
 
-    /* Hero Section */
-    .bl-hero {
-      position: relative;
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      padding: 100px 0 60px;
-      overflow: hidden;
-    }
-    .bl-hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('assets/beerlao/slide_02.jpg');
-      background-size: cover;
-      background-position: center;
-      filter: brightness(0.28) contrast(1.15) saturate(1.2);
-      transform: scale(1.02);
-      z-index: 1;
-    }
-    .bl-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: 
-        radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.2) 0%, transparent 60%),
-        linear-gradient(180deg, rgba(3, 15, 6, 0.75) 0%, rgba(1, 8, 3, 0.96) 100%);
-      z-index: 2;
-    }
-    .bl-hero-content {
-      position: relative;
-      z-index: 3;
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    @media (max-width: 960px) {
-      .bl-hero-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
+    /* ── CTA (Slide 12) ── */
+    .cta { overflow: hidden; padding: 130px 0; }
+    .cta-bg { position: absolute; inset: 0; background: url('assets/beerlao/final_stage.jpg') center/cover no-repeat; }
+    .cta-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,8,6,0.95) 0%, rgba(5,8,6,0.6) 60%, rgba(5,8,6,0.4) 100%); }
+    .cta .wrap { position: relative; z-index: 2; }
+    .cta h2 { font-size: clamp(2.6rem, 6.4vw, 5.2rem); line-height: 1; margin-bottom: 1.2rem; }
+    .cta h2 span { display: block; }
+    .cta .lead { margin-bottom: 1.6rem; }
+    .next { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 2.4rem; }
+    .next .label { color: var(--gold); margin-right: 0.4rem; }
+    .next b { font: 700 0.78rem var(--ff-a); letter-spacing: 0.12em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line-strong); background: rgba(5,8,6,0.6); }
+    .contacts { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); gap: 1rem; margin-bottom: 2rem; }
+    .contact { padding: 1.3rem 1.5rem; background: rgba(5,8,6,0.72); backdrop-filter: blur(8px); }
+    .contact .label { color: var(--green); margin-bottom: 0.3rem; }
+    .contact b { display: block; font-size: 1.02rem; }
+    .contact span { font-size: 0.82rem; color: var(--muted); }
+    .btns { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 999px; font: 800 0.8rem var(--ff-a); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: .25s; }
+    .btn-p { background: var(--green); color: #031008; box-shadow: 0 6px 24px rgba(74,222,128,0.35); }
+    .btn-p:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(74,222,128,0.5); }
+    .btn-o { border: 1.5px solid rgba(255,255,255,0.3); }
+    .btn-o:hover { border-color: var(--green); color: var(--green); }
+    @media (max-width: 640px) { .contacts { grid-template-columns: 1fr; } }
 
-    .bl-tag-strip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 5px 14px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.12);
-      border: 1px solid rgba(34, 197, 94, 0.35);
-      margin-bottom: 1.2rem;
-    }
-    .bl-pulse-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green-primary);
-      box-shadow: 0 0 10px var(--green-primary);
-      animation: pulseGreen 1.8s infinite;
-    }
-    @keyframes pulseGreen {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.4); opacity: 0.5; }
-    }
-    .bl-tag-text {
-      font-family: var(--ff-a);
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      color: #86efac;
-      text-transform: uppercase;
-    }
+    footer { border-top: 1px solid var(--line); padding: 28px 0; font-size: 0.78rem; color: var(--dim); }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    footer a { color: var(--green); text-decoration: none; }
 
-    .bl-hero-title {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1.08;
-      margin-bottom: 0.6rem;
-      color: #ffffff;
-      text-shadow: 0 4px 25px rgba(0, 0, 0, 0.8);
-    }
-    .bl-hero-lao-sub {
-      font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-      font-size: clamp(1rem, 1.35vw, 1.22rem);
-      font-weight: 700;
-      color: var(--gold);
-      line-height: 1.45;
-      margin-bottom: 1.1rem;
-    }
-    .bl-hero-desc {
-      font-size: 1rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 1.6rem;
-      max-width: 680px;
-    }
-
-    /* 4-Phase Journey Spine Pills */
-    .bl-hero-pillars {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 1.8rem;
-    }
-    .bl-pillar-pill {
-      font-family: var(--ff-a);
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 8px;
-      background: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      color: #a7f3d0;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .bl-pillar-arrow {
-      color: var(--gold);
-      font-size: 0.8rem;
-    }
-
-    .bl-hero-btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .btn-gold {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 24px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #ffd700 0%, #eab308 100%);
-      color: #020b05;
-      font-family: var(--ff-a);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-decoration: none;
-      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.35);
-      transition: all 0.3s ease;
-    }
-    .btn-gold:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.55);
-    }
-    .btn-outline-green {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 24px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.08);
-      border: 1.5px solid var(--green-primary);
-      color: var(--green-bright);
-      font-family: var(--ff-a);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    .btn-outline-green:hover {
-      background: rgba(34, 197, 94, 0.22);
-      color: #ffffff;
-      box-shadow: 0 0 20px rgba(34, 197, 94, 0.35);
-      transform: translateY(-2px);
-    }
-
-    /* Hero Showcase Card */
-    .bl-showcase-frame {
-      background: var(--bg-card);
-      border: 1.5px solid var(--border-color);
-      border-radius: 20px;
-      padding: 1.2rem;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(34, 197, 94, 0.18);
-      position: relative;
-    }
-    .bl-showcase-img-wrap {
-      position: relative;
-      border-radius: 14px;
-      overflow: hidden;
-      aspect-ratio: 16/9;
-      background: #020904;
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      cursor: pointer;
-    }
-    .bl-showcase-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .bl-showcase-img-wrap:hover img {
-      transform: scale(1.04);
-    }
-    .bl-showcase-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: rgba(2, 13, 5, 0.88);
-      border: 1px solid var(--green-primary);
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-family: var(--ff-a);
-      font-size: 0.65rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      color: #86efac;
-      text-transform: uppercase;
-      backdrop-filter: blur(8px);
-    }
-    .bl-showcase-info {
-      margin-top: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .bl-showcase-title {
-      font-size: 0.95rem;
-      color: #ffffff;
-      margin-bottom: 2px;
-    }
-    .bl-showcase-sub {
-      font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    /* Key Metrics Strip */
-    .bl-metrics-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.2rem;
-      margin-top: -30px;
-      position: relative;
-      z-index: 10;
-    }
-    @media (max-width: 900px) {
-      .bl-metrics-strip {
-        grid-template-columns: repeat(2, 1fr);
-        margin-top: 10px;
-      }
-    }
-    @media (max-width: 520px) {
-      .bl-metrics-strip {
-        grid-template-columns: 1fr;
-      }
-    }
-    .metric-card {
-      background: rgba(4, 20, 9, 0.92);
-      border: 1.5px solid var(--border-color);
-      border-radius: 16px;
-      padding: 1.4rem;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-      transition: all 0.3s ease;
-    }
-    .metric-card:hover {
-      border-color: var(--green-primary);
-      transform: translateY(-4px);
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(34, 197, 94, 0.25);
-    }
-    .metric-num {
-      font-family: var(--ff-h);
-      font-size: 1.9rem;
-      font-weight: 800;
-      color: var(--green-primary);
-      line-height: 1.1;
-      margin-bottom: 0.35rem;
-      text-shadow: 0 0 16px rgba(34, 197, 94, 0.4);
-    }
-    .metric-label {
-      font-family: var(--ff-a);
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #ffffff;
-      margin-bottom: 2px;
-    }
-    .metric-sub {
-      font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-
-    /* Section Components */
-    .section-wrap {
-      padding: 90px 0;
-      position: relative;
-    }
-    .section-header {
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 3.5rem;
-    }
-    .sec-pill {
-      display: inline-block;
-      font-family: var(--ff-a);
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--green-primary);
-      background: rgba(34, 197, 94, 0.12);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      padding: 4px 14px;
-      border-radius: 999px;
-      margin-bottom: 0.8rem;
-    }
-    .sec-title {
-      font-size: clamp(1.6rem, 2.8vw, 2.3rem);
-      line-height: 1.18;
-      color: #ffffff;
-      margin-bottom: 0.6rem;
-    }
-    .sec-desc {
-      font-size: 0.96rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* 3 Pillars: Extend, Connect, Convert */
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.8rem;
-    }
-    @media (max-width: 880px) {
-      .pillars-grid { grid-template-columns: 1fr; }
-    }
-    .pillar-card {
-      background: var(--bg-card);
-      border: 1.5px solid var(--border-color);
-      border-radius: 18px;
-      padding: 2.2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.35s ease;
-      position: relative;
-    }
-    .pillar-card:hover {
-      border-color: var(--green-primary);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(34, 197, 94, 0.22);
-      transform: translateY(-6px);
-    }
-    .pillar-card.featured {
-      border-color: var(--green-primary);
-      background: rgba(8, 32, 16, 0.9);
-      box-shadow: 0 0 25px rgba(34, 197, 94, 0.2);
-    }
-    .pillar-num {
-      font-family: var(--ff-h);
-      font-size: 2.2rem;
-      color: var(--green-primary);
-      margin-bottom: 0.6rem;
-      line-height: 1;
-    }
-    .pillar-title {
-      font-size: 1.45rem;
-      color: #ffffff;
-      margin-bottom: 0.4rem;
-    }
-    .pillar-lao {
-      font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-      font-size: 0.88rem;
-      color: var(--gold);
-      font-weight: 700;
-      margin-bottom: 0.9rem;
-    }
-    .pillar-text {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .roles-banner {
-      margin-top: 2rem;
-      background: rgba(34, 197, 94, 0.08);
-      border: 1px solid rgba(34, 197, 94, 0.25);
-      border-radius: 12px;
-      padding: 1.1rem 1.8rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      text-align: center;
-    }
-    .role-item {
-      font-family: var(--ff-a);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #ffffff;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .role-item span.tag-glow {
-      color: var(--green-primary);
-    }
-
-    /* 4 Weeks. 4 Venues Section */
-    .venues-layout {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 2.5rem;
-      align-items: center;
-    }
-    @media (max-width: 960px) {
-      .venues-layout {
-        grid-template-columns: 1fr;
-      }
-    }
-    .venues-map-card {
-      background: var(--bg-card);
-      border: 1.5px solid var(--border-color);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
-    }
-    .venues-map-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      cursor: pointer;
-      transition: transform 0.4s ease;
-    }
-    .venues-map-img:hover {
-      transform: scale(1.02);
-    }
-    .venues-map-caption {
-      padding: 1rem 1.4rem;
-      background: rgba(2, 13, 5, 0.95);
-      border-top: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .venues-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .venue-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 1.25rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .venue-card:hover {
-      border-color: var(--green-primary);
-      background: rgba(10, 36, 17, 0.95);
-      transform: translateX(6px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(34, 197, 94, 0.2);
-    }
-    .venue-week {
-      font-family: var(--ff-a);
-      font-size: 0.72rem;
-      font-weight: 800;
-      color: var(--gold);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-    .venue-name {
-      font-size: 1.15rem;
-      color: #ffffff;
-      font-weight: 800;
-    }
-    .venue-lao {
-      font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-    .venue-date-badge {
-      font-family: var(--ff-a);
-      font-size: 0.74rem;
-      font-weight: 800;
-      padding: 4px 12px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.15);
-      border: 1px solid var(--green-primary);
-      color: #86efac;
-      white-space: nowrap;
-    }
-
-    /* Competition 2 Columns & 16 Finalists */
-    .comp-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-bottom: 2.5rem;
-    }
-    @media (max-width: 820px) {
-      .comp-grid { grid-template-columns: 1fr; }
-    }
-    .comp-card {
-      background: var(--bg-card);
-      border: 1.5px solid var(--border-color);
-      border-radius: 18px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 1.5rem;
-      transition: all 0.35s ease;
-    }
-    .comp-card:hover {
-      border-color: var(--green-primary);
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(34, 197, 94, 0.22);
-    }
-    .comp-tag {
-      font-family: var(--ff-a);
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.3rem;
-    }
-    .comp-title {
-      font-size: 1.5rem;
-      color: #ffffff;
-      margin-bottom: 0.3rem;
-    }
-    .comp-format-badge {
-      display: inline-block;
-      font-family: var(--ff-a);
-      font-size: 0.68rem;
-      font-weight: 800;
-      padding: 3px 10px;
-      border-radius: 6px;
-      background: rgba(34, 197, 94, 0.15);
-      border: 1px solid rgba(34, 197, 94, 0.35);
-      color: #86efac;
-      margin-bottom: 1.2rem;
-    }
-    .comp-criteria-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 0.8rem;
-    }
-    .comp-criteria-chip {
-      font-family: var(--ff-a);
-      font-size: 0.68rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    .finalists-box {
-      background: linear-gradient(135deg, rgba(6, 28, 14, 0.9) 0%, rgba(3, 15, 6, 0.95) 100%);
-      border: 2px solid var(--green-primary);
-      border-radius: 18px;
-      padding: 2rem 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(34, 197, 94, 0.28);
-    }
-    @media (max-width: 840px) {
-      .finalists-box {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.8rem;
-      }
-    }
-    .finalists-num {
-      font-family: var(--ff-h);
-      font-size: 3rem;
-      line-height: 1;
-      color: var(--gold);
-      text-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
-    }
-    .finalists-title {
-      font-size: 1.25rem;
-      color: #ffffff;
-      margin-bottom: 0.3rem;
-    }
-    .finalists-desc {
-      font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* One Night Schedule & Modular Design */
-    .night-steps-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-    @media (max-width: 990px) {
-      .night-steps-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 520px) {
-      .night-steps-grid { grid-template-columns: 1fr; }
-    }
-    .night-step-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 1.4rem 1.1rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .night-step-card:hover {
-      border-color: var(--green-primary);
-      transform: translateY(-4px);
-    }
-    .night-step-num {
-      font-family: var(--ff-h);
-      font-size: 1.4rem;
-      color: var(--green-primary);
-      margin-bottom: 0.4rem;
-    }
-    .night-step-title {
-      font-family: var(--ff-a);
-      font-size: 0.78rem;
-      font-weight: 800;
-      color: #ffffff;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 0.3rem;
-    }
-    .night-step-lao {
-      font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-      font-size: 0.74rem;
-      color: var(--text-muted);
-    }
-
-    /* 3 Modular Zones */
-    .mod-zones-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.8rem;
-    }
-    @media (max-width: 880px) {
-      .mod-zones-grid { grid-template-columns: 1fr; }
-    }
-    .mod-zone-card {
-      background: var(--bg-card);
-      border: 1.5px solid var(--border-color);
-      border-radius: 16px;
-      padding: 1.8rem;
-      transition: all 0.35s ease;
-    }
-    .mod-zone-card:hover {
-      border-color: var(--green-primary);
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(34, 197, 94, 0.2);
-    }
-    .mod-zone-icon {
-      font-size: 1.8rem;
-      margin-bottom: 0.8rem;
-    }
-    .mod-zone-title {
-      font-size: 1.15rem;
-      color: #ffffff;
-      margin-bottom: 0.4rem;
-    }
-    .mod-zone-tag {
-      font-family: var(--ff-a);
-      font-size: 0.68rem;
-      font-weight: 800;
-      color: var(--gold);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-    }
-    .mod-zone-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
-    /* Sales Flywheel & KPIs */
-    .sales-flow-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.2rem;
-      margin-bottom: 2.5rem;
-    }
-    @media (max-width: 860px) {
-      .sales-flow-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    .sales-flow-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 1.6rem 1.2rem;
-      text-align: center;
-      position: relative;
-    }
-    .sales-flow-step {
-      font-family: var(--ff-a);
-      font-size: 0.7rem;
-      font-weight: 800;
-      color: var(--gold);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-    .sales-flow-title {
-      font-size: 1.15rem;
-      color: #ffffff;
-      margin-bottom: 0.4rem;
-    }
-    .sales-flow-desc {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* Content Engine: Stop 1 to 4 */
-    .content-stops-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.2rem;
-    }
-    @media (max-width: 900px) {
-      .content-stops-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 500px) {
-      .content-stops-grid { grid-template-columns: 1fr; }
-    }
-    .content-stop-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      padding: 1.6rem;
-      transition: all 0.3s ease;
-    }
-    .content-stop-card:hover {
-      border-color: var(--green-primary);
-      transform: translateY(-4px);
-    }
-    .content-stop-num {
-      font-family: var(--ff-a);
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      color: var(--green-primary);
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-    .content-stop-title {
-      font-size: 1.1rem;
-      color: #ffffff;
-      margin-bottom: 0.4rem;
-    }
-    .content-stop-desc {
-      font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* Budget Expense Section */
-    .budget-card {
-      background: var(--bg-card);
-      border: 1.5px solid var(--border-color);
-      border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
-    }
-    .budget-top-summary {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 2rem;
-    }
-    @media (max-width: 700px) {
-      .budget-top-summary { grid-template-columns: 1fr; gap: 1rem; }
-    }
-    .budget-big-val {
-      font-family: var(--ff-h);
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      color: var(--green-primary);
-      line-height: 1;
-      margin-bottom: 0.3rem;
-      text-shadow: 0 0 20px rgba(34, 197, 94, 0.45);
-    }
-    .budget-big-lbl {
-      font-family: var(--ff-a);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #ffffff;
-    }
-    .budget-big-sub {
-      font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .budget-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .budget-table th {
-      font-family: var(--ff-a);
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      padding: 0.8rem 1rem;
-      text-align: left;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    }
-    .budget-table td {
-      padding: 1.1rem 1rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: 0.92rem;
-    }
-    .budget-table tr:hover td {
-      background: rgba(34, 197, 94, 0.04);
-    }
-    .budget-pct-bar-wrap {
-      width: 100%;
-      height: 6px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 999px;
-      overflow: hidden;
-      margin-top: 6px;
-    }
-    .budget-pct-bar {
-      height: 100%;
-      background: linear-gradient(90deg, #22c55e, #10b981);
-      border-radius: 999px;
-    }
-
-    /* Presentation Slide Deck Modal / Gallery */
-    .deck-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-    }
-    @media (max-width: 960px) {
-      .deck-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 640px) {
-      .deck-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    .deck-thumb-wrap {
-      background: #020904;
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      overflow: hidden;
-      aspect-ratio: 16/9;
-      cursor: pointer;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    .deck-thumb-wrap:hover {
-      border-color: var(--green-primary);
-      transform: scale(1.03);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 20px rgba(34, 197, 94, 0.3);
-    }
-    .deck-thumb-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .deck-thumb-badge {
-      position: absolute;
-      bottom: 6px;
-      right: 6px;
-      background: rgba(0, 0, 0, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 4px;
-      padding: 2px 6px;
-      font-family: var(--ff-a);
-      font-size: 0.65rem;
-      font-weight: 800;
-      color: #ffffff;
-    }
-
-    /* Modal Deck Viewer */
-    .deck-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 2000;
-      background: rgba(0, 0, 0, 0.94);
-      backdrop-filter: blur(16px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-    }
-    .deck-modal.active {
-      display: flex;
-    }
-    .deck-modal-inner {
-      position: relative;
-      max-width: 1200px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .deck-modal-img {
-      max-width: 100%;
-      max-height: 80vh;
-      border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(34, 197, 94, 0.3);
-      border: 1px solid var(--border-color);
-      object-fit: contain;
-    }
-    .deck-modal-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      margin-top: 1rem;
-    }
-    .deck-btn {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-family: var(--ff-a);
-      font-size: 0.76rem;
-      font-weight: 800;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s;
-    }
-    .deck-btn:hover {
-      background: var(--green-primary);
-      color: #020b05;
-      border-color: var(--green-primary);
-    }
-    .deck-close-btn {
-      position: absolute;
-      top: -45px;
-      right: 0;
-      background: none;
-      border: none;
-      color: #ffffff;
-      font-size: 1.8rem;
-      cursor: pointer;
-      line-height: 1;
-    }
-
-    /* Footer */
-    footer.bl-footer {
-      background: #010602;
-      border-top: 1px solid var(--border-color);
-      padding: 70px 0 35px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 3.5rem;
-    }
-    @media (max-width: 880px) {
-      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-    }
-    .footer-title {
-      font-family: var(--ff-a);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--green-primary);
-      margin-bottom: 1.1rem;
-    }
-    .footer-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* Floating Present HUD */
-    .present-deck-hud {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 999;
-      background: rgba(2, 13, 5, 0.85);
-      border: 1px solid var(--green-primary);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(34, 197, 94, 0.3);
-      backdrop-filter: blur(12px);
-      border-radius: 999px;
-      padding: 7px 18px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .present-hud-btn {
-      background: none;
-      border: none;
-      color: #ffffff;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--ff-a);
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: all 0.2s;
-    }
-    .present-hud-btn:hover {
-      color: var(--green-primary);
-    }
+    /* Reveal */
+    .rv { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
 
-  <!-- ── TOP GLOBAL NAV ── -->
-  <header class="bl-nav">
-    <div class="container bl-nav-inner">
-      <div class="bl-nav-left">
-        <a href="index.html" class="back-btn" title="Return to LIHF 2026 Main Website">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          <span>LIHF 2026 Hub</span>
-        </a>
-        <div class="bl-co-org-badge">
-          <span>Presented by:</span>
-          <img src="assets/fanglao_logo_transparent.png" alt="Fanglao Dance Studio" />
-          <span>×</span>
-          <img src="assets/indee_records_logo.svg" alt="Indee Records" />
-        </div>
-      </div>
-
-      <nav class="bl-nav-links">
-        <a href="#concept" class="bl-nav-link">Concept &amp; Vision</a>
-        <a href="#venues" class="bl-nav-link">4 Stops &amp; Route</a>
-        <a href="#competition" class="bl-nav-link">Qualifiers</a>
-        <a href="#experience" class="bl-nav-link">Modular Setup</a>
-        <a href="#sales" class="bl-nav-link">Sales Strategy</a>
-        <a href="#budget" class="bl-nav-link">Budget (500M)</a>
-        <a href="#deck" class="bl-nav-link">Slide Deck</a>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap">
+      <a href="index.html" class="nav-back">← LIHF 2026</a>
+      <nav class="nav-links">
+        <a href="#why">Why</a>
+        <a href="#route">Route</a>
+        <a href="#competition">Competition</a>
+        <a href="#night">The Night</a>
+        <a href="#setup">Setup</a>
+        <a href="#sales">Sales</a>
+        <a href="#budget">Budget</a>
       </nav>
-
-      <div>
-        <a href="#contact" class="bl-nav-cta">
-          <span>Lock Partnership</span>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
+      <a href="#contact" class="nav-cta">Let's Build</a>
     </div>
   </header>
 
-  <!-- ── HERO SECTION ── -->
-  <section class="bl-hero" id="hero">
-    <div class="bl-hero-bg"></div>
-    <div class="bl-hero-overlay"></div>
-
-    <div class="container bl-hero-content">
-      <div>
-        <div class="bl-tag-strip">
-          <span class="bl-pulse-dot"></span>
-          <span class="bl-tag-text">SPONSORSHIP &amp; ACTIVATION PROPOSAL • LIHF 2026 • VIENTIANE · 4 STOPS · 1 FINAL</span>
-        </div>
-
-        <h1 class="bl-hero-title">
-          BEERLAO GREEN<br>
-          <span class="hl-green">NIGHTLIFE</span> × <span class="hl-gold">LIHF</span>
-        </h1>
-
-        <div class="bl-hero-lao-sub">
-          ເສັ້ນທາງຄັດເລືອກຮິບຮອບ ແລະ ໄນທ໌ໄລຟ໌ທົ່ວນະຄອນຫຼວງວຽງຈັນ — ຈາກ 4 ບາສູ່ເວທີໃຫຍ່ສຸດຂອງເທສະການ
-        </div>
-
-        <p class="bl-hero-desc">
-          A city-wide nightlife and hip-hop qualifier journey — from Vientiane bars to the festival’s biggest stage. Bring LIHF into Vientiane nightlife before the main festival — creating a visible journey that discovers talent, builds community and gives Beerlao Green a role at every stop.
-        </p>
-
-        <!-- 4 Journey Spine Nodes -->
-        <div class="bl-hero-pillars">
-          <div class="bl-pillar-pill">
-            <span>01 DISCOVER</span>
-            <span class="bl-pillar-arrow">→</span>
-          </div>
-          <div class="bl-pillar-pill">
-            <span>02 QUALIFY</span>
-            <span class="bl-pillar-arrow">→</span>
-          </div>
-          <div class="bl-pillar-pill">
-            <span>03 AMPLIFY</span>
-            <span class="bl-pillar-arrow">→</span>
-          </div>
-          <div class="bl-pillar-pill" style="border-color:var(--gold); color:var(--gold);">
-            <span>04 PERFORM</span>
-          </div>
-        </div>
-
-        <div class="bl-hero-btn-row">
-          <a href="#venues" class="btn-gold">
-            <span>Explore 4 Stops Schedule</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="#deck" class="btn-outline-green">
-            <span>View 13-Slide Deck ↓</span>
-          </a>
-        </div>
+  <!-- 01 · HERO (Slides 01–02) -->
+  <section class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="wrap">
+      <div class="eyebrow">Sponsorship &amp; Activation Proposal · LIHF 2026</div>
+      <h1>Beerlao Green<br>Nightlife <span class="x">×</span> LIHF</h1>
+      <div class="hero-bar"></div>
+      <p class="hero-tag">From the bar to the big stage — a city-wide nightlife and hip-hop qualifier journey that discovers talent, builds community and gives Beerlao Green a role at every stop.</p>
+      <p class="hero-tag-lao">ນຳ LIHF ເຂົ້າສູ່ໄນທ໌ໄລຟ໌ວຽງຈັນກ່ອນເທສະການຫຼັກ — ຄົ້ນຫາພອນສະຫວັນ, ສ້າງຊຸມຊົນ ແລະ ໃຫ້ເບຍລາວກຣີນມີບົດບາດໃນທຸກຈຸດ.</p>
+      <div class="journey">
+        <span>DISCOVER</span><i>→</i><span>QUALIFY</span><i>→</i><span>AMPLIFY</span><i>→</i><span>PERFORM</span>
       </div>
-
-      <!-- Hero Visual Showcase -->
-      <div class="bl-showcase-frame">
-        <div class="bl-showcase-img-wrap" onclick="openDeckModal(0)" title="Click to view full slide">
-          <span class="bl-showcase-badge">Official Deck Cover • Slide 01</span>
-          <img src="assets/beerlao/slide_01.jpg" alt="Beerlao Green Nightlife x LIHF Proposal Cover" loading="eager" />
-        </div>
-        <div class="bl-showcase-info">
-          <div>
-            <h4 class="bl-showcase-title">FROM THE BAR TO THE BIG STAGE</h4>
-            <div class="bl-showcase-sub">Vientiane 4 Stops · 1 Final Stage at Lao-ITECC</div>
-          </div>
-          <button type="button" class="btn-outline-green" style="padding:6px 14px; font-size:0.7rem;" onclick="openDeckModal(0)">
-            View 4K Slide
-          </button>
-        </div>
+      <div class="hero-foot">
+        <div>Proposed Activation</div>
+        <div>Vientiane · 4 Stops · 1 Final</div>
       </div>
     </div>
   </section>
 
-  <!-- ── KEY METRICS STRIP ── -->
-  <div class="container">
-    <div class="bl-metrics-strip">
-      <div class="metric-card">
-        <div class="metric-num">4 WEEKS</div>
-        <div class="metric-label">4 Iconic Venues</div>
-        <div class="metric-sub">The Block, Status, Baron, Mahasan Music &amp; Bar</div>
+  <!-- 02 · WHY (Slide 03) -->
+  <section id="why">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="eyebrow"><span class="num">02</span> Why this platform?</div>
+        <h2>A multi-week <span class="hl">cultural campaign</span>,<br>not a one-night sponsorship.</h2>
+        <div class="sub-lao">ແຄມເປນວັດທະນະທຳຕໍ່ເນື່ອງຫຼາຍອາທິດ — ບໍ່ແມ່ນການສະປອນເຊີພຽງຄືນດຽວ</div>
       </div>
-      <div class="metric-card">
-        <div class="metric-num">16 <span style="font-size:1.3rem;">FINALISTS</span></div>
-        <div class="metric-label">Direct Pathway to LIHF</div>
-        <div class="metric-sub">8 Rap (1v1) + 8 DJ/MC Acts selected across 4 stops</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-num">800–1,200+</div>
-        <div class="metric-label">Target Attendee Visits</div>
-        <div class="metric-sub">200–300 people per venue with Green Table bundles</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-num" style="color:var(--gold);">500M <span style="font-size:1.2rem;">LAK</span></div>
-        <div class="metric-label">Total Proposed Budget</div>
-        <div class="metric-sub">125,000,000 LAK avg investment per weekly activation</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── 01. WHY THIS PLATFORM? (CONCEPT & 3 PILLARS) ── -->
-  <section class="section-wrap" id="concept">
-    <div class="container">
-      <div class="section-header">
-        <div class="sec-pill">✦ MULTI-WEEK CULTURAL CAMPAIGN • NOT A ONE-NIGHT SPONSORSHIP ✦</div>
-        <h2 class="sec-title">WHY THIS <span class="hl-green">PLATFORM?</span></h2>
-        <p class="sec-desc">
-          Bring LIHF into Vientiane nightlife before the main festival — creating a visible journey that discovers talent, builds community and gives Beerlao Green a leading role at every stop.
-        </p>
-      </div>
-
-      <div class="pillars-grid">
-        <!-- 01 EXTEND -->
-        <div class="pillar-card">
-          <div>
-            <div class="pillar-num">01</div>
-            <h3 class="pillar-title">EXTEND</h3>
-            <div class="pillar-lao">ຂະຫຍາຍການຮັບຮູ້ &amp; ຄອບຄອງພື້ນທີ່ສື່</div>
-            <p class="pillar-text">
-              Own attention across multiple nightlife moments before LIHF. Instead of a single festival night, Beerlao Green commands the nightlife conversation throughout October and November across 4 premier venues.
-            </p>
-          </div>
-          <div style="margin-top:1.5rem; font-family:var(--ff-a); font-size:0.75rem; color:var(--green-bright); font-weight:700;">
-            ✦ 4 Weeks Continuous High-Energy Reach
-          </div>
+      <div class="why-grid">
+        <div class="card why-card rv">
+          <div class="n">01</div>
+          <h3>Extend</h3>
+          <div class="lao-t">ຂະຫຍາຍການຮັບຮູ້</div>
+          <p>Own attention across multiple nightlife moments before LIHF.</p>
         </div>
-
-        <!-- 02 CONNECT -->
-        <div class="pillar-card featured">
-          <div>
-            <div class="pillar-num">02</div>
-            <h3 class="pillar-title">CONNECT</h3>
-            <div class="pillar-lao">ສ້າງຄວາມເຊື່ອໝັ້ນກັບສິນລະປິນ &amp; ຊຸມຊົນໄວໜຸ່ມ</div>
-            <p class="pillar-text">
-              Build credibility with artists, venues and urban communities. Direct organic grassroots connection with hip-hop heads, DJs, beatmakers, club-goers and creative culture influencers across Laos.
-            </p>
-          </div>
-          <div style="margin-top:1.5rem; font-family:var(--ff-a); font-size:0.75rem; color:var(--green-bright); font-weight:700;">
-            ✦ Authentic Cultural Integration &amp; Trust
-          </div>
+        <div class="card why-card rv">
+          <div class="n">02</div>
+          <h3>Connect</h3>
+          <div class="lao-t">ເຊື່ອມຕໍ່ຊຸມຊົນ</div>
+          <p>Build credibility with artists, venues and urban communities.</p>
         </div>
-
-        <!-- 03 CONVERT -->
-        <div class="pillar-card">
-          <div>
-            <div class="pillar-num">03</div>
-            <h3 class="pillar-title">CONVERT</h3>
-            <div class="pillar-lao">ປ່ຽນເປັນຍອດຂາຍເຄື່ອງດື່ມຕົວຈິງໃນຮ້ານ</div>
-            <p class="pillar-text">
-              Turn participation and footfall into responsible venue sales. High-conversion table package reservations, group beverage bundles, event-exclusive promotions, and direct bar consumption.
-            </p>
-          </div>
-          <div style="margin-top:1.5rem; font-family:var(--ff-a); font-size:0.75rem; color:var(--green-bright); font-weight:700;">
-            ✦ Green Tables &amp; Targeted Venue Velocity
-          </div>
+        <div class="card why-card rv">
+          <div class="n">03</div>
+          <h3>Convert</h3>
+          <div class="lao-t">ປ່ຽນເປັນຍອດຂາຍ</div>
+          <p>Turn participation and footfall into responsible venue sales.</p>
         </div>
       </div>
-
-      <!-- Strategic Roles Banner -->
-      <div class="roles-banner">
-        <span style="font-family:var(--ff-a); font-size:0.75rem; color:var(--gold); font-weight:800; letter-spacing:0.12em;">STRATEGIC ROLE:</span>
-        <div class="role-item">
-          <span class="tag-glow">●</span>
-          <span>CULTURE PARTNER (ຄູ່ຮ່ວມງານວັດທະນະທຳ)</span>
-        </div>
-        <div class="role-item">
-          <span class="tag-glow">●</span>
-          <span>TALENT PLATFORM (ເວທີຄົ້ນຫາພອນສະຫວັນ)</span>
-        </div>
-        <div class="role-item">
-          <span class="tag-glow">●</span>
-          <span>NIGHTLIFE CONVENER (ຜູ້ນຳພະລັງໄນທ໌ໄລຟ໌)</span>
-        </div>
+      <div class="roles rv">
+        <span class="label">Beerlao Green's role</span>
+        <b>Culture Partner<small>ຄູ່ຮ່ວມວັດທະນະທຳ</small></b>
+        <b>Talent Platform<small>ເວທີຄົ້ນຫາພອນສະຫວັນ</small></b>
+        <b>Nightlife Convener<small>ຜູ້ລວມພະລັງໄນທ໌ໄລຟ໌</small></b>
       </div>
     </div>
   </section>
 
-  <!-- ── 02. 4 WEEKS. 4 VENUES. (PROPOSED SCHEDULE & ROUTE) ── -->
-  <section class="section-wrap" id="venues" style="background:rgba(2, 11, 5, 0.75);">
-    <div class="container">
-      <div class="section-header">
-        <div class="sec-pill">✦ PROPOSED WEEKEND SCHEDULE • 4 STOPS IN VIENTIANE ✦</div>
-        <h2 class="sec-title">4 WEEKS. <span class="hl-green">4 VENUES.</span></h2>
-        <p class="sec-desc">
-          One Beerlao Green Nightlife × LIHF event each week — one venue per week, scheduled on Friday or Saturday before the LIHF Final Stage. (Schedule &amp; venues subject to confirmation).
-        </p>
+  <!-- 03 · ROUTE (Slides 04 + 10 + 11 merged) -->
+  <section class="route alt" id="route">
+    <div class="route-bg"></div>
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="eyebrow"><span class="num">03</span> The Route</div>
+        <h2>4 Weeks. 4 Venues.<br><span class="hl">16 Finalists.</span></h2>
+        <div class="sub-lao">1 ຮ້ານຕໍ່ອາທິດ ທຸກວັນສຸກ ຫຼື ວັນເສົາ — ແຕ່ລະງານສ້າງກະແສໃຫ້ງານຕໍ່ໄປ</div>
+        <p class="lead">One event per week, one venue per week, on a Friday or Saturday before the LIHF Final Stage. Every stop qualifies talent and creates proof, people and anticipation for the next one.</p>
       </div>
 
-      <div class="venues-layout">
-        <!-- Visual Route Map Card -->
-        <div class="venues-map-card">
-          <img src="assets/beerlao/slide_04.jpg" alt="4 Weeks 4 Venues Vientiane Nightlife Route Map" class="venues-map-img" onclick="openDeckModal(3)" />
-          <div class="venues-map-caption">
-            <span><strong>Vientiane Nightlife Grid:</strong> 4 Stops Route Map</span>
-            <span style="color:var(--green-bright);">Click image for 4K expansion ↗</span>
+      <div class="stops">
+        <div class="stop rv">
+          <div class="stop-dot">01</div>
+          <div class="card stop-card">
+            <div class="stop-date">Week 1 · Oct 16 / 17</div>
+            <div class="stop-venue">The Block</div>
+            <div class="stop-row"><span>Content</span><span>Launch Content</span></div>
+            <div class="stop-row"><span>Qualify</span><span>2 Rap + 2 DJ×MC</span></div>
           </div>
         </div>
-
-        <!-- 4 Venue Cards -->
-        <div class="venues-list">
-          <!-- Week 1 -->
-          <div class="venue-card" onclick="openDeckModal(3)">
-            <div>
-              <div class="venue-week">WEEK 1 • OCT 16 / 17, 2026</div>
-              <div class="venue-name">THE BLOCK</div>
-              <div class="venue-lao">ຈຸດເລີ່ມຕົ້ນແຄມເປນ &amp; ຮອບຄັດເລືອກທີ 1</div>
-            </div>
-            <div class="venue-date-badge">STOP 01 • LAUNCH</div>
-          </div>
-
-          <!-- Week 2 -->
-          <div class="venue-card" onclick="openDeckModal(3)">
-            <div>
-              <div class="venue-week">WEEK 2 • OCT 23 / 24, 2026</div>
-              <div class="venue-name">STATUS / GO DUNK</div>
-              <div class="venue-lao">ຄລັບຊັ້ນນຳ &amp; ຮອບຄັດເລືອກທີ 2</div>
-            </div>
-            <div class="venue-date-badge">STOP 02 • CLUB ARENA</div>
-          </div>
-
-          <!-- Week 3 -->
-          <div class="venue-card" onclick="openDeckModal(3)">
-            <div>
-              <div class="venue-week">WEEK 3 • OCT 30 / 31, 2026</div>
-              <div class="venue-name">BARON VIENTIANE</div>
-              <div class="venue-lao">ແຫຼ່ງແຮງບັນດານໃຈໄວໜຸ່ມ &amp; ຮອບຄັດເລືອກທີ 3</div>
-            </div>
-            <div class="venue-date-badge">STOP 03 • HOTSPOT</div>
-          </div>
-
-          <!-- Week 4 -->
-          <div class="venue-card" onclick="openDeckModal(3)">
-            <div>
-              <div class="venue-week">WEEK 4 • NOV 6 / 7, 2026</div>
-              <div class="venue-name">MAHASAN MUSIC &amp; BAR</div>
-              <div class="venue-lao">ສະຫຼຸບຮອບຄັດເລືອກສຸດທ້າຍກ່ອນເວທີໃຫຍ່</div>
-            </div>
-            <div class="venue-date-badge" style="border-color:var(--gold); color:var(--gold);">STOP 04 • FINALE</div>
+        <div class="stop rv">
+          <div class="stop-dot">02</div>
+          <div class="card stop-card">
+            <div class="stop-date">Week 2 · Oct 23 / 24</div>
+            <div class="stop-venue">Status / Go Dunk</div>
+            <div class="stop-row"><span>Content</span><span>Social Proof</span></div>
+            <div class="stop-row"><span>Qualify</span><span>2 Rap + 2 DJ×MC</span></div>
           </div>
         </div>
+        <div class="stop rv">
+          <div class="stop-dot">03</div>
+          <div class="card stop-card">
+            <div class="stop-date">Week 3 · Oct 30 / 31</div>
+            <div class="stop-venue">Baron Vientiane</div>
+            <div class="stop-row"><span>Content</span><span>Talent Stories</span></div>
+            <div class="stop-row"><span>Qualify</span><span>2 Rap + 2 DJ×MC</span></div>
+          </div>
+        </div>
+        <div class="stop rv">
+          <div class="stop-dot">04</div>
+          <div class="card stop-card">
+            <div class="stop-date">Week 4 · Nov 6 / 7</div>
+            <div class="stop-venue">Mahasan Music &amp; Bar</div>
+            <div class="stop-row"><span>Content</span><span>Final Push</span></div>
+            <div class="stop-row"><span>Qualify</span><span>2 Rap + 2 DJ×MC</span></div>
+          </div>
+        </div>
+        <div class="stop final rv">
+          <div class="stop-dot">★</div>
+          <div class="card stop-card">
+            <div class="big">16</div>
+            <div class="stop-venue">Finalists → LIHF 2026 Final Stage</div>
+            <p class="lao" style="font-size:0.82rem;color:var(--muted);">ເສັ້ນທາງທີ່ເຫັນໄດ້ຊັດ ຈາກການຄົ້ນພົບສູ່ການຍອມຮັບ — ຂັບເຄື່ອນໂດຍເບຍລາວກຣີນ</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="route-note rv">
+        <div class="loop">
+          <span class="label">Content loop</span>
+          <b>CAPTURE</b><i>→</i><b>EDIT</b><i>→</i><b>PUBLISH</b><i>→</i><b>RETARGET</b><i>→</i><b>INVITE</b>
+        </div>
+        <div class="confirm">Venues &amp; exact day subject to confirmation</div>
       </div>
     </div>
   </section>
 
-  <!-- ── 03. COMPETITION INFORMATION & 16 FINALISTS PATHWAY ── -->
-  <section class="section-wrap" id="competition">
-    <div class="container">
-      <div class="section-header">
-        <div class="sec-pill">✦ TWO OPEN QUALIFIERS • ONE PATHWAY TO THE LIHF FINAL STAGE ✦</div>
-        <h2 class="sec-title">COMPETITION <span class="hl-green">INFORMATION</span></h2>
-        <p class="sec-desc">
-          Two premier categories showcasing the raw energy of urban talent. Open to all aspiring artists across Laos, powered and supported by Beerlao Green.
-        </p>
+  <!-- 04 · COMPETITION (Slide 05) -->
+  <section id="competition">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="eyebrow"><span class="num">04</span> Competition</div>
+        <h2>Two open qualifiers.<br><span class="hl">One pathway</span> to the final stage.</h2>
+        <div class="sub-lao">2 ປະເພດການແຂ່ງຂັນ ເປີດກວ້າງໃຫ້ທຸກຄົນ</div>
       </div>
 
       <div class="comp-grid">
-        <!-- Category 1: Rap Battle -->
-        <div class="comp-card">
-          <div>
-            <div class="comp-tag">CATEGORY 01 • MC BATTLE</div>
-            <h3 class="comp-title">RAP BATTLE 1 VS 1</h3>
-            <div class="comp-format-badge">OPEN TO EVERYONE • 1 VS 1 ELIMINATION</div>
-            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
-              Direct lyrical face-off on the mic. Emcees trade rhyme schemes, punchlines, and rhythm delivery under heavy crowd energy.
-            </p>
-            <div style="font-family:var(--ff-a); font-size:0.74rem; font-weight:800; color:var(--gold); text-transform:uppercase; margin-bottom:0.4rem;">
-              EVALUATION CRITERIA:
+        <article class="card comp rv">
+          <div class="comp-img"><img src="assets/beerlao/lineup.jpg" alt="Rap battle on stage" loading="lazy"></div>
+          <div class="comp-body">
+            <span class="comp-format">1 VS 1</span>
+            <h3>Rap Battle</h3>
+            <div class="crit">
+              <span>Lyrics<small>ເນື້ອຮ້ອງ</small></span>
+              <span>Flow<small>ຈັງຫວະ</small></span>
+              <span>Freestyle<small>ດົ້ນສົດ</small></span>
+              <span>Delivery<small>ການຖ່າຍທອດ</small></span>
             </div>
-            <div class="comp-criteria-list">
-              <span class="comp-criteria-chip">LYRICS (ເນື້ອຮ້ອງ)</span>
-              <span class="comp-criteria-chip">FLOW (ຈັງຫວະ)</span>
-              <span class="comp-criteria-chip">FREESTYLE (ໄຫວພິກ)</span>
-              <span class="comp-criteria-chip">DELIVERY (ການຖ່າຍທອດ)</span>
-              <span class="comp-criteria-chip" style="border-color:var(--green-primary); color:#86efac;">STAGE PRESENCE + IMPACT</span>
+            <p class="qual">Each venue selects the <b>Top 2 Rap competitors</b>.</p>
+          </div>
+        </article>
+        <article class="card comp rv">
+          <div class="comp-img"><img src="assets/beerlao/dj_mc.jpg" alt="DJ and MC performing" loading="lazy" style="object-position:center 35%;"></div>
+          <div class="comp-body">
+            <span class="comp-format">10-min Club Performance</span>
+            <h3>DJ + MC</h3>
+            <div class="crit">
+              <span>Crowd Control<small>ຄຸມຝູງຊົນ</small></span>
+              <span>Creativity<small>ຄວາມຄິດສ້າງສັນ</small></span>
+              <span>Musicality<small>ຄວາມເປັນດົນຕີ</small></span>
+              <span>Technicality<small>ເຕັກນິກ</small></span>
+              <span>Performance<small>ການສະແດງ</small></span>
             </div>
+            <p class="qual">Each venue selects the <b>Top 2 DJ / MC acts</b>.</p>
           </div>
-          <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:1rem; font-size:0.8rem; color:var(--text-muted);">
-            ✦ Qualification: <strong>Top 2 Rap Competitors</strong> per venue advance to LIHF Final Stage.
-          </div>
-        </div>
-
-        <!-- Category 2: DJ + MC Crowd Control -->
-        <div class="comp-card">
-          <div>
-            <div class="comp-tag">CATEGORY 02 • CLUB PERFORMANCE</div>
-            <h3 class="comp-title">DJ + MC CROWD CONTROL</h3>
-            <div class="comp-format-badge">10-MIN CLUB PERFORMANCE • THEME: CROWD CONTROL</div>
-            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:1rem;">
-              A 10-minute dynamic tandem showcase where a DJ and MC unite to ignite the dancefloor, test club rockin' skills, and drive peak venue excitement.
-            </p>
-            <div style="font-family:var(--ff-a); font-size:0.74rem; font-weight:800; color:var(--gold); text-transform:uppercase; margin-bottom:0.4rem;">
-              EVALUATION CRITERIA:
-            </div>
-            <div class="comp-criteria-list">
-              <span class="comp-criteria-chip">CREATIVITY (ຄວາມຄິດສ້າງສັນ)</span>
-              <span class="comp-criteria-chip">MUSICALITY (ຄວາມເປັນດົນຕີ)</span>
-              <span class="comp-criteria-chip">TECHNICALITY (ເຕັກນິກ)</span>
-              <span class="comp-criteria-chip">PERFORMANCE (ການສະແດງ)</span>
-              <span class="comp-criteria-chip" style="border-color:var(--green-primary); color:#86efac;">CROWD CONTROL (ການຄຸມເວທີ)</span>
-            </div>
-          </div>
-          <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:1rem; font-size:0.8rem; color:var(--text-muted);">
-            ✦ Qualification: <strong>Top 2 DJ/MC acts</strong> per venue advance to LIHF Final Stage.
-          </div>
-        </div>
+        </article>
       </div>
 
-      <!-- 16 Finalists Pathway Box -->
-      <div class="finalists-box">
-        <div>
-          <div style="font-family:var(--ff-a); font-size:0.72rem; font-weight:800; letter-spacing:0.12em; color:var(--green-bright); text-transform:uppercase; margin-bottom:0.3rem;">
-            FROM 4 BARS TO THE LIHF STAGE
-          </div>
-          <h3 class="finalists-title">16 FINALISTS ADVANCE TO LIHF 2026 FINAL STAGE</h3>
-          <p class="finalists-desc">
-            ແຕ່ລະຮ້ານຄັດເລືອກ 2 Rap + 2 DJ/MC Acts = 4 ຄົນຕໍ່ຮ້ານ. ລວມທັງໝົດ 16 ສຸດຍອດສິນລະປິນ ຜ່ານເຂົ້າສູ່ເວທີເທສະການໃຫຍ່ລະດັບຊາດ LIHF 2026 ທີ່ Lao-ITECC ວັນທີ 13–15 ພະຈິກ.
-          </p>
+      <div class="comp-shared rv">
+        <div><b>Open to everyone</b><span>ເປີດຮັບທຸກຄົນ ບໍ່ຈຳກັດສັງກັດ</span></div>
+        <div><b>Stage presence + impact</b><span>ເກນຕັດສິນຮ່ວມທັງ 2 ປະເພດ</span></div>
+        <div><b>Theme: Crowd Control</b><span>ຫົວຂໍ້ຫຼັກຂອງທຸກງານ</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 · THE NIGHT (Slides 06 + 07) -->
+  <section class="alt" id="night">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="eyebrow"><span class="num">05</span> One Night Experience</div>
+        <h2>A repeatable spine.<br><span class="hl">Each venue's personality.</span></h2>
+        <div class="sub-lao">ໂຄງສ້າງງານດຽວກັນທຸກຮ້ານ ແຕ່ຮັກສາເອກະລັກຂອງແຕ່ລະສະຖານທີ່</div>
+      </div>
+
+      <div class="night-grid">
+        <div class="rv">
+          <ol class="runsheet">
+            <li><div class="n">01</div><div><b>Doors + DJ Warm-up</b><span>ເປີດປະຕູ ແລະ ດີເຈເປີດບັນຍາກາດ</span></div></li>
+            <li><div class="n">02</div><div><b>Host Welcome</b><span>ພິທີກອນກ່າວຕ້ອນຮັບ</span></div></li>
+            <li class="peak"><div class="n">03</div><div><b>Qualifier Rounds</b><span>ຮອບຄັດເລືອກ Rap Battle ແລະ DJ + MC</span></div></li>
+            <li><div class="n">04</div><div><b>Guest Set</b><span>ໂຊວ໌ຈາກສິລະປິນຮັບເຊີນ</span></div></li>
+            <li class="peak"><div class="n">05</div><div><b>Winner Reveal</b><span>ປະກາດຜູ້ຜ່ານເຂົ້າຮອບສຸດທ້າຍ</span></div></li>
+          </ol>
+          <div class="note">Timing can be customized by venue</div>
         </div>
-        <div>
-          <div class="finalists-num">16</div>
-          <div style="font-family:var(--ff-a); font-size:0.72rem; font-weight:800; color:#fff; text-transform:uppercase;">
-            National Finalists
+
+        <div class="card lineup rv">
+          <div class="lineup-img"><img src="assets/beerlao/bg_stage.jpg" alt="Club stage with green lights" loading="lazy"></div>
+          <div class="lineup-body">
+            <h3>Local energy × <span class="hl">international connection</span></h3>
+            <p>A lineup rooted in Vientiane and connected to the wider hip-hop world.</p>
+            <div class="tiers">
+              <div class="tier"><b>Local Qualifiers</b><span>The competitive heartbeat</span><small>ຫົວໃຈຂອງການແຂ່ງຂັນ</small></div>
+              <div class="tier"><b>Resident DJs + Hosts</b><span>Momentum &amp; venue identity</span><small>ພະລັງ ແລະ ເອກະລັກຮ້ານ</small></div>
+              <div class="tier"><b>Guest Artists</b><span>Credibility, mentorship &amp; reach</span><small>ຄວາມໜ້າເຊື່ອຖື ແລະ ການເຂົ້າເຖິງ</small></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── 04. ONE NIGHT EXPERIENCE & MODULAR DESIGN ── -->
-  <section class="section-wrap" id="experience" style="background:rgba(2, 11, 5, 0.75);">
-    <div class="container">
-      <div class="section-header">
-        <div class="sec-pill">✦ REPEATABLE EVENT SPINE • ROOM FOR EACH VENUE'S PERSONALITY ✦</div>
-        <h2 class="sec-title">ONE NIGHT <span class="hl-green">EXPERIENCE</span></h2>
-        <p class="sec-desc">
-          Structured 5-step nightly program delivering consistent high-voltage entertainment, organic brand integration, and maximum audience dwell time.
-        </p>
+  <!-- 06 · SETUP (Slide 08) -->
+  <section id="setup">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="eyebrow"><span class="num">06</span> Venue Setup</div>
+        <h2>Flexible design.<br><span class="hl">Any venue.</span></h2>
+        <div class="sub-lao">ຊຸດຕິດຕັ້ງແບບໂມດູລາ 3 ໂຊນ ປັບໃຊ້ໄດ້ກັບທຸກຂະໜາດຮ້ານ</div>
       </div>
 
-      <!-- 5 Nightly Steps -->
-      <div class="night-steps-grid">
-        <div class="night-step-card">
-          <div class="night-step-num">01</div>
-          <div class="night-step-title">DOORS + WARM-UP</div>
-          <div class="night-step-lao">ເປີດປະຕູ &amp; DJ Warm-up ດົນຕີເປີດບັນຍາກາດ</div>
-        </div>
-        <div class="night-step-card">
-          <div class="night-step-num">02</div>
-          <div class="night-step-title">HOST WELCOME</div>
-          <div class="night-step-lao">ພິທີກອນກ່າວຕ້ອນຮັບ &amp; ເປີດແຄມເປນ Beerlao</div>
-        </div>
-        <div class="night-step-card" style="border-color:var(--green-primary);">
-          <div class="night-step-num">03</div>
-          <div class="night-step-title">QUALIFIER ROUNDS</div>
-          <div class="night-step-lao">ຮອບແຂ່ງຂັນຕົວຈິງ Rap 1v1 &amp; DJ/MC</div>
-        </div>
-        <div class="night-step-card">
-          <div class="night-step-num">04</div>
-          <div class="night-step-title">GUEST SET</div>
-          <div class="night-step-lao">ໂຊພິເສດຈາກ Celebrity DJs / Headliners</div>
-        </div>
-        <div class="night-step-card" style="border-color:var(--gold);">
-          <div class="night-step-num" style="color:var(--gold);">05</div>
-          <div class="night-step-title">WINNER REVEAL</div>
-          <div class="night-step-lao">ປະກາດ 4 ຜູ້ຊະນະປະຈຳຮ້ານ ເຂົ້າສູ່ LIHF</div>
-        </div>
-      </div>
+      <div class="setup-hero rv"><img src="assets/beerlao/venue_setup.jpg" alt="Beerlao Green Nightlife × LIHF event decoration concept" loading="lazy"></div>
 
-      <!-- Modular Venue Setup Visual & 3 Zones -->
-      <div style="margin-top:2rem;">
-        <div style="text-align:center; margin-bottom:2rem;">
-          <h3 style="font-size:1.6rem; color:#ffffff; margin-bottom:0.4rem;">
-            FLEXIBLE DESIGN. <span class="hl-green">ANY VENUE.</span>
-          </h3>
-          <p style="font-size:0.92rem; color:var(--text-muted); max-width:750px; margin:0 auto;">
-            A modular Beerlao Green Nightlife × LIHF setup designed around three essential zones: branded entrance, two DJ tables and an adaptable audience area.
-          </p>
-        </div>
-
-        <!-- 3D Render Image Card (Slide 08) -->
-        <div style="background:var(--bg-card); border:1.5px solid var(--border-color); border-radius:18px; overflow:hidden; margin-bottom:2rem; box-shadow:0 15px 40px rgba(0,0,0,0.8);">
-          <img src="assets/beerlao/slide_08.jpg" alt="Flexible Design Any Venue 3D Concept" style="width:100%; height:auto; display:block; cursor:pointer;" onclick="openDeckModal(7)" />
-          <div style="padding:1rem 1.4rem; background:rgba(2, 13, 5, 0.95); border-top:1px solid var(--border-color); display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; color:var(--text-muted);">
-            <span><strong>3D Event Setup Blueprint:</strong> Entrance, Facing DJ Tables &amp; Audience Zone</span>
-            <span style="color:var(--green-bright); cursor:pointer;" onclick="openDeckModal(7)">Click to view in 4K Deck Mode ↗</span>
-          </div>
-        </div>
-
-        <!-- 3 Essential Zones -->
-        <div class="mod-zones-grid">
-          <!-- Zone 1 -->
-          <div class="mod-zone-card">
-            <div class="mod-zone-icon">🚪</div>
-            <div class="mod-zone-tag">ZONE 01 • ARRIVAL</div>
-            <h4 class="mod-zone-title">ENTRANCE ZONE</h4>
-            <p class="mod-zone-desc">
-              Branded entrance arch · LED lighting and graffiti design · Photo opportunity backdrop · Welcome staff &amp; competitor registration desk.
-            </p>
-          </div>
-
-          <!-- Zone 2 -->
-          <div class="mod-zone-card" style="border-color:var(--green-primary);">
-            <div class="mod-zone-icon">🎛️</div>
-            <div class="mod-zone-tag">ZONE 02 • BATTLE ARENA</div>
-            <h4 class="mod-zone-title">TWO DJ TABLES</h4>
-            <p class="mod-zone-desc">
-              Facing battle setup with compact footprint · 2 facing DJ tables · LED screen &amp; branded backdrop · Suitable for rap battles, DJ sets, and mini-concerts.
-            </p>
-          </div>
-
-          <!-- Zone 3 -->
-          <div class="mod-zone-card">
-            <div class="mod-zone-icon">🍻</div>
-            <div class="mod-zone-tag">ZONE 03 • SOCIAL HUB</div>
-            <h4 class="mod-zone-title">AUDIENCE ZONE</h4>
-            <p class="mod-zone-desc">
-              Open standing area &amp; branded barrel high tables · Flexible layout for any venue size · Unobstructed views to DJ tables · Food and cold Beerlao sales.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 05. AUDIENCE EXPECTATION & SALES STRATEGY ── -->
-  <section class="section-wrap" id="sales">
-    <div class="container">
-      <div class="section-header">
-        <div class="sec-pill">✦ ATTRACT · RESERVE · ORDER · RETURN ✦</div>
-        <h2 class="sec-title">AUDIENCE EXPECTATION &amp; <span class="hl-green">SALES STRATEGY</span></h2>
-        <p class="sec-desc">
-          Planning target: <strong>200–300 people per venue</strong> — totaling <strong>800–1,200 visits</strong> across four weekly activations. Engineered to turn event buzz into direct Beerlao Green consumption.
-        </p>
-      </div>
-
-      <!-- Sales Flywheel 4 Steps -->
-      <div class="sales-flow-grid">
-        <div class="sales-flow-item">
-          <div class="sales-flow-step">STEP 01</div>
-          <h4 class="sales-flow-title">ATTRACT</h4>
-          <p class="sales-flow-desc">
-            Event demand generated via TikTok cyphers, venue social channels, and artist announcements.
-          </p>
-        </div>
-
-        <div class="sales-flow-item" style="border-color:var(--green-primary);">
-          <div class="sales-flow-step">STEP 02</div>
-          <h4 class="sales-flow-title">RESERVE</h4>
-          <p class="sales-flow-desc">
-            Exclusive "Green Tables" advance reservations with premium viewing direct to the DJ battle arena.
-          </p>
-        </div>
-
-        <div class="sales-flow-item">
-          <div class="sales-flow-step">STEP 03</div>
-          <h4 class="sales-flow-title">ORDER &amp; ENGAGE</h4>
-          <p class="sales-flow-desc">
-            Group beverage bundles, event-only promotions, rapid ordering points, and MC callout specials.
-          </p>
-        </div>
-
-        <div class="sales-flow-item" style="border-color:var(--gold);">
-          <div class="sales-flow-step">STEP 04</div>
-          <h4 class="sales-flow-title">RETURN</h4>
-          <p class="sales-flow-desc">
-            Next-stop incentives: stamp cards and wristbands granting VIP perks at the next venue and LIHF.
-          </p>
-        </div>
-      </div>
-
-      <!-- Sales Mechanics & KPIs -->
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;">
-        <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:16px; padding:1.8rem;">
-          <h4 style="font-size:1.1rem; color:#fff; margin-bottom:0.8rem; display:flex; align-items:center; gap:8px;">
-            <span style="color:var(--green-primary);">✦</span> SALES MECHANICS
-          </h4>
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.88rem; color:var(--text-muted);">
-            <li>• <strong>Green Table packages:</strong> Curated tables bundled with ice-cold Beerlao Green.</li>
-            <li>• <strong>Group beverage bundles:</strong> Special tower and bucket offerings for crews.</li>
-            <li>• <strong>Premium viewing tables:</strong> Guaranteed front-row sightlines to the battle.</li>
-            <li>• <strong>Visible ordering points:</strong> Sub-zero draft bars and fast-track service.</li>
-            <li>• <strong>MC/artist callouts:</strong> Real-time cheering and celebratory toasts from the stage.</li>
+      <div class="zones">
+        <div class="card zone rv">
+          <div class="label">Zone 1</div>
+          <h3>Entrance</h3>
+          <div class="lao-t">ໂຊນທາງເຂົ້າ</div>
+          <ul>
+            <li>Branded entrance arch</li>
+            <li>LED light &amp; graffiti design</li>
+            <li>Photo opportunity</li>
+            <li>Welcome staff / registration</li>
           </ul>
         </div>
-
-        <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:16px; padding:1.8rem;">
-          <h4 style="font-size:1.1rem; color:#fff; margin-bottom:0.8rem; display:flex; align-items:center; gap:8px;">
-            <span style="color:var(--gold);">✦</span> CORE MEASURED KPIs
-          </h4>
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.88rem; color:var(--text-muted);">
-            <li>• <strong>Attendance &amp; Footfall:</strong> Total verified attendees per venue (Target: 200–300).</li>
-            <li>• <strong>Tables Reserved:</strong> 100% capacity utilization of Green Tables.</li>
-            <li>• <strong>Beerlao Green Units Sold:</strong> Cans, bottles, and draft liters consumed.</li>
-            <li>• <strong>Sales Per Attendee:</strong> Average beverage spend per customer.</li>
-            <li>• <strong>Repeat Attendance:</strong> Attendees traveling across multiple weekly stops.</li>
+        <div class="card zone rv">
+          <div class="label">Zone 2</div>
+          <h3>Two DJ Tables</h3>
+          <div class="lao-t">ໂຕະດີເຈ 2 ຝັ່ງປະຈັນໜ້າ</div>
+          <ul>
+            <li>Facing battle setup, compact footprint</li>
+            <li>LED screen / branded backdrop</li>
+            <li>Beerlao Green branding</li>
+            <li>Rap battle, DJ battle &amp; mini-concert</li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 06. CONTENT ENGINE: ONE EVENT BUILDS THE NEXT ── -->
-  <section class="section-wrap" id="media" style="background:rgba(2, 11, 5, 0.75);">
-    <div class="container">
-      <div class="section-header">
-        <div class="sec-pill">✦ CAPTURE → EDIT → PUBLISH → RETARGET → INVITE ✦</div>
-        <h2 class="sec-title">ONE EVENT <span class="hl-green">BUILDS THE NEXT</span></h2>
-        <p class="sec-desc">
-          Every stop creates proof, people and anticipation for the next one. A dedicated media production crew captures high-energy moments nightly for viral distribution.
-        </p>
-      </div>
-
-      <div class="content-stops-grid">
-        <div class="content-stop-card">
-          <div class="content-stop-num">STOP 01 • OCT 16/17</div>
-          <h4 class="content-stop-title">LAUNCH CONTENT</h4>
-          <p class="content-stop-desc">
-            ວິດີໂອເປີດໂຕແຄມເປນ, ບັນຍາກາດຄຶກຄັກຂອງ Stop 1 ທີ່ The Block ສ້າງຄວາມຕື່ນເຕັ້ນໃຫ້ທົ່ວເມືອງ.
-          </p>
-        </div>
-
-        <div class="content-stop-card">
-          <div class="content-stop-num">STOP 02 • OCT 23/24</div>
-          <h4 class="content-stop-title">SOCIAL PROOF</h4>
-          <p class="content-stop-desc">
-            ພາບ ແລະ ຄລິບ Reels ຢືນຢັນຄວາມມ່ວນຂອງຜູ້ຊົມຕົວຈິງ, ກະແສແບ່ງປັນໃນ TikTok ແລະ Instagram.
-          </p>
-        </div>
-
-        <div class="content-stop-card">
-          <div class="content-stop-num">STOP 03 • OCT 30/31</div>
-          <h4 class="content-stop-title">TALENT STORIES</h4>
-          <p class="content-stop-desc">
-            ເລົ່າເລື່ອງລາວ ແລະ ໂປຣໄຟລ໌ຂອງນັກເຕັ້ນ, ດີເຈ ແລະ ແຣັບເປີທີ່ຜ່ານເຂົ້າຮອບ ພ້ອມຍອດວິວສູງ.
-          </p>
-        </div>
-
-        <div class="content-stop-card" style="border-color:var(--gold);">
-          <div class="content-stop-num" style="color:var(--gold);">STOP 04 • NOV 6/7</div>
-          <h4 class="content-stop-title">FINAL PUSH</h4>
-          <p class="content-stop-desc">
-            ຍິງໂຄສະນາຂັ້ນສູງສຸດ ລວມ 16 Finalists ເຊີນຊວນແຟນໆເຂົ້າຮ່ວມງານໃຫຍ່ LIHF 2026 ທີ່ Lao-ITECC.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 07. PROPOSED BUDGET EXPENSE (SLIDE 13) ── -->
-  <section class="section-wrap" id="budget">
-    <div class="container">
-      <div class="section-header">
-        <div class="sec-pill">✦ PLANNING BUDGET • 4 STOPS ACTIVATION ✦</div>
-        <h2 class="sec-title">PROPOSED <span class="hl-green">BUDGET EXPENSE</span></h2>
-        <p class="sec-desc">
-          Total planning budget for Beerlao Green Nightlife × LIHF across all 4 nightlife activations. Final allocation may be adjusted after venue and partner confirmation.
-        </p>
-      </div>
-
-      <div class="budget-card">
-        <!-- Top Summary -->
-        <div class="budget-top-summary">
-          <div>
-            <div class="budget-big-lbl">TOTAL PROJECT BUDGET</div>
-            <div class="budget-big-val">500,000,000 <span style="font-size:1.4rem;">LAK</span></div>
-            <div class="budget-big-sub">ງົບປະມານໂຄງການລວມທັງໝົດຕະຫຼອດ 4 ສັບປະດາ</div>
-          </div>
-          <div>
-            <div class="budget-big-lbl">AVERAGE PER ACTIVATION</div>
-            <div class="budget-big-val" style="color:var(--gold);">125,000,000 <span style="font-size:1.4rem;">LAK</span></div>
-            <div class="budget-big-sub">ສະເລ່ຍ 125,000,000 ກີບ ຕໍ່ 1 ຮ້ານ (4 Stops)</div>
-          </div>
-        </div>
-
-        <!-- Budget Table with Bars -->
-        <div style="overflow-x:auto;">
-          <table class="budget-table">
-            <thead>
-              <tr>
-                <th style="width:50%;">BUDGET CATEGORY (ໝວດໝູ່ລາຍຈ່າຍ)</th>
-                <th style="width:25%; text-align:right;">AMOUNT (LAK)</th>
-                <th style="width:25%; text-align:right;">SHARE (%)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <strong>Event Production &amp; Technical Setup</strong>
-                  <div style="font-size:0.78rem; color:var(--text-muted);">ການຜະລິດເວທີ, ລະບົບສຽງ, ໄຟ ແລະ ຈໍ LED</div>
-                  <div class="budget-pct-bar-wrap"><div class="budget-pct-bar" style="width:24%;"></div></div>
-                </td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:#fff;">120,000,000</td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:var(--green-bright);">24%</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Artists, International Guests &amp; Entertainment</strong>
-                  <div style="font-size:0.78rem; color:var(--text-muted);">ຄ່າຕົວສິນລະປິນ, ດີເຈຮັບເຊີນສາກົນ ແລະ ການສະແດງ</div>
-                  <div class="budget-pct-bar-wrap"><div class="budget-pct-bar" style="width:20%;"></div></div>
-                </td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:#fff;">100,000,000</td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:var(--green-bright);">20%</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Marketing, Media &amp; Content Production</strong>
-                  <div style="font-size:0.78rem; color:var(--text-muted);">ການຕະຫຼາດ, ຖ່າຍທຳຄອນເທັນຕ໌, ວິດີໂອ ແລະ ຍິງໂຄສະນາ</div>
-                  <div class="budget-pct-bar-wrap"><div class="budget-pct-bar" style="width:14%;"></div></div>
-                </td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:#fff;">70,000,000</td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:var(--green-bright);">14%</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Portable Decoration &amp; Branding + Logistics</strong>
-                  <div style="font-size:0.78rem; color:var(--text-muted);">ຊຸດຕົກແຕ່ງເຄື່ອນທີ່, ປ້າຍແບຣນດິ້ງ Beerlao ແລະ ການຂົນສົ່ງ</div>
-                  <div class="budget-pct-bar-wrap"><div class="budget-pct-bar" style="width:13%;"></div></div>
-                </td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:#fff;">65,000,000</td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:var(--green-bright);">13%</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Competition, Judges &amp; Prizes</strong>
-                  <div style="font-size:0.78rem; color:var(--text-muted);">ເງິນລາງວັນຜູ້ຊະນະ, ຄ່າກຳມະການຕັດສິນ ແລະ ຖ້ວຍລາງວັນ</div>
-                  <div class="budget-pct-bar-wrap"><div class="budget-pct-bar" style="width:12%;"></div></div>
-                </td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:#fff;">60,000,000</td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:var(--green-bright);">12%</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Venue Operations, Crew &amp; Staffing</strong>
-                  <div style="font-size:0.78rem; color:var(--text-muted);">ການປະສານງານສະຖານທີ່, ທີມງານສະຕາຟ ແລະ ລະບົບຄວາມປອດໄພ</div>
-                  <div class="budget-pct-bar-wrap"><div class="budget-pct-bar" style="width:12%;"></div></div>
-                </td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:#fff;">60,000,000</td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:var(--green-bright);">12%</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <strong>Contingency / Reserve</strong>
-                  <div style="font-size:0.78rem; color:var(--text-muted);">ງົບປະມານສຳຮອງສຸກເສີນ</div>
-                  <div class="budget-pct-bar-wrap"><div class="budget-pct-bar" style="width:5%;"></div></div>
-                </td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:#fff;">25,000,000</td>
-                <td style="text-align:right; font-family:var(--ff-a); font-weight:700; color:var(--gold);">5%</td>
-              </tr>
-
-              <tr style="background:rgba(34, 197, 94, 0.1); border-top:2px solid var(--green-primary);">
-                <td style="font-family:var(--ff-h); font-size:1.05rem; color:#fff;">
-                  TOTAL BUDGET (ງົບປະມານລວມທັງໝົດ)
-                </td>
-                <td style="text-align:right; font-family:var(--ff-h); font-size:1.15rem; color:var(--green-primary);">
-                  500,000,000 LAK
-                </td>
-                <td style="text-align:right; font-family:var(--ff-h); font-size:1.15rem; color:var(--gold);">
-                  100%
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 08. INTERACTIVE 13-SLIDE PRESENTATION DECK ── -->
-  <section class="section-wrap" id="deck" style="background:rgba(2, 11, 5, 0.85);">
-    <div class="container">
-      <div class="section-header">
-        <div class="sec-pill">✦ COMPLETE PROPOSAL DECK • 13 SLIDES ✦</div>
-        <h2 class="sec-title">OFFICIAL <span class="hl-green">SLIDE PRESENTATION</span></h2>
-        <p class="sec-desc">
-          Browse through all 13 official slides of the Beerlao Green Nightlife × LIHF proposal. Click any slide thumbnail to open the full-screen interactive reader.
-        </p>
-      </div>
-
-      <!-- Slide Thumbnails Grid -->
-      <div class="deck-grid">
-        <div class="deck-thumb-wrap" onclick="openDeckModal(0)" title="Slide 01: Cover">
-          <img src="assets/beerlao/slide_01.jpg" alt="Slide 01" loading="lazy">
-          <div class="deck-thumb-badge">01 / 13</div>
-        </div>
-        <div class="deck-thumb-wrap" onclick="openDeckModal(1)" title="Slide 02: From Bar to Big Stage">
-          <img src="assets/beerlao/slide_02.jpg" alt="Slide 02" loading="lazy">
-          <div class="deck-thumb-badge">02 / 13</div>
-        </div>
-        <div class="deck-thumb-wrap" onclick="openDeckModal(2)" title="Slide 03: Why This Platform?">
-          <img src="assets/beerlao/slide_03.jpg" alt="Slide 03" loading="lazy">
-          <div class="deck-thumb-badge">03 / 13</div>
-        </div>
-        <div class="deck-thumb-wrap" onclick="openDeckModal(3)" title="Slide 04: 4 Weeks. 4 Venues.">
-          <img src="assets/beerlao/slide_04.jpg" alt="Slide 04" loading="lazy">
-          <div class="deck-thumb-badge">04 / 13</div>
-        </div>
-        <div class="deck-thumb-wrap" onclick="openDeckModal(4)" title="Slide 05: Competition Information">
-          <img src="assets/beerlao/slide_05.jpg" alt="Slide 05" loading="lazy">
-          <div class="deck-thumb-badge">05 / 13</div>
-        </div>
-        <div class="deck-thumb-wrap" onclick="openDeckModal(5)" title="Slide 06: One Night Experience">
-          <img src="assets/beerlao/slide_06.jpg" alt="Slide 06" loading="lazy">
-          <div class="deck-thumb-badge">06 / 13</div>
-        </div>
-        <div class="deck-thumb-wrap" onclick="openDeckModal(6)" title="Slide 07: Local Energy x International Connection">
-          <img src="assets/beerlao/slide_07.jpg" alt="Slide 07" loading="lazy">
-          <div class="deck-thumb-badge">07 / 13</div>
-        </div>
-        <div class="deck-thumb-wrap" onclick="openDeckModal(7)" title="Slide 08: Flexible Design. Any Venue.">
-          <img src="assets/beerlao/slide_08.jpg" alt="Slide 08" loading="lazy">
-          <div class="deck-thumb-badge">08 / 13</div>
-        </div>
-        <div class="deck-thumb-wrap" onclick="openDeckModal(8)" title="Slide 09: Audience Expectation x Sales Strategy">
-          <img src="assets/beerlao/slide_09.jpg" alt="Slide 09" loading="lazy">
-          <div class="deck-thumb-badge">09 / 13</div>
-        </div>
-        <div class="deck-thumb-wrap" onclick="openDeckModal(9)" title="Slide 10: One Event Builds The Next">
-          <img src="assets/beerlao/slide_10.jpg" alt="Slide 10" loading="lazy">
-          <div class="deck-thumb-badge">10 / 13</div>
-        </div>
-        <div class="deck-thumb-wrap" onclick="openDeckModal(10)" title="Slide 11: From 4 Bars to LIHF Stage">
-          <img src="assets/beerlao/slide_11.jpg" alt="Slide 11" loading="lazy">
-          <div class="deck-thumb-badge">11 / 13</div>
-        </div>
-        <div class="deck-thumb-wrap" onclick="openDeckModal(11)" title="Slide 12: Own The Road">
-          <img src="assets/beerlao/slide_12.jpg" alt="Slide 12" loading="lazy">
-          <div class="deck-thumb-badge">12 / 13</div>
-        </div>
-        <div class="deck-thumb-wrap" onclick="openDeckModal(12)" title="Slide 13: Proposed Budget Expense">
-          <img src="assets/beerlao/slide_13.jpg" alt="Slide 13" loading="lazy">
-          <div class="deck-thumb-badge">13 / 13</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── 09. CALL TO ACTION & CONTACT (SLIDE 12) ── -->
-  <section class="section-wrap" id="contact" style="background:rgba(2, 11, 5, 0.95);">
-    <div class="container" style="max-width:960px;">
-      <div class="section-header" style="margin-bottom:2.5rem;">
-        <div class="sec-pill">✦ OWN THE ROAD • OWN THE NIGHT • OWN THE MOMENT ✦</div>
-        <h2 class="sec-title">
-          OWN THE ROAD.<br>
-          OWN THE NIGHT.<br>
-          <span class="hl-green">OWN THE MOMENT.</span>
-        </h2>
-        <p class="sec-desc" style="font-family:'Noto Sans Lao', var(--ff-b), sans-serif; font-size:1.05rem; color:var(--gold); font-weight:700;">
-          ຮ່ວມກັນຄອບຄອງຄ່ຳຄືນ ແລະ ເສັ້ນທາງແຫ່ງສຽງເພງ • ຕິດຕໍ່ຮ່ວມມືມື້ນີ້
-        </p>
-        <p class="sec-desc" style="margin-top:0.4rem;">
-          Let’s build the activation together. NEXT: ALIGN VENUES · FORMAT · ROLES · ROADMAP
-        </p>
-      </div>
-
-      <div style="background:var(--bg-card); border:1.5px solid var(--border-color); border-radius:18px; padding:2.5rem; box-shadow:0 20px 50px rgba(0,0,0,0.7);">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:2rem;">
-          <div>
-            <div style="font-family:var(--ff-a); font-size:0.7rem; font-weight:800; color:var(--green-primary); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.3rem;">Fanglao Dance Studio</div>
-            <div style="font-size:1.15rem; font-weight:700; color:#ffffff; margin-bottom:0.4rem;">Ounla Phaoudom (Founder / Khen)</div>
-            <div style="font-size:0.88rem; color:var(--text-muted); line-height:1.5;">Vientiane, Lao PDR • Fanglao Creative Space<br>Official Festival Organizer • LIHF Committee</div>
-          </div>
-          <div>
-            <div style="font-family:var(--ff-a); font-size:0.7rem; font-weight:800; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.3rem;">Indee Records &amp; Events</div>
-            <div style="font-size:1.15rem; font-weight:700; color:#ffffff; margin-bottom:0.4rem;">Anulak Prathammavong (Aai Ped)</div>
-            <div style="font-size:0.88rem; color:var(--text-muted); line-height:1.5;">Vientiane, Lao PDR • Indee Studios<br>Music Titan &amp; Sound Engineering Lead</div>
-          </div>
-        </div>
-
-        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; padding-top:1.5rem; border-top:1px solid var(--border-color);">
-          <a href="mailto:contact@fanglaostudio.com?subject=Beerlao%20Green%20Nightlife%20Activation%20Inquiry%20-%20LIHF2026" class="btn-gold">
-            <span>Send Activation Inquiry</span>
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-          </a>
-          <a href="index.html" class="btn-outline-green">
-            <span>Return to LIHF 2026 Hub →</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── FOOTER ── -->
-  <footer class="bl-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div style="display:flex; align-items:center; gap:10px; margin-bottom:1rem;">
-            <img src="assets/beerlao_green_badge.svg" alt="Beerlao Green" style="height:36px;" />
-            <span style="font-family:var(--ff-h); font-size:1.1rem; color:#fff;">BEERLAO GREEN NIGHTLIFE</span>
-          </div>
-          <p class="footer-desc">
-            Official Beerlao Green Nightlife × LIHF 2026 proposal. A 4-week nightlife and hip-hop qualifier journey across Vientiane bars leading to the festival's biggest stage at Lao-ITECC.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="footer-title">Organizer Accreditation</h4>
-          <p class="footer-desc">
-            Jointly presented and organized by <strong>Fanglao Dance Studio</strong> and <strong>Indee Records &amp; Events</strong> under official sanction of the LIHF 2026 Committee.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="footer-title">Quick Navigation</h4>
-          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
-            <li><a href="index.html" style="color:var(--green-primary); text-decoration:none;">← Return to LIHF 2026 Main Hub</a></li>
-            <li><a href="index.html#venue" style="color:var(--text-muted); text-decoration:none;">Lao-ITECC Event Floorplan</a></li>
-            <li><a href="index.html#battles" style="color:var(--text-muted); text-decoration:none;">8 Culture Pillars &amp; Battles</a></li>
-            <li><a href="index.html#packages" style="color:var(--text-muted); text-decoration:none;">Festival Master Packages</a></li>
+        <div class="card zone rv">
+          <div class="label">Zone 3</div>
+          <h3>Audience</h3>
+          <div class="lao-t">ໂຊນຜູ້ຊົມ</div>
+          <ul>
+            <li>Open standing area</li>
+            <li>Branded barrel &amp; high tables</li>
+            <li>Good views to both DJ tables</li>
+            <li>Food &amp; beverage sales</li>
           </ul>
         </div>
+        <div class="card topview rv" aria-label="Top view layout">
+          <div class="label">Top view</div>
+          <div class="tv">
+            <div class="dj l">DJ TABLE 1</div>
+            <div class="dj r">DJ TABLE 2</div>
+            <div class="aud"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="ent">↑ ENTRANCE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 · SALES (Slide 09) -->
+  <section class="alt" id="sales">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="eyebrow"><span class="num">07</span> Audience × Sales</div>
+        <h2>Footfall that <span class="hl">converts.</span></h2>
+        <div class="sub-lao">ເປົ້າໝາຍຜູ້ຊົມ ແລະ ກົນໄກການຂາຍເບຍລາວກຣີນ</div>
       </div>
 
-      <div style="text-align:center; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.08); font-size:0.8rem; color:var(--text-dim);">
-        &copy; 2026 Lao International HipHop Festival (LIHF). All Rights Reserved. Beerlao&reg; is a registered trademark of Lao Brewery Co., Ltd.
+      <div class="sales-top">
+        <div class="card target rv">
+          <div class="label">Planning target per venue</div>
+          <div class="big">200–300<small>people</small></div>
+          <div class="total"><span class="label">Across 4 weeks</span><b>800–1,200 visits</b></div>
+          <p>Targets are subject to confirmed venue capacity. <span class="lao">ຕົວເລກຂຶ້ນກັບຄວາມຈຸຂອງແຕ່ລະຮ້ານ.</span></p>
+        </div>
+        <div class="flywheel rv">
+          <div class="fw"><span class="label">01</span><b>Attract</b><span>Event demand</span><small>ສ້າງຄວາມຕ້ອງການເຂົ້າງານ</small></div>
+          <div class="fw"><span class="label">02</span><b>Reserve</b><span>Green Tables</span><small>ຈອງໂຕະ Green Table</small></div>
+          <div class="fw"><span class="label">04</span><b>Return</b><span>Next-stop incentive</span><small>ສິດພິເສດສຳລັບງານຕໍ່ໄປ</small></div>
+          <div class="fw"><span class="label">03</span><b>Order + Engage</b><span>Bundles · offers · callouts</span><small>ແພັກເກດ, ໂປຣໂມຊັນ, MC ເຊຍ</small></div>
+          <div class="fw-core">BEERLAO<br>GREEN<br>SALES</div>
+        </div>
       </div>
+
+      <div class="sales-bottom">
+        <div class="card list-card rv">
+          <h4>Sales mechanics</h4>
+          <div class="chips">
+            <span>Green Table packages</span>
+            <span>Group beverage bundles</span>
+            <span>Premium viewing tables</span>
+            <span>Event-only offers</span>
+            <span>Visible ordering points</span>
+            <span>MC / artist callouts</span>
+          </div>
+        </div>
+        <div class="card list-card rv">
+          <h4>KPIs</h4>
+          <div class="chips">
+            <span>Attendance</span>
+            <span>Tables reserved</span>
+            <span>Beerlao Green units sold</span>
+            <span>Sales per attendee</span>
+            <span>Package sales</span>
+            <span>Repeat attendance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 · BUDGET (Slide 13) -->
+  <section id="budget">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div class="eyebrow"><span class="num">08</span> Proposed Budget</div>
+        <h2>Budget <span class="hl">expense.</span></h2>
+        <div class="sub-lao">ງົບປະມານສະເໜີ ສຳລັບທັງ 4 ງານ</div>
+      </div>
+
+      <div class="budget">
+        <div class="card budget-sum rv">
+          <div>
+            <div class="label">Total project budget</div>
+            <div class="big">500,000,000<small>LAK</small></div>
+            <p>ງົບປະມານລວມທັງໂຄງການ</p>
+          </div>
+          <div>
+            <div class="label">Average per activation</div>
+            <div class="mid">125,000,000 LAK</div>
+            <p>ສະເລ່ຍຕໍ່ 1 ງານ (4 ງານ)</p>
+          </div>
+          <div class="disclaimer">Proposed planning budget; final allocation may be adjusted after venue and partner confirmation.</div>
+        </div>
+
+        <div class="rv">
+          <div class="b-rows">
+            <div class="b-row">
+              <div class="b-name"><b>Event Production &amp; Technical Setup</b><span>ການຜະລິດງານ ແລະ ລະບົບເຕັກນິກ</span></div>
+              <div class="b-amt">120,000,000</div><div class="b-pct">24%</div>
+              <div class="b-bar"><i style="width:24%"></i></div>
+            </div>
+            <div class="b-row">
+              <div class="b-name"><b>Artists, International Guests &amp; Entertainment</b><span>ສິລະປິນ, ແຂກຕ່າງປະເທດ ແລະ ການສະແດງ</span></div>
+              <div class="b-amt">100,000,000</div><div class="b-pct">20%</div>
+              <div class="b-bar"><i style="width:20%"></i></div>
+            </div>
+            <div class="b-row">
+              <div class="b-name"><b>Marketing, Media &amp; Content Production</b><span>ການຕະຫຼາດ, ສື່ ແລະ ຜະລິດຄອນເທັນ</span></div>
+              <div class="b-amt">70,000,000</div><div class="b-pct">14%</div>
+              <div class="b-bar"><i style="width:14%"></i></div>
+            </div>
+            <div class="b-row">
+              <div class="b-name"><b>Portable Decoration &amp; Branding + Logistics</b><span>ຊຸດຕົກແຕ່ງເຄື່ອນທີ່, ແບຣນດິ້ງ ແລະ ຂົນສົ່ງ</span></div>
+              <div class="b-amt">65,000,000</div><div class="b-pct">13%</div>
+              <div class="b-bar"><i style="width:13%"></i></div>
+            </div>
+            <div class="b-row">
+              <div class="b-name"><b>Competition, Judges &amp; Prizes</b><span>ການແຂ່ງຂັນ, ກຳມະການ ແລະ ລາງວັນ</span></div>
+              <div class="b-amt">60,000,000</div><div class="b-pct">12%</div>
+              <div class="b-bar"><i style="width:12%"></i></div>
+            </div>
+            <div class="b-row">
+              <div class="b-name"><b>Venue Operations, Crew &amp; Staffing</b><span>ການດຳເນີນງານສະຖານທີ່ ແລະ ທີມງານ</span></div>
+              <div class="b-amt">60,000,000</div><div class="b-pct">12%</div>
+              <div class="b-bar"><i style="width:12%"></i></div>
+            </div>
+            <div class="b-row">
+              <div class="b-name"><b>Contingency / Reserve</b><span>ງົບສຳຮອງ</span></div>
+              <div class="b-amt">25,000,000</div><div class="b-pct">5%</div>
+              <div class="b-bar"><i style="width:5%"></i></div>
+            </div>
+          </div>
+          <div class="b-total"><span class="label">Total</span><b>500,000,000 LAK · <span class="hl">100%</span></b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · CTA (Slide 12) -->
+  <section class="cta" id="contact">
+    <div class="cta-bg"></div>
+    <div class="wrap">
+      <div class="eyebrow">Let's build the activation together</div>
+      <h2 class="rv"><span>Own the road.</span><span>Own the night.</span><span class="hl">Own the moment.</span></h2>
+      <p class="lead lao rv">ມາຮ່ວມກັນສ້າງແຄມເປນນີ້ — ຈາກຖະໜົນ, ສູ່ຄ່ຳຄືນ, ສູ່ຊ່ວງເວລາທີ່ທຸກຄົນຈື່ຈຳ.</p>
+      <div class="next rv">
+        <span class="label">Next</span>
+        <b>Align venues</b><b>Format</b><b>Roles</b><b>Roadmap</b>
+      </div>
+      <div class="contacts rv">
+        <div class="card contact"><div class="label">Fanglao Dance Studio</div><b>Ounla Phaoudom (Khen)</b><span>Founder · LIHF Organizer</span></div>
+        <div class="card contact"><div class="label">Indee Records &amp; Events</div><b>Anulak Prathammavong (Aai Ped)</b><span>Music &amp; Sound Production</span></div>
+      </div>
+      <div class="btns rv">
+        <a class="btn btn-p" href="mailto:contact@fanglaostudio.com?subject=Beerlao%20Green%20Nightlife%20x%20LIHF%202026">Send Inquiry →</a>
+        <a class="btn btn-o" href="index.html">LIHF 2026 Main Site</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Lao International HipHop Festival · Fanglao Dance Studio × Indee Records. Beerlao® is a registered trademark of Lao Brewery Co., Ltd.</span>
+      <a href="index.html">← Back to LIHF 2026</a>
     </div>
   </footer>
 
-  <!-- ── FLOATING PRESENTATION DECK HUD ── -->
-  <div class="present-deck-hud" id="deck-hud">
-    <button type="button" class="present-hud-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Top">
-      ▲ TOP
-    </button>
-    <span style="color:rgba(255,255,255,0.25);">|</span>
-    <button type="button" class="present-hud-btn" onclick="openDeckModal(0)" title="Launch 13-Slide Presentation Mode">
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-      <span>PRESENTATION DECK (13 SLIDES)</span>
-    </button>
-    <span style="color:rgba(255,255,255,0.25);">|</span>
-    <a href="index.html" class="present-hud-btn" style="color:var(--gold); text-decoration:none;">
-      MAIN FESTIVAL ↗
-    </a>
-  </div>
-
-  <!-- ── FULL-SCREEN INTERACTIVE DECK MODAL ── -->
-  <div class="deck-modal" id="deck-modal" onclick="handleDeckModalBackdrop(event)">
-    <div class="deck-modal-inner">
-      <button type="button" class="deck-close-btn" onclick="closeDeckModal()" title="Close">&times;</button>
-      <img src="assets/beerlao/slide_01.jpg" alt="Proposal Slide" class="deck-modal-img" id="deck-modal-img" />
-      
-      <div class="deck-modal-nav">
-        <button type="button" class="deck-btn" onclick="prevSlide()">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
-          <span>Previous Slide</span>
-        </button>
-
-        <span id="deck-counter" style="font-family:var(--ff-a); font-size:0.84rem; font-weight:800; color:#86efac; letter-spacing:0.1em;">
-          SLIDE 01 / 13
-        </span>
-
-        <button type="button" class="deck-btn" onclick="nextSlide()">
-          <span>Next Slide</span>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-
   <script>
-    const totalSlides = 13;
-    let currentSlideIdx = 0;
-
-    function openDeckModal(idx) {
-      currentSlideIdx = Math.max(0, Math.min(totalSlides - 1, idx));
-      updateDeckSlide();
-      document.getElementById('deck-modal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeDeckModal() {
-      document.getElementById('deck-modal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    function handleDeckModalBackdrop(e) {
-      if (e.target.id === 'deck-modal') {
-        closeDeckModal();
-      }
-    }
-
-    function prevSlide() {
-      if (currentSlideIdx > 0) {
-        currentSlideIdx--;
-        updateDeckSlide();
-      } else {
-        currentSlideIdx = totalSlides - 1;
-        updateDeckSlide();
-      }
-    }
-
-    function nextSlide() {
-      if (currentSlideIdx < totalSlides - 1) {
-        currentSlideIdx++;
-        updateDeckSlide();
-      } else {
-        currentSlideIdx = 0;
-        updateDeckSlide();
-      }
-    }
-
-    function updateDeckSlide() {
-      const slideNum = String(currentSlideIdx + 1).padStart(2, '0');
-      const img = document.getElementById('deck-modal-img');
-      img.src = `assets/beerlao/slide_${slideNum}.jpg`;
-      document.getElementById('deck-counter').textContent = `SLIDE ${slideNum} / 13`;
-    }
-
-    // Keyboard navigation
-    window.addEventListener('keydown', (e) => {
-      const modal = document.getElementById('deck-modal');
-      if (!modal.classList.contains('active')) return;
-      if (e.key === 'ArrowRight' || e.key === ' ') {
-        e.preventDefault();
-        nextSlide();
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        prevSlide();
-      } else if (e.key === 'Escape') {
-        closeDeckModal();
-      }
-    });
+    (function () {
+      const els = document.querySelectorAll('.rv');
+      if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(e => io.observe(e));
+    })();
   </script>
 </body>
 </html>
