@@ -5245,11 +5245,30 @@ nav { height: 60px !important; padding: 0 !important; }
 .partners-strip-link:hover { color: #ffffff; text-decoration: underline; }
 
 /* --- NOTCHED PROJECT CARDS (THE 8 MAIN ACTIVITIES & BATTLE SHOWCASES) --- */
+.act-header-block {
+  text-align: center;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto 0.85rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .act-header-title-single {
+    white-space: nowrap !important;
+  }
+  .act-header-en-single,
+  .act-header-lao-single {
+    white-space: nowrap !important;
+  }
+}
+
 .notched-activities-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.8rem;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   margin-bottom: 3.5rem;
 }
 
@@ -18362,17 +18381,17 @@ body.presentation-active .floating-present-badge {
       </div>
       <div class="noise-overlay"></div>
       <div class="container cardfree-layout">
-        <div style="text-align:center; max-width:850px; margin:0 auto 2.5rem;">
-          <div class="section-label" style="justify-content:center; margin-bottom:0.85rem;">EIGHT CULTURE PILLARS • ONE FESTIVAL PLATFORM</div>
-          <h2 class="section-title" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.4rem, 2.7vw, 2.25rem) !important; font-weight:700; letter-spacing:0.04em; line-height:1.35; text-transform:uppercase; margin-bottom:1.35rem;">
+        <div class="act-header-block">
+          <div class="section-label" style="justify-content:center; margin-bottom:0.35rem; font-size:0.75rem; letter-spacing:0.16em;">EIGHT CULTURE PILLARS • ONE FESTIVAL PLATFORM</div>
+          <h2 class="section-title act-header-title-single" style="font-family:'Akira Expanded', 'Akira', sans-serif !important; font-size:clamp(1.05rem, 2vw, 1.8rem) !important; font-weight:700; letter-spacing:0.02em; line-height:1.2; text-transform:uppercase; margin:0 0 0.35rem;">
             THE 8 <span class="hl">MAIN ACTIVITIES</span> &amp; BATTLE SHOWCASES
           </h2>
-          <div class="red-line" style="margin:1.2rem auto;"></div>
-          <p style="font-family:var(--ff-b); font-size:clamp(0.82rem, 0.92vw, 0.88rem); color:rgba(255,255,255,0.72); line-height:1.55; margin:0 auto 0.45rem; max-width:820px;">
-            Each activity creates a distinct activation angle for audiences and sponsors: performance, competition, community, commerce, content, and high-impact media moments. <strong style="color:var(--gold); font-weight:600;">Click on any activity card below to inspect full rules, schedule, prizes &amp; sponsor integration options.</strong>
+          <div class="red-line" style="margin:0.35rem auto 0.45rem; width:45px; height:2px;"></div>
+          <p class="act-header-en-single" style="font-family:var(--ff-b); font-size:clamp(0.76rem, 0.85vw, 0.84rem); color:rgba(255,255,255,0.72); line-height:1.45; margin:0 auto 0.2rem; max-width:1320px;">
+            Each activity creates a distinct activation angle for audiences &amp; sponsors. <strong style="color:var(--gold); font-weight:600;">Click any activity card below to inspect full rules, schedule, prizes &amp; sponsor integration options.</strong>
           </p>
-          <p style="font-family:'Noto Sans Lao', var(--ff-b), sans-serif; font-size:clamp(0.78rem, 0.86vw, 0.84rem); color:rgba(255,255,255,0.65); line-height:1.65; margin:0 auto; max-width:820px;">
-            🇱🇦 ແຕ່ລະກິດຈະກຳສ້າງມຸມມອງການມີສ່ວນຮ່ວມສະເພາະສຳລັບຜູ້ຊົມ ແລະ ຜູ້ສະໜັບສະໜູນ: ເວທີແຂ່ງຂັນ, ການສະແດງ, ຊຸມຊົນ ແລະ ສື່ມີເດຍ • <span style="color:rgba(255,230,0,0.85); font-weight:600;">ກົດເລືອກ Card ດ້ານລຸ່ມເພື່ອເບິ່ງກະຕິກາ, ຕາຕະລາງ ແລະ ຮູບແບບການຮ່ວມມື</span>
+          <p class="act-header-lao-single" style="font-family:'Noto Sans Lao', var(--ff-b), sans-serif; font-size:clamp(0.74rem, 0.8vw, 0.8rem); color:rgba(255,255,255,0.65); line-height:1.55; margin:0 auto; max-width:1320px;">
+            🇱🇦 8 ກິດຈະກຳຫຼັກເຊື່ອມຕໍ່ຜູ້ຊົມ &amp; ແບຣນ: ເວທີແຂ່ງຂັນ, ການສະແດງ, ຊຸມຊົນ ແລະ ສື່ມີເດຍ • <span style="color:rgba(255,230,0,0.85); font-weight:600;">ກົດເລືອກ Card ດ້ານລຸ່ມເພື່ອເບິ່ງລາຍລະອຽດ</span>
           </p>
         </div>
 
