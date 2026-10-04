@@ -18864,7 +18864,7 @@ body.presentation-active .floating-present-badge {
   box-shadow: 0 0 14px rgba(212, 175, 55, 0.4);
 }
 
-/* 3D Sphere Stage Container: Full Width & Bright Stage Illumination */
+/* 3D Sphere Stage Container: Clean, Crisp, Cinematic High-Contrast Arena */
 .guest-sphere-stage {
   position: relative;
   width: 100%;
@@ -18876,57 +18876,12 @@ body.presentation-active .floating-present-badge {
   user-select: none;
   cursor: grab;
   border-radius: 20px;
-  background:
-    radial-gradient(ellipse 75% 65% at 50% 50%, rgba(212, 175, 55, 0.2) 0%, rgba(204, 0, 0, 0.12) 42%, rgba(22, 22, 30, 0.75) 75%, rgba(9, 9, 13, 0.98) 100%),
-    linear-gradient(180deg, rgba(212, 175, 55, 0.12) 0%, transparent 30%, transparent 70%, rgba(204, 0, 0, 0.1) 100%);
-  border: 1.5px solid rgba(212, 175, 55, 0.38);
-  box-shadow:
-    0 0 50px rgba(212, 175, 55, 0.18),
-    inset 0 0 90px rgba(0, 0, 0, 0.75),
-    0 24px 60px rgba(0, 0, 0, 0.85);
+  background: radial-gradient(ellipse 85% 75% at 50% 50%, #12121b 0%, #07070b 65%, #020204 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.95), 0 20px 50px rgba(0, 0, 0, 0.85);
 }
 .guest-sphere-stage:active {
   cursor: grabbing;
-}
-
-/* Ambient Stage Spotlight */
-.guest-sphere-light {
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 65%;
-  height: 65%;
-  background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.26) 0%, rgba(204, 0, 0, 0.15) 45%, transparent 70%);
-  pointer-events: none;
-  filter: blur(45px);
-  z-index: 1;
-}
-
-/* Background Holographic Sphere Grid: Luminous Orbital Rings */
-.guest-sphere-bg-grid {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(520px, 75vw, 1000px);
-  height: clamp(380px, 50vh, 540px);
-  border-radius: 50%;
-  border: 1.5px dashed rgba(212, 175, 55, 0.4);
-  box-shadow:
-    0 0 100px rgba(212, 175, 55, 0.25),
-    0 0 45px rgba(204, 0, 0, 0.2),
-    inset 0 0 90px rgba(212, 175, 55, 0.16);
-  pointer-events: none;
-  z-index: 2;
-}
-.guest-sphere-bg-grid::after {
-  content: '';
-  position: absolute;
-  inset: 15%;
-  border-radius: 50%;
-  border: 1px dotted rgba(255, 255, 255, 0.3);
-  box-shadow: inset 0 0 50px rgba(212, 175, 55, 0.2);
 }
 
 /* The Rotating 3D World Container */
@@ -18937,19 +18892,15 @@ body.presentation-active .floating-present-badge {
   z-index: 10;
 }
 
-/* Enlarged, Bright & High-Contrast 3D Guest Node Card */
+/* Solid, Razor-Sharp & Luminous 3D Guest Node Card */
 .guest-sphere-card {
   position: absolute;
   width: 172px;
   height: 208px;
   border-radius: 14px;
-  background: linear-gradient(180deg, rgba(34, 34, 44, 0.96) 0%, rgba(18, 18, 24, 0.98) 100%);
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.75),
-    0 0 20px rgba(212, 175, 55, 0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #15151f;
+  border: 1.5px solid rgba(255, 255, 255, 0.32);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.85), 0 0 15px rgba(212, 175, 55, 0.2);
   cursor: pointer;
   overflow: hidden;
   transition: box-shadow 0.25s ease, border-color 0.25s ease, filter 0.3s ease;
@@ -21142,8 +21093,6 @@ body.presentation-active .floating-present-badge {
 
           <!-- 3D Interactive Sphere Stage -->
           <div class="guest-sphere-stage" id="guest-sphere-stage" aria-label="3D Interactive Image Sphere">
-            <div class="guest-sphere-light" aria-hidden="true"></div>
-            <div class="guest-sphere-bg-grid" aria-hidden="true"></div>
             <div class="guest-sphere-world" id="guest-sphere-world">
             <!-- 3D SPHERE NODE: KAKU (Japan) -->
             <div class="guest-sphere-card" id="sphere-card-kaku" data-id="kaku" data-cat="breaking" onclick="window.openGuestBioModal('kaku')" role="button" tabindex="0" aria-label="KAKU (Japan) - Breaking 2v2 Judge">
@@ -28331,6 +28280,13 @@ function replayLogoIntro(){
     const rotXRad = rotX * (Math.PI / 180);
     const rotYRad = rotY * (Math.PI / 180);
 
+    // Fade boundaries for smooth, crystal-clear appearance without ghosting
+    // z2 >= fadeStart: 100% solid, fully opaque, crisp!
+    // fadeEnd < z2 < fadeStart: smooth fade
+    // z2 <= fadeEnd: completely hidden so it never blocks or overlaps front cards
+    const fadeStart = radiusXZ * 0.12;
+    const fadeEnd = -radiusXZ * 0.30;
+
     for (let i = 0; i < n; i++) {
       const coord = sphericalCoords[i];
       const el = cardElements[i];
@@ -28349,11 +28305,27 @@ function replayLogoIntro(){
       const y2 = y0 * Math.cos(rotXRad) - z1 * Math.sin(rotXRad);
       const z2 = y0 * Math.sin(rotXRad) + z1 * Math.cos(rotXRad);
 
-      // 4. Perspective Projection & Depth Scaling
-      // z2 ranges from -radiusXZ (far back) to +radiusXZ (closest front)
-      const zRatio = (z2 + radiusXZ) / (2 * radiusXZ); // 0 (back) to 1 (front)
-      const scale = 0.76 + zRatio * 0.38; // 0.76x at back, 1.14x at front
-      const opacity = 0.72 + zRatio * 0.28; // 0.72 at back (bright & clearly visible!), 1.0 at front
+      // 4. Backface Culling: hide cards on the far back side so they don't block front cards
+      if (z2 <= fadeEnd) {
+        el.style.opacity = '0';
+        el.style.visibility = 'hidden';
+        el.style.pointerEvents = 'none';
+        continue;
+      }
+
+      el.style.visibility = 'visible';
+      el.style.pointerEvents = 'auto';
+
+      // 5. Smooth linear fade-in as cards rotate towards the front
+      let opacity = 1.0;
+      if (z2 < fadeStart) {
+        opacity = (z2 - fadeEnd) / (fadeStart - fadeEnd);
+        opacity = Math.max(0, Math.min(1, opacity));
+      }
+
+      // Depth Scaling & Dynamic Z-Index
+      const zRatio = (z2 + radiusXZ) / (2 * radiusXZ); // 0 to 1
+      const scale = 0.80 + zRatio * 0.32; // 0.80x at sides, 1.12x at front
       const zIndex = Math.round(1000 + z2);
 
       el.style.transform = 'translate3d(' + (centerX + x1) + 'px, ' + (centerY + y2) + 'px, 0) translate(-50%, -50%) scale(' + scale.toFixed(3) + ')';
