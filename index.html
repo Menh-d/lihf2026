@@ -18707,6 +18707,516 @@ body.presentation-active .floating-present-badge {
   }
 }
 
+
+/* ═══════════════════════════════════════════════════════════════════
+   GUEST INVITATION LINEUP: ALBUM GALLERY SYSTEM
+   Inspired by Vinyl LP Sleeves, collectible album jackets & high-contrast street art
+   ═══════════════════════════════════════════════════════════════════ */
+.guest-invitation-section {
+  position: relative;
+  margin-top: 5rem;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.guest-invitation-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red), var(--gold), transparent);
+}
+.guest-header-wrap {
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto 3rem;
+}
+.guest-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--ff-a);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+.guest-h2 {
+  font-family: var(--ff-d);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  color: var(--wh);
+  margin-bottom: 0.6rem;
+}
+.guest-sub-lao {
+  font-family: 'Noto Sans Lao', sans-serif;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-weight: 700;
+  color: var(--gold-l);
+  margin-bottom: 1rem;
+}
+.guest-lead-p {
+  font-family: 'Noto Sans Lao', var(--ff-b);
+  font-size: 0.96rem;
+  color: var(--gr-l);
+  line-height: 1.7;
+  max-width: 780px;
+  margin: 0 auto 2.2rem;
+}
+
+/* Category Filter Tabs (Vinyl Record style buttons) */
+.guest-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2.8rem;
+}
+.guest-filter-btn {
+  appearance: none;
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--gr-l);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-family: var(--ff-a);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+.guest-filter-btn:hover {
+  border-color: var(--gold);
+  color: var(--wh);
+  background: rgba(212, 175, 55, 0.12);
+}
+.guest-filter-btn.active {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
+}
+.guest-filter-btn .btn-badge {
+  background: rgba(0, 0, 0, 0.35);
+  color: inherit;
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+.guest-filter-btn.active .btn-badge {
+  background: #000;
+  color: var(--gold);
+}
+
+/* Album Gallery Grid */
+.guest-album-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.2rem 1.6rem;
+  perspective: 1200px;
+}
+@media (max-width: 1200px) {
+  .guest-album-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 860px) {
+  .guest-album-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+}
+@media (max-width: 520px) {
+  .guest-album-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+}
+
+/* Individual Album Card */
+.guest-album-card {
+  position: relative;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  cursor: pointer;
+}
+.guest-album-card.is-hidden {
+  display: none !important;
+}
+
+/* Outer wrapper holding sleeve + disc */
+.album-cover-unit {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  background: #0a0a0a;
+}
+
+/* Realistic Vinyl Disc peeking out behind sleeve */
+.album-vinyl-disc {
+  position: absolute;
+  top: 4%;
+  right: 0;
+  width: 92%;
+  height: 92%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #d4af37 0%, #b45309 18%, #111 19%, #111 20%, transparent 21%),
+    repeating-radial-gradient(circle at center, #151515 0px, #151515 2px, #080808 3px, #080808 4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.08);
+  z-index: 1;
+  transition: transform 0.45s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.45s ease;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.album-vinyl-disc::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #000;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+.album-vinyl-label {
+  position: absolute;
+  width: 34%;
+  height: 34%;
+  border-radius: 50%;
+  background: #990000;
+  border: 1px dashed rgba(255, 215, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-a);
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-align: center;
+  line-height: 1.1;
+  pointer-events: none;
+}
+
+/* Vinyl slide out on hover */
+.guest-album-card:hover .album-vinyl-disc {
+  transform: translateX(42px) rotate(45deg);
+  box-shadow: 10px 8px 30px rgba(0, 0, 0, 0.95);
+}
+
+/* Jacket Sleeve Container */
+.album-jacket {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.guest-album-card:hover .album-jacket {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 20px rgba(212, 175, 55, 0.25);
+}
+
+/* Main Artist Photo - Dominant and Clear */
+.album-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.5s ease, filter 0.4s ease;
+  filter: contrast(1.05) brightness(0.98);
+}
+.guest-album-card:hover .album-photo {
+  transform: scale(1.04);
+  filter: contrast(1.08) brightness(1.02);
+}
+
+/* Sleeve Spine & Corner Accents */
+.album-sleeve-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 6px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.4) 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+.album-corner-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 6;
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.78);
+  color: var(--gold-l);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.album-country-tag {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  z-index: 6;
+  font-family: var(--ff-a);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.82);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 3px 9px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Sleeve Bottom Info Gradient - Text is Secondary */
+.album-info-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 4;
+  padding: 42px 14px 12px;
+  background: linear-gradient(0deg, rgba(3, 3, 3, 0.95) 0%, rgba(3, 3, 3, 0.78) 55%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  transition: padding-bottom 0.3s ease;
+}
+.guest-album-card:hover .album-info-overlay {
+  padding-bottom: 14px;
+}
+.album-artist-name {
+  font-family: var(--ff-d);
+  font-size: 1.45rem;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+.album-role-title {
+  font-family: var(--ff-a);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.album-lao-desc {
+  font-family: 'Noto Sans Lao', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.album-meta-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 6px;
+  margin-top: 3px;
+}
+.album-sub-affiliation {
+  font-family: var(--ff-b);
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 78%;
+}
+.album-badge-icon {
+  font-family: var(--ff-a);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+/* Proposed Guest Contributions Banner (Slide 12) */
+.guest-values-banner {
+  margin-top: 3.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(15, 15, 15, 0.75);
+  padding: 1.6rem 2rem;
+}
+.guest-val-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.guest-val-col b {
+  font-family: var(--ff-a);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.guest-val-col p {
+  font-family: 'Noto Sans Lao', var(--ff-b);
+  font-size: 0.84rem;
+  color: var(--gr-l);
+  line-height: 1.6;
+}
+@media (max-width: 860px) {
+  .guest-values-banner { grid-template-columns: 1fr; }
+}
+
+/* Modal Drawer for Artist Bio Inspection */
+.guest-bio-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.guest-bio-modal.is-active { display: flex; }
+.guest-bio-card {
+  width: 100%;
+  max-width: 640px;
+  background: #0d0d0d;
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 175, 55, 0.3);
+  overflow: hidden;
+  position: relative;
+  animation: guestModalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes guestModalIn {
+  from { opacity: 0; transform: scale(0.92) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.guest-bio-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 1.2rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.guest-bio-close:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.guest-bio-inner {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  align-items: stretch;
+}
+.guest-bio-photo {
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  width: 100%;
+  background: #000;
+}
+.guest-bio-body {
+  padding: 2rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.guest-bio-country {
+  font-family: var(--ff-a);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.guest-bio-name {
+  font-family: var(--ff-d);
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1.05;
+}
+.guest-bio-role {
+  font-family: var(--ff-a);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--red-b);
+}
+.guest-bio-text-en {
+  font-size: 0.86rem;
+  color: var(--gr-l);
+  line-height: 1.6;
+  margin-top: 0.4rem;
+}
+.guest-bio-text-lao {
+  font-family: 'Noto Sans Lao', sans-serif;
+  font-size: 0.84rem;
+  color: var(--wh);
+  line-height: 1.6;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 0.6rem;
+  margin-top: 0.4rem;
+}
+.guest-bio-status {
+  font-family: var(--ff-a);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: auto;
+  padding-top: 0.6rem;
+}
+@media (max-width: 600px) {
+  .guest-bio-inner { grid-template-columns: 1fr; }
+  .guest-bio-photo { height: 220px; min-height: unset; }
+  .guest-bio-body { padding: 1.4rem; }
+}
+
 </style>
 
 <script src="https://rawcdn.githack.com/martinlaxenaire/curtainsjs/95957f855ad9fd51850e97312cd389af76e9704e/build/curtains.min.js"></script>
@@ -18843,6 +19353,10 @@ body.presentation-active .floating-present-badge {
       </a>
       <a href="#battles" class="link">
         <span>Activities</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <a href="#guests" class="link" title="International Guests &amp; Judges Lineup">
+        <span>Guests</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </a>
       <a href="#marketing" class="link">
@@ -20481,6 +20995,520 @@ body.presentation-active .floating-present-badge {
 
         </div>
       </div>
+    
+        <!-- ═══════════════════════════════════════════════════════════════════
+             GUEST INVITATION: INTERNATIONAL GUESTS & JUDGES (ALBUM GALLERY)
+             Derived from official LIHF 2026 Guest Proposal Deck (16 Proposed Artists)
+             ═══════════════════════════════════════════════════════════════════ -->
+        <div id="guests" class="guest-invitation-section">
+          <div class="guest-header-wrap">
+            <div class="guest-eyebrow">
+              <span style="display:inline-block;width:24px;height:2px;background:var(--gold);"></span>
+              <span>INTERNATIONAL GUEST INVITATION &amp; JUDGES LINEUP</span>
+              <span style="display:inline-block;width:24px;height:2px;background:var(--gold);"></span>
+            </div>
+            <h2 class="guest-h2">
+              WORLD-CLASS <span class="hl">HEADLINERS</span> &amp; MASTER JUDGES
+            </h2>
+            <div class="guest-sub-lao">
+              ລາຍຊື່ສິລະປິນ, ດີເຈ ແລະ ກຳມະການສາກົນ 16 ທ່ານ ໃນ 5 ໝວດໝູ່ການແຂ່ງຂັນ • ຮູບແບບ Album Gallery
+            </div>
+            <p class="guest-lead-p">
+              ຍົກລະດັບມາດຕະຖານເທສະການ LIHF 2026 ສູ່ເວທີສາກົນ ດ້ວຍການເຊື້ອເຊີນກຳມະການລະດັບແຊ້ມໂລກ, ນັກເຕັ້ນໂອລິມປິກ, ດີເຈ ແລະ ສິລະປິນກຣາຟຟິຕີ້ຊັ້ນນຳຈາກ 8 ປະເທດ (ຍີ່ປຸ່ນ, ການາດາ, ຈີນ, ຫວຽດນາມ, ຟີລິບປິນ, ໄທ, ອາເມຣິກາ ແລະ ລາວ). ຮູບພາບສະແດງຊັດເຈນໃນຮູບແບບ Album Vinyl Cover.
+            </p>
+
+            <!-- Category Filter Tabs -->
+            <div class="guest-filter-bar" role="tablist">
+              <button type="button" class="guest-filter-btn active" data-filter="all" onclick="window.filterGuests('all', this)">
+                <span>ALL GUESTS</span><span class="btn-badge">16</span>
+              </button>
+              <button type="button" class="guest-filter-btn" data-filter="breaking" onclick="window.filterGuests('breaking', this)">
+                <span>BREAKING 2v2</span><span class="btn-badge">3</span>
+              </button>
+              <button type="button" class="guest-filter-btn" data-filter="allstyle" onclick="window.filterGuests('allstyle', this)">
+                <span>ALL STYLE 2v2</span><span class="btn-badge">3</span>
+              </button>
+              <button type="button" class="guest-filter-btn" data-filter="djmc" onclick="window.filterGuests('djmc', this)">
+                <span>DJ × MC</span><span class="btn-badge">3</span>
+              </button>
+              <button type="button" class="guest-filter-btn" data-filter="rap" onclick="window.filterGuests('rap', this)">
+                <span>RAP BATTLE</span><span class="btn-badge">3</span>
+              </button>
+              <button type="button" class="guest-filter-btn" data-filter="graffiti" onclick="window.filterGuests('graffiti', this)">
+                <span>GRAFFITI ART</span><span class="btn-badge">4</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Album Cards Grid (16 Cards) -->
+          <div class="guest-album-grid" id="guest-album-grid">
+          <!-- ALBUM CARD: KAKU (Japan) -->
+          <div class="guest-album-card" data-cat="breaking" onclick="window.openGuestBioModal('kaku')" role="button" tabindex="0" aria-label="KAKU - Breaking 2v2 Judge">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇯🇵 JAPAN</div>
+                <div class="album-corner-tag">BREAKING</div>
+                <img src="assets/guests/kaku_japan.jpg" alt="KAKU - Breaking 2v2 Judge" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">KAKU</div>
+                  <div class="album-role-title">Breaking 2v2 Judge</div>
+                  <div class="album-lao-desc">ບີບອຍລະດັບຕຳນານ MORTAL COMBAT ຕົວແທນ Red Bull BC One 2 ສະໄໝ</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">MORTAL COMBAT • 2x Red Bull BC One Japan</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: DYZEE (Canada) -->
+          <div class="guest-album-card" data-cat="breaking" onclick="window.openGuestBioModal('dyzee')" role="button" tabindex="0" aria-label="DYZEE - Breaking 2v2 Judge & Educator">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇨🇦 CANADA</div>
+                <div class="album-corner-tag">BREAKING</div>
+                <img src="assets/guests/dyzee_canada.jpg" alt="DYZEE - Breaking 2v2 Judge & Educator" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">DYZEE</div>
+                  <div class="album-role-title">Breaking 2v2 Judge & Educator</div>
+                  <div class="album-lao-desc">ຜູ້ສ້າງລະບົບຕັດສິນມາດຕະຖານສາກົນ OUR Judging System</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">Supernaturalz & 7 Commandoz • OUR System Creator</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: KIN (China) -->
+          <div class="guest-album-card" data-cat="breaking" onclick="window.openGuestBioModal('kin')" role="button" tabindex="0" aria-label="KIN - Breaking 2v2 Judge">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇨🇳 CHINA</div>
+                <div class="album-corner-tag">BREAKING</div>
+                <img src="assets/guests/kin_china.jpg" alt="KIN - Breaking 2v2 Judge" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">KIN</div>
+                  <div class="album-role-title">Breaking 2v2 Judge</div>
+                  <div class="album-lao-desc">ຕົວແທນກຳມະການ Breaking ສາຍແຂ່ງຂັນລະດັບປະເທດຈາກ ສປ ຈີນ</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">Chinese Breaking Champion & Master Judge</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: ZUKY (Vietnam) -->
+          <div class="guest-album-card" data-cat="allstyle" onclick="window.openGuestBioModal('zuky')" role="button" tabindex="0" aria-label="ZUKY - All Style 2v2 Judge">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇻🇳 VIETNAM</div>
+                <div class="album-corner-tag">ALL STYLE</div>
+                <img src="assets/guests/zuky_vietnam.png" alt="ZUKY - All Style 2v2 Judge" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">ZUKY</div>
+                  <div class="album-role-title">All Style 2v2 Judge</div>
+                  <div class="album-lao-desc">ນັກເຕັ້ນ ແລະ ນັກອອກແບບທ່າເຕັ້ນ All Style ຊັ້ນນຳຈາກ ຫວຽດນາມ</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">Street Dance Icon & Choreographer Vietnam</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: RYAN LICUDAN (Philippines) -->
+          <div class="guest-album-card" data-cat="allstyle" onclick="window.openGuestBioModal('ryan')" role="button" tabindex="0" aria-label="RYAN LICUDAN - All Style 2v2 Judge">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇵🇭 PHILIPPINES</div>
+                <div class="album-corner-tag">ALL STYLE</div>
+                <img src="assets/guests/ryan_philippines.jpg" alt="RYAN LICUDAN - All Style 2v2 Judge" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">RYAN LICUDAN</div>
+                  <div class="album-role-title">All Style 2v2 Judge</div>
+                  <div class="album-lao-desc">ນັກເຕັ້ນສາຍແຂ່ງຂັນ All Style Battle ລະດັບແນວໜ້າຈາກ ຟີລິບປິນ</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">Premier All-Style Battle Specialist Philippines</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: STEFANOS KOUKAS (Thailand) -->
+          <div class="guest-album-card" data-cat="allstyle" onclick="window.openGuestBioModal('stefanos')" role="button" tabindex="0" aria-label="STEFANOS KOUKAS - All Style 2v2 Judge">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇹🇭 THAILAND</div>
+                <div class="album-corner-tag">ALL STYLE</div>
+                <img src="assets/guests/stefanos_thailand.png" alt="STEFANOS KOUKAS - All Style 2v2 Judge" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">STEFANOS KOUKAS</div>
+                  <div class="album-role-title">All Style 2v2 Judge</div>
+                  <div class="album-lao-desc">ແຊ້ມ Red Bull Dance Your Style ປະເທດໄທ ແລະ ອາຈານສອນ Popping</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">Red Bull Dance Your Style Thailand Champion</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: DJ ZLEX (Thailand) -->
+          <div class="guest-album-card" data-cat="djmc" onclick="window.openGuestBioModal('dj_zlex')" role="button" tabindex="0" aria-label="DJ ZLEX - DJ × MC Judge">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇹🇭 THAILAND</div>
+                <div class="album-corner-tag">DJ × MC</div>
+                <img src="assets/guests/dj_zlex_thailand.png" alt="DJ ZLEX - DJ × MC Judge" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">DJ ZLEX</div>
+                  <div class="album-role-title">DJ × MC Judge</div>
+                  <div class="album-lao-desc">ອາຈານໃຫຍ່ ແລະ ດີເຈມືອາຊີບຈາກ DJ LAB SIAM ບາງກອກ</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">DJ LAB SIAM Head Instructor • Turntablism Pro</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: DJ ELILLGUL (USA) -->
+          <div class="guest-album-card" data-cat="djmc" onclick="window.openGuestBioModal('dj_elillgul')" role="button" tabindex="0" aria-label="DJ ELILLGUL - DJ × MC Judge">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇺🇸 USA</div>
+                <div class="album-corner-tag">DJ × MC</div>
+                <img src="assets/guests/dj_elillgul_usa.png" alt="DJ ELILLGUL - DJ × MC Judge" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">DJ ELILLGUL</div>
+                  <div class="album-role-title">DJ × MC Judge</div>
+                  <div class="album-lao-desc">ດີເຈ ແລະ ນັກ Scratch ລະດັບສາກົນ ຕົວແທນຈາກສະຫະລັດອາເມຣິກາ</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">International Battle DJ & Scratch Specialist USA</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: DJ KIKO (Philippines) -->
+          <div class="guest-album-card" data-cat="djmc" onclick="window.openGuestBioModal('dj_kiko')" role="button" tabindex="0" aria-label="DJ KIKO - DJ × MC Judge">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇵🇭 PHILIPPINES</div>
+                <div class="album-corner-tag">DJ × MC</div>
+                <img src="assets/guests/dj_kiko_philippines.jpg" alt="DJ KIKO - DJ × MC Judge" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">DJ KIKO</div>
+                  <div class="album-role-title">DJ × MC Judge</div>
+                  <div class="album-lao-desc">ດີເຈສາຍ Battle ແລະ Turntablism ຜູ້ມີປະສົບການສູງຈາກ ຟີລິບປິນ</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">Veteran Battle DJ & Turntablist Philippines</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: MCBK (Laos) -->
+          <div class="guest-album-card" data-cat="rap" onclick="window.openGuestBioModal('mcbk')" role="button" tabindex="0" aria-label="MCBK - Rap Battle Judge">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇱🇦 LAOS</div>
+                <div class="album-corner-tag">RAP BATTLE</div>
+                <img src="assets/guests/mcbk_laos.jpg" alt="MCBK - Rap Battle Judge" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">MCBK</div>
+                  <div class="album-role-title">Rap Battle Judge</div>
+                  <div class="album-lao-desc">ຜູ້ບຸກເບີກວົງການຮິບຮອບລາວ ແລະ ນັກຂຽນເນື້ອຮ້ອງແຖວໜ້າ</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">Lao Hip-Hop Pioneer & Veteran Lyricist</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: ALEQS LOG (Laos) -->
+          <div class="guest-album-card" data-cat="rap" onclick="window.openGuestBioModal('aleqs_log')" role="button" tabindex="0" aria-label="ALEQS LOG - Rap Battle Judge">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇱🇦 LAOS</div>
+                <div class="album-corner-tag">RAP BATTLE</div>
+                <img src="assets/guests/aleqs_log_laos.png" alt="ALEQS LOG - Rap Battle Judge" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">ALEQS LOG</div>
+                  <div class="album-role-title">Rap Battle Judge</div>
+                  <div class="album-lao-desc">ສິລະປິນແຣັບເປີລາວ ແລະ ກຳມະການສາຍ Rhyme ທີ່ມີຊື່ສຽງ</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">Acclaimed Lao Rap Artist & Battle Judge</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: AP (Laos) -->
+          <div class="guest-album-card" data-cat="rap" onclick="window.openGuestBioModal('ap')" role="button" tabindex="0" aria-label="AP - Rap Battle Judge">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇱🇦 LAOS</div>
+                <div class="album-corner-tag">RAP BATTLE</div>
+                <img src="assets/guests/ap_laos.jpg" alt="AP - Rap Battle Judge" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">AP</div>
+                  <div class="album-role-title">Rap Battle Judge</div>
+                  <div class="album-lao-desc">ໄອດໍ້ແຣັບເປີສາຍ Underground ຂອງລາວ ຜູ້ຊ່ຽວຊານການດວນ Cypher</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">Lao Underground Rap Icon & Cypher Master</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: PAKORN (Thailand) -->
+          <div class="guest-album-card" data-cat="graffiti" onclick="window.openGuestBioModal('pakorn')" role="button" tabindex="0" aria-label="PAKORN - Invited Graffiti Artist">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇹🇭 THAILAND</div>
+                <div class="album-corner-tag">GRAFFITI</div>
+                <img src="assets/guests/pakorn_thailand.png" alt="PAKORN - Invited Graffiti Artist" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">PAKORN</div>
+                  <div class="album-role-title">Invited Graffiti Artist</div>
+                  <div class="album-lao-desc">ສິລະປິນກຣາຟຟິຕີ້ລະດັບແນວໜ້າຂອງໄທ ຮ່ວມໂຄງການ Live Aerosol Art</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">LIHF Street-Art Programme • Renowned Aerosol Artist</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: HOOTIVE (Thailand) -->
+          <div class="guest-album-card" data-cat="graffiti" onclick="window.openGuestBioModal('hootive')" role="button" tabindex="0" aria-label="HOOTIVE - Invited Graffiti Artist">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇹🇭 THAILAND</div>
+                <div class="album-corner-tag">GRAFFITI</div>
+                <img src="assets/guests/hootive_thailand.png" alt="HOOTIVE - Invited Graffiti Artist" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">HOOTIVE</div>
+                  <div class="album-role-title">Invited Graffiti Artist</div>
+                  <div class="album-lao-desc">ສິລະປິນພົ່ນສີ ແລະ ສາຍ Street Art ທີ່ມີເອກະລັກສະເພາະຕົວ</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">Featured Thai Urban Visual & Mural Artist</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: BNK52 (Thailand) -->
+          <div class="guest-album-card" data-cat="graffiti" onclick="window.openGuestBioModal('bnk52')" role="button" tabindex="0" aria-label="BNK52 - Invited Graffiti Artist">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇹🇭 THAILAND</div>
+                <div class="album-corner-tag">GRAFFITI</div>
+                <img src="assets/guests/bnk52_thailand.png" alt="BNK52 - Invited Graffiti Artist" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">BNK52</div>
+                  <div class="album-role-title">Invited Graffiti Artist</div>
+                  <div class="album-lao-desc">ນັກຂຽນກຣາຟຟິຕີ້ໄທລາຍເສັ້ນດຸເດືອດ ຜູ້ສ້າງສັນຜົນງານຂະໜາດໃຫຍ່</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">Aerosol Graffiti Writer & Muralist</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ALBUM CARD: AO (Thailand) -->
+          <div class="guest-album-card" data-cat="graffiti" onclick="window.openGuestBioModal('ao')" role="button" tabindex="0" aria-label="AO - Invited Graffiti Artist">
+            <div class="album-cover-unit">
+              <!-- Vinyl disc peeking out behind sleeve on hover -->
+              <div class="album-vinyl-disc" aria-hidden="true">
+                <div class="album-vinyl-label">
+                  <span>LIHF 2026</span>
+                  <span style="font-size:0.44rem;color:#facc15;">33 RPM</span>
+                </div>
+              </div>
+              <!-- Outer Album Jacket Sleeve -->
+              <div class="album-jacket">
+                <div class="album-sleeve-spine"></div>
+                <div class="album-country-tag">🇹🇭 THAILAND</div>
+                <div class="album-corner-tag">GRAFFITI</div>
+                <img src="assets/guests/ao_thailand.jpg" alt="AO - Invited Graffiti Artist" class="album-photo" loading="lazy" />
+                <div class="album-info-overlay">
+                  <div class="album-artist-name">AO</div>
+                  <div class="album-role-title">Invited Graffiti Artist</div>
+                  <div class="album-lao-desc">ສິລະປິນສາຍ Street ຈາກ @phnom1of1 ຮ່ວມສະແດງການພົ່ນສີສົດ</div>
+                  <div class="album-meta-footer">
+                    <span class="album-sub-affiliation">@phnom1of1 • Raw Urban Street Culture</span>
+                    <span class="album-badge-icon">VIEW BIO ↗</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!-- Proposed Activities & Value Banner (Slide 12) -->
+          <div class="guest-values-banner">
+            <div class="guest-val-col">
+              <b>01 · Competition Programme</b>
+              <p>ກຳມະການສາກົນຊ່ວຍຕັດສິນ 5 ໝວດໝູ່ຫຼັກ ຕາມມາດຕະຖານໂລກ, ນຳເອົາຄວາມຍຸຕິທຳ ແລະ ຄວາມໜ້າເຊື່ອຖືລະດັບສູງສຸດມາສູ່ການແຂ່ງຂັນ.</p>
+            </div>
+            <div class="guest-val-col">
+              <b>02 · Public Engagement</b>
+              <p>ການເປີດໂຕສິລະປິນຢ່າງເປັນທາງການ ຊ່ວຍໃຫ້ຜູ້ຊົມ, ສື່ມວນຊົນ ແລະ ແຟນຄລັບເຫັນພາບລວມຂອງ Lineup ທີ່ຍິ່ງໃຫຍ່ກ່ອນງານເລີ່ມ.</p>
+            </div>
+            <div class="guest-val-col">
+              <b>03 · Masterclasses &amp; Live Demos</b>
+              <p>ກິດຈະກຳເສີມ: Masterclasses ສອນເຕັ້ນ, Turntablism Scratch Showcases, ແລະ ການພົ່ນສີສົດ (Live Aerosol Murals) ເພີ່ມມູນຄ່າໃຫ້ເທສະການ.</p>
+            </div>
+          </div>
+        </div>
+
     </section>
   </div><!-- /acc-body battles -->
 </div><!-- /acc-section battles -->
@@ -26485,12 +27513,13 @@ function replayLogoIntro(){
           }
         }
         setTimeout(function() {
-          const banner = targetSection.querySelector('.acc-banner');
-          if (banner) {
-            const y = banner.getBoundingClientRect().top + window.scrollY - 85;
+          let scrollTarget = (targetId && targetId !== targetSection.getAttribute('data-acc')) ? document.getElementById(targetId) : null;
+          if (!scrollTarget) scrollTarget = targetSection.querySelector('.acc-banner');
+          if (scrollTarget) {
+            const y = scrollTarget.getBoundingClientRect().top + window.scrollY - 80;
             window.scrollTo({ top: y, behavior: 'smooth' });
           }
-        }, 120);
+        }, 180);
       } else {
         const targetEl = document.getElementById(targetId);
         if (targetEl) {
@@ -27307,6 +28336,75 @@ function replayLogoIntro(){
     }
   };
 
+})();
+</script>
+
+
+<!-- GUEST BIO INSPECT MODAL -->
+<div class="guest-bio-modal" id="guest-bio-modal" onclick="if(event.target===this) window.closeGuestBioModal();">
+  <div class="guest-bio-card" role="dialog" aria-modal="true">
+    <button type="button" class="guest-bio-close" onclick="window.closeGuestBioModal()" aria-label="Close Profile">✕</button>
+    <div class="guest-bio-inner">
+      <img src="assets/guests/kaku_japan.jpg" alt="Guest Portrait" class="guest-bio-photo" id="gbm-photo" />
+      <div class="guest-bio-body">
+        <div class="guest-bio-country" id="gbm-country">🇯🇵 JAPAN</div>
+        <div class="guest-bio-name" id="gbm-name">KAKU</div>
+        <div class="guest-bio-role" id="gbm-role">Breaking 2 vs 2 Judge</div>
+        <div class="guest-bio-text-en" id="gbm-desc-en">Japanese B-Boy from MORTAL COMBAT.</div>
+        <div class="guest-bio-text-lao" id="gbm-desc-lao">ບີບອຍລະດັບຕຳນານ MORTAL COMBAT.</div>
+        <div class="guest-bio-status" id="gbm-status">PROPOSED LINEUP · CONFIRMATION PENDING · LIHF 2026</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+(function() {
+  const guestsData = [{"id": "kaku", "name": "KAKU", "category": "breaking", "cat_label": "Breaking 2v2 Judge", "cat_tag": "BREAKING", "country": "Japan", "flag": "🇯🇵", "img": "assets/guests/kaku_japan.jpg", "highlights_en": "MORTAL COMBAT • 2x Red Bull BC One Japan", "highlights_lao": "ບີບອຍລະດັບຕຳນານ MORTAL COMBAT ຕົວແທນ Red Bull BC One 2 ສະໄໝ", "desc_en": "Japanese B-Boy from MORTAL COMBAT. The crew's official history records two selections to represent Japan at Red Bull BC One. Known worldwide for signature high-speed headspins and battle gravity.", "desc_lao": "ບີບອຍລະດັບຕຳນານຈາກທີມ MORTAL COMBAT ປະເທດຍີ່ປຸ່ນ ຜູ້ສ້າງປະຫວັດສາດໄດ້ຮັບເລືອກເປັນຕົວແທນປະເທດໃນ Red Bull BC One ເຖິງ 2 ຄັ້ງ. ມີຊື່ສຽງລະດັບໂລກດ້ວຍທ່າ Headspin ຄວາມໄວສູງ ແລະ ການຄອງເວທີສຸດດຸເດືອດ."}, {"id": "dyzee", "name": "DYZEE", "category": "breaking", "cat_label": "Breaking 2v2 Judge & Educator", "cat_tag": "BREAKING", "country": "Canada", "flag": "🇨🇦", "img": "assets/guests/dyzee_canada.jpg", "highlights_en": "Supernaturalz & 7 Commandoz • OUR System Creator", "highlights_lao": "ຜູ້ສ້າງລະບົບຕັດສິນມາດຕະຖານສາກົນ OUR Judging System", "desc_en": "Karl 'Dyzee' Alba is a world-renowned breaking pioneer, judge, and educator associated with Supernaturalz and 7 Commandoz. He created the OUR judging system utilized in major international championships worldwide.", "desc_lao": "Karl 'Dyzee' Alba ນັກເຕັ້ນ ແລະ ອາຈານສອນ Breaking ລະດັບໂລກ ຈາກທີມ Supernaturalz ແລະ 7 Commandoz. ເປັນຜູ້ຄິດຄົ້ນລະບົບຕັດສິນ OUR Judging System ທີ່ໄດ້ຮັບການຍອມຮັບໃນການແຂ່ງຂັນລະດັບສາກົນທົ່ວໂລກ."}, {"id": "kin", "name": "KIN", "category": "breaking", "cat_label": "Breaking 2v2 Judge", "cat_tag": "BREAKING", "country": "China", "flag": "🇨🇳", "img": "assets/guests/kin_china.jpg", "highlights_en": "Chinese Breaking Champion & Master Judge", "highlights_lao": "ຕົວແທນກຳມະການ Breaking ສາຍແຂ່ງຂັນລະດັບປະເທດຈາກ ສປ ຈີນ", "desc_en": "Proposed Breaking judge representing China's elite competitive scene. Brings extensive experience in Asian national championships, power moves, and technical precision scoring.", "desc_lao": "ກຳມະການ Breaking ລະດັບແຖວໜ້າຈາກ ສປ ຈີນ ຜູ້ມີປະສົບການຕັດສິນການແຂ່ງຂັນໃຫຍ່ລະດັບພາກພື້ນອາຊີ ມີຄວາມຊ່ຽວຊານສູງທັງດ້ານ Power Moves ແລະ ຄວາມຖືກຕ້ອງຂອງເຕັກນິກ."}, {"id": "zuky", "name": "ZUKY", "category": "allstyle", "cat_label": "All Style 2v2 Judge", "cat_tag": "ALL STYLE", "country": "Vietnam", "flag": "🇻🇳", "img": "assets/guests/zuky_vietnam.png", "highlights_en": "Street Dance Icon & Choreographer Vietnam", "highlights_lao": "ນັກເຕັ້ນ ແລະ ນັກອອກແບບທ່າເຕັ້ນ All Style ຊັ້ນນຳຈາກ ຫວຽດນາມ", "desc_en": "Proposed All Style judge representing Vietnam. A premier street dancer and choreographer with extensive battle achievements across HipHop freestyle and open-style categories.", "desc_lao": "ຕົວແທນກຳມະການ All Style ຈາກປະເທດຫວຽດນາມ. ນັກເຕັ້ນ ແລະ ຜູ້ອອກແບບທ່າເຕັ້ນຜູ້ສ້າງຊື່ສຽງໃນການແຂ່ງຂັນ Street Dance ຫຼາຍລາຍການໃຫຍ່ໃນພາກພື້ນອາຊຽນ."}, {"id": "ryan", "name": "RYAN LICUDAN", "category": "allstyle", "cat_label": "All Style 2v2 Judge", "cat_tag": "ALL STYLE", "country": "Philippines", "flag": "🇵🇭", "img": "assets/guests/ryan_philippines.jpg", "highlights_en": "Premier All-Style Battle Specialist Philippines", "highlights_lao": "ນັກເຕັ້ນສາຍແຂ່ງຂັນ All Style Battle ລະດັບແນວໜ້າຈາກ ຟີລິບປິນ", "desc_en": "Ryan 'Rye' Licudan is a standout street dancer representing the vibrant Philippine hip-hop movement, specializing in versatility, raw musicality, and stage charisma.", "desc_lao": "Ryan 'Rye' Licudan ນັກເຕັ້ນຜູ້ໂດດເດັ່ນຈາກຟີລິບປິນ ຜູ້ມີຄວາມສາມາດຫຼາກຫຼາຍໃນທຸກແນວເຕັ້ນ ເນັ້ນຄວາມຮູ້ສຶກທາງດົນຕີທີ່ເລິກເຊິ່ງ ແລະ ພະລັງການສະແດງສົດເທິງເວທີ."}, {"id": "stefanos", "name": "STEFANOS KOUKAS", "category": "allstyle", "cat_label": "All Style 2v2 Judge", "cat_tag": "ALL STYLE", "country": "Thailand", "flag": "🇹🇭", "img": "assets/guests/stefanos_thailand.png", "highlights_en": "Red Bull Dance Your Style Thailand Champion", "highlights_lao": "ແຊ້ມ Red Bull Dance Your Style ປະເທດໄທ ແລະ ອາຈານສອນ Popping", "desc_en": "Popping master from Pattaya and official Red Bull Dance Your Style Thailand Champion. Celebrated for razor-sharp animation popping, musical control, and charismatic battle presence.", "desc_lao": "ອາຈານສອນ ແລະ ແຊ້ມ Red Bull Dance Your Style Thailand 2024 ຈາກພັດທະຍາ ປະເທດໄທ. ໂດດເດັ່ນດ້ວຍທັກສະ Popping ລະດັບປານີດ ການຄວບຄຸມກ້າມຊີ້ນ ແລະ ສະເໜ່ການຄອງເວທີ."}, {"id": "dj_zlex", "name": "DJ ZLEX", "category": "djmc", "cat_label": "DJ × MC Judge", "cat_tag": "DJ × MC", "country": "Thailand", "flag": "🇹🇭", "img": "assets/guests/dj_zlex_thailand.png", "highlights_en": "DJ LAB SIAM Head Instructor • Turntablism Pro", "highlights_lao": "ອາຈານໃຫຍ່ ແລະ ດີເຈມືອາຊີບຈາກ DJ LAB SIAM ບາງກອກ", "desc_en": "Pro Thai DJ and master instructor listed by DJ LAB SIAM Bangkok. Veteran battle DJ specializing in technical vinyl scratching, beat juggling, and club crowd control.", "desc_lao": "ດີເຈ ແລະ ອາຈານສອນ Turntablism ລະດັບອາວຸໂສຈາກສະຖາບັນ DJ LAB SIAM ບາງກອກ. ຊ່ຽວຊານການ Scratch ແຜ່ນສຽງ, Beat Juggling ແລະ ການຄຸມຈັງຫວະຝູງຊົນໃນຄລັບ."}, {"id": "dj_elillgul", "name": "DJ ELILLGUL", "category": "djmc", "cat_label": "DJ × MC Judge", "cat_tag": "DJ × MC", "country": "USA", "flag": "🇺🇸", "img": "assets/guests/dj_elillgul_usa.png", "highlights_en": "International Battle DJ & Scratch Specialist USA", "highlights_lao": "ດີເຈ ແລະ ນັກ Scratch ລະດັບສາກົນ ຕົວແທນຈາກສະຫະລັດອາເມຣິກາ", "desc_en": "Proposed DJ x MC judge representing the United States. Brings authentic American turntablism culture, fast-cutting techniques, and battle DJ judging expertise.", "desc_lao": "ດີເຈ ແລະ ນັກຕັດຕໍ່ສຽງລະດັບສາກົນ ຕົວແທນຈາກສະຫະລັດອາເມຣິກາ ນຳເອົາວັດທະນະທຳ Turntablism ແທ້ໆ ເຕັກນິກການຕັດແຜ່ນໄວ ແລະ ມາດຕະຖານການຕັດສິນດີເຈສາກົນ."}, {"id": "dj_kiko", "name": "DJ KIKO", "category": "djmc", "cat_label": "DJ × MC Judge", "cat_tag": "DJ × MC", "country": "Philippines", "flag": "🇵🇭", "img": "assets/guests/dj_kiko_philippines.jpg", "highlights_en": "Veteran Battle DJ & Turntablist Philippines", "highlights_lao": "ດີເຈສາຍ Battle ແລະ Turntablism ຜູ້ມີປະສົບການສູງຈາກ ຟີລິບປິນ", "desc_en": "Veteran battle DJ representing the rich musical turntable movement of the Philippines. Extensive judging and performance credits across Southeast Asian club circuits.", "desc_lao": "ດີເຈສາຍແຂ່ງຂັນ ແລະ Turntablist ຜູ້ມີປະສົບການຍາວນານຈາກຟີລິບປິນ ຜ່ານເວທີການຕັດສິນ ແລະ ການສະແດງສົດໃນເທສະການດົນຕີທົ່ວພາກພື້ນອາຊີຕາເວັນອອກສ່ຽງໃຕ້."}, {"id": "mcbk", "name": "MCBK", "category": "rap", "cat_label": "Rap Battle Judge", "cat_tag": "RAP BATTLE", "country": "Laos", "flag": "🇱🇦", "img": "assets/guests/mcbk_laos.jpg", "highlights_en": "Lao Hip-Hop Pioneer & Veteran Lyricist", "highlights_lao": "ຜູ້ບຸກເບີກວົງການຮິບຮອບລາວ ແລະ ນັກຂຽນເນື້ອຮ້ອງແຖວໜ້າ", "desc_en": "Pioneering Lao hip-hop lyricist and cultural pillar. Connecting the raw roots of the Lao underground rap movement with national mainstream audiences.", "desc_lao": "ສິລະປິນແຣັບເປີຜູ້ບຸກເບີກວົງການຮິບຮອບລາວຍຸກທຳອິດ ແລະ ນັກແຕ່ງເພງຜູ້ສ້າງແຮງບັນດານໃຈໃຫ້ຄົນຮຸ່ນໃໝ່ ເຊື່ອມໂຍງວັດທະນະທຳ Rap Underground ເຂົ້າສູ່ກະແສຫຼັກ."}, {"id": "aleqs_log", "name": "ALEQS LOG", "category": "rap", "cat_label": "Rap Battle Judge", "cat_tag": "RAP BATTLE", "country": "Laos", "flag": "🇱🇦", "img": "assets/guests/aleqs_log_laos.png", "highlights_en": "Acclaimed Lao Rap Artist & Battle Judge", "highlights_lao": "ສິລະປິນແຣັບເປີລາວ ແລະ ກຳມະການສາຍ Rhyme ທີ່ມີຊື່ສຽງ", "desc_en": "Acclaimed Lao rapper contributing sharp lyrical critique, rhythm dynamics, and authentic Vientiane street authenticity to the festival's Rap Battle jury.", "desc_lao": "ສິລະປິນແຣັບເປີຊັ້ນນຳຂອງລາວ ຜູ້ມີເອກະລັກດ້ານການຮ້ອຍລຽງຄຳ Rhyme ແລະ Flow ທີ່ຄົມຄາຍ ຮ່ວມເປັນກຳມະການຕັດສິນໃຫ້ຄວາມເຫັນທີ່ກົງໄປກົງມາ ແລະ ເລິກເຊິ່ງ."}, {"id": "ap", "name": "AP", "category": "rap", "cat_label": "Rap Battle Judge", "cat_tag": "RAP BATTLE", "country": "Laos", "flag": "🇱🇦", "img": "assets/guests/ap_laos.jpg", "highlights_en": "Lao Underground Rap Icon & Cypher Master", "highlights_lao": "ໄອດໍ້ແຣັບເປີສາຍ Underground ຂອງລາວ ຜູ້ຊ່ຽວຊານການດວນ Cypher", "desc_en": "Celebrated lyricist in the festival's Lao rap lineup. Known for freestyle battle delivery, wordplay complexity, and underground hip-hop credibility.", "desc_lao": "ນັກຮ້ອງແຣັບສາຍດົ້ນສົດ ແລະ ຄາລົມດວນ Cypher ຜູ້ໄດ້ຮັບຄວາມນັບຖືຢ່າງກວ້າງຂວາງໃນຊຸມຊົນຮິບຮອບລາວ ນຳເອົາມາດຕະຖານການແຂ່ງຂັນ Rap ທີ່ເຂັ້ມຂຸ້ນ."}, {"id": "pakorn", "name": "PAKORN", "category": "graffiti", "cat_label": "Invited Graffiti Artist", "cat_tag": "GRAFFITI", "country": "Thailand", "flag": "🇹🇭", "img": "assets/guests/pakorn_thailand.png", "highlights_en": "LIHF Street-Art Programme • Renowned Aerosol Artist", "highlights_lao": "ສິລະປິນກຣາຟຟິຕີ້ລະດັບແນວໜ້າຂອງໄທ ຮ່ວມໂຄງການ Live Aerosol Art", "desc_en": "Renowned Thai street and aerosol artist invited for the LIHF Street-Art Programme. Master of large-scale character murals, vibrant color gradients, and urban visual storytelling.", "desc_lao": "ສິລະປິນກຣາຟຟິຕີ້ ແລະ ພົ່ນສີລະດັບແນວໜ້າຂອງໄທ ໄດ້ຮັບເຊີນຮ່ວມໂຄງການ Street-Art ຂອງງານ LIHF 2026 ສ້າງສັນຜົນງານຮູບແຕ້ມຝາຜະໜັງຂະໜາດໃຫຍ່ ແລະ ສີສັນສົດໃສ."}, {"id": "hootive", "name": "HOOTIVE", "category": "graffiti", "cat_label": "Invited Graffiti Artist", "cat_tag": "GRAFFITI", "country": "Thailand", "flag": "🇹🇭", "img": "assets/guests/hootive_thailand.png", "highlights_en": "Featured Thai Urban Visual & Mural Artist", "highlights_lao": "ສິລະປິນພົ່ນສີ ແລະ ສາຍ Street Art ທີ່ມີເອກະລັກສະເພາະຕົວ", "desc_en": "Featured Thai graffiti artist invited for live festival canvas creation. Known for bold graphic outlines, dynamic typography, and street art live demonstrations.", "desc_lao": "ສິລະປິນ Street Art ຊາວໄທ ຜູ້ມີລາຍເສັ້ນຮູບແຕ້ມກຣາຟຟິກທີ່ໂດດເດັ່ນ ແລະ ຮ່ວມສາທິດການພົ່ນສີສົດເທິງຜ້າໃບຍັກ (Live Canvas Creation) ຕະຫຼອດເທສະການ."}, {"id": "bnk52", "name": "BNK52", "category": "graffiti", "cat_label": "Invited Graffiti Artist", "cat_tag": "GRAFFITI", "country": "Thailand", "flag": "🇹🇭", "img": "assets/guests/bnk52_thailand.png", "highlights_en": "Aerosol Graffiti Writer & Muralist", "highlights_lao": "ນັກຂຽນກຣາຟຟິຕີ້ໄທລາຍເສັ້ນດຸເດືອດ ຜູ້ສ້າງສັນຜົນງານຂະໜາດໃຫຍ່", "desc_en": "Prolific Thai aerosol graffiti writer and muralist contributing raw urban letterforms, wildstyle lettering, and live spray techniques to the LIHF visual culture pillar.", "desc_lao": "ນັກຂຽນກຣາຟຟິຕີ້ສາຍ Wildstyle ຊາວໄທ ຜູ້ມີຄວາມຊ່ຽວຊານໃນການອອກແບບຕົວອັກສອນຕົວເມືອງ ແລະ ເຕັກນິກການໃຊ້ກະປ໋ອງສີພົ່ນຂັ້ນສູງ."}, {"id": "ao", "name": "AO", "category": "graffiti", "cat_label": "Invited Graffiti Artist", "cat_tag": "GRAFFITI", "country": "Thailand", "flag": "🇹🇭", "img": "assets/guests/ao_thailand.jpg", "highlights_en": "@phnom1of1 • Raw Urban Street Culture", "highlights_lao": "ສິລະປິນສາຍ Street ຈາກ @phnom1of1 ຮ່ວມສະແດງການພົ່ນສີສົດ", "desc_en": "Urban artist associated with @phnom1of1, invited to demonstrate signature raw street art aesthetics, underground styling, and creative live mural execution.", "desc_lao": "ສິລະປິນສາຍ Street Art ຈາກກຸ່ມ @phnom1of1 ໄດ້ຮັບເຊີນຮ່ວມສະແດງການພົ່ນສີສົດ ແລະ ສ້າງສັນຜົນງານສິລະປະວັດທະນະທຳຖະໜົນໃນພື້ນທີ່ງານກາງແຈ້ງ."}];
+  const guestsMap = {};
+  guestsData.forEach(g => { guestsMap[g.id] = g; });
+
+  window.filterGuests = function(category, btn) {
+    document.querySelectorAll('.guest-filter-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+
+    const cards = document.querySelectorAll('.guest-album-card');
+    cards.forEach(card => {
+      const cat = card.getAttribute('data-cat');
+      if (category === 'all' || cat === category) {
+        card.classList.remove('is-hidden');
+      } else {
+        card.classList.add('is-hidden');
+      }
+    });
+  };
+
+  window.openGuestBioModal = function(id) {
+    const g = guestsMap[id];
+    if (!g) return;
+    document.getElementById('gbm-photo').src = g.img;
+    document.getElementById('gbm-photo').alt = g.name;
+    document.getElementById('gbm-country').textContent = g.flag + ' ' + g.country.toUpperCase();
+    document.getElementById('gbm-name').textContent = g.name;
+    document.getElementById('gbm-role').textContent = g.cat_label;
+    document.getElementById('gbm-desc-en').textContent = g.desc_en;
+    document.getElementById('gbm-desc-lao').textContent = g.desc_lao;
+    document.getElementById('guest-bio-modal').classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeGuestBioModal = function() {
+    const modal = document.getElementById('guest-bio-modal');
+    if (modal) modal.classList.remove('is-active');
+    document.body.style.overflow = '';
+  };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      window.closeGuestBioModal();
+    }
+  });
 })();
 </script>
 
