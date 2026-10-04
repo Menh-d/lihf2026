@@ -13507,13 +13507,14 @@ body.gsap-ready .acc-inner .ru {
    CARD-FREE ARCHITECTURAL STYLES FOR ALL DROPDOWNS & STANDALONE SECTIONS
    ========================================================================== */
 
-/* ── 1. TARGET AUDIENCE: 3 HORIZONTAL ARCHITECTURAL ROWS ── */
+/* ── 1. TARGET AUDIENCE: 4 GLOWING FROSTED MIST CARDS (FULL WIDTH EDGE-TO-EDGE) ── */
 .aud-poster-section {
-  background: #000000;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 2.5rem 0 1rem;
+  background: transparent;
   color: #ffffff;
-  padding: 1.8rem 1.5rem 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
   box-sizing: border-box;
   position: relative;
 }
@@ -13521,56 +13522,58 @@ body.gsap-ready .acc-inner .ru {
 /* Header */
 .aud-poster-header {
   text-align: center;
-  margin-bottom: 1.8rem;
+  margin-bottom: 2.2rem;
+  padding: 0 1rem;
 }
 .aud-poster-kicker {
   display: inline-block;
   font-family: var(--ff-a);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #e60026;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.5rem;
 }
 .aud-poster-title {
   font-family: var(--ff-d);
-  font-size: clamp(1.15rem, 2.6vw, 2.15rem);
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
   line-height: 1.15;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #ffffff;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.6rem;
 }
 .aud-poster-lao-sub {
-  font-family: var(--ff-b);
-  font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.5;
-  max-width: 720px;
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif !important;
+  font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  max-width: 860px;
   margin: 0 auto;
 }
 
-/* ── 4 GLOWING FROSTED MIST CARDS (EXACT MATCH TO REFERENCE) ── */
+/* ── 4 GLOWING FROSTED MIST CARDS (FULL WIDTH GRID) ── */
 .aud-glow-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  max-width: 1140px;
-  margin: 2rem auto 2.5rem;
+  gap: clamp(1rem, 1.6vw, 1.75rem);
+  width: 100%;
+  max-width: 100%;
+  margin: 1.5rem 0 2rem;
   padding: 0;
   box-sizing: border-box;
 }
 
 .aud-glow-card {
   position: relative;
-  height: 420px;
+  height: clamp(450px, 33vw, 530px);
   border-radius: 28px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 1.6rem 1.4rem;
+  padding: clamp(1.4rem, 2vw, 2rem) clamp(1.2rem, 1.6vw, 1.6rem);
   box-sizing: border-box;
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -13683,52 +13686,55 @@ body.gsap-ready .acc-inner .ru {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
+  width: 100%;
 }
 
 .aud-card-stat {
   font-family: var(--ff-d);
-  font-size: 2.2rem;
+  font-size: clamp(2.3rem, 2.8vw, 3rem);
   line-height: 1;
   color: #ffffff;
   letter-spacing: -0.01em;
   margin-bottom: 0.15rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 .aud-card-title {
-  font-family: var(--ff-a);
-  font-size: 1.05rem;
+  font-family: var(--ff-a), 'Noto Sans Lao', sans-serif;
+  font-size: clamp(0.98rem, 1.12vw, 1.15rem);
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   margin: 0;
-  line-height: 1.2;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  line-height: 1.3;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .aud-card-desc {
-  font-family: var(--ff-b);
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.88);
-  line-height: 1.35;
-  margin: 0 0 0.75rem 0;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif !important;
+  font-size: clamp(0.85rem, 0.95vw, 0.96rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.65;
+  margin: 0 0 0.85rem 0;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+  max-width: 95%;
 }
 
 /* Pill Buttons */
 .aud-card-pill {
   display: inline-block;
-  font-family: var(--ff-a);
+  font-family: var(--ff-a), 'Noto Sans Lao', sans-serif;
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0.55rem 1.25rem;
+  padding: 0.55rem 1.35rem;
   border-radius: 999px;
   width: 100%;
-  max-width: 200px;
+  max-width: 210px;
   box-sizing: border-box;
   transition: all 0.25s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -13785,22 +13791,23 @@ body.gsap-ready .acc-inner .ru {
 }
 
 /* Responsive */
-@media (max-width: 1080px) {
+@media (max-width: 1180px) {
   .aud-glow-grid {
     grid-template-columns: repeat(2, 1fr);
-    max-width: 620px;
-    gap: 1.35rem;
+    gap: 1.4rem;
+  }
+  .aud-glow-card {
+    height: 460px;
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 640px) {
   .aud-glow-grid {
     grid-template-columns: 1fr;
-    max-width: 320px;
     gap: 1.25rem;
   }
   .aud-glow-card {
-    height: 380px;
+    height: 420px;
   }
 }
 
@@ -18271,7 +18278,7 @@ body.presentation-active .floating-present-badge {
           <div class="aud-card-content">
             <div class="aud-card-stat">50%</div>
             <h3 class="aud-card-title">Young Adults (19–35)</h3>
-            <p class="aud-card-desc">ໄວເຮັດວຽກ &amp; ນັກສຶກສາ • High Disposable Spend</p>
+            <p class="aud-card-desc">ກຸ່ມຫຼັກ: ໄວເຮັດວຽກ &amp; ນັກສຶກສາ • High Disposable Spend</p>
             <div class="aud-card-pill">Core Demographic</div>
           </div>
         </div>
@@ -18285,7 +18292,7 @@ body.presentation-active .floating-present-badge {
           <div class="aud-card-content">
             <div class="aud-card-stat">35%</div>
             <h3 class="aud-card-title">Youth &amp; Teens (13–18)</h3>
-            <p class="aud-card-desc">Gen Z, ນັກເຕັ້ນ &amp; Creators • Viral Social Reach</p>
+            <p class="aud-card-desc">ກຸ່ມ Gen Z: ນັກຮຽນ, ນັກເຕັ້ນລຸ້ນໃໝ່ &amp; ສ້າງກະແສ Viral</p>
             <div class="aud-card-pill">Digital Natives</div>
           </div>
         </div>
@@ -18299,7 +18306,7 @@ body.presentation-active .floating-present-badge {
           <div class="aud-card-content">
             <div class="aud-card-stat">15%</div>
             <h3 class="aud-card-title">Industry &amp; VIP (36–45+)</h3>
-            <p class="aud-card-desc">ຜູ້ບໍລິຫານ, ທຸລະກິດ &amp; B2B Sponsorship</p>
+            <p class="aud-card-desc">ກຸ່ມ VIP: ຜູ້ບໍລິຫານ, ນັກທຸລະກິດ &amp; ຄູ່ຮ່ວມງານ B2B</p>
             <div class="aud-card-pill">Executive &amp; VIP</div>
           </div>
         </div>
@@ -18313,7 +18320,7 @@ body.presentation-active .floating-present-badge {
           <div class="aud-card-content">
             <div class="aud-card-stat">10%</div>
             <h3 class="aud-card-title">Regional &amp; ASEAN Fans</h3>
-            <p class="aud-card-desc">ນັກທ່ອງທ່ຽວສາກົນ &amp; ສາຍຮິບຮອບ (TH, VN, SG)</p>
+            <p class="aud-card-desc">ນັກທ່ອງທ່ຽວສາກົນ &amp; ສາຍຮິບຮອບອາຊຽນ (TH, VN, SG)</p>
             <div class="aud-card-pill">International Fans</div>
           </div>
         </div>
