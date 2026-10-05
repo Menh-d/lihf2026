@@ -19542,49 +19542,110 @@ body.presentation-active .floating-present-badge {
   margin: 0;
   font-weight: 500;
 }
+/* ═══════════════════════════════════════════════════════════════════
+   LIHF 2026 SOUNDSTAGE: INTERACTIVE HIT TRACKS & MINI-PLAYER
+   ═══════════════════════════════════════════════════════════════════ */
 .cf-hits-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.65rem;
 }
 .cf-hit-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 0.55rem 0.85rem;
-  transition: all 0.2s ease;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 0.65rem 0.95rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
 }
 .cf-hit-item:hover {
-  border-color: rgba(255, 215, 0, 0.5);
-  background: rgba(255, 215, 0, 0.06);
+  border-color: rgba(255, 215, 0, 0.65);
+  background: rgba(255, 215, 0, 0.08);
+  transform: translateX(4px);
+}
+.cf-hit-item:active {
+  transform: scale(0.99);
+}
+.cf-hit-item.is-playing {
+  border-color: #ffd700;
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.18), rgba(220, 20, 60, 0.15));
+  box-shadow: 0 0 24px rgba(255, 215, 0, 0.3), inset 0 0 12px rgba(255, 215, 0, 0.1);
 }
 .cf-hit-icon {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: #ffd700;
   color: #000;
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 900;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+.cf-hit-item:hover .cf-hit-icon {
+  transform: scale(1.1);
+  background: #ffffff;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
+}
+.cf-hit-item.is-playing .cf-hit-icon {
+  background: #e60026;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(230, 0, 38, 0.7);
+}
+.cf-play-glyph {
+  display: block;
+  line-height: 1;
+  margin-left: 2px;
+}
+.cf-hit-item.is-playing .cf-play-glyph {
+  display: none;
+}
+.cf-eq-bars {
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2px;
+  width: 14px;
+  height: 14px;
+}
+.cf-hit-item.is-playing .cf-eq-bars {
+  display: flex;
+}
+.cf-eq-bars span {
+  width: 2px;
+  background: #ffffff;
+  border-radius: 1px;
+  animation: cfEqBounce 0.75s ease-in-out infinite alternate;
+}
+.cf-eq-bars span:nth-child(1) { height: 40%; animation-delay: 0.1s; }
+.cf-eq-bars span:nth-child(2) { height: 100%; animation-delay: 0.35s; }
+.cf-eq-bars span:nth-child(3) { height: 60%; animation-delay: 0.2s; }
+.cf-eq-bars span:nth-child(4) { height: 85%; animation-delay: 0.45s; }
+@keyframes cfEqBounce {
+  0% { height: 20%; }
+  100% { height: 100%; }
 }
 .cf-hit-info {
   display: flex;
   flex-direction: column;
   gap: 2px;
   overflow: hidden;
+  flex: 1;
 }
 .cf-hit-title {
   font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
-  font-size: 0.84rem;
+  font-size: 0.86rem;
   font-weight: 700;
   color: #ffffff;
   white-space: nowrap;
@@ -19593,11 +19654,261 @@ body.presentation-active .floating-present-badge {
 }
 .cf-hit-artist {
   font-family: var(--ff-b);
+  font-size: 0.73rem;
+  color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cf-hit-badge {
+  flex-shrink: 0;
+}
+.cf-preview-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--ff-a);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 9px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+.cf-hit-item:hover .cf-preview-chip {
+  background: rgba(255, 215, 0, 0.2);
+  color: #ffd700;
+  border-color: rgba(255, 215, 0, 0.5);
+}
+.cf-hit-item.is-playing .cf-preview-chip {
+  background: rgba(230, 0, 38, 0.25);
+  color: #ff5566;
+  border-color: rgba(230, 0, 38, 0.6);
+  box-shadow: 0 0 10px rgba(230, 0, 38, 0.3);
+}
+
+/* Floating Soundstage Dock */
+.lihf-soundstage-player {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translate(-50%, 150%);
+  width: min(94vw, 760px);
+  background: rgba(10, 10, 14, 0.95);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(255, 215, 0, 0.15);
+  z-index: 999999;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.lihf-soundstage-player.is-active {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.lsp-video-box {
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  background: #000;
+}
+.lsp-video-box.is-expanded {
+  height: clamp(230px, 42vw, 360px);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+}
+.lsp-video-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+.lsp-control-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.1rem;
+  gap: 12px;
+}
+.lsp-track-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+.lsp-thumb-wrap {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1.5px solid var(--gold);
+  flex-shrink: 0;
+  background: #000;
+}
+.lsp-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.lsp-thumb-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.4);
+  pointer-events: none;
+}
+.lsp-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.lsp-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--ff-a);
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.lsp-live-beacon {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e60026;
+  box-shadow: 0 0 8px #e60026;
+  animation: lspBeaconPulse 1.2s infinite ease-in-out;
+}
+@keyframes lspBeaconPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+.lsp-title {
+  font-family: 'Noto Sans Lao', var(--ff-b), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lsp-artist {
+  font-family: var(--ff-b);
   font-size: 0.72rem;
   color: rgba(255, 255, 255, 0.65);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.lsp-actions-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.lsp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 0.42rem 0.8rem;
+  font-family: var(--ff-a);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.lsp-btn:hover {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.6);
+  color: #ffd700;
+}
+.lsp-toggle-mv-btn {
+  background: rgba(255, 215, 0, 0.12);
+  border-color: rgba(255, 215, 0, 0.4);
+  color: #ffd700;
+}
+.lsp-toggle-mv-btn:hover {
+  background: rgba(255, 215, 0, 0.25);
+  border-color: #ffd700;
+  color: #ffffff;
+}
+.lsp-yt-link-btn {
+  color: rgba(255, 255, 255, 0.8);
+}
+.lsp-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.lsp-close-btn:hover {
+  background: #e60026;
+  border-color: #e60026;
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+@media (max-width: 680px) {
+  .lihf-soundstage-player {
+    bottom: 12px;
+    width: 95vw;
+    border-radius: 14px;
+  }
+  .lsp-control-bar {
+    padding: 0.6rem 0.8rem;
+    gap: 8px;
+  }
+  .lsp-thumb-wrap {
+    width: 38px;
+    height: 38px;
+  }
+  .lsp-title {
+    font-size: 0.82rem;
+    max-width: 140px;
+  }
+  .lsp-artist {
+    font-size: 0.68rem;
+    max-width: 140px;
+  }
+  .lsp-btn-text {
+    display: none;
+  }
+  .lsp-btn {
+    padding: 0.42rem 0.55rem;
+  }
 }
 
 @media (max-width: 992px) {
@@ -28990,9 +29301,9 @@ function replayLogoIntro(){
         members: "Swagwazz, Uknowhatimean, Lilfishyyy, Snakef, Senjx, Tongflow11, Kengez",
         img: "assets/artists/huen_crew.jpg",
         hits: [
-          { title: 'IG STORY ຮັກເຈົ້າ 8 ນາທີ', artist: 'HUENCREW ft. Sounisa, Maylodx, Onichann (Prod. Mindog Beats)' },
-          { title: 'TIKTOK GIRLS REMIX (ສາວຕິກຕອກ)', artist: 'Lilfishyyy ft. Tongflow11, Uknowhatimean, Snakef' },
-          { title: 'MORE THAN FRIENDS', artist: 'feat. just", uknowwhatimean, Lilfishyyy' }
+          { title: 'IG STORY ຮັກເຈົ້າ 8 ນາທີ', artist: 'HUENCREW ft. Sounisa, Maylodx, Onichann (Prod. Mindog Beats)', ytId: 'R94_9oH3v6E' },
+          { title: 'TIKTOK GIRLS REMIX (ສາວຕິກຕອກ)', artist: 'Lilfishyyy ft. Tongflow11, Uknowhatimean, Snakef', ytId: 'DPPJ5Tm97xc' },
+          { title: 'MORE THAN FRIENDS', artist: 'SenJx ft. just", Luh Wvn, LILFISHYYY, UKNOWHATIMEAN', ytId: '7v7dlfYVaBA' }
         ]
       },
       {
@@ -29005,9 +29316,9 @@ function replayLogoIntro(){
         members: "Sly Sailomyen, M Flow, Paradise Lab",
         img: "assets/artists/sly_sailomyen.jpg",
         hits: [
-          { title: 'YA MA KUAN TXXN', artist: 'SLY [Official Music Video] Prod. M Flow' },
-          { title: 'Original Cypher 2020', artist: 'SLY [Official Audio] Prod. Paradise Lab' },
-          { title: 'Okay', artist: 'Alex $moke ft. Pete Zen x Anun' }
+          { title: 'YA MA KUAN TXXN', artist: 'SLY [Official Music Video] Prod. M Flow', ytId: 'D0h_wZddImg' },
+          { title: 'Original Cypher 2020', artist: 'SLY [Official Audio] Prod. Paradise Lab', ytId: 'iHB-MhXG8BU' },
+          { title: 'Okay', artist: 'Alex $moke ft. Pete Zen x Anun', query: 'SLY Okay Alex smoke ft Pete Zen Anun' }
         ]
       },
       {
@@ -29020,9 +29331,9 @@ function replayLogoIntro(){
         members: "Roma, Ton100, Babymax, Non, DJ Chicken, DJ Young-T",
         img: "assets/artists/lao100.jpg",
         hits: [
-          { title: 'LOOT (ຫຼຸດ)', artist: 'Lao100 - Roma, Ton100, Babymax, Non, DJ Chicken, DJ Young-T' },
-          { title: '100G (ຂີດດຽວ)', artist: 'DJ Chicken ft. Roma x Alex Smoke x DJ Young T' },
-          { title: 'Lonely Night', artist: 'Roma feat. Babymax' }
+          { title: 'LOOT (ຫຼຸດ)', artist: 'Lao100 - Roma, Ton100, Babymax, Non, DJ Chicken, DJ Young-T', query: 'Lao100 LOOT ຫຼຸດ' },
+          { title: '100G (ຂີດດຽວ)', artist: 'DJ Chicken ft. Roma x Alex Smoke x DJ Young T', ytId: 'Fj7n0s8oZ_Q' },
+          { title: 'Lonely Night', artist: 'Roma feat. Babymax', ytId: 'mPDsvSFBx5E' }
         ]
       },
       {
@@ -29035,9 +29346,9 @@ function replayLogoIntro(){
         members: "Phoenix Boii, Nemo Records",
         img: "assets/artists/phoenix_boii.jpg",
         hits: [
-          { title: 'ອາສູນຕິດປີກ (Rsoun tit peek)', artist: 'PHOENIX BOII ft. Dane Amar [Official MV 4K]' },
-          { title: 'WDYS', artist: 'PHOENIX BOII [Official MV]' },
-          { title: 'We Running', artist: 'PHOENIX BOII [Official Video]' }
+          { title: 'ອາສູນຕິດປີກ (Rsoun tit peek)', artist: 'PHOENIX BOII ft. Dane Amar [Official MV 4K]', ytId: 'rW-c6zzDHOw' },
+          { title: 'WDYS', artist: 'PHOENIX BOII [Official MV]', query: 'PHOENIX BOII WDYS Official MV' },
+          { title: 'We Running', artist: 'PHOENIX BOII [Official Video]', query: 'PHOENIX BOII We Running Official Video' }
         ]
       },
       {
@@ -29050,9 +29361,9 @@ function replayLogoIntro(){
         members: "Badbomz, Pleasebobz, Lil Da Boi, Moriginal, Komad, Myxkiidd, Lil-Khanom",
         img: "assets/artists/family_turnt.jpg",
         hits: [
-          { title: 'How are you?', artist: 'Badbomz x Pleasebobz x Lil Da Boi [Official MV]' },
-          { title: 'ຫ່າງຊັ້ນ', artist: 'Moriginal x Komad ft. Badbomz, Myxkiidd, Lil-Khanom' },
-          { title: 'ເອົາຫຍັງມາສຳຄັນກ່ອນ', artist: 'Moriginal x Pleasebobz x Badbomz' }
+          { title: 'How are you?', artist: 'Badbomz x Pleasebobz x Lil Da Boi [Official MV]', ytId: '54gWK0HULnk' },
+          { title: 'ຫ່າງຊັ້ນ', artist: 'Moriginal x Komad ft. Badbomz, Myxkiidd, Lil-Khanom', ytId: 'JQ3QN-lNhh8' },
+          { title: 'ເອົາຫຍັງມາສຳຄັນກ່ອນ', artist: 'Moriginal x Pleasebobz x Badbomz', ytId: 'R9Z8X_k7y4I' }
         ]
       }
     ];
@@ -29074,16 +29385,33 @@ function replayLogoIntro(){
     let autoTimer = null;
     let isAutoPlaying = true;
 
+    // Track currently playing audio/video state
+    let activePlaying = null; // { artistId, trackIdx, title, artist, img, ytId, query }
+    let isVideoExpanded = false;
+
     const frame = document.getElementById('cf-carousel-frame');
     const track = document.getElementById('cf-carousel-track');
     const detailCard = document.getElementById('cf-active-detail');
     const dotsContainer = document.getElementById('cf-pagination-dots');
-    if (!frame || !track || !detailCard) return;
+    const cards = Array.from(frame ? frame.querySelectorAll('.cf-card') : []);
 
-    const cards = Array.from(track.querySelectorAll('.cf-card'));
+    const playerEl = document.getElementById('lihf-soundstage-player');
+    const playerVideoBox = document.getElementById('lsp-video-box');
+    const playerIframe = document.getElementById('lsp-iframe');
+    const playerThumb = document.getElementById('lsp-thumb');
+    const playerTitle = document.getElementById('lsp-title');
+    const playerArtist = document.getElementById('lsp-artist');
+    const playerYtBtn = document.getElementById('lsp-yt-btn');
+    const playerMvText = document.getElementById('lsp-mv-btn-text');
+
+    if (!frame || !track || !detailCard || cards.length === 0) return;
+
+    function mod(n, m) {
+      return ((n % m) + m) % m;
+    }
 
     function indexAt(p) {
-      return ((Math.round(p) % count) + count) % count;
+      return mod(Math.round(p), count);
     }
 
     function clampPos(p) {
@@ -29091,74 +29419,86 @@ function replayLogoIntro(){
     }
 
     function paint() {
-      if (!width) return;
-      const pitch = width * (1 + gap);
-
-      cards.forEach((card, index) => {
-        let offset = index - pos;
+      const activeIdx = indexAt(pos);
+      cards.forEach((card, idx) => {
+        let offset = idx - pos;
         if (loop) {
-          offset = ((offset % count) + count) % count;
-          if (offset > count / 2) offset -= count;
+          const half = count / 2;
+          offset = ((offset + half) % count + count) % count - half;
         }
 
-        const distance = Math.abs(offset);
-        const ramp = Math.pow(distance, falloff);
-        const tilt = Math.min(rotate * ramp, 82) * Math.sign(offset);
+        const absOffset = Math.abs(offset);
+        const sign = Math.sign(offset);
 
-        card.style.transform =
-          'translateX(calc(-50% + ' + (offset * pitch) + 'px)) ' +
-          'translateZ(' + (-depth * width * ramp) + 'px) rotateY(' + (-tilt) + 'deg)';
+        const x = offset * width * (1 + gap);
+        const z = -Math.pow(absOffset, depth) * 220;
+        const ry = -sign * Math.min(absOffset * rotate, rotate);
+        const opacity = Math.max(0.18, 1 - Math.pow(absOffset * falloff, 1.2) * fade * 4);
+        const zIndex = 100 - Math.round(absOffset * 10);
 
-        const edge = loop ? Math.min(1, Math.max(0, count / 2 - distance)) : 1;
-        card.style.opacity = String(Math.max(0, 1 - fade * distance) * edge);
-        card.style.zIndex = String(Math.round(100 - distance * 10));
+        card.style.transform = `translate3d(${x}px, 0, ${z}px) rotateY(${ry}deg)`;
+        card.style.opacity = opacity;
+        card.style.zIndex = zIndex;
 
-        card.classList.toggle('is-active-card', Math.abs(offset) < 0.35);
+        const isCurrent = Math.abs(offset) < 0.45;
+        card.classList.toggle('active', isCurrent);
+        card.setAttribute('aria-hidden', isCurrent ? 'false' : 'true');
       });
     }
 
     function updateCaption(idx) {
-      if (idx === selected && detailCard.getAttribute('data-active-id') === artistsData[idx].id) return;
       selected = idx;
       const a = artistsData[idx];
-      detailCard.setAttribute('data-active-id', a.id);
+      if (!a) return;
 
       detailCard.innerHTML = `
-        <div class="cf-detail-col">
-          <div class="cf-detail-genre-pill">🇱🇦 LAO HIP-HOP • ${a.badge}</div>
+        <div class="cf-detail-col-profile">
+          <div class="cf-detail-badge">🇱🇦 LAO HIP-HOP • ${a.badge}</div>
           <h3 class="cf-detail-name">${a.name}</h3>
-          <p style="font-family:var(--ff-b); font-size:0.8rem; color:#ffd700; margin:0; line-height:1.4;">
-            👥 <strong>Lineup:</strong> ${a.members}
-          </p>
+          <div class="cf-detail-members">👥 Lineup: ${a.members}</div>
         </div>
 
-        <div class="cf-detail-col">
-          <div class="cf-detail-block-title">
-            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#ffd700;"></span>
-            STYLE ດົນຕຣີ
+        <div class="cf-detail-col-info">
+          <div class="cf-detail-block">
+            <div class="cf-detail-lbl"><span>●</span> STYLE ດົນຕຣີ</div>
+            <p class="cf-detail-text">${a.style}</p>
           </div>
-          <p class="cf-detail-text">${a.style}</p>
-          <div class="cf-detail-block-title" style="margin-top:0.4rem;">
-            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#ffd700;"></span>
-            ເນື້ອຫາເພງ
+          <div class="cf-detail-block">
+            <div class="cf-detail-lbl"><span>●</span> ເນື້ອຫາເພງ</div>
+            <p class="cf-detail-text">${a.lyrics}</p>
           </div>
-          <p class="cf-detail-text">${a.lyrics}</p>
         </div>
 
-        <div class="cf-detail-col">
-          <div class="cf-detail-block-title">
+        <div class="cf-detail-col-hits">
+          <div class="cf-hits-hdr">
             <span>🔥</span> TOP HITS &amp; SIGNATURE TRACKS
           </div>
           <ul class="cf-hits-list">
-            ${a.hits.map(h => `
-              <li class="cf-hit-item">
-                <div class="cf-hit-icon">▶</div>
-                <div class="cf-hit-info">
-                  <div class="cf-hit-title">${h.title}</div>
-                  <div class="cf-hit-artist">${h.artist}</div>
-                </div>
-              </li>
-            `).join('')}
+            ${a.hits.map((h, hIdx) => {
+              const isThisPlaying = activePlaying && activePlaying.artistId === a.id && activePlaying.trackIdx === hIdx;
+              return `
+                <li class="cf-hit-item ${isThisPlaying ? 'is-playing' : ''}" 
+                    role="button" 
+                    tabindex="0" 
+                    onclick="window.playLaoArtistTrack('${a.id}', ${hIdx})"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.playLaoArtistTrack('${a.id}', ${hIdx});}"
+                    aria-label="Play ${h.title}">
+                  <div class="cf-hit-icon">
+                    <span class="cf-play-glyph">▶</span>
+                    <span class="cf-eq-bars">
+                      <span></span><span></span><span></span><span></span>
+                    </span>
+                  </div>
+                  <div class="cf-hit-info">
+                    <div class="cf-hit-title">${h.title}</div>
+                    <div class="cf-hit-artist">${h.artist}</div>
+                  </div>
+                  <div class="cf-hit-badge">
+                    <span class="cf-preview-chip">${isThisPlaying ? '🔴 NOW PLAYING' : '🎧 PLAY PREVIEW'}</span>
+                  </div>
+                </li>
+              `;
+            }).join('')}
           </ul>
         </div>
       `;
@@ -29169,6 +29509,83 @@ function replayLogoIntro(){
         });
       }
     }
+
+    // ═══════════════════════════════════════════════════════════════════
+    // INTERACTIVE SOUNDSTAGE PLAYER LOGIC
+    // ═══════════════════════════════════════════════════════════════════
+    window.playLaoArtistTrack = function(artistId, trackIdx) {
+      const art = artistsData.find(x => x.id === artistId);
+      if (!art || !art.hits || !art.hits[trackIdx]) return;
+      const trk = art.hits[trackIdx];
+
+      // Toggle off if currently playing
+      if (activePlaying && activePlaying.artistId === artistId && activePlaying.trackIdx === trackIdx) {
+        window.closeLaoArtistPlayer();
+        return;
+      }
+
+      activePlaying = {
+        artistId: artistId,
+        trackIdx: trackIdx,
+        title: trk.title,
+        artist: trk.artist,
+        img: art.img,
+        ytId: trk.ytId,
+        query: trk.query
+      };
+
+      // Construct embed URL & external watch URL
+      let embedUrl = '';
+      let watchUrl = '';
+
+      if (trk.ytId) {
+        embedUrl = `https://www.youtube-nocookie.com/embed/${trk.ytId}?autoplay=1&rel=0&enablejsapi=1`;
+        watchUrl = `https://www.youtube.com/watch?v=${trk.ytId}`;
+      } else {
+        const queryTerm = encodeURIComponent(trk.query || (art.name + ' ' + trk.title));
+        embedUrl = `https://www.youtube-nocookie.com/embed?listType=search&list=${queryTerm}&autoplay=1`;
+        watchUrl = `https://www.youtube.com/results?search_query=${queryTerm}`;
+      }
+
+      // Update Player UI
+      if (playerThumb) playerThumb.src = art.img;
+      if (playerTitle) playerTitle.textContent = trk.title;
+      if (playerArtist) playerArtist.textContent = art.name + ' • ' + trk.artist;
+      if (playerYtBtn) playerYtBtn.href = watchUrl;
+      if (playerIframe) playerIframe.src = embedUrl;
+
+      if (playerEl) {
+        playerEl.classList.add('is-active');
+      }
+
+      // Refresh hits items classes
+      updateCaption(selected);
+    };
+
+    window.closeLaoArtistPlayer = function() {
+      activePlaying = null;
+      if (playerIframe) {
+        playerIframe.src = 'about:blank';
+      }
+      if (playerEl) {
+        playerEl.classList.remove('is-active');
+      }
+      if (playerVideoBox) {
+        playerVideoBox.classList.remove('is-expanded');
+        isVideoExpanded = false;
+        if (playerMvText) playerMvText.textContent = 'Watch MV';
+      }
+      updateCaption(selected);
+    };
+
+    window.toggleLaoArtistVideo = function() {
+      if (!playerVideoBox) return;
+      isVideoExpanded = !isVideoExpanded;
+      playerVideoBox.classList.toggle('is-expanded', isVideoExpanded);
+      if (playerMvText) {
+        playerMvText.textContent = isVideoExpanded ? 'Mini Bar' : 'Watch MV';
+      }
+    };
 
     function settle(t) {
       if (raf !== null) cancelAnimationFrame(raf);
@@ -29310,6 +29727,63 @@ function replayLogoIntro(){
   })();
 
 </script>
+
+
+<!-- ============================================================
+     LIHF 2026 SOUNDSTAGE: YOUTUBE MUSIC & MV FLOATING PLAYER
+     ============================================================ -->
+<div class="lihf-soundstage-player" id="lihf-soundstage-player" aria-label="LIHF Music Player" role="region">
+  
+  <!-- Top Video Viewport (Expandable for MV watching) -->
+  <div class="lsp-video-box" id="lsp-video-box">
+    <iframe id="lsp-iframe" 
+            src="about:blank" 
+            title="LIHF 2026 Artist Music Preview" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
+  </div>
+
+  <!-- Bottom Interactive Soundstage Bar -->
+  <div class="lsp-control-bar">
+    
+    <!-- Left: Track Artwork & Info -->
+    <div class="lsp-track-cell">
+      <div class="lsp-thumb-wrap">
+        <img src="assets/artists/huen_crew.jpg" alt="Current Artist" class="lsp-thumb" id="lsp-thumb" />
+        <div class="lsp-thumb-pulse"></div>
+      </div>
+      <div class="lsp-meta">
+        <div class="lsp-status-pill">
+          <span class="lsp-live-beacon"></span>
+          <span class="lsp-live-text">LIHF SOUNDSTAGE • PREVIEW</span>
+        </div>
+        <div class="lsp-title" id="lsp-title">Select a track</div>
+        <div class="lsp-artist" id="lsp-artist">Lao Hip-Hop Headliners</div>
+      </div>
+    </div>
+
+    <!-- Center/Right: Action Controls -->
+    <div class="lsp-actions-cell">
+      <!-- Toggle Video MV Button -->
+      <button type="button" class="lsp-btn lsp-toggle-mv-btn" id="lsp-toggle-mv-btn" onclick="window.toggleLaoArtistVideo()" aria-label="Toggle Music Video">
+        <span class="lsp-btn-icon">📺</span>
+        <span class="lsp-btn-text" id="lsp-mv-btn-text">Watch MV</span>
+      </button>
+
+      <!-- Direct YouTube Link Button -->
+      <a href="#" target="_blank" rel="noopener noreferrer" class="lsp-btn lsp-yt-link-btn" id="lsp-yt-btn" aria-label="Open on YouTube">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        <span class="lsp-btn-text">YouTube ↗</span>
+      </a>
+
+      <!-- Close / Stop Button -->
+      <button type="button" class="lsp-close-btn" onclick="window.closeLaoArtistPlayer()" aria-label="Close Player">
+        &times;
+      </button>
+    </div>
+
+  </div>
+</div>
 
 </body>
 </html>
